@@ -1,0 +1,218 @@
+
+\exercise
+Suppose $e_1, \dots, e_m$ is a list of vectors in~$V$ such that
+\[
+\| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
+\]
+for all $a_1, \dots, a_m \in \F{}\3$. Show that $e_1, \dots, e_m$ is an orthonormal list.
+\exercisecomment{This exercise provides a converse to \ref{4strange}.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\theta \in \R{}$. Show that both
+\[
+(\cos \theta, \sin \theta), (-\sin \theta, \cos \theta) \andd (\cos \theta, \sin \theta), (\sin \theta, -\cos \theta)
+\]
+are orthonormal bases of $\RR2$.
+\item
+Show that each orthonormal basis of $\R2$ is of the form given by one of the two possibilities in (a).
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $e_1, \dots, e_m$ is an orthonormal list in~$V$ and $v \in V\1$.  Prove~that
+\[
+\|v\|^2 = \abs[\big]{ \ip{v, e_1} }^2 + \dots + \abs[\big]{ \ip{v, e_m} }^2 \iff v \in \Span(e_1, \dots, e_m).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $n$ is a positive integer.  Prove that \label{8Fourier}
+\[
+\frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots,
+\frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots,
+\frac{\sin nx}{\sqrt{\pi}}
+\]
+is an orthonormal list of vectors in $C[-\pi,\pi]$, the vector space of
+continuous real-valued functions on $[-\pi,\pi]$ with inner product
+\[
+\ip{f, g} = \int_{-\pi}^{\pi} fg.
+\]
+\hint{The following formulas should help.\normalsize
+\begin{align*}
+(\sin x)(\cos y) &= \frac{\sin(x-y) + \sin(x+y)}{2}\\[4bp]
+(\sin x)(\sin y) &= \frac{\cos(x-y) - \cos(x+y)}{2}\\[4bp]
+(\cos x)(\cos y) &= \frac{\cos(x-y) + \cos(x+y)}{2}
+\end{align*}}
+
+
+\exercise
+Suppose $\fun f {[-\pi, \pi]} {\R{}}$ is continuous. For each nonnegative integer $k$, define
+\[
+a_k = \tfrac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(kx) \,dx \andd b_k = \tfrac{1}{\sqrt{\pi}}  \int_{-\pi}^{\pi} f(x) \sin(kx) \,dx.
+\]
+Prove that
+\[
+\frac{{a_0}^{\2}}{2} + \sum_{k=1}^\infty \paren[\big]{ {a_k}^{\2} + {b_k}^{\2} } \le \int_{-\pi}^{\pi} f^2\1.
+\]
+\exercisecomment{The inequality above is actually an equality for all continuous functions $\fun f {[-\pi, \pi]} {\R{}}$. However, proving that this inequality is an equality involves Fourier series techniques beyond the scope of this book.}
+
+
+\exercise
+Suppose $e_1, \dots, e_n$ is an orthonormal basis of $V\1$.
+\begin{subtheorem}
+\item
+Prove that if $v_1, \dots, v_n$ are vectors in $V$ such that
+\[
+\|e_k - v_k\| < \frac{1}{\sqrt{n}}
+\]
+for each $k$, then $v_1, \dots, v_n$ is a basis of $V\1$.
+
+\item
+Show that there exist $v_1, \ldots, v_n \in V$ such that
+\[
+\|e_k - v_k\| \le \frac{1}{\sqrt{n}}
+\]
+for each $k$, but $v_1, \ldots, v_n$ is not linearly independent.
+\end{subtheorem}
+\exercisecomment{This exercise states in \uppar{a} that an appropriately small perturbation of an orthonormal basis is a basis. Then \uppar{b} shows that the number $1/\!\sqrt{n}$ on the right side of the inequality in \uppar{a} cannot be higher.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{3}}$ has an upper-triangular matrix with respect to the basis $(1, 0, 0)$, (1, 1, 1), $(1, 1, 2)$. Find an orthonormal basis of $\R{3}$ with respect to which $T$ has an upper-triangular matrix.
+
+
+\exercise
+Make $\P\1_2(\R{})$ into an inner product space by defining \label{375}
+$
+\ip{p, q} = \int_0^1 pq
+$
+for all $p, q \in \P\1_2(\R{})$.
+\begin{subtheorem}
+\item
+Apply the Gram--Schmidt procedure to the basis $1, x, x^2$ to produce an
+orthonormal basis of $\P\1_2(\R{})$.
+\item
+The differentiation operator\index{differentiation linear map} \big(the operator that
+takes $p$ to $p'$\big) on $\P\1_2(\R{})$ has an upper-triangular matrix with respect to
+the basis $1, x, x^2\1$, which is not an orthonormal basis. Find the matrix of the differentiation operator on $\P\1_2(\R{})$ with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular, as expected from the proof of \ref{188}.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $e_1, \dots, e_m$ is the result of applying the Gram--Schmidt procedure to a linearly independent list $v_1, \dots, v_m$ in $V\1$. Prove that $\ip{v_k, e_k} > 0$ for each $k = 1, \dots, m$.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a linearly independent list in $V\1$. Explain why the orthonormal list produced by the formulas of the Gram--Schmidt procedure (\ref{186}) is the only orthonormal list $e_1, \ldots, e_m$ in $V$ such that $\ip{v_k, e_k} > 0$ and
+$\Span(v_1, \ldots, v_k) = \Span(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$. \label{8GSunique}
+\exercisecomment{The result in this exercise is used in the proof of \ref{7QR}.}
+
+
+\exercise
+Find a polynomial $q \in \P\1_2(\R{})$ such that
+$
+p\paren[\Big]{\tfrac{1}{2}} = \int_0^1 pq$
+for every $p \in \P\1_2(\R{})$.\label{6int}
+
+
+\exercise
+Find a polynomial $q \in \P\1_2(\R{})$ such that
+\[
+\int_0^1 p(x) \cos(\pi x) \,dx = \int_0^1 pq
+\]
+for every $p \in \P\1_2(\R{})$.
+
+
+\exercise
+Show that a list $v_1, \ldots, v_m$ of vectors in $V$ is linearly dependent if and only if the Gram--Schmidt formula in \ref{186} produces $f_k= 0$ for some $k \in \br{1, \ldots, m}$.\label{GSlindep}%
+\exercisecomment{This exercise gives an alternative to Gaussian elimination techniques for determining whether a list of vectors in an inner product space is linearly dependent.}
+
+
+%\begin{comment}
+\exercise
+Suppose $V$ is a real inner product space and $v_1, \dots, v_m$ is a
+linearly independent list of vectors in~$V\1$.  Prove that there exist exactly
+$2^m$ orthonormal lists $e_1, \dots, e_m$ of vectors
+in~$V$ such  that
+\[
+\Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
+\]
+for all $k \in \{1, \dots, m\}$.
+
+%\end{comment}
+
+\exercise
+Suppose $\ip{ \cdot, \cdot}_1$ and $\ip{ \cdot, \cdot}_2$ are inner products on $V$ such that $\ip{u,v}_1 = 0$ if and only if $\ip{u,v}_2= 0$. Prove that there is a positive number $c$ such that $\ip{u, v}_1 = c \ip{u, v}_2$ for every $u, v \in V\1$.
+\exercisecomment{This exercise shows that if two inner products have the same pairs of \mbox{orthogonal} vectors, then each of the inner products is a scalar multiple of the other inner product.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Suppose $\ip{ \cdot, \cdot}_1$, $\ip{ \cdot, \cdot}_2$ are inner products on $V$ with corresponding norms $\norm{ \Cdot }_1$ and $\norm{\Cdot}_2$. Prove that there exists a positive number $c$ such that
+$
+\| v \|_1 \le c \| v \|_2
+$
+for every $v \in V\1$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $V$ is finite-dimensional. Prove that if $T$ is an operator on $V$ such that $1$ is the only eigenvalue of $T$ and $\norm{Tv} \le \norm{v}$ for all $v \in V\1$, then $T$ is the identity operator.
+
+
+\exercise
+Suppose $u_1, \dots, u_m$ is a linearly independent list in $V\1$. Show that there exists $v \in V$ such that $\ip{u_k, v} =1$
+for all $k \in \{1, \dots, m\}$.
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V\1$. Prove that there exists a basis $u_1, \ldots, u_n$ of $V$ such that
+\[
+\ip{v_j, u_k} = \begin{cases}
+0 & \text{if } j \ne k, \\
+1 & \text{if } j=k.
+\end{cases}
+\]
+\vspace{-.19in}
+
+
+\exercise
+Suppose $\F{}=\C{}$, $V$ is finite-dimensional, and $\E \subset \L(V)$ is such that \[ST = TS\] for all $S, T \in \E$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\E$ has an upper-triangular matrix.%
+ \label{3Schur}\index{commuting operators}
+\exercisecomment{This exercise strengthens Exercise \ref{4ManyOps}\uppar{b} in Section \ref{2diagmat} \uppar{in the context of inner product spaces} by asserting that the basis in that exercise can be chosen to be orthonormal.}
+
+
+\exercise
+Suppose $\F{} = \C{}$, $V$ is finite-dimensional, $T \in \L(V)$, and all eigenvalues of $T$ have absolute value less than $1$. Let $\epsilon > 0$. Prove that there exists a positive integer $m$ such that
+$\norm[\big]{T^m v} \le \epsilon \|v\|$ for every $v \in V\1$.
+
+
+\exercise
+Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1 ,1]$ with inner product given by \index{Riesz representation theorem}
+\[
+\ip{f, g} = \int_{-1}^1 fg
+\]
+for all $f, g \in C[-1, 1]$. Let $\phi$ be the linear functional on $C[-1, 1]$ defined by $\phi(f) = f(0)$. Show that there does not exist $g \in C[-1, 1]$ such that
+\[
+\phi(f) = \ip{f, g}
+\]
+for every $f \in C[-1, 1]$.
+\exercisecomment{This exercise shows that the Riesz representation theorem \uppar{\ref{50}} does not hold on infinite-dimensional vector spaces without additional hypotheses on $V$ and $\phi$.}
+
+
+\exercise
+For all $u, v \in V\1$, define $d(u, v) = \|u - v\|$.\label{4metric}
+\begin{subtheorem}
+\item
+Show that $d$ is a metric on $V\1$.
+\item
+Show that if $V$ is finite-dimensional, then $d$ is a complete metric on $V$ (meaning that every Cauchy sequence converges).
+\item
+Show that every finite-dimensional subspace of $V$ is a closed subset of~$V$ (with respect to the metric $d$\,).
+\end{subtheorem}
+\exercisecomment{This exercise requires familiarity with metric spaces.}
+
+

@@ -1,0 +1,217 @@
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (-z, w)$.
+Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that $G(\la, T) = G\paren[\Big]{\frac{1}{\la}, T^{-1}}$ for every $\la \in \F{}$ with $\la \ne 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$.  Suppose $S \in \L(V)$ is invertible. Prove that $T$ and $S^{-1} T S$ have the same eigenvalues with the same multiplicities.
+
+
+\exercise
+Suppose $\dim V \ge 2$ and $T \in \L(V)$ is such that $\ker T^{\dim V-2\!}  \ne \ker T^{\dim V-1\!}$.
+Prove that $T$ has at most two distinct eigenvalues.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $3$ and $8$ are eigenvalues of $T\3$. Let $n = \dim V\1$. Prove that
+$V = \paren[\big]{\ker T^{n-2}} \oplus \paren[\big]{\ran T^{n-2}}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the exponent of $z-\la$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T$ with multiplicity $d$. Prove that
+$
+G(\la, T) = \ker(T - \la I)^d\!$.
+\exercisecomment{If $d < \dim V\1$, then this exercise improves \ref{180}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la_1, \ldots, \la_m$ are the distinct eigenvalues of $T\3$. Prove that\label{8Rdecomp}\index{minimal polynomial!and generalized eigenspace decomposition}
+\[
+V = G(\la_1, T) \oplus \cdots \oplus G(\la_m, T)
+\]
+if and only if the minimal polynomial of $T$ equals
+$(z-\la_1)^{k_1} \cdots (z - \la_m)^{k_m}$ for some positive integers $k_1, \ldots, k_m$.
+\exercisecomment{The case\/ $\F{} = \C{}$ follows immediately from \ref{136}\uppar{b} and the generalized eigenspace decomposition \uppar{\ref{31}}; thus this exercise is interesting only when\/ $\F{} = \R{}$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that there exist $D, N \in \L(V)$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.\index{diagonalizable}
+
+
+\exercise
+Suppose $V$ is a complex inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \L(V)$.  Let
+$\la_1, \dots, \la_n$ be the eigenvalues of~$T$, each included as many times as its multiplicity. Prove that
+\[
+|\la_1|^2 + \dots + |\la_n|^2 \le \norm{Te_1}^2 + \cdots + \norm{Te_n}^2\1.
+\]
+\exercisecomment{See the comment after Exercise \ref{6sumT2} in Section \ref{7001}.}
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $(z - 7)^2 (z - 8)^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C4$ whose characteristic
+polynomial equals $(z - 1) (z - 5)^3$ and whose minimal polynomial equals
+$(z - 1) (z - 5)^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic and
+minimal polynomials both equal $z (z - 1)^2 (z - 3)$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $z (z - 1)^2 (z - 3)$ and whose minimal polynomial equals
+$z (z - 1) (z - 3)$.
+
+
+\begin{comment}
+\exercise
+Give an example of an operator on $\C{3}$ whose minimal polynomial
+equals~$z^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose minimal polynomial
+equals~$z (z - 1)^2\1$.
+
+
+\end{comment}
+
+\exercise
+Let $T$ be the operator on $\C4$ defined by
+$
+T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)$.
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+
+\exercise
+Let $T$ be the operator on $\C6$ defined by
+\[
+T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+\]
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $P \in \L(V)$ is such that $P^2 = P\1$. Prove that the characteristic polynomial of $P$ is $z^m (z-1)^n\1$, where $m = \dim \ker P$ and $n = \dim \ran P\1$.\label{8P2}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the following four numbers equal each other.
+\begin{subtheorem}*
+\item
+The exponent of $z-\la$ in the factorization of the minimal polynomial of $T$.
+\item
+The smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.\index{minimal polynomial!and generalized eigenspaces}
+\item
+The smallest positive integer $m$ such that
+\[
+\ker (T - \la I)^m = \ker (T - \la I)^{m+1}\!.
+\exercisesubtheoremend
+\]
+\item
+The smallest positive integer $m$ such that
+\[
+\ran (T - \la I)^m = \ran (T - \la I)^{m+1}\!.
+\exercisesubtheoremend
+\]
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $S \in \L(V)$ is a unitary operator. Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
+
+
+\begin{comment}
+\exercise
+Suppose $a_0, \dots, a_{n-1} \in \C{}$.
+Find the characteristic polynomial of the operator on $\C{n}$ whose
+matrix (with respect to the standard basis) is
+\[
+\mat{cccccc}{
+0 & & & & & -a_0 \\
+1 & 0  & & & & -a_1 \\
+& 1 & \ddots & & & -a_2 \\
+& & \ddots & & & \vdots \\
+& & & & 0 & -a_{n-2} \\
+& & & & 1 & -a_{n-1} }.
+\]
+\exercisecomment{This exercise shows that  every monic polynomial is the characteristic polynomial of some operator. Also, see Exercise \ref{8FTAneeded} in Section \ref{eigenuppertri}.}
+
+\end{comment}
+
+\begin{comment}
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and with respect to some basis of $V$ the matrix of $T$ is upper triangular, with $\la_1, \dots, \la_n$ on the diagonal of this matrix. Prove that the characteristic polynomial of $T$ is
+$(z - \la_1) \dotsm (z - \la_n)$.
+
+\end{comment}
+
+\exercise
+Suppose that $\F{} = \C{}$ and $V\1_1, \dots, V\1_m$ are nonzero subspaces of $V$ such that
+\[
+V = V\1_1 \oplus \dots \oplus V\1_m.
+\]
+Suppose $T \in \L(V)$ and each $V\1_k$ is invariant under $T\3$. For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V\1_k}$. Prove that
+the characteristic polynomial of $T$ equals $p_1 \dotsm p_m$.
+
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$. Prove that there exists $T \in \L\paren[\big]{\C{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
+\exercisecomment{This exercise implies that every monic polynomial is the characteristic polynomial of some operator.}
+
+
+\exercise
+Suppose $A$ and $B$ are block diagonal matrices of the form\label{blockmult}
+\[
+A = \mat{ccc}{
+A_1 & &0 \\
+& \ddots & \\
+0 & &A_m},
+\quad B = \mat{ccc}{
+B_1 & &0 \\
+& \ddots & \\
+0 & &B_m},
+\]
+where $A_k$ and $B_k$ are square matrices of the same size for each $k = 1, \dots, m$. Show that $AB$ is a
+block diagonal matrix of the form
+\[
+AB = \mat{ccc}{
+A_1 B_1 & &0 \\
+& \ddots & \\
+0 & &A_m B_m}.
+\]
+
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \C{}$.\index{complexification!generalized eigenvectors of}\index{complexification!multiplicity of eigenvalues}\index{eigenvalue!on odd-dimensional space}\label{8compmult}
+\begin{subtheorem}
+\item
+Show that $u + iv \in G\paren{ \la, T\3_{\C{}} }$ if and only if $u - iv \in G\paren[\big]{ \overline{\la}, T\3_{\C{}}}$.
+\item
+Show that the multiplicity of $\la$ as an eigenvalue of $T\3_{\C{}}$ equals the \mbox{multiplicity} of $\bar{\la}$ as an eigenvalue of $T\3_{\C{}}$.
+\item
+Use (b) and the result about the sum of the multiplicities (\ref{8sm}) to show that if $\dim V$ is an odd number, then $T\3_{\C{}}$ has a real eigenvalue.
+\item
+Use (c) and the result about real eigenvalues of $T\3_{\C{}}$ (Exercise \ref{5realeig} in Section \ref{5invar}) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of \ref{5odd}).
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{3complexMap} in Section \ref{3nullspace} for the definition of the complexification\/ $T\3_{\C{}}$.}
+
+

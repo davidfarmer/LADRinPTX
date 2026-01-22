@@ -1,0 +1,617 @@
+
+\exercise
+Prove or give a counterexample: $S, T \in \L(V) \!\implies\! \det (S+T) = \det S + \det T\3$.
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{\F{2}}$ by
+\[
+S(x,y) = (x, 0) \andd T(x,y) = (0,y).
+\]
+Then $S$ and $T$ are both not invertible.  Thus $\det S = \det T = 0$
+(by~\ref{9nonzero}).  However, $S + T = I$ and $\det I = 1$, so
+$\det (S+T) \ne \det S + \det T\3$.
+\end{Solution}
+
+\exercise
+Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$. Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$. Show that $\det A = A_{1,1} \det B$.
+
+\begin{Solution}
+Let $n$ be such that $A$ is an \by{n}{n} matrix. The formula \ref{9detformula} states that
+\[
+\det A = \sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\bigl]{ \sign(j_1, \ldots, j_n) } A_{j_1,1} \cdots A_{j_n,n},
+\]
+If $(j_1, \ldots, j_n) \in \perm n$ and $j_1 \ne 1$, then $A_{j_1, 1} = 0$. Thus in the sum above, we can ignore all permuations except those permutations for which $j_1 = 1$. Thus
+\begin{align*}
+\det A &= A_{1,1} \sum_{(1, j_2, \ldots, j_n) \in \perm n} \paren[\bigl]{ \sign(1, j_2, \ldots, j_n) } A_{j_2,2} \cdots A_{j_n,n} \\[6bp]
+&= A_{1,1} \sum_{(k_2, \ldots, k_n) \in \perm (n-1)} \paren[\bigl]{ \sign(k_2, \ldots, k_n) } A_{k_2+1,2} \cdots A_{k_n,n} \\[6bp]
+&= A_{1,1} \det B.
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $\det(I + T) = 1$.
+
+\begin{Solution}
+There exists a basis of $V$ with respect to which $T$ has an upper-triangular matrix whose diagonal entries are all $0$ [by the equivalence of (a) and (c) of \ref{a33}]. Thus the matrix of $I + T$ with respect to this basis is an upper-triangular matrix whose diagonal entries are all $1$. Thus $\det(I + T) = 1$ (by \ref{9detupper}).
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$. Prove that $S$ is unitary if and only if $\abs{\det S} = \norm{S} = 1$.
+
+\begin{Solution}
+First suppose $S$ is unitary. Then $\abs{\det S} = 1$ by \ref{326}. Also, $\norm{S} = 1$ because $\norm{Sv} = \norm{v}$ for every
+$v \in V\1$.
+
+To prove the implication in the other direction, now suppose
+\[
+\abs{\det S} = \norm{S} = 1.
+\]
+Recall that $\norm{S}$ equals the largest singular value of $S$ (see \ref{7max}). Because the largest singular value of $S$ equals $1$, all the singular values of $S$ are less than or equal to $1$.
+
+The equation $\abs{\det S} = 1$ and \ref{324} imply that the product of the singular values of $T$ equals $1$. Thus all the singular values of $T$ equal $1$. Now \ref{5isomsv1} shows that $S$ is an isometry and hence is a unitary operator.
+\end{Solution}
+
+\exercise
+Suppose $A$ is a block upper-triangular matrix \label{blockdet}
+\[
+A = \mat{ccc}{A_1 & &* \\ &\ddots & \\ 0 & &A_m},
+\]
+where each $A_k$ along the diagonal is a square matrix.  Prove that
+\[
+\det A = (\det A_1) \dotsm (\det A_m).
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First consider the case where $m = 2$, so we can write $A$ in the form
+\[
+A = \mat{cc}{B &* \\ 0 & C},
+\]
+where $B$ is an \by{n}{n} matrix
+\[
+B = \mat{ccc}{
+B_{1,1} & \cdots & B_{1,n} \\
+\vdots &   & \vdots \\
+B_{n,1} & \cdots & B_{n,n} }
+\]
+and $C$ is a \by{p}{p} matrix
+\[
+C = \mat{ccc}{
+c_{1,1} & \cdots & c_{1,p} \\
+\vdots &   & \vdots \\
+c_{p,1} & \cdots & c_{p,p} }.
+\]
+Let $A_{j,k}$ denote the entry in row $j$, column $k$ of $A$.  Note that
+$A_{j,k} = 0$ if $j > n$ and $k \le n$ (this follows from the block
+upper-triangular form of~$A$).  Because $A$ is an \by{(n+p)}{(n+p)} matrix, to
+compute $\det A$ we need to consider a typical permutation
+$(m_1, \ldots, m_{n+p}) \in \perm (n+p)$.  If any of
+$m_1, \ldots, m_n$ is greater than $n$, then
+\[
+A_{m_1,1} \dotsm A_{m_{n+p},n+p} = 0.
+\]
+Thus in computing $\det A$ we only need to consider permutations in which the first
+$n$ coordinates all come from $\{1, \ldots, n\}$, which means that the last $p$
+coordinates all come from $\{n+1, \ldots, n+p\}$.  We can break any such permutation
+$(m_1, \ldots, m_{n+p})$ into two pieces: a permutation of $\{1, \ldots, n\}$ and
+(relabeling $n+1, \ldots, n + p$ as $1, \ldots, p$ to correspond to the labeling
+of the entries of $C$) a permutation of $\{1, \ldots, p\}$.  Clearly the sign
+of $(m_1, \ldots, m_{n+p})$ will equal the product of the signs of these two
+permutations.  Putting all this together, we have
+\begin{align*}
+\hspace*{-.4in}&\det A\\
+&= \sum_{(m_1, \ldots, m_{n+p}) \in \perm (n+p)} \hspace{-.1in}\bigl(\sign (m_1, \ldots,
+m_{n+p})\bigr) A_{m_1,1} \dotsm A_{m_{n+p},{n+p}} \\[6bp]
+&= \sum_{ \substack{
+(j_1, \ldots, j_n) \in \perm n \\
+(k_1, \ldots, k_p) \in \perm p} }
+\bigl[ \bigl(\sign (j_1, \ldots, j_n)\bigr)
+\bigl(\sign (k_1, \ldots, k_p)\bigr) \cdot \\
+&\hspace*{100bp}B_{j_1,1} \dotsm B_{j_n,n} c_{k_1,1} \dotsm c_{k_p,p} \bigr] \\[6bp]
+&= \sum_{(j_1, \ldots, j_n) \in \perm n}
+\bigl(\sign (j_1, \ldots, j_n)\bigr) B_{j_1,1} \dotsm B_{j_n,n} \cdot \\
+&\hspace*{100bp}
+\sum_{(k_1, \ldots, k_p) \in \perm p}
+\hspace{-.1in}\bigl(\sign (k_1, \ldots, k_p)\bigr)
+c_{k_1,1} \dotsm c_{k_p,p} \\[6bp]
+&= (\det B)(\det C),
+\end{align*}
+completing the proof when $m = 2$.
+
+Suppose now that $m > 2$ and
+\[
+A = \mat{ccc}{A_1 & &* \\ &\ddots & \\ 0 & &A_m}.
+\]
+Writing
+\[
+B = \mat{ccc}{A_1 & &* \\ &\ddots & \\ 0 & &A_{m-1}},
+\]
+we have
+\[
+A = \mat{cc}{B &* \\ 0 & A_m}.
+\]
+Thus
+\begin{align*}
+\det A &= (\det B)(\det A_m) \\
+&= (\det A_1) \dotsm (\det A_{m-1})(\det A_m),
+\end{align*}
+where the first equality holds by the $m = 2$ case proved above and the second
+equality comes from induction on $m$ (meaning that we can assume the desired
+result holds when $m$ is replaced with $m-1$).
+\end{Solution}
+
+\exercise
+Suppose $A = \mat{ccc}{v_1 & \cdots & v_n}$ is an \by{n}{n} matrix, with $v_k$ denoting the $k^\nth$ column of $A$. Show that if
+$(m_1, \ldots, m_n) \in \perm n$, then
+\[
+\det \mat{ccc}{v_{m_1} &\cdots & v_{m_n}} = \paren[\big]{\sign(m_1, \ldots, m_n)} \det A.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+We can transform the matrix $\mat{ccc}{v_{m_1} &\cdots & v_{m_n}}$ into $A$ through a series of steps, interchanging two columns in each step. Thus each step multiplies the determinant by~$-1$ [see~\ref{9helpful}(b)].  The number of steps needed equals the number of steps needed to transform the permutation $(m_1, \ldots, m_n)$ into the permutation $(1, \ldots, n)$ by interchanging two entries in each step.  The number of such steps is even if $(m_1, \ldots, m_n)$ has sign~$1$, odd if
+$(m_1, \ldots, m_n)$ has sign~$-1$ [this follows from~\ref{432}, along with the observation that the permutation $(1, \ldots, n)$ has sign~$1$].
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Let $p$ denote the characteristic polynomial of $T$ and let $q$ denote the characteristic polynomial of $T^{-1}$. Prove that
+\[
+q(z) = \frac{1}{p(0)}\, z^{\dim V} \, p\paren[\bigg]{\frac{1}{z}}
+\]
+for all nonzero $z \in \F{}$.
+
+\begin{Solution}
+Suppose $z \in \F{}$ and $z \ne 0$. Then
+\begin{align*}
+q(z) &= \det\paren[\big]{zI - T^{-1}} \\[7bp]
+&= \det \paren[\big]{ z T^{-1} T - T^{-1} }\\[7bp]
+&= (\det T^{-1}) \det(zT - I) \\[7bp]
+&= \frac{1}{\det T} \, z^{\dim V} \det \paren[\bigg]{ T - \frac{1}{z} I } \\[7bp]
+&= \frac{(-1)^n}{\det T} \, z^{\dim V} \det \paren[\bigg]{ \frac{1}{z} I - T } \\[7bp]
+&= \frac{1}{p(0)} \, z^{\dim V} \, p\paren[\bigg]{\frac{1}{z}}.
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is an operator with no eigenvalues (which implies that $\F{} = \R{}$). Prove that $\det T > 0$.
+
+\begin{Solution}
+Because $T$ has no eigenvalues, we know that $\dim V$ is an even number (by \ref{5odd}).
+
+Let $p$ denote the characteristic polynomial of $T\3$. Thus $p(0)$, which is the constant term of $p$, equals $\det T$ [see \ref{9dettr}].
+
+Note that $p(x) \to \infty$ as $x \to \infty$. Thus there exists $b \in \R{}$ such that $p(b) > 0$. If $\det T$ were negative, then by the intermediate value theorem, there would exist $x \in \R{}$ such that $p(x) = 0$; thus, $T$ would have an eigenvalue. Hence we can conclude that $\det T > 0$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a real vector space with even dimension, $T \in \L(V)$, and $\det T < 0$. Prove that $T$ has at least two distinct eigenvalues.
+
+\begin{Solution}
+Let $p$ denote the characteristic polynomial of $T\3$. Because $\dim V$ is even, $p(0) = \det T < 0$. Also, note that
+$p(x) \to \infty$ as $x \to \infty$ and $p(x) \to \infty$ as $x \to -\infty$. Thus by the intermediate value theorem, there exists $b > 0$ and
+$c < 0$ such that $p(b) = p(c) = 0$. Thus $T$ has at least two distinct eigenvalues.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a real vector space with odd dimension and $T \in \L(V)$. Without using the minimal polynomial, prove that $T$ has an eigenvalue.\label{9oddeigen}
+\exercisecomment{This result was previously proved without using determinants or the characteristic polynomial---see \ref{5odd}.}
+
+\begin{Solution}
+The characteristic polynomial of $T$ has odd degree. Every polynomial with odd degree and real coefficients has a real zero, by Exercise \ref{4oddzero} in Chapter \ref{173}. Thus $T$ has an eigenvalue by \ref{9eigdet}.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $\F{} = \R{}$, $T \in \L(V)$, and $\det T > 0$, then $T$ has a square root.
+\exercisecomment{If\/ $\F{} = \C{}$,\/ $T \in \L(V)$, and\/ $\det V \ne 0$, then\/ $V$ has a square root \uppar{see \ref{397}}.}
+
+\begin{Solution}
+To get a counterexample, let $T \in \L\paren[\big]{\R2}$ be the operator defined by $T(x, y) = (-x, -2y)$. Then, using the standard basis of $\RR2$, we have
+\[
+\M(T) = \mat{cc}{
+-1 & 0 \\
+0 & -2}.
+\]
+Thus $\det T = 2 > 0$.
+
+Suppose $S \in \L\paren[\big]{\R2}$ and $S^2 = T\3$. Let
+\[
+\M(S) = \mat{cc}{
+a & c \\
+b & d}.
+\]
+The equation $\paren[\big]{\M(S)}^2 = T$ becomes the four equations
+\[
+a^2 + bc = -1 \quad bc + d^2 = -2 \quad (a+d)c = 0 \quad (a+d) b = 0.
+\]
+If $c = 0$, then the first equation becomes $a^2 = -1$, which is not possible because $a \in \R{}$. Thus $c \ne 0$.
+
+Hence the third equation shows that $d = -a$. The second equation now becomes $bc + a^2 = -2$, which contradicts the first equation.
+
+Thus we conclude that $T$ does not have a square root.
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V)$ and $S$ is invertible. Define $\fun p {\F{}} {\F{}}$ by
+\[
+p(z) = \det(zS - T).
+\]
+Prove that $p$ is a polynomial with degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+
+\begin{Solution}
+Suppose $z \in \F{}$. Then
+\begin{align*}
+p(z) &= \det(zS - T) \\[6bp]
+&= \det \paren[\big]{ S(zI - S^{-1} T) }\\[6bp]
+&= (\det S) \paren[\big]{ \det( zI - S^{-1}T) } \\[6bp]
+&= (\det S)\paren[\Big]{ \paren[\big]{ \text{characteristic polynomial of } S^{-1} T }(z) }.
+\end{align*}
+Thus the coefficient in $p$ of $z^{\dim V}$ is $\det S$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and $n = \dim V > 2$. Let $\la_1, \ldots, \la_n$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
+\begin{subtheorem}
+\item
+Find a formula for the coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\item
+Find a formula for the coefficient of $z$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\end{subtheorem}
+
+\begin{Solution}
+The characteristic polynomial of $T$ is
+\[ \addtolength{\belowdisplayskip}{-3bp}
+(z - \la_1)(z - \la_2) \dotsm (z - \la_n).
+\]
+\begin{subtheorem}*
+\item
+The coefficient of $z^{n-2}$ in the product above is
+\[
+\sum_{\js}^{n-1} \sum_{k = j+1}^n \la_j \la_k.
+\]
+\item
+The coefficient of $z$ in the product above is
+\[
+(-1)^{n-1} \sum_{\js}^n \prod_{\underset{k \ne j}{k = 1}}^n \la_k.
+\]
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space and $T$ is a positive operator on $V\1$. Prove that\label{9detsq}
+\[
+\det \sqrt{T} = \sqrt{ \det T }.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Because $\sqrt{T} \sqrt{T} = T$, the multiplicativity of the determinant (\ref{9detmult}) implies that
+\[
+\paren[\Big]{\det \sqrt{T}}^2 = \det T.
+\]
+Because positive operators have nonnegative determinant (by \ref{9posdet}), the equation above implies that
+$\det \sqrt{T} = \sqrt{ \det T }$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Use the polar decomposition to give a proof that
+\[
+\abs{\det T} = \sqrt{\det\paren[\big]{T^*T}}
+\]
+that is different from the proof given earlier (see \ref{324}).
+
+\begin{Solution}
+By the polar decomposition (\ref{244}),  there exists a unitary operator $S \in \L(V)$ such that
+\[
+T = S\sqrt{T^*T}.
+\]
+By the multiplicativity of the determinant, we have
+\[
+\det T = (\det S) \det\paren[\Big]{ \sqrt{T^*T} }.
+\]
+Taking absolute values of both sides of the equation above gives
+\begin{align*}
+\abs{\det T} &= \abs{ \det S } \det\paren[\Big]{ \sqrt{T^*T} } \\
+&= \det\paren[\Big]{ \sqrt{T^*T} } \\
+&= \sqrt{\det\paren[\big]{T^*T}},
+\end{align*}
+where the second line above comes from \ref{326} and the third line comes from Exercise~\ref{9detsq}.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Define $\fun g {\F{}} {\F{}}$ by
+$
+g(x) = \det(I + xT)$.
+Show that $g’(0) = \tr T\3$.
+\exercisecomment{Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.}
+
+\begin{Solution}
+Suppose that $\la_1, \ldots, \la_n$ are the eigenvalues of $T$, each included as many times as its multiplicity. If $x \in \F{}$, then the eigenvalues of $I + x T$ are
+\[
+1 + x \la_1, \ldots, 1 + x \la_n,
+\]
+with each eigenvalue included as many times as its multiplicity. Thus
+\begin{align*}
+g(x) &= \det(1 + x T) \\[4bp]
+&= (1 + x \la_1) \cdots (1 + x \la_n).
+\end{align*}
+It is now clear that
+\begin{align*}
+\lim_{x \to 0} \frac{ g(x) - g(0)}{x} &= \la_1 + \dots + \la_n\\[4bp]
+&= \tr T\3.
+\end{align*}
+Thus $g’(0) = \tr T$, as desired.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma$ is a function from $\Omega$ to $\RR{n}$. Suppose
+$x \in \Omega$ and $\sigma$ is differentiable at $x$. Prove that there is a unique operator $T \in \L\paren[\big]{\R{n}}$ such that \label{uniquederiv}
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}{\| y \|} = 0.
+\]
+\exercisecomment{The uniqueness of\/ $T$ shows that the notation\/ $\sigma' \! (x)$ in \ref{derivative} is justified. The uniqueness follows immediately from the formula given in Exercise~\ref{DerivPartial}, but this exercise asks for a more elementary proof of uniqueness that does not involve partial derivatives.}
+
+\begin{Solution}
+Suppose $S, T \in\L(V)$ are such that
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Sy \|}
+{\| y \|} = 0
+\]
+and
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}
+{\| y \|} = 0.
+\]
+Then
+\begin{align*}
+\hspace*{-.3in}\frac{\| Sy - Ty \|}{\|y\|} &=
+\frac{ \| -\bigl(\sigma(x + y) + \sigma(x) - Sy\bigr) + \bigl(\sigma(x + y) - \sigma(x) - Ty\bigr)\|}{\|y\|} \\[6bp]
+&\le\frac{\| \sigma(x + y) - \sigma(x) - Sy \|}
+{\| y \|} + \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}{\|y\|}.
+\end{align*}
+Thus
+\[
+\lim_{y \rightarrow 0} \frac{\| Sy - Ty \|}{\|y\|} = 0.
+\]
+Suppose $x \in \R{n}$ and $x \ne 0$. Setting $y = tx$ in the limit above, we conclude that
+\[
+0 = \lim_{t \rightarrow 0} \frac{\| S(tx) - T(tx) \|}{|t| \, \|x\|} = \frac{\| Sx - Tx \|}{\|x\|},
+\]
+which implies that $Sx = Tx$. Thus we conclude that $S = T\3$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{n}}$ and $x \in \RR{n}$. Prove that $T$ is differentiable at $x$ and $T' \! (x) = T\3$.
+
+\begin{Solution}
+Because $T$ is linear, we have
+\[
+T(x + y) - T(x) - Ty = 0.
+\]
+Thus
+\[
+\lim_{y \to 0} \frac{ \|T(x+y) - T(x) - Ty\|}{\|y\|} = 0.
+\]
+The definition of differentiable now implies that $T$ is differentiable at $x$ and $T' \! (x) = T\3$.
+\end{Solution}
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Suppose $x \in \Omega$. Prove that if $\sigma$ is differentiable at $x$, then the partial derivative $D_k\sigma_j(x)$ exists and \label{DerivPartial}
+\[
+\M\bigl(\sigma' \! (x)\bigr) = \mat{ccc}{
+D_1 \sigma_1(x) &\cdots &D_n \sigma_1(x) \\
+\vdots &   &\vdots \\
+D_1 \sigma_n(x) &\cdots &D_n \sigma_n(x) },
+\]
+where the matrix of $\sigma' \! (x)$ is with respect to the standard basis of $\RR n$.
+
+\begin{Solution}
+Suppose that $\sigma$ is differentiable at $x$. Thus
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - \sigma' \! (x)y \|}
+{\| y \|} = 0.
+\]
+Let $e_1, \ldots, e_n$ denote the standard basis of $\RR{n}$. Fix $k \in \{1, \ldots, n\}$. Taking $y = t e_k$ in the equation above, we have
+\[
+\lim_{t \rightarrow 0} \frac{\| \sigma(x + te_k) - \sigma(x) - t \sigma' \! (x)e_k \|}
+{t} = 0.
+\]
+Thus for each $j$ in $\{1, \ldots, n\}$, the $j^\nth$ coordinate of the term above whose norm is taken in the numerator has limit $0$ as $t \to 0$. In other words,
+\[
+\lim_{t \to 0} \frac{ \sigma_j (x + te_k) - \sigma_j(x) - t\ip{\sigma' \! (x)e_k, e_j}}{t} = 0,
+\]
+which clearly implies that
+\[
+\lim_{t \to 0} \frac{ \sigma_j (x + te_k) - \sigma_j(x)}{t} = \ip{\sigma' \! (x)e_k, e_j}.
+\]
+Thus we conclude that the partial derivative of $\sigma_j$ with respect to the $k^\nth$ slot exists and that the entry in row $j$, column $k$ of $\M\bigl(\sigma' \! (x) \bigr)$ is $D_k \sigma_j(x)$.
+\end{Solution}
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Prove that if each partial derivative $D_k\sigma_j$ exists and is continuous everywhere on $\Omega$, then $\sigma$ is differentiable everywhere on $\Omega$. \label{DerivPartial2}
+
+\begin{Solution}
+To prove that $\sigma$ is differentiable everywhere on $\Omega$, let $x \in \Omega$ and let $T \in \L\paren[\big]{\R{n}}$ be the operator whose matrix (with respect to the standard basis of $\R{n}$) is given by the right side of \ref{333}. To prove that
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}
+{\| y \|} = 0,\tag{$(*)$}
+\]
+it suffices to prove that
+\[
+\lim_{y \rightarrow 0} \frac{ \sigma_j(x + y) - \sigma_j(x) - \ip{Ty, e_j} }
+{\| y \|} = 0
+\]
+for each $j = 1, \ldots, n$. Fix $j \in \{1, \ldots, n\}$. Temporarily fix $y$ in an open ball in $\Omega$ centered at $x$, and define a function $f_j$ on the interval $[0, 1]$ by
+\[
+f(t) = \sigma_j(x + ty).
+\]
+Thus
+\begin{align*}
+\sigma_j(x + y) - \sigma_j(x) &= f(1) - f(0) \\
+&= f' \! (t)
+\end{align*}
+for some $t \in (0, 1)$ [by the mean value theorem]. The multi-variable version of the Chain Rule implies that $f$ is indeed differentiable on the interval $(0, 1)$ and
+\[
+f' \! (t) = y_1 D_1 \sigma_j(x+ ty) + \dots + y_n D_n \sigma_j(x + ty).
+\]
+Hence
+\begin{align*}
+&\hspace*{-.4in}\sigma_j(x + y) - \sigma_j(x) - \ip{Ty, e_j} \\
+&\hspace*{-.4in}= y_1 \bigl( D_1 \sigma_j(x + ty) - D_1 \sigma_j(x) \bigr) + \dots +  y_n \bigl( D_n \sigma_j(x + ty) - D_n \sigma_j(x) \bigr).
+\end{align*}
+Here $t$ depends on $y$, but for each $y$ sufficiently close to $0$, the vector $x + ty$ has distance to $x$ less than $\|y\|$. Thus the continuity of the partial derivatives $D_k \sigma_j$ implies that $(*)$ holds, as desired.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $a, b, c$ are positive numbers.  Find the volume of the ellipsoid
+\[
+\br[\bigg]{ (x, y, z) \in \R{3}: \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} < 1 }
+\]
+by finding a set $\Omega \subset \R{3}$ whose volume you know and an operator
+$T$ on $\R{3}$ such that $T(\Omega)$ equals the ellipsoid above.
+
+\begin{Solution}
+Let $E$ denote the ellipsoid defined above and let $\Omega$ be the open ball with radius
+$1$ defined by
+\[
+\Omega = \{(x, y, z) \in \R{3}: x^2 + y^2 + z^2 < 1 \}.
+\]
+Of course $\vol \Omega = \frac{4}{3}\pi$.  Define $T \in \L\paren[\big]{\R{3}}$ by
+\[
+T(x, y, z) = (ax, by, cz).
+\]
+
+If $(x, y, z) \in \Omega$, then
+\[
+\frac{(ax)^2}{a^2} + \frac{(by)^2}{b^2} + \frac{(cz)^2}{c^2}
+= x^2 + y^2 + z^2 \\[3bp]
+< 1,
+\]
+which shows that $T(x, y, z) \in E$.  Thus $T(\Omega) \subset E$.
+
+Conversely, if $(x, y, z) \in E$, then
+\[
+\paren[\bigg]{\frac{x}{a}}^2 + \paren[\bigg]{\frac{y}{b}}^2 +
+\paren[\bigg]{\frac{z}{c }}^2
+=  \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} \\[3bp]
+ < 1,
+\]
+which shows that $\paren[\big]{\frac{x}{a}, \frac{y}{b}, \frac{z}{c}} \in \Omega$.  Because
+$T\paren[\big]{\frac{x}{a}, \frac{y}{b}, \frac{z}{c}} = (x, y, z)$, this implies that
+$E \subset T(\Omega)$.
+
+The last two paragraphs show that $E = T(\Omega)$.  Thus
+\begin{align*}
+\vol E &= \vol T(\Omega) \\[3bp]
+&= \abs{\det T} (\vol \Omega) \\[3bp]
+&= \frac{4\pi abc}{3},
+\end{align*}
+where the second equality comes from \ref{9330}.
+\end{Solution}
+
+\exercise
+Suppose that $A$ is an invertible square matrix. Prove that Hadamard's \mbox{inequality} (\ref{Hadamard}) is an equality if and only if each column of $A$ is orthogonal to the other columns.\label{7HadEq}
+
+\begin{Solution}
+Let $A = QR$ be the unique $QR$ decomposition of $A$, where $Q$ is unitary and $R$ is upper triangular with only positive numbers on its diagonal.
+
+Hadamard's inequality is an equality if and only if the sole inequality in the proof of Hadamard's inequality is an equality for each
+$k = 1, \ldots, n$. In other words, Hadamard's inequality is an equality if and only if
+\[
+R_{k,k} = \norm{ R_{\cdot, k} }
+\]
+for each $k$. This happens if and only if $R_{j,k} = 0$ for each $j < k$ (because $R$ is upper triangular, we have $R_{j,k} = 0$ for each
+$j > k$). The proof of the $QR$ decomposition (\ref{7QR}) shows that this happens if and only if $v_k$ is orthogonal to $e_j$ for each
+$j > k$ (using the notation of the proof of \ref{7QR}). However, by \ref{7GS}, this happens if and only if $v_k$ is orthogonal to $v_j$ for each
+$j > k$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$, and $T \in \L(V)$ is a positive operator.
+\begin{subtheorem}
+\item
+Prove that $\det T \le \prod_{k=1}^n \ip{Te_k, e_k}$.
+\item
+Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_k$ is an eigenvector of $T$ for each
+$k = 1, \ldots, n$.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+If $k \in \br{1, \ldots, n}$, then
+\[ \tag{$(*)$}
+\ip{Te_k, e_k} = \ip[\big]{\sqrt{T} \sqrt{T} e_k, e_k} = \ip[\big]{\sqrt{T}e_k, \sqrt{T}e_k} = \norm[\big]{\sqrt{T}e_k}^2.
+\]
+
+Now
+\begin{align*}
+\det T &= \paren[\big]{ \det \sqrt{T} }^2 \\[4bp]
+&\le \paren[\bigg]{ \prod_{k=1}^n \, \norm[\big]{ \sqrt{T} e_k} }^2 \\[4bp]
+&= \prod_{k=1}^n \ip{Te_k, e_k},
+\end{align*}
+where the first line follows from \ref{9detmult}, the second line follows from translating Hadamard's inequality (\ref{Hadamard}) to operators rather than matrices, and the third line follows from $(*)$.
+
+\item
+Suppose $T$ is invertible. The inequality in (a) is an equality if and only if the inequality in the proof of (a) is an equality. By Exercise \ref{7HadEq}, this happens if and only if each vector in the list
+\[
+\sqrt{T} \, e_1, \ldots, \sqrt{T} \, e_n
+\]
+is orthogonal to the other vectors in the list. Because
+\[
+\ip[\Big]{ \sqrt{T} \, e_j , \sqrt{T} \, e_k } = \ip{Te_j, e_k},
+\]
+we have equality in (a) if and only if $\ip{Te_j, e_k} = 0$ for all $j, k \in \br{1, \ldots, n}$ with $j \ne k$. This condition is equivalent to the condition that each $e_j$ is an eigenvector of $T$, as can be seen by using the representation
+\[
+Te_j = \sum_{k=1}^n \ip{Te_j, e_k} e_k.
+\]
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix, and suppose $c$ is such that $\abs{A_{j,k}} \le c$ for all $j, k \in \br{1, \ldots, n}$. Prove that \label{2Had}
+\[
+\abs{\det A} \le c^n n^{n/2}\!.
+\]
+\exercisedisplayend
+\exercisecomment{The formula for the determinant of a matrix \uppar{\ref{9detformula}} shows that\/ $\abs{\det A} \le c^n n!$. However, the estimate given by this exercise is much better. For example, if\/ $c = 1$ and\/ $n = 100$, then\/ $c^n n! \approx 10^{158}\!$, but the estimate given by this exercise is the much smaller number\/ $10^{100}\!$. If\/ $n$ is an integer power of\/ $2$, then the inequality above is sharp and cannot be improved.} % Because there exist Hadamard matrices of order 2^m.
+
+\begin{Solution}
+Let $v_1, \ldots, v_n$ denote the columns of $A$. Because each $\abs{A_{j,k}} \le c$, we have $\norm{v_k} \le c n^{1/2}$ for
+each $k=1, \ldots, n$. Thus Hadamard's inequality shows that
+\[
+\abs{ \det A } \le \paren[\big]{c n^{1/2}}^n = c^n n^{n/2}.
+\]
+\end{Solution}
+
+\exercise
+Suppose $n$ is a positive integer and $\fun \delta {\C{n,n}} {\C{}}$ is a function such that
+\[
+\delta(AB) = \delta(A) \cdot \delta(B)
+\]
+for all $A, B \in \C{n,n}$ and $\delta(A)$ equals the product of the diagonal entries of $A$ for each diagonal matrix $A \in \C{n,n}$ (recall that $\C{n,n}$ denotes the vector space of \by{n}{n} matrices with entries in $\C{}$). Prove that
+$\delta(A) = \det A$ for all $A \in \C{n,n}$.
+\exercisecomment{This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices. This result is analogous to Exercise \ref{9trChar} in Section \ref{7trace}, which shows that the trace is uniquely determined by its algebraic properties.}
+
+%\begin{Solution}
+First suppose $B \in \C{n,n}$ and there exists an invertible matrix $C \in \C{n,n}$ such that $C^{-1} B C$ is a diagonal matrix. Then
+\[ \hspace*{-.2in}
+\delta(B) = \delta(BC) \cdot \delta(C^{-1}) = \delta(C^{-1}) \cdot \delta(BC) = \delta( C^{-1} B C) = \det( C^{-1} B C) = \det B,
+\]
+where the second-to-last equality holds because  $C^{-1} B C$ is a diagonal matrix.
+
+Now suppose $A \in \C{n,n}$. Let $T \in \L\paren[\big]{\C n}$ be the operator such that $\M(T) = A$ (where the matrix is with respect to the standard basis of $\C n$). By the Polar Decomposition (\ref{244}), there exists a unitary operator $S \in \L\paren[\big]{\C n}$ and a positive operator $P \in \L\paren[\big]{\C n}$ such that $T = SP$. Thus
+\begin{align*}
+\delta(A) &= \delta\paren[\big]{ \M(S) \M(P) } \\[4bp]
+&=  \delta\paren[\big]{ \M(S) } \cdot  \delta\paren[\big]{ \M(P) }\\[4bp]
+&=  \det\paren[\big]{ \M(S) } \cdot  \det\paren[\big]{ \M(P) } \\[4bp]
+&= \det\paren[\big]{ \M(S) \M(P) } \\[4bp]
+&= \det \paren[\big]{ \M(T) } \\[4bp]
+&= \det A,
+\end{align*}
+where the third equality follows from the complex spectral theorem (both $S$ and $P$ are normal) and the first paragraph of this solution.
+%\end{Solution}
+

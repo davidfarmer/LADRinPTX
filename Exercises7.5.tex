@@ -1,0 +1,129 @@
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T = 0$ if and only if all singular values of $T$ are $0$.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $s > 0$. Prove that $s$ is a singular value of $T$ if and only if there exist nonzero vectors $v \in V$ and
+$w \in W$ such that \label{2Schmidt}
+\[
+Tv = sw \andd T^* w = sv.
+\]
+\exercisedisplayend
+\exercisecomment{The vectors $v, w$ satisfying both equations above are called a \marbf{Schmidt pair}. Erhard Schmidt introduced the concept of singular values in 1907.\index{Schmidt pair}\index{Schmidt, Erhard}}
+
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\C2}$ such that $0$ is the only eigenvalue of $T$ and the singular values of $T$ are $5, 0$.
+
+
+\exercise
+Suppose that $T \in \L(V\1, W)$, $s_1$ is the largest singular value of $T$, and $s_n$ is the smallest singular value of $T\3$. Prove that\label{3interval}
+\[
+\br[\big]{ \norm{Tv} : v \in V \text{ and } \norm{v} = 1 } = [s_n, s_1].
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{2}}$ is defined by $T(x, y) = (-4y, x)$. Find the singular values of $T\3$.
+
+
+\exercise
+Find the singular values of the differentiation operator $D \in \L\bigl(\P\1_2(\R{})\bigr)$ defined by $Dp = p'\!$, where the inner product on $\P\1_2(\R{})$ is as in Example \ref{obP2R}.
+
+
+\exercise
+Suppose that $T \in \L(V)$ is self-adjoint or that $\F{}= \C{}$ and $T \in \L(V)$ is normal. Let $\la_1, \ldots, \la_n$ be the eigenvalues of $T$, each included in this list as many times as the dimension of the corresponding eigenspace. Show that the singular values of $T$ are
+$\abs{\la_1}, \ldots, \abs{\la_n}$, after these numbers have been sorted into decreasing order.\label{7singsp}
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Suppose $s_1 \ge  s_2 \ge \cdots \ge s_m >0$ and
+$e_1, \dots, e_m$ is an orthonormal list in $V$ and $f_1, \dots, f_m$ is an orthonormal list in~$W$ such that \label{4SVD}
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \dots + s_m \ip{v, e_m} f_m
+\]
+for every $v \in V\1$.
+\begin{subtheorem}
+\item
+Prove that $f_1, \dots, f_m$ is an orthonormal basis of $\ran T\3$.
+\item
+Prove that $e_1, \dots, e_m$  is an orthonormal basis of $(\ker T)^\perp$.
+\item
+Prove that $s_1, \ldots, s_m$ are the positive singular values of $T\3$.
+\item
+Prove that if $k \in \br{1, \ldots, m}$, then $e_k$ is an eigenvector of $T^*T$ with corresponding eigenvalue ${s_k}^{\2}\1$.
+\item
+Prove that
+\[
+TT^*w = {s_1}^{\2} \ip{w, f_1} f_1 + \cdots + {s_m}^{\2} \ip{w, f_m} f_m
+\]
+for all $w \in W\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T$ and $T^*$ have the same positive singular values. \label{4TstarSing}
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ has singular values $s_1, \ldots, s_n$. Prove that if $T$ is an  invertible linear map, then $T^{-1}$ has singular values\label{7singinv}
+\[
+\frac{1}{s_n}, \ldots, \frac{1}{s_1}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose that $T \in \L(V\1, W)$ and $v_1, \ldots, v_n$ is an orthonormal basis of $V\1$. Let $s_1, \ldots, s_n$ denote the singular values of $T\3$.\label{7sums2}
+\begin{subtheorem}
+\item
+Prove that
+$\norm{Tv_1}^2 + \cdots + \norm{Tv_n}^2 = {s_1}^{\2} + \cdots + {s_n}^{\2}\1$.
+\item
+Prove that if $W = V$ and $T$ is a positive operator, then
+\[
+\ip{Tv_1, v_1} + \cdots + \ip{Tv_n, v_n} = s_1 + \cdots + s_n.
+\]
+\exercisedisplayend
+\end{subtheorem}
+\exercisecomment{See the comment after Exercise \ref{6sumT2} in Section \ref{7001}.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of a finite-dimensional vector space and an operator $T$ on it
+such that the singular values of $T^2$ do not equal the squares of the singular values of~$T\3$.
+\item
+Suppose $T \in \L(V)$ is normal. Prove that the singular values of $T^2$ equal the squares of the singular values of~$T\3$.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $T\3_1, T\3_2 \in \L(V)$.  Prove that $T\3_1$ and $T\3_2$ have the
+same singular values if and only if there exist unitary operators $S_1, S_2
+\in \L(V)$ such that $T\3_1 = S_1 T\3_2 S_2$.
+
+
+\exercise
+Suppose $T \in \L(V\1,W)$.  Let $s_n$ denote the smallest singular value of~$T\3$.
+Prove that $s_n \| v \| \le \| Tv \|$ for every $v \in V\1$. \label{3smallSV}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $s_1 \ge \cdots \ge s_n$ are the singular values of $T\3$.
+Prove that if $\la$ is an eigenvalue of $T$, then $s_1  \ge |\la| \ge s_n$.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Prove that $\paren[\big]{T^*}^\dagger = \paren[\big]{T^\dagger}^*\1$.\label{7Tdagstar}\index{pseudoinverse|(}
+\exercisecomment{Compare the result in this exercise to the analogous result for invertible linear maps \textup{\big[}see \ref{7propadjoint}\uppar{\,f\,}\textup{\big]}.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that $T$ is self-adjoint if and only if $T^\dagger$ is self-adjoint.\index{pseudoinverse|)}
+
+

@@ -1,0 +1,168 @@
+
+\exercise
+Suppose $T$ is a function from $V$ to $W\3$. The \emph{graph} of $T$\index{graph of a linear map} is the subset of
+$V\1 \times W$ defined by
+\[
+\text{graph of}\ T = \br[\big]{ (v, Tv) \in V\1 \times W: v \in V }.
+\]
+Prove that $T$ is a linear map if and only if the graph of $T$
+is a subspace of $V\1 \times W\3$.
+\exercisecomment{Formally, a function\/ $T$ from\/ $V$ to\/ $W$ is a subset\/ $T$ of\/ $V\1 \times W$ such that for each\/ $v \in V\1$, there exists exactly one element\/ $(v, w) \in T\3$. In other words, formally a function is what is called above its graph. We do not usually think of functions in this formal manner. However, if we do become formal, then this exercise could be rephrased as follows: Prove that a function\/ $T$ from\/ $V$ to\/ $W$ is a linear map if and only if\/ $T$ is a subspace of\/ $V\1 \times W\3$.}
+
+
+\exercise
+Suppose that $V\1_1, \dots, V\1_m$ are vector spaces such that $V\1_1 \times \dots \times V\1_m$ is finite-dimensional. Prove that $V\1_k$ is finite-dimensional for each $k = 1, \dots, m$.
+
+
+\begin{comment}
+\exercise
+Give an example of a vector space $V$ and subspaces $V\1_1, V\1_2$ of $V$ such that $V\1_1 \times V\1_2$ is isomorphic to $V\1_1 + V\1_2$ but $V\1_1 + V\1_2$ is not a direct sum.
+\hint{The vector space $V$ must be infinite-dimensional.}
+
+\end{comment}
+
+\exercise
+Suppose $V\1_1, \dots, V\1_m$ are vector spaces. Prove that $\L(V\1_1 \times \dots \times V\1_m, W)$ and $\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ are isomorphic vector spaces.
+\exercisecomment{There is no assumption in the exercise above or in the two following exercises that the vector spaces are finite-dimensional.}
+
+
+
+\exercise
+Suppose $W\3_1, \dots, W\3_m$ are vector spaces. Prove that $\L(V\1, W\3_1 \times \dots \times W\3_m)$ and
+$\L(V\1, W\3_1) \times \dots \times \L(V\1, W\3_m)$ are isomorphic vector spaces.
+
+
+\exercise
+For $m$ a positive integer, define $V^m$ by\sindex{Vm@$V^m\mskip -2mu$}
+\[
+V^m = \underbrace{V\1 \times \dots \times V}_{m \text{\ times}}\!.
+\]
+Prove that $V^m$ and $\L\paren[\big]{\FF{m}, V}$ are isomorphic vector spaces.
+
+
+\exercise
+Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W\3$. Prove that $U = W\3$.
+
+
+\exercise
+Let $U = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= 0}$. Suppose $A \subset \RR3$. Prove that $A$ is a translate of $U$ if and only if there exists $c \in \R{}$ such that\label{3translates}
+\[
+A = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= c}.
+\]
+\exercisedisplayend
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $T \in \L(V, W)$ and $c \in W\3$. Prove that $\br{x \in V : Tx = c}$ is either the empty set or is a translate of
+$\ker T\3$.
+
+\item
+Explain why the set of solutions to a system of linear equations such as \ref{3inhomeq} is either the empty set or is a translate of some subspace of $\FF n$.
+\end{SUBtheorem}
+
+
+\exercise
+Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\la v + (1-\la)w \in A$ for all $v, w \in A$ and all $\la \in \F{}\3$. \label{affine}
+
+
+\exercise
+Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V\1$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+
+\pagebreak[4]
+
+
+\exercise
+Suppose $U = \br[\big]{(x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{for only finitely many}\ k}$.
+\begin{subtheorem}
+\item
+Show that $U$ is a subspace of $\FF{\infty}$.
+\item
+Prove that $\FF{\infty}/U$ is infinite-dimensional.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $v_1, \dots, v_m \in V\1$. Let
+\[
+A = \{ \la_1 v_1 + \dots + \la_m v_m : \la_1, \dots, \la_m \in \F{}\ \text{and}\ \la_1 + \dots + \la_m = 1 \}.
+\]
+\begin{subtheorem}*
+\item
+Prove that $A$ is a translate of some subspace of $V\1$.
+\item
+Prove that if $B$ is a translate of some subspace of $V$ and $\br{v_1, \dots, v_m} \subset B$, then $A \subset B$.
+\item
+Prove that $A$ is a translate of some subspace of $V$ of dimension less than~$m$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional. Prove that $V$ is isomorphic to
+$U \times (V\1/U)$.
+
+
+\exercise
+Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W\3$. Suppose $w_1, \ldots, w_m$ is a basis of $W\3$. Prove that
+$w_1 + U, \ldots, w_m + U$ is a basis of $V\1/U$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ and $v_1 + U, \dots, v_m + U$ is a basis of $V\1/U$ and $u_1, \dots, u_n$ is a basis of $U$. Prove that $v_1, \dots, v_m, u_1, \dots, u_n$ is a basis of $V\1$. \label{basisUVmodU}
+
+
+\exercise
+Suppose $\phi \in \L(V\1, \F{})$ and $\phi \ne 0$. Prove that $\dim V \!/\! (\ker \phi) = 1$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $\dim V\1/U = 1$. Prove that there exists $\phi \in \L(V\1, \F{})$ such that $\ker \phi = U$.
+
+
+\exercise
+Suppose that $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional.
+\begin{subtheorem}
+\item
+Show that if $W$ is a finite-dimensional subspace of $V$ and \mbox{$V = U + W$}, then $\dim W \ge \dim V\1/U$.
+\item
+Prove that there exists a finite-dimensional subspace $W$ of $V$ such that \mbox{$\dim W = \dim V\1/U$} and \mbox{$V = U \oplus W$}.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $U$ is a subspace of $V\1$. Let $\pi$ denote the quotient map from $V$ onto $V\1/U$. Prove that there exists $S \in \L(V\1/U, W)$ such that $T = S \circ \pi$ if and only if $U \subset \ker T\3$. \label{1715}
+
+
+\begin{comment} %This exercise deleted from LADR4e because it is too similar to Exercise 18 in Section 3.E of LADR3e.
+\exercise
+Suppose $U$ is a subspace of $V\1$. Define $\Gamma \colon \L(V\1/U, W) \to \L(V\1, W)$ by
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\Gamma(S) = S \circ \pi.
+\]
+\begin{subtheorem}
+\item
+Show that $\Gamma$ is a linear map.
+\item
+Show that $\Gamma$ is injective.
+\item
+Show that
+\mbox{$\ran \Gamma = \{ T \in \L(V\1, W): Tu = 0 \text{\ for every\ } u \in U\}$}.
+\end{subtheorem}
+
+\end{comment}
+
+\begin{comment} % Exercise deleted because T^2 has not yet been defined.
+\exercise
+Suppose $T \in \L(V)$ and $\pi$ is the quotient map of $V$ onto $V\1/(\ker T)$. Prove that
+\[
+\ker \pi \circ \tilde T = \br{v + \ker T : v \in V \text{ and } T^2 v = 0}.
+\]
+\exercisecomment{The exercise above implies that\/ $\pi \circ \tilde T$ is the zero map from\/ $V\1/(\ker T)$ to itself if and only if\/ $T^2$ is the zero map from\/ $V\1$ to itself.}
+
+
+\end{comment}
+

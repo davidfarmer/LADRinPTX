@@ -1,0 +1,365 @@
+
+\exercise
+Suppose $V$ is an inner product space and $v, w \in V\1$.  Define an operator
+$T \in \L(V)$ by $Tu = \ip{u, v} w$.  Find a formula for~$\tr T\3$.
+
+\begin{Solution}
+First suppose $v \ne 0$.  Extend $\frac{v}{\|v\|}$ to an orthonormal basis
+$\frac{v}{\|v\|}, e_1, \dots, e_n$ of $V\1$.  Note that for each $k$, we have
+$Te_k = 0$ (because $\ip{e_k, v} = 0$).  The trace of $T$ equals
+the sum of the diagonal entries in the matrix of $T$ with respect to the basis
+$\frac{v}{\|v\|}, e_1, \dots, e_n$.  Thus
+\begin{align*}
+\tr T &=
+\ip{T(\frac{v}{\|v\|}), \frac{v}{\|v\|}} + \ip{Te_1, e_1}
++ \dots + \ip{Te_n, e_n} \\[6bp]
+&= \ip{ \ip{\frac{v}{\|v\|}, v}w, \frac{v}{\|v\|}} \\[6bp]
+&= \ip{w,v}.
+\end{align*}
+
+If $v = 0$, then $T = 0$ and so $\tr T = 0 = \ip{w,v}$.  Thus we have the
+formula
+\[
+\tr T = \ip{w,v}
+\]
+regardless of whether or not $v = 0$.
+\end{Solution}
+
+\exercise
+Suppose $P \in \L(V)$ satisfies $P^2 = P\1$. Prove that
+\[
+\tr P = \dim \ran P\1.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let $u_1, \dots, u_m$ be a basis of $\ran P$ and let $v_1, \dots, v_n$ be a basis of $\ker P\1$.  Then
+\[
+u_1, \dots, u_m, v_1, \dots, v_n
+\]
+is a basis of $V$ (this holds because
+$V = \ran T \oplus \ker T$; see the solution to Exercise~\ref{8P2} in Section~\ref{decompop}).  For
+each $u_j$ we have $Pu_j = u_j$ and for each $v_k$ we have $Pv_k = 0$.  Thus the
+matrix of $P$ with respect to the basis above of $V$ is a diagonal matrix whose
+diagonal contains $m$ $1$'s followed by $n$ $0$'s.  Thus $\tr P = m  = \dim \ran P\1$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $T^5 = T\3$. Prove that the real and imaginary parts of $\tr T$ are both integers.
+
+\begin{Solution}
+Let
+\[
+p(z) = z^5 - z.
+\]
+Our hypothesis implies that $p(T) = 0$.
+
+First consider the case where $\F{} = \C{}$. The zeros of $p$ are $0, 1, i, -1, -i$. Thus \ref{136} and \ref{140} imply that the set of eigenvalues of $T$ is contained in $\br{0, 1, i, -1, -i}$. This implies that the sum of the eigenvalues of $T$, each included according to its multiplicity, has real and imaginary parts that are both integers. Thus \ref{9sumeigen} implies that $\tr T$ has real and imaginary parts that are both integers.
+
+Now consider the case where $\F{} = \R{}$. Choose a basis of $V$, and let $A$ be the matrix of $T$ with respect to this basis. Thus $\tr T = \tr A$. Let $S$ be the operator on $\C {\dim V}$ such that $A$ is the matrix of $S$ with respect to the standard basis of $\C {\dim V}$. Because $A^5 = A$, we have $S^5 = S$. Thus by the case where $\F{} = \C{}$, we know that the real and imaginary parts of $\tr S$ are both integers. Because $\tr T = \tr A = \tr S$, this implies that the real and imaginary parts of $\tr T$ are both integers.
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Prove that \label{393}
+\[
+\tr T^* = \overline{\tr T}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let
+$e_1, \dots, e_n$ be an orthonormal basis of~$V\1$.  Using \ref{9trinner} (twice), we have
+\begin{align*}
+\tr T^* &= \ip{T^* e_1, e_1} + \dots + \ip{T^* e_n, e_n} \\[6bp]
+&= \ip{e_1, T e_1} + \dots + \ip{e_n, T e_n} \\[6bp]
+&= \overline{\ip{T e_1, e_1}} + \dots + \overline{\ip{T e_n, e_n}} \\[6bp]
+&= \overline{\ip{T e_1, e_1} + \dots + \ip{T e_n, e_n}} \\[6bp]
+&= \overline{\tr T}.
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space.  Suppose $T \in \L(V)$ is a positive
+operator and $\tr T = 0$. Prove that $T = 0$. \label{391}
+
+\begin{Solution}
+Because $T$ is a positive operator, there exists
+an operator $R \in \L(V)$ such that $T = R^*R$ (by~\ref{197}).  Let
+$e_1, \dots, e_n$ be an orthonormal basis of~$V\1$.  Then
+\begin{align*}
+0 &= \tr T \\
+&= \ip{Te_1, e_1} + \dots + \ip{Te_n, e_n} \\
+&= \ip{R^*Re_1, e_1} + \dots + \ip{R^*Re_n, e_n} \\
+&= \|Re_1\|^2 + \dots + \|Re_n\|^2\1,
+\end{align*}
+where the second line comes from \ref{9trinner}. The equation above implies that $Re_k = 0$ for each $k$.  Because $R$ is $0$ on a
+basis of~$V\1$, we have $R = 0$.  Because $T = R^*R$, this implies that $T = 0$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space and $P\1, Q \in \L(V)$ are orthogonal projections. Prove that $\tr(PQ) \ge 0$.
+
+\begin{Solution}
+Because $P$ and $Q$ are orthogonal projections, we have
+\[
+P^* = P = P^2 \andd Q^* = Q = Q^2\1.
+\]
+Thus
+\begin{align*}
+\tr(PQ) &= \tr(P Q^2) \\
+&= \tr\bigl( (P Q) Q\bigr) \\
+&= \tr\bigl( Q (PQ)\bigr)\\
+&= \tr( Q P P Q ) \\
+&= \tr (Q^* P^* P Q )\\
+&= \tr\bigl((PQ)^*(PQ)\bigr) \\
+&\ge 0,
+\end{align*}
+where the third equality comes from \ref{304} and the last line above holds by using \ref{9trinner} and noting that
+\[
+\ip[\big]{(PQ)^*(PQ) v, v} = \ip{PQv, PQv} \ge 0
+\]
+for all $v \in V$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{3}}$ is the operator whose matrix is
+\[
+\mat{ccc}{
+51 &-12 &-21 \\
+60 &-40 &-28 \\
+57 &-68 &1}.
+\]
+Someone tells you (accurately) that $-48$ and $24$ are eigenvalues of~$T\3$.
+Without using a computer or writing anything down, find the third eigenvalue
+of~$T\3$.
+
+\begin{Solution}
+First consider the case where $\F{} = \C{}$. Then the sum of the eigenvalues of $T$ (each included as many times as its multiplicity) equals the sum of the diagonal terms of the
+matrix above (by \ref{9sumeigen}).  The sum of the diagonal terms of
+the matrix above equals $12$.  The sum of two of the eigenvalues of $T$, $-48$
+and $24$, equals $-24$.  Because the sum of all three eigenvalues of $T$
+equals $12$, the third eigenvalue of $T$ is $36$.
+
+Now consider the case where $\F{} = \R{}$. Let $A$ denote the matrix above. The case where $\F{} = \C{}$ implies that $(z+48)(z-24)(z-12)$ is the unique smallest-degree monic polynomial with complex coefficients such that $p(A) = 0$. Thus $(x+48)(x-24)(x-12)$ is the unique smallest-degree monic polynomial with real coefficients such that $p(A) = 0$. Thus
+\[
+(x+48)(x-24)(x-12)
+\]
+is the minimal polynomial of $T$. Hence the third eigenvalue of $T$ is $12$.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $S, T \in \L(V)$, then
+$
+\tr (ST) = (\tr S) (\tr T)$.
+%\exercisedisplayend
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{\F{2}}$ by $S(x, y) = T(x, y) = (-y, x)$.  Then with
+respect to the standard bases the matrix of
+$S$ (which of course equals the matrix of~$T$) is
+\[
+\mat{cc}{
+0 & -1 \\
+1 & 0 }.
+\]
+Thus $\tr S = \tr T = 0$.  However, $ST = -I$, so $\tr ST = -2$.  Thus for this
+choice of $S$ and $T$, we have $\tr (ST) \ne (\tr S) (\tr T)$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\tr(ST) = 0$ for all $S \in \L(V)$. Prove that $T = 0$.
+
+\begin{Solution}
+We have $\tr(TS) = 0$ for all
+$S \in \L(V)$ (by~\ref{372}).  Suppose there exists $v \in V$ such that
+$Tv \ne 0$.  Then $(Tv)$ can be extended to a basis $Tv, u_1, \dots, u_n$
+of~$V\1$.  Define $S \in \L(V)$ by
+\[
+S(aTv + b_1 u_1 + \dots + b_n u_n) = av.
+\]
+Thus $S(Tv) = v$ and $Su_k = 0$ for each $k$.  Hence $(TS)(Tv) = T\bigl(S(Tv)\bigr) = Tv$ and
+$(TS)(u_k) = 0$ for each~$k$.  This implies that with
+respect to the basis $Tv, u_1, \dots, u_n$, the matrix of $TS$  consists of all
+$0$'s except for a $1$ in the upper left corner.  Thus
+$\tr(TS) = 1$.  This contradiction shows that our assumption that $Tv \ne 0$ was false.  Thus $Tv = 0$ for every $v \in V\1$, which means that $T = 0$.
+\end{Solution}
+
+\exercise
+Prove that trace is the only linear functional $\fun \tau {\L(V)} {\F{}}$ such that\label{9trChar}
+\[
+\tau(ST) = \tau(TS)\]
+for all $S, T \in \L(V)$ and $\tau(I) = \dim V\1$.
+\hint{Suppose that\/ $v_1, \ldots, v_n$ is a basis of\/ $V\1$. For\/ $k \in \br{1, \ldots, n}$, define\/ $P_k \in \L(V)$ by
+\[
+P_k(a_1 v_1 + \cdots + a_n v_n) = a_k v_k.
+\]
+Prove that\/ $\tau(P_k) = 1$ for\/ $k = 1, \ldots, n$; use this result to show that if\/ $T$ has a diagonal matrix with respect to\/ $v_1, \ldots, v_n$, then\/ $\tau(T) = \tr T$. Then use Exercise \ref{5basisdiag} in Section \ref{diagmat} to show that\/ $\tau(T) = \tr T$ for all\/ $T \in \L(V)$.}
+
+\begin{Solution}
+Suppose $\fun \tau {\L(V)} {\F{}}$ is a linear functional such that
+\[
+\tau(ST) = \tau(TS)
+\]
+for all $S, T \in \L(V)$ and $\tau(I) = \dim V\1$. We want to prove that $\tau(T) = \tr T$ for all $T \in \L(V)$.
+
+Let $n = \dim V$ and suppose $v_1, \ldots, v_n$ is a basis of $V\1$. For $k \in \br{1, \ldots, n}$, define $P_k \in \L(V)$ by
+\[
+P_k(a_1 v_1 + \cdots + a_n v_n) = a_k v_k.
+\]
+
+Note that
+\[
+P_1 + \cdots + P_n  = I.
+\]
+Thus if we can show that $\tau(P_1) = \cdots = \tau(P_n)$, then the equation above and the equation $\tau(I) = n$ imply that
+$\tau(P_1) = \cdots = \tau(P_n) = 1$.
+
+For $k \in \br{2, \ldots, n}$, define $S_k, T_k \in \L(V)$ by
+\[
+S_k(a_1 v_1 + \cdots + a_n v_n) = a_k v_1 \andd T_k(a_1 v_1 + \cdots + a_n v_n) = a_k v_1 + a_1 v_k.
+\]
+Then
+\[
+S_k T_k(a_1 v_1 + \cdots + a_n v_n) = S_k( a_k v_1 + a_1 v_k ) = a_1 v_1
+\]
+and
+\[
+T_k S_k(a_1 v_1 + \cdots + a_n v_n) = T_k( a_k v_1 ) = a_k v_k.
+\]
+Thus $S_k T_k = P_1$ and $T_k S_k = P_k$. Hence $\tau(P_1) = \tau(P_k)$.
+
+\pagebreak[3]
+
+This implies, as discussed above, that
+\[
+\tau(P_1) = \cdots = \tau(P_n) = 1.
+\]
+
+Now suppose $T$ has a diagonal matrix with respect to $v_1, \ldots, v_n$, with diagonal entries $\la_1, \ldots, \la_n$. Then
+$T = \la_1 P_1 + \cdots + \la_n P_n$. Hence
+\[
+\tau(T) = \la_1 \tau(P_1) + \cdots + \la_n \tau(P_n) = \la_1 + \cdots + \la_n = \tr T\3.
+\]
+
+Hence $\tau(T) = \tr T$ for every diagonalizable operator $T \in \L(V)$. Because $\tau$ and $\tr$ are linear functionals on $\L(V)$ that by Exercise \ref{5basisdiag} in Section \ref{diagmat} agree on a basis of $\L(V)$, we conclude that $\tau = \tr$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces and $T \in \L(V\1,W)$.
+Prove that if $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$, then
+\[
+\tr\paren[\big]{T^*T} = \sum_{k=1}^n \sum_{\js}^m \abs{ \ip{Te_k, f_j} }^2. \label{390}
+\]
+\exercisecomment{The numbers\/ $\ip{Te_k, f_j}$ are the entries of the matrix of\/ $T$ with respect to the orthonormal bases\/
+$e_1, \dots, e_n$ and\/ $f_1, \ldots, f_m$. These numbers depend upon the bases, but\/ $\tr T^*T$ does not depend on a choice of bases. Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+We have
+\begin{align*}
+\tr T^*T &= \ip{T^*Te_1, e_1} + \dots + \ip{T^*Te_n, e_n} \\[6bp]
+&= \ip{Te_1, Te_1} + \dots + \ip{Te_n, Te_n} \\[6bp]
+&= \|Te_1\|^2 + \dots + \|Te_n\|^2\1 \\[6bp]
+&= \sum_{k=1}^n \sum_{\js}^m \abs{ \ip{Te_k, f_j} }^2,
+\end{align*}
+where the last line comes from Parseval's identity (\ref{190}).
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional inner product spaces.
+\begin{subtheorem}*
+\item
+Prove that
+$
+\ip{S, T} = \tr \paren[\big]{T^*S}
+$
+defines an inner product on $\L(V\1, W)$.
+\item
+Suppose $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$. Show that the inner product on $\L(V\1, W)$ from (a) is the same as the standard inner product on $\FF{mn}$, where we
+identify each element of $\L(V\1, W)$ with its matrix (with respect to the bases just mentioned) and then with an element of
+$\F {mn}$.\index{Frobenius norm}\index{Hilbert--Schmidt norm}
+\end{subtheorem}
+\exercisecomment{Caution: The norm of a linear map\/ $T \in \L(V\1, W)$ as defined by \ref{7norm}, is not the same of the norm that comes from the inner product in \uppar{a} above. Unless explicitly stated otherwise, always assume that\/ $\norm{T}$ refers to the norm as defined by \ref{7norm}.  The norm that comes from the inner product in \uppar{a} is called the \emph{Frobenius norm} or the \emph{Hilbert--Schmidt norm}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $\ip{\cdot, \cdot}$ is defined as above and $R, S, T \in \L(V\1, W)$.  Then
+$\ip{T, T} = \tr(T^*T)$. Thus
+$\ip{T,T} \ge 0$ because $TT^*$ is a positive operator (see~\ref{2Tstar}) and hence all its eigenvalues are nonnegative numbers. Furthermore, we also see that $\ip{T, T} = 0$ if and only if $T = 0$ (by Exercise~\ref{391}).
+
+Now
+\begin{align*}
+\ip{R + S, T} &= \tr\bigl(T^*(R+S)\bigr) \\
+&= \tr(T^*R + T^*S) \\
+&= \tr(T^*R) + \tr(T^*S) \\
+&= \ip{R, T} + \ip{S,T},
+\end{align*}
+where the third equality comes from \ref{372}.
+
+For $c \in \F{}$, we have
+\begin{align*}
+\ip{cS, T} &= \tr(cT^*S) \\
+&= c \tr(T^*S) \\
+&= c \ip{S, T}.
+\end{align*}
+
+Finally,
+\begin{align*}
+\ip{S,T} &= \tr(T^*S) \\
+&= \overline{\tr\bigl( (T^*S)^* \bigr)} \\
+&= \overline{\tr(S^*T)} \\
+&= \overline{\ip{S, T}},
+\end{align*}
+where the second equality comes from Exercise \ref{393} of this chapter.
+
+We have shown that $\ip{\cdot,\cdot}$ satisfies all the properties required of an
+inner product.
+
+\item
+Suppose $T \in \L(V\1, W)$ and
+\[
+\mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\
+\vdots &   & \vdots \\
+A_{m,1} & \cdots & A_{m,n} }
+\]
+is the matrix of $T$ with respect to these bases.  Then
+\begin{align*}
+\ip{T, T} &= \tr(T^*T) \\
+&= \sum_{k=1}^n \sum_{\js}^m |A_{j,k}|^2,
+\end{align*}
+where the second equality comes from
+Exercise~\ref{390} of this section.  Thus the norm on $\L(V\1, W)$ induced by
+$\ip{\cdot, \cdot}$ is the same as the standard norm on $\F{mn}$.
+
+Because norms determine the inner product (see Exercises \ref{201} and \ref{202} in
+Chapter~\ref{89}), this means that the inner product $\ip{\cdot, \cdot}$ is the
+same as the Euclidean inner product of $\F{mn}$ (again using the identification
+via matrices with respect to the orthonormal bases $e_1, \dots, e_n$ and $f_1, \ldots, f_m)$).
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Find $S, T \in \L\paren[\big]{ \P(\F{}) }$ such that $ST - TS = I$.\label{9commutator}
+\hint{Make an appropriate modification of the operators in Example \ref{3noncom}.}
+\exercisecomment{This exercise shows that additional hypotheses are needed on $S$ and $T$ when trying to extend \ref{10ST} to the setting of infinite-dimensional vector spaces.}
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{ \P(\F{}) }$ by
+\[
+Sp = p' \andd (Tp)(z) = z p(z)
+\]
+for each $p \in \P(\F{})$ and each $z \in \F{}$. Then
+\[
+(STp)(z) = z p'(z) + p(z) \andd (TSp)(z) = z p'(z).
+\]
+Hence
+\[
+\paren[\big]{(ST - TS)p}(z) = p(z)
+\]
+for all $p \in \P(\F{})$ and all $z \in \F{}$. Thus $ST - TS = I$.
+\end{Solution}
+

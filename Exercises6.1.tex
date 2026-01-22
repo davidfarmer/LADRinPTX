@@ -1,0 +1,313 @@
+
+\exercise
+Prove or give a counterexample: If $v_1, \dots, v_m \in V\1$, then
+\[
+\sum_{\js}^m \sum_{k=1}^m \ip{v_j, v_k} \ge 0.
+\]
+\vspace{-12bp}
+
+
+\exercise
+Suppose $S \in \L(V)$. Define $\ip{\cdot, \cdot}_1$ by
+\[
+\ip{u, v}_1 = \ip{Su, Sv}
+\]
+for all $u, v \in V\1$. Show that $\ip{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that the function taking an ordered pair $\bigl( (x_1, x_2), (y_1, y_2) \bigr)$ of elements of $\R2$ to $|x_1 y_1| + |x_2 y_2|$ is not an inner product on $\RR2$.
+\item
+Show that the function taking an ordered pair $\bigl( (x_1, x_2, x_3), (y_1, y_2, y_3) \bigr)$ of elements of $\R3$ to $x_1 y_1 + x_3 y_3$ is not an inner product on $\RR3$.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\|Tv\| \le \|v\|$ for every $v \in V\1$. Prove that $ T - \sqrt{2}\, I$ is injective.
+
+
+\exercise
+Suppose $V$ is a real inner product space.
+\begin{subtheorem}
+\item
+Show that $\ip{u + v, u - v} = \| u \|^2 - \| v \|^2$ for every $u, v \in V\1$.
+\item
+Show that if $u, v \in V$ have the same norm, then $u+v$ is orthogonal to $u-v$.
+\item
+Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $u, v \in V\1$.  Prove that $\ip{u,v} = 0 \iff
+\|u\| \le \|u + av\|
+$
+for all $a \in \F{}\3$.\label{orthognorm}
+
+
+\exercise
+Suppose $u, v \in V\1$. Prove that $\|au + bv\| = \|bu + av\|$ for all $a, b \in \R{}$ if and only if $\|u\| = \|v\|$.
+
+
+\exercise
+Suppose $a,b,c,x, y \in \R{}$ and $a^2 + b^2 + c^2 + x^2 + y^2 \le 1$. Prove that $a + b + c +4x + 9y \le 10$.
+
+
+\exercise
+Suppose $u, v \in V$ and $\| u \| = \|v \| = 1$ and $\ip{u, v} = 1$. Prove that $u = v$.
+
+
+\exercise
+Suppose $u, v \in V$ and $\|u\| \le 1$ and $\|v\| \le 1$. Prove that
+\[
+\sqrt{ 1 - \|u\|^2} \sqrt{ 1 - \|v\|^2} \le 1 - \abs[\big]{\ip{u, v}}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Find vectors $u, v \in \R{2}$ such that $u$ is a scalar multiple of $(1,3)$, $v$ is orthogonal to $(1,3)$, and $(1,2) = u + v$.
+
+
+\exercise
+Suppose $a, b, c, d$ are positive numbers.
+\begin{subtheorem}
+\item
+Prove that
+$ \displaystyle
+(a + b + c + d)\paren[\bigg]{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}} \ge 16$.
+\item
+For which positive numbers $a, b, c, d$ is the inequality above an equality?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Show that the square of an average is less than or equal to the average of the squares. More precisely, show that if $a_1, \dots , a_n \in \R{}$, then the square of the average of $a_1, \dots , a_n$ is less than or equal to the average of ${a_1}^{\2}\1, \dots, {a_n}^{\2}\1$.
+
+
+\exercise
+Suppose $v \in V$ and $v \ne 0$. Prove that $v / \norm{v}$ is the unique closest element on the unit sphere of $V$ to $v$. More precisely, prove that if $u \in V$ and $\norm{u} = 1$, then
+\[
+\norm[\bigg]{ v - \frac{v}{\norm{v}} } \le \norm{v - u},
+\]
+with equality only if $u = v / \norm{v}$.
+
+
+\exercise
+Suppose $u, v$ are nonzero vectors in $\RR{2}$. Prove that \label{cost}
+\[
+\ip{u, v} = \|u\| \, \|v\| \cos \theta,
+\]
+where $\theta$ is the angle between $u$ and $v$ (thinking of~$u$ and~$v$ as arrows
+with initial point at the origin).
+\hint{Use the law of cosines on the triangle formed by $u$, $v$, and~$u-v$.}
+
+
+\exercise
+The angle between two vectors (thought of as arrows with initial point at the origin) in $\R2$ or $\R3$ can be defined geometrically. However, geometry is not as clear in $\R{n}$ for $n > 3$. Thus the angle between two nonzero vectors $x, y \in \R{n}$ is defined to be
+\vspace{-.1in}
+\[
+\arccos \frac{ \ip{x, y} }{ \|x\| \,\|y\| },
+\]
+where the motivation for this definition comes from Exercise \ref{cost}.
+Explain why the Cauchy--Schwarz inequality is needed to show that this definition makes sense.
+
+
+\exercise
+Prove that
+\[
+\paren[\bigg]{ \sum_{k=1}^n a_k b_k }^2
+\le \paren[\bigg]{ \sum_{k=1}^n  k {a_k}^{\2} }  \paren[\bigg]{\sum_{k=1}^n \frac{{b_k}^{\2}}{k} }
+\]
+for all real numbers $a_1, \dots, a_n$ and $b_1, \dots, b_n$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\fun f {[1, \infty)} {[0, \infty)}$ is continuous. Show that
+\[
+\paren[\Big]{ \int_1^\infty f\,}^2  \le \int_1^\infty x^2 \paren[\big]{ f(x) }^2 \, dx.
+\]
+\item
+For which continuous functions $\fun f {[1, \infty)} {[0, \infty)}$ is the inequality in (a) an equality with both sides finite?
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \L(V)$. Prove that if $\la$ is an eigenvalue of $T$, then \label{2HSeigen}
+\[
+\abs{\la}^2 \le \sum_{\js}^n \sum_{k=1}^n \abs{\M(T)_{j,k}}^2\1,
+\]
+where $\M(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+
+
+\exercise
+Prove that if $u, v \in V\1$, then $\abs[\Big]{\, \norm{u} - \norm{v} \,} \le \norm{u-v}$.\label{6reverse}\index{reverse triangle inequality}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}. For the reverse triangle inequality when\/
+$V = \C{}$, see Exercise \ref{4reverse} in Chapter \ref{173}.}
+
+
+\exercise
+Suppose $u, v \in V$ are such that
+\[
+\|u\| = 3, \quad \|u + v\| = 4, \quad \|u - v\| = 6.
+\]
+What number does $\|v\|$ equal?
+
+
+\exercise
+Show that if $u, v \in V\1$, then
+\[
+\|u + v\| \, \|u - v\| \le \|u\|^2 + \|v\|^2\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $v_1, \dots, v_m \in V$ are such that $\norm{v_k} \le 1$ for each $k= 1, \ldots, m$. Show that there exist
+$a_1, \dots, a_m \in \{1, -1\}$ such that
+\[
+\norm{a_1 v_1 + \dots + a_m v_m} \le \sqrt{m}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove or give a counterexample: If $\norm{\Cdot}$ is the norm associated with an inner product on $\RR{2}$, then there exists $(x, y) \in \RR{2}$ such that
+$
+\norm{(x, y)} \ne \max\{|x|, |y|\}$.
+
+
+\exercise
+Suppose $p > 0$. Prove that there is an inner product on $\R{2}$ such that the associated norm is given by
+\[
+\|(x, y)\| = \paren[\big]{|x|^p + |y|^p}^{1/p}
+\]
+for all $(x, y) \in \R{2}$ if and only if $p = 2$.
+
+
+\exercise
+Suppose $V$ is a real inner product space. Prove that \label{201}
+\[
+\ip{u, v} = \frac{\|u + v\|^2 - \|u - v\|^2}{4}
+\]
+for all $u, v \in V\1$.
+
+
+\exercise
+Suppose $V$ is a complex inner product space. Prove that \label{202}
+\[
+\ip{u, v} =
+\frac{\|u + v\|^2 - \|u - v\|^2 + \|u + iv\|^2 i - \|u -iv\|^2 i}{4}
+\]
+for all $u, v \in V\1$.
+
+
+\exercise
+A norm on a vector space $U$ is a function
+\[
+\norm{ \Cdot } \colon U \rightarrow [0, \infty)
+\]
+such that $\|u\| = 0$ if and only if
+$u = 0$, $\|\al u\| = |\al| \|u\|$ for all
+$\al \in \F{}$ and all $u \in U$, and $\|u + v\| \le \|u\| + \|v\|$ for all
+$u, v \in U$.
+Prove that a norm satisfying  the parallelogram equality comes from  an
+inner product \big(in other words, show that if $\norm{\Cdot}$ is a norm  on~$U$
+satisfying the parallelogram equality, then there is an inner product
+$\ip{\cdot ,\cdot }$ on $U$ such that $\|u\| = \ip{u,u}^{1/2}$ for all
+$u \in U$\big).
+
+
+\exercise
+Suppose $V\1_1, \dots, V\1_m$ are inner product spaces. Show that the equation
+\[
+\ip[\big]{(u_1, \dots, u_m), (v_1, \dots, v_m)} =
+\ip{u_1, v_1} + \dots + \ip{u_m, v_m}
+\]
+defines an inner product on $V\1_1 \times \dots \times V\1_m$.
+\exercisecomment{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\ip{u_k, v_k}$ denotes the inner product on $V\1_k$. Each of the spaces $V\1_1, \dots, V\1_m$ may have a different inner product, even though the same notation is used here.}
+
+
+\exercise
+Suppose $V$ is a real inner product space. For $u, v, w, x\in V\1$, define\index{complexification!of an inner product space}
+\[
+\ip{u+iv, w + ix}_{\C{}} = \ip{u,w} + \ip{v,x} + (\ip{v,w} - \ip{u,x})i.
+\]
+\begin{subtheorem}*
+\item
+Show that $\ip{\cdot, \cdot}_{\C{}}$ makes $V\1_{\C{}}$ into a complex inner product space.
+\item
+Show that if $u, v \in V\1$, then
+\[
+\ip{u, v}_{\C{}} = \ip{u, v} \andd {\norm{u + iv}_{\C{}}}^{\2} = \norm{u}^2 + \norm{v}^2\1.
+\]
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{1VC} in Section \ref{1DefVS} for the definition of the complexification\/ $V\1_{\C{}}$.}
+
+
+\exercise
+Suppose $u, v, w \in V\1$. Prove that\label{6wuv}
+\[
+\norm[\big]{w - \tfrac{1}{2}(u+v)}^2 = \frac{\|w-u\|^2 + \|w-v\|^2}{2} -\frac{\|u-v\|^2}{4}.
+\vspace{-.05in}
+\]
+
+
+\exercise
+Suppose that $E$ is a subset of $V$ with the property that $u , v \in E$ implies $\frac{1}{2}(u + v) \in E$. Let $w \in V\1$. Show that there is at most one point in $E$ that is closest to $w$. In other words, show that there is at most one $u \in E$ such that
+\[
+\|w - u\| \le \|w - x\|
+\]
+for all $x \in E$.
+
+
+\exercise
+Suppose $f, g$ are differentiable functions from $\R{}$ to $\RR{n}$.
+\begin{subtheorem}
+\item
+Show that
+\[
+\ip[\big]{ f(t), g(t) }' = \ip[\big]{ f' \! (t), g(t)} + \ip[\big]{f(t), g' \! (t) }.
+\]
+\item
+Suppose $c$ is a positive number and $\norm[\big]{f(t)} = c$ for every $t \in \R{}$. Show that $\ip[\big]{ f' \! (t), f(t) } = 0$ for every $t \in \R{}$.
+\item
+Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in $\R{n}$ centered at the origin.
+\end{subtheorem}
+\exercisecomment{A function $f \colon \R{} \to \R{n}$ is called differentiable if there exist differentiable functions $f_1, \dots, f_n$ from $\R{}$ to $\R{}$ such that $f(t) =  \bigl(f_1(t), \dots, f_n(t)\bigr)$ for each $t \in \R{}$. Furthermore, for each $t \in \R{}$, the derivative $f' \! (t) \in \R{n}$ is defined by $f' \! (t) = \bigl({f_1}' \! (t), \dots, {f_n}' \! (t)\bigr)$.}
+
+
+\exercise
+Use inner products to prove Apollonius's identity: In a triangle with sides of length $a$, $b$, and $c$, let $d$ be the length of the line segment from the midpoint of the side of length $c$ to the opposite vertex. Then \label{Apollonius}\index{Apollonius's identity}
+\[
+a^2 + b^2 = \tfrac{1}{2} c^2 + 2d^2\1.
+\]
+\vspace{-.45in}
+\FigureHereNoCaption{Mathematica/Apollonius.pdf}{1}
+
+
+\exercise
+Fix a positive integer $n$. The \emph{Laplacian}\index{Laplacian} $\Delta p$\sindex{Delta@$\Delta$} of a twice differentiable real-valued function $p$ on $\R{n}$ is the function on $\R{n}$ defined by \label{harmonic}
+\[
+\Delta p = \frac{ \partial^2 p }{\partial {x_1}^{\2}} + \dots + \frac{ \partial^2 p }{\partial {x_n}^{\2}}.
+\]
+The function $p$ is called \emph{harmonic} if $\Delta p = 0$.\index{harmonic function}
+
+A \emph{polynomial} on $\R{n}$ is a linear combination (with coefficients in $\R{}$) of functions of the form
+${x_1}^{\2[m_1]} \dotsm {x_n}^{\2[m_n]}$, where $m_1, \dots, m_n$ are nonnegative integers.
+
+Suppose $q$ is a polynomial on $\RR{n}$. Prove that there exists a harmonic polynomial $p$ on $\R{n}$ such that $p(x) = q(x)$ for every $x \in \R{n}$ with $\|x\| = 1$.
+\exercisecomment{The only fact about harmonic functions that you need for this exercise is that if $p$ is a harmonic function on $\R{n}$ and $p(x) = 0$ for all $x \in \R{n}$ with $\|x\|=1$, then $p = 0$.}
+\hint{A reasonable guess is that the desired harmonic polynomial $p$ is of the form $q + \paren[\big]{1 - \|x\|^2} r$ for some polynomial $r$. Prove that there is a polynomial $r$ on $\R{n}$ such that $q + \paren[\big]{1 - \|x\|^2} r$ is harmonic by defining an operator $T$ on a suitable vector space by
+\[
+Tr = \Delta \bigl( (1 - \|x\|^2) r \bigr)
+\]
+and then showing that $T$ is injective and hence surjective.}
+
+

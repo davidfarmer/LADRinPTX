@@ -1,0 +1,143 @@
+
+\exercise
+Suppose $w, z \in \C{}$. Verify the following equalities and inequalities.
+\begin{subtheorem} \addtolength{\itemsep}{3bp}
+\item
+$z + \bar{z} = 2 \re z$
+
+\item
+$z - \bar{z} = 2( \im z)i$
+
+\item
+$z \bar{z} = |z|^2$
+
+\item
+$\overline{w + z} = \bar{w} + \bar{z}$  and $\overline{wz} = \bar{w} \; \bar{z}$
+
+\item
+$\overline{\bar{z}} = z$
+
+\item
+$| \re z | \le |z|$ and $| \im z | \le |z|$
+
+\item
+$\abs[\big]{\bar{z}} = |z|$
+
+\item
+$|wz| = |w|\,|z|$
+\end{subtheorem}
+\exercisecomment{The results above are the parts of \ref{propcomplex} that were left to the reader.}
+
+
+\exercise
+Prove that if $w, z \in \C{}$, then $\abs[\Big]{\, \abs{w} - \abs{z} \,} \le \abs{w-z}$. \label{4reverse}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}.\index{reverse triangle inequality}}
+
+
+\exercise
+Suppose $V$ is a complex vector space and $\phi \in V'\!$. Define $\fun \sigma V {\R{}}$ by
+$\sigma(v) = \re \phi(v)$ for each $v \in V\1$. Show that
+\[
+\phi(v) = \sigma(v) - i \sigma(iv)
+\]
+for all $v \in V\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer.  Is the set
+\[
+\{0\} \cup \br[\big]{p \in \P(\F{}): \deg p = m}
+\]
+a subspace of $\P(\F{})$?
+
+
+\exercise
+Is the set
+\[
+\{0\} \cup \br[\big]{p \in \P(\F{}): \deg p \text{ is even}}
+\]
+a subspace of $\P(\F{})$?
+
+
+\exercise
+Suppose that $m$ and $n$ are positive integers with $m \le n$, and suppose $\la_1, \dots, \la_m \in \F{}\3$. Prove that there exists a polynomial $p \in \P(\F{})$ with $\deg p = n$ such that $0 = p(\la_1) = \dots = p(\la_m)$ and such that $p$ has no other zeros.
+
+
+\exercise
+Suppose that $m$ is a nonnegative integer, $z_1, \dots, z_{m+1}$ are distinct elements of $\F{}\3$, and
+$w_1, \dots, w_{m+1} \in \F{}\3$.  Prove that there exists a unique polynomial
+$p \in \P\1_m(\F{})$ such that \label{PolyInterpolation}
+\[
+p(z_k) = w_k
+\]
+for each $k = 1, \dots, m + 1$.
+\exercisecomment{This result can be proved without using linear algebra. However, try to find the clearer, shorter proof that uses some linear algebra.}
+
+
+\exercise
+Suppose $p \in \P(\C{})$ has degree $m$.  Prove that $p$ has $m$ distinct zeros if
+and only if $p$ and its derivative $p'$ have no zeros in common.
+
+
+\exercise
+Prove that every polynomial of odd degree with real coefficients has a real zero.\label{4oddzero}
+
+
+\exercise
+For $p \in \P(\R{})$, define $\fun {Tp} {\R{}} {\R{}}$ by
+\[
+(Tp)(x) =
+\begin{cases}
+\dfrac{p(x) - p(3)}{x-3} & \text{if } x \ne 3,\\[9bp]
+p' \! (3) & \text{if } x = 3
+\end{cases}
+\]
+for each $x \in \R{}$. Show that $Tp \in \P(\R{})$ for every polynomial $p \in \P(\R{})$ and also show that $\fun T {\P(\R{})} {\P(\R{})}$ is a linear map.
+
+
+\exercise
+Suppose $p \in \P(\C{})$. Define $q \colon \C{} \to \C{}$ by
+\[
+q(z) = p(z) \, \overline{ p\paren[\big]{\bar{z}} }.
+\]
+Prove that $q$ is a polynomial with real coefficients.
+
+
+\exercise
+Suppose $m$ is a nonnegative integer and $p \in \P\1_m(\C{})$ is such that there are distinct real numbers $x_0, x_1, \dots, x_m$ with $p(x_k) \in \R{}$ for each $k = 0, 1, \dots, m$. Prove that all coefficients of $p$ are real.
+
+
+\pagebreak[2]
+
+\exercise
+Suppose $p \in \P(\F{})$ with $p \ne 0$. Let $U = \br[\big]{p q : q \in \P(\F{})}$.
+\begin{subtheorem}
+\item
+Show that $\dim \P(\F{})/U = \deg p$.
+\item
+Find a basis of $\P(\F{})/U$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are nonconstant polynomials with no zeros in common. Let $m = \deg p$ and $n = \deg q$. Use linear algebra as outlined below in (a)--(c) to prove that there exist
+$r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that
+\[
+rp + sq = 1.
+\]
+\begin{subtheorem}*
+\item
+Define $\fun T { \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{}) } {\P\1_{m+n-1}(\C{})}$ by
+\[
+T(r, s) = rp + sq.
+\]
+Show that the linear map $T$ is injective.
+\item
+Show that the linear map $T$ in (a) is surjective.
+\item
+Use (b) to conclude that there exist $r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that $rp + sq = 1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+

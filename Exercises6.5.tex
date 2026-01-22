@@ -1,0 +1,564 @@
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T = 0$ if and only if all singular values of $T$ are $0$.
+
+\begin{Solution}
+If $T = 0$, then $T^*T=0$ and hence all singular values of $T$ are~$0$.
+
+To prove the implication in the other direction, suppose all singular values of $T$ are $0$. Then \ref{7posSV}(b) shows that
+$\dim \ran T = 0$. Thus $T = 0$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $s > 0$. Prove that $s$ is a singular value of $T$ if and only if there exist nonzero vectors $v \in V$ and
+$w \in W$ such that \label{2Schmidt}
+\[
+Tv = sw \andd T^* w = sv.
+\]
+\exercisedisplayend
+\exercisecomment{The vectors $v, w$ satisfying both equations above are called a \marbf{Schmidt pair}. Erhard Schmidt introduced the concept of singular values in 1907.\index{Schmidt pair}\index{Schmidt, Erhard}}
+
+\begin{Solution}
+First suppose $s$ is a singular value of $T\3$. Thus there exists a nonzero vector $v \in V$ such that
+\[
+T^*T v = s^2 v.
+\]
+Let
+\[
+w = \frac{Tv}{s}.
+\]
+Then $Tv = sw$ and
+\[
+T^*w = \frac{T^*Tv}{s} = \frac{s^2 v}{s} = sv,
+\]
+as desired (note that the equation above implies that $w \ne 0$).
+
+To prove the implication in the other direction, now suppose that there exist nonzero vectors $v \in V$ and
+$w \in W$ such that
+\[
+Tv = sw \andd T^* w = sv.
+\]
+Then
+\[
+(T^*T)v = T^*(Tv) = T^*(sw) = s^2 v,
+\]
+which implies that $s^2$ is an eigenvalue of $T^*T\3$. Thus $s$ is a singular value of $T$, as desired.
+\end{Solution}
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\C2}$ such that $0$ is the only eigenvalue of $T$ and the singular values of $T$ are $5, 0$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C2}$ by
+\[
+T(z_1, z_2) = (5 z_2, 0)
+\]
+for all $(z_1, z_2) \in \CC2$. Then
+\[
+\M(T) = \mat{cc}
+{0 & 5 \\
+0 & 0}.
+\]
+Hence $0$ is the only eigenvalue of $T$ (by \ref{a221}).
+
+From \ref{406} we have
+\[
+\M(T^*) =  \mat{cc}
+{0 & 0 \\
+5 & 0}.
+\]
+Thus
+\[
+\M(T^*T) = \M(T^*) \M(T) = \mat{cc}
+{0 & 0 \\
+0 & 25}.
+\]
+The equation above shows that the eigenvalues of $T^*T$ are $25$ and $0$, with
+\[
+\dim E(25, T^*T) = 1 \andd \dim E(0, T^*T) = 1.
+\]
+Thus the singular values of $T$ are $5, 0$.
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L(V\1, W)$, $s_1$ is the largest singular value of $T$, and $s_n$ is the smallest singular value of $T\3$. Prove that\label{3interval}
+\[
+\br[\big]{ \norm{Tv} : v \in V \text{ and } \norm{v} = 1 } = [s_n, s_1].
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Suppose $s_1, \dots, s_m$ are the positive singular values of $T$ and $s_1, \dots, s_n$ is the decreasing last of all singular values of $T\3$.  The singular value decomposition (\ref{382}) states there exist an orthonormal list $e_1, \dots, e_m$ in $V$ and an orthonormal list $f_1, \dots, f_m$ in~$W$ such that
+\[ \tag{$(*)$}
+Tv = s_1 \ip{v, e_1} f_1 + \dots + s_m \ip{v, e_m} f_m
+\]
+for all $v \in V\1$. Thus
+\[
+\norm{Tv}^2 = {s_1}^{\2} \abs{\ip{v,e_1}}^2 + \cdots + {s_m}^{\2} \abs{\ip{v,e_m}}^2
+\]
+for all $v \in V\1$.
+
+Think of taking
+\[
+v = c_1 e_1 + \cdots + c_m e_m,
+\]
+where each $c_k \in [0, 1]$ and ${c_1}^{\2} + \cdots + {c_m}^{\2} = 1$. For this choice of $v$, we have $\norm{v} = 1$ and
+\[
+\norm{Tv}^2 = {s_1}^{\2} {c_1}^{\2} + \cdots + {s_m}^{\2} {c_m}^{\2}\1.
+\]
+This shows that the values of $\norm{Tv}^2$ that we can get from this process are weighted averages of ${s_1}^{\2}\1, \ldots, {s_m}^{\2}\1$. Hence this process produces the interval $[s_m, s_1]$ for the values of $\norm{Tv}$ as $v$ ranges over the subset of $V$ with
+$\norm{v} = 1$. If $m = n$, then this is the desired result.
+
+If $m < n$, then $s_n = 0$. Extend $e_1, \ldots, e_m$ to an orthonormal list $e_1, \ldots, e_m, e_{m+1}$. We have $Te_{m+1} = 0$ by $(*)$. Now take
+\[
+v = c_1 e_1 + \cdots + c_m e_m + c_{m+1} e_{m+1},
+\]
+where each $c_k \in [0, 1]$ and ${c_1}^{\2} + \cdots + {c_m}^{\2} + {c_{m+1}}^{\2}= 1$. For this choice of $v$, we have $\norm{v} = 1$ and
+\[
+\norm{Tv}^2 = {s_1}^{\2} {c_1}^{\2} + \cdots + {s_m}^{\2} {c_m}^{\2}\1.
+\]
+This shows that the values of $\norm{Tv}^2$ that we can get from this process are weighted averages of ${s_1}^{\2}\1, \ldots, {s_m}^{\2}\1, 0$. Hence this process produces the interval $[0, s_1]$ for the values of $\norm{Tv}$ as $v$ ranges over the subset of $V$ with
+$\norm{v} = 1$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{2}}$ is defined by $T(x, y) = (-4y, x)$. Find the singular values of $T\3$.
+
+\begin{Solution}
+We have
+\[
+\M(T) = \mat{cc}{
+0 & -4 \\
+1 & 0 }.
+\]
+Thus
+\[
+\M(T^*) = \mat{cc}
+{0 & 1 \\
+-4 & 0}.
+\]
+Hence
+\begin{align*}
+\M(T^* T) &= \M(T) \M(T^*) \\
+&= \mat{cc}{
+1 & 0 \\
+0 & 16}.
+\end{align*}
+Thus the eigenvalues of $T^* T$ are $1, 16$ (by \ref{a221}), with
+\[
+\dim E(16, T^*T) = 1 \andd \dim E(1, T^*T) = 1.
+\]
+Hence the singular values of $T$ are $4, 1$.
+\end{Solution}
+
+\exercise
+Find the singular values of the differentiation operator $D \in \L\bigl(\P\1_2(\R{})\bigr)$ defined by $Dp = p'\!$, where the inner product on $\P\1_2(\R{})$ is as in Example \ref{obP2R}.
+
+\begin{Solution}
+The matrix of $D$ with respect to the basis $1, x, x^2$ of $\P\1_2(\R{})$ is
+\[
+\mat{ccc}{
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+0 & 0& 0}.
+\]
+Thus $0$ is the only eigenvalue of $D$ (by \ref{a221}).
+
+However, the matrix above cannot be used to compute the singular values of $D$ because the basis involved is not an orthonormal basis. Thus we use the orthonormal basis
+\[
+\sqrt{\tfrac{1}{2}}, \sqrt{\tfrac{3}{2}} x,
+\sqrt{\tfrac{45}{8}} \bigl( x^2 - \tfrac{1}{3} \bigr)
+\]
+of $\P\1_2(\R{})$ that was computed in Example \ref{obP2R}. To compute the matrix of $D$ with respect to this basis, note that
+\begin{align*}
+&D\Bigl( \sqrt{\tfrac{1}{2}} \Bigr) = 0;\\[3bp]
+&D\Bigl(\sqrt{\tfrac{3}{2}} x\Bigr) = \sqrt{\tfrac{3}{2}} = \sqrt{3} \sqrt{\tfrac{1}{2}} ;\\[3bp]
+&D\Bigl( \sqrt{\tfrac{45}{8}} \bigl( x^2 - \tfrac{1}{3}\bigr) \Bigr) = \sqrt{ \tfrac{45}{2} } x = \sqrt{15} \sqrt{\tfrac{3}{2}} x.
+\end{align*}
+Hence with respect to our orthonormal basis we have
+\[
+\M(T) = \mat{ccc}{
+0 & \sqrt{3} & 0 \\
+0 & 0 & \sqrt{15} \\
+0 & 0 & 0}.
+\]
+Thus
+\[
+\M(T^*) = \mat{ccc}{
+0 & 0 & 0 \\
+\sqrt{3} & 0 & 0 \\
+0 & \sqrt{15} & 0}.
+\]
+Hence
+\begin{align*}
+\M(T^* T) &= \M(T) \M(T^*) \\
+&= \mat{ccc}{
+0 & 0 & 0\\
+0 & 3 & 0\\
+0 & 0 & 15}.
+\end{align*}
+Thus the eigenvalues of $T^* T$ are $0, 3, 15$ (by \ref{a221}), with
+\[
+\dim E(15, T^*T) = 1, \ \  \dim E(3, T^*T) = 1, \ \  \dim E(0, T^*T) = 1.
+\]
+Hence the singular values of $T$ are $\sqrt{15}, \sqrt{3}, 0$.
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L(V)$ is self-adjoint or that $\F{}= \C{}$ and $T \in \L(V)$ is normal. Let $\la_1, \ldots, \la_n$ be the eigenvalues of $T$, each included in this list as many times as the dimension of the corresponding eigenspace. Show that the singular values of $T$ are
+$\abs{\la_1}, \ldots, \abs{\la_n}$, after these numbers have been sorted into decreasing order.\label{7singsp}
+
+\begin{Solution}
+By the spectral theorem, there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ such that
+\[
+Te_k = \la_k e_k
+\]
+for each $k = 1, \ldots, n$. We also have $T^* e_k = \overline{\la_k} e_k$ [see \ref{746}(e)].
+Thus
+\[
+T^*Te_k = \abs{\la_k}^2 e_k
+\]
+for each $k = 1, \ldots, n$.  The equation above implies that the singular values of $T$ are $|\la_1|, \dots, |\la_n|$ (after these numbers are sorted into decreasing order).
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Suppose $s_1 \ge  s_2 \ge \cdots \ge s_m >0$ and
+$e_1, \dots, e_m$ is an orthonormal list in $V$ and $f_1, \dots, f_m$ is an orthonormal list in~$W$ such that \label{4SVD}
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \dots + s_m \ip{v, e_m} f_m
+\]
+for every $v \in V\1$.
+\begin{subtheorem}
+\item
+Prove that $f_1, \dots, f_m$ is an orthonormal basis of $\ran T\3$.
+\item
+Prove that $e_1, \dots, e_m$  is an orthonormal basis of $(\ker T)^\perp$.
+\item
+Prove that $s_1, \ldots, s_m$ are the positive singular values of $T\3$.
+\item
+Prove that if $k \in \br{1, \ldots, m}$, then $e_k$ is an eigenvector of $T^*T$ with corresponding eigenvalue ${s_k}^{\2}\1$.
+\item
+Prove that
+\[
+TT^*w = {s_1}^{\2} \ip{w, f_1} f_1 + \cdots + {s_m}^{\2} \ip{w, f_m} f_m
+\]
+for all $w \in W\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+If $k \in \br{1, \ldots, m}$, then the equation above shows that $T(e_k/s_k) = f_k$; thus $f_k \in \ran T\3$. Hence
+$\Span(f_1, \ldots, f_m) \subset \ran T\3$.
+
+The inclusion in the other direction follows immediately from the equation above. Thus
+$\Span(f_1, \ldots, f_m) = \ran T\3$. Because $f_1, \ldots, f_m$ is an orthonormal list that spans $\ran T$, it is an orthonormal basis of
+$\ran T$, as desired.
+
+\item
+Suppose $v \in V\1$. The equation above shows that $Tv = 0$ if and only if $\ip{v, e_k} = 0$ for each $k = 1, \ldots, m$. Hence
+$\ker T = \paren[\big]{\Span(e_1, \ldots, e_k)}^\perp$. Thus $\Span(e_1, \ldots, e_m) = (\ker T)^\perp$, which implies that
+$e_1, \dots, e_m$  is an orthonormal basis of $(\ker T)^\perp$, as desired.
+
+\item
+The proof of \ref{6SVD} used just \ref{5SVD} (which is the hypothesis  for this exercise). Thus \ref{6SVD} holds, meaning that
+\[
+T^*w = s_1 \ip{w, f_1} e_1 + \dots + s_m \ip{w, f_m} e_m
+\]
+for every $w \in W\3$. In particular, $T^* \! f_k = s_k e_k$ for each $k = 1, \ldots, m$. Applying $T^*$ to both sides of our hypothesis equation thus shows that
+\[
+T^*Tv = {s_1}^{\2} \ip{v, e_1} e_1 + \dots + {s_m}^{\2} \ip{v, e_m} e_m
+\]
+for every $v \in V\1$. Thus the positive eigenvalues of $T^* T$ are ${s_1}^{\2}\1, \ldots, {s_k}^{\2}\1$. Hence the singular values of $T$ are
+$s_1, \ldots, s_m$.
+
+\item
+By (c) and by \ref{8SVDadj} we have
+\[
+T^*w = s_1 \ip{w, f_1} e_1 + \dots + s_m \ip{w, f_m} e_m
+\]
+for every $w \in W\3$. Thus
+\[
+T^*T v = {s_1}^{\2} \ip{v, e_1} e_1 + \dots + {s_m}^{\2} \ip{v, e_m} e_m
+\]
+for every $v \in V\1$. Hence if $k \in \br{1, \ldots, m}$, then $T^*Te_k = {s_k}^{\2} e_k$; thus $e_k$ is an eigenvector of $T^*T$ with corresponding eigenvalue ${s_k}^{\2}\1$.
+
+\item
+By (c) and by \ref{8SVDadj} we have
+\[
+T^*w = s_1 \ip{w, f_1} e_1 + \dots + s_m \ip{w, f_m} e_m
+\]
+for every $w \in W\3$. Thus
+\[
+TT^* w = {s_1}^{\2} \ip{w, f_1} f_1 + \dots + {s_m}^{\2} \ip{w, f_m} f_m
+\]
+for every $w \in W\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T$ and $T^*$ have the same positive singular values. \label{4TstarSing}
+
+\begin{Solution}
+Suppose $T$ has positive singular values $s_1, \ldots, s_m$. The singular value decomposition (\ref{382}) states that there exist orthonormal lists $e_1, \ldots, e_m$ and $f_1, \ldots, f_m$ in $V$ and $W$ such that
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \cdots + s_m \ip{v, e_m} f_m
+\]
+for all $v \in V\1$. We know from \ref{8SVDadj} that
+\[
+T^*w = s_1 \ip{w, f_1} e_1 + \dots + s_m \ip{w, f_m} e_m
+\]
+for every $w \in W\3$. Apply $T$ to both sides of the equation above (and use the equation $Te_k = s_k f_k$) to get
+\[
+(TT^*)w = {s_1}^{\2} \ip{w, f_1} f_1 + \dots + {s_m}^{\2} \ip{w, f_m} f_m
+\]
+for every $w \in W\3$.
+
+The equation above implies that the positive eigenvalues of $TT^*\1$, each included as many times as the corresponding eigenspace, are ${s_1}^{\2}\1, \ldots, {s_m}^{\2}\1$. Thus the singular values of $T^*$ are $s_1, \ldots, s_m$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ has singular values $s_1, \ldots, s_n$. Prove that if $T$ is an  invertible linear map, then $T^{-1}$ has singular values\label{7singinv}
+\[
+\frac{1}{s_n}, \ldots, \frac{1}{s_1}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Suppose $T$ is invertible. In particular, $T$ is injective and hence none of the singular values of $T$ equals $0$ [see \ref{7posSV}(b)]. Also, $T^*$ is invertible and hence the positive operator $TT^*$ is invertible.
+
+Suppose $\la \in (0, \infty)$ is an eigenvalue of $TT^*\1$. Suppose $v \in E(\la, TT^*)$. Hence $TT^* v = \la v$. Applying $(T^*)^{-1}T^{-1}$ to both sides of this equation and then dividing both sides by $\la$ shows that
+\[
+\tfrac{1}{\la} v = (T^*)^{-1} T^{-1} v.
+\]
+Thus $v \in E\paren[\big]{ \frac{1}{\la}, (T^*)^{-1} T^{-1} }$, which shows that
+\[
+E(\la, TT^*) \subset E\paren[\Big]{ \tfrac{1}{\la}, (T^*)^{-1} T^{-1} }.
+\]
+This process is reversible, so the inclusion in the opposite direction also holds, showing that
+\[
+E(\la, TT^*) = E\paren[\Big]{ \tfrac{1}{\la}, (T^*)^{-1} T^{-1} }.
+\]
+This implies that the singular values of $T^{-1}$ equal the multiplicative inverses of the singular values of $T^*$ (in reverse order), which equal the singular values of $T$ (by Exercise \ref{4TstarSing}).
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L(V\1, W)$ and $v_1, \ldots, v_n$ is an orthonormal basis of $V\1$. Let $s_1, \ldots, s_n$ denote the singular values of $T\3$.\label{7sums2}
+\begin{subtheorem}
+\item
+Prove that
+$\norm{Tv_1}^2 + \cdots + \norm{Tv_n}^2 = {s_1}^{\2} + \cdots + {s_n}^{\2}\1$.
+\item
+Prove that if $W = V$ and $T$ is a positive operator, then
+\[
+\ip{Tv_1, v_1} + \cdots + \ip{Tv_n, v_n} = s_1 + \cdots + s_n.
+\]
+\exercisedisplayend
+\end{subtheorem}
+\exercisecomment{See the comment after Exercise \ref{6sumT2} in Section \ref{7001}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Exercise \ref{6sumT2} in Section \ref{7001} shows that the left side of the equation in (a) is independent of the choice of orthonormal basis (and clearly, so is the right side). Thus we only need to prove that the equation in (a) holds for at least one orthonormal basis of $V\1$.
+
+Suppose $T$ has a singular value decomposition
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \cdots + s_m \ip{v, e_m} f_m
+\]
+for all $v \in V\1$. Thus $s_k = 0$ for all integers $k$ with $m < k \le n$.
+
+Extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V\1$. Note that
+\[
+\norm{Te_k} = s_k
+\]
+for each $k = 1, \ldots, n$. Hence
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = {s_1}^{\2} + \cdots + {s_n}^{\2}\1.
+\]
+Thus the desired equation holds for one orthonormal basis of $V$ and hence for all orthonormal bases of $V\1$.
+
+\item
+Suppose $W = V$ and $T$ is a positive operator. Let $S = \sqrt{T}$. The singular values of $S$ are
+$\sqrt{s_1}, \ldots, \sqrt{s_n}$. Thus applying (a) to $S$, we have
+\[
+\norm{Sv_1}^2 + \cdots + \norm{Sv_n}^2 = s_1 + \cdots + s_n.
+\]
+Notice that
+\[
+\norm{Sv_k}^2 = \ip{Sv_k, Sv_k} = \ip[\big]{ S^2 v_k, v_k} = \ip{Tv_k, v_k}
+\]
+for each $k = 1, \ldots, n$. Thus
+\[
+\ip{Tv_1, v_1} + \cdots + \ip{Tv_n, v_n} = s_1 + \cdots + s_n.
+\]
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of a finite-dimensional vector space and an operator $T$ on it
+such that the singular values of $T^2$ do not equal the squares of the singular values of~$T\3$.
+\item
+Suppose $T \in \L(V)$ is normal. Prove that the singular values of $T^2$ equal the squares of the singular values of~$T\3$.
+\end{SUBtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Define $T \in \L\paren[\big]{\F{2}}$ by
+\[
+T(z_1, z_2) = (z_2, 0).
+\]
+Then $T^* T(z_1, z_2) = (0, z_2)$. Thus
+the eigenvalues of $T^* T$ are $1,0$.  Hence the singular values of $T$ are
+$1,0$.
+
+However, $T^2 = 0$, so the singular values of $T^2$ are $0, 0$.  Thus for this
+operator~$T$, the singular values of $T^2$ do not
+equal the squares of the singular values of~$T\3$.
+
+\item
+Suppose $\la \in [0, \infty)$ is an eigenvalue value of $T^* T\3$. Suppose $v \in E(\la, T^* T)$. Hence $T^*T v = \la v$. Now
+\[
+(T^2)^* T^2 v = (T^*T)^2 v = \la T^*T v = \la^2 v,
+\]
+where the first equality holds because $T^*T = TT^*\1$. The equation above shows that $v \in E\paren[\big]{\la^2\1, (T^2)^* T^2}$. Hence
+\[
+E(\la, T^* T) \subset E\paren[\big]{\la^2\1, (T^2)^* T^2},
+\]
+which implies that
+\[
+\dim E(\la, T^* T) \le \dim E\paren[\big]{\la^2\1, (T^2)^* T^2}
+\]
+for every $\la \in [0, \infty)$.
+
+Summing both sides of the inequality above over all $\la \in [0, \infty)$ (both sides are nonzero only for finitely many $\la$), both sides sum to $\dim V$ [by the spectral theorem as applied to the positive operators $T^*T$ and $(T^2)^* T^2$]. Thus the inequality above must actually be an equality for all $\la \in [0, \infty)$. This implies that the singular values of $T^2$ are exactly the squares of the singular values of $T\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T\3_1, T\3_2 \in \L(V)$.  Prove that $T\3_1$ and $T\3_2$ have the
+same singular values if and only if there exist unitary operators $S_1, S_2
+\in \L(V)$ such that $T\3_1 = S_1 T\3_2 S_2$.
+
+\begin{Solution}
+First suppose that $T\3_1$ and $T\3_2$ have the same singular values $s_1, \dots, s_n$.
+By the singular value decomposition (\ref{382}), there exist orthonormal bases
+$e_1, \dots, e_n$ and  $(f_1, \dots, f_n$ and $e'_1, \dots, e'_n$ and  $f'_1, \dots, f'_n$ of
+$V$ such that
+\begin{align*}
+T\3_1v &= s_1 \ip{v, e_1} f_1 + \dots + s_n \ip{v, e_n} f_n, \\
+T\3_2v &= s_1 \ip{v, e'_1} f'_1 + \dots + s_n \ip{v, e'_n} f'_n
+\end{align*}
+for every $v \in V\1$.  Define $S_1, S_2 \in \L(V)$ by
+\begin{align*}
+S_1(a_1 f'_1 + \dots + a_n f'_n) &= a_1 f_1 + \dots + a_n f_n, \\
+S_2(a_1 e_1 + \dots + a_n e_n) &= a_1 e'_1 + \dots + a_n e'_n. \\
+\end{align*}
+Then
+\begin{align*}
+\|S_1(a_1 f'_1 + \dots + a_n f'_n)\|^2 &= \|a_1 f_1 + \dots + a_n f_n\|^2 \\
+&= |a_1|^2 + \dots + |a_n|^2 \\
+&= \|a_1 f'_1 + \dots + a_n f'_n\|^2\1.
+\end{align*}
+Thus $S_1$ is unitary.  Similarly, $S_2$ is unitary. This implies that
+${S_2}^{\2[*]} = {S_2}^{\2[-1]}$ (see~\ref{734u}).  In particular, ${S_2}^{\2[*]} e'_k = e_k$.  Now
+if $v \in V\1$, then
+\begin{align*}
+T\3_2(S_2 v) &= s_1 \ip{S_2v, e'_1} f'_1 + \dots + s_n \ip{S_2v, e'_n} f'_n \\
+&= s_1 \ip{v, {S_2}^{\2[*]} e'_1} f'_1 + \dots + s_n \ip{v, {S_2}^{\2[*]}e'_n} f'_n \\
+&= s_1 \ip{v, e_1} f'_1 + \dots + s_n \ip{v, e_n} f'_n.
+\end{align*}
+Thus
+\begin{align*}
+S_1(T\3_2 S_2 v) &= s_1 \ip{v, e_1} S_1 f'_1 + \dots + s_n \ip{v, e_n} S_1 f'_n \\
+&= s_1 \ip{v, e_1} f_1 + \dots + s_n \ip{v, e_n} f_n \\
+&= T\3_1 v
+\end{align*}
+for every $v \in V\1$.  Hence $S_1 T\3_2 S_2 = T\3_1$, as desired.
+
+To prove the implication in the other direction, now suppose there exist
+unitary operators $S_1, S_2 \in \L(V)$ such that $T\3_1 = S_1 T\3_2 S_2$.  Using \ref{734u}, we have
+\begin{align*}
+{T\3_1}^{\2[*]} T\3_1 &= {S_2}^{\2[*]} {T\3_2}^{\2[*]} {S_1}^{\2[*]} S_1 T\3_2 S_2 \\
+&= {S_2}^{\2[-1]} {T\3_2}^{\2[*]} T\3_2 S_2.
+\end{align*}
+This implies that ${T\3_1}^{\2[*]} T\3_1$ and ${T\3_2}^{\2[*]} T\3_2$ have the same eigenvalues (and that
+the corresponding eigenspaces have the same dimensions).  Thus $T\3_1$ and
+$T\3_2$ have the same singular values.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1,W)$.  Let $s_n$ denote the smallest singular value of~$T\3$.
+Prove that $s_n \| v \| \le \| Tv \|$ for every $v \in V\1$. \label{3smallSV}
+
+\begin{Solution}
+Let $s_1, \ldots, s_n$ denote the singular values of $T\3$. If $s_n = 0$, then clearly $s_n \| v \| \le \| Tv \|$
+for every $v \in V\1$. Thus assume $s_n > 0$.
+
+By the singular value decomposition (\ref{382}), there exist
+an orthonormal basis $e_1, \dots, e_n$ of $V$ and an orthonormal list $f_1, \dots, f_n$ in $W$ such that
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \dots + s_n \ip{v, e_n} f_n,
+\]
+for every $v \in V\1$.
+
+If $v \in V$ then
+\begin{align*}
+{s_n}^{\2} \| v \|^2
+&= {s_n}^2 \paren[\big]{|\ip{v, e_1}|^2 + \dots + |\ip{v, e_n}|^2} \\[6bp]
+&\le {s_1}^{\2} |\ip{v, e_1}|^2 + \dots + {s_n}^{\2} |\ip{v, e_n}|^2 \\[6bp]
+&= \|s_1 \ip{v, e_1} f_1 + \dots + s_n \ip{v, e_n} f_n \|^2 \\[6bp]
+&= \|Tv\|^2\1.
+\end{align*}
+Taking square roots now gives the desired inequality.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $s_1 \ge \cdots \ge s_n$ are the singular values of $T\3$.
+Prove that if $\la$ is an eigenvalue of $T$, then $s_1  \ge |\la| \ge s_n$.
+
+\begin{Solution}
+Suppose $\la$ is an eigenvalue of $T\3$. Let $v \in V$ be such that $\norm{v} = 1$ and $Tv = \la v$. Thus $\norm{Tv} = \abs{\la}$. Now Exercise \ref{3interval} implies that $\la \in [s_n, s_1]$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Prove that $\paren[\big]{T^*}^\dagger = \paren[\big]{T^\dagger}^*\1$.\label{7Tdagstar}\index{pseudoinverse|(}
+\exercisecomment{Compare the result in this exercise to the analogous result for invertible linear maps \textup{\big[}see \ref{7propadjoint}\uppar{\,f\,}\textup{\big]}.}
+
+\begin{Solution}
+Consider a singular value decomposition
+\[
+Tv = s_1 \ip{v, e_1} f_1 + \dots + s_m \ip{v, e_m} f_m
+\]
+for every $v \in V\1$, where $s_1, \dots, s_m$ are the positive singular values of $T$ and $e_1, \dots, e_m$ and $f_1, \dots, f_m$ are orthonormal lists in $V$ and $W\3$. By \ref{8SVDadj}, we have
+\[
+T^*w = s_1 \ip{w, f_1} e_1 + \dots + s_m \ip{w, f_m} e_m
+\]
+and
+\[
+T^\dagger w = \frac{\ip{w, f_1}}{s_1} e_1 + \dots + \frac{\ip{w, f_m}}{s_m} e_m
+\]
+for every $w \in W\3$. These equations imply that both $\paren[\big]{T^*}^\dagger$ and $\paren[\big]{T^\dagger}^*$ equal the operator on $V$ that sends $v \in V$ to
+\[
+\frac{\ip{v, e_1}}{s_1} f_1 + \cdots + \frac{\ip{v, e_m}}{s_m} f_m.
+\]
+Thus $\paren[\big]{T^*}^\dagger = \paren[\big]{T^\dagger}^*\1$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that $T$ is self-adjoint if and only if $T^\dagger$ is self-adjoint.\index{pseudoinverse|)}
+
+\begin{Solution}
+First suppose $T$ is self-adjoint. Then
+\[
+{(T^\dagger)}^* = {(T^*)}^\dagger = T^\dagger,
+\]
+where the first equality comes from Exercise \ref{7Tdagstar}. The equation above shows that $T^\dagger$ is self-adjoint.
+
+To prove the implication in the other direction, now suppose $T^\dagger$ is self-adjoint. By the implication in the first direction, this implies that ${(T^\dagger)}^\dagger$ is self-adjoint. Because ${(T^\dagger)}^\dagger = T$ (by Exercise \ref{2dag} in Section \ref{OrthoMin}), we conclude that $T$ is self-adjoint.
+\end{Solution}
+

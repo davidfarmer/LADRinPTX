@@ -1,0 +1,394 @@
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that with respect to each choice of bases of $V$ and $W\3$, the matrix of $T$ has at least $\dim \ran T$ nonzero entries.
+
+\begin{Solution}
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W\3$. Thus $\dim V = n$.
+
+Suppose $p$ of the columns of $\M(T)$ contain only $0$'s. Thus $Tv_k = 0$ for $p$ different choices of $k$. Because $v_1, \dots, v_n$  is a linear independent list, this implies that $\dim \ker T \ge p $.
+
+The fundamental theorem of linear maps (\ref{3ab11}) implies that
+\begin{align*}
+n - p &= \dim \ran T +  \dim \ker T - p \\
+&\ge \dim \ran T\3.
+\end{align*}
+
+The definition of $p$ implies that the number of columns of $\M(T)$ that have at least one nonzero entry is $n  - p$. The inequality above implies that there are at least $\dim \ran T$ such columns. Hence the matrix of $T$ has at least $\dim \ran T$ nonzero entries.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that $\dim \ran T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\M(T)$ equal $1$.
+
+\begin{Solution}
+First suppose there exist a basis $v_1, \dots, v_n$ of $V$ and a basis $w_1, \dots, w_m$ of $W$ such that with respect to these bases, all entries of $\M(T)$ equal $1$. Thus
+\[
+Tv_k = w_1 + \dots + w_m
+\]
+for each $k = 1, \dots, n$. Hence
+\[
+\ran T = \Span( w_1 + \dots + w_m)
+\]
+and thus $\dim \ran T = 1$ (note that $w_1 + \dots + w_m \ne 0$ because $w_1, \dots, w_m$ is linearly independent).
+
+Conversely, suppose now that $\dim \ran T = 1$. Let $n = \dim V\1$. By the fundamental theorem of linear maps (\ref{3ab11}), we have $\dim \ker T = n-1$. Let $u_1, \dots, u_{n-1}$ be a basis of $\ker T\3$. Extend to a basis
+$u_1, \dots, u_{n-1}, u_n$ of $V\1$. Note that $u_n \notin \ker T$ and thus $Tu_n \ne 0$. Let $w = Tu_n$.
+
+It is easy to verify that $u_1 + u_n, \dots, u_{n-1} + u_n, u_n$ is a basis of $V\1$, which we will relabel as $v_1, \dots, v_n$. Clearly $Tv_k = w$ for each $k = 1, \dots, n$.
+
+Extend $w$ to a basis $w, w_2, \dots, w_m$ of $W\3$. It is easy to verify that
+\[
+w - w_2, w_2 - w_3, \dots, w_{m-1} - w_m, w_m
+\]
+is a basis of $W\3$. Furthermore,
+\[
+w = (w - w_2) + (w_2 - w_3) + \dots + (w_{m-1} - w_m) + w_m.
+\]
+Thus the matrix of $T$ with respect to the basis $v_1, \dots, v_n$ of $V$ and the basis
+$w - w_2, w_2 - w_3, \dots, w_{m-1} - w_m, w_m$ of $W$ consists of all $1$'s.
+\end{Solution}
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W\3$.
+\begin{subtheorem}
+\item
+Show that if $S, T \in \L(V\1, W)$, then $\M(S+T) = \M(S) + \M(T)$.
+\item
+Show that if $\la \in \F{}$ and $T \in \L(V\1, W)$, then $\M(\la T) = \la \M(T)$.
+\end{subtheorem}
+\exercisecomment{This exercise asks you to verify \ref{101} and \ref{102}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $S, T \in \L(V\1, W)$. Let $A = \M(S)$ and $C = \M(T)$. Thus if $k = 1, \dots, n$, then
+\[
+Sv_k = \sum_{j=1}^m A_{j, k} w_j \andd Tv_k = \sum_{j=1}^m C_{j, k} w_j.
+\]
+Hence
+\[
+(S + T)v_k = \sum_{j=1}^m (A_{j, k} + C_{j, k}) w_j.
+\]
+The equation above implies that the entry in row $j$, column $k$, of $\M(S+T)$ equals $A_{j, k} + C_{j, k}$. Thus
+$\M(S+T) = A + C = \M(S) + \M(T)$.
+
+\item
+Suppose $\la \in \F{}$ and $T \in \L(V\1, W)$. Let $A = \M(T)$. Thus if $k = 1, \dots, n$, then
+\[
+Tv_k = \sum_{j=1}^m A_{j, k} w_j.
+\]
+Hence
+\[
+(\la T)v_k = \sum_{j=1}^m \la A_{j, k} w_j.
+\]
+The equation above implies that the entry in row $j$, column $k$, of $\M(\la T)$ equals $\la A_{j, k}$. Thus
+$\M(\la T) = \la A = \la \M(T)$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose that $D \in \L\bigl(\P\1_3(\R{}), \P\1_2(\R{}) \bigr)$ is the differentiation map defined by \mbox{$Dp = p'\!$}. Find a basis of $\P\1_3(\R{})$ and a basis of $\P\1_2(\R{})$ such that the matrix of $D$ with respect to these bases is\index{differentiation linear map}
+\[
+\mat{cccc}{
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\}.
+\]
+\vspace{-.15in}
+\exercisecomment{Compare with Example \ref{diffmatrix}. The next exercise generalizes this exercise.}
+
+\begin{Solution}
+Take $x^3\1, x^2\1, x, 1$ as a basis of $\P\1_3(\R{})$ and take $3x^2\1, 2x, 1$ as a basis of $\P\1_2(\R{})$. Then the matrix of $D$ with respect to these bases is the matrix above.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\M(T)$ are $0$ except that the entries in row $k$, column~$k$, equal $1$ if $1 \le k \le \dim \ran T\3$. \label{zeroonematrix}
+
+\begin{Solution}
+Let $u_1, \dots, u_m$ be a basis of $\ker T\3$. Extend $u_1, \dots, u_m$ to a basis $u_1, \dots, u_m, v_1, \dots, v_n$ of $V\1$. Then $Tv_1, \dots, Tv_n$ is a basis of $\ran T$, as was proved in the proof of \ref{3ab11}. Thus $n = \dim \ran T\3$.
+
+Because $Tv_1, \dots, Tv_n$ is a basis of the subspace $\ran T$, this list is linearly independent in $W\3$. Extend the linearly independent list $Tv_1, \dots, Tv_n$ to a basis $Tv_1, \dots, Tv_n, w_1, \dots, w_p$ of $W\3$.
+
+With respect to the basis $v_1, \dots, v_n, u_1, \dots, u_m$ of $V$ (note that the $v$'s now come before the $u$'s) and the basis $Tv_1, \dots, Tv_n, w_1, \dots, w_p$ of $W\3$, the matrix of $T$ has the desired form.
+
+[Here some of $m$, $n$, or $p$ might be $0$.]
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a basis of $V$ and $W$ is finite-dimensional. Suppose $T \in \L(V\1, W)$. Prove that there exists a basis $w_1, \dots, w_n$ of $W$ such that all entries in the first column of $\M(T)$ [with respect to the bases $v_1, \dots, v_m$ and $w_1, \dots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\exercisecomment{In this exercise, unlike Exercise \ref{zeroonematrix}, you are given the basis of $V$ instead of being able to choose a basis of $V\1$.}
+
+\begin{Solution}
+If $Tv_1 = 0$, then the first column of $\M(T)$ will consist of all $0$'s for every choice of basis of $W$ (using, of course, $v_1, \dots, v_m$ as the basis of $V$).
+
+Thus suppose $Tv_1 \ne 0$. Let $w_1 = Tv_1$. Extend the list $w_1$ to a basis $w_1, \dots, w_n$ of $W\3$. Then with
+respect to the bases $v_1, \dots, v_m$ and $w_1, \dots, w_n$, the first column of $\M(T)$ consists of all $0$'s except for a $1$ in the first row, first column.
+\end{Solution}
+
+\exercise
+Suppose $w_1, \dots, w_n$ is a basis of $W$ and $V$ is finite-dimensional. Suppose $T \in \L(V\1, W)$. Prove that there exists a basis $v_1, \dots, v_m$ of $V$ such that all entries in the first row of $\M(T)$ [with respect to the bases $v_1, \dots, v_m$ and $w_1, \dots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\exercisecomment{In this exercise, unlike Exercise \ref{zeroonematrix}, you are given the basis of $W$ instead of being able to choose a basis of $W\3$.}
+
+\begin{Solution}
+If $\ran T \subset \Span(w_2, \dots, w_n)$, then the first row of $\M(T)$ will consist of all $0$'s for every choice of basis of $V$ (using, of course, $w_1, \dots, w_n$ as the basis of $W$).
+
+Thus suppose $\ran T \nsubset \Span(w_2, \dots, w_n)$. Let $u_1 \in V$ be such that $Tu_1 \notin \Span(w_2, \dots, w_n)$. Because $w_1, \dots, w_n$ is a basis of $W\3$, we can write
+\[
+Tu_1 = c_1 w_1 + \dots + c_n w_n
+\]
+for some $c_1, \dots, c_n \in \F{}\3$. Because $Tu_1 \notin \Span(w_2, \dots, w_n)$, we know that $c_1 \ne 0$. Thus replacing $u_1$ with $\frac{1}{c_1}u_1$, we can assume that $c_1 = 1$. In other words,
+\[
+Tu_1 = w_1 + c_2 w_2 + \dots + c_n w_n.
+\]
+
+Extend $u_1$ to a basis $u_1, \dots, u_m$ of $V\1$. For each $k \in \{2, \dots, m\}$, we can write
+\[
+Tu_k = a_{1,k} w_1 + \dots + a_{n,k} w_n.
+\]
+Thus
+\[
+T(u_k - a_{1,k} u_1) = (a_{2,k} - a_{1,k}c_2) w_2 + \dots + (a_{n,k} - a_{1,k}c_n) w_n.
+\]
+
+Thus with respect to the basis
+\[
+u_1, u_2 - a_{1, 2} u_1, u_3 - a_{1, 3} u_1, \dots, u_m - a_{1, m} u_1
+\]
+ of $V$ and
+$w_1, \dots, w_n$ of $W\3$, we see that the first row of $\M(T)$ consists of all $0$'s except for a $1$ in row $1$, column $1$.
+\end{Solution}
+
+\exercise
+Suppose $A$ is an \by{m}{n} matrix and $B$ is an \by{n}{p} matrix. Prove that \label{3think1}
+\[
+(AB)_{j,\cdot} = A_{j,\cdot} \, B
+\]
+for each $1 \le j \le m$. In other words, show that row $j$ of $AB$ equals (row~$j$~of~$A$) times $B$.
+\exercisecomment{This exercise gives the row version of \ref{3matrixcol}.}
+
+\begin{Solution}
+Note that both $(AB)_{j,\cdot}$ and  $A_{j,\cdot} \, B$ are \by{1}{p} matrices.
+
+By the  definition of matrix multiplication, the entry in column $k$ of $(AB)_{j,\cdot}$ is
+\[
+\sum_{r=1}^n A_{j,r} B_{r, k}.
+\]
+
+Again by the  definition of matrix multiplication, the entry in column $k$ of $A_{j,\cdot} \, B$ is also equal to
+\[
+\sum_{r=1}^n A_{j,r} B_{r, k}.
+\]
+
+Thus $(AB)_{j,\cdot} = A_{j,\cdot} \, B$.
+\end{Solution}
+
+\exercise
+Suppose $a = \mat{ccc}{a_1 & \cdots & a_n}$ is a \by{1}{n} matrix and $B$ is an \by{n}{p} matrix. Prove that \label{3think2}
+\[
+aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}\ .
+\]
+In other words, show that $aB$ is a linear combination of the rows of $B$, with the scalars that multiply the rows coming from $a$.
+\exercisecomment{This exercise gives the row version of \ref{3combcol}.}
+
+\begin{Solution}
+Note that both $aB$ and  $a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}$ are \by{1}{p} \mbox{matrices}.
+
+By the  definition of matrix multiplication, the entry in column $k$ of $aB$ is
+\[
+\sum_{r=1}^n a_r B_{r, k}.
+\]
+
+For $r = 1, \dots, n$, the entry in column $k$ of $a_r B_{r, \cdot}$ is $a_r B_{r, k}$. Thus the entry in column $k$ of $a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}$ is
+\[
+\sum_{r=1}^n a_r B_{r, k}.
+\]
+
+Thus $aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}$\ .
+\end{Solution}
+
+%\exercise
+%Suppose $A$ is an \by{n}{n} matrix and $m$ is an integer greater than~$2$. Show that the entry in row~$j$, column %$k$ of $A^m$ (which is defined to mean $\underbrace{A A \dotsm A}_{m \text{\ times}}$) is
+%\[ \sum_{p_1=1}^n \sum_{p_2=1}^n \dotsm \sum_{p_{m-1}=1}^n A_{j, p_1} A_{p_1, p_2} A_{p_2, p_3} \dotsm A_{p_{m-1}, k}.= \]
+%\exercisedisplayend
+
+\exercise
+Give an example of \by{2}{2} matrices $A$ and $B$ such that $AB \ne BA$. \label{noncommute}\index{commutativity}
+
+\begin{Solution}
+Almost any randomly chosen \by{2}{2} matrices will work.
+\end{Solution}
+
+\exercise
+Prove that the distributive property holds for matrix addition and matrix
+multiplication.  In other words, suppose $A$, $B$, $C$, $D$, $E$, and $F$ are matrices whose
+sizes are such that $A(B+C)$ and $(D+E)F$ make sense.  Explain why $AB + AC$ and $DF + EF$ both make sense
+and prove that\label{3distrib}\index{distributive property}
+\[
+A(B+C) = AB + AC \andd (D+E)F = DF + EF.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Because $A(B + C)$ makes sense, $B$ and $C$ have the same size.
+Furthermore, the number of columns of $A$ (let's call this number~$n$) equals
+the number of rows of $B$ and~$C$.  All this means that $AB + AC$ makes sense.
+
+To prove that $A(B+C) = AB + AC$, just use the definition of matrix addition, the
+definition of matrix multiplication, and the usual distributive property for
+elements of $\F{}\3$.  Specifically, let $A_{j,k}$, $b_{j,k}$, and $c_{j,k}$ denote
+the entries in row $j$, column $k$ of $A$, $B$, and $C$, respectively.  The entry
+in row~$j$, column $k$ of $B + C$ is $b_{j,k} + c_{j,k}$.  Thus the entry in row
+$j$, column $k$ of $A(B+C)$ is
+\[
+\sum_{r=1}^n A_{j,r} (b_{r,k} + c_{r,k}),
+\]
+which equals
+\[
+\sum_{r=1}^n A_{j,r} b_{r,k} + \sum_{r=1}^n A_{j,r} c_{r,k},
+\]
+which equals the entry in row $j$, column $k$ of $AB + AC$, as desired.
+\end{Solution}
+
+\exercise
+Prove that matrix multiplication is associative.  In other words, suppose $A$,
+$B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
+Explain why $A(BC)$ makes sense and prove that\label{assoc} \[(AB)C = A(BC).\]
+\exercisecomment{Try to find a clean proof that illustrates the following quote from Emil Artin: ``It is my experience that proofs involving matrices can be shortened by 50\% if one throws the matrices out.''\index{Artin, Emil}}
+
+\begin{Solution}
+This exercise can be done by a brute force calculation, in the style of the
+solution to Exercise \ref{3distrib}.  Here is a solution that uses only the
+associativity of the product of linear maps (which is easy to verify because
+composition of functions is clearly associative) and the nice property that the
+matrix of the product of two linear maps equals the product of the matrices of
+the two linear maps (see~\ref{3matproduct}).
+
+Suppose $A$ is an \by{m}{n} matrix, $B$ is an \by{n}{p} matrix, and $C$ is a
+\by{p}{q} matrix; the sizes much match up like this in order for $(AB)C$ to make
+sense.  Let
+$R \in \L\paren[\big]{\FF{n}, \F{m}}, S \in \L\paren[\big]{\FF{p}, \F{n}}, T \in \L\paren[\big]{\FF{q}, \F{p}}$ be such
+that, with respect to the standard bases,
+$\M(R) = A, \M(S) = B, \M(T) = C$; \ref{103} ensures that such linear maps
+exist.  Now
+\begin{align*}
+(AB)C &= \bigl(\M(R) \M(S) \bigr) \M(T) \\
+&= \M(RS) \M(T) \\
+&= \M\bigl((RS)T\bigr) \\
+&= \M\bigl(R(ST)\bigr) \\
+&= \M(R) \M(ST) \\
+&= \M(R) \bigl( \M(S) \M(T) \bigr) \\
+&= A(BC).
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix and $1 \le j, k \le n$. Show that the entry in row~$j$, column~$k$, of $A^3$ (which is defined to mean $AAA$) is
+\[
+\sum_{p=1}^n \sum_{r=1}^n A_{j, p} \, A_{p, r} \, A_{r, k}.
+\]
+\vspace{-10bp}
+
+\begin{Solution}
+By the definition of matrix multiplication, we have
+\begin{align*}
+(A^3)_{j, k} &= (A A^2)_{j, k} \\
+&= \sum_{p=1}^n A_{j, p} (A^2)_{p, k} \\
+&= \sum_{p=1}^n A_{j, p} (A A)_{p, k} \\
+&= \sum_{p=1}^n A_{j, p} \sum_{r=1}^n A_{p, r} \, A_{r, k} \\
+&= \sum_{p=1}^n \sum_{r=1}^n A_{j, p} \, A_{p, r} \, A_{r, k}.
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose $m$ and $n$ are positive integers. Prove that the function $A \mapsto \tran{A}$ is a linear map from $\F{m, n}$ to
+$\FF{n, m}$.\label{3translinear}
+
+\begin{Solution}
+The linearity of the map that takes $A$ to $\tran{A}$ follows from the definitions.
+\end{Solution}
+
+\pagebreak[3]
+
+\exercise
+Prove that if $A$ is an \by{m}{n} matrix and $C$ is an \by{n}{p} matrix, then\label{3tran}
+\[
+\tran{(AC)} = \tran{C} \tran{A}\3.
+\]
+\exercisedisplayend
+\exercisecomment{This exercise shows that the transpose of the product of two matrices is the product of the transposes in the opposite order.}
+
+\begin{Solution}
+Suppose $1 \le k \le p$ and $1 \le j \le m$. Then
+\begin{align*}
+\bigl(\tran{(AC)}\bigr)_{k,j} &= (AC)_{j,k} \\[6bp]
+&= \sum_{r=1}^n A_{j,r} C_{r,k} \\[6bp]
+&= \sum_{r=1}^n \paren[\big]{\tran{C}}_{k,r}\paren[\big]{\tran{A}}_{r, j}\\[6bp]
+&= \paren[\big]{\tran{C} \tran{A}}_{k, j}.
+\end{align*}
+Thus $\tran{(AC)} = \tran{C} \tran{A}\3$, as desired.
+\end{Solution}
+
+\pagebreak[3]
+
+\exercise
+Suppose $A$ is an \by{m}{n} matrix with $A \ne 0$. Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \dots, c_m) \in \F{m}$ and $(d_1, \dots, d_n)\in \F{n}$ such that $A_{j,k} = c_j d_k$ for every $j = 1, \dots, m$ and every $k = 1, \dots, n$.
+
+\begin{Solution}
+First suppose there exist $(c_1, \dots, c_m) \in \F{m}$ and $(d_1, \dots, d_n)\in \F{n}$ such that $A_{j,k} = c_j d_k$ for every $j = 1, \dots, m$ and every $k = 1, \dots, n$. Let
+\[
+d = \mat{cccc}{d_1 & d_2 & \dots &d_n} \in \FF{1,n}.
+\]
+Then row $j$ of $A$ equals $c_j d$ for each $j = 1, \dots, m$. Thus each row of $A$ is in $\Span(d)$. Thus the row rank of $A$ is less than or equal to $1$. However, the rank of $A$ does not equal $0$ (because $A \ne 0$), and hence the rank of $A$ is $1$.
+
+To prove the other direction, suppose the rank of $A$ is $1$. Let
+\[
+d = \mat{cccc}{d_1 & d_2 & \dots &d_n} \in \F{1,n}
+\]
+be a row of $A$ that is not identically $0$ (such a row must exist because $A \ne 0$). Because $A$ has row rank $1$, for each $j = 1, \dots, m$ there exists $c_j \in \F{}$ such that row $j$ of $A$ equals $c_j d$. Hence $A_{j,k} = c_j d_k$ for every $j = 1, \dots, m$ and every $k = 1, \dots, n$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$, and $u_1, \dots, u_n$ and $v_1, \dots, v_n$ are bases of $V\1$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is injective.
+\item
+The columns of $\M(T)$ are linearly independent in $\FF{n,1}$.
+\item
+The columns of $\M(T)$ span $\FF{n,1}$.
+\item
+The rows of $\M(T)$ span $\FF{1,n}$.
+\item
+The rows of $\M(T)$ are linearly independent in $\FF{1,n}$.
+\end{subtheorem}
+Here $\M(T)$ means $\M\bigl( T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr)$.
+
+\begin{Solution}
+First suppose (a) holds, so $T$ is injective. Define $\fun S V {\F{n, 1}}$ by
+\[
+Sv = \mat{c}{a_1 \\ \vdots \\ a_n},
+\]
+where $a_1, \ldots, a_n \in \F{}$ are such that $v = a_1 v_1 + \cdots + a_n v_n$. Then $S$ is an injective linear map from $V$ to $\FF{n,1}$. Thus $ST$ is also  an injective linear map from $V$ to $\FF{n,1}$. Hence $STu_1, \dots, STu_n$ is a linearly independent list in $\F{n,1}$ (by Exercise \ref{3001} in Section \ref{3nullspace}). Because $STu_1, \dots, STu_n$ is the list of columns of $\M(T)$, we conclude that the columns of $\M(T)$ are linearly independent in $\FF{n,1}$, which shows that (a) implies (b).
+
+Now suppose (b) holds, so the columns of $\M(T)$ are linearly independent in $\FF{n,1}$. Then, because we have a linearly independent list of length $n$ in a vector space of dimension $n$, the list of columns of $\M(T)$ spans $\F{n,1}$ (by \ref{75}). Thus (b) implies (c).
+
+Now suppose (c) holds, so the columns of $\M(T)$ span $\FF{n,1}$. Thus the column rank of $\M(T)$ equals $n$, which implies that the row rank of $\M(T)$ equals $n$ (by \ref{3colrow}). Hence the rows of $\M(T)$ span $\FF{1,n}$, proving that (c) implies (d).
+
+Now suppose (d) holds, so the rows of $\M(T)$ span $\FF{1,n}$. Then, because we have a spanning list of length $n$ in a vector space of dimension $n$, the list of rows of $\M(T)$ is linearly independent in $\F{1,n}$ (by \ref{276}). Thus (d) implies~(e).
+
+Now suppose (e) holds, so the rows of $\M(T)$ are linearly independent in $\FF{1,n}$. Then, because we have a linearly independent list of length $n$ in a vector space of dimension $n$, this list also spans $\F{1,n}$ (by \ref{75}). Thus the row rank of $\M(T)$ equals $n$, which implies that the column rank of $\M(T)$ equals $n$ (by \ref{3colrow}). Hence the columns of $\M(T)$ span $\FF{1,n}$. Thus the columns of $\M(T)$ are linearly independent in $\F{n, 1}$ (by \ref{276}).
+
+To prove that $T$ is injective, suppose $u \in V$and $Tu = 0$. There exist $b_1, \ldots, b_n \in \F{}$ such that
+\[
+u = b_1 u_1 + \cdots + b_n u_n.
+\]
+Thus
+\[
+0 = Tu = b_1 Tu_1 + \cdots + b_n Tu_n.
+\]
+Applying the linear map $S$ defined in the first paragraph of this solution to both sides of the equation above, we have
+\[
+0 = STu = b_1 STu_1 + \cdots + b_n STu_n.
+\]
+However, $STu_1, \ldots, STu_n$ are the columns of $\M(T)$, which are linearly independent by the paragraph above. Thus the equation above implies that $b_1 = \cdots = b_n = 0$. This implies that $u = 0$. Hence $T$ is injective, completing the proof that (e) implies (a).
+\end{Solution}
+

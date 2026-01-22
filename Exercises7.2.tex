@@ -1,0 +1,210 @@
+
+\exercise
+Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.\label{7normalreal}
+\exercisecomment{This exercise strengthens the analogy \uppar{for normal operators} between self-adjoint operators and real
+numbers.}
+
+
+\exercise
+Suppose $\F{} = \C{}$. Suppose $T \in \L(V)$ is normal and has only one eigenvalue. Prove that $T$ is a scalar multiple of the identity operator.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is normal. Prove that the set of eigenvalues of $T$ is contained in $\br{0, 1}$ if and only if there is a subspace $U$ of $V$ such that $T = P_{\!U}$.
+
+
+\exercise
+Prove that a normal operator on a complex inner product space is skew (meaning it equals the negative of its adjoint) if and only if all its eigenvalues are purely imaginary (meaning that they have real part equal to~$0$).\index{skew operator}
+
+
+\exercise
+Prove or give a counterexample:  If $T \in \L\paren[\big]{\C{3}}$ is a diagonalizable operator, then $T$ is normal (with respect to the usual inner product).
+
+
+\exercise
+Suppose $V$ is a complex inner product space and $T \in \L(V)$ is a normal
+operator such that $T^9 = T^8\1$.  Prove that $T$ is self-adjoint and $T^2 =T\3$.
+
+
+\exercise
+Give an example of an operator $T$ on a complex vector space
+such that $T^9 = T^8$ but $T^2 \ne T\3$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is normal if and only if every eigenvector of $T$ is also an eigenvector of $T^*\1$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is normal if and only if there exists a polynomial $p \in \P(\C{})$ such that
+$T^* = p(T)$.\label{4pnormal}
+
+
+\exercise
+Suppose $V$ is a complex inner product space.  Prove that every normal
+operator on $V$ has a square root.
+\exercisecomment{An operator\/ $S \in \L(V)$ is called a
+\emph{square root}\index{square root of an operator} of\/ $T \in \L(V)$ if\/ $S^2 = T\3$. We will discuss more about square roots of operators in Sections \ref{POIUO} and \ref{8geneigde}.}
+
+
+\exercise
+Prove that every self-adjoint operator on $V$ has a cube root.
+\exercisecomment{An operator\/ $S \in \L(V)$ is called a
+\emph{cube root}\index{cube root of an operator} of\/ $T \in \L(V)$ if\/ $S^3 = T\3$.}
+
+
+\exercise
+Suppose $V$ is a complex vector space and $T \in \L(V)$ is normal. Prove that if $S$ is an operator on $V$ that commutes with $T$, then $S$ commutes with $T^*\1$.
+\exercisecomment{The result in this exercise is called Fuglede's theorem.}\index{Fuglede's theorem}\index{commuting operators}
+
+
+\begin{comment}
+Alternative solution:
+
+Suppose $v$ is an eigenvector of $T$ with corresponding eigenvalue $\la$. Thus $Tv = \la v$, which implies \sbr{because $T$ is normal; see \ref{746}(e)} that
+\[
+T^* v = \overline{\la}v.
+\]
+
+Now
+\begin{align*}
+ T(Sv) &= (TS)(v)\\[3bp]
+&= (ST)(v) \\[3bp]
+&= \la Sv.
+\end{align*}
+Using \ref{746}(e) again, the equation above implies that
+\[
+T^*(Sv) = \overline{\la} Sv.
+\]
+Hence
+\begin{align*}
+(ST^*)v &= S( \overline{\la} v ) \\[3bp]
+&= \overline{\la} Sv \\[3bp]
+&= (T^*S)(v).
+\end{align*}
+Thus $ST^*$ and $T^*S$ agree on all eigenvectors of $T\3$. Because $V$ has a basis consisting of eigenvectors of $T$ (by the complex spectral theorem), this implies that \mbox{$ST^* = T^*S$}, as desired.
+\end{comment}
+
+\exercise
+Without using the complex spectral theorem, use the version of Schur's theorem that applies to two commuting operators \big(take
+$\E = \br[\big]{T, T^*}$ in Exercise~\ref{3Schur} in Section~\ref{orthobases}\big) to give a different proof that if $\F{} = \C{}$ and $T \in \L(V)$ is normal, then $T$ has a diagonal matrix with respect to some orthonormal basis of $V\1$.\label{AltCST}
+
+
+\exercise
+Suppose $\F{} = \R{}$ and $T \in \L(V)$. Prove that $T$ is self-adjoint if and  only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and
+$
+V = E(\la_1, T) \oplus \dots \oplus E(\la_m, T)$,
+where $\la_1, \dots, \la_m$ denote the distinct eigenvalues of $T\3$.\label{7dirsum}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is normal if and  only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and\label{7dirsum2}
+$
+V = E(\la_1, T) \oplus \dots \oplus E(\la_m, T)$,
+where $\la_1, \dots, \la_m$ denote the distinct eigenvalues of $T\3$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $\E \subset \L(V)$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\E$ has a diagonal matrix if and only if $S$ and $T$ are commuting normal operators for all $S, T \in \E$.%
+ \label{5SimDiag}\index{commuting operators|(}
+\exercisecomment{This exercise extends the complex spectral theorem to the context of a \mbox{collection} of commuting normal operators.}
+
+
+\exercise
+Suppose $\F{} = \R{}$ and $\E \subset \L(V)$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\E$ has a diagonal matrix if and only if $S$ and $T$ are commuting self-adjoint operators for all $S, T \in \E$.%
+ \label{5SimDiagR}\index{commuting operators|)}
+\exercisecomment{This exercise extends the real spectral theorem to the context of a collection of commuting self-adjoint operators.}
+
+
+\exercise
+Give an example of a real inner product space $V$, an operator $T \in \L(V)$, and real numbers $b, c$ with $b^2 < 4 c$ such that
+\[
+T^2 + b T + c I
+\]
+is not invertible.
+\exercisecomment{This exercise shows that the hypothesis that\/ $T$ is self-adjoint cannot be deleted in~\ref{150}, even for real vector spaces.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is self-adjoint and $U$ is a subspace of $V$ that is invariant under $T\3$.\label{sa210}
+\begin{subtheorem}
+\item
+Prove that $U^\perp$ is invariant under\/ $T\3$.
+\item
+Prove that $T|_U \in \L(U)$ is self-adjoint.
+\item
+Prove that $T|_{U^\perp} \in \L\paren[\big]{U^\perp}$ is self-adjoint.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is normal and $U$ is a subspace of\/~$V$ that is invariant under\/~$T\3$.\label{7spectralalt}
+\begin{subtheorem}
+\item
+Prove that $U^\perp$ is invariant under\/ $T\3$.
+\item
+Prove that $U$ is invariant under\/ $T^*\1$.
+\item
+Prove that $(T|_U)^* = \paren[\big]{T^*}|_U$.
+\item
+Prove that $T|_U \in \L(U)$ and $T|_{U^\perp} \in \L\paren[\big]{U^\perp}$ are normal operators.
+\end{subtheorem}
+\exercisecomment{This exercise can be used to give yet another proof of the complex spectral theorem \uppar{use induction on\/ $\dim V$ and the result that\/ $T$ has an eigenvector}.}
+
+
+\exercise
+Suppose that $T$ is a self-adjoint operator on a finite-dimensional inner
+product space and that $2$ and $3$ are the only eigenvalues of~$T\3$.  Prove that
+\[
+T^2 - 5T + 6I = 0.
+\]
+\exercisedisplayend
+
+
+\exercise
+Give an example of an operator $T \in \L\paren[\big]{\C{3}}$ such that $2$ and $3$ are the only
+eigenvalues of $T$ and
+$
+T^2 - 5T + 6I \ne 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is self-adjoint, $\la \in \F{}\3$, and $\epsilon > 0$.  Suppose
+there exists $v \in V$ such that $\|v\| = 1$ and
+\[
+\|Tv - \la v\| < \epsilon.
+\]
+Prove that $T$ has an eigenvalue $\la'$ such that $\abs[\big]{\la - \la'} < \epsilon$.
+\exercisecomment{This exercise shows that for a self-adjoint operator, a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.}
+
+
+\begin{comment}
+\exercise
+Give an alternative proof of the complex spectral theorem that avoids Schur's theorem and instead follows the pattern of the proof of the real spectral theorem.
+
+\end{comment}
+
+\exercise
+Suppose $U$ is a finite-dimensional vector space and $T \in \L(U)$.\label{Diag2}\index{basis!of eigenvectors}
+\begin{subtheorem}
+\item
+Suppose $\F{} = \R{}$. Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis equals its transpose.
+\item
+Suppose $\F{} = \C{}$. Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis commutes with its conjugate transpose.
+\end{subtheorem}
+\exercisecomment{This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in \ref{427}.}
+
+
+\exercise
+Suppose that $T \in \L(V)$ and there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$, with corresponding eigenvalues $\la_1, \ldots, \la_n$. Show that if
+$k \in \br{1, \ldots, n}$, then the pseudoinverse $T^\dagger$ satisfies the equation\index{pseudoinverse}
+\[
+T^\dagger e_k = \begin{cases}
+\frac{1}{\la_k} e_k & \text{if } \la_k \ne 0, \\[6bp]
+0 & \text{if } \la_k = 0.
+\end{cases}
+\]
+\exercisedisplayend
+
+

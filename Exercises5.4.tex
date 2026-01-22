@@ -1,0 +1,200 @@
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space and $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Prove that if $T^4 = I$, then $T$ is diagonalizable.
+\item
+Prove that if $T^4 = T$, then $T$ is diagonalizable.
+\item
+Give an example of an operator $T \in \L\paren[\big]{\C2}$ such that $T^4 = T^2$ and $T$ is not diagonalizable.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ has a diagonal matrix $A$ with respect to some
+basis of $V\1$. Prove that if $\la \in \F{}\3$, then $\la$ appears on the diagonal of $A$ precisely $\dim E(\la, T)$ times.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.
+Prove that if the operator $T$ is diagonalizable, then $V = \ker T \oplus \ran T\3$.\label{5diagdir}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the following are equivalent.\label{nullrandir}
+\begin{subtheorem}*
+\item
+$V = \ker T \oplus \ran T\3$.
+\item
+$V = \ker T + \ran T\3$.
+\item
+$\ker T \cap \ran T = \{0\}$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\begin{comment}
+\exercise
+Give an example to show that the exercise above is false without the assumption that $V$ is finite-dimensional.
+
+\end{comment}
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if \label{diagKerRan}\index{diagonalizable}
+\[
+V = \ker(T - \la I) \oplus \ran(T - \la I)
+\]
+for every $\la \in \C{}$.
+
+
+\begin{comment}
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$ has $\dim V$ distinct eigenvalues, and
+$S \in \L(V)$ has the same eigenvectors as $T$ (not necessarily with the
+same eigenvalues).  Prove that $ST = TS$.
+
+\end{comment}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F{5}}$ and $\dim E(8, T) = 4$. Prove that $T - 2I$ or $T - 6I$ is invertible.
+
+\pagebreak[1]
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that
+\[
+E(\la, T) = E\paren[\Big]{\tfrac{1}{\la}, T^{-1}}
+\]
+for every $\la \in \F{}$ with $\la \ne 0$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $\la_1, \dots, \la_m$ denote the distinct nonzero eigenvalues of $T\3$. Prove that
+\[
+\dim E(\la_1, T) + \dots + \dim E(\la_m, T) \le \dim \ran T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $R, T \in \L\paren[\big]{\F3}$ each have $2$, $6$, $7$ as eigenvalues. Prove that there exists an invertible operator $S \in \L\paren[\big]{\F3}$ such that $R = S^{-1} T S$.
+
+
+\exercise
+Find $R, T \in \L\paren[\big]{\F4}$ such that $R$ and $T$ each have $2$, $6$, $7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S \in \L\paren[\big]{\F4}$ such that $R = S^{-1} T S$.
+
+
+\exercise
+Find $T \in \L\paren[\big]{\C3}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\CC3$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C3}$ is such that $6$ and $7$ are eigenvalues of $T\3$. Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\CC3$. Prove that there exists $(z_1, z_2, z_3) \in \C3$ such that
+\[
+T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $A$. Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of a finite-dimensional complex vector space and an operator $T$ on that vector space such that $T^2$ is diagonalizable but $T$ is not diagonalizable.
+\item
+Suppose $\F{} = \C{}$, $k$ is a positive integer, and $T \in \L(V)$ is invertible. Prove that $T$ is diagonalizable if and only if $T^k$ is diagonalizable.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Prove that the following are equivalent.\label{2gcd}\index{minimal polynomial!gcd with its derivative}
+\begin{subtheorem}*
+\item
+$T$ is diagonalizable.
+\item
+There does not exist $\la \in \C{}$ such that $p$ is a polynomial multiple of $(z-\la)^2\1$.
+\item
+$p$ and its derivative $p'$ have no zeros in common.
+\item
+The greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
+\end{subtheorem}
+\exercisecomment{The \textbf{greatest common divisor} of\/ $p$ and\/ $p'$ is the monic polynomial\/ $q$ of largest degree such that\/ $p$ and\/ $p'$ are both polynomial multiples of\/ $q$. The Euclidean algorithm for polynomials \uppar{look it up} can quickly determine the greatest common divisor of two polynomials, without requiring any information about the zeros of the polynomials. Thus the equivalence of \uppar{a} and \uppar{d} above shows that we can determine whether\/ $T$ is diagonalizable without knowing anything about the zeros of\/ $p$.}
+
+
+\exercise
+Suppose that $T \in \L(V)$ is diagonalizable. Let~$\la_1, \ldots, \la_m$ denote the distinct eigenvalues of $T\3$. Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that
+$U_k \subset E(\la_k, T)$ for each $k$ and
+$
+U = U_1 \oplus \cdots \oplus U_m$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Prove that $\L(V)$ has a basis consisting of diagonalizable operators.\label{5basisdiag}
+
+
+\exercise
+Suppose that $T \in \L(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T\3$. Prove that the quotient operator $T\3/U$ is a diagonalizable operator on $V\1/U$.\index{quotient!operator}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ and $T\3/U$ are both diagonalizable, then $T$ is diagonalizable.
+\exercisecomment{See Exercise \ref{6Tutm} in Section \ref{4utm} for an analogous statement about upper-triangular matrices.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.\index{dual!of a linear map}
+
+
+\exercise
+The \emph{Fibonacci sequence} $F_0, F_1, F_2, \dots$ is defined by\index{Fibonacci sequence} \label{Fibonacci}
+\[
+F_0 = 0,\ F_1 = 1, \text{ and }F_n = F_{n-2} + F_{n-1} \text{\ for\ } n \ge 2.
+\]
+Define $T \in \L\paren[\big]{\R2}$ by $T(x, y) = (y, x+y)$.
+\begin{subtheorem}
+\item
+Show that $T^n(0, 1) = (F_n, F_{n+1})$ for each nonnegative integer $n$.
+\item
+Find the eigenvalues of $T\3$.
+\item
+Find a basis of $\R2$ consisting of eigenvectors of $T\3$.
+\item
+Use the solution to (c) to compute $T^n(0, 1)$. Conclude that
+\[
+F_n = \frac{1}{\sqrt{5}} \Biggl[ \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}
+-\paren[\Bigg]{ \frac{1 - \sqrt{5}}{2} }^{\!n} \Biggr]
+\]
+for each nonnegative integer $n$.
+\item
+Use (d) to conclude that if $n$ is a nonnegative integer, then the Fibonacci number $F_n$ is the integer that is closest to
+\[
+\frac{1}{\sqrt{5}}  \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}.
+\]
+\end{subtheorem}
+\exercisecomment{Each\/ $F_n$ is a nonnegative integer, even though the right side of the formula in \uppar{d} does not look like an integer. The number
+\[
+\frac{1 + \sqrt{5}}{2}
+\]
+is called the \emph{golden ratio}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $A$ is an \by{n}{n} matrix that is the matrix of $T$ with respect to some basis of $V$. Prove that if
+\[
+\abs{ A_{j,j} } > \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \abs{A_{j,k}}
+\]
+for each $j \in \br{1, \ldots, n}$, then $T$ is invertible.\label{5Gershgor}
+\exercisecomment{This exercise states that if the diagonal entries of the matrix of\/ $T$ are large compared to the nondiagonal entries, then\/ $T$ is invertible.}
+
+
+\exercise
+Suppose the definition of the Gershgorin disks is changed so that the radius of the $k^\nth$ disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry. Show that the Gershgorin disk theorem (\ref{5Gershg}) still holds with this changed definition.\label{5Gershgo}
+
+

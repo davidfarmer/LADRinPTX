@@ -1,0 +1,932 @@
+
+\exercise
+Explain why each linear functional is surjective or is the zero map.
+
+\begin{Solution}
+A linear functional is a linear map into $\F{}\3$. The range of a linear map is a subspace of the target space. The only subspaces of $\F{}$ are $\F{}$ and $\{0\}$. Thus each linear functional is surjective (if the range equals $\F{}$) or is the zero map (if the range equals $\{0\})$.
+\end{Solution}
+
+\exercise
+Give three distinct examples of linear functionals on $\RR{[0,1]}$.
+
+\begin{Solution}
+For $t \in [0, 1]$, define $\phi_t \colon \R{[0,1]} \to \R{}$ by
+\[
+\phi_t(f) = f(t)
+\]
+for each $f \in \R{[0,1]}$.
+
+For each $t \in [0, 1]$, $\phi_t$ is a linear functional on $\R{[0,1]}$. Thus three distinct linear functionals on $\R{[0,1]}$ are $\phi_0$, $\phi_{\frac{1}{2}}$, and $\phi_1$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $v \in V$ with $v \ne 0$. Prove that there exists $\phi \in V'$ such that $\phi(v) = 1$. \label{HB1}
+
+\begin{Solution}
+Because $v \ne 0$, we can extend $v$ to a basis $v, v_2, \dots, v_n$ of $V$ (by \ref{9}). Now the linear map lemma (\ref{3linearmap}) implies that there exists $\phi \in V'$ such that $\phi(v) = 1$ [and $\phi(v_k)$ equals whatever we want for each $k = 2, \dots, n$].
+\end{Solution}
+
+\exercise  \label{4321}
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $U \ne V\1$. Prove that there exists $\phi \in V'$ such that $\phi(u) = 0$ for every $u \in U$ but~$\phi \ne 0$.
+
+\begin{Solution}
+Let $u_1, \dots, u_m$ be a basis of $U$. Extend this list to a basis
+\[
+u_1, \dots, u_m, v_1, \dots, v_n
+\]
+of $V$ (using \ref{9}). Now the linear map lemma (\ref{3linearmap}) implies that there exists $\phi \in V'$ such that
+\[
+\phi(u_k) = 0 \text{\ for\ } k = 1,\dots, m
+\]
+and
+\[
+\phi(v_k) = 1 \text{\ for\ } k = 1, \dots,n.
+\]
+Thus $\phi(u) = 0$ for every $u \in U$ but $\phi \ne 0$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $w_1, \ldots, w_m$ is a basis of $\ran T\3$. Hence for each $v \in V\1$, there exist unique numbers
+$\phi_1(v), \ldots, \phi_m(v)$ such that
+\[
+Tv = \phi_1(v) w_1 + \cdots + \phi_m(v) w_m,
+\]
+thus defining functions $\phi_1, \ldots, \phi_m$ from $V$ to $\F{}\3$.
+Show that each of the functions $\phi_1, \ldots, \phi_m$ is a linear functional on $V\1$.
+
+\begin{Solution}
+Suppose $u, v \in V\1$. Then
+\begin{align*}
+\phi_1(u&+v) w_1 + \cdots + \phi_m(u+v) w_m \\
+&= T(u+v) \\
+&= Tu + Tv \\
+&= \paren[\big]{\phi_1(u) w_1 + \cdots + \phi_m(u) w_m} + \paren[\big]{\phi_1(v) w_1 + \cdots + \phi_m(v) w_m}\\
+&= \paren[\big]{ \phi_1(u) + \phi_1(v) } w_1 + \cdots + \paren[\big]{ \phi_w(u) + \phi_m(v) } w_m.
+\end{align*}
+Because $w_1, \ldots, w_m$ is linearly independent, the equation above shows that
+\[
+\phi_1(u+v) = \phi_1(u) + \phi_1(v), \; \ldots, \; \phi_m(u+v) = \phi_m(u) + \phi_m(v).
+\]
+
+Similarly, suppose now that $\la \in \F{}$ and $v \in V\1$. Then
+\begin{align*}
+\phi_1(\la v) w_1 + \cdots + \phi_m(\la v) w_m &= T(\la v) \\
+&=\la Tv \\
+&= \la \paren[\big]{\phi_1(v) w_1 + \cdots + \phi_m(v) w_m}\\
+&= \la \phi_1(v) w_1 + \cdots + \la \phi_m(v) w_m.
+\end{align*}
+Because $w_1, \ldots, w_m$ is linearly independent, the equation above shows that
+\[
+\phi_1(\la v) = \la \phi_1(v), \; \ldots, \; \phi_m(\la v) = \la \phi_m(v),
+\]
+completing the proof that each of the functions $\phi_1, \ldots, \phi_m$ is a linear functional on $V\1$.
+\end{Solution}
+
+\exercise
+Suppose $\phi, \beta \in V'\!$. Prove that $\ker \phi \subset \ker \beta$ if and only if there exists $c \in \F{}$ such that $\beta = c \phi$.\label{7nullsub}
+
+\begin{Solution}
+If $\beta = c \phi$ for some $c \in \F{}\3$, then clearly $\ker \phi \subset \ker \beta$.
+
+The implication in the other direction follows from Exercise \ref{kerT1} in Section \ref{3nullspace} (with $W = \F{}$) and from Exercise \ref{dualone} in Section \ref{vslinear}.
+\end{Solution}
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are vector spaces. Prove that $(V\1_1 \times \dots \times V\1_m)'$ and ${V\1_1}' \times \dots \times {V\1_m}'$ are isomorphic vector spaces.
+
+\begin{Solution}
+For $k = 1, \dots, m$ and $\phi \in (V\1_1 \times \dots \times V\1_m)'\!$, define $\phi_k \in {V\1_k}'$ by
+\[
+\phi_k(v) = \phi( 0, \dots, 0, v, 0, \dots, 0),
+\]
+for each $v \in V\1_k$, where the $v$ on the right side above appears in the $k^\nth$ slot.
+
+Now define $\Gamma \colon (V\1_1 \times \dots \times V\1_m)' \to {V\1_1}' \times \dots \times {V\1_m}'$ by
+\[
+\Gamma \phi = (\phi_1, \dots, \phi_n).
+\]
+It is easy to verify that $\Gamma$ is a linear map and that $\Gamma$ is injective and surjective. Thus $(V\1_1 \times \dots \times V\1_m)'$ and ${V\1_1}' \times \dots \times {V\1_m}'$ are isomorphic vector spaces.
+\end{Solution}
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the dual basis of $V'\!$. Define $\fun \Gamma  V {\F n}$ and
+$\fun \Lambda {\F n} V$ by
+\[
+\Gamma(v) = \paren[\big]{ \phi_1(v), \ldots, \phi_n(v) }
+\andd
+\Lambda(a_1, \ldots, a_n) = a_1 v_1 + \cdots + a_n v_n.
+\]
+Explain why $\Gamma$ and $\Lambda$ are inverses of each other.
+
+\begin{Solution}
+First suppose $a_1, \ldots, a_n \in \F n$. Then
+\begin{align*}
+\Gamma\paren[\big]{ \Lambda(a_1, \ldots, a_n) } &= \Gamma( a_1 v_1 + \cdots + a_n v_n ) \\
+&= \paren[\big]{ \phi_1( a_1 v_1 + \cdots + a_n v_n ), \ldots, \phi_n( a_1 v_1 + \cdots + a_n v_n ) }\\
+&= (a_1, \ldots, a_n).
+\end{align*}
+
+Also,
+\begin{align*}
+\Lambda\paren[\big]{\Gamma(v) } &= \Lambda\paren[\big]{ \phi_1(v), \ldots, \phi_n(v) } \\
+&=  \phi_1(v) v_1 + \cdots \phi_n(v) v_n \\
+&= v,
+\end{align*}
+where the last line follows from \ref{3dualbasis}.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer. Show that the dual basis of the basis $1, x, \dots, x^m$ of $\P\1_m(\R{})$ is $\phi_0, \phi_1, \dots, \phi_m$, where
+\[
+\phi_k(p) = \frac{p^{(k)}(0)}{k!}.
+\]
+Here $p^{(k)}$ denotes the $k^\nth$ derivative  of $p$, with the understanding that the $0^\nth$ derivative of $p$ is $p$.
+
+\begin{Solution}
+Note that
+\[
+\phi_k(x^j) = \frac{ (x^j)^{(k)}(0) }{k!}
+= \begin{cases} 1 & \text{if\ } j = k, \\
+0 & \text{if\ } j \ne k.
+\end{cases}
+\]
+Thus $\phi_0, \phi_1, \dots, \phi_m$ is indeed the dual basis of $1, x, \dots, x^m\!$.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer.
+\begin{subtheorem}
+\item
+Show that $1, x-5, \dots, (x-5)^m$ is a basis of $\P\1_m(\R{})$.
+\item
+What is the dual basis of the basis in (a)?
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Define $\phi_0, \phi_1, \dots, \phi_m \in \bigl(\P\1_m(\R{})\bigr)'$ by
+\[
+\phi_j(p) = \frac{p^{(j)}(5)}{j!}.
+\]
+
+Suppose $a_0, a_1, \dots, a_m \in \R{}$ and
+\[
+a_0 + a_1(x-5) + \dots + a_m(x-5)^m = 0.
+\]
+Then for each $j = 0, 1, \dots, m$, we have
+\[
+a_j = \phi_j \bigl( a_0 + a_1(x-5) + \dots + a_m(x-5)^m \bigr) = \phi_j(0) = 0.
+\]
+Thus $a_0 = a_1 = \dots = a_m = 0$. Hence $1, x-5, \dots, (x-5)^m$ is linearly independent list in $\P\1_m(\R{})$ of length $m + 1$, which equals the dimension of $\P\1_m(\R{})$. Thus
+$1, x-5, \dots, (x-5)^m$ is a basis of $\P\1_m(\R{})$ (by \ref{75}).
+
+\item
+Let $\phi_0, \phi_1, \dots, \phi_m \in \bigl(\P\1_m(\R{})\bigr)'$ be defined as in (a). Then
+\[
+\phi_j\bigl( (x-5)^k \bigr) = \begin{cases} 1 & \text{if\ } k = j, \\
+0 & \text{if\ } k \ne j.
+\end{cases}
+\]
+Thus $\phi_0, \phi_1, \dots, \phi_m$ is the dual basis of $1, x-5, \dots, (x-5)^m\!$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $\phi_1, \dots, \phi_n$ is the corresponding dual basis of $V'\!$. Suppose $\psi \in V'\!$. Prove that
+\[
+\psi = \psi(v_1) \phi_1 + \dots + \psi(v_n) \phi_n.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+We have
+\[
+\bigl( \psi(v_1) \phi_1 + \dots + \psi(v_n) \phi_n\bigr)(v_k) = \psi(v_k)
+\]
+for each $k = 1, \dots, n$. Because the linear functionals $ \psi(v_1) \phi_1 + \dots + \psi(v_n) \phi_n$ and $\psi$ agree on a basis, they are equal by the uniqueness part of the linear map lemma (\ref{3linearmap}).
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V\1, W)$.
+\begin{subtheorem}
+\item
+Prove that $(S + T)' = S' + T'\!$.
+\item
+Prove that $(\la T)' = \la T'$ for all $\la \in \F{}\3$.
+\end{subtheorem}
+\exercisecomment{This exercise asks you to verify \uppar{a} and \uppar{b} in \ref{3dualmaps}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+We have
+\begin{align*}
+(S + T)' \! (\phi) &= \phi \circ (S + T) \\
+&= \phi \circ S + \phi \circ T \\
+&= S' \! (\phi) + T' \! (\phi).
+\end{align*}
+Thus $(S+T)' = S' + T'$, as desired.
+
+\item
+Suppose $\la \in \F{}\3$. Then
+\begin{align*}
+(\la T)' \! (\phi) &= \phi \circ (\la T) \\
+&= \la (\phi \circ T) \\
+&= \la T' \! (\phi).
+\end{align*}
+Thus $(\la T)' = \la T'$, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Show that the dual map of the identity operator on $V$ is the identity operator on~$V'\!$.
+
+\begin{Solution}
+Let $I$ denote the identity operator on $V\1$. For $\phi \in V'$ we have
+\[
+I' \! (\phi) = \phi \circ I = \phi.
+\]
+Thus $I'$ is the identity operator on $V'\!$.
+\end{Solution}
+
+\exercise
+Define $T \colon \R{3} \to \R2$ by
+\[
+T(x, y, z) = (4x + 5y + 6z, 7x + 8y + 9z).
+\]
+Suppose $\phi_1, \phi_2$ denotes the dual basis of the standard basis of $\R2$ and $\psi_1, \psi_2, \psi_3$ denotes the dual basis of the standard basis of $\RR3$.
+\begin{subtheorem}
+\item
+Describe the linear functionals $T' \! (\phi_1)$ and $T' \! (\phi_2)$.
+\item
+Write $T' \! (\phi_1)$ and $T' \! (\phi_2)$ as linear combinations of $\psi_1, \psi_2, \psi_3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Note that $\phi_1(a,b) = a$ and $\phi_2(a, b) = b$ for all $(a, b) \in \RR2$.
+
+Recall that $T' \! (\phi_1) = \phi_1 \circ T$ and $T' \! (\phi_2) = \phi_2 \circ T\3$. Thus
+\[
+\bigl( T' \! (\phi_1) \bigr)(x, y, z) = 4x + 5y + 6z
+\]
+and
+\[
+\bigl( T' \! (\phi_2) \bigr)(x, y, z) = 7x + 8y + 9z.
+\]
+
+\item
+We have $\psi_1(x, y, z) = x$, $\psi_2(x, y, z) = y$, and $\psi_3(x, y, z) = z$. Using (a), we thus see that
+\[
+T' \! (\phi_1) = 4 \psi_1 + 5 \psi_2 + 6 \psi_3
+\]
+and
+\[
+T' \! (\phi_2) = 7 \psi_1 + 8 \psi_2 + 9 \psi_3.
+\]
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Define $T \colon \P(\R{})\to \P(\R{})$ by
+\[
+(Tp)(x) = x^2 p(x) + p'' \! (x)
+\]
+for each $x \in \R{}$.
+\begin{subtheorem}
+\item
+Suppose $\phi \in \P(\R{})'$ is defined by \mbox{$\phi(p) = p' \! (4)$}.
+Describe the linear functional $T' \! (\phi)$ on $\P(\R{})$.
+\item
+Suppose $\phi \in \P(\R{})'$ is defined by
+$
+\phi(p) = \int_0^1 p$.
+Evaluate $\bigl(T' \! (\phi)\bigr)(x^3)$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $p \in \P(\R{})$. Then
+\begin{align*}
+\bigl( T' \! (\phi) \bigr)(p) &= (\phi \circ T)(p) \\
+&= \phi ( Tp ) \\
+&= \phi( x^2 p + p'') \\
+&= (x^2 p + p'')' \! (4) \\
+&= (2xp + x^2 p '+ p''')(4) \\
+&= 8p(4) + 16 p' \! (4) + p''' \! (4).
+\end{align*}
+
+\item
+We have
+\begin{align*}
+\bigl( T' \! (\phi) \bigr)(x^3) &= (\phi \circ T)(x^3) \\
+&= \phi ( Tx^3 ) \\
+&= \phi ( x^5 + 6x) \\
+&= \int_0^1 (x^5 + 6x) \, dx \\[3bp]
+&= \frac{19}{6}.
+\end{align*}
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1, W)$. Prove that \label{Tprime}
+\[
+T' = 0 \iff T = 0.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First suppose $T = 0$. If $\phi \in W'\!$, then $T' \! (\phi) = \phi \circ T = 0$, and thus $T' = 0$.
+
+To prove the other direction, now suppose $T' = 0$. Thus
+\[
+0 = T' \! (\phi) = \phi \circ T
+\]
+for every $\phi \in W'\!$. Thus
+\[
+0 = \phi(Tv)
+\]
+for every $v \in V$ and every $\phi \in W'\!$. Exercise \ref{HB1} now implies that $Tv = 0$ for every $v \in V\1$. Thus $T = 0$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that $T$ is invertible if and only if $T' \in \L\paren[\big]{W', V'}$ is invertible.
+
+\begin{Solution}
+A linear map is invertible if and only if it is injective and surjective. Thus the desired result follows from \ref{TsurTprimeinj} and \ref{TinjTprimesur}.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional. Prove that the map that takes $T \in \L(V\1,W)$ to $T' \in \L\paren[\big]{W', V'}$ is an isomorphism of $\L(V\1,W)$ onto $\L\paren[\big]{W', V'}$.
+
+\begin{Solution}
+Define $\Gamma \colon \L(V\1,W) \to \L\paren[\big]{W', V'}$ by $\Gamma(T) = T'\!$. By \ref{3dualmaps}, $\Gamma$ is a linear map.
+
+Exercise \ref{Tprime} implies that $\Gamma$ is injective. Note that
+\begin{align*}
+\dim \L(V\1, W) &= (\dim V)(\dim W) \\
+&= \paren[\big]{\dim V'} \paren[\big]{\dim W'} \\
+&= \paren[\big]{\dim W'} \paren[\big]{\dim V'} \\
+&= \dim \L\paren[\big]{W', V'},
+\end{align*}
+where the first and last equalities above come from \ref{247}
+and the second equality above comes from \ref{3dimdual}.
+
+The fundamental theorem of linear maps (\ref{3ab11}) and the equation above now imply that $\dim \ran \Gamma = \dim (\L(W', V')$. Thus $\Gamma$ is surjective and hence is an isomorphism of $\L(V\1,W)$ onto $\L(W', V')$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $U \subset V\1$. Explain why
+\[
+U^0 = \br[\big]{\phi \in V': U \subset \ker \phi}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+By definition,
+\[
+U^0 = \{\phi \in V': \phi(u) = 0 \text{\ for all\ } u \in U\}.
+\]
+However, $\phi(u) = 0$ for all $u \in U$ if and only if $U \in \ker \phi$. Thus
+\[
+U^0 = \{\phi \in V': U \subset \ker \phi\}.
+\]
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Show that\label{3Uan}
+\[
+U = \br[\big]{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+If $u \in U$, then $\phi(u) = 0$ for every $\phi \in U^0\!$. Thus
+\[
+U \subset \{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0\}.
+\]
+
+To prove the inclusion in the other direction, suppose $w \in V$ but $w \notin U$. Let $u_1, \dots, u_m$ be a basis of $U$. Because $w \notin U$, the list $u_1, \dots, u_m, w$ is linearly independent and hence can be extended to a basis of $V\1$. Thus by the linear map lemma (\ref{3linearmap}), there exists $\psi \in V'$ such that
+\[
+\psi(u_k) = 0 \text{\ for \ } k = 1, \dots, m \andd \psi(w) = 1.
+\]
+Thus $\psi \in U^0$ but $\psi(w) \ne 0$. Hence
+\[
+w \notin \{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0\}.
+\]
+Thus
+\[
+U \supset \{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0\},
+\]
+which implies that
+\[
+U = \{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0\},
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V\1$.
+\begin{subtheorem}
+\item
+Prove that $W^0 \subset U^0$ if and only if $U \subset W\3$.
+\item
+Prove that $W^0 = U^0$ if and only if $U = W\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+First suppose $U \subset W\3$. Suppose $\phi \in W^0\!$. If $u \in U$, then $u \in W\3$, and hence $\phi(u) = 0$. Thus $\phi \in U^0\!$. Hence $W^0 \subset U^0\!$.
+
+To prove the implication in the other direction, now suppose $W^0 \subset U^0\!$. Suppose $u \in U$. Thus $\phi(u) = 0$ for every $\phi \in U^0\!$. Hence $\phi(u) = 0$ for every $\phi \in W^0\!$. Now Exercise \ref{3Uan} implies that $u \in W\3$. Thus $U \subset W\3$, as desired.
+
+\item
+If $U = W\3$, then clearly $W^0 = U^0\!$.
+
+To prove the implication in the other direction, now suppose $W^0 = U^0\!$. Then $W^0 \subset U^0$ and $U^0 \subset W^0\!$. Now (a) implies that $U \subset W$ and $W \subset U$. Thus $U = W\3$, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V\1$.\label{2222}
+\begin{subtheorem}
+\item
+Show that $(U + W)^0 = U^0 \cap W^0\!$.
+\item
+Show that $(U \cap W)^0 = U^0 + W^0\!$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+First suppose $\phi \in (U + W)^0\!$. Then $\phi(u + w) = 0$ for all $u \in U$ and all $w \in W\3$. Taking $w = 0$ and then taking $u = 0$, in particular we see that $\phi(u) = 0$ for all $u \in U$ and $\phi(w) = 0$ for all $w \in W\3$. Thus $\phi \in U^0$ and $\phi \in W^0\!$. In other words, $\phi \in U^0 \cap W^0\!$. Thus $(U + W)^0 \subset U^0 \cap W^0\!$.
+
+To prove the inclusion in the other direction, suppose $\phi \in U^0 \cap W^0\!$. If $u \in U$ and $w \in W\3$, then
+\[
+\phi(u + w) = \phi(u) + \phi(w) = 0 + 0 = 0.
+\]
+Hence $\phi \in (U+W)^0\!$. Thus $(U + W)^0 \supset U^0 \cap W^0\!$.
+
+Thus $(U + W)^0 = U^0 \cap W^0$, as desired.
+
+\item
+First suppose $\phi \in U^0 + W^0\!$. Thus $\phi = \phi_1 + \phi_2$, where $\phi_1 \in U^0$ and $\phi_2 \in W^0\!$. If $v \in U \cap W\3$, then
+\[
+\phi(v) = \phi_1(v) + \phi_2(v) = 0 + 0 = 0.
+\]
+Hence $\phi \in (U \cap W)^0\!$. Thus
+\[
+U^0 + W^0 \subset (U \cap W)^0\!.
+\]
+
+To show that the inclusion above is an equality, we will show that both sides have the same dimension. We have
+\begin{align*}
+\dim(U\cap W)^0 &= \dim V - \dim(U \cap W) \\
+&= \dim V - \bigl(\dim U + \dim W - \dim(U+W) \bigr) \\
+&= \dim U^0 + \dim W^0 - \dim(U+W)^0 \\
+&= \dim U^0 + \dim W^0 - \dim(U^0 \cap W^0) \\
+&= \dim( U^0 + W^0 ),
+\end{align*}
+where the first equality comes from \ref{dimannih}, the second equality comes from \ref{128}, the third equality comes from \ref{dimannih}, the fourth equality comes from Exercise \ref{2222}(a), and the fifth equality comes from \ref{128}.
+
+The equality of dimensions along with the inclusion above show that
+\[
+(U \cap W)^0 = U^0 + W^0,
+\]
+as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_m \in V'\!$. Prove that the following three sets are equal to each other.\label{3intersectnull}
+\begin{subtheorem}*
+\item
+$\Span(\phi_1, \dots, \phi_m)$
+\item
+$\bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0$
+\item
+$\br[\big]{ \phi \in V': (\ker \phi_1) \cap \dots \cap (\ker \phi_m) \subset \ker \phi }$
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+Let $A$ denote the set in (a), $B$ denote the set in (b), and $C$ denote the set in (c).
+
+We will prove that $A = B$ by induction on~$m$. For $m = 1$, we need to show that
+\[
+\Span(\phi_1) = (\ker \phi_1)^0\!.
+\]
+The inclusion $\Span(\phi_1) \subset (\ker \phi_1)^0$ follows from the definitions. To prove the inclusion in the other direction, suppose
+$\psi \in (\ker \phi_1)^0\!$. Thus $\ker \phi_1 \subset \ker \psi$. Now Exercise \ref{7nullsub} implies $\psi \in \Span(\phi_1)$, as desired.
+
+Now suppose that $m >1$ and that the desired result holds when $m$ is replaced with $m-1$. Then
+\begin{align*}
+\Span(\phi_1, \dots, \phi_m) &= \Span(\phi_1, \dots, \phi_{m-1}) + \Span(\phi_m) \\[3bp]
+&= \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_{m-1})\bigr)^0 + (\ker \phi_m)^0 \\[3bp]
+&= \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0,
+\end{align*}
+where the second equality above comes from our induction hypothesis and the third equality above comes from Exercise \ref{2222}(b). The last equality above completes the proof that $A = B$.
+
+Now suppose $\phi \in A$. Thus there exist $a_1, \ldots, a_m$ such that
+\[
+\phi = a_1 \phi_1 + \cdots + a_m \phi_m.
+\]
+The equation above shows that if $v \in (\ker \phi_1) \cap \dots \cap (\ker \phi_m)$, then $\phi(v) = 0$ and hence $v \in \ker \phi$. Thus $\phi \in C$, proving that
+$A \subset C$.
+
+Now suppose $\phi \in C$. Thus
+\[ \tag{$(*)$}
+(\ker \phi_1) \cap \dots \cap (\ker \phi_m) \subset \ker \phi.
+\]
+To show that $\phi \in B$, suppose $v \in (\ker \phi_1) \cap \dots \cap (\ker \phi_m)$. Thus $(*)$ shows that $v \in \ker \phi$. Hence $\phi(v) = 0$, which shows that $\phi \in B$. Thus $C \subset B$, completing the proof.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $v_1, \dots, v_m \in V\1$. Define a linear map $\Gamma \colon V' \to \F{m}$ by
+$
+\Gamma(\phi) = \bigl(\phi(v_1), \dots, \phi(v_m) \bigr)$.
+\begin{subtheorem}
+\item
+Prove that $v_1, \dots, v_m$ spans $V$ if and only if $\Gamma$ is injective.
+\item
+Prove that $v_1, \dots, v_m$ is linearly independent if and only if $\Gamma$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+First suppose $v_1, \dots, v_m$ spans $V\1$. If $\phi \in V'$ and $\Gamma(\phi) = 0$, then
+\[
+\phi(v_1) = \dots = \phi(v_m) = 0,
+\]
+which implies that $\phi(v) = 0$ for all $v \in V\1$, which implies that $\phi = 0$. Thus $\Gamma$ is injective.
+
+To prove the implication in the other direction, we will prove its contrapositive. Thus suppose $v_1, \ldots, v_m$ does not span $V\1$. Thus there exists $\phi \in V'$ such that $\phi$ equals $0$ on $\Span(v_1, \ldots, v_m)$ but $\phi \ne 0$. Thus $\Gamma(\phi) = 0$, which implies that $\Gamma$ is not injective, as desired.
+
+\item
+First suppose $v_1, \dots, v_m$ is linearly independent. Then the list $v_1, \dots, v_m$ can be extended to a basis of $V\1$. Hence the linear map lemma (\ref{3linearmap}) implies that $\phi(v_1), \dots, \phi(v_m)$ can take on any values we choose. Thus $\Gamma$ is surjective.
+
+Conversely, suppose $\Gamma$ is surjective. Thus it is not possible to write any $v_k$ as a linear combination of $v_1, \dots, v_{k-1}$ because doing so would contradict the existence of $\phi \in V'$ such that
+\[
+\phi(v_1) = \dots = \phi(v_{k-1}) = 0 \text{\quad but \quad} \phi(v_k) = 1.
+\]
+The linear dependence lemma (\ref{4}) now implies $v_1, \dots, v_m$ is linearly independent, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_m \in V'\!$. Define a linear map $\Gamma \colon V \to \F{m}$ by
+$
+\Gamma(v) = \paren[\big]{ \phi_1(v), \dots, \phi_m(v) }$.
+\begin{subtheorem}
+\item
+Prove that $\phi_1, \dots, \phi_m$ spans $V'$ if and only if $\Gamma$ is injective.
+\item
+Prove that $\phi_1, \dots, \phi_m$ is linearly independent if and only if $\Gamma$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+First suppose $\phi_1, \dots, \phi_m$ spans $V'\!$. If $v \in V$ and $\Gamma(v) = 0$, then
+\[
+\phi_1(v) = \dots = \phi_m(v) = 0,
+\]
+which implies that $\phi(v) = 0$ for all $\phi \in V'\!$, which implies that $v = 0$. Thus $\Gamma$ is injective.
+
+Conversely, suppose that $\Gamma$ is injective. Thus
+\[
+(\ker \phi_1) \cap \cdots \cap (\ker \phi_m) = \br{0},
+\]
+which implies that
+\[
+\paren[\big]{ (\ker \phi_1) \cap \cdots \cap (\ker \phi_m) }^0 = V'\!.
+\]
+Now Exercise \ref{3intersectnull} implies that $\phi_1, \dots, \phi_m$ spans $V'\!$.
+
+\item
+First we will prove that if $\phi_1, \dots, \phi_m$ is linearly independent, then $\Gamma$ is surjective. This will be done by induction on $m$.
+
+Consider first the case $m = 1$. The statement that the list $\phi_1$ is linearly independent implies $\phi_1 \ne 0$, which implies that $\ran \Gamma = \F1$, verifying the desired statement when $m = 1$.
+
+Thus assume that $m>1$ and that the desired statement holds for $m-1$. Suppose $\phi_1, \dots, \phi_m$ is linearly independent. Hence $\phi_1, \dots, \phi_{m-1}$ is linearly independent. By our induction hypothesis,
+\[ \tag{$(*)$}
+\br[\Big]{ \paren[\big]{ \phi_1(v), \ldots, \phi_{m-1}(v) } : v \in V} = \F{m-1} .
+\]
+
+Because $\phi_1, \dots, \phi_m$ is linearly independent, $\phi_m \notin \Span(\phi_1, \ldots, \phi_{m-1})$. Thus Exercise \ref{3intersectnull} implies that
+\[
+(\ker \phi_1) \cap \dots \cap (\ker \phi_{m-1}) \nsubseteq \ker \phi_m.
+\]
+Hence there exists $v \in V$ such that $\phi_1(v) = \cdots = \phi_{m-1}(v) = 0$ but $\phi_m(v) \ne 0$.
+
+If $(c_1, \ldots, c_m) \in \F m$, then by $(*)$ there exists $u \in V$ such that $\phi_k(u) = c_k$ for each $k = 1, \ldots, m-1$. Thus
+\[
+\phi_k\paren[\bigg]{u + \frac{c_m - \phi_m(u)}{\phi_m(v)}v} = c_k
+\]
+for every $k = 1, \ldots, m$. Hence $\Gamma$ is surjective, as desired.
+
+To prove the implication in the other direction, we will prove its contrapositive. Thus suppose $\phi_1, \ldots, \phi_m$ is linearly dependent. Hence there exists $n \in \br{1, \ldots, m}$ such that $\phi_n$ is a linear combination of $\phi_1, \ldots, \phi_{n-1}$. This means that each vector in $\F m$ whose first $n-1$ coordinates equal $0$ and whose $n^\nth$ coordinate equals $1$ is not in the range of $\Gamma$. Hence $\Gamma$ is not surjective, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\Omega$ is a subspace of $V'\!$. Prove that
+\[
+\Omega = \br[\big]{v \in V: \phi(v) = 0 \text{\ for every } \phi \in \Omega}^0\!.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let $\phi_1, \ldots, \phi_m$ be a basis of $\Omega$. Thus
+\begin{align*}
+\Omega &= \Span(\phi_1, \dots, \phi_m) \\
+&= \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0 \\
+&= \br{ v \in V: \phi_k(v) = 0 \text{ for } k = 1, \ldots, m}^0 \\
+&= \{v \in V: \phi(v) = 0 \text{ for every } \phi \in \Omega\}^0,
+ \end{align*}
+ where the second line follows from Exercise \ref{3intersectnull}.
+\end{Solution}
+
+ \exercise
+Suppose $T \in \L\bigl( \P\1_5(\R{}) \bigr)$ and $\ker T' = \Span(\phi)$, where $\phi$ is the linear functional on $\P\1_5(\R{})$ defined by $\phi(p) = p(8)$. Prove that
+\[
+\ran T = \br[\big]{ p \in \P\1_5(\R{}): p(8) = 0 }.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+We have $\dim \ker T' = 1$, which by the fundamental theorem of linear maps (\ref{3ab11}) implies that
+\[
+\dim \ran T' = \dim \bigl( \P\1_5(\R{}) \bigr)' - 1.
+\]
+Using \ref{rangeTprime}(a) and \ref{3dimdual} and then applying the fundamental theorem of linear maps to $\phi$, we can rewrite the equation above as
+\begin{align*}
+\dim \ran T &= \dim \P\1_5(\R{}) - 1 \notag\\
+&= \dim \ker \phi. \tag{$(*)$}
+\end{align*}
+
+Because $\phi \in \ker T'$, we have $0 = T' \! (\phi) = \phi \circ T\3$. Thus
+\[
+\ran T \subset \ker \phi = \{p \in \P\1_5(\R{}): p(8) = 0 \}.
+\]
+But these subspaces of $\P\1_5(\R{})$ have the same dimension by $(*)$, and hence they are equal, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_m$ is a linearly independent list in $V'\!$. Prove that \label{intker}
+\[
+\dim \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr) = (\dim V) - m.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+We have
+\begin{align*}
+\dim \bigl( (\ker \phi_1) &\cap \dots \cap (\ker \phi_m)\bigr) \\
+&= \dim V - \dim \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0 \\
+&= \dim V - \dim \Span(\phi_1, \dots, \phi_m) \\
+&= \dim V - m,
+\end{align*}
+where the first equality comes from \ref{dimannih}, the second equality comes from Exercise \ref{3intersectnull}, and the third equality holds because $\phi_1, \dots, \phi_m$ is linearly independent.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$.
+\begin{subtheorem}
+\item
+Prove that if $\phi \in W'$ and $\ker T' = \Span(\phi)$, then $\ran T = \ker \phi$.
+\item
+Prove that if $\psi \in V'$ and $\ran T' = \Span(\psi)$, then $\ker T = \ker \psi$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $\phi \in W'$ and $\ker T'$.
+
+First consider the case $\phi = 0$. In this case, $\ker T' = \{0\}$. Thus $T'$ is injective. Thus $T$ is surjective (by \ref{TsurTprimeinj}), which means that $\ran T = W\3$. Therefore $\ran T = \ker \phi$ because both sides of this equation equal $W$ in this case where $\phi = 0$.
+
+Now consider the case $\phi \ne 0$. Thus $\dim \ker T' = 1$, which by the fundamental theorem of linear maps (\ref{3ab11}) implies that
+\[
+\dim \ran T' = \dim W' - 1.
+\]
+Using \ref{rangeTprime}(a) and \ref{3dimdual} and then applying the fundamental theorem of linear maps to $\phi$, we can rewrite the equation above as
+\begin{align*}
+\dim \ran T &= \dim W - 1 \\
+&= \dim \ker \phi.
+\end{align*}
+
+Because $\phi \in \ker T'$, we have $0 = T' \! (\phi) = \phi \circ T\3$. Thus $\ran T \subset \ker \phi$. But these two subspaces of $W$ have the same dimension by the displayed equation above, and hence they are equal, as desired.
+
+\item
+Suppose $\psi \in V'$ and $\ran T'$.
+
+First consider the case $\psi = 0$. In this case, $\ran T' = \{0\}$. Thus $\dim \ran T' = 0$, which implies that $\dim \ran T = 0$ [by \ref{rangeTprime}(a)]. Thus $T = 0$, which means that $\ker T = V\1$. Therefore $\ker T = \ker \psi$ because both sides of this equation equal $V$ in this case where $\psi = 0$.
+
+Now consider the case $\psi \ne 0$. Thus $\dim \ran T' = 1$, which implies that $\dim \ran T = 1$ [by \ref{rangeTprime}(a)], which by the fundamental theorem of linear maps (\ref{3ab11}) implies that
+\begin{align*}
+\dim \ker T &= \dim V - 1 \\
+&= \dim \ker \psi.
+\end{align*}
+
+Because $\phi \in \ran T'\!$, we have $\phi = T' \! (\psi)$ for some $\psi \in W'\!$. Thus $\phi = \psi \circ T$, which implies that $\ker T \subset \ker \phi$. But these two subspaces of $V$ have the same dimension by the displayed equation above, and hence they are equal, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_n$ is a basis of $V'\!$. Show that there exists a basis of $V$ whose dual basis is $\phi_1, \dots, \phi_n$.
+
+\begin{Solution}
+From Exercise \ref{intker}, we know that
+\[
+\dim \bigl( (\ker \phi_2) \cap \dots \cap (\ker \phi_n)\bigr) = 1
+\]
+and
+\[
+\dim \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_n)\bigr) = 0.
+\]
+Thus
+\[
+(\ker \phi_2) \cap \dots \cap (\ker \phi_n) \nsubset (\ker \phi_1) \cap \dots \cap (\ker \phi_n).
+\]
+In other words, there exists $x_1 \in V$ such that $x_1 \in (\ker \phi_2) \cap \dots \cap (\ker \phi_n)$ but $\phi_1(x_1) \ne 0$. Multiplying $x_1$ by an appropriate scalar, we can assume that $\phi_1(x_1) = 1$.
+
+Similarly, for each $j = 2, \dots, n$, there exists $x_j \in V$ such that
+\[ \tag{$(*)$}
+\phi_k(x_j) = 0 \text{\ for\ }
+k \in \{1, \dots, n\} \sm j \andd \phi_j(x_j) = 1.
+\]
+
+If $a_1, \dots, a_n \in \F{}$ and
+\[
+0 = a_1 x_1 + \dots + a_n x_n,
+\]
+then for each $j = 1, \dots, n$ we have
+\[
+0 = \phi_j(a_1 x_1 + \dots + a_n x_n) = a_j.
+\]
+Hence $x_1, \dots, x_n$ is linearly independent and thus is a basis of $V$ (by \ref{75}). Clearly $(*)$ shows that the dual basis of $x_1, \dots, x_n$ is $\phi_1, \dots, \phi_n$.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a subspace of $V\1$. Let $i \colon U \to V$ be the inclusion map defined by $i(u) = u$. Thus
+$i' \in \L\paren[\big]{V', U'}$.
+\begin{subtheorem}
+\item
+Show that $\ker i' = U^0\!$.
+\item
+Prove that if $V$ is finite-dimensional, then $\ran i' = U'\!$.
+\item
+Prove that if $V$ is finite-dimensional, then $\tilde[7.3]{i'}$ is an isomorphism from $V'/U^0$ onto $U'\!$.
+\end{subtheorem}
+\exercisecomment{The isomorphism in \uppar{c} is natural in that it does not depend on a choice of basis in either vector space.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $\phi \in V'\!$. Then
+\begin{align*}
+\phi \in \ker i' &\iff i' \! (\phi) = 0 \\
+&\iff \phi \circ i = 0 \\
+&\iff \phi(u) = 0 \text{\ for all\ } u \in U \\
+&\iff \phi \in U^0\!.
+\end{align*}
+Thus $\ker i' = U^0\!$.
+
+\item
+Suppose $V$ is finite-dimensional. Clearly $i$ is injective. Thus by \ref{TinjTprimesur}, $T'$ is surjective. Hence $\ran i' = U'\!$.
+
+\item
+Suppose $V$ is finite-dimensional. By \ref{nullranTtilde}(b) and \ref{nullranTtilde}(b), $\tilde[7.3]{i'}$ is an injective map from $V'/\ker i'$ onto $\ran i'\!$. Thus by (a) and (b) of this exercise, $\tilde[7.3]{i'}$ is an isomorphism from $V'/U^0$ onto $U'\!$.
+\end{subtheorem}
+\end{Solution}
+
+\pagebreak[3]
+
+\exercise
+The \emph{double dual space} of $V\1$, denoted by $V''\!$, is defined to be the dual space of~$V'\!$. In other words,
+$V'' = {\paren[\big]{V'}}'$\!. Define $\Lambda \colon V \to V''$ by\index{double dual space}
+\[
+(\Lambda v)(\phi) = \phi(v)
+\]
+for each $v \in V$ and each $\phi \in V'\!$.
+\begin{subtheorem}
+\item
+Show that $\Lambda$ is a linear map from $V$ to $V''\!$.
+\item
+Show that if $T \in \L(V)$, then $T'' \circ \Lambda = \Lambda \circ T$, where $T'' = {\paren[\big]{T'}}'\!$.
+\item
+Show that if $V$ is finite-dimensional, then $\Lambda$ is an isomorphism from $V$ onto $V''\!$.
+\end{subtheorem}
+\exercisecomment{Suppose\/ $V$ is finite-dimensional. Then\/ $V$ and\/ $V'$ are isomorphic, but finding an isomorphism from\/ $V$ onto\/ $V'$ generally requires choosing a basis of\/ $V\1$. In contrast, the isomorphism\/ $\Lambda$ from\/ $V$ onto\/ $V''$ does not require a choice of basis and thus is considered more natural.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+A straightforward application of the definitions shows that $\Lambda$ is a linear map from $V$ to $V''\!$.
+
+\item
+Suppose $T \in \L(V)$. Suppose $v \in V$ and $\phi \in V'\!$. Then
+\begin{align*}
+\bigl((T'' \circ \Lambda)(v) \bigr)(\phi) &= \bigl(T'' \! (\Lambda v)\bigr)(\phi) \\
+&= ( \Lambda v \circ T')(\phi) \\
+&= (\Lambda v) \bigl( T' \! (\phi) \bigr)\\
+&= (\Lambda v)(\phi \circ T)\\
+&= (\phi \circ T)(v) \\
+&= (\phi \circ T)(v) \\
+&= \phi(Tv).
+\end{align*}
+Also,
+\begin{align*}
+\bigl((\Lambda \circ T)(v)\bigr) (\phi) &= \bigl( \Lambda(Tv) \bigr)(\phi) \\
+&= \phi(Tv).
+\end{align*}
+
+Thus
+\[
+\bigl((T'' \circ \Lambda)(v) \bigr)(\phi) = \bigl((\Lambda \circ T)(v)\bigr) (\phi),
+\]
+for all $\phi \in V'\!$, which implies that
+\[
+(T'' \circ \Lambda)(v) = (\Lambda \circ T)(v),
+\]
+for all $v \in V\1$, which implies that $T'' \circ \Lambda = \Lambda \circ T$, as desired.
+
+\item
+Suppose $V$ is finite-dimensional. Suppose $v \in V$ and $\Lambda v = 0$. Thus $\phi(v) = 0$ for every $\phi \in V'\!$. Now Exercise \ref{HB1} implies that $v = 0$. Thus $\Lambda$ is injective.
+
+Because $\dim V = \dim V' = \dim V''$ (by \ref{3dimdual}), we can conclude that $\Lambda$ is an isomorphism of $V$ onto $V''\!$.
+\end{subtheorem}
+\end{Solution}
+
+\begin{comment}
+\exercise
+Show that $\bigl( \P(\R{}) \bigr)'$ and $\R{\infty}$ are isomorphic.
+
+\begin{Solution}
+Define $\Gamma \colon \bigl(\P(\R{}) \bigr)' \to \R{\infty}$ by
+\[
+\Gamma(\phi) = \bigl(\phi(1), \phi(z), \phi(z^2), \dots )
+\]
+for $\phi \in \bigl(\P(\R{}) \bigr)'$. Clearly $\phi$ is a linear map.
+
+If $\phi \in \bigl(\P(\R{}) \bigr)'$ and $\Gamma(\phi) = 0$, then clearly $\phi = 0$. Hence $\Gamma$ is injective.
+
+Suppose $(c_0, c_1, c_2, \dots) \in \RR{\infty}$. Define $\phi \in \bigl(\P(\R{}) \bigr)'$ by
+\[
+\phi(a_0 + a_1 z + \dots + a_m z^m) = a_0 c_0 + a_1 c_1 + \dots + a_m c_m.
+\]
+Then $\Gamma(\phi) = (c_0, c_1, c_2, \dots)$. Thus $\Gamma$ is surjective.
+
+Hence $\Gamma$ is an isomorphism from $\bigl(\P(\R{}) \bigr)'$ onto $\RR{\infty}$.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $U$ is a subspace of $V\1$. Let $\pi \colon V \to V\1/U$ be the usual quotient map. Thus $\pi' \in \L\bigl((V\1/U)', V'\bigr)$.
+\begin{subtheorem}
+\item
+Show that $\pi'$ is injective.
+\item
+Show that $\ran \pi' = U^0\!$.
+\item
+Conclude that $\pi'$ is an isomorphism from $(V\1/U)'$ onto $U^0\!$.
+\end{subtheorem}
+\exercisecomment{The isomorphism in \uppar{c} is natural in that it does not depend on a choice of basis in either vector space. In fact, there is no assumption here that any of these vector spaces are finite-dimensional.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $\phi \in (V\1/U)'$ and $\pi' \! (\phi) = 0$. Then $\phi \circ \pi = 0$, which means that $(\phi \circ \pi)(v) = 0$ for every $v\in V\1$, which means that $\phi(v + U) = 0$ for every $v \in V\1$. Thus $\phi = 0$, which implies that $\pi'$ is injective.
+
+\item
+Suppose $\phi \in (V\1/U)'\!$. If $u \in U$, then
+\[
+\bigl( \pi' \! (\phi) \bigr)(u) = (\phi \circ \pi)(u) = \phi( u + U) = \phi(0) = 0
+\]
+and thus $\pi' \! (\phi) \in U^0\!$. Hence $\ran \pi' \subset U^0\!$.
+
+To show the inclusion in the other direction, suppose $\psi \in U^0\!$. Thus $\psi \in V'$ and $\psi(u) = 0$ for all $u \in U$. Define $\phi \in (V\1/U)'$ by
+\[
+\phi(v+ U) = \psi(v);
+\]
+the condition that $\psi(u) = 0$ for all $u \in U$ shows that $\phi$ is well defined. The definitions now show that $\pi' \! (\phi) = \psi$. Thus $\ran \pi' \supset U^0$, completing the proof that $\ran \pi' = U^0\!$.
+
+\item
+Now (a) and (b) immediately imply that $\pi'$ is an isomorphism from $(V\1/U)'$ onto $U^0\!$.
+\end{subtheorem}
+\end{Solution}
+

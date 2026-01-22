@@ -1,0 +1,406 @@
+
+\exercise
+Suppose $w, z \in \C{}$. Verify the following equalities and inequalities.
+\begin{subtheorem} \addtolength{\itemsep}{2bp}
+\item
+$z + \bar{z} = 2 \re z$
+
+\item
+$z - \bar{z} = 2( \im z)i$
+
+\item
+$z \bar{z} = |z|^2$
+
+\item
+$\overline{w + z} = \bar{w} + \bar{z}$  and $\overline{wz} = \bar{w} \; \bar{z}$
+
+\item
+$\overline{\bar{z}} = z$
+
+\item
+$| \re z | \le |z|$ and $| \im z | \le |z|$
+
+\item
+$|\bar{z}| = |z|$
+
+\item
+$|wz| = |w|\,|z|$
+\end{subtheorem}
+\exercisecomment{The results above are the parts of \ref{propcomplex} that were left to the reader.}
+
+\begin{Solution}
+Let $w = a + bi$ and $z = c + di$, where $a, b, c, d \in \R{}$. All of the assertions in \ref{propcomplex} except the last one can now be verified by simple computations.
+\end{Solution}
+
+\exercise
+Prove that if $w, z \in \C{}$, then $\abs[\Big]{\, \abs{w} - \abs{z} \,} \le \abs{w-z}$. \label{4reverse}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}.\index{reverse triangle inequality}}
+
+\begin{Solution}
+Suppose $w, z \in V\1$. Then
+\[
+\abs{w} = \abs{(w-z) + z} \le \abs{w-z} + \abs{z}.
+\]
+Thus
+\[ \tag{$(*)$}
+\abs{w} - \abs{z} \le \abs{w-z}.
+\]
+Interchanging the roles of $w$ and $z$, the inequality above becomes
+\[ \tag{$(**)$}
+\abs{z} - \abs{w} \le \abs{z-w} = \abs{w-z}.
+\]
+Now $(*)$ and $(**)$ imply that
+\[
+\abs[\Big]{\, \abs{w} - \abs{z} \,} \le \abs{w-z}.
+\]
+\end{Solution}
+
+\exercise
+Suppose $V$ is a complex vector space and $\phi \in V'\!$. Define $\fun \sigma V {\R{}}$ by
+$\sigma(v) = \re \phi(v)$ for each $v \in V\1$. Show that
+\[
+\phi(v) = \sigma(v) - i \sigma(iv)
+\]
+for all $v \in V\1$.
+
+\begin{Solution}
+If $v \in V\1$, then
+\begin{align*}
+\im \phi(v) &= - \re \paren[\big]{i\phi(v)}\\
+&= - \re \phi(iv) \\
+&= - \sigma(iv).
+\end{align*}
+Thus $\phi(v) = \sigma(v) - i \sigma(iv)$.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer.  Is the set
+\[
+\{0\} \cup \{p \in \P(\F{}): \deg p = m\}
+\]
+a subspace of $\P(\F{})$?
+
+\begin{Solution}
+The set consisting of $0$ and all
+polynomials with coefficients in $\F{}$ and with degree equal to $m$ is not a
+subspace of $\P(\F{})$ because it is not closed under addition.  Specifically,
+the sum of two polynomials of degree $m$ may be a polynomial with degree less
+than~$m$.  For example, suppose $m = 2$.  Then $7 + 4z + 5z^2$ and
+$1 + 2z - 5z^2$ are both polynomials of degree $2$ but their sum, which equals
+$8 + 6z$, is a polynomial of degree~$1$.
+\end{Solution}
+
+\exercise
+Is the set
+\[
+\{0\} \cup \{p \in \P(\F{}): \deg p \text{ is even}\}
+\]
+a subspace of $\P(\F{})$?
+
+\begin{Solution}
+The set consisting of $0$ and all polynomials with even degree is not a subspace of $\P(\F{})$ because it is not closed under addition.  Specifically, the sum of two polynomials with even degree may be a polynomial with odd degree.  For example, $7 + 4z + 5z^2$ and
+$1 + 2z - 5z^2$ are both polynomials with degree but their sum, which equals $8 + 6z$, is a polynomial with odd degree.
+\end{Solution}
+
+\exercise
+Suppose that $m$ and $n$ are positive integers with $m \le n$, and suppose $\la_1, \dots, \la_m \in \F{}$. Prove that there exists a polynomial $p \in \P(\F{})$ with $\deg p = n$ such that $0 = p(\la_1) = \dots = p(\la_m)$ and such that $p$ has no other zeros.
+
+\begin{Solution}
+Define $p \in \P(\F{})$ by
+\[
+p(z) = (z-\la_1)^{n-m+1} (z-\la_2) (z-\la_3) \dotsm (z-\la_m).
+\]
+Then $p$ is a polynomial with degree $n$ and exactly the required zeros.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a nonnegative integer, $z_1, \dots, z_{m+1}$ are distinct elements of $\F{}$, and
+$w_1, \dots, w_{m+1} \in \F{}$.  Prove that there exists a unique polynomial
+$p \in \P\1_m(\F{})$ such that \label{PolyInterpolation}
+\[
+p(z_k) = w_k
+\]
+for each $k = 1, \dots, m + 1$.
+\exercisecomment{This result can be proved without using linear algebra. However, try to find the clearer, shorter proof that uses some linear algebra.}
+
+\begin{Solution}
+Define $T \colon \P\1_m(\F{}) \to \F{m+1}$ by
+\[
+Tp = \bigl(p(z_1), \dots, p(z_{m+1})\bigr).
+\]
+We need to prove that $T$ is injective (which implies that at most one
+polynomial $p$ satisfies the condition required by the exercise) and surjective
+(which implies that at least one polynomial $p$ satisfies the condition required
+by the exercise).
+
+Clearly $T$ is a linear map.  If $p \in \ker T$, then
+\[
+p(z_1) = \dots = p(z_{m+1}) = 0,
+\]
+which means that $p$ is a polynomial of degree $m$ with at least $m+1$ distinct
+zeros, which means that $p = 0$ (by~\ref{155}).  Thus $T$ is injective, as
+desired.
+
+Now
+\begin{align*}
+\dim \ran T &= \dim \P\1_m(\F{}) - \dim \ker T \\
+&= (m + 1) - 0 \\
+&= \dim \FF{m+1},
+\end{align*}
+where the first equality comes from the fundamental theorem of linear maps (\ref{ab11}) and the second equality holds
+because $\ker T = \{0\}$.  The last equality above implies that
+$\ran T = \FF{m + 1}$.  Thus $T$ is surjective, as desired.
+
+\Comment
+Surjectivity of $T$ can also be proved by using an explicit construction.  But
+linear algebra, specifically the fundamental theorem of linear maps, gives us surjectivity easily once we get
+injectivity.
+\end{Solution}
+
+\exercise
+Suppose $p \in \P(\C{})$ has degree $m$.  Prove that $p$ has $m$ distinct zeros if
+and only if $p$ and its derivative $p'$ have no zeros in common.
+
+\begin{Solution}
+First suppose $p$ has $m$ distinct zeros.  Because $p$ has degree $m$, this
+implies that $p$ can be written in the form
+\[
+p(z) = c (z - \la_1) \dotsm (z - \la_m),
+\]
+where $\la_1, \dots, \la_m$ are distinct.  To prove that $p$ and $p'$ have no
+zeros in common, we must show that $p' \! (\la_k) \ne 0$ for each $k$.  To do this,
+fix~$k$.  The expression above for $p$ shows that we can write $p$ in the form
+\[
+p(z) = (z - \la_k) q(z),
+\]
+where $q$ is a polynomial such that $q(\la_k) \ne 0$.  Differentiating both sides
+of this equation, we have
+\[
+p' \! (z) = (z - \la_k) q' \! (z) + q(z).
+\]
+Thus
+\begin{align*}
+p' \! (\la_k) &= q(\la_k) \\
+&\ne 0,
+\end{align*}
+as desired.
+
+To prove the other direction, we will prove the contrapositive, meaning that we
+will prove that if $p$ has less than $m$ distinct zeros, then $p$ and $p'$ have at
+least one zero in common.  To do this, suppose $p$ has less than $m$ distinct
+zeros.  Then for some zero $\la$ of $p$, we can write $p$ in the form
+\[
+p(z) = (z - \la)^n q(z),
+\]
+where $n \ge 2$ and $q$ is a polynomial.  Differentiating both sides
+of this equation, we have
+\[
+p' \! (z) = (z - \la)^n q' \! (z) + n (z - \la)^{n-1} q(z).
+\]
+Thus $p' \! (\la) = 0$, and so $\la$ is a common zero of $p$ and $p'\!$, as desired.
+\end{Solution}
+
+\exercise
+Prove that every polynomial of odd degree with real coefficients has a real zero.\label{4oddzero}
+
+\begin{Solution}
+Suppose $p$ is a polynomial with odd degree and real coefficients.
+By~\ref{158}, $p$ is a constant times the product of factors of the form $x - \la$
+and/or $x^2 + b x + c$, where $\la, b, c \in \R{}$.  Not all the
+factors can be of the form $x^2 + b x + c$, because otherwise $p$ would
+have even degree.  Thus at least one factor is of the form $x - \la$.  Any
+such $\la$ is a real zero of~$p$.
+
+\Comment
+Here is another proof, using calculus but not using \ref{158}.  Suppose $p$ is a
+polynomial with odd degree $m$.  We can write $p$ in the form
+\[
+p(x) = a_0 + a_1 x + \dots + a_m x^m,
+\]
+where $a_0, \dots, a_m \in \R{}$ and $a_m \ne 0$.  Replacing $p$ with $-p$ if
+necessary, we can assume that $a_m > 0$.  Now
+\[
+p(x) = x^m \paren[\Big]{\frac{a_0}{x^m} + \frac{a_1}{x^{m-1}} + \dots
++ \frac{a_{m-1}}{x} + a_m}.
+\]
+This implies that
+\[
+\lim_{x \to -\infty} p(x) = -\infty \andd \lim_{x \to \infty} p(x) = \infty.
+\]
+The intermediate value theorem now implies that there is a real number $\la$ such
+that $p(\la) = 0$.  In other words, $p$ has a real zero.
+\end{Solution}
+
+\exercise
+For $p \in \P(\R{})$, define $\fun {Tp} {\R{}} {\R{}}$ by
+\[
+(Tp)(x) =
+\begin{cases}
+\dfrac{p(x) - p(3)}{x-3} & \text{if \ } x \ne 3,\\[9bp]
+p' \! (3) & \text{if \ } x = 3
+\end{cases}
+\]
+for each $x \in \R{}$. Show that $Tp \in \P(\R{})$ for every polynomial $p \in \P(\R{})$ and also show that $\fun T {\P(\R{})} {\P(\R{})}$ is a linear map.
+
+\begin{Solution}
+Suppose $p \in \P(\R{})$. Clearly $3$ is a zero of the polynomial $p - p(3)$. Thus by \ref{160}, there exists a polynomial $q \in \P(\R{})$ such that
+\[
+p(x) - p(3) = (x - 3) q(x)
+\]
+for every $x \in \R{}$. The definition of the derivative and the continuity of $q$ imply that $p' \! (3) = q(3)$. Thus $Tp = q$. In particular, $Tp \in \P(\R{})$.
+
+The linearity of $T$ follows easily from the definition of a linear map and the linearity of the derivative: $(p + r)' \! (3) = p' \! (3) + r' \! (3)$ and $(cp)' \! (3) = c p' \! (3)$.
+\end{Solution}
+
+\exercise
+Suppose $p \in \P(\C{})$. Define $q \colon \C{} \to \C{}$ by
+\[
+q(z) = p(z) \, \overline{ p(\bar{z}) }.
+\]
+Prove that $q$ is a polynomial with real coefficients.
+
+\begin{Solution}
+There exist $a_0, \dots, a_n \in \C{}$ such that
+\[
+p(z) = a_0 + a_1 z + \dots + a_n z^n
+\]
+for every $z \in \C{}$. Thus
+\[
+\overline{ p(\bar{z}) } = \overline{a_0} + \overline{a_1} z + \dots + \overline{a_n} z^n
+\]
+for every $z \in \C{}$. Thus the function that takes $z$ to $\overline{ p(\bar{z}) }$ is a polynomial, and hence $q \in \P(\C{})$.
+
+There exist numbers $b_0, \dots, b_{2n} \in \C{}$ such that
+\[
+q(x) = b_0 + b_1 x + \dots + b_{2n} x^{2n}
+\]
+for every $x \in \R{}$. Because
+\[
+q(x) = p(x) \, \overline{ p(\bar{x} ) } = p(x) \, \overline{p(x)} = |p(x)|^2
+\]
+for every $x \in \R{}$, we see that $q(x) \in \R{}$ for every $x \in \R{}$. In other words, $\im p(x) = 0$ for every $x \in \R{}$. Thus
+\[
+(\im b_0) + (\im b_1)x + \dots + (\im b_{2n}) x^{2n} = 0
+\]
+for every $x \in \R{}$. Now \ref{polyzero} implies that $\im b_0 = \im b_1 = \dots = \im b_{2n} = 0$. Thus $q$ has real coefficients.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a nonnegative integer and $p \in \P\1_m(\C{})$ is such that there are distinct real numbers $x_0, x_1, \dots, x_m$ with $p(x_k) \in \R{}$ for each $k = 0, 1, \dots, m$. Prove that all the coefficients of $p$ are real.
+
+\begin{Solution}
+There exist $a_0, \dots, a_m \in \C{}$ such that
+\[
+p(z) = a_0 + a_1 z + \dots + a_m z^m
+\]
+for every $z \in \C{}$. Thus
+\[
+\im p(x) = (\im a_0) + (\im a_1)x + \dots + (\im a_m) x^m
+\]
+for every $x \in \R{}$. Our hypothesis states that there are at least $m+1$ distinct real zeros of the polynomial $\im p$. Thus \ref{155} and the equation above imply that
+\[
+\im a_0 = \im a_1 = \dots = \im a_m = 0.
+\]
+Thus all the coefficients of $p$ are real.
+\end{Solution}
+
+\pagebreak[2]
+
+\exercise
+Suppose $p \in \P(\F{})$ with $p \ne 0$. Let $U = \br[\big]{p q : q \in \P(\F{})}$.
+\begin{subtheorem}
+\item
+Show that $\dim \P(\F{})/U = \deg p$.
+\item
+Find a basis of $\P(\F{})/U$.
+\end{subtheorem}
+
+\begin{Solution}
+Let $a_0, \dots, a_n \in \F{}$ be such that $a_n \ne 0$ and
+\[
+p(z) = a_0 + a_1 z + \dots + a_n z^n
+\]
+for every $z \in \F{}$. Thus $\deg p = n$.
+
+We will show that
+\[
+1+ U, z + U, \dots, z^{n-1} + U
+\]
+is a basis of $\P(\F{})/U$. This provides solutions to both parts of the exercise.
+
+To show that the list
+\[
+1+ U, z + U, \dots, z^{n-1} + U
+\]
+is linearly independent in $\P(\F{})/U$, suppose $b_0, b_1, \dots, b_n \in \F{}$ and
+\[
+b_0(1+ U) + b_1( z + U) + \cdots+ b_{n-1} (z^{n-1} + U) = 0 + U.
+\]
+Thus
+\[
+b_0 + b_1 z + \dots + b_{n-1} z^{n-1} \in U.
+\]
+However, every element of $U$ is a polynomial with degree bigger than or equal to $n$ or is the $0$ polynomial. Thus $b_0 + b_1 z + \dots + b_{n-1} z^{n-1}$ is the zero polynomial, which implies that
+$b_0 = b_1 = \dots = b_n = 0$. Thus $1+ U, z + U, \dots, z^{n-1} + U$ is linearly independent.
+
+To show that the list $1+ U, z + U, \dots, z^{n-1} + U$ spans $\P(\F{})/U$, it suffices to show that
+\[
+z^m + U \in \Span( 1+ U, z + U, \dots, z^{n-1} + U )
+\]
+for every nonnegative integer $m$. Clearly the inclusion above holds for each $m = 0, 1, \dots, n-1$, which gets us started for induction. We will assume that $m \ge n$ and that the desired inclusion holds for all smaller values of $m$.
+
+Note that
+\[
+z^m - z^{m-n} \frac{q}{a_n}
+\]
+is a polynomial with degree less than $m$. Thus by our induction hypothesis
+\[
+z^m - z^{m-n} \frac{q}{a_n} + U \in \Span( 1+ U, z + U, \dots, z^{n-1} + U ).
+\]
+However, $z^{m-n} \frac{q}{a_n} \in U$, and thus the inclusion above can be rewritten as
+\[
+z^m  + U \in \Span( 1+ U, z + U, \dots, z^{n-1} + U ),
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are nonconstant polynomials with no zeros in common. Let $m = \deg p$ and $n = \deg q$. Use linear algebra as outlined below in (a)--(c) to prove that there exist
+$r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that
+\[
+rp + sq = 1.
+\]
+\begin{subtheorem}*
+\item
+Define $\fun T { \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{}) } {\P\1_{m+n-1}(\C{})}$ by
+\[
+T(r, s) = rp + sq.
+\]
+Show that the linear map $T$ is injective.
+\item
+Show that the linear map $T$ in (a) is surjective.
+\item
+Use (b) to conclude that there exist $r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that $rp + sq = 1$.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Clearly $T$ is a linear map from $\P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{})$ to ${\P\1_{m+n-1}(\C{})}$. To show that $T$ is injective, suppose
+$(r, s) \in \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{})$ and $T(r, s) = 0$. Then
+\[
+rp = -sq.
+\]
+Suppose $\la \in \C{}$ and $q(\la) = 0$. Because $p$ and $q$ have no zeros in common, the equation above implies that $r(\la) = 0$. Thus $r$ is a polynomial multiple of $z-\la$. More generally, the equation above implies that if $q$ is a polynomial multiple of $(z-\la)^k$ for some positive integer $k$, then $r$ is a polynomial multiple of $(z - \la)^k$.
+
+The factorization \ref{4FTA2} now implies that $r$ is a polynomial multiple of $q$. However, $\deg q = n$ and
+$\deg r < n$. Thus $r$ must be the zero polynomial. The equation above then implies that $q$ is also the zero polynomial. Thus $T$ is injective.
+
+\item
+Because $\dim \paren[\big]{ \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{}) } = \dim \P\1_{m+n-1}(\C{})$, (a) and \ref{18} imply that $T$ is surjective.
+
+\item
+Because $T$ is surjective, there exist $(r, s) \in \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{})$ such that $T(r, s)$ equals the constant polynomial $1$.
+\end{subtheorem}
+\end{Solution}
+

@@ -1,0 +1,684 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Polynomials} \label{173}
+
+This chapter contains material on polynomials that we will use to investigate linear maps from a vector space to itself.  Many results in this chapter will already be familiar to you from other courses; they are included here for completeness.
+
+Because this chapter is not about linear algebra,  your instructor may go
+through it rapidly.  You may not be asked to scrutinize all the proofs.
+Make sure, however, that you at least read and  understand the statements of
+all results in this chapter---they will be used in later chapters.
+
+This chapter begins with a brief discussion of algebraic properties of the complex numbers. Then we prove that a nonconstant polynomial cannot have more zeros than its degree. We also give a linear-algebra-based proof of the division algorithm for polynomials, which is worth reading even if you are already familiar with a proof that does not use linear algebra.
+
+As we will see, the fundamental theorem of algebra leads to a factorization of every polynomial into degree-one factors if the scalar field is $\C{}$ or to factors of degree at most two if the scalar field is $\R{}$.
+
+\StandingBox[standing assumption for this chapter]
+{\item $\F{}$ denotes $\R{}$ or $\C{}$.}
+
+\begin{comment}
+\TopicsBox{
+\item
+division algorithm for polynomials
+\item
+factorization of polynomials over $\C{}$
+\item
+factorization of polynomials over $\R{}$
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Khayam.jpg\else KhayamR.jpg \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.44\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{Statue of mathematician and poet Omar Khayyam \uppar{1048--1131},\index{Khayyam, Omar} whose algebra\\%
+book written in 1070 contained the first serious study of cubic \mbox{polynomials}.}%
+{1.1in}{Alireza Javaheri CC BY}
+
+\newpage
+
+%\subsection{Complex Numbers}
+
+Before discussing polynomials with complex or real coefficients, we need to learn a bit
+more about the complex numbers.
+
+\DefinitionBox{real part,\/ $\re z$, imaginary part,\/ $\im z$}
+{Suppose $z = a + bi$, where $a$ and $b$ are real numbers.
+\begin{Itemize}
+\item
+The \emph{real part}\index{real part} of $z$, denoted by $\re z$\sindex{Re@$\re$}, is defined by $\re z = a$.
+\item
+The \emph{imaginary part}\index{imaginary part} of $z$, denoted by $\im z$\sindex{Im@$\im$}, is defined by $\im z = b$.
+\end{Itemize}}
+
+
+Thus for  every complex number $z$, we have
+\[
+z = \re z +  (\im z)i.
+\]
+
+\DefinitionBox{complex conjugate, $\bar{z}$, absolute value, $|z|$}
+{Suppose $z \in \C{}$.
+\begin{Itemize}
+\item
+The \emph{complex conjugate}\index{complex conjugate} of
+$z \in \C{}$, denoted by $\bar{z}$\sindex{zaaa@$\protect\bar{z}$}, is defined by
+\[
+\bar{z} = \re z - (\im z)i.
+\]
+\item
+The \emph{absolute value}\index{absolute value} of a complex number
+$z$,  denoted by $|z|$\sindex{zaab@$"|z"|$}, is defined by
+\[
+|z| = \sqrt{(\re z)^2 + (\im z)^2}.
+\]
+\end{Itemize}}
+
+\begin{example}{real and imaginary part, complex conjugate, absolute value}
+Suppose $z = 3 + 2i$. Then
+\begin{Itemize}
+\item
+$\re z = 3$ and $\im z = 2$;
+\item
+$\overline{z} = 3 - 2i$;
+\item
+$ |z| = \sqrt{3^2 + 2^2} = \sqrt{13}$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+Identifying a complex number $z \in \C{}$ with the ordered pair $(\re z, \im z) \in \R2$ identifies $\C{}$ with $\RR2$. Note that $\C{}$ is a one-dimensional complex vector space, but we can also think of $\C{}$ (identified with $\R2$) as a two-dimensional real vector space.
+
+The absolute value of each complex number  is a nonnegative number. Specifically, if $z \in \C{}$, then $\abs{z}$ equals the distance from the origin in $\R2$ to the point $(\re z, \im z) \in \RR2$.
+
+\mar{You should verify that\/
+$z = \bar{z}$ if and  only if\/ $z$ is a real number.}
+
+The real and imaginary parts, complex conjugate, and absolute value
+have the properties listed in the following multi\-part result.
+
+\ResultBox[propcomplex]{properties of complex numbers}
+{Suppose $w, z \in \C{}$. Then the following equalities and inequalities hold.
+\begin{description}\addtolength{\itemsep}{-.02in}
+\item[sum of $z$ and $\bar{z}$] \ \\
+$z + \bar{z} = 2 \re z$.
+
+\item[difference of $z$ and $\bar{z}$] \ \\
+$z - \bar{z} = 2( \im z)i$.
+
+\item[product of $z$ and $\bar{z}$] \ \\
+$z \bar{z} = |z|^2\1$.
+
+\item[additivity and multiplicativity of complex conjugate] \ \\
+$\overline{w + z} = \bar{w} + \bar{z}$  and $\overline{wz} = \bar{w} \; \bar{z}$.
+
+\item[double complex conjugate] \ \\
+$\overline{\bar{z}} = z$.
+
+\item[real and imaginary parts are bounded by $|z|$] \ \\
+$| \re z | \le |z|$ and $| \im z | \le |z|$.
+
+\item[absolute value of the complex conjugate] \ \\
+$\abs[\big]{\bar{z}} = |z|$.
+
+\item[multiplicativity of absolute value] \ \\
+$|wz| = |w|\,|z|$.
+
+\item[triangle inequality] \ \index{triangle inequality}\\[-0.95in]
+\hspace*{2in}\includegraphics{Mathematica/TriangleInequality.pdf}\\[-.25in]
+$|w + z| \le |w| + |z|$.
+\end{description}}
+
+\mar[5]{Geometric interpretation of triangle inequality: The length of each side of a triangle is less than or equal to the sum of the lengths of the two other sides.}
+
+\proof
+Except for the last item above, the routine verifications of the assertions above are left to the reader. To verify the triangle inequality, we have
+\vspace{.05in} %VisualFormatting
+\begin{align*}
+|w + z|^2 &= (w + z)(\bar{w} + \bar{z}) \\[1.5bp]
+&= w \bar{w} + z \bar{z} + w \bar{z} + z \bar{w} \\[1.5bp]
+&= |w|^2 + |z|^2 + w \bar{z} + \overline{w \bar{z}} \\[1.5bp]
+&= |w|^2 + |z|^2 + 2 \re\paren[\big]{w \bar{z}} \\[1.5bp]
+&\le |w|^2 + |z|^2 + 2 \abs[\big]{w \bar{z}} \\[1.5bp]
+&= |w|^2 + |z|^2 + 2 |w| \, |z| \\[1.5bp]
+&= (|w| + |z|)^2\1.
+\end{align*}
+
+\mar{See Exercise \ref{4reverse} for the reverse triangle inequality.}
+
+\noindent Taking square roots now gives the desired inequality $|w + z| \le |w| + |z|$.
+\qed
+
+\pagebreak[3]
+
+\subsection{Zeros of Polynomials}
+
+Recall that a function $p \colon \F{} \to \F{}$  is called a polynomial of degree $m$ if there exist $a_0, \dots, a_m \in \F{}$ with $a_m \ne 0$ such that
+\[
+p(z) = a_0 + a_1 z + \cdots + a_m z^m
+\]
+for all $z \in \F{}\3$. A polynomial could have more than one degree if the representation of $p$ in the form above were not unique. Our first task is to show that this cannot happen.
+
+The solutions to the equation $p(z) = 0$ play a crucial role in the study of a polynomial $p \in \P(\F{})$. Thus these solutions have a special name.
+
+\DefinitionBox{zero of a polynomial}
+{A number $\la \in \F{}$ is called a \emph{zero}\index{zero of a polynomial} (or \emph{root}) of a polynomial $p \in \P(\F{})$ if
+\[
+p(\la) = 0.
+\]}
+
+%\mar{A zero of a polynomial is also called a \emph{root} of the polynomial.}
+
+The next result is the key tool that we will use to show that the degree of a polynomial is unique.
+
+\ResultBox[460]{each zero of a polynomial corresponds to a degree-one factor}
+{Suppose $m$ is a positive integer and $p \in \P(\F{})$ is a polynomial of degree~$m$. Suppose $\la \in \F{}\3$. Then $p(\la) = 0$ if and only if there exists a polynomial $q \in \P(\F{})$ of degree $m-1$ such that
+\[
+p(z) = (z-\la)q(z)
+\]
+for every $z \in \F{}\3$.}
+
+\proof
+First suppose $p(\la) = 0$. Let $a_0, a_1, \ldots, a_m \in \F{}$ be such that
+\[
+p(z) = a_0 + a_1 z + \cdots + a_m z^m
+\]
+for all $z \in \F{}\3$. Then
+\begin{equation} \label{4zm}
+p(z) = p(z) - p(\la) = a_1(z-\la) + \cdots + a_m \paren[\big]{z^m - \la^m}
+\end{equation}%
+for all $z \in \F{}\3$. For each $k \in \br{1, \ldots, m}$, the equation
+\[
+z^k - \la^k =  (z - \la) \sum_{j=1}^{k} \la^{j-1} z^{k-j}
+\]
+shows that $z^k - \la^k$ equals $z - \la$ times some polynomial of degree $k-1$. Thus \ref{4zm} shows that $p$ equals $z - \la$ times some polynomial of degree $m-1$, as desired.
+
+To prove the implication in the other direction, now suppose that there is a polynomial $q \in \P(\F{})$
+such that $p(z) = (z - \la) q(z)$ for every $z \in \F{}\3$. Then $p(\la) = (\la - \la) q(\la) = 0$, as desired.
+\qed
+
+Now we can prove that polynomials do not have too many zeros.
+
+\ResultBox[4polyzero]{degree\/ $m$ implies at most\/ $m$ zeros}
+{Suppose $m$ is a positive integer and $p \in \P(\F{})$ is a polynomial of degree $m$. Then $p$ has at most $m$ zeros in $\F{}\3$.}
+
+\proof
+We will use induction on $m$. The desired result holds if $m = 1$ because if $a_1 \ne 0$ then the polynomial $a_0 + a_1 z$ has only one zero (which equals $-a_0 / a_1$). Thus assume that $m > 1$ and the desired result holds for $m-1$.
+
+If $p$ has no zeros in $\F{}\3$, then the desired result holds and we are done. Thus suppose $p$ has a zero $\la \in \F{}\3$. By \ref{460}, there is polynomial $q \in \P(\F{})$ of degree $m-1$ such that
+\[
+p(z) = (z - \la) q(z)
+\]
+for every $z \in \F{}\3$. Our induction hypothesis implies that $q$ has at most $m-1$ zeros in $\F{}\3$. The equation above shows that the zeros of $p$ in $\F{}$ are exactly the zeros of $q$ in $\F{}$ along with $\la$. Thus $p$ has at most $m$ zeros in $\F{}\3$.
+\qed
+
+The result above implies that the coefficients of a polynomial are uniquely determined (because if a polynomial had two different sets of coefficients, then subtracting the two representations of the polynomial would give a polynomial with some nonzero coefficients but infinitely many zeros). In particular, the degree of a polynomial is uniquely defined.
+
+\mar{The\/ $0$ polynomial is declared to have degree\/ $-\infty$ so that exceptions are not needed for various
+reasonable results such as \/ $\deg(p q) = \deg p + \deg q$.}
+
+Recall that the degree of the $0$ polynomial is defined to  be $-\infty$. When necessary, use the expected arithmetic
+with\/ $-\infty$.  For example,\/ $-\infty < m$ and\/ $-\infty + m = -\infty$ for every integer\/ $m$.
+
+\subsection{Division Algorithm for Polynomials}
+
+If $p$ and $s$ are nonnegative integers, with $s \ne 0$, then there exist
+nonnegative integers $q$ and $r$ such that
+\[
+p = sq + r
+\]
+and $r < s$.  Think of dividing $p$ by $s$, getting quotient $q$ with
+remainder~$r$. Our next result gives an analogous result for polynomials.
+Thus the next result is often called the division algorithm for polynomials, although as stated here it is not really an algorithm, just a useful result.
+
+\mar{Think of the division algorithm for polynomials as giving a remainder polynomial\/ $r$ when the polynomial\/ $p$ is divided by the polynomial\/ $s$.}
+
+The division algorithm for polynomials could be proved without using any linear algebra. However, as is appropriate for a linear algebra textbook, the proof given here uses linear algebra techniques and makes nice use of a basis of $\P\1_n(\F{})$, which is the $(n+1)$-dimensional vector space of polynomials with coefficients in $\F{}$ and of degree at most $n$.
+
+\ResultBox[121]{division algorithm for polynomials}{\index{division algorithm for polynomials}%
+Suppose that\/ $p, s \in \P(\F{})$,
+with\/ $s \ne 0$.  Then there exist unique \mbox{polynomials}
+\mbox{$q, r \in \P(\F{})$} such that
+\[
+p = sq + r
+\]
+and\/ $\deg r < \deg s$.
+}
+
+\proof
+Let $n = \deg p$ and let $m = \deg s$. If $n < m$, then take $q = 0$ and $r = p$ to get the desired equation $p = sq + r$ with
+$\deg r < \deg s$. Thus we now assume that $n \ge m$.
+
+The list
+\begin{equation} \label{4basis}
+1, z, \ldots, z^{m-1}, s, zs, \ldots, z^{n-m} s
+\end{equation}%
+is linearly independent in $\P\1_n(\F{})$ because each polynomial in this list has a different degree. Also, the list \ref{4basis} has length $n+1$, which equals $ \dim \P\1_n(\F{})$. Hence \ref{4basis} is a basis of $\P\1_n(\F{})$ [by \ref{75}].
+
+Because $p \in \P\1_n(\F{})$ and \ref{4basis} is a basis of $\P\1_n(\F{})$, there exist unique constants
+$
+a_0, a_1, \ldots, a_{m-1} \in \F{}$ and $b_0, b_1, \ldots, b_{n-m} \in \F{}
+$
+such that
+\begin{align}
+p &= a_0 + a_1 z + \cdots + a_{m-1} z^{m-1} + b_0 s + b_1  zs + \cdots + b_{n-m}z^{n-m} s \label{4unique}\\[6bp]
+&= \underbrace{a_0 + a_1 z + \cdots + a_{m-1} z^{m-1}}_r \ +\  s(\underbrace{b_0 + b_1  z + \cdots + b_{n-m}z^{n-m}}_q). \notag
+\end{align}
+With $r$ and $q$ as defined above, we see that  $p$ can be written as $p=sq+r$ with $\deg r < \deg s$, as desired.
+
+The uniqueness of $q, r \in \P(\F{})$ satisfying these conditions follows from the uniqueness of the constants $
+a_0, a_1, \ldots, a_{m-1} \in \F{}$ and $b_0, b_1, \ldots, b_{n-m} \in \F{}
+$
+satisfying \ref{4unique}.
+\qed
+
+\ifnum\sizepaper=2
+    \subsection{\texorpdfstring{Factorization of Polynomials over $\C{}$}{Factorization of Polynomials over C}} % To get correct pdf bookmarks.
+    \else
+    \subsection{Factorization of Polynomials over $\C{}$}
+    \fi
+
+\mar{The fundamental theorem of algebra is an existence theorem. Its proof does not lead to a method for finding zeros.  The quadratic formula gives the zeros explicitly for polynomials of degree\/~$2$.  Similar but more complicated formulas exist for polynomials of degree\/ $3$ and\/ $4$.  No such formulas exist for polynomials of degree\/ $5$ and above.}
+
+We have been handling polynomials with complex coefficients and polynomials with real coefficients simultaneously, letting $\F{}$ denote $\R{}$ or $\C{}$.  Now we will see differences between these two cases.  First we treat polynomials with complex coefficients.  Then we will use those results to prove corresponding results for polynomials with real coefficients.
+
+Our proof of the fundamental theorem of algebra implicitly uses the result that a continuous real-valued function on a closed disk in $\R 2$ attains a minimum value.
+A web search can lead you to several other proofs of the fundamental theorem of algebra. The proof using Liouville's theorem is particularly nice if you are comfortable with analytic functions. All proofs of the fundamental theorem of algebra need to use some analysis, because the result is not true if $\C{}$ is replaced, for example, with the set of numbers of the form $c + di$ where $c, d$ are rational numbers.
+
+\ResultBox[FTA1]{fundamental theorem of algebra, first version}{\index{fundamental theorem of algebra}%
+Every nonconstant polynomial with complex coefficients has a zero in $\C{}$.
+}
+
+\proof
+De Moivre's theorem, which you can prove using induction on $k$ and the addition formulas for cosine and sine, states that if $k$ is a positive integer and $\theta \in \R{}$, then\index{De Moivre's theorem}
+\[
+(\cos \theta + i \sin \theta)^k = \cos k\theta + i \sin k\theta.
+\]
+
+Suppose $w \in \C{}$ and $k$ is a positive integer. Using polar coordinates, we know that there exist $r \ge 0$ and $\theta \in \R{}$ such that
+\[
+r(\cos \theta + i \sin \theta) = w.
+\]
+De Moivre's theorem implies that
+\[
+\paren[\bigg]{ r^{1/k} \paren[\Big]{\cos \tfrac{\theta}{k} + i \sin \tfrac{\theta}{k} } }^k = w.
+\]
+Thus every complex number has a $k^\nth$ root, a fact that we will soon use.
+
+Suppose $p$ is a nonconstant polynomial with complex coefficients and highest-order nonzero term $c_m z^m\!$. Then
+$|p(z)| \rightarrow \infty$ as $|z| \rightarrow \infty$
+(because $\abs{p(z)}/\abs[\big]{z^m} \to \abs{c_m}$ as $|z| \rightarrow \infty$).
+Thus the continuous function $z \mapsto \abs{p(z)}$ has a global minimum at some point $\zeta \in \C{}$. To show that $p(\zeta) = 0$, suppose that $p(\zeta) \ne 0$.
+
+Define a new polynomial $q$ by
+\[
+q(z) = \frac{p(z + \zeta)}{p(\zeta)}.
+\]
+The function $z \mapsto \abs{q(z)}$ has a global minimum value of $1$ at $z = 0$.
+Write
+\[
+ q(z) = 1 + a_k z^k + \dots + a_m z^m\!,
+ \]
+ where $k$ is the smallest positive integer such that the coefficient of $z^k$ is nonzero; in other words, $a_k \ne 0$.
+
+ Let $\beta \in \C{}$ be such that
+$
+ \beta^k = -\dfrac{1}{a_k}$.
+ There is a constant $c > 1$ such that if $t \in (0, 1)$, then
+ \begin{align*}
+ \abs{q(t\beta)} &\le \abs[\big]{ 1 + a_k t^k \beta^k } + t^{k+1}c \\
+ &= 1 - t^k(1 - tc).
+ \end{align*}
+ Thus taking $t$ to be $1/(2c)$ in the inequality above, we have $\abs{q(t \beta)} < 1$, which contradicts the assumption that the global minimum of $z \mapsto \abs{q(z)}$ is $1$. This contradiction implies that $p(\zeta) = 0$, showing that $p$ has a zero, as desired.
+ \qed
+
+Computers can use clever numerical methods to find good approximations to the zeros of any polynomial, even when exact zeros cannot be found. For example, no one will ever give an exact formula for a zero of the polynomial $p$ defined by
+\[
+p(x) = x^5 - 5 x^4 - 6 x^3 + 17 x^2 + 4 x -7.
+\]
+However, a computer can find that the zeros of $p$ are approximately the five numbers
+$
+-1.87,\ -0.74,\ 0.62,\ 1.47,\ 5.51$.
+
+The first version of the fundamental theorem of algebra leads to the following factorization
+result for polynomials with complex coefficients.  Note that in this
+factorization, the zeros of~$p$ are the numbers $\la_1, \dots, \la_m$,
+which are the only values of $z$ for which the right side of the equation in the next result equals~$0$.
+
+\ResultBox[4FTA2]{fundamental theorem of algebra, second version}{%
+If\/ $p \in \P(\C{})$ is a
+nonconstant polynomial, then\/ $p$ has a unique
+factorization (except for the order of the factors) of the form
+\[
+p(z) = c(z - \la_1) \dotsm (z - \la_m),
+\]
+where\/ $c, \la_1, \dots, \la_m \in \C{}$.}
+
+\proof
+Let $p \in \P(\C{})$ and let $m = \deg p$.  We will use induction
+on~$m$.  If $m = 1$, then the desired factorization exists and is unique.
+So assume that $m > 1$ and that the desired factorization exists and is unique
+for all polynomials of degree $m-1$.
+
+First we will show that the desired factorization of $p$ exists.  By the
+first version of the fundamental theorem of algebra (\ref{FTA1}), $p$ has a zero $\la \in \C{}$.  By
+\ref{460}, there is a polynomial $q$ of degree $m-1$ such that
+\[
+p(z) = (z - \la) q(z)
+\]
+for all $z \in \C{}$.  Our induction hypothesis implies that $q$ has the desired factorization, which when  plugged into the equation above gives the desired factorization of $p$.
+
+Now we turn to the question of uniqueness.  The number $c$ is uniquely determined as the coefficient of $z^m$ in $p$.  So we only need
+to show that except for the order, there is only one way to choose $\la_1, \dots, \la_m$. If
+\[
+(z - \la_1) \dotsm (z - \la_m) =
+(z - \tau_1) \dotsm (z - \tau_m)
+\]
+for all $z \in \C{}$, then because the left side of the equation above equals $0$ when $z = \la_1$, one of the $\tau$'s on the right side equals $\la_1$. Relabeling, we can assume that $\tau_1 = \la_1$.  Now if $z  \ne \la_1$, we can divide both sides of the equation above by $z - \la_1$, getting
+\vspace{-.04in}
+\[
+(z - \la_2) \dotsm (z - \la_m) =
+(z - \tau_2) \dotsm (z - \tau_m)
+\]
+for all $z \in \C{}$ except possibly $z = \la_1$.  Actually the equation above holds for all $z \in \C{}$, because otherwise by subtracting the right side from the left side we would get a nonzero polynomial that has infinitely many zeros.  The equation above and our induction hypothesis imply that except for the order, the $\la$'s are the same as the $\tau$'s, completing the proof of uniqueness.
+\qed
+
+\pagebreak[3]
+
+\ifnum\sizepaper=2
+    \subsection{\texorpdfstring{Factorization of Polynomials over $\R{}$}{Factorization of Polynomials over R}} % To get correct pdf bookmarks.
+    \else
+    \subsection{Factorization of Polynomials over $\R{}$}
+    \fi
+
+\mar{The failure of  the fundamental theorem of algebra for\/ $\R{}$ accounts for the differences between linear algebra on
+real and complex vector spaces, as we will see in later chapters.}
+
+A polynomial with real coefficients may have no real zeros.  For example, the
+polynomial\/ $1 + x^2$ has no real zeros.
+
+To obtain a factorization theorem over $\R{}$, we will use our factorization theorem over $\C{}$. We begin with the next result.
+
+\ResultBox[170]{polynomials with real coefficients have nonreal zeros in pairs}{%
+Suppose\/ $p \in \P(\C{})$ is a polynomial with real coefficients.  If\/ $\la \in \C{}$
+is a zero  of\/ $p$, then so is\/~$\bar{\la}$.
+}
+
+\proof
+Let
+\[
+p(z) = a_0 + a_1 z + \dots + a_m z^m\!,
+\]
+where $a_0, \dots, a_m$ are real numbers.  Suppose $\la \in \C{}$ is a zero
+of~$p$.  Then
+\[
+a_0 + a_1 \la + \dots + a_m \la^m = 0.
+\]
+Take the complex conjugate of both sides of this equation, obtaining
+\[
+a_0 + a_1 \bar{\la} + \dots + a_m \bar{\la}^m = 0,
+\]
+where we have used basic properties of the complex conjugate (see~\ref{propcomplex}).  The equation above shows that $\bar{\la}$ is a zero of~$p$.
+\qed
+
+\mar{Think about the quadratic formula in connection with the result below.}
+
+We want a factorization theorem for polynomials with real
+coefficients.  We begin with the following result.
+
+\ResultBox[171]{factorization of a quadratic polynomial}{%
+Suppose $b, c \in \R{}$.  Then there is a polynomial factorization of the
+form
+\[
+x^2 + b x + c = (x - \la_1)(x - \la_2)
+\]
+with\/ $\la_1, \la_2 \in \R{}$ if and only if\/ $b^2 \ge 4 c$.
+}
+
+\proof
+Notice that
+\[
+x^2 + b x + c =
+\paren[\bigg]{x + \frac{b}{2}}^2 + \paren[\bigg]{c -\frac{b^2}{4}}.
+\]
+
+\mar{The equation above is the basis of the technique called \emph{completing the square}.}
+
+First suppose $b^2 < 4 c$.  Then the right side of the
+equation above is positive for every $x \in \R{}$. Hence the polynomial
+$x^2 + b x + c$ has no real zeros and thus cannot be factored in the form
+$(x - \la_1)(x - \la_2)$ with $\la_1, \la_2 \in \R{}$.
+
+\pagebreak[3]
+
+Conversely, now suppose $b^2 \ge 4 c$.  Then there is a real
+number $d$ such that $d^2 = \frac{b^2}{4} - c$.  From the displayed equation above, we
+have
+\begin{align*}
+x^2 + b x + c &= \paren[\bigg]{x + \frac{b}{2}}^2 - d^2 \\[6bp]
+&= \paren[\bigg]{x + \frac{b}{2} + d} \paren[\bigg]{x + \frac{b}{2} - d},
+\end{align*}
+which gives the desired factorization.
+\qed
+
+The next result gives a factorization of a polynomial over $\R{}$. The idea of the
+proof is to use the second version of the fundamental theorem of algebra (\ref{4FTA2}), which gives a factorization of~$p$ as a polynomial with complex coefficients.  Complex but nonreal zeros of~$p$ come in pairs; see~\ref{170}.  Thus
+if the factorization of~$p$ as an element of~$\P(\C{})$ includes terms of the form
+$(x - \la)$ with~$\la$ a nonreal complex number, then $(x - \bar{\la})$ is also a
+term in the factorization.  Multiplying together these two terms, we get
+\[
+x^2 - 2(\re \la)x + |\la|^2,
+\]
+which is a quadratic term of the required form.
+
+
+The idea sketched in the paragraph above almost provides a proof of the
+existence of our desired factorization.  However, we need to be careful about one
+point.  Suppose $\la$ is a nonreal complex number and $(x - \la)$ is a term in the
+factorization of~$p$ as an element of~$\P(\C{})$.  We are guaranteed by~\ref{170}
+that $\paren[\big]{x - \bar{\la}}$ also appears as a term in the factorization, but \ref{170} does
+not state that these two factors appear the same number of times, as needed to
+make the idea above work.  However, the proof works around this point.
+
+In the next result, either $m$ or $M$ may equal $0$. The
+numbers $\la_1, \dots, \la_m$ are precisely the real zeros of $p$, for these
+are the only real values of $x$ for which the right side of the equation in the next result
+equals~$0$.
+
+\ResultBox[158]{factorization of a polynomial over $\R{}$}{%
+Suppose $p \in \P(\R{})$ is a nonconstant polynomial. Then\/ $p$ has a unique
+factorization (except for the order of the factors) of the form
+\[
+p(x) =
+c(x - \la_1) \cdots(x - \la_m)
+\paren[\big]{x^2 + b_1 x + c_1} \cdots \paren[\big]{x^2 + b_M x + c_M},
+\]
+where\/ $c, \la_1, \dots, \la_m, b_1, \dots, b_M, c_1, \dots, c_M\in \R{}$, with ${b_k}^{\2} < 4c_k$ for each $k$.
+}
+
+\proof
+First we will prove that the desired factorization exists, and after that we will prove the uniqueness.
+
+Think of $p$ as an element of $\P(\C{})$. If all (complex) zeros of $p$ are real, then we have the desired factorization by \ref{4FTA2}. Thus suppose $p$ has a zero $\la \in \C{}$ with $\la \notin \R{}$. By \ref{170}, $\bar{\la}$ is a zero of $p$. Thus we can write
+\begin{align*}
+p(x) &= (x - \la)\paren[\big]{x - \bar{\la}}q(x) \\
+&= \bigl(x^2 - 2(\re \la)x + |\la|^2\bigr) q(x)
+\end{align*}
+for some polynomial $q \in \P(\C{})$ of degree two less than the degree of~$p$.  If we can prove that $q$ has real coefficients, then using induction on the degree of $p$ completes the proof of the existence part of this result.
+
+To prove that $q$ has real coefficients, we solve the equation above for $q$,
+getting
+%\mar{Here we are not dividing by\/ $0$ because the zeros of\/ $x^2 - 2(\re \la)x + |\la|^2$ are\/ $\la$ and\/ $\bar{\la}$, neither of which is real.}
+\[
+q(x) = \frac{p(x)}{x^2 - 2(\re \la)x + |\la|^2}
+\]
+for all $x \in \R{}$.  The equation above implies that $q(x) \in \R{}$ for all $x \in \R{}$.
+Writing
+\[
+q(x) = a_0 + a_1 x + \dots + a_{n-2} x^{n-2}\!,
+\]
+where $n = \deg p$ and $a_0, \dots, a_{n-2} \in \C{}$, we thus have
+\[
+0 = \im q(x) = (\im a_0) + (\im a_1) x + \dots + (\im a_{n-2}) x^{n-2}
+\]
+for all $x \in \R{}$.  This implies that $\im a_0, \dots, \im a_{n-2}$ all equal~$0$ (by
+\ref{4polyzero}).  Thus all coefficients of~$q$ are real, as desired. Hence the
+desired factorization exists.
+
+Now we turn to the question of uniqueness of our factorization.  A factor of~$p$ of
+the form $x^2 + b_k x + c_k$ with ${b_k}^{\2} < 4 c_k$ can be uniquely written
+as $(x - \la_k)\paren[\big]{x - \overline{\la_k}}$ with $\la_k \in \C{}$.  A moment's thought shows that two
+different factorizations of~$p$ as an element of~$\P(\R{})$ would lead to two
+different factorizations of~$p$ as an element of~$\P(\C{})$,
+contradicting~\ref{4FTA2}.
+\qed
+
+\begin{exercises}
+
+\exercise
+Suppose $w, z \in \C{}$. Verify the following equalities and inequalities.
+\begin{subtheorem} \addtolength{\itemsep}{3bp}
+\item
+$z + \bar{z} = 2 \re z$
+
+\item
+$z - \bar{z} = 2( \im z)i$
+
+\item
+$z \bar{z} = |z|^2$
+
+\item
+$\overline{w + z} = \bar{w} + \bar{z}$  and $\overline{wz} = \bar{w} \; \bar{z}$
+
+\item
+$\overline{\bar{z}} = z$
+
+\item
+$| \re z | \le |z|$ and $| \im z | \le |z|$
+
+\item
+$\abs[\big]{\bar{z}} = |z|$
+
+\item
+$|wz| = |w|\,|z|$
+\end{subtheorem}
+\exercisecomment{The results above are the parts of \ref{propcomplex} that were left to the reader.}
+
+
+\exercise
+Prove that if $w, z \in \C{}$, then $\abs[\Big]{\, \abs{w} - \abs{z} \,} \le \abs{w-z}$. \label{4reverse}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}.\index{reverse triangle inequality}}
+
+
+\exercise
+Suppose $V$ is a complex vector space and $\phi \in V'\!$. Define $\fun \sigma V {\R{}}$ by
+$\sigma(v) = \re \phi(v)$ for each $v \in V\1$. Show that
+\[
+\phi(v) = \sigma(v) - i \sigma(iv)
+\]
+for all $v \in V\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer.  Is the set
+\[
+\{0\} \cup \br[\big]{p \in \P(\F{}): \deg p = m}
+\]
+a subspace of $\P(\F{})$?
+
+
+\exercise
+Is the set
+\[
+\{0\} \cup \br[\big]{p \in \P(\F{}): \deg p \text{ is even}}
+\]
+a subspace of $\P(\F{})$?
+
+
+\exercise
+Suppose that $m$ and $n$ are positive integers with $m \le n$, and suppose $\la_1, \dots, \la_m \in \F{}\3$. Prove that there exists a polynomial $p \in \P(\F{})$ with $\deg p = n$ such that $0 = p(\la_1) = \dots = p(\la_m)$ and such that $p$ has no other zeros.
+
+
+\exercise
+Suppose that $m$ is a nonnegative integer, $z_1, \dots, z_{m+1}$ are distinct elements of $\F{}\3$, and
+$w_1, \dots, w_{m+1} \in \F{}\3$.  Prove that there exists a unique polynomial
+$p \in \P\1_m(\F{})$ such that \label{PolyInterpolation}
+\[
+p(z_k) = w_k
+\]
+for each $k = 1, \dots, m + 1$.
+\exercisecomment{This result can be proved without using linear algebra. However, try to find the clearer, shorter proof that uses some linear algebra.}
+
+
+\exercise
+Suppose $p \in \P(\C{})$ has degree $m$.  Prove that $p$ has $m$ distinct zeros if
+and only if $p$ and its derivative $p'$ have no zeros in common.
+
+
+\exercise
+Prove that every polynomial of odd degree with real coefficients has a real zero.\label{4oddzero}
+
+
+\exercise
+For $p \in \P(\R{})$, define $\fun {Tp} {\R{}} {\R{}}$ by
+\[
+(Tp)(x) =
+\begin{cases}
+\dfrac{p(x) - p(3)}{x-3} & \text{if } x \ne 3,\\[9bp]
+p' \! (3) & \text{if } x = 3
+\end{cases}
+\]
+for each $x \in \R{}$. Show that $Tp \in \P(\R{})$ for every polynomial $p \in \P(\R{})$ and also show that $\fun T {\P(\R{})} {\P(\R{})}$ is a linear map.
+
+
+\exercise
+Suppose $p \in \P(\C{})$. Define $q \colon \C{} \to \C{}$ by
+\[
+q(z) = p(z) \, \overline{ p\paren[\big]{\bar{z}} }.
+\]
+Prove that $q$ is a polynomial with real coefficients.
+
+
+\exercise
+Suppose $m$ is a nonnegative integer and $p \in \P\1_m(\C{})$ is such that there are distinct real numbers $x_0, x_1, \dots, x_m$ with $p(x_k) \in \R{}$ for each $k = 0, 1, \dots, m$. Prove that all coefficients of $p$ are real.
+
+
+\pagebreak[2]
+
+\exercise
+Suppose $p \in \P(\F{})$ with $p \ne 0$. Let $U = \br[\big]{p q : q \in \P(\F{})}$.
+\begin{subtheorem}
+\item
+Show that $\dim \P(\F{})/U = \deg p$.
+\item
+Find a basis of $\P(\F{})/U$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are nonconstant polynomials with no zeros in common. Let $m = \deg p$ and $n = \deg q$. Use linear algebra as outlined below in (a)--(c) to prove that there exist
+$r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that
+\[
+rp + sq = 1.
+\]
+\begin{subtheorem}*
+\item
+Define $\fun T { \P\1_{n-1}(\C{}) \times \P\1_{m-1}(\C{}) } {\P\1_{m+n-1}(\C{})}$ by
+\[
+T(r, s) = rp + sq.
+\]
+Show that the linear map $T$ is injective.
+\item
+Show that the linear map $T$ in (a) is surjective.
+\item
+Use (b) to conclude that there exist $r \in \P\1_{n-1}(\C{})$ and $s \in \P\1_{m-1}(\C{})$ such that $rp + sq = 1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\end{exercises}
+
+\CrCom
+
+\endinput

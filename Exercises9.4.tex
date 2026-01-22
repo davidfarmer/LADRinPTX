@@ -1,0 +1,106 @@
+
+\exercise
+Suppose $v \in V$ and $w \in W\3$. Prove that $v \tensor w = 0$ if and only if $v = 0$ or $w = 0$.\label{9zeroten}
+
+
+\exercise
+Give an example of six distinct vectors $v_1, v_2, v_3, w_1, w_2, w_3$ in $\R3$ such that
+\[
+v_1 \tensor w_1 + v_2 \tensor w_2 + v_3 \tensor w_3 = 0
+\]
+but none of $v_1 \tensor w_1$, $v_2 \tensor w_2$, $v_3 \tensor w_3$ is a scalar multiple of another element of this list.
+
+
+\exercise
+Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V\1$. Suppose also that $w_1, \ldots, w_m$ is a list in $W$ such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Prove that $w_1 = \cdots = w_m = 0$.
+
+
+\exercise
+Suppose $\dim V > 1$ and $\dim W > 1$. Prove that\label{9VtenW}
+\[
+\br[\big]{ v \tensor w : (v, w) \in V\1 \times W }
+\]
+is not a subspace of $V\1 \tensor W\3$.
+\exercisecomment{This exercise implies that if\/ $\dim V > 1$ and\/ $\dim W > 1$,\/ then
+\vspace{-3bp}
+\[
+\br[\big]{ v \tensor w : (v, w) \in V\1 \times W } \ne V\1 \tensor W\3.
+\]}
+\vspace{-10bp}
+
+
+\exercise
+Suppose $m$ and $n$ are positive integers. For $v \in \F m$ and $w \in \FF{n}$, identify $v \tensor w$ with an \by{m}{n} matrix as in Example \ref{9FmFn}. With that identification, show that the set\label{9rank1}
+\[
+\br[\big]{ v \tensor w : v \in \F m \text{ and } w \in \F n }
+\]
+is the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most one.
+
+
+\exercise
+Suppose $m$ and $n$ are positive integers. Give a description, analogous to Exercise \ref{9rank1}, of the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most two.\label{9rank2}
+
+
+\exercise
+Suppose $\dim V > 2$ and $\dim W > 2$. Prove that
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W } \ne V\1 \tensor W\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $v_1, \ldots, v_m \in V$ and $w_1, \ldots,w_m \in W$ are such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Suppose that $U$ is a vector space and $\fun \Gamma {V\1 \times W} U$ is a bilinear map.
+Show that
+\[
+\Gamma(v_1, w_1) + \cdots + \Gamma(v_m, w_m) = 0.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that there exists a unique operator on $V\1 \tensor W$ that takes
+$v \tensor w$ to $Sv \tensor Tw$ for all $v \in V$ and $w \in W\3$.
+\exercisecomment{In an abuse of notation, the operator on\/ $V\1 \tensor W$ given by this exercise is often called\/ $S \tensor T\3$.}\label{9LVtenLW}\sindex{Stensor@$S \tensor T\3$}
+
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that $S \tensor T$ is an invertible operator on $V\1 \tensor W$ if and only if both $S$ and $T$ are invertible operators. Also, prove that  if both $S$ and $T$ are invertible operators, then
+$(S \tensor T)^{-1} = S^{-1} \tensor T^{-1}$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.
+
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces. Prove that if $S \in \L(V)$ and $T \in \L(W)$, then $(S \tensor T)^* = S^* \tensor T^*\1$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.\label{9STstar}
+
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are finite-dimensional inner product spaces. Prove that there is a unique inner product on
+$V\1_1 \tensor \cdots \tensor V\1_m$ such that\label{9tenmip}
+\[
+\ip{ v_1 \tensor \cdots \tensor v_m, u_1 \tensor \cdots \tensor u_m } =
+\ip{ v_1, u_1} \cdots \ip{v_m, u_m}
+\]
+for all $(v_1, \ldots, v_m)$ and $(u_1, \ldots, u_m)$ in $V\1_1 \times \cdots \times V\1_m$.
+\exercisecomment{Note that the equation above implies that
+\[
+\norm{ v_1 \tensor \cdots \tensor v_m } = \norm{v_1} \times \cdots \times \norm{v_m}
+\]
+for all\/ $(v_1, \ldots, v_m) \in V\1_1 \times \cdots \times V\1_m$.}
+
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are finite-dimensional inner product spaces and $V\1_1 \tensor \cdots \tensor V\1_m$ is made into an inner product space using the inner product from Exercise \ref{9tenmip}. Suppose $e_1^{\,k}, \ldots, e_{n_k}^{\,k}$ is an orthonormal basis of $V\1_k$ for each $k = 1, \ldots, m$. Show that the list\label{9tenmip2}
+\[
+\br{e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+\]
+is an orthonormal basis of $V\1_1 \tensor \cdots \tensor V\1_m$.
+
+

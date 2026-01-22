@@ -1,0 +1,641 @@
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (z,0)$.
+Find all generalized eigenvectors of~$T\3$.
+
+\begin{Solution}
+Suppose $\la$ is an eigenvalue of $T\3$.
+For this particular operator, the eigenvalue-eigenvector equation
+$T(w,z) = \la (w, z)$ becomes the system of equations
+\begin{align*}
+z &= \la w \\
+0 &= \la z.
+\end{align*}
+If $\la \ne 0$, then the second equation implies that $z = 0$, and the first
+equation then implies that $w = 0$.  This shows that $0$ is the only possible eigenvalue of~$T\3$.  For
+$\la = 0$, the equations above show that $z$ equals $0$, but $w$ can be
+arbitrary.  Thus $0$ is indeed an eigenvalue of $T$, and the set of eigenvectors
+corresponding to this eigenvalue is
+\[
+\{(w, 0) : w \in \F{} \text{\ and\ }\}.
+\]
+
+Note that $T^2 = 0$.  Thus every nonzero vector in $\C{2}$ is a generalized eigenvector of
+$T$ (corresponding to the eigenvalue~$0$).
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that if $\dim \ker T^4 = 8$ and $\dim \ker T^6 = 9$, then $\dim \ker T^m = 9$ for all integers $m \ge 5$.
+
+\begin{Solution}
+Suppose $\dim \ker T^4 = 8$ and $\dim \ker T^6 = 9$. Because
+\[
+\ker T^4 \subset \ker T^5 \subset \ker T^6,
+\]
+we know that
+\[
+8 \le \dim \ker T^5 \le 9.
+\]
+If $\dim \ker T^5 = 8$, then \ref{a113} would imply that $\dim \ker T^m = 8$ for all $m\ge 5$, which is false for $m = 6$.
+
+Thus we must have $\dim \ker T^5 = 9$. Now \ref{a113} implies that $\dim \ker T^m = 9$ for all $m\ge 5$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$, $m$ is a positive integer, $v \in V$, and
+$T^{m-1} v \ne 0$ but $T^m v = 0$.  Prove that
+$
+v, Tv, T^2 v, \dots, T^{m-1} v
+$
+is linearly independent.\looseness=-1
+
+\begin{Solution}
+Suppose $a_0, a_1, a_2, \dots, a_{m-1} \in \F{}$ are such that
+\[
+a_0 v + a_1 Tv + a_2 T^2 v + \dots + a_{m-1}T^{m-1} v = 0.
+\]
+Because $T^m v = 0$, if we apply $T^{m-1}$ to both sides of the equation above,
+we get $a_0 T^{m-1} v = 0$.  Because $T^{m-1} v \ne 0$, this implies
+that $a_0 = 0$.  Thus the equation above can be rewritten as
+\[
+a_1 Tv + a_2 T^2 v + \dots + a_{m-1}T^{m-1} v = 0.
+\]
+Applying $T^{m-2}$ to both sides of this equation, we get $a_1 T^{m-1} v = 0$.
+Thus $a_1 = 0$.  Continuing in this fashion, we have
+$a_0 = a_1 = a_2 = \dots = a_{m-1} = 0$, which means that
+$v, Tv, T^2 v, \dots, T^{m-1} v$ is linearly independent.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$, $\la \in \F{}$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of
+$(z - \la)^m$. Prove that
+\[
+\dim \ker(T - \la I)^m \ge m.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let $p$ denote the minimal polynomial of $T\3$. There exists a polynomial $q$ such that
+\[
+p(z) = (z-\la)^m q(z)
+\]
+for all $z \in \F{}$. Thus
+\[
+0 = p(T)v = (T - \la I)^m \paren[\big]{ q(T)v }
+\]
+for all $v \in V\1$. Because $p$ is the minimal polynomial of $T\3$, this implies that there exists $w \in V$ such that
+\[
+(T - \la I)^{m-1} w \ne 0 \butt (T - \la I)^m = 0.
+\]
+In other words, $\ker(T-\la I)^{m-1} \ne \ker(T - \la I)^m$. Thus \ref{76} and \ref{a113} imply that
+\[
+\{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots
+\subsetneq \ker T^{m-1} \subsetneq \ker T^m\!.
+\]
+Because each inclusion above is proper, the dimension goes up by at least one with each inclusion. Hence
+$\dim \ker(T - \la I)^m \ge m$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Show that\index{range!of powers of an operator} \label{range1}
+\[
+V = \ran T^0 \supset \ran T^1 \supset \dots
+\supset \ran T^k \supset \ran T^{k+1} \supset \dotsb .
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Suppose $k$ is a nonnegative integer and $w \in \ran T^{k+1}$. Then there exists
+$v \in V$ with $w = T^{k+1} v$. Hence $w = T^k(Tv)$, and thus $w \in \ran T^k\!$. Hence $\ran T^{k+1} \subset \ran T^k\!$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer such that \label{range2}
+\[
+\ran T^m = \ran T^{m+1}.
+\]
+Prove that $\ran T^k = \ran T^m$ for all $k > m$.
+
+\begin{Solution}
+Suppose $u \in \ran T^{m+1}$.  Thus there exists a vector $v$ in $V$ (the domain
+of $T$) such that $u = T^{m+1} v$.  Now $T^m v$ is in $\ran T^m\!$, which by our
+hypothesis equals $\ran T^{m+1}$.  Thus there exists $w \in V$ such that
+$T^m v = T^{m+1} w$.  Putting all this together, we have
+\begin{align*}
+u &= T^{m+1} v \\
+&= T(T^m v) \\
+&= T(T^{m+1} w) \\
+&= T^{m+2} w.
+\end{align*}
+Thus $u \in \ran T^{m+2}$.  Because $u$ was an arbitrary vector in $\ran T^{m+1}$,
+we have shown that $\ran T^{m+1} \subset \ran T^{m+2}$.  We also have an easy
+inclusion in the other direction, so we conclude that
+$\ran T^{m+1} = \ran T^{m+2}$.
+
+In the paragraph above, we showed that $\ran T^m = \ran T^{m+1}$ implies
+$\ran T^{m+1} = \ran T^{m+2}$.  Apply that result, with $m$ replaced with $m+1$, to
+conclude that $\ran T^{m+2} = \ran T^{m+3}$.  Continuing in this fashion, we see
+that
+\[
+\ran T^m = \ran T^{m+1} = \ran T^{m+2} = \dots,
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that\label{range3}
+\[
+\ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb .
+\]
+\exercisedisplayend
+
+\begin{Solution}
+We could prove this from scratch, but instead let's make use of
+the corresponding result already proved for null spaces.  Suppose $m > \dim V\1$.  Then
+\begin{align*}
+\dim \ran T^m &= \dim V - \dim \ker T^m \\
+&= \dim V - \dim \ker T^{\dim V} \\
+&= \dim \ran T^{\dim V},
+\end{align*}
+where the first and third equalities come from the fundamental theorem of linear maps (\ref{ab11}) and the second equality
+comes from~\ref{23}.  We already know that $\ran T^{\dim V} \supset \ran T^m\!$.
+We just showed that $\dim \ran T^{\dim V} = \dim \ran T^m\!$, so this
+implies that \mbox{$\ran T^{\dim V} = \ran T^m$}, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer. Prove that\label{kerran}
+\[
+\ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+By the fundamental theorem of linear maps (\ref{ab11}),
+\[
+\dim \ker T^m + \dim \ran T^m = \dim V
+\]
+and
+\[
+\dim \ker T^{m+1} + \dim \ran T^{m+1} = \dim V\1.
+\]
+Thus
+\[
+\hspace*{-.1in}\dim \ker T^m = \dim \ker T^{m+1} \iff \dim \ran T^m = \dim \ran T^{m+1}.
+\]
+The inclusion in \ref{76} shows that $\dim \ker T^m = \dim \ker T^{m+1}$ if and only if $\ker T^m = \ker T^{m+1}$, and the inclusion in Exercise \ref{range1} shows that $\dim \ran T^m = \dim \ran T^{m+1}$ if and only if $\ran T^m = \ran T^{m+1}$. Putting all this together, we see that
+\[
+\ker T^m = \ker T^{m+1} \quad \text{if and only if} \quad \ran T^m = \ran T^{m+1}.
+\]
+\end{Solution}
+
+\begin{comment}
+\exercise
+Find a vector space $W$ and $T \in \L(W)$ such that $\ker T^k \subsetneq \ker T^{k+1}$ and $\ran T^k \supsetneq \ran T^{k+1}$ for every positive integer~$k$.
+
+\begin{Solution}
+Define $T \in \L( \F{\infty} \times \F{\infty} )$ by
+\[
+\hspace*{-.3in}T\bigl( (x_1, x_2, x_3, \dots), (y_1, y_2, y_3, \dots) \bigr)
+= \bigl( (x_2, x_3, x_4, \dots), (0, y_1, y_2, \dots) \bigr).
+\]
+Then
+\[
+\ker T^k = \{ \bigl( (x_1, \dots, x_k, 0, 0, \dots), (0, 0, 0, \dots) \bigr) : x_1, \dots, x_k \in \F{} \}.
+\]
+Thus $\ker T^k \subsetneq \ker T^{k+1}$ for every positive integer~$k$.
+
+Also,
+\[
+\hspace*{-.45in}\ran T^k = \{ \bigl( (x_1, x_2, x_3, \dots), (\underbrace{0, \dots, 0,}_{k\text{ times}} y_1, y_2, y_3, \dots) \bigr) : \text{each }x_k, y_k \in \F{} \}.
+\]
+Thus $\ran T^k \supsetneq \ran T^{k+1}$ for every positive integer~$k$.
+\end{Solution}
+
+\end{comment}
+
+\exercise
+Suppose that $T \in \L(V)$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}$.\label{8geneigb}
+\exercisecomment{The case where\/ $\F{} = \C{}$ follows immediately from \ref{136}\uppar{b} and \ref{28}; thus this exercise is interesting only when\/ $\F{} = \R{}$.\\[3bp]This exercise states that the condition for there to be a basis of\/ $V$ consisting of generalized eigenvectors of\/ $T$ is the same as the condition for there to be a basis with respect to which\/ $T$ has an upper-triangular matrix \textup{[}see \ref{4necsuf}; also see \ref{a226}\uppar{b}\textup{]}. Caution: If\/ $T$ has an upper-triangular matrix with respect to a basis\/ $v_1, \ldots, v_n$ of\/ $V\1$, then\/ $v_1$ is an eigenvector of\/ $T$ but it is not necessarily true that\/ $v_2, \ldots, v_k$ are generalized eigenvectors of\/ $T\3$.}
+
+\begin{Solution}
+First suppose there is a basis of $V$ consisting of generalized eigenvectors of~$T\3$. Let $\al_1, \ldots, \al_M$ denote the distinct eigenvalues of $T\3$. If $v$ is a generalized eigenvector of $T$ corresponding to some eigenvalue $\al_k$ of $T$, then
+\[
+(T - \al_1 I)^{\dim V} \cdots (T - \al_M I)^{\dim V}v = 0
+\]
+because $(T - \al_k I)^{\dim V}v =0$ and the operators above commute. Thus if $q$ is the polynomial defined by
+\[
+q(z) = (z - \al_1)^{\dim V} \cdots (z - \al_M)^{\dim V},
+\]
+then $q(T) = 0$ because $q(T)v = 0$ for every $v$ in some basis of $V\1$. Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ (by \ref{140}). Thus the minimal polynomial of $T$ equals
+$(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}$.
+
+To prove the implication in the other direction, now assume that the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}$.
+
+Let $n = \dim V\1$. We will use induction on $n$. To get started, note that the desired result holds if $n=1$ because then every nonzero vector in $V$ is an eigenvector of $T$ and in particular there is a basis of $V$ consisting of generalized eigenvectors of~$T\3$.
+
+Now suppose $n > 1$ and the desired result holds for all smaller values of $\dim V\1$. By \ref{136}(a), $\la_1$ is an eigenvalue of $T\3$. Applying \ref{8nulloplusran} to $T - \la_1 I$ shows that
+\[
+V = \ker(T - \la_1 I)^n \oplus \ran (T - \la_1 I)^n.
+\]
+
+If $\ker(T - \la_1 I)^n = V\1$, then every nonzero vector in $V$ is a generalized eigenvector of $T$, and thus in this case there is a basis of $V$ consisting of generalized eigenvectors of $T\3$. Hence we can assume that $\ker(T - \la_1 I)^n \ne V\1$, which implies that
+$\ran (T - \la_1 I)^n \ne \br{0}$.
+
+Also, $\ker(T - \la_1 I)^n \ne \br{0}$, because $\la_1$ is an eigenvalue of $T\3$. Thus we see that
+\[
+0 < \dim \ran(T - \la_1 I)^n < n.
+\]
+Furthermore, $\ran(T - \la_1 I)^n$ is invariant under $T$ [by \ref{130} with $p(z) = (z - \la_1)^n$].
+
+Let $S \in \L\paren[\big]{ \ran(T - \la_1 I)^n }$ equal $T$ restricted to $\ran(T - \la_1 I)^n\1$. The minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $S$ (by \ref{5minU}). Thus the minimal polynomial of $S$ satisfies the condition required by our induction hypothesis. Thus our induction assumption, applied to the operator $S$, implies that there is a basis of $\ran(T - \la_1 I)^n$ consisting of generalized eigenvectors of $S$, which of course are generalized eigenvectors of $T\3$. Adjoining that basis of
+$\ran(T - \la_1 I)^n$ to a basis of $\ker(T - \la_1 I)^n$ gives a basis of $V$ consisting of generalized eigenvectors of $T\3$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is such that every vector in $V$ is a generalized eigenvector of $T\3$. Prove that there exists $\la \in \F{}$ such that
+$T - \la I$ is nilpotent.
+
+\begin{Solution}
+Suppose $\al, \beta \in \F{}$ are eigenvalues of $T\3$. Thus there exist nonzero vectors $u, w \in V$ such that
+\[
+(T - \al I)u = 0 \andd (T - \beta I)w = 0.
+\]
+We want to prove that $\al = \beta$.
+
+Because $u+w$ is a generalized eigenvector of $T\3$, there exists $\gamma \in \F{}$ such that
+\[
+(T - \gamma I)^n (u+w) = 0,
+\]
+where $n = \dim V\1$.
+
+The list $u, w, u+w$ is linearly dependent, which by \ref{genind} means that the list $\al, \beta, \gamma$ does not consist of distinct numbers. If $\al = \beta$, then we are done with this part of the proof. Thus assume, without loss of generality, that $\gamma = \al$. Then the equations
+\[
+(T - \al I)^n u = 0 \andd (T - \al I)^n (u+w) = 0
+\]
+imply that $(T - \al I)^n w = 0$. Now \ref{8intgeneig} implies that $\al = \beta$.
+
+Thus we have proved that $T$ has only one eigenvalue, which we will call $\la$. Because every vector in $V$ is a generalized eigenvector corresponding to the eigenvalue $\la$, we have $(T - \la I)^n v = 0$ for every $v \in V\1$. In other words, $(T - \la I)$ is nilpotent.
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V)$ and $ST$ is nilpotent. Prove that $TS$ is nilpotent.
+
+\begin{Solution}
+Suppose $ST$ is nilpotent.  Thus there exists a positive integer $n$ such that
+$(ST)^n = 0$.  Now
+\begin{align*}
+(TS)^{n+1} &= (TS)(TS) \dotsm (TS) \\
+&= T(ST)(ST)\dotsm (ST) S \\
+&= T(ST)^n S \\
+&= (T)(0)(S) \\
+&= 0.
+\end{align*}
+Thus $TS$ is nilpotent.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $T \ne 0$. Prove $T$ is not diagonalizable.\index{diagonalizable}
+
+\begin{Solution}
+There is a positive integer $m$ such that $T^m = 0$. If $\la \in \F{}$ is an eigenvalue of $T$, then there exists a nonzero vector $v \in V$ such that
+\[
+\la v = Tv.
+\]
+Repeatedly applying $T$ to both sides of this equation shows that
+\[
+\la^m v = T^m v = 0.
+\]
+Thus $\la = 0$.
+
+Now suppose that $T$ is diagonalizable. Then there is a basis of $V$ consisting of eigenvectors of $T\3$. The entries on the diagonal of the matrix of $T$ with respect to this basis are eigenvalues of $T\3$. By the paragraph above, this implies that the entries of this diagonal matrix are all $0$, which implies that $T = 0$, contradicting our hypothesis. Thus $T$ is not diagonalizable.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if every generalized eigenvector of~$T$ is an eigenvector of~$T\3$.\label{425} \index{diagonalizable}
+\exercisecomment{For $\F{} = \C{}$, this exercise adds another
+equivalence to the list of conditions for diagonalizability in \ref{427}.}
+
+\begin{Solution}
+First suppose $V$ has a basis consisting of eigenvectors of~$T\3$.  Thus there
+exists a basis $v_1, \dots, v_n$ of $V$ and $\la_1, \dots, \la_n \in \C{}$ such
+that $Tv_k = \la_k v_k$ for each~$k$.  Suppose $v \in V$ is a generalized
+eigenvector of~$T$ corresponding to an eigenvalue~$\la$.  Because
+$v_1, \dots, v_n$ is a basis of $V\1$, there exist
+$a_1, \dots, a_n \in \C{}$ such that
+\[
+v = a_1 v_1 + \dots + a_n v_n.
+\]
+Thus
+\[
+(T - \la I)v = (\la_1 - \la)a_1 v_1 + \dots + (\la_n - \la)a_n v_n.
+\]
+Applying $T - \la I$ repeatedly to both sides of this equation, we get
+\[
+(T - \la I)^n v = (\la_1 - \la)^n a_1 v_1 + \dots + (\la_n - \la)^n a_n v_n.
+\]
+The left side of the equation above equals $0$ (because $v$ is a generalized
+eigenvector of $T$ corresponding to the eigenvalue
+$\la$).  Thus the right side of the equation above equals~$0$.
+Thus $(\la_k - \la)^n a_k = 0$ for each~$k$.  This implies that the indices $k$
+such that $a_k \ne 0$ all satisfy $\la_k = \la$, which means that
+$v$ is a linear combination of the $v_k$'s that correspond to eigenvalue $\la$,
+which means that $v$ is itself an eigenvector corresponding to eigenvalue $\la$,
+as desired.
+
+To prove the other direction, now suppose every generalized eigenvector of
+$T$ is an eigenvector of~$T\3$.  By \ref{28}, there exists a basis of $V$ consisting
+of generalized eigenvectors of~$T\3$.  Because every generalized eigenvector of $T$
+is an eigenvector of $T$, this gives a basis of $V$ consisting of eigenvectors
+of~$T$, as desired.
+\end{Solution}
+
+\exercise
+\begin{subtheorem}
+\item
+Give an example of nilpotent operators $S, T$ on the same vector space such that neither $S+T$ nor $ST$ is nilpotent.
+\item
+Suppose $S, T \in \L(V)$ are nilpotent and $ST = TS$. Prove that $S + T$ and $ST$ are nilpotent.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Define $S, T \in \L\paren[\big]{\F2}$ by
+\[
+S(x, y) = (y, 0) \andd T(x, y) = (0, x)
+\]
+for all $(x, y) \in \FF2$. Then
+\[
+S^2 = T^2 = 0,
+\]
+and thus $S$ and $T$ are nilpotent.
+
+However,
+\[
+(S + T)(x, y) = (y, x),
+\]
+which shows that $S + T$ is not nilpotent; in fact, $(S+T)^2 = I$.
+
+Also,
+\[
+(ST)(x, y) = (x, 0)
+\]
+for all $(x, y) \in \FF2$. Thus $ST$ is not nilpotent.
+
+\item
+Let $n = \dim V\1$. Then the commutativity equation $ST = TS$ and the binomial theorem imply that
+\[
+(S+T)^{2n} = S^{2n} + 2n S^{2n-1} T + \cdots + 2n S T^{2n-1} + T^{2n}.
+\]
+Each term in the sum above is of the form a constant times $S^j T^k\!$, where $j$ and $k$ are nonnegative integers such that $j + k = 2n$. Thus at least one of $j, k$ is bigger than or equal to $n$, which implies that $S^j = 0$ or $T^k = 0$. Hence all the terms in the sum above equal $0$, which implies that $(S+T)^{2n} = 0$. Thus $S+T$ is nilpotent.
+
+Also,
+\[
+(ST)^n = S^n T^n = 0.
+\]
+Thus $ST$ is nilpotent.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $m$ is a positive integer such that $T^m = 0$.
+\begin{subtheorem}
+\item
+Prove that $I-T$ is invertible and that
+$
+(I - T)^{-1} = I + T + \dots + T^{m-1}$.
+\item
+Explain how you would guess the formula above.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+We have
+\begin{align*}
+(I-T)&(I + T + \dots + T^{m-1}) \\
+&= I + T + \dots + T^{m-1} - T - T^2 - \dots - T^{m-1} - T^m \\
+&= I,
+\end{align*}
+where the last equality holds because $T^m = 0$.
+
+Similarly, $(I + T + \dots + T^{m-1})(I-T) = I$. Thus $I-T$ is invertible and
+$
+(I - T)^{-1} = I + T + \dots + T^{m-1}$.
+
+\item
+If $r \in \C{}$ and $|r| < 1$, then we have the usual formula for the sum of a geometric series:
+\[
+(1 - r)^{-1} = 1 + r + r^2 + \dots + r^{m-1} + r^m + r^{m+1} + \cdots.
+\]
+If we guess that in the formula above, we can replace $1$ with $I$ and $r$ with $T$, then we would have
+\[
+(I - T)^{-1} = I + T + \dots + T^{m-1},
+\]
+where this is a finite sum because $0 = T^m = T^{m+1} = \cdots$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $T^{1 + \dim \ran T} = 0$.\label{nilrange}
+\exercisecomment{If\/ $\dim \ran T < \dim V - 1$, then this exercise improves upon \ref{181}.}
+
+\begin{Solution}
+Note that $\ran T$ is a subspace of $V$ that is invariant under $T\3$. Because $T$ is nilpotent, so is the operator $T|_{\ran T}$. Thus (using \ref{181}) we have
+\[
+(T|_{\ran T})^{\dim \ran T} = 0.
+\]
+If $v \in V\1$, then $Tv \in \ran T$ and hence
+\[
+T^{\dim \ran T}(Tv) = 0.
+\]
+In other words, $T^{1 + \dim \ran T}v = 0$. Thus $T^{1 + \dim \ran T}$ is the $0$ operator, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T\in \L(V)$ is not nilpotent. Show that\label{8notnil}
+\[
+V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}.
+\]
+\exercisedisplayend
+\exercisecomment{For operators that are not nilpotent, this exercise improves upon \ref{8nulloplusran}.}
+
+\begin{Solution}
+Let $n = \dim V\1$. Because $T$ is not nilpotent, we know that $\ker T^n \ne V\1$.  Thus
+\[
+\ker T^{n-1} = \ker T^n,
+\]
+because otherwise \ref{76} and \ref{a113} would imply that
+\[
+\{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots
+\subsetneq \ker T^{n-1} \subsetneq \ker T^n,
+\]
+and at each of the strict inclusions above the dimension would increase by at least $1$, which would imply that $\dim \ker T^n \ge n$.
+
+By the fundamental theorem of linear maps (\ref{ab11}),
+\[
+\dim \ker T^{n-1} + \dim \ran T^{n-1} = \dim V
+\]
+and
+\[
+\dim \ker T^n + \dim \ran T^n = \dim V\1.
+\]
+Hence $\dim \ran T^{n-1} = \dim \ran T^n\1$. Because $\ran T^{n-1} \supset \ran T^n\1$, this implies that
+\[
+\ran T^{n-1} = \ran T^n\1.
+\]
+
+Now \ref{8nulloplusran} implies that $V = \ker T^{n-1} \oplus \ran T^{n-1}$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$ is normal and nilpotent. Prove that $T = 0$.
+
+\begin{Solution}
+Let $k$ be the smallest positive integer such that $T^k = 0$. Thus there exists $v \in V$ such that $T^{k-1} v \ne 0$. If $k > 1$, then
+\[
+T^{k-1}v = T(T^{k-2}v) \in \ran T\3.
+\]
+However,
+\[
+T(T^{k-1}v) = T^k v = 0.
+\]
+Thus $T^{k-1} v \in \ker T \cap \ran T$, which by \ref{746}(c) implies that $T^{k-1}v = 0$. This contradiction shows that $k=1$. Thus $T=0$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!$.  Prove that $T$ is nilpotent and that\label{nil5}
+\[
+\dim \ker T^k = k
+\]
+for every integer $k$ with $0 \le k \le \dim V\1$.
+
+\begin{Solution}
+Because $\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!$, we know (by~\ref{a113}) that
+\[
+\ker T^{k-1} \ne \ker T^k
+\]
+whenever $0 \le k \le \dim V\1$.  Thus
+\[
+\{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dotsm
+\subsetneq \ker T^{\dim V - 1} \subsetneq \ker T^{\dim V}.
+\]
+At each of the strict inclusions in the chain above, the dimension increases
+by at least~$1$.  However, if the dimension increases by more than $1$ at some
+step, we would end up with $\dim \ker T^{\dim V} > \dim V\1$, a contradiction
+because a subspace of~$V$ cannot have dimension larger than $\dim V\1$.  Thus the
+dimension increases by exactly one at each step.  In other words,
+$\dim \ker T^k = k$ for every integer $k$ with $0 \le k \le \dim V\1$.  In
+particular, taking $k = \dim V\1$, we have $\dim \ker T^{\dim V} = \dim V\1$.  This
+means that $\ker T^{\dim V} = V\1$.  Thus $T^{\dim V} = 0$, and so $T$ is nilpotent.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{5}}$ is such that $\ran T^4 \ne \ran T^5\!$.  Prove that $T$ is
+nilpotent.
+
+\begin{Solution}
+By Exercise \ref{kerran}, we have $\ker T^4 \ne \ker T^5\!$. Exercise \ref{nil5} now implies that $T$ is nilpotent.
+\end{Solution}
+
+\exercise
+Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent. \label{Nil1}
+\exercisecomment{This exercise shows that the implication \uppar{b} $\implies$ \uppar{a} in \ref{a33} does not hold without the hypothesis that
+$\F{} = \C{}$.}
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\R{3}}$ by
+\[
+T(x, y, z) = (-y, x, 0).
+\]
+Then $0$ is an eigenvalue of $T$ because $T(0,0,1) = (0,0,0)$.  As can be
+verified from the definition of eigenvalue, $T$ has no other eigenvalues (which
+are in $\R{}$, because $T$ is an operator on a real vector space).  However,
+$T^3(x,y,z) = (y, -x, 0)$.  In particular, $T^3 \ne 0$.  Thus $T$ is not
+nilpotent.
+\end{Solution}
+
+\exercise
+For each item in Example \ref{8nil}, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by \ref{a33}(c).
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+In Example \ref{8nil}(a), the operator $T \in \L\paren[\big]{\F4}$ is defined by
+\[
+T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2).
+\]
+Let $e_1, e_2, e_3, e_4$ denote the standard basis of $\F4$. Then using the basis $e_4, e_3, e_2, e_1$, we have
+\[
+\M\paren[\big]{ T, (e_4, e_3, e_2, e_1) } = \mat{cccc}{
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0},
+\]
+which has the form promised by \ref{a33}(c).
+
+\item
+For Example \ref{8nil}(b), let $T$ be the operator on $\F3$ whose matrix (with respect to the standard basis) is
+\[
+\mat{ccc}{
+-3 & 9 & 0 \\
+-7 & 9 & 6 \\
+4 & 0 & -6}.
+\]
+Use Gaussian elimination to discover that $\ker T = \Span(3,1,2)$. Thus we take $v_1 = (3,1,2)$.
+
+The square of the matrix above is
+\[
+\mat{ccc}{
+-54 & 54 & 54 \\
+-18 & 18 & 18 \\
+-36 & 36 & 36}.
+\]
+Use Gaussian elimination to discover that $\ker T = \Span\paren[\big]{ (1,0,1), (1,1,0) }$. Neither of these vectors is a scalar multiple of $v_1$, so we can take $v_2$ to be either of them. Let's take $v_2 = (1, 1, 0)$. Finally, we can take $v_3$ to be any element of $\F3$ that is not in $\Span)v_1, v_2)$. Let take $v_3 = (0, 0, 1)$.
+
+Then $v_1, v_2, v_3$ is a basis of $\F3$. Furthermore,
+\begin{align*}
+Tv_1 &= 0, \\
+Tv_2 &= (6, 2, 4) = 3v_1, \\
+T v_3 &= (0, 6, -6) = -3 v_1 + 9v_2.
+\end{align*}
+Thus the matrix of $T$ with respect to the basis $v_1, v_2, v_3$ is
+\[
+\mat{ccc}{
+0 & 3 & -3 \\
+0 & 0 & 9 \\
+0 & 0 & 0},
+\]
+which has the requested form.
+
+\item
+For Example \ref{8nil}(c), the matrix of the differentiation operator has the desired form with respect to the standard basis
+$1, x, x^2, \ldots, x^m$ of $\P\1_m(\R{})$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose that $V$ is an inner product space and $T \in \L(V)$ is nilpotent. Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by \ref{a33}(c).
+
+\begin{Solution}
+By \ref{a33}(c), there exists a basis $v_1, \ldots, v_n$ of $V$ with respect to which the matrix of $T$ has the required form. Thus
+\[
+T \paren[\big]{ \Span(v_1, \ldots, v_k) } \subset \Span(v_1, \ldots, v_{k-1})
+\]
+for each $k = 1, \ldots, n$.
+
+Apply the Gram--Schmidt procedure to $v_1, \ldots, v_n$, producing an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that
+\[
+\Span( e_1, \ldots, e_k) = \Span( v_1, \ldots, v_k)
+\]
+for each $k = 1, \ldots, n$ (see \ref{186}). Hence
+\[
+T \paren[\big]{ \Span(e_1, \ldots, e_k) } \subset \Span(e_1, \ldots, e_{k-1})
+\]
+for each $k = 1, \ldots, n$. This implies that the matrix of $T$ with respect to the orthonormal basis $e_1, \ldots, e_n$ has the upper-triangular form promised by \ref{a33}(c).
+\end{Solution}
+

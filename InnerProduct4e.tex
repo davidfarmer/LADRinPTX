@@ -1,0 +1,2472 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Inner Product Spaces} \label{89}
+
+In making the definition of a vector space, we generalized the linear structure
+(addition and scalar multiplication) of $\R{2}$ and $\RR{3}$.  We ignored geometric features such as the notions of length and angle.  These ideas are embedded in the concept of inner products, which we will investigate in this chapter.
+
+Every inner product induces a norm, which you can think of as a length. This norm satisfies key properties such as the Pythagorean theorem, the triangle inequality, the parallelogram equality, and the Cauchy--Schwarz inequality.
+
+The notion of perpendicular vectors in Euclidean geometry gets renamed to orthogonal vectors in the context of an inner product space. We will see that orthonormal bases are tremendously useful in inner product spaces. The Gram--Schmidt procedure constructs such bases. This chapter will conclude by putting together these tools to solve minimization problems.
+
+\StandingBox{
+\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$V$ and $W$ denote vector spaces over $\F{}\3$.
+}
+
+\begin{comment}
+\TopicsBox{
+\item
+Cauchy--Schwarz inequality
+\item
+Gram--Schmidt procedure
+\item
+linear functionals on inner product spaces
+\item
+calculating minimum distance to a subspace
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Peabody.png\else PeabodyR.png \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.114\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{The George Peabody Library, now part of Johns Hopkins University, opened while James Sylvester \uppar{1814--1897} was the university's first mathematics professor. Sylvester's publications include the first use of the word \marbf{matrix} in mathematics.\index{Sylvester, James}\index{Peabody Library}}{1in}{Matthew Petroff CC BY-SA}
+
+%\FigureHereCredit{artwork/WomanTeachingGeometry.png}{0.18}{Woman teaching geometry, from a fourteenth-century\\edition of Euclid's geometry book.}{1.1in}{British Library}
+
+\section{Inner Products and Norms} \label{6ipn}
+
+\subsection{Inner Products}
+
+\marF[9]{\includegraphics{Mathematica/Axes.pdf}}{This vector\/ $v$ has norm\/ $ \sqrt{a^2 + b^2}$.}
+
+To motivate the concept of inner product, think of vectors in~$\R{2}$
+and~$\R{3}$ as arrows with initial point at the origin.  The length of a vector $v$
+in~$\R{2}$ or~$\R{3}$ is called the \emph{norm} of~$v$ and is denoted by $\|v\|$.  Thus for
+\mbox{$v = (a, b) \in \RR{2}$}, we have
+\[
+\|v\| =\sqrt{a^2 + b^2}.
+\]
+Similarly, if $v = (a,b,c) \in \RR{3}$, then $\|v\| = \sqrt{a^2 + b^2 + c^2}$.
+
+Even though we cannot draw pictures in higher dimensions, the generalization to~$\R{n}$ is easy: we define the norm of
+$x = (x_1, \dots, x_n) \in \R{n}$ by\index{norm of a vector}
+\[
+\|x\| = \sqrt{{x_1}^{\2} + \dots + {x_n}^{\2}}.
+\]
+
+The norm is not linear on $\RR{n}$.  To inject linearity into the discussion, we
+introduce the dot product.
+
+\DefinitionBox{dot product}{For $x, y \in \RR{n}$, the
+\emph{dot product}\index{dot product} of~$x$ and~$y$, denoted by $x \cdot y$, is
+defined by
+\[
+x \cdot y = x_1 y_1 + \dots + x_n y_n,
+\]
+where $x = (x_1, \dots, x_n)$ and $y = (y_1, \dots, y_n)$.}
+
+\mar{If we think of a vector as a point \mbox{instead} of as an arrow, then\/ $\|x\|$ should be \mbox{interpreted} to mean the distance from the origin to the point\/ $x$.}
+
+The dot product of two vectors in $\R{n}$ is a number, not a vector. Notice that $x \cdot x = \|x\|^2$ for all $x \in \RR{n}$.  Furthermore, the dot product on $\R{n}$ has the following properties.
+\begin{Itemize}
+\item
+$x \cdot x \ge 0$ for all $x \in \RR{n}$.
+\item
+$x \cdot x = 0$ if and only if $x = 0$.
+\item
+For $y \in \R{n}$ fixed, the map from~$\R{n}$ to~$\R{}$ that sends $x \in \R{n}$ to $x \cdot y$ is linear.
+\item
+$x \cdot y = y \cdot x$ for all $x, y \in \RR{n}$.
+\end{Itemize}
+
+An inner product is a generalization of the dot product.  At this point you may
+be tempted to guess that an inner product is defined by abstracting the
+properties of the dot product discussed in the last paragraph.  For real vector
+spaces, that guess is correct.  However, so that we can make a definition that will
+be useful for both real and complex vector spaces, we need to examine the
+complex case before making the definition.
+
+\pagebreak[1]
+
+Recall that if $\la = a + bi$, where $a, b \in \R{}$, then
+\begin{Itemize}
+\item
+the absolute value of $\la$, denoted by $|\la|$, is defined by $|\la| = \sqrt{a^2 + b^2}$;
+\item
+the complex conjugate of $\la$, denoted by $\bar{\la}$, is defined by $\bar{\la} = a - bi$;
+\item
+$|\la|^2 = \la \bar{\la}$.
+\end{Itemize}
+See Chapter~\ref{173} for the definitions and the
+basic properties of the absolute value and complex conjugate.
+
+For
+\mbox{$z = (z_1, \dots, z_n) \in \CC{n}$}, we define the norm of $z$ by
+\[
+\|z\| = \sqrt{|z_1|^2 + \dots + |z_n|^2}.
+\]
+The absolute values are needed because we want $\|z\|$ to be a nonnegative
+number.  Note that
+\[
+\|z\|^2 = z_1 \overline{z_1} + \dots + z_n \overline{z_n}.
+\]
+
+We want to think of $\|z\|^2$ as the inner product of $z$ with itself, as we did
+in~$\RR{n}$.  The equation above thus suggests that the inner product of the vector
+\mbox{$w = (w_1, \dots, w_n) \in \C{n}$} with $z$ should equal
+\[
+w_1 \overline{z_1}+ \dots + w_n \overline{z_n}.
+\]
+If the roles of the $w$ and $z$ were interchanged, the expression above would be
+replaced with its complex conjugate. Thus we should expect that the
+inner product of~$w$ with~$z$ equals the complex conjugate of the inner product
+of~$z$ with~$w$.  With that motivation, we are now ready to define an inner
+product on~$V\1$, which may be a real or a complex vector space.
+
+One comment about the notation used in the next definition:
+\begin{Itemize}
+\item
+For $\la\in\C{}$, the notation $\la \ge 0$ means $\la$ is real and~nonnegative.
+%\item
+%We use the common notation $\ip{u, v}$, with angle brackets denoting an inner product. Some people use parentheses instead, but %then $(u, v)$ becomes ambiguous because it could denote either an ordered pair or an inner product.
+\end{Itemize}
+
+\DefinitionBox[innerproduct]{inner product}{An \emph{inner product}\index{inner product} on $V$ is a function that takes each ordered pair $(u,v)$ of  elements of $V$ to a number $\ip{u,v} \in \F{}$ and has the following properties.
+\begin{description} \addtolength{\itemsep}{-1bp}
+\item[positivity] \ \\
+$\ip{v, v} \ge 0$ for all $v \in V\1$.
+
+\item[definiteness] \ \\
+$\ip{v, v} = 0$ if and only if $v = 0$.
+
+\item[additivity in first slot] \ \\
+$\ip{u + v, w} = \ip{u, w} + \ip{v, w}$ for all $u, v, w \in V\1$.
+
+\item[homogeneity in first slot] \ \\
+$\ip{\la u, v} = \la \ip{u, v}$ for all $\la \in \F{}$ and all $u, v \in V\1$.
+
+\item[conjugate symmetry] \ \\
+$\ip{u, v} = \overline{\ip{v,u}}$ for all $u, v \in V\1$.\index{conjugate symmetry}
+\end{description}
+}\sindex{uv@$\ip{u, v}$}
+
+\mar{Most mathematicians define inner products as above, but many physicists use a definition that requires homogeneity in the second slot instead of the first slot.}
+
+Every real number equals its complex conjugate.  Thus if we are
+dealing with a real vector space, then in the  last condition above we can dispense
+with the complex conjugate and simply state that $\ip{u,v} = \ip{v,u}$ for all
+$u, v \in V\1$.
+
+\begin{example}[exampleip]{inner products}
+\begin{subtheorem}*
+\item
+The \emph{Euclidean inner product}\index{Euclidean inner product} on~$\F{n}$ is defined by
+\[
+\ip[\big]{(w_1, \dots, w_n), (z_1, \dots, z_n)} =
+w_1 \overline{z_1}+ \dots + w_n \overline{z_n}
+\]
+for all $(w_1, \dots, w_n), (z_1, \dots, z_n) \in \FF n$.
+
+\item
+If $c_1, \dots, c_n$ are positive
+numbers, then an inner product can be defined on~$\F{n}$ by
+\[
+\ip[\big]{(w_1, \dots, w_n), (z_1, \dots, z_n)} =
+c_1 w_1 \overline{z_1} + \dots + c_n w_n \overline{z_n}
+\]
+for all $(w_1, \dots, w_n), (z_1, \dots, z_n) \in \FF n$.
+
+\item
+An inner product can be defined on the vector space of continuous real-valued functions on the interval $[-1, 1]$ by
+\[
+\ip{f, g} = \int_{-1}^1fg
+\]
+for all $f, g$ continuous real-valued functions on $[-1,1]$.
+
+\item
+An inner product can be defined on $\P(\R{})$ by
+\[
+\ip{p, q} = p(0) q(0) + \int_{-1}^1 p' q'
+\]
+for all $p, q \in \P(\R{})$.
+
+\item
+An inner product can be defined on $\P(\R{})$ by
+\[
+\ip{p, q} = \int_0^\infty p(x) q(x) e^{-x} \, dx
+\]
+for all $p, q \in \P(\R{})$.
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+\DefinitionBox{inner product space}{An \emph{inner product space}\index{inner product space} is a vector space $V$ along with an inner product on $V\1$.}
+
+The most important example of an inner product space is $\F{n}$ with the Euclidean inner product given by (a) in the example above. When $\F{n}$ is referred to as an inner product space, you should assume that the inner product is the Euclidean inner product unless explicitly told otherwise.
+
+\pagebreak[1]
+
+So that we do not have to keep repeating the hypothesis that $V$ and $W$ are inner product spaces, we make the following assumption.
+
+\NotationBox{$V\1$, $W$}{For the rest of this chapter and the next chapter, $V$ and $W$ denote inner product spaces over $\F{}\3$.}
+
+Note the slight abuse of language here. An inner product space is a vector space along with an inner product on that vector space. When we say that a vector space $V$ is an inner product space, we are also thinking that an inner product on $V$ is lurking nearby or is clear from the context \big(or is the Euclidean inner product if the vector space is $\F{n}$\big).
+
+\ResultBox[basicip]{basic properties of an inner product}
+{\begin{subtheorem}
+\item
+For each fixed $v \in V\1$, the function that takes $u \in V$ to $\ip{u,v}$ is a linear map from $V$ to $\F{}\3$.
+\item
+$\ip{0, v} = 0$ for every $v \in V\1$.
+\item
+$\ip{v, 0} = 0$ for every $v \in V\1$.
+\item
+$\ip{u, v + w} = \ip{u , v} + \ip{u, w}$ for all $u, v, w \in V\1$.
+\item
+$\ip{u, \la v} = \bar{\la} \ip{u,v}$ for all $\la \in \F{}$ and all $u, v \in V\1$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+For $v \in V\1$, the linearity of $u \mapsto \ip{u,v}$ follows from the conditions of additivity and homogeneity in the first slot in the definition of an inner product.
+
+\item
+Every linear map takes $0$ to $0$. Thus (b) follows from (a).
+
+\item
+If $v \in V\1$, then the conjugate symmetry property in the definition of an inner product and (b) show that $\ip{v, 0} = \overline{ \ip{0, v} } = \overline{0} = 0$.
+
+\item
+Suppose $u, v, w \in V\1$. Then
+\begin{align*}
+\ip{u, v + w} &= \overline{\ip{v + w, u}} \\[2bp]
+&= \overline{\ip{v , u} + \ip{w, u}} \\[2bp]
+&= \overline{\ip{v , u}} + \overline{\ip{w, u}} \\[2bp]
+&= \ip{u , v} + \ip{u, w}.
+\end{align*}
+
+\item
+Suppose $\la \in \F{}$ and $u,v \in V\1$. Then
+\begin{align*}
+\ip{u, \la v} &= \overline{\ip{\la v,u}} \\[2bp]
+&= \overline{\la\ip{v,u}} \\[2bp]
+&= \bar{\la} \, \, \overline{\ip{v,u}} \\[2bp]
+&= \bar{\la} \ip{u,v}. \rlap{ \hspace{1.5in} \qedsymbolMath} %VisualFormatting for LADR4e
+\end{align*}
+\end{subtheorem}
+
+\pagebreak[3]
+
+\subsection{Norms}
+
+Our motivation for defining inner products came initially from the norms of vectors on $\R2$ and $\RR3$. Now we see that each inner product determines a norm.
+
+\DefinitionBox{norm, $\|v\|$}
+{For $v \in V\1$, the \emph{norm}\index{norm of a vector} of $v$, denoted by $\|v\|$, is defined by
+\[
+\|v\| = \sqrt{\ip{v,v}}.
+\]}\sindex{w@$"|\hspace{-1bp}"|v"|\hspace{-1bp}"|$}
+
+\begin{example}{norms}
+\begin{subtheorem}*
+\item
+If $(z_1, \dots, z_n) \in \F{n}$ (with the Euclidean inner
+product), then
+\[
+\|(z_1, \dots, z_n)\| = \sqrt{|z_1|^2 + \dots + |z_n|^2}.
+\]
+
+\item
+For $f$ in the vector space of continuous real-valued functions on $[-1,1]$ and with inner product given as in \ref{exampleip}(c), we have
+\[
+\|f\| =  \sqrt{\int_{-1}^1 f^2}.
+\]
+\end{subtheorem}
+\vspace{-6bp}
+\end{example}
+
+\ResultBox[2bnorm]{basic properties of the norm}
+{Suppose $v \in V\1$.
+\begin{subtheorem}*
+\item
+$\|v\| = 0$ if and only if $v = 0$.
+\item
+$\|\la v\| = |\la|\,\|v\|$ for all $\la \in \F{}\3$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+The desired result holds because $\ip{v,v} = 0$ if and only if $v = 0$.
+
+\item
+Suppose $\la \in \F{}\3$. Then
+\begin{align*}
+\|\la v\|^2 &= \ip{\la v, \la v} \\[4bp]
+&= \la \ip{v, \la v} \\[4bp]
+&= \la \bar{\la}\ip{v, v} \\[4bp]
+&= |\la|^2 \, \|v\|^2\1.
+\end{align*}
+Taking square roots now gives the desired equality.
+\qed
+\end{subtheorem}
+
+The proof of (b) in the result above illustrates a general principle: working with norms squared is usually easier than working directly with norms.
+
+\pagebreak[3]
+
+Now we come to a crucial definition.
+
+\DefinitionBox{orthogonal}{Two vectors $u, v \in V$ are called
+\emph{orthogonal}\index{orthogonal!vectors} if $\ip{u, v} = 0$.}
+
+\mar[5]{The word \marbf{orthogonal} comes from the Greek word \marbf{orthogonios},
+which means right-angled.}
+
+In the definition above, the order of the two vectors does not matter, because $\ip{u, v} = 0$ if and only if $\ip{v, u} = 0$. Instead of saying $u$ and $v$ are orthogonal, sometimes we say $u$ is  orthogonal to $v$.
+
+Exercise \ref{cost} asks you to prove that if $u, v$ are nonzero vectors in $\RR{2}$, then
+\[
+\ip{u,v} = \|u\| \, \|v\| \cos \theta,
+\]
+where $\theta$ is the angle between $u$ and $v$ (thinking of~$u$ and~$v$ as arrows
+with initial point at the origin). Thus two nonzero vectors in $\R2$ are orthogonal (with respect to the Euclidean inner product) if and only if the cosine of the angle between them is $0$, which happens if and only if the vectors are perpendicular in the usual sense of plane geometry. Thus you can think of the word \textit{orthogonal} as a fancy word meaning \textit{perpendicular}.
+
+We begin our study of orthogonality with an easy result.
+
+\ResultBox{orthogonality and $0$}
+{\begin{subtheorem}
+\item
+$0$ is orthogonal to every vector in $V\1$.
+\item
+$0$ is the only vector in $V$ that is orthogonal to itself.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+Recall that \ref{basicip}(b) states that $\ip{0, v} = 0$ for every $v \in V\1$.
+\item
+If $v \in V$ and $\ip{v,v} = 0$, then $v = 0$ (by definition of inner product).
+\qed
+\end{subtheorem}
+
+For the special case $V = \RR{2}$, the next theorem was known over 3,500 years ago in Babylonia and then rediscovered and proved over 2,500 years ago in Greece. Of course, the proof below is not the original proof.
+
+\ResultBox[184]{Pythagorean theorem}{\index{Pythagorean theorem}%
+Suppose $u, v \in V\1$. If $u$ and $v$ are orthogonal, then
+\[
+\|u + v\|^2 = \|u\|^2 + \|v\|^2\1.
+\]
+}
+
+\proof
+Suppose $\ip{u, v} = 0$. Then
+\begin{align*}
+\|u + v\|^2 &= \ip{u+ v, u + v} \\
+&= \ip{u, u} + \ip{u, v} + \ip{v, u} + \ip{v, v} \\
+&= \|u\|^2 + \|v\|^2\1. \rlap{ \hspace{2.03in} \qedsymbolMath} %VisualFormatting for LADR4e
+\end{align*}
+
+\pagebreak[3]\par\addvspace{\listsep} %To go along with \qedsymbolMath above.
+
+Suppose $u, v \in V\1$, with $v \ne 0$.  We would like to write $u$ as a scalar multiple of~$v$ plus a
+vector $w$ orthogonal to~$v$, as suggested in the picture here.
+
+\FigureHereUnround{Mathematica/OrthogonalDecomposition.pdf}{1}{An orthogonal decomposition:\\
+$u$ expressed as a scalar multiple of\/ $v$ plus a vector orthogonal to\/ $v$.}
+
+To discover how to write $u$ as a scalar multiple of~$v$ plus a vector orthogonal
+to~$v$, let $c \in \F{}$ denote a scalar.  Then
+\[
+u = c v + (u - c v).
+\]
+Thus we need to choose $c$ so that $v$ is orthogonal to $(u - c v)$. Hence we want
+\[
+0 = \ip{u - c v, v} = \ip{u,v} - c \|v\|^2\1.
+\]
+The equation above shows that we should choose $c$ to be $\ip{u,v}/\|v\|^2\1$.  Making this choice of~$c$, we
+can write
+\[
+u = \frac{\ip{u,v}}{\|v\|^2} v + \paren[\bigg]{ u - \frac{\ip{u,v}}{\|v\|^2} v }.
+\]
+As you should verify, the equation displayed above explicitly writes $u$ as a scalar
+multiple of~$v$ plus a vector orthogonal to~$v$. Thus we have proved the following key result.
+
+\ResultBox[orthogdecomp]{an orthogonal decomposition}
+{Suppose $u, v \in V\1$, with $v \ne 0$. Set $c =  \dfrac{\ip{u,v}}{\|v\|^2}$ and $w = u - \dfrac{\ip{u,v}}{\|v\|^2} v$. Then
+\[
+u = c v + w \andd \ip{w, v} = 0.
+\]}
+
+The orthogonal decomposition \ref{orthogdecomp} will be used in the proof of the Cauchy--Schwarz inequality, which is our next result and is one of the most important inequalities in mathematics.
+
+\ResultBox[177]{Cauchy--Schwarz inequality}{\index{Cauchy--Schwarz inequality}%
+Suppose $u, v \in V\1$. Then
+\[
+|\ip{u, v}| \le \|u\|\,\|v\|.
+\]
+This inequality is an equality if and only if one of\/ $u, v$ is a
+scalar multiple of the other.
+}
+
+\proof
+If $v = 0$, then both sides of the desired inequality equal $0$.  Thus we can
+assume that $v \ne 0$.  Consider the orthogonal decomposition
+\[
+u = \frac{\ip{u,v}}{\|v\|^2} v + w
+\]
+given by \ref{orthogdecomp}, where $w$ is orthogonal to $v$.  By the Pythagorean theorem,
+\begin{align}
+\|u\|^2 &= \norm[\bigg]{ \frac{\ip{u,v}}{\|v\|^2} v }^2 + \norm{w}^2 \notag \\[6bp]
+&= \frac{\abs[\big]{\ip{u,v}}^2}{\|v\|^2}  + \|w\|^2 \notag \\[6bp]
+&\ge \frac{\abs[\big]{\ip{u,v}}^2}{\|v\|^2}. \label{336}
+\end{align}
+Multiplying both sides of this inequality by $\|v\|^2$ and  then taking square roots gives the desired inequality.
+
+\mar{Augustin-Louis Cauchy \uppar{1789--1857}
+proved \ref{CS}\uppar{a} in 1821. In 1859, Cauchy's student Viktor Bunyakovsky \uppar{1804--1889} proved integral inequalities like the one in \ref{CS}\uppar{b}. A few decades later, similar discoveries by Hermann Schwarz \uppar{1843--1921} attracted more attention and led to the name of this inequality.\index{Cauchy, Augustin-Louis}\index{Bunyakovsky, Viktor}\index{Schwarz, Hermann}}
+
+The proof in the paragraph above shows that the Cauchy--Schwarz inequality is an equality if and only if \ref{336} is an equality. This happens if and only if $w = 0$.  But $w=0$ if and only if $u$ is a multiple of $v$ (see~\ref{orthogdecomp}).  Thus the
+Cauchy--Schwarz inequality is an equality if and only if $u$ is a scalar multiple of
+$v$ or $v$ is a scalar multiple of $u$ (or both; the phrasing has been chosen to
+cover cases in which either $u$ or $v$ equals~$0$).
+\qed
+
+\begin{example}[CS]{Cauchy--Schwarz inequality}
+\begin{subtheorem}*
+\item
+If $x_1, \ldots, x_n, y_1, \ldots, y_n \in \R{}$, then
+\[
+( x_1 y_1 + \cdots + x_n y_n)^2 \le \paren[\big]{ {x_1}^{\2} + \cdots + {x_n}^{\2} } \paren[\big]{ {y_1}^{\2} + \cdots + {y_n}^{\2} },
+\]
+as follows from applying the Cauchy--Schwarz inequality to the vectors $(x_1, \ldots, x_n), (y_1, \ldots, y_n) \in \RR n$, using the usual Euclidean inner product.
+\item
+If $f, g$ are continuous real-valued functions on $[-1, 1]$, then
+\[
+\abs[\Big]{\int_{-1}^1 fg \,}^{\,2}
+\le \paren[\Big]{ \int_{-1}^1 f^2 }
+\paren[\Big]{ \int_{-1}^1 g^2 },
+\]
+as follows from applying the Cauchy--Schwarz inequality to Example \ref{exampleip}(c).
+\end{subtheorem}
+\vspace{-8bp}
+\end{example}
+
+\begin{comment}
+\begin{example}[CS]{Cauchy--Schwarz inequality}
+\begin{subtheorem}
+\item
+If $x_1, \dots, x_n, y_1, \dots, y_n \in \R{}$, then
+\[
+|x_1 y_1 + \dots + x_n y_n|^2 \le
+\paren[\big]{{x_1}^{\2} + \dots + {x_n}^{\2}}\paren[\big]{{y_1}^{\2} + \dots + {y_n}^{\2}},
+\]
+as follows from applying the Cauchy--Schwarz inequality to $\R{n}$ with the Euclidean inner product.
+\item
+If $f, g$ are continuous real-valued functions on $[-1, 1]$, then
+\[
+\abs[\bigg]{\int_{-1}^1 fg }^2
+\le \paren[\bigg]{ \int_{-1}^1 f^2  }
+\paren[\bigg]{ \int_{-1}^1 \g^2  },
+\]
+as follows from applying the Cauchy--Schwarz inequality to the inner product space in Example \ref{exampleip}(c).
+\end{subtheorem}
+\end{example}
+\end{comment}
+
+\marF[7]{\includegraphics{Mathematica/TriangleInequality3.pdf}}{\vspace*{-.2in}In this triangle, the length of\\$u+v$ is less than the length\\of\/ $u$ plus the length of\/ $v$.}
+
+The next result, called the triangle inequality\index{triangle inequality}, has the geometric interpretation that the length of each side of a triangle is less than the sum of the lengths of the other two sides.
+
+Note that the triangle inequality implies that the shortest polygonal path between two points is a single line segment (a polygonal path consists of line segments).
+
+\vspace{1bp}
+
+\ResultBox[3triangle]{triangle inequality}{
+Suppose $u, v \in V\1$. Then
+\vspace{-.06in}
+\[
+\|u + v\| \le \|u\| + \|v\|.
+\]
+This inequality is an equality if and only if one of\/ $u, v$ is a nonnegative real multiple of the other.
+}
+
+\proof
+We have
+\vspace{-3bp}
+\begin{align}
+\|u + v\|^2 &= \ip{u + v, u + v} \notag \\[1bp]
+&=\ip{u, u} + \ip{v, v} + \ip{u, v} + \ip{v, u} \notag \\[1bp]
+&=\ip{u, u} + \ip{v, v} + \ip{u, v} + \overline{\ip{u, v}} \notag \\[1bp]
+&= \|u\|^2 + \|v\|^2 + 2\re \ip{u, v} \notag \\[1bp]
+&\le \|u\|^2 + \|v\|^2 + 2 \abs[\big]{ \ip{u, v} } \label{176} \\[1bp]
+&\le \|u\|^2 + \|v\|^2 + 2 \|u\|\,\|v\| \label{42} \\[1bp]
+&= \paren[\big]{\|u\| + \|v\|}^2\1,\notag
+\end{align}
+where \ref{42} follows from the Cauchy--Schwarz inequality (\ref{177}).  Taking
+square roots of both sides of the inequality above gives the desired inequality.
+
+The proof above shows that the triangle inequality is an equality if
+and only if we have equality in \ref{176} and~\ref{42}.  Thus we have equality
+in the triangle inequality if and only if
+\begin{equation} \label{374}
+\ip{u, v} = \|u\| \, \|v\|.
+\end{equation}%
+If one of $u, v$ is a nonnegative real multiple of the other, then \ref{374} holds.  Conversely, suppose \ref{374} holds.  Then the condition for equality in the Cauchy--Schwarz inequality (\ref{177}) implies that one of $u, v$
+is a scalar multiple of the other. This scalar must be a nonnegative real number, by \ref{374}, completing the proof.
+\qed
+
+For the reverse triangle inequality, see Exercise \ref{6reverse}.
+
+\pagebreak[3]
+
+\marF[7]{\includegraphics{Mathematica/Parallelogram.pdf}}{The diagonals of this parallelogram\\are\/ $u+v$ and\/ $u-v$.}
+
+The next result is called the parallelogram equality because of its geometric interpretation: in every parallelogram, the sum of the squares of the lengths of the diagonals equals the sum of the squares of the lengths of the four sides. Note that the proof here is more straightforward than the usual proof in Euclidean geometry.
+
+\ResultBox{parallelogram equality}{
+Suppose $u, v \in V\1$. Then\index{parallelogram equality}
+\[
+\|u + v\|^2 + \|u - v\|^2 = 2(\|u\|^2 + \|v\|^2).
+\]
+}
+
+\proof
+We have
+\begin{align*}
+\|u + v\|^2 + \|u - v\|^2 &= \ip{u + v, u + v} + \ip{u - v, u - v} \\[5bp]
+&= \|u\|^2 + \|v\|^2 + \ip{u, v} + \ip{v,u} \\
+&\quad \quad + \|u\|^2 + \|v\|^2 - \ip{u,  v} -\ip{v,u} \\[5bp]
+&= 2 \paren[\big]{\|u\|^2 + \|v\|^2},
+\end{align*}
+as desired.
+\qed
+
+\begin{exercises}
+
+\exercise
+Prove or give a counterexample: If $v_1, \dots, v_m \in V\1$, then
+\[
+\sum_{\js}^m \sum_{k=1}^m \ip{v_j, v_k} \ge 0.
+\]
+\vspace{-12bp}
+
+
+\exercise
+Suppose $S \in \L(V)$. Define $\ip{\cdot, \cdot}_1$ by
+\[
+\ip{u, v}_1 = \ip{Su, Sv}
+\]
+for all $u, v \in V\1$. Show that $\ip{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that the function taking an ordered pair $\bigl( (x_1, x_2), (y_1, y_2) \bigr)$ of elements of $\R2$ to $|x_1 y_1| + |x_2 y_2|$ is not an inner product on $\RR2$.
+\item
+Show that the function taking an ordered pair $\bigl( (x_1, x_2, x_3), (y_1, y_2, y_3) \bigr)$ of elements of $\R3$ to $x_1 y_1 + x_3 y_3$ is not an inner product on $\RR3$.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\|Tv\| \le \|v\|$ for every $v \in V\1$. Prove that $ T - \sqrt{2}\, I$ is injective.
+
+
+\exercise
+Suppose $V$ is a real inner product space.
+\begin{subtheorem}
+\item
+Show that $\ip{u + v, u - v} = \| u \|^2 - \| v \|^2$ for every $u, v \in V\1$.
+\item
+Show that if $u, v \in V$ have the same norm, then $u+v$ is orthogonal to $u-v$.
+\item
+Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $u, v \in V\1$.  Prove that $\ip{u,v} = 0 \iff
+\|u\| \le \|u + av\|
+$
+for all $a \in \F{}\3$.\label{orthognorm}
+
+
+\exercise
+Suppose $u, v \in V\1$. Prove that $\|au + bv\| = \|bu + av\|$ for all $a, b \in \R{}$ if and only if $\|u\| = \|v\|$.
+
+
+\exercise
+Suppose $a,b,c,x, y \in \R{}$ and $a^2 + b^2 + c^2 + x^2 + y^2 \le 1$. Prove that $a + b + c +4x + 9y \le 10$.
+
+
+\exercise
+Suppose $u, v \in V$ and $\| u \| = \|v \| = 1$ and $\ip{u, v} = 1$. Prove that $u = v$.
+
+
+\exercise
+Suppose $u, v \in V$ and $\|u\| \le 1$ and $\|v\| \le 1$. Prove that
+\[
+\sqrt{ 1 - \|u\|^2} \sqrt{ 1 - \|v\|^2} \le 1 - \abs[\big]{\ip{u, v}}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Find vectors $u, v \in \R{2}$ such that $u$ is a scalar multiple of $(1,3)$, $v$ is orthogonal to $(1,3)$, and $(1,2) = u + v$.
+
+
+\exercise
+Suppose $a, b, c, d$ are positive numbers.
+\begin{subtheorem}
+\item
+Prove that
+$ \displaystyle
+(a + b + c + d)\paren[\bigg]{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}} \ge 16$.
+\item
+For which positive numbers $a, b, c, d$ is the inequality above an equality?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Show that the square of an average is less than or equal to the average of the squares. More precisely, show that if $a_1, \dots , a_n \in \R{}$, then the square of the average of $a_1, \dots , a_n$ is less than or equal to the average of ${a_1}^{\2}\1, \dots, {a_n}^{\2}\1$.
+
+
+\exercise
+Suppose $v \in V$ and $v \ne 0$. Prove that $v / \norm{v}$ is the unique closest element on the unit sphere of $V$ to $v$. More precisely, prove that if $u \in V$ and $\norm{u} = 1$, then
+\[
+\norm[\bigg]{ v - \frac{v}{\norm{v}} } \le \norm{v - u},
+\]
+with equality only if $u = v / \norm{v}$.
+
+
+\exercise
+Suppose $u, v$ are nonzero vectors in $\RR{2}$. Prove that \label{cost}
+\[
+\ip{u, v} = \|u\| \, \|v\| \cos \theta,
+\]
+where $\theta$ is the angle between $u$ and $v$ (thinking of~$u$ and~$v$ as arrows
+with initial point at the origin).
+\hint{Use the law of cosines on the triangle formed by $u$, $v$, and~$u-v$.}
+
+
+\exercise
+The angle between two vectors (thought of as arrows with initial point at the origin) in $\R2$ or $\R3$ can be defined geometrically. However, geometry is not as clear in $\R{n}$ for $n > 3$. Thus the angle between two nonzero vectors $x, y \in \R{n}$ is defined to be
+\vspace{-.1in}
+\[
+\arccos \frac{ \ip{x, y} }{ \|x\| \,\|y\| },
+\]
+where the motivation for this definition comes from Exercise \ref{cost}.
+Explain why the Cauchy--Schwarz inequality is needed to show that this definition makes sense.
+
+
+\exercise
+Prove that
+\[
+\paren[\bigg]{ \sum_{k=1}^n a_k b_k }^2
+\le \paren[\bigg]{ \sum_{k=1}^n  k {a_k}^{\2} }  \paren[\bigg]{\sum_{k=1}^n \frac{{b_k}^{\2}}{k} }
+\]
+for all real numbers $a_1, \dots, a_n$ and $b_1, \dots, b_n$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\fun f {[1, \infty)} {[0, \infty)}$ is continuous. Show that
+\[
+\paren[\Big]{ \int_1^\infty f\,}^2  \le \int_1^\infty x^2 \paren[\big]{ f(x) }^2 \, dx.
+\]
+\item
+For which continuous functions $\fun f {[1, \infty)} {[0, \infty)}$ is the inequality in (a) an equality with both sides finite?
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \L(V)$. Prove that if $\la$ is an eigenvalue of $T$, then \label{2HSeigen}
+\[
+\abs{\la}^2 \le \sum_{\js}^n \sum_{k=1}^n \abs{\M(T)_{j,k}}^2\1,
+\]
+where $\M(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+
+
+\exercise
+Prove that if $u, v \in V\1$, then $\abs[\Big]{\, \norm{u} - \norm{v} \,} \le \norm{u-v}$.\label{6reverse}\index{reverse triangle inequality}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}. For the reverse triangle inequality when\/
+$V = \C{}$, see Exercise \ref{4reverse} in Chapter \ref{173}.}
+
+
+\exercise
+Suppose $u, v \in V$ are such that
+\[
+\|u\| = 3, \quad \|u + v\| = 4, \quad \|u - v\| = 6.
+\]
+What number does $\|v\|$ equal?
+
+
+\exercise
+Show that if $u, v \in V\1$, then
+\[
+\|u + v\| \, \|u - v\| \le \|u\|^2 + \|v\|^2\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $v_1, \dots, v_m \in V$ are such that $\norm{v_k} \le 1$ for each $k= 1, \ldots, m$. Show that there exist
+$a_1, \dots, a_m \in \{1, -1\}$ such that
+\[
+\norm{a_1 v_1 + \dots + a_m v_m} \le \sqrt{m}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove or give a counterexample: If $\norm{\Cdot}$ is the norm associated with an inner product on $\RR{2}$, then there exists $(x, y) \in \RR{2}$ such that
+$
+\norm{(x, y)} \ne \max\{|x|, |y|\}$.
+
+
+\exercise
+Suppose $p > 0$. Prove that there is an inner product on $\R{2}$ such that the associated norm is given by
+\[
+\|(x, y)\| = \paren[\big]{|x|^p + |y|^p}^{1/p}
+\]
+for all $(x, y) \in \R{2}$ if and only if $p = 2$.
+
+
+\exercise
+Suppose $V$ is a real inner product space. Prove that \label{201}
+\[
+\ip{u, v} = \frac{\|u + v\|^2 - \|u - v\|^2}{4}
+\]
+for all $u, v \in V\1$.
+
+
+\exercise
+Suppose $V$ is a complex inner product space. Prove that \label{202}
+\[
+\ip{u, v} =
+\frac{\|u + v\|^2 - \|u - v\|^2 + \|u + iv\|^2 i - \|u -iv\|^2 i}{4}
+\]
+for all $u, v \in V\1$.
+
+
+\exercise
+A norm on a vector space $U$ is a function
+\[
+\norm{ \Cdot } \colon U \rightarrow [0, \infty)
+\]
+such that $\|u\| = 0$ if and only if
+$u = 0$, $\|\al u\| = |\al| \|u\|$ for all
+$\al \in \F{}$ and all $u \in U$, and $\|u + v\| \le \|u\| + \|v\|$ for all
+$u, v \in U$.
+Prove that a norm satisfying  the parallelogram equality comes from  an
+inner product \big(in other words, show that if $\norm{\Cdot}$ is a norm  on~$U$
+satisfying the parallelogram equality, then there is an inner product
+$\ip{\cdot ,\cdot }$ on $U$ such that $\|u\| = \ip{u,u}^{1/2}$ for all
+$u \in U$\big).
+
+
+\exercise
+Suppose $V\1_1, \dots, V\1_m$ are inner product spaces. Show that the equation
+\[
+\ip[\big]{(u_1, \dots, u_m), (v_1, \dots, v_m)} =
+\ip{u_1, v_1} + \dots + \ip{u_m, v_m}
+\]
+defines an inner product on $V\1_1 \times \dots \times V\1_m$.
+\exercisecomment{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\ip{u_k, v_k}$ denotes the inner product on $V\1_k$. Each of the spaces $V\1_1, \dots, V\1_m$ may have a different inner product, even though the same notation is used here.}
+
+
+\exercise
+Suppose $V$ is a real inner product space. For $u, v, w, x\in V\1$, define\index{complexification!of an inner product space}
+\[
+\ip{u+iv, w + ix}_{\C{}} = \ip{u,w} + \ip{v,x} + (\ip{v,w} - \ip{u,x})i.
+\]
+\begin{subtheorem}*
+\item
+Show that $\ip{\cdot, \cdot}_{\C{}}$ makes $V\1_{\C{}}$ into a complex inner product space.
+\item
+Show that if $u, v \in V\1$, then
+\[
+\ip{u, v}_{\C{}} = \ip{u, v} \andd {\norm{u + iv}_{\C{}}}^{\2} = \norm{u}^2 + \norm{v}^2\1.
+\]
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{1VC} in Section \ref{1DefVS} for the definition of the complexification\/ $V\1_{\C{}}$.}
+
+
+\exercise
+Suppose $u, v, w \in V\1$. Prove that\label{6wuv}
+\[
+\norm[\big]{w - \tfrac{1}{2}(u+v)}^2 = \frac{\|w-u\|^2 + \|w-v\|^2}{2} -\frac{\|u-v\|^2}{4}.
+\vspace{-.05in}
+\]
+
+
+\exercise
+Suppose that $E$ is a subset of $V$ with the property that $u , v \in E$ implies $\frac{1}{2}(u + v) \in E$. Let $w \in V\1$. Show that there is at most one point in $E$ that is closest to $w$. In other words, show that there is at most one $u \in E$ such that
+\[
+\|w - u\| \le \|w - x\|
+\]
+for all $x \in E$.
+
+
+\exercise
+Suppose $f, g$ are differentiable functions from $\R{}$ to $\RR{n}$.
+\begin{subtheorem}
+\item
+Show that
+\[
+\ip[\big]{ f(t), g(t) }' = \ip[\big]{ f' \! (t), g(t)} + \ip[\big]{f(t), g' \! (t) }.
+\]
+\item
+Suppose $c$ is a positive number and $\norm[\big]{f(t)} = c$ for every $t \in \R{}$. Show that $\ip[\big]{ f' \! (t), f(t) } = 0$ for every $t \in \R{}$.
+\item
+Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in $\R{n}$ centered at the origin.
+\end{subtheorem}
+\exercisecomment{A function $f \colon \R{} \to \R{n}$ is called differentiable if there exist differentiable functions $f_1, \dots, f_n$ from $\R{}$ to $\R{}$ such that $f(t) =  \bigl(f_1(t), \dots, f_n(t)\bigr)$ for each $t \in \R{}$. Furthermore, for each $t \in \R{}$, the derivative $f' \! (t) \in \R{n}$ is defined by $f' \! (t) = \bigl({f_1}' \! (t), \dots, {f_n}' \! (t)\bigr)$.}
+
+
+\exercise
+Use inner products to prove Apollonius's identity: In a triangle with sides of length $a$, $b$, and $c$, let $d$ be the length of the line segment from the midpoint of the side of length $c$ to the opposite vertex. Then \label{Apollonius}\index{Apollonius's identity}
+\[
+a^2 + b^2 = \tfrac{1}{2} c^2 + 2d^2\1.
+\]
+\vspace{-.45in}
+\FigureHereNoCaption{Mathematica/Apollonius.pdf}{1}
+
+
+\exercise
+Fix a positive integer $n$. The \emph{Laplacian}\index{Laplacian} $\Delta p$\sindex{Delta@$\Delta$} of a twice differentiable real-valued function $p$ on $\R{n}$ is the function on $\R{n}$ defined by \label{harmonic}
+\[
+\Delta p = \frac{ \partial^2 p }{\partial {x_1}^{\2}} + \dots + \frac{ \partial^2 p }{\partial {x_n}^{\2}}.
+\]
+The function $p$ is called \emph{harmonic} if $\Delta p = 0$.\index{harmonic function}
+
+A \emph{polynomial} on $\R{n}$ is a linear combination (with coefficients in $\R{}$) of functions of the form
+${x_1}^{\2[m_1]} \dotsm {x_n}^{\2[m_n]}$, where $m_1, \dots, m_n$ are nonnegative integers.
+
+Suppose $q$ is a polynomial on $\RR{n}$. Prove that there exists a harmonic polynomial $p$ on $\R{n}$ such that $p(x) = q(x)$ for every $x \in \R{n}$ with $\|x\| = 1$.
+\exercisecomment{The only fact about harmonic functions that you need for this exercise is that if $p$ is a harmonic function on $\R{n}$ and $p(x) = 0$ for all $x \in \R{n}$ with $\|x\|=1$, then $p = 0$.}
+\hint{A reasonable guess is that the desired harmonic polynomial $p$ is of the form $q + \paren[\big]{1 - \|x\|^2} r$ for some polynomial $r$. Prove that there is a polynomial $r$ on $\R{n}$ such that $q + \paren[\big]{1 - \|x\|^2} r$ is harmonic by defining an operator $T$ on a suitable vector space by
+\[
+Tr = \Delta \bigl( (1 - \|x\|^2) r \bigr)
+\]
+and then showing that $T$ is injective and hence surjective.}
+
+
+\end{exercises}
+
+\QuoteAuthor{%
+In realms of numbers, where the secrets lie,\\
+A noble truth emerges from the deep,\\
+Cauchy and Schwarz, their wisdom they apply,\\
+An inequality for all to keep.\\[-5bp]
+\ \\
+Two vectors, by this bond, are intertwined,\\
+As inner products weave a gilded thread,\\
+Their magnitude, by providence, confined,\\
+A bound to which their destiny is wed.\\[-5bp]
+\ \\
+Though shadows fall, and twilight dims the day,\\
+This inequality will stand the test,\\
+To guide us in our quest, to light the way,\\
+And in its truth, our understanding rest.\\[-5bp]
+\ \\
+So sing, ye muses, of this noble feat,\\
+Cauchy--Schwarz, the bound that none can beat.}
+{written by ChatGPT with input \textit{Shakespearean sonnet on Cauchy--Schwarz \mbox{inequality}}\index{ChatGPT}}
+
+\section{Orthonormal Bases}  \label{orthobases}
+
+\subsection{Orthonormal Lists and the Gram--Schmidt Procedure}
+
+\DefinitionBox{orthonormal}{\begin{Itemize}
+\item
+A list of vectors is called \emph{orthonormal}\index{orthonormal!list} if each vector in the list has norm~$1$ and is orthogonal to all the other vectors in the list.
+\item
+In other words, a list $e_1, \dots, e_m$ of vectors in $V$ is  orthonormal if
+\[
+\ip{e_j, e_k} = \begin{cases}
+1 &\text{if $j = k$,}\\
+0 &\text{if $j \ne k$}
+\end{cases}
+\]
+for all $j, k \in \br{1, \ldots, m}$.
+\end{Itemize}}
+
+\begin{example}{orthonormal lists}
+\begin{subtheorem}*
+\item
+The standard basis of~$\F{n}$ is an orthonormal list.
+
+\item
+$\paren[\Big]{ \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} },
+\paren[\Big]{ -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 } $ is an orthonormal list in $\FF3$.
+
+\item
+$\paren[\Big]{ \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} },
+\paren[\Big]{ -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 },
+\paren[\Big]{\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, -\frac{2}{\sqrt{6}} } $ is an orthonormal list in $\FF3$.
+
+\item
+Suppose $n$ is a positive integer.  Then, as Exercise \ref{8Fourier} asks you to verify,
+\[
+\frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots,
+\frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots,
+\frac{\sin nx}{\sqrt{\pi}}
+\]
+is an orthonormal list of vectors in $C[-\pi,\pi]$, the vector space of
+continuous real-valued functions on $[-\pi,\pi]$ with inner product
+\[
+\ip{f, g} = \int_{-\pi}^{\pi} fg.
+\]
+The orthonormal list above is often used for modeling periodic phenomena, such as tides.
+
+\item
+Suppose we make $\P\1_2(\R{})$ into an inner product space using the inner product given by
+\[
+\ip{p, q} = \int_{-1}^{1} pq
+\]
+for all $p, q \in \P\1_2(\R{})$. The standard basis $1, x, x^2$ of $\P\1_2(\R{})$ is not an orthonormal list because the vectors in that list do not have norm $1$. Dividing each vector by its norm gives the list $1/\!\sqrt{2}, \sqrt{3/2} x, \sqrt{5/2}x^2\1$, in which each vector has norm $1$, and the second vector is orthogonal to the first and third vectors. However, the first and third vectors are not orthogonal. Thus this is not an orthonormal list. Soon we will see how to construct an orthonormal list from the standard basis
+$1, x, x^2$ (see Example \ref{obP2R}).
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+\pagebreak[3]
+
+Orthonormal lists are particularly easy to work with, as illustrated by the next result.
+
+\ResultBox[4strange]{norm of an orthonormal linear combination}{%
+Suppose $e_1, \dots, e_m$ is an orthonormal list of vectors in~$V\1$. Then
+\[
+\| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
+\]
+for all $a_1, \dots, a_m \in \F{}\3$.
+}
+
+\proof
+Because each $e_k$ has norm $1$, this follows from repeated applications of the Pythagorean theorem (\ref{184}).
+\qed
+
+The result above has the following important corollary.
+
+\ResultBox[46]{orthonormal lists are linearly independent}{Every orthonormal list of vectors is linearly independent.}
+
+\proof
+Suppose $e_1, \dots, e_m$ is an orthonormal list of vectors in~$V$ and
+$a_1, \dots, a_m \in \F{}$ are such that
+\[
+a_1 e_1 + \dots + a_m e_m = 0.
+\]
+Then $| a_1|^2 + \dots + |a_m|^2 = 0$ (by \ref{4strange}), which means that all the
+$a_k$'s are $0$. Thus $e_1, \dots, e_m$ is linearly independent.
+\qed
+
+%\mar[3]{The next result is named for Friedrich Bessel (1784--1846), who discovered a special case of this inequality.}
+
+Now we come to an important inequality.
+
+\medskip
+
+\ResultBox[Bessel]{Bessel's inequality}
+{Suppose $e_1, \dots, e_m$ is an orthonormal list of vectors in~$V\1$. If $v \in V$ then\index{Bessel's inequality}
+\[
+\abs[\big]{\ip{v, e_1}}^2 + \cdots + \abs[\big]{\ip{v, e_m}}^2 \le \norm{v}^2\1.
+\]
+}
+
+\proof
+Suppose $v \in V\1$. Then
+\[
+v =\underbrace{\ip{v, e_1} e_1 + \cdots + \ip{v, e_m} e_m }_u +
+\underbrace{ v - \ip{v, e_1} e_1 - \cdots - \ip{v, e_m} e_m }_w\!.
+\]
+
+Let $u$ and $w$ be defined as in the equation above.
+If $k \in \br{1, \ldots, m}$, then $\ip{w, e_k} = \ip{v, e_k} - \ip{v, e_k} \ip{e_k, e_k} = 0$. This implies that $\ip{w, u} = 0$. The Pythagorean theorem now implies that
+\begin{align*}
+\norm{v}^2 &= \norm{u}^2 + \norm{w}^2 \\[3bp]
+&\ge \norm{u}^2 \\[3bp]
+&= \abs[\big]{\ip{v, e_1}}^2 + \cdots + \abs[\big]{\ip{v, e_m}}^2\1,
+\end{align*}
+where the last line comes from \ref{4strange}.
+\qed
+
+\pagebreak[2]
+
+The next definition introduces one of the most useful concepts in the study of inner product spaces.
+
+\DefinitionBox{orthonormal basis}{An \emph{orthonormal basis}\index{orthonormal!basis} of $V$ is an orthonormal list of vectors in~$V$ that is also a basis of~$V\1$.}
+
+For example, the standard basis is an orthonormal basis of~$\FF{n}$.
+
+\ResultBox[onbasis]{orthonormal lists of the right length are orthonormal bases}
+{Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in~$V$ of length $\dim V$ is an orthonormal basis of~$V\1$.}
+
+\proof
+By \ref{46}, every orthonormal list of vectors in $V$ is linearly independent. Thus every such list of the right length is a basis---see~\ref{75}.
+\qed
+
+\begin{example}[4FonBasis]{an orthonormal basis of\/ $\F{4}$}
+As mentioned above,  the standard basis is an orthonormal basis of~$\FF{4}$. We now show that
+\[
+\paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}},
+\paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}},
+\paren[\Big]{\tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}},
+\paren[\Big]{-\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}}
+\]
+is also an orthonormal basis of $\FF{4}$.
+
+We have
+\[
+\norm[\Big]{ \paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}} }
+= \sqrt{ \tfrac{1}{2^2} + \tfrac{1}{2^2} + \tfrac{1}{2^2}+ \tfrac{1}{2^2} }  = 1.
+\]
+Similarly, the other three vectors in the list above also have norm $1$.
+
+Note that
+\[
+\ip[\Big]{ \paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}},
+\paren[\Big]{ \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}} } =
+\tfrac{1}{2} \cdot \tfrac{1}{2} + \tfrac{1}{2} \cdot \tfrac{1}{2}
++ \tfrac{1}{2} \cdot \paren[\Big]{-\tfrac{1}{2}} + \tfrac{1}{2} \cdot \paren[\Big]{ -\tfrac{1}{2} } = 0.
+\]
+Similarly, the inner product of any two distinct vectors in the list above also equals~$0$.
+
+Thus the list above is orthonormal. Because we have an orthonormal list of length four in the four-dimensional vector space $\FF{4}$, this list is an orthonormal basis of $\F{4}$ (by \ref{onbasis}).
+\end{example}
+
+In general, given a basis $e_1, \dots, e_n$ of $V$ and a vector $v \in V\1$, we
+know that there is some choice of scalars $a_1, \dots, a_n \in \F{}$ such that
+\[
+v = a_1 e_1 + \dots + a_n e_n.
+\]
+
+\noindent Computing the numbers $a_1, \dots, a_n$ that satisfy the equation above can be a long computation for an arbitrary basis of $V\1$. The next result shows, however,
+that this is easy for an orthonormal basis---just take
+$
+a_k = \ip{v, e_k}$.
+
+\mar{%The importance of orthonormal bases stems mainly from the next result.
+The formula below for\/ $\norm{v}$ is called \mbox{Parseval's} identity. It was published in 1799 in the context of Fourier \mbox{series}.\index{Parseval's identity}}
+
+Notice how the next result makes each inner product space of dimension $n$ behave like $\FF{n}$, with the role of the \mbox{coordinates} of a vector in $\F{n}$ played by $\ip{v, e_1}, \ldots, \ip{v, e_n}$.
+
+\ResultBox[190]{writing a vector as a linear combination of an orthonormal basis}{%
+Suppose\/ $e_1, \dots, e_n$ is an orthonormal basis of\/ $V$ and $u, v \in V\1$.  Then
+\begin{subtheorem}*
+\item
+$v = \ip{v, e_1} e_1 + \dots + \ip{v, e_n} e_n$;
+\item
+$\|v\|^2 = \abs[\big]{ \ip{v, e_1} }^2  + \dots + \abs[\big]{ \ip{v, e_n} }^2\1$;
+\item
+$\ip{u, v} = \ip{u, e_1} \overline{ \ip{v, e_1}} + \cdots + \ip{u, e_n} \overline{ \ip{v, e_n}}$.
+\end{subtheorem}
+}
+
+\proof
+Because $e_1, \dots, e_n$ is a basis of~$V\1$, there exist
+scalars $a_1, \dots, a_n$ such that
+\[
+v = a_1 e_1 + \dots + a_n e_n.
+\]
+Because $e_1, \dots, e_n$ is orthonormal, taking the inner product of both sides of this equation with $e_k$ gives
+\mbox{$\ip{v, e_k} = a_k$}.  Thus (a) holds.
+
+Now (b) follows immediately from (a) and~\ref{4strange}.
+
+Take the inner product of $u$ with each side of (a) and then get (c) by using conjugate linearity [\ref{basicip}(d) and \ref{basicip}(e)] in the second slot of the inner product.
+\qed
+
+\begin{example}{finding coefficients for a linear combination}
+Suppose we want to write the vector $(1,2,4,7) \in \F4$ as a linear combination of the orthonormal basis
+\[
+\paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}},
+\paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}},
+\paren[\Big]{\tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}},
+\paren[\Big]{-\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}}
+\]
+of $\F4$ from Example \ref{4FonBasis}. Instead of solving a system of four linear equations in four unknowns, as typically would be required if we were working with a nonorthonormal basis, we simply evaluate four inner products and use \ref{190}(a), getting that
+$(1,2,4,7)$ equals
+\[
+7 \paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}}
+-4\paren[\Big]{\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}}
++\paren[\Big]{\tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}}
++2\paren[\Big]{-\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2}}.
+\]
+\exampledisplayend
+\end{example}
+
+Now that we understand the usefulness of orthonormal bases, how do we
+go about finding them?  For example, does $\P\1_m(\R{})$ with inner
+product as in \ref{exampleip}(c) have an
+orthonormal basis? The next result will lead to
+answers to these questions.
+
+\mar[5]{J{\o}rgen Gram \uppar{1850--1916}\index{Gram, J{\o}rgen} and \mbox{Erhard} Schmidt \uppar{1876--1959}\index{Schmidt, Erhard} popularized this algorithm that constructs orthonormal lists.}
+
+The algorithm used in the next proof is
+called the \emph{Gram--Schmidt procedure}.\index{Gram--Schmidt procedure}
+It gives a method for turning a linearly independent list into an orthonormal
+list with the same span as the original list.
+
+\ResultBox[186]{Gram--Schmidt procedure}{%
+Suppose $v_1, \dots, v_m$ is a linearly independent list of vectors in\/~$V\1$.
+Let \mbox{$f_1 = v_1$}. For $k = 2, \dots, m$, define $f_k$ inductively by
+\[
+f_k = v_k - \frac{\ip{v_k, f_1}}{\norm{f_1}^2} f_1 - \dots - \frac{\ip{v_k, f_{k-1} }}{\norm{f_{k-1}}^2} f_{k-1}.%
+\]
+For each $k = 1, \ldots, m$, let \raisebox{0bp}[9bp][0bp]{$e_k = \dfrac{f_k}{\norm{f_k}}$}. Then $e_1, \dots, e_m$ is an orthonormal list of vectors in\/~$V$ such that
+\[
+\Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
+\]
+for each $k = 1, \dots, m$.
+}
+
+\proof
+We will show by induction on $k$ that the desired conclusion holds. To get started with $k = 1$, note that because $e_1 = f_1/\norm{f_1}$, we have
+$\norm{e_1} = 1$; also, $\Span(v_1) = \Span(e_1)$ because $e_1$ is a nonzero multiple of $v_1$.
+
+Suppose $1 < k \le m$ and the list $e_1, \dots, e_{k-1}$ generated by \ref{186} is an orthonormal list such that
+\begin{equation} \label{83}
+\Span (v_1, \dots, v_{k-1}) = \Span (e_1, \dots, e_{k-1}).
+\end{equation}%
+Because $v_1, \dots, v_m$ is linearly independent, we have $v_k \notin \Span (v_1, \dots, v_{k-1})$. Thus
+$v_k \notin \Span (e_1, \dots, e_{k-1}) = \Span (f_1, \dots, f_{k-1})$, which implies that $f_k \ne 0$.
+Hence  we are not dividing by $0$ in the definition of $e_k$ given in \ref{186}.  Dividing a vector by its norm produces a new vector with norm~$1$; thus $\|e_k\| = 1$.
+
+Let $j \in \br{1, \ldots, k-1}$.  Then
+\begin{align*}
+\ip{e_k, e_j} &= \frac{1}{\norm{f_k} \, \norm{f_j}} \ip{f_k, f_j}\\[6bp]
+&= \frac{1}{\norm{f_k}  \, \norm{f_j}} \ip[\Bigg]{  v_k - \frac{\ip{v_k, f_1}}{\norm{f_1}^2} f_1 - \dots - \frac{\ip{v_k, f_{k-1} }}{\norm{f_{k-1}}^2} f_{k-1}, f_j } \\[6bp]
+&= \frac{1}{\norm{f_k}  \, \norm{f_j}} \paren[\big]{\ip{v_k, f_j} - \ip{v_k, f_j}} \\[6bp]
+&= 0.
+\end{align*}
+Thus $e_1, \dots, e_k$ is an orthonormal list.
+
+From the definition of $e_k$ given in \ref{186}, we see that $v_k \in \Span (e_1, \dots, e_k)$.  Combining this
+information with~\ref{83} shows that
+\[
+\Span (v_1, \dots, v_k) \subset \Span (e_1, \dots, e_k).
+\]
+Both lists above are linearly independent (the $v$'s by hypothesis, and the $e$'s by orthonormality and~\ref{46}).  Thus both subspaces above have dimension~$k$, and
+hence they are equal, completing the induction step and thus completing the proof.
+\qed
+
+\pagebreak[3]
+
+\begin{example}[obP2R]{an orthonormal basis of\/ $\P\1_2(\R{})$}
+Suppose we make $\P\1_2(\R{})$ into an inner product space using the inner product given by
+\[
+\ip{p, q} = \int_{-1}^{1} pq
+\]
+for all $p, q \in \P\1_2(\R{})$. We know that $1, x, x^2$ is a basis of $\P\1_2(\R{})$, but it is not an orthonormal basis. We will find an orthonormal basis of $\P\1_2(\R{})$ by applying the Gram--Schmidt procedure with $v_1 = 1$, $v_2 = x$, and $v_3 = x^2\1$.
+
+To get started, take $f_1 = v_1 = 1$. Thus $\norm{f_1}^2 = \int_{-1}^1 1 = 2$. Hence the formula in \ref{186} tells us that
+\[
+f_2 = v_2 - \frac{\ip{v_2, f_1}}{\norm{f_1}^2} f_1 = x - \frac{\ip{x, 1}}{\norm{f_1}^2} = x,
+\]
+where the last equality holds because $\ip{x, 1} = \int_{-1}^1 t \, dt = 0$.
+
+The formula above for $f_2$ implies that $\norm{f_2}^2 = \int_{-1}^1 t^2 \, dt = \frac{2}{3}$. Now the formula in \ref{186} tells us that
+\[
+f_3 = v_3 - \frac{\ip{v_3, f_1}}{\norm{f_1}^2} f_1 - \frac{\ip{v_3, f_2}}{\norm{f_2}^2} f_2
+= x^2 - \tfrac{1}{2} \ip[\big]{x^2\1, 1} - \tfrac{3}{2}\ip[\big]{x^2\1, x} x
+= x^2 - \tfrac{1}{3}.
+\]
+
+The formula above for $f_3$ implies that
+\[
+\norm{f_3}^2 = \int_{-1}^1 \paren[\Big]{t^2 - \tfrac{1}{3} }^2 \, dt =  \int_{-1}^{1} \paren[\Big]{ t^4 -\tfrac{2}{3} t^2 + \tfrac{1}{9} } \, dt = \tfrac{8}{45}.
+\]
+
+Now dividing each of $f_1, f_2, f_3$ by its norm gives us the orthonormal list
+\[
+\sqrt{\tfrac{1}{2}}, \sqrt{\tfrac{3}{2}} x,
+\sqrt{\tfrac{45}{8}} \paren[\Big]{ x^2 - \tfrac{1}{3} }.
+\]
+The orthonormal list above has length three, which is the dimension of $\P\1_2(\R{})$. Hence this orthonormal list is an orthonormal basis of~$\P\1_2(\R{})$ [by \ref{onbasis}].
+\end{example}
+
+Now we can answer the question about the existence of orthonormal bases.
+
+\ResultBox{existence of orthonormal basis}{
+Every finite-dimensional inner product space has an orthonormal basis.}
+
+\proof
+Suppose $V$ is finite-dimensional. Choose a basis of~$V\1$.  Apply the Gram--Schmidt procedure (\ref{186}) to
+it, producing an orthonormal list of length $\dim V\1$. By \ref{onbasis}, this orthonormal list is an orthonormal basis of~$V\1$.
+\qed
+
+Sometimes we need to know not only that an orthonormal
+basis exists, but also that every orthonormal list can be extended to an
+orthonormal basis.  In the next corollary, the Gram--Schmidt procedure shows
+that such an extension is always possible.
+
+\ResultBox[49]{every orthonormal list extends to an orthonormal basis}{%
+Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in $V$ can be extended to an orthonormal basis of $V\1$.}
+
+\proof
+Suppose $e_1, \dots, e_m$ is an orthonormal list of vectors in $V\1$.  Then
+$e_1, \dots, e_m$ is linearly independent (by~\ref{46}). Hence this list can be
+extended to a basis $e_1, \dots, e_m, v_1, \dots, v_n$ of~$V$ (see~\ref{9}). Now
+apply  the Gram--Schmidt procedure (\ref{186}) to
+$e_1, \dots, e_m, v_1, \dots, v_n$, producing an  orthonormal list
+\[
+e_1, \dots, e_m, f_1, \dots, f_n;
+\]
+here the formula given by the Gram--Schmidt procedure leaves the first $m$ vectors unchanged because they are already orthonormal.  The list above is an  orthonormal basis of $V$ by \ref{onbasis}.
+\qed
+
+Recall that a matrix is called upper triangular if it looks like this:
+\[
+\mat{ccc}{ * & & * \\ & \ddots & \\ 0 & & * },
+\]
+where the $0$ in the matrix above indicates that all entries below the diagonal equal~$0$, and asterisks are used to denote entries on and above the diagonal.
+
+In the last chapter, we gave a necessary and sufficient condition for an operator to have an upper-triangular matrix with respect to some basis (see \ref{5necsuf}). Now that we are dealing with inner product spaces, we would like to know whether there
+exists an \textit{orthonormal} basis with respect to which we have an upper-triangular matrix. The next result shows that the condition for an operator to have an upper-triangular matrix with respect to some orthonormal basis is the same as the condition to have an upper-triangular matrix with respect to an arbitrary basis.
+
+\ResultBox[188]{upper-triangular matrix with respect to some orthonormal basis}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then $T$ has an upper-triangular matrix with respect to some orthonormal basis of $V$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some
+$\la_1, \ldots, \la_m \in \F{}\3$.\index{minimal polynomial!and upper-triangular matrices}}
+
+\proof
+Suppose $T$ has an upper-triangular matrix with respect to some
+basis $v_1, \dots, v_n$ of~$V\1$.  Thus $\Span(v_1, \dots, v_k)$ is
+invariant under $T$ for each $k = 1, \dots, n$ (see~\ref{a225}).
+
+Apply the Gram--Schmidt procedure to $v_1, \dots, v_n$, producing an
+orthonormal basis $e_1, \dots, e_n$ of~$V\1$.  Because
+\[
+\Span(e_1, \dots, e_k) = \Span(v_1, \dots, v_k)
+\]
+for each $k$ (see~\ref{186}), we conclude that
+$\Span(e_1, \dots, e_k)$ is invariant under~$T$ for each $k = 1, \dots, n$.  Thus,
+by~\ref{a225}, $T$ has an upper-triangular matrix with respect to the orthonormal basis
+$e_1, \dots, e_n$. Now use \ref{5necsuf} to complete the proof.
+\qed
+
+\mar{Issai Schur\index{Schur, Issai} \uppar{1875--1941} published a proof of the next result in 1909.}
+
+For complex vector spaces, the next result is an important application of the result above. See Exercise \ref{3Schur} for a version of Schur's theorem that applies simultaneously to more than one operator.
+
+\ResultBox[214]{Schur's theorem\index{Schur's theorem}}
+{Every operator on a finite-dimensional complex inner product space has an upper-triangular matrix with respect to some orthonormal basis.}
+
+\proof
+The desired result follows from the second version of the fundamental theorem of algebra (\ref{4FTA2}) and \ref{188}.
+\qed
+
+\subsection{Linear Functionals on Inner Product Spaces}
+
+Because linear maps into the scalar field $\F{}$ play a special role, we defined a special name for them and their vector space in Section \ref{duals}. Those definitions are repeated below in case you skipped Section \ref{duals}.
+
+\DefinitionBox{linear functional, dual space, $V'$\sindex{V'@$V'\1$}}
+{\begin{Itemize}
+\item
+A \emph{linear functional}\index{linear functional} on $V$ is a linear map from $V$ to $\F{}\3$.
+\item
+The \emph{dual space}\index{dual!of a vector space} of $V\1$, denoted by $V'\!$, is the vector space of all linear \mbox{functionals} on $V\1$. In other words, $V' = \L(V\1, \F{})$.
+\end{Itemize}
+}
+
+\begin{example}[359]{linear functional on\/ $\F{3}$}
+The function
+$\phi \colon \F{3} \rightarrow \F{}$ defined by
+\[
+\phi(z_1, z_2, z_3) = 2 z_1 - 5 z_2 + z_3
+\]
+is a linear functional on $\FF{3}$. We could write this linear functional in the form
+\[
+\phi(z) = \ip{z, w}
+\]
+for every $z \in \FF3$, where $w = (2, -5, 1)$.
+\end{example}
+
+\begin{example}[360]{linear functional on\/ $\P\1_5(\R{})$}
+The function $\phi \colon \P\1_5(\R{}) \rightarrow \R{}$ defined by
+\[
+\phi(p) = \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr)\,dt
+\]
+is a linear functional on $\P\1_5(\R{})$.
+\end{example}
+
+\mar{The next result is named in honor of Frigyes Riesz \uppar{1880--1956}, who proved several theorems early in the twentieth century that look very much like the result below.\index{Riesz, Frigyes}}
+
+If $v \in V\1$, then the map that sends $u$ to~$\ip{u,v}$ is a linear functional
+on~$V\1$. The next result states  that every linear functional on $V$ is of this form. For example, we can take $v = (2, -5, 1)$ in Example \ref{359}.
+
+Suppose we make the vector space $\P\1_5(\R{})$ into an inner product space by defining $\ip{p, q} = \int_{-1}^{1} pq$. Let $\phi$ be as in Example \ref{360}. It is not obvious that there exists $q \in \P\1_5(\R{})$ such that
+\[
+\int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr)\,dt = \ip{p, q}
+\]
+for every $p \in \P\1_5(\R{})$ \sbr{we cannot take
+$q(t) = \cos(\pi t)$ because that choice of $q$ is not an element of~$\P\1_5(\R{})$}. The next result tells us the somewhat surprising result that there indeed exists a polynomial $q \in \P\1_5(\R{})$ such that the equation above holds for all $p \in \P\1_5(\R{})$.
+
+\ResultBox[50]{Riesz representation theorem\index{Riesz representation theorem}}{%
+Suppose $V$ is finite-dimensional and $\phi$ is a linear functional on $V\1$.  Then there is a unique vector
+$v \in V$ such that
+\[
+\phi(u) = \ip{u,v}
+\]
+for every $u \in V\1$.}
+
+\proof
+First we show that there exists a vector $v \in V$ such that $\phi(u) = \ip{u, v}$ for every $u \in V\1$.  Let $e_1, \dots, e_n$ be an orthonormal basis of $V\1$.  Then
+\begin{align*}
+\phi(u) &=
+\phi\paren[\big]{\ip{u, e_1} e_1 + \dots + \ip{u, e_n} e_n} \\[3bp]
+&= \ip{u, e_1} \phi(e_1) + \dots + \ip{u, e_n} \phi(e_n)  \\[3bp]
+&= \ip[\Big]{u, \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n}
+\end{align*}
+for every $u \in V\1$, where the first equality comes from~\ref{190}(a).  Thus
+setting
+\begin{equation} \label{GSformula}
+v = \overline{\phi(e_1)} e_1  + \dots +
+\overline{\phi(e_n)} e_n,
+\end{equation}%
+we have $\phi(u) = \ip{u, v}$ for every $u \in V\1$, as desired.
+
+Now we prove that only one vector $v \in V$ has the desired behavior.  Suppose
+$v_1, v_2 \in V$ are such that
+\[
+\phi(u) = \ip{u, v_1} = \ip{u, v_2}
+\]
+for every $u \in V\1$.  Then
+\[
+0 = \ip{u, v_1} - \ip{u, v_2} = \ip{u, v_1 - v_2}
+\]
+for every $u \in V\1$.  Taking $u = v_1 - v_2$ shows that $v_1 - v_2 =0$. Thus $v_1 = v_2$, completing the proof of the uniqueness part of the result.
+\qed
+
+\begin{example}{computation illustrating Riesz representation theorem}
+Suppose we want to find a polynomial $q \in \P\1_2(\R{})$ such that
+\begin{equation} \label{2rrt}
+\int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr)\,dt
+= \int_{-1}^1 pq
+\end{equation}%
+for every polynomial $p \in \P\1_2(\R{})$. To do this, we make $\P\1_2(\R{})$ into an inner product space by defining $\ip{p, q}$ to be the right side of the equation above for \mbox{$p, q \in \P\1_2(\R{})$}. Note that the left side of the equation above does not equal the inner product in $\P\1_2(\R{})$ of $p$ and the function $t \mapsto \cos(\pi t)$ because this last function is not a polynomial.
+
+Define a linear functional $\phi$ on $\P\1_2(\R{})$ by letting
+\[
+\phi(p) = \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr)\,dt
+\]
+for each $p \in \P\1_2(\R{})$. Now use the orthonormal basis from Example \ref{obP2R} and apply formula \ref{GSformula} from the proof of the Riesz representation theorem to see that if $p \in \P\1_2(\R{})$, then $\phi(p) = \ip{p, q}$, where
+\begin{align*}
+q(x) &= \paren[\bigg]{ \int_{-1}^1 \sqrt{\tfrac{1}{2}} \cos(\pi t) \, dt } \sqrt{\tfrac{1}{2}} +
+ \paren[\bigg]{ \int_{-1}^1 \sqrt{\tfrac{3}{2}} \, t \cos(\pi t) \, dt } \sqrt{\tfrac{3}{2}}x \\[6bp]
+ & \quad +
+  \paren[\bigg]{ \int_{-1}^1 \sqrt{\tfrac{45}{8}} \paren[\Big]{ t^2 - \tfrac{1}{3} } \cos(\pi t) \, dt } \sqrt{\tfrac{45}{8}}\paren[\Big]{ x^2 - \tfrac{1}{3} }.
+\end{align*}
+A bit of calculus applied to the equation above shows that
+\[
+q(x) = \tfrac{15}{2 \pi^2} \paren[\big]{1 - 3 x^2}.
+\]
+
+The same procedure shows that if we want to find $q \in \P\1_5(\R{})$ such that \ref{2rrt} holds for all $p \in \P\1_5(\R{})$, then we should take
+\[
+q(x) = \tfrac{105}{8 \pi^4} \paren[\bigg]{ \paren[\big]{27 - 2 \pi^2} + \paren[\big]{24 \pi^2 - 270} x^2 + \paren[\big]{315 - 30 \pi^2} x^4}.
+\]
+\exampledisplayend\vspace{4bp}
+\end{example}
+
+Suppose $V$ is finite-dimensional and $\phi$ a linear functional on $V\1$. Then \ref{GSformula} gives a formula for the vector $v$ that satisfies
+\[
+\phi(u) = \ip{u, v}
+\]
+for all $u \in V\1$. Specifically, we have
+ \[
+ v = \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n.
+\]
+The right side of the equation above seems to depend on the orthonormal basis $e_1, \dots, e_n$ as well as on $\phi$. However, \ref{50} tells us that $v$ is uniquely determined by $\phi$. Thus the right side of the equation above is the same regardless of which orthonormal basis $e_1, \dots, e_n$ of $V$ is chosen.
+
+For two additional different proofs of the Riesz representation theorem, see \ref{3RRT} and also Exercise~\ref{VVpiso} in Section~\ref{OrthoMin}.
+
+\begin{exercises}
+
+\exercise
+Suppose $e_1, \dots, e_m$ is a list of vectors in~$V$ such that
+\[
+\| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
+\]
+for all $a_1, \dots, a_m \in \F{}\3$. Show that $e_1, \dots, e_m$ is an orthonormal list.
+\exercisecomment{This exercise provides a converse to \ref{4strange}.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\theta \in \R{}$. Show that both
+\[
+(\cos \theta, \sin \theta), (-\sin \theta, \cos \theta) \andd (\cos \theta, \sin \theta), (\sin \theta, -\cos \theta)
+\]
+are orthonormal bases of $\RR2$.
+\item
+Show that each orthonormal basis of $\R2$ is of the form given by one of the two possibilities in (a).
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $e_1, \dots, e_m$ is an orthonormal list in~$V$ and $v \in V\1$.  Prove~that
+\[
+\|v\|^2 = \abs[\big]{ \ip{v, e_1} }^2 + \dots + \abs[\big]{ \ip{v, e_m} }^2 \iff v \in \Span(e_1, \dots, e_m).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $n$ is a positive integer.  Prove that \label{8Fourier}
+\[
+\frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots,
+\frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots,
+\frac{\sin nx}{\sqrt{\pi}}
+\]
+is an orthonormal list of vectors in $C[-\pi,\pi]$, the vector space of
+continuous real-valued functions on $[-\pi,\pi]$ with inner product
+\[
+\ip{f, g} = \int_{-\pi}^{\pi} fg.
+\]
+\hint{The following formulas should help.\normalsize
+\begin{align*}
+(\sin x)(\cos y) &= \frac{\sin(x-y) + \sin(x+y)}{2}\\[4bp]
+(\sin x)(\sin y) &= \frac{\cos(x-y) - \cos(x+y)}{2}\\[4bp]
+(\cos x)(\cos y) &= \frac{\cos(x-y) + \cos(x+y)}{2}
+\end{align*}}
+
+
+\exercise
+Suppose $\fun f {[-\pi, \pi]} {\R{}}$ is continuous. For each nonnegative integer $k$, define
+\[
+a_k = \tfrac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(kx) \,dx \andd b_k = \tfrac{1}{\sqrt{\pi}}  \int_{-\pi}^{\pi} f(x) \sin(kx) \,dx.
+\]
+Prove that
+\[
+\frac{{a_0}^{\2}}{2} + \sum_{k=1}^\infty \paren[\big]{ {a_k}^{\2} + {b_k}^{\2} } \le \int_{-\pi}^{\pi} f^2\1.
+\]
+\exercisecomment{The inequality above is actually an equality for all continuous functions $\fun f {[-\pi, \pi]} {\R{}}$. However, proving that this inequality is an equality involves Fourier series techniques beyond the scope of this book.}
+
+
+\exercise
+Suppose $e_1, \dots, e_n$ is an orthonormal basis of $V\1$.
+\begin{subtheorem}
+\item
+Prove that if $v_1, \dots, v_n$ are vectors in $V$ such that
+\[
+\|e_k - v_k\| < \frac{1}{\sqrt{n}}
+\]
+for each $k$, then $v_1, \dots, v_n$ is a basis of $V\1$.
+
+\item
+Show that there exist $v_1, \ldots, v_n \in V$ such that
+\[
+\|e_k - v_k\| \le \frac{1}{\sqrt{n}}
+\]
+for each $k$, but $v_1, \ldots, v_n$ is not linearly independent.
+\end{subtheorem}
+\exercisecomment{This exercise states in \uppar{a} that an appropriately small perturbation of an orthonormal basis is a basis. Then \uppar{b} shows that the number $1/\!\sqrt{n}$ on the right side of the inequality in \uppar{a} cannot be higher.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{3}}$ has an upper-triangular matrix with respect to the basis $(1, 0, 0)$, (1, 1, 1), $(1, 1, 2)$. Find an orthonormal basis of $\R{3}$ with respect to which $T$ has an upper-triangular matrix.
+
+
+\exercise
+Make $\P\1_2(\R{})$ into an inner product space by defining \label{375}
+$
+\ip{p, q} = \int_0^1 pq
+$
+for all $p, q \in \P\1_2(\R{})$.
+\begin{subtheorem}
+\item
+Apply the Gram--Schmidt procedure to the basis $1, x, x^2$ to produce an
+orthonormal basis of $\P\1_2(\R{})$.
+\item
+The differentiation operator\index{differentiation linear map} \big(the operator that
+takes $p$ to $p'$\big) on $\P\1_2(\R{})$ has an upper-triangular matrix with respect to
+the basis $1, x, x^2\1$, which is not an orthonormal basis. Find the matrix of the differentiation operator on $\P\1_2(\R{})$ with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular, as expected from the proof of \ref{188}.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $e_1, \dots, e_m$ is the result of applying the Gram--Schmidt procedure to a linearly independent list $v_1, \dots, v_m$ in $V\1$. Prove that $\ip{v_k, e_k} > 0$ for each $k = 1, \dots, m$.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a linearly independent list in $V\1$. Explain why the orthonormal list produced by the formulas of the Gram--Schmidt procedure (\ref{186}) is the only orthonormal list $e_1, \ldots, e_m$ in $V$ such that $\ip{v_k, e_k} > 0$ and
+$\Span(v_1, \ldots, v_k) = \Span(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$. \label{8GSunique}
+\exercisecomment{The result in this exercise is used in the proof of \ref{7QR}.}
+
+
+\exercise
+Find a polynomial $q \in \P\1_2(\R{})$ such that
+$
+p\paren[\Big]{\tfrac{1}{2}} = \int_0^1 pq$
+for every $p \in \P\1_2(\R{})$.\label{6int}
+
+
+\exercise
+Find a polynomial $q \in \P\1_2(\R{})$ such that
+\[
+\int_0^1 p(x) \cos(\pi x) \,dx = \int_0^1 pq
+\]
+for every $p \in \P\1_2(\R{})$.
+
+
+\exercise
+Show that a list $v_1, \ldots, v_m$ of vectors in $V$ is linearly dependent if and only if the Gram--Schmidt formula in \ref{186} produces $f_k= 0$ for some $k \in \br{1, \ldots, m}$.\label{GSlindep}%
+\exercisecomment{This exercise gives an alternative to Gaussian elimination techniques for determining whether a list of vectors in an inner product space is linearly dependent.}
+
+
+%\begin{comment}
+\exercise
+Suppose $V$ is a real inner product space and $v_1, \dots, v_m$ is a
+linearly independent list of vectors in~$V\1$.  Prove that there exist exactly
+$2^m$ orthonormal lists $e_1, \dots, e_m$ of vectors
+in~$V$ such  that
+\[
+\Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
+\]
+for all $k \in \{1, \dots, m\}$.
+
+%\end{comment}
+
+\exercise
+Suppose $\ip{ \cdot, \cdot}_1$ and $\ip{ \cdot, \cdot}_2$ are inner products on $V$ such that $\ip{u,v}_1 = 0$ if and only if $\ip{u,v}_2= 0$. Prove that there is a positive number $c$ such that $\ip{u, v}_1 = c \ip{u, v}_2$ for every $u, v \in V\1$.
+\exercisecomment{This exercise shows that if two inner products have the same pairs of \mbox{orthogonal} vectors, then each of the inner products is a scalar multiple of the other inner product.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Suppose $\ip{ \cdot, \cdot}_1$, $\ip{ \cdot, \cdot}_2$ are inner products on $V$ with corresponding norms $\norm{ \Cdot }_1$ and $\norm{\Cdot}_2$. Prove that there exists a positive number $c$ such that
+$
+\| v \|_1 \le c \| v \|_2
+$
+for every $v \in V\1$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $V$ is finite-dimensional. Prove that if $T$ is an operator on $V$ such that $1$ is the only eigenvalue of $T$ and $\norm{Tv} \le \norm{v}$ for all $v \in V\1$, then $T$ is the identity operator.
+
+
+\exercise
+Suppose $u_1, \dots, u_m$ is a linearly independent list in $V\1$. Show that there exists $v \in V$ such that $\ip{u_k, v} =1$
+for all $k \in \{1, \dots, m\}$.
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V\1$. Prove that there exists a basis $u_1, \ldots, u_n$ of $V$ such that
+\[
+\ip{v_j, u_k} = \begin{cases}
+0 & \text{if } j \ne k, \\
+1 & \text{if } j=k.
+\end{cases}
+\]
+\vspace{-.19in}
+
+
+\exercise
+Suppose $\F{}=\C{}$, $V$ is finite-dimensional, and $\E \subset \L(V)$ is such that \[ST = TS\] for all $S, T \in \E$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\E$ has an upper-triangular matrix.%
+ \label{3Schur}\index{commuting operators}
+\exercisecomment{This exercise strengthens Exercise \ref{4ManyOps}\uppar{b} in Section \ref{2diagmat} \uppar{in the context of inner product spaces} by asserting that the basis in that exercise can be chosen to be orthonormal.}
+
+
+\exercise
+Suppose $\F{} = \C{}$, $V$ is finite-dimensional, $T \in \L(V)$, and all eigenvalues of $T$ have absolute value less than $1$. Let $\epsilon > 0$. Prove that there exists a positive integer $m$ such that
+$\norm[\big]{T^m v} \le \epsilon \|v\|$ for every $v \in V\1$.
+
+
+\exercise
+Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1 ,1]$ with inner product given by \index{Riesz representation theorem}
+\[
+\ip{f, g} = \int_{-1}^1 fg
+\]
+for all $f, g \in C[-1, 1]$. Let $\phi$ be the linear functional on $C[-1, 1]$ defined by $\phi(f) = f(0)$. Show that there does not exist $g \in C[-1, 1]$ such that
+\[
+\phi(f) = \ip{f, g}
+\]
+for every $f \in C[-1, 1]$.
+\exercisecomment{This exercise shows that the Riesz representation theorem \uppar{\ref{50}} does not hold on infinite-dimensional vector spaces without additional hypotheses on $V$ and $\phi$.}
+
+
+\exercise
+For all $u, v \in V\1$, define $d(u, v) = \|u - v\|$.\label{4metric}
+\begin{subtheorem}
+\item
+Show that $d$ is a metric on $V\1$.
+\item
+Show that if $V$ is finite-dimensional, then $d$ is a complete metric on $V$ (meaning that every Cauchy sequence converges).
+\item
+Show that every finite-dimensional subspace of $V$ is a closed subset of~$V$ (with respect to the metric $d$\,).
+\end{subtheorem}
+\exercisecomment{This exercise requires familiarity with metric spaces.}
+
+
+\end{exercises}
+
+\vfill
+
+\SpecialBox{orthogonality at the Supreme Court}%
+{Law professor Richard Friedman presenting a case before the U.S. Supreme Court in 2010:\index{Supreme Court}
+\begin{tabbing}
+\textit{Mr.~Friedman}: \=I think that issue is entirely orthogonal to the issue here\\
+\>because the Commonwealth is acknowledging---\\[1bp]
+\textit{Chief Justice Roberts}: I'm sorry. Entirely what?\\[1bp]
+\textit{Mr.~Friedman}: Orthogonal. Right angle. Unrelated. Irrelevant.\\[1bp]
+\textit{Chief Justice Roberts}: Oh.\\[1bp]
+\textit{Justice Scalia}: What was that adjective? I liked that.\\[1bp]
+\textit{Mr.~Friedman}: Orthogonal.\\[1bp]
+\textit{Chief Justice Roberts}: Orthogonal.\\[1bp]
+\textit{Mr.~Friedman}: Right, right.\\[1bp]
+\textit{Justice Scalia}: Orthogonal, ooh.
+(Laughter.)\\[1bp]
+\textit{Justice Kennedy}: I knew this case presented us a problem.
+(Laughter.)
+\end{tabbing}}
+
+\section{Orthogonal Complements and Minimization Problems} \label{OrthoMin}
+
+\subsection{Orthogonal Complements}
+
+\DefinitionBox{orthogonal complement, $U^\perp$}{If $U$ is a subset of $V\1$, then the \emph{orthogonal
+complement}\index{orthogonal!complement} of $U$,
+denoted by $U^\perp\1$,\sindex{U@$U^\perp$} is
+the  set of all vectors in $V$ that are orthogonal to every vector in $U$:
+\[
+U^\perp = \br[\big]{v \in V: \ip{u,v} = 0 \mbox{\ for every\ } u \in U}.
+\]}
+
+The orthogonal complement $U^\perp$ depends on $V$ as well as on $U$. However, the inner product space $V$ should always be clear from the context and thus it can be omitted from the notation.
+
+\begin{example}{orthogonal complements}
+\begin{Itemize}
+\item
+If $V = \R3$ and $U$ is the subset of $V$ consisting of the single point $(2,3,5)$, then $U^\perp$ is the plane
+$\br[\big]{ (x,y,z) \in \R3: 2x+3y+5z = 0}$.
+\item
+If $V = \R3$ and $U$ is the plane $\br[\big]{ (x,y,z) \in \R3: 2x+3y+5z = 0}$, then $U^\perp$ is the line
+$\br{ (2t, 3t, 5t): t \in \R{} }$.
+\item
+More generally, if $U$ is a plane in $\R3$ containing the origin, then $U^\perp$ is the line containing the origin that is perpendicular to $U$.
+\item
+If $U$ is a line in $\R3$ containing the origin, then $U^\perp$ is the plane containing the origin that is perpendicular to $U$.
+\item
+If $V = \F5$ and $U = \br[\big]{ (a,b, 0, 0, 0) \in \F5: a,b \in \F{} }$, then
+\[
+U^\perp = \br[\big]{(0, 0, x,y,z) \in \F5: x,y,z \in \F{}}.
+\]
+\item
+If $e_1, \ldots, e_m, f_1, \ldots, f_n$ is an orthonormal basis of $V\1$, then
+\[
+\paren[\big]{\Span( e_1, \ldots, e_m)}^\perp = \Span( f_1, \ldots, f_n).
+\]
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+We begin with some straightforward consequences of the definition.
+
+\ResultBox[oc]{properties of orthogonal complement}
+{\begin{subtheorem}
+\item
+If $U$ is a subset of $V\1$, then $U^\perp$ is a subspace of $V\1$.
+\item
+$\{0\}^\perp = V\1$.
+\item
+$V^\perp = \{0\}$.
+\item
+If $U$ is a subset of $V\1$, then $U \cap U^\perp \subset \{0\}$.
+\item
+If $G$ and $H$ are subsets of $V$ and $G \subset H$, then $H^\perp \subset G^\perp\1$.
+\end{subtheorem}}
+
+\pagebreak[3]
+
+\proof
+\begin{subtheorem}*
+\item
+Suppose $U$ is a subset of $V\1$. Then $\ip{u,0} = 0$ for every $u \in U$; thus $0 \in U^\perp\1$.
+
+Suppose $v, w \in U^\perp\1$. If $u \in U$, then
+\[
+\ip{u,v+w} = \ip{u,v} + \ip{u,w} = 0 + 0 = 0.
+\]
+Thus $v + w \in U^\perp\1$, which shows that $U^\perp$ is closed under addition.
+
+Similarly, suppose $\la \in \F{}$ and $v \in U^\perp\1$. If $u \in U$, then
+\[
+\ip{u, \la v} = \overline{\la} \ip{u,v} = \overline{\la} \cdot 0 = 0.
+\]
+Thus $\la v \in U^\perp\1$, which shows that $U^\perp$ is closed under scalar multiplication. Thus $U^\perp$ is a subspace of $V\1$.
+
+\item
+Suppose that $v \in V\1$. Then $\ip{0,v} = 0$, which implies that $v \in \{0\}^\perp\1$. Thus $\{0\}^\perp = V\1$.
+
+\item
+Suppose that $v \in V^\perp\1$. Then $\ip{v,v} = 0$, which implies that $v = 0$. Thus $V^\perp = \{0\}$.
+
+\item
+Suppose $U$ is a subset of $V$ and $u \in U \cap U^\perp\1$. Then $\ip{u,u} = 0$, which implies that $u = 0$. Thus $U \cap U^\perp \subset \{0\}$.
+
+\item
+Suppose $G$ and $H$ are subsets of $V$ and $G \subset H$. Suppose $v \in H^\perp\1$. Then $\ip{u,v} = 0$ for every $u \in H$, which implies that $\ip{u,v} = 0$ for every $u \in G$. Hence $v \in G^\perp\1$. Thus $H^\perp \subset G^\perp\1$.
+\qed
+\end{subtheorem}
+
+Recall that if $U$ and $W$ are subspaces of $V\1$, then $V$ is the direct sum of $U$ and $W$ (written $V = U \oplus W$) if each element of $V$ can be written in exactly one way as a vector in $U$ plus a vector in $W$ (see \ref{directsum}). Furthermore, this happens if and only if $V = U + W$ and $U \cap W = \br{0}$ (see  \ref{219}).
+
+The next result shows that every finite-dimensional subspace of $V$ leads to a natural direct sum decomposition of~$V\1$. See Exercise \ref{dense} for an example showing that the result below can fail without the hypothesis that the subspace $U$ is finite-dimensional.
+
+\ResultBox[191]{direct sum of a subspace and its orthogonal complement}{\index{direct sum!of a subspace and its orthogonal complement}%
+Suppose $U$ is a finite-dimensional subspace of $V\1$. Then
+\[
+V = U \oplus U^\perp\1.
+\]
+}
+
+\proof
+First we will show that
+\[
+V = U + U^\perp\1.
+\]
+To do this, suppose that $v \in V\1$.  Let $e_1, \dots, e_m$ be an orthonormal basis of~$U$. We want to write $v$ as the sum of a vector in $U$ and a vector orthogonal to $U$.
+
+\pagebreak[3]
+
+We have
+\begin{equation} \label{416}
+v = \underbrace{\ip{v, e_1}e_1 + \dots + \ip{v, e_m}e_m}_u
++ \underbrace{v - \ip{v, e_1}e_1 - \dots - \ip{v, e_m}e_m}_w\!.
+\end{equation}%
+Let $u$ and $w$ be defined as in the equation above (as was done in the proof of \ref{Bessel}). Because each $e_k \in U$, we see that $u \in U$.  Because $e_1, \dots, e_m$ is an orthonormal
+list, for each $k = 1, \dots, m$ we have
+\begin{align*}
+\ip{w, e_k} &= \ip{v, e_k} - \ip{v, e_k} \\[3bp]
+&= 0.
+\end{align*}
+Thus $w$ is orthogonal to every vector in $\Span(e_1, \dots, e_m)$, which shows that $w \in U^\perp\1$. Hence we have written
+$v = u + w$, where $u \in U$ and $w \in U^\perp\1$, completing the proof that $V = U + U^\perp\1$.
+
+From \ref{oc}(d), we know that $U \cap U^\perp = \{0\}$. Now equation $V = U + U^\perp\1$ implies that $V = U \oplus U^\perp$ (see \ref{219}).
+\qed
+
+Now we can see how to compute $\dim U^\perp$ from $\dim U$.
+
+\ResultBox[350]{dimension of orthogonal complement}
+{Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Then
+\[
+\dim U^\perp = \dim V - \dim U.
+\]}
+
+\proof
+The formula for $\dim U^\perp$ follows immediately from \ref{191} and \ref{3directsumdim}. \qed
+
+The next result is an important consequence of \ref{191}.
+
+\ResultBox[376]{orthogonal complement of the orthogonal complement}{%
+Suppose $U$ is a finite-dimensional subspace of $V\1$. Then
+\[
+U = \paren[\big]{U^\perp}^\perp\1.
+\]
+}
+
+\proof
+First we will show that
+\begin{equation} \label{415}
+U \subset \paren[\big]{U^\perp}^\perp\1.
+\end{equation}%
+To do this, suppose $u \in U$.  Then $\ip{u, w} = 0$ for every $w \in U^\perp$ \big(by the definition of $U^\perp$\big).  Because $u$ is
+orthogonal to every vector in $U^\perp\1$, we have $u \in \paren[\big]{U^\perp}^\perp\1$, completing the proof of \ref{415}.
+
+To prove the inclusion in the other direction, suppose $v \in \paren[\big]{U^\perp}^\perp\1$.  By \ref{191}, we can write $v = u + w$, where
+$u \in U$ and $w \in U^\perp\1$.  We have $v - u = w \in U^\perp\1$.  Because
+$v \in \paren[\big]{U^\perp}^\perp$ and $u \in \paren[\big]{U^\perp}^\perp$
+(from~\ref{415}), we have $v - u \in \paren[\big]{U^\perp}^\perp\1$.  Thus
+$v - u \in  U^\perp \cap \paren[\big]{U^\perp}^\perp\1$,
+which implies that $v - u = 0$ [by \ref{oc}(d)], which implies that $v = u$, which implies that
+$v \in  U$.  Thus $\paren[\big]{U^\perp}^\perp \subset U$, which along with \ref{415}
+completes the proof.
+\qed
+
+\pagebreak[3]
+
+\mar{Exercise \ref{dense}\uppar{a} shows that the result below is not true without the hypothesis that $U$ is finite-dimensional.}
+
+Suppose $U$ is a subspace of $V$ and we want to show that $U = V\1$. In some situations, the easiest way to do this is to show that the only vector orthogonal to $U$ is $0$, and then use the result below. For example, the result below is useful for Exercise \ref{190converse}.
+
+\ResultBox[01Uperp]{$U^\perp = \{0\} \iff U = V$ \uppar{for\/ $U$ a finite-dimensional subspace of\/ $V$}}
+{Suppose $U$ is a finite-dimensional subspace of $V\1$.  Then
+\[
+U^\perp = \{0\} \iff U = V\1.
+\]}
+
+\proof
+First suppose $U^\perp = \br{0}$. Then by \ref{376}, $U = \paren[\big]{U^\perp}^\perp = \br{0}^\perp= V\1$, as desired.
+
+Conversely, if $U = V\1$, then $U^\perp = V^\perp = \br{0}$ by \ref{oc}(c).
+\qed
+
+We now define an operator $P_{\!U}$ for each finite-dimensional subspace $U$ of $V\1$.
+
+\DefinitionBox[orthogproj]{orthogonal projection, $P_{\!U}$\sindex{PU@$P_{\hspace{-.16667em}U}$}}
+{Suppose $U$ is a finite-dimensional subspace of $V\1$. The \emph{orthogonal \mbox{projection}}\index{orthogonal!projection} of~$V$ onto~$U$ is the operator $P_{\!U} \in \L(V)$ defined as follows: For each $v \in V\1$, write $v = u + w$, where $u \in U$ and $w \in U^\perp\1$. Then let $P_{\!U} v = u$.}
+
+The direct sum decomposition $V = U \oplus U^\perp$ given by \ref{191} shows that each $v \in V$ can be uniquely written in the form
+$v = u + w$ with $u \in U$ and $w \in U^\perp\1$. Thus $P_{\!U} v$ is well defined. See the figure that accompanies the proof of \ref{417} for the picture describing $P_{\!U} v$ that you should keep in mind.
+
+\begin{example}{orthogonal projection onto one-dimensional subspace}
+Suppose $u \in V$ with $u \ne 0$ and $U$ is the one-dimensional subspace of $V$ defined by $U = \Span(u)$.
+
+If $v \in V\1$, then
+\[
+v = \frac{\ip{v, u}}{\|u\|^2} u + \paren[\bigg]{ v - \frac{\ip{v, u}}{\|u\|^2} u },
+\]
+where the first term on the right is in $\Span(u)$ (and thus is in $U$) and the second term on the right is orthogonal to $u$ (and thus is in $U^\perp)$. Thus $P_{\!U} v$ equals the first term on the right. In other words, we have the formula
+\[
+P_{\!U} v = \frac{\ip{v, u}}{\|u\|^2} u
+\]
+for every $v \in V\1$.
+
+The formula above becomes $P_{\!U} u = u$ if $v = u$ and becomes $P_{\!U} v = 0$ if $v \in \br{u}^\perp\1$. These equations are special cases of (b) and (c) in the next result.\looseness=-1
+\end{example}
+
+\pagebreak[3]
+
+\ResultBox[418]{properties of orthogonal projection $P_{\!U}$}
+{Suppose $U$ is a finite-dimensional subspace of $V\1$. Then
+\begin{subtheorem}* \addtolength{\itemsep}{-.15bp} %VisualFormatting for page break
+
+\item
+$P_{\!U} \in \L(V)$;
+
+\item
+$P_{\!U} u = u$ for every $u \in U$;
+
+\item
+$P_{\!U} w = 0$ for every $w \in U^\perp$;
+
+\item
+$\ran P_{\!U} = U$;
+
+\item
+$\ker P_{\!U} = U^\perp$;
+
+\item
+$v - P_{\!U} v \in U^\perp$ for every $v \in V$;
+
+\item
+${P_{\!U}}^{\2} = P_{\!U}$;
+
+\item
+$\|P_{\!U} v\| \le \|v\|$ for every $v \in V$;
+
+\item
+if $e_1, \dots, e_m$ is an orthonormal basis of $U$ and $v \in V\1$, then
+\[
+P_{\!U} v = \ip{v, e_1} e_1 + \dots + \ip{v, e_m} e_m.
+\]
+\end{subtheorem}}
+
+\pagebreak[3]
+
+\proof
+\begin{subtheorem}*
+\item
+To show that $P_{\!U}$ is a linear map on $V\1$, suppose $v_1, v_2 \in V\1$. Write
+\[
+v_1 = u_1 + w_1 \andd v_2 = u_2 + w_2
+\]
+with $u_1, u_2 \in U$ and $w_1, w_2 \in U^\perp\1$. Thus $P_{\!U} v_1 = u_1$ and $P_{\!U} v_2 = u_2$. Now
+\[
+v_1 + v_2 = (u_1 + u_2) + (w_1 + w_2),
+\]
+where $u_1 + u_2 \in U$ and $w_1 + w_2 \in U^\perp\1$. Thus
+\[
+P_{\!U}(v_1 + v_2) = u_1 + u_2 = P_{\!U} v_1 + P_{\!U} v_2.
+\]
+
+Similarly, suppose $\la \in \F{}$ and $v \in V\1$. Write $v = u + w$, where $u \in U$ and $w \in U^\perp\1$. Then $\la v = \la u + \la w$ with $\la u \in U$ and $\la w \in U^\perp\1$. Thus $P_{\!U}(\la v) = \la u = \la P_{\!U}v$.
+
+Hence $P_{\!U}$ is a linear map from $V$ to $V\1$.
+
+\item
+Suppose $u \in U$. We can write $u = u + 0$, where $u \in U$ and $0 \in U^\perp\1$. Thus $P_{\!U}u = u$.
+
+\item
+Suppose $w \in U^\perp\1$. We can write $w = 0 + w$, where $0 \in U$ and $w \in U^\perp\1$. Thus $P_{\!U}w = 0$.
+
+\item
+The definition of $P_{\!U}$ implies that $\ran P_{\!U} \subset U$. Furthermore, (b) implies that $U \subset \ran P_{\!U}$. Thus $\ran P_{\!U} = U$.
+
+\item
+The inclusion $U^\perp \subset \ker P_{\!U}$ follows from (c). To prove the inclusion in the other direction, note that if $v \in \ker P_{\!U}$ then the decomposition given by \ref{191} must be $v = 0 + v$, where $0 \in U$ and $v \in U^\perp\1$. Thus $\ker P_{\!U} \subset U^\perp\1$.
+
+\item
+If $v \in V$ and $v = u + w$ with $u \in U$ and $w \in U^\perp\1$, then
+\[
+v - P_{\!U}v = v - u = w \in U^\perp\1.
+\]
+
+\item
+If $v \in V$ and $v = u + w$ with $u \in U$ and $w \in U^\perp\1$, then
+\[
+\paren[\big]{{P_{\!U}}^{\2}}v = P_{\!U}(P_{\!U} v) = P_{\!U} u = u = P_{\!U}v.
+\]
+
+\item
+If $v \in V$ and $v = u + w$ with $u \in U$ and $w \in U^\perp\1$, then
+\[
+\|P_{\!U} v\|^2 = \|u\|^2 \le \|u\|^2 + \|w\|^2 = \|v\|^2\1,
+\]
+where the last equality comes from the Pythagorean theorem.
+
+\item
+The formula for $P_{\!U} v$ follows from equation \ref{416} in the proof of \ref{191}.
+\qed
+\end{subtheorem}
+
+In the previous section we proved the Riesz representation theorem (\ref{50}), whose key part states that every linear functional on a finite-dimensional inner product space is given by taking the inner product with some fixed vector. Seeing a different proof often provides new insight. Thus we now give a new proof of the key part of the Riesz representation theorem using orthogonal complements instead of orthonormal bases as in our previous proof.
+
+The restatement below of the Riesz representation theorem provides an identification of $V$ with $V'\!$. We will prove only the ``onto'' part of the result below because the more routine ``one-to-one'' part of the result can be proved as in \ref{50}.
+
+Intuition behind this new proof: If $\phi \in V'\!$, $v \in V\1$, and $\phi(u) = \ip{u,v}$ for all $u \in V\1$, then
+$v \in (\ker \phi)^\perp\1$. However, $(\ker \phi)^\perp$ is a one-dimensional subspace of $V$ (except for the trivial case in which $\phi = 0$), as follows from \ref{350} and \ref{3ab11}. Thus we can obtain $v$ by choosing any nonzero element of $(\ker \phi)^\perp$ and then multiplying by an appropriate scalar, as is done in the proof below.
+
+\ResultBox[3RRT]{Riesz representation theorem, revisited}
+{Suppose $V$ is finite-dimensional. For each $v \in V\1$, define $\phi_v \in V'$ by\index{Riesz representation theorem}
+\[
+\phi_v(u) = \ip{u, v}
+\]
+for each $u \in V\1$. Then $v \mapsto \phi_v$ is a one-to-one function from $V$ onto $V'\!$.}
+
+\mar{\textbf{Caution:} The function\/ $v \mapsto \phi_v$ is a linear mapping from\/ $V$ to\/ $V'$ if\/ \mbox{$\F{} = \R{}$}. However, this function is not linear if\/ $\F{}=\C{}$ because\/ $\phi_{\la v} = \bar{\la} \phi_v$ if\/ $\la \in \C{}$.}
+
+\proof
+To show that $v \mapsto \phi_v$ is surjective, suppose $\phi \in V'\!$.
+If $\phi = 0$, then $\phi = \phi_0$. Thus assume $\phi \ne 0$. Hence $\ker \phi \ne V\1$, which implies that
+$(\ker \phi)^\perp \ne \br{0}$ (by \ref{191} with $U = \ker \phi$).
+
+Let $w \in (\ker \phi)^\perp$ be such that $w \ne 0$. Let
+\begin{equation} \label{wu}
+v = \frac{ \overline{\phi(w)} }{\norm{w}^2} w.
+\end{equation}%
+Then $v \in (\ker \phi)^\perp\1$. Also, $v \ne 0$ (because $w \notin \ker \phi$).
+
+\pagebreak[3]
+
+Taking the norm of both sides of \ref{wu} gives
+\begin{equation} \label{normw}
+\norm{v} = \frac{ \abs{\phi(w) }}{\norm{w}}.
+\end{equation}%
+Applying $\phi$ to both sides of \ref{wu} and then using \ref{normw}, we have
+\[
+\phi(v) = \frac{ \abs{\phi(w)}^2 }{ \norm{w}^2} = \norm{v}^2\1.
+\]
+
+Now suppose $u \in V\1$. Using the equation above, we have
+\[
+u = \paren[\bigg]{ u - \frac{ \phi(u) }{ \phi(v) } v } + \frac{ \phi(u) }{ \norm{v}^2 } v.
+\]
+The first term in parentheses above is in $\ker \phi$ and hence is orthogonal to $v$. Thus taking the inner product of both sides of the equation above with $v$ shows that
+\[
+\ip{u, v} = \frac{ \phi(u) }{ \norm{v}^2 } \ip{v, v} = \phi(u).
+\]
+Thus $\phi = \phi_v$, showing that $v \mapsto \phi_v$ is surjective, as desired.
+\qed
+
+See Exercise~\ref{VVpiso} for yet another proof of the Riesz representation theorem.
+
+\pagebreak[3]
+
+\subsection{Minimization Problems}
+
+\mar[6]{The remarkable simplicity of the solution to this minimization problem has
+led to many important applications of inner product spaces outside of pure
+mathematics.}
+
+The following problem often arises: Given a subspace $U$ of $V$ and a point
+$v \in V\1$, find a point $u \in U$ such that $\|v - u\|$ is as small as
+possible. The next result shows that $u = P_{\!U} v$ is the unique solution of this minimization
+problem.\index{minimizing distance}
+
+\ResultBox[417]{minimizing distance to a subspace}{%
+Suppose\/ $U$ is a finite-dimensional subspace of\/ $V\1$, $v \in V\1$, and $u \in U$.  Then
+\[
+\| v - P_{\!U} v \| \le \| v - u \|.
+\]
+Furthermore, the inequality above is an equality if and only if $u = P_{\!U} v$.}
+
+\proof
+We have
+\begin{align}
+\| v - P_{\!U} v \|^2 &\le \|v - P_{\!U} v\|^2 + \|P_{\!U} v - u\|^2 \label{422}\\[5bp]
+& = \norm[\big]{(v - P_{\!U} v) + (P_{\!U} v - u)}^2 \notag\\[5bp]
+&= \| v - u \|^2\1, \notag
+\end{align}
+\marF{\includegraphics{Mathematica/ClosestPoint.pdf}}{$P_{\!U} v$ is the closest\\point in\/ $U$ to\/ $v$.}
+where the first line above holds because $0 \le \|P_{\!U} v - u\|^2\1$, the second line above comes from the Pythagorean theorem \sbr{which applies because $v - P_{\!U} v \in U^\perp$ by \ref{418}(f), and $P_{\!U} v - u \in U$}, and the third line above holds by simple algebra.  Taking square roots gives the desired inequality.
+
+The  inequality proved above is an equality if and only if \ref{422} is an equality, which
+happens if and only if \mbox{$\|P_{\!U} v - u\| = 0$}, which happens if and only
+if \mbox{$u = P_{\!U} v$}.
+\qed
+
+The last result is often combined with the formula \ref{418}(i) to
+compute explicit solutions to minimization problems, as in the following example.
+
+\begin{example}{using linear algebra to approximate the sine function}
+Suppose we want to find a polynomial $u$ with real coefficients and of degree at most $5$ that approximates the sine function as well as possible on the interval $[-\pi, \pi]$, in the sense that
+\[
+\int_{-\pi}^{\pi} \abs[\big]{\sin x - u(x)}^2\,dx
+\]
+is as small as possible.
+
+Let $C[-\pi, \pi]$ denote the real inner product space of continuous real-valued functions on $[-\pi, \pi]$ with inner product
+\begin{equation} \label{419}
+\ip{f, g} = \int_{-\pi}^{\pi} fg.
+\end{equation}%
+Let $v \in C[-\pi, \pi]$ be the function defined by $v(x) = \sin x$.
+Let $U$ denote the subspace of $C[-\pi, \pi]$ consisting of the polynomials with real coefficients and of degree at most~$5$.  Our problem can now be reformulated as follows:
+\[
+\text{Find $u\in U$ such that $\|v - u\|$ is as
+small as possible.}
+\]
+
+\mar{A computer that can integrate is useful here.}
+
+To compute the solution to our approximation problem, first apply the
+Gram--Schmidt procedure (using the inner product given by \ref{419}) to
+the basis $1, x, x^2\1, x^3\1, x^4\1, x^5$ of $U$, producing an orthonormal basis
+$e_1, e_2, e_3, e_4, e_5, e_6$ of $U$. Then, again using the inner
+product given by~\ref{419}, compute $P_{\!U} v$ using \ref{418}(i) (with
+$m = 6$).  Doing this computation shows that $P_{\!U} v$ is  the function $u$ defined by
+\begin{equation} \label{420}
+u(x) = 0.987862 x - 0.155271 x^3 + 0.00564312 x^5\1,
+\end{equation}%
+where the $\pi$'s that appear in the exact answer have been replaced
+with a good decimal approximation.
+By \ref{417}, the polynomial $u$ above is the best approximation to the sine function on $[-\pi, \pi]$ using
+polynomials of degree at most~$5$ \big(here ``best approximation'' means in the sense of minimizing
+$\int_{-\pi}^{\pi} |\sin x - u(x)|^2\,dx$\big).
+
+To see how good this approximation is, the next figure shows the graphs of both the sine function and our approximation $u$ given by \ref{420} over the interval $[-\pi, \pi]$.
+
+\FigureHereUnround{Mathematica/SinGram.pdf}{1}{Graphs on\/ $[-\pi, \pi]$ of the sine function \uppar{red} and its best\\fifth degree polynomial approximation\/ $u$ \uppar{blue} from~\ref{420}.}
+
+Our approximation \ref{420} is so accurate that the two
+graphs are almost identical---our eyes may see only one graph! Here the red graph is placed almost exactly over the blue graph. If you are viewing this on an electronic device, enlarge the picture above by 400\% near $\pi$ or $-\pi$ to see a small gap between the two graphs.
+
+Another well-known approximation to the sine function by a polynomial of degree $5$ is given by the Taylor  polynomial $p$ defined by
+\begin{equation} \label{421}
+p(x) = x - \frac{x^3}{3!}  + \frac{x^5}{5!}.
+\end{equation}%
+To see how good this approximation is, the next picture shows the graphs of both the sine function and the Taylor
+polynomial $p$ over the interval $[-\pi, \pi]$.
+
+\FigureHereUnround{Mathematica/SinTaylor.pdf}{1}{Graphs on\/ $[-\pi, \pi]$ of the sine function \uppar{red}\\and the Taylor polynomial \uppar{blue} from \ref{421}.}
+
+The Taylor polynomial of degree $5$ is an excellent approximation to $\sin x$ for $x$ near~$0$.  But the picture above shows that for $|x| > 2$, the Taylor polynomial is not so accurate, especially compared to \ref{420}.  For example, taking $x = 3$, our approximation \ref{420} estimates $\sin 3$ with an error of approximately $0.001$, but the Taylor polynomial \ref{421} estimates $\sin 3$ with an error of approximately $0.4$. Thus at $x = 3$, the error in the Taylor polynomial is hundreds of times larger than the error given by \ref{420}.  Linear algebra has helped us discover an approximation to the sine function that improves upon what we learned in calculus!
+\end{example}
+
+\subsection{Pseudoinverse}
+
+Suppose $T \in \L(V\1, W)$ and $w \in W\3$. Consider the problem of finding $v \in V$ such that
+\[
+Tv = w.
+\]
+For example, if $V = \F n$ and $W = \FF m$, then the equation above could represent a system of $m$ linear equations in $n$ unknowns $v_1, \ldots, v_n$, where $v = (v_1, \ldots, v_n)$.
+
+If $T$ is invertible, then the unique solution to the equation above is $v = T^{-1}w$. However, if $T$ is not invertible, then for some
+$w \in W$ there may not exist any solutions of the equation above, and for some $w \in W$ there may exist infinitely many solutions of the equation above.
+
+If $T$ is not invertible, then we can still try to do as well as possible with the equation above. For example, if the equation above has no solutions, then instead of solving the equation $Tv - w = 0$, we can try to find $v \in V$ such that $\norm{Tv - w}$ is as small as possible. As another example, if the equation above has infinitely many solutions $v \in V\1$, then among all those solutions we can try to find one such that $\norm{v}$ is as small as possible.
+
+The pseudoinverse will provide the tool to solve the equation above as well as possible, even when $T$ is not invertible. We need the next result to define the pseudoinverse.
+
+In the next two proofs, we will use without further comment the result that if $V$ is finite-dimensional and $T \in \L(V\1,W)$, then $\ker T$, $(\ker T)^\perp\1$, and $\ran T$ are all finite-dimensional.
+
+\ResultBox{restriction of a linear map to obtain a one-to-one and onto map}
+{Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Then $T|_{(\ker T)^\perp}$ is an injective map of $(\ker T)^\perp$ onto $\ran T\3$.}
+
+\proof
+Suppose that $v \in (\ker T)^\perp$ and $T|_{(\ker T)^\perp}v = 0$. Hence $Tv = 0$ and thus $v \in (\ker T) \cap (\ker T)^\perp\1$, which implies that
+$v = 0$ \sbr{by \ref{oc}(d)}. Hence $\ker T|_{(\ker T)^\perp} = \br{0}$, which implies that $T|_{(\ker T)^\perp}$ is injective, as desired.
+
+Clearly $\ran T|_{(\ker T)^\perp} \subset \ran T\3$. To prove the inclusion in the other direction, suppose $w \in \ran T\3$. Hence there exists $v \in V$ such that $w = Tv$. There exist $u \in \ker T$ and $x \in (\ker T)^\perp$ such that $v = u + x$ (by \ref{191}). Now
+\[
+T|_{(\ker T)^\perp}x = Tx = Tv - Tu = w - 0 = w,
+\]
+which shows that $w \in \ran T|_{(\ker T)^\perp}$. Hence $\ran T \subset \ran T|_{(\ker T)^\perp}$, completing the proof that
+$\ran T|_{(\ker T)^\perp} = \ran T\3$.
+\qed
+
+\mar[3]{To produce the pseudoinverse notation $T^\dagger$ in \TeX, type \textup{\texttt{T\^\ \backslash dagger}}.}
+
+Now we can define the pseudoinverse $T^\dagger$ (pronounced ``$T$ dagger'') of a linear map $T\3$. In the next definition (and from now on), think of $T|_{(\ker T)^\perp}$ as an invertible linear map from $(\ker T)^\perp$ onto $\ran T$, as is justified by the result above.
+
+\DefinitionBox[6pseudo]{pseudoinverse, $T^\dagger$}
+{Suppose that $V$ is finite-dimensional and $T \in \L(V\1, W)$. The \emph{pseudoinverse} $T^\dagger \in \L(W\3, V)$ of $T$ is the linear map from $W$ to $V$ defined by
+\index{pseudoinverse}\sindex{Tdagger@$T^\dagger\1$}
+\[
+T^\dagger w = (T|_{(\ker T)^\perp})^{-1} P_{\!\ran T} \, w
+\]
+for each $w \in W\3$.}
+
+Recall that $P_{\!\ran T} \, w = 0$ if $w \in (\ran T)^\perp$ and $P_{\!\ran T} \, w = w$ if $w \in \ran T\3$. Thus if $w \in (\ran T)^\perp\1$, then $T^\dagger w = 0$, and if $w \in \ran T$, then $T^\dagger w$ is the unique element of $(\ker T)^\perp$ such that
+$T \paren[\big] {T^\dagger w} = w$.
+
+The pseudoinverse behaves much like an inverse, as we will see.
+
+\ResultBox[6propps]{algebraic properties of the pseudoinverse}
+{Suppose $V$ is finite-dimensional and $T \in \L(V\1,W)$.
+\begin{subtheorem}*
+\item
+If $T$ is invertible, then $T^\dagger = T^{-1}\1$.
+\item
+$TT^\dagger = P_{\!\ran T} =$ the orthogonal projection of $W$ onto $\ran T\3$.
+\item
+$T^\dagger T = P_{\!(\ker T)^\perp} =$ the orthogonal projection of $V$ onto $(\ker T)^\perp\1$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem} \addtolength{\itemsep}{-2bp}
+\item
+Suppose $T$ is invertible. Then $(\ker T)^\perp = V$ and $\ran T = W\3$. Thus $T|_{(\ker T)^\perp}= T$ and $P_{\!\ran T}$ is the identity operator on $W\3$. Hence $T^\dagger = T^{-1}\1$.
+
+\item
+Suppose $w \in \ran T\3$. Thus
+\[
+T T^\dagger w = T (T|_{(\ker T)^\perp})^{-1} w = w = P_{\!\ran T} \, w.
+\]
+
+If $w \in (\ran T)^\perp\1$, then $T^\dagger w = 0$. Hence $TT^\dagger w = 0 = P_{\!\ran T} \, w$.
+Thus $TT^\dagger$ and $P_{\!\ran T}$ agree on $\ran T$ and on $(\ran T)^\perp\1$. Hence these two linear maps are equal (by \ref{191}).
+
+\item
+Suppose $v \in (\ker T)^\perp\1$. Because $Tv \in \ran T\3$, the definition of $T^\dagger$ shows that
+\[
+T^\dagger(Tv)= (T|_{(\ker T)^\perp})^{-1} (Tv) = v = P_{\!(\ker T)^\perp} v.
+\]
+
+If $v \in \ker T$, then $T^\dagger T v = 0 = P_{\!(\ker T)^\perp} v$.
+Thus $T^\dagger T$ and $P_{\!(\ker T)^\perp}$ agree on $(\ker T)^\perp$ and on $\ker T\3$. Hence these two linear maps are equal (by \ref{191}).
+\qed
+\end{subtheorem}
+
+\mar{The pseudoinverse is also called the Moore--Penrose inverse.\index{Moore--Penrose inverse}}
+
+Suppose that $T \in \L(V\1, W)$. If $T$ is surjective, then $TT^\dagger$ is the identity operator on~$W\3$, as follows from (b) in the result above. If $T$ is injective, then $T^\dagger T$ is the identity operator on $V\1$, as follows from (c) in the result above. For additional algebraic properties of the pseudoinverse, see Exercises \ref{3dagger}--\ref{2dag}.
+
+\pagebreak[3]
+
+For $T \in \L(V\1,W)$ and $w \in W\3$, we now return to the problem of finding $v \in V$ that solves the equation
+\[
+Tv = w.
+\]
+As we noted earlier, if $T$ is invertible, then $v = T^{-1}w$ is the unique solution, but if $T$ is not invertible, then $T^{-1}$ is not defined. However, the pseudoinverse $T^\dagger$ is defined. Taking $v = T^\dagger w$ makes $Tv$ as close to $w$ as possible, as shown by (a) of the next result. Thus the pseudoinverse provides what is called a \textit{best fit} to the equation above.
+
+Among all vectors $v \in V$ that make $Tv$ as close as possible to $w$, the vector $T^\dagger w$ has the smallest norm, as shown by combining (b) in the next result with the condition for equality in (a).
+
+\ResultBox{pseudoinverse provides best approximate solution or best solution}
+{Suppose $V$ is finite-dimensional, $T \in \L(V\1,W)$, and $w \in W\3$.
+\begin{subtheorem}*
+\item
+If $v \in V\1$, then
+\[
+\norm[\big]{ T(T^\dagger w) - w } \le \norm{Tv - w},
+\]
+with equality if and only if $v \in T^\dagger w + \ker T\3$.
+\item
+If $v \in T^\dagger w + \ker T$, then
+\[
+\norm[\big]{T^\dagger w} \le \norm{v},
+\]
+with equality if and only if $v = T^\dagger w$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}
+\item
+Suppose $v \in V\1$. Then
+\[
+Tv - w = (Tv - TT^\dagger w) + (TT^\dagger w - w).
+\]
+The first term in parentheses above is in $\ran T\3$. Because the operator $TT^\dagger$ is the orthogonal projection of $W$ onto $\ran T$ \sbr{by \ref{6propps}(b)}, the second term in parentheses above is in $(\ran T)^\perp$ \sbr{see \ref{418}(f)}.
+
+Thus the Pythagorean theorem implies the desired inequality that the norm of the second term in parentheses above is less than or equal to $\norm{Tv - w}$, with equality if and only if the first term in parentheses above equals $0$. Hence we have equality if and only if $v - T^\dagger w \in \ker T$, which is equivalent to the statement that $v \in T^\dagger w + \ker T$, completing the proof of (a).
+
+\item
+Suppose $v \in T^\dagger w + \ker T\3$. Hence $v - T^\dagger w \in \ker T\3$. Now
+\[
+v = (v - T^\dagger w) + T^\dagger w.
+\]
+The definition of $T^\dagger$ implies that $T^\dagger w \in (\ker T)^\perp\1$. Thus the Pythagorean theorem implies that
+$\norm[\big]{T^\dagger w} \le \norm{v}$, with equality if and only if $v = T^\dagger w$.
+\qed
+\end{subtheorem}
+
+A formula for $T^\dagger$ will be given in the next chapter (see \ref{7SVD}).
+
+\begin{example}{pseudoinverse of a linear map from\/ $\F4$ to\/ $\F3$}
+Suppose $T \in \L\paren[\big]{ \F4, \F3 }$ is defined by
+\[
+T(a, b, c, d) = (a + b + c, 2c + d, 0).
+\]
+This linear map is neither injective nor surjective, but we can compute its pseudo\-inverse. To do this, first note that
+$\ran T = \br{(x,y,0) : x, y \in \F{}}$. Thus
+\[
+P_{\ran T}(x,y,z) = (x, y, 0)
+\]
+for each $(x, y, z) \in \FF3$.
+Also,
+\[
+\ker T = \br[\big]{ (a, b, c, d) \in \F4 : a+b+c= 0 \text{ and } 2c + d = 0}.
+\]
+The list $(-1, 1, 0, 0), (-1, 0, 1, -2)$ of two vectors in $\ker T$ spans $\ker T$ because if $(a, b, c, d) \in \ker T$ then
+\[
+(a, b, c, d) = b(-1, 1, 0, 0) + c(-1,0,1,-2).
+\]
+Because the list $(-1, 1, 0, 0), (-1, 0, 1, -2)$ is linearly independent, this list is a basis of $\ker T\3$.
+
+Now suppose $(x, y, z) \in \FF3$. Then
+\begin{equation} \label{6Tpseudo}
+T^\dagger(x, y, z) = (T|_{(\ker T)^\perp})^{-1} P_{\!\ran T} (x, y, z) = (T|_{(\ker T)^\perp})^{-1} (x, y, 0).
+\end{equation}%
+The right side of the equation above is the vector $(a, b, c, d) \in \F4$ such that $T(a, b, c, d) = (x, y, 0)$ and
+$(a, b, c, d) \in (\ker T)^\perp\1$. In other words, $a$, $b$, $c$, $d$ must satisfy the following equations:
+\begin{align*}
+a + b + c &=x \\
+2c + d &= y \\
+-a + b &= 0 \\
+-a + c - 2d &= 0,
+\end{align*}
+where the first two equations are equivalent to the equation $T(a, b, c, d) = (x, y, 0)$ and the last two equations come from the condition for $(a, b, c, d)$ to be orthogonal to each of the basis vectors $(-1, 1, 0, 0), (-1, 0, 1, -2)$ in this basis of $\ker T\3$. Thinking of $x$ and $y$ as constants and $a$, $b$, $c$, $d$ as unknowns, we can solve the system above of four equations in four unknowns, getting
+\[
+a = \tfrac{1}{11} (5x-2y),\ b = \tfrac{1}{11} (5x-2y),\ c = \tfrac{1}{11} (x+4y),\ d = \tfrac{1}{11} (-2x + 3y).
+\]
+Hence \ref{6Tpseudo} tells us that
+\[
+T^\dagger(x,y,z) = \tfrac{1}{11} (5x-2y, 5x-2y, x+4y, -2x +3y).
+\]
+The formula above for $T^\dagger$ shows that $TT^\dagger(x, y, z) = (x, y, 0)$ for all $(x, y, z) \in \FF3$, which illustrates the equation $TT^\dagger = P_{\!\ran T}$ from \ref{6propps}(b).
+\end{example}
+
+\begin{exercises}
+
+\exercise
+Suppose $v_1, \dots, v_m \in V\1$. Prove that
+\[
+\{v_1, \dots, v_m\}^\perp = \bigl( \Span(v_1, \dots, v_m) \bigr)^\perp\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ with basis $u_1, \dots, u_m$ and\label{6onbasis}
+\[
+u_1, \dots, u_m, v_1, \dots, v_n
+\]
+is a basis of $V\1$. Prove that if the Gram--Schmidt procedure is applied to the basis of $V$ above, producing a list $e_1, \dots, e_m, f_1, \dots, f_n$, then $e_1, \dots, e_m$ is an orthonormal basis of $U$ and $f_1, \dots, f_n$ is an orthonormal basis of $U^\perp\1$.
+
+
+\exercise
+Suppose $U$ is the subspace of $\R4$ defined by
+\[
+U = \Span\bigl( (1,2,3,-4), (-5,4, 3, 2) \bigr).
+\]
+Find an orthonormal basis of $U$ and an orthonormal basis of $U^\perp\1$.
+
+
+\exercise
+Suppose $e_1, \ldots, e_n$ is a list of vectors in $V$ with $\norm{e_k} = 1$ for each $k=1, \ldots, n$ and \label{190converse}
+\[
+\|v\|^2 = \abs[\big]{ \ip{v, e_1} }^2  + \dots + \abs[\big]{ \ip{v, e_n} }^2
+\]
+for all $v \in V\1$. Prove that $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$.
+\exercisecomment{This exercise provides a converse to \ref{190}\uppar{b}.}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Show that
+$P_{\!U^\perp} = I - P_{\!U}$, where $I$ is the identity operator on $V\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Show that
+\[
+T = TP_{\!(\ker T)^\perp}= P_{\!\ran T} T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose that $X$ and $Y$ are finite-dimensional subspaces of $V\1$. Prove that $P_{\!X} P_{\!Y} = 0$ if and only if $\ip{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
+
+
+\exercise
+Suppose $U$ is a finite-dimensional subspace of $V$ and $v \in V\1$. Define a linear functional $\fun \phi U \F{}$ by
+\[
+\phi(u) = \ip{u, v}
+\]
+for all $u \in U$. By the Riesz representation theorem (\ref{50}) as applied to the inner product space $U$, there exists a unique vector
+$w \in U$ such that\index{Riesz representation theorem}
+\[
+\phi(u) = \ip{u, w}
+\]
+for all $u \in U$. Show that $w = P_{\!U} v$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Suppose $P \in \L(V)$ is such that $P^2 = P$ and every vector in
+$\ker P$ is orthogonal to every vector in $\ran P\1$. Prove that there exists a subspace $U$ of $V$ such that $P = P_{\!U}$.\label{6orth}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $P \in \L(V)$ is such that $P^2 = P$ and
+\[
+\|Pv\| \le \|v\|
+\]
+for every $v \in V\1$.  Prove that there exists a subspace $U$ of $V$ such that $P = P_{\!U}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a finite-dimensional subspace of~$V\1$.  Prove that\label{6invP}
+\[
+U \text{ is invariant under } T \iff P_{\!U} T P_{\!U} = T P_{\!U}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of~$V\1$.  Prove that
+\[
+U \text{ and } U^\perp \text{ are both invariant under } T \iff P_{\!U} T = T P_{\!U}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $\F{} = \R{}$ and $V$ is finite-dimensional. For each $v \in V\1$, let $\phi_v$ denote the linear functional on $V$ defined by \label{VVpiso}\index{Riesz representation theorem}
+\[
+\phi_v(u) = \ip{u, v}
+\]
+for all $u \in V\1$.
+\begin{subtheorem}
+\item
+Show that $v \mapsto \phi_v$ is an injective linear map from $V$ to~$V'\!$.
+\item
+Use (a) and a dimension-counting argument to show that $v \mapsto \phi_v$ is an isomorphism from $V$ onto~$V'\!$.
+\end{subtheorem}
+\exercisecomment{The purpose of this exercise is to give an alternative proof of the Riesz representation theorem \uppar{\ref{50} and \ref{3RRT}} when $\F{} = \R{}$. Thus you should not use the Riesz representation theorem as a tool in your solution.}
+
+
+\exercise
+Suppose that $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$. Explain why the dual basis (see \ref{DualBasis}) of
+$e_1, \ldots, e_n$ is $e_1, \ldots, e_n$ under the identification of $V'$ with $V$ provided by the Riesz representation theorem (\ref{3RRT}).
+
+
+\exercise
+In $\R{4}$, let
+\[
+U = \Span \bigl( (1, 1, 0, 0), (1, 1, 1, 2) \bigr).
+\]
+Find $u \in U$ such that $\| u - (1,2,3,4) \|$ is as small as possible.
+
+
+\exercise
+Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1 ,1]$ with inner product given by \label{dense}
+\[
+\ip{f, g} = \int_{-1}^1 fg
+\]
+for all $f, g \in C[-1, 1]$. Let $U$ be the subspace of $C[-1, 1]$ defined by
+\[ %\addtolength{\belowdisplayskip}{-3bp}
+U = \br[\big]{ f \in C[-1, 1]: f(0) = 0 }.
+\]
+\begin{subtheorem}*
+\item
+Show that $U^\perp = \{0\}$.
+\item
+Show that \ref{191} and \ref{376} do not hold without the finite-dimensional hypothesis.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Find $p \in \P\1_3(\R{})$ such that $p(0) = 0$, $p' \! (0) = 0$, and
+$ \displaystyle
+\int_0^1 \, \abs[\big]{2 + 3x - p(x)}^2 \,dx
+$
+is as small as possible.
+
+
+\exercise
+Find $p \in \P\1_5(\R{})$ that makes
+$ \displaystyle
+\int_{-\pi}^{\pi} \, \abs[\big]{\sin x - p(x)}^2\,dx
+$
+as small as possible.
+\exercisecomment{The polynomial \ref{420} is an excellent
+approximation to the answer to this exercise, but here you are asked
+to find the exact solution, which involves powers of\/ $\pi$.  A
+computer that can perform symbolic integration should help.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $P \in \L(V)$ is an orthogonal projection of $V$ onto some subspace of $V\1$. Prove that $P^\dagger = P\1$.\label{3dagger}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Show that \label{5NullRanTd}
+\[
+\ker T^\dagger = (\ran T)^\perp \andd \ran T^\dagger = (\ker T)^\perp\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{ \F3, \F2 }$ is defined by
+\[
+T(a, b, c) = (a + b + c, 2b + 3c).
+\]
+\begin{subtheorem}*
+\item
+For $(x, y) \in \FF2$, find a formula for $T^\dagger(x,y)$.
+\item
+Verify that the equation $TT^\dagger = P_{\!\ran T}$ from \ref{6propps}(b) holds with the formula for $T^\dagger$ obtained in (a).
+\item
+Verify that the equation $T^\dagger T = P_{\!(\ker T)^\perp}$ from \ref{6propps}(c) holds with the formula for $T^\dagger$ obtained in (a).
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Prove that
+\[
+TT^\dagger T = T \andd T^\dagger T T^\dagger = T^\dagger\1.
+\]
+\exercisedisplayend
+\exercisecomment{Both formulas above clearly hold if\/ $T$ is invertible because in that case we can replace\/ $T^\dagger$ with\/ $T^{-1}\1$.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that\label{2dag}
+\[
+\paren[\big]{T^\dagger}^\dagger = T\3.
+\]
+\exercisedisplayend
+\exercisecomment{The equation above is analogous to the equation\/ $\paren[\big]{T^{-1}}^{-1} = T$ that holds if\/ $T$ is invertible.}
+
+
+\end{exercises}
+
+\CrCom%
+\endinput

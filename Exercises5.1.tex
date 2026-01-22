@@ -1,0 +1,303 @@
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a subspace of $V\1$.
+\begin{subtheorem}
+\item
+Prove that if $U \subset \ker T$, then $U$ is invariant under $T\3$.
+\item
+Prove that if $\ran T \subset U$, then $U$ is invariant under $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose that $T \in \L(V)$ and $V\1_1, \dots, V\1_m$ are subspaces of $V$
+invariant under~$T\3$. Prove that $V\1_1 + \dots + V\1_m$ is invariant under $T\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that the intersection of every collection of
+subspaces of $V$ invariant under $T$ is invariant under~$T\3$.
+
+
+\exercise
+Prove or give a counterexample: If $V$ is finite-dimensional and $U$ is a subspace of $V$ that is invariant
+under every operator on $V\1$, then $U = \{0\}$ or $U = V\1$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{2}}$ is defined by $T(x, y) = (-3y, x)$. Find the eigenvalues of~$T\3$.
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{2}}$ by
+$
+T(w, z) = (z, w)$.
+Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{3}}$ by
+$
+T(z_1, z_2, z_3) = (2 z_2, 0, 5z_3)$.
+Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Suppose $P \in \L(V)$ is such that $P^2 = P\1$. Prove that if $\la$ is an eigenvalue of~$P\1$, then $\la = 0$ or
+$\la = 1$.\label{5P}
+
+
+\exercise
+Define $T \colon \P(\R{}) \to \P(\R{})$ by $Tp = p'\!$. Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Define $T \in \L\bigl( \P\1_4(\R{}) \bigr)$ by
+$
+(Tp)(x) = x p' \! (x)
+$
+for all $x \in \R{}$. Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $\al \in \F{}\3$. Prove that there exists $\delta > 0$ such that
+$T - \la I$ is invertible for all $\la \in \F{}$ such that \mbox{$0 < |\al - \la| < \delta$}.
+
+
+\exercise
+Suppose $V = U \oplus W\3$,  where $U$ and $W$ are nonzero subspaces of~$V\1$. Define $P \in \L(V)$ by $P(u + w) = u$ for each $u \in U$ and each $w \in W\3$. Find all eigenvalues and eigenvectors of~$P\1$.
+
+
+\exercise
+Suppose $T \in \L(V)$. Suppose $S \in \L(V)$ is invertible.
+\begin{subtheorem}
+\item
+Prove that $T$ and $S^{-1} T S$ have the same eigenvalues.
+\item
+What is the relationship between the eigenvectors of $T$ and the eigenvectors of $S^{-1} T S$?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Give an example of an operator on $\R{4}$ that has no (real) eigenvalues.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $\la \in \F{}\3$. Show that $\la$ is an eigenvalue of $T$ if and only if $\la$ is an eigenvalue of the dual operator $T' \in \L(V')$.\index{dual!of an operator}\index{eigenvalue!of dual of an operator}\label{5eigdual}
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \L(V)$. Prove that if $\la$ is an eigenvalue of $T$, then
+\[
+\abs{\la} \le n \max \br[\big]{ \abs[\big]{\M(T)_{j,k}} : 1 \le j, k \le n },
+\]
+where $\M(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+\exercisecomment{See Exercise~\ref{2HSeigen} in Section~\ref{6ipn} for a different bound on\/ $\abs{\la}$.}
+
+
+\begin{comment}
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space, $T \in \L(V)$, and the matrix of $T$ with respect to some basis of $V$ contains only real entries. Show that if $\la$ is an eigenvalue of $T$, then so is $\bar{\la}$.
+
+\end{comment}
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \R{}$. Prove that $\la$ is an eigenvalue of $T$ if and only if $\la$ is an eigenvalue of the complexification $T\3_{\C{}}$.\index{complexification!eigenvalues of|(}\label{5realeig}
+\exercisecomment{See Exercise \ref{3complexMap} in Section \ref{3nullspace} for the definition of\/ $T\3_{\C{}}$.}
+
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \C{}$. Prove that $\la$ is an eigenvalue of the complexification $T\3_{\C{}}$ if and only if $\bar{\la}$ is an eigenvalue of $T\3_{\C{}}$.\index{complexification!eigenvalues of|)}\label{5TC}
+
+
+\exercise
+Show that the forward shift operator $T \in \L\paren[\big]{\F{\infty}}$ defined by\index{forward shift}
+\[
+T(z_1, z_2, \dots ) = (0, z_1, z_2, \dots )
+\]
+has no eigenvalues.
+
+
+\exercise
+Define the backward shift operator $S \in \L\paren[\big]{\F{\infty}}$ by\index{backward shift}
+\[ \addtolength{\belowdisplayskip}{-3bp}
+S(z_1, z_2, z_3, \dots) = (z_2, z_3, \dots).
+\]
+\begin{subtheorem}
+\item
+Show that every element of $\F{}$ is an eigenvalue of $S$.
+\item
+Find all eigenvectors of $S$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible.
+\begin{subtheorem}
+\item
+Suppose $\la \in \F{}$ with $\la \ne 0$. Prove that $\la$ is an eigenvalue of $T$ if and only if $\frac{1}{\la}$ is an eigenvalue of~$T^{-1}\1$.
+\item
+Prove that $T$ and $T^{-1}$ have the same eigenvectors.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ and there exist nonzero vectors $u$ and $w$ in $V$ such that
+\[
+Tu = 3w \andd Tw = 3u.
+\]
+Prove that $3$ or $-3$ is an eigenvalue of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$.  Prove that $ST$ and $TS$ have the same eigenvalues.
+
+
+\begin{comment}
+\exercise
+Prove or give a counterexample: If $V$ is finite-dimensional and $R, S, T \in \L(V)$, then  $RST$ and $RTS$ have the same eigenvalues.
+
+\end{comment}
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix with entries in $\F{}\3$. Define $T \in \L\paren[\big]{\F{n}}$ by $Tx = Ax$, where elements of $\F{n}$ are thought of as \by{n}{1} column vectors.
+\begin{subtheorem}
+\item
+Suppose the sum of the entries in each row of $A$ equals~$1$.
+Prove that $1$ is an eigenvalue of $T\3$.
+\item
+Suppose the sum of the entries in each column of $A$ equals~$1$.
+Prove that $1$ is an eigenvalue of $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $u, w$ are eigenvectors of $T$ such that $u+w$ is also an eigenvector of $T\3$. Prove that $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that every nonzero vector in $V$ is an
+eigenvector of~$T\3$.  Prove that $T$ is a scalar multiple of the identity operator.\label{388}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $k \in \br{1, \ldots,\dim V - 1}$. Suppose $T \in \L(V)$ is such that every subspace of $V$ of dimension $k$ is invariant under~$T\3$.  Prove that $T$ is a scalar multiple of the identity operator.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ has at most $1 + \dim \ran T$ distinct eigenvalues.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{3}}$ and $-4$, $5$, and $ \sqrt{7}$ are eigenvalues of $T\3$. Prove that there exists $x \in \R{3}$ such that
+$
+Tx - 9x = \paren[\big]{-4, 5, \sqrt{7}}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $(T-2I) (T-3 I) (T-4 I) = 0$. Suppose $\la$ is an eigenvalue of $T\3$. Prove that $\la = 2$ or $\la = 3$ or $\la = 4$.
+
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\R2}$ such that $T^4 = -I$.
+
+
+\exercise
+Suppose $T \in \L(V)$ has no eigenvalues and $T^4 = I$. Prove that $T^2 = -I$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a positive integer.
+\begin{subtheorem}
+\item
+Prove that $T$ is injective if and only if $T^m$ is injective.
+\item
+Prove that $T$ is surjective if and only if $T^m$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $v_1, \dots, v_m \in V\1$. Prove that the list $v_1, \dots, v_m$ is linearly independent if and only if there exists $T \in \L(V)$ such that $v_1, \dots, v_m$ are eigenvectors of $T$ corresponding to distinct \mbox{eigenvalues}.
+
+
+\exercise
+Suppose that $\la_1, \dots, \la_n$ is a list of distinct real numbers. Prove that the list $e^{\la_1 x}, \dots, e^{\la_n x}$ is linearly independent in the vector space of real-valued functions on $\R{}$.
+\hint{Let\/ $V = \Span\paren[\big]{e^{\la_1 x}, \dots, e^{\la_n x}}$, and define an operator\/ $D \in \L(V)$ by\/ $Df = f'\!$. Find eigenvalues and eigenvectors of\/ $D$.}
+
+
+\exercise
+Suppose that $\la_1, \dots, \la_n$ is a list of distinct positive numbers. Prove that the list $\cos(\la_1 x), \dots, \cos(\la_n x)$ is linearly independent in the vector space of real-valued functions on $\R{}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Define $\A \in \L\paren[\big]{\L(V)}$ by \label{LLV}
+\[
+\A(S) = TS
+\]
+for each $S \in \L(V)$. Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\A$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ invariant under $T\3$. The \emph{quotient operator}\index{quotient!operator}
+$T\3/U \in \L(V\1/U)$ is defined by\sindex{TU2@$T\3/U$}\label{5quotient}
+\[
+(T\3/U)(v + U) = Tv +U
+\]
+for each $v \in V\1$.
+\begin{subtheorem}
+\item
+Show that the definition of $T\3/U$ makes sense (which requires using the condition that $U$ is invariant under $T$) and show that $T\3/U$ is an operator on $V\1/U$.
+\item
+Show that each eigenvalue of $T\3/U$ is an eigenvalue of $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has an eigenvalue if and only if there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T\3$.
+
+
+\begin{comment}
+\exercise
+Give an example of a vector space $V\1$, an operator $T \in \L(V)$, and a subspace $U$ of $V$ that is invariant under $T$ such that $T\3/U$ has an eigenvalue that is not an eigenvalue of $T\3$.
+
+\end{comment}
+
+\exercise
+Suppose $S, T \in \L(V)$ and $S$ is invertible.  Suppose $p \in \P(\F{})$ is a polynomial. Prove that
+\[
+p\paren[\big]{STS^{-1}} = S p(T) S^{-1}\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a subspace of $V$ invariant under $T\3$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \P(\F{})$.\label{InvPoly}
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{n}}$ by
+$
+T(x_1, x_2, x_3, \dots, x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)$.
+\begin{subtheorem}
+\item
+Find all eigenvalues and eigenvectors of $T\3$.
+\item
+Find all subspaces of $\F n$ that are invariant under $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \L(V)$. Prove that
+$
+\br[\big]{p(T): p \in \P(\F{})} \ne \L(V)$.
+%\exercisedisplayend
+
+

@@ -1,0 +1,414 @@
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{3}}$ is the operator defined by $T(z_1, z_2, z_3) = (z_2, z_3, 0)$.  Prove
+that $T$ does not have a square root.\label{195}
+
+\begin{Solution}
+Note that $T^3 = 0$.  Suppose there exists $S \in \L\paren[\big]{\C{3}}$ such that $S^2 = T\3$.
+Then $S^6 = T^3 = 0$, so $S$ is nilpotent.  By \ref{181}, this implies that
+$S^3 = 0$.  Thus
+\begin{align*}
+T^2 &= S^4 \\
+&= SS^3 \\
+&= 0.
+\end{align*}
+But $T^2(z_1, z_2, z_3) = (z_3, 0, 0)$, so $T^2$ is not the $0$ operator,
+contradicting the equation above.  This contradiction shows that our supposition
+that there exists $S \in \L\paren[\big]{\C{3}}$ such that $S^2 = T$ was false.
+\end{Solution}
+
+\exercise
+Define $T \in \L\paren[\big]{\F{5}}$ by
+%\[ \addtolength{\belowdisplayskip}{-3bp}
+$T(x_1, x_2, x_3, x_4, x_5) = (2 x_2, 3 x_3, -x_4, 4 x_5, 0)$.
+\begin{subtheorem}
+\item
+Show that $T$ is nilpotent.
+\item
+Find a square root of $I + T\3$.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Note that
+\begin{align*}
+T^2(x_1, x_2, x_3, x_4, x_5) &= (6x_3, -3x_4, -4x_5, 0, 0) \\
+T^3(x_1, x_2, x_3, x_4, x_5) &= (-6x_4, -12x_5, 0, 0, 0) \\
+T^4(x_1, x_2, x_3, x_4, x_5) &=(-24x_5, 0, 0, 0, 0) \\
+T^5(x_1, x_2, x_3, x_4, x_5) &= (0,0,0,0,0).
+\end{align*}
+Thus $T$ is nilpotent.
+
+\item
+Because $T^5 = 0$, the proof of \ref{196} shows that
+\[
+I + \frac{1}{2}T - \frac{1}{8}T^2 + \frac{1}{16}T^3 - \frac{5}{128}T^4
+\]
+is a square root of $I + T\3$.  Using the formulas above, we calculate that the
+operator $R \in \L\paren[\big]{\F{5}}$ defined by
+\begin{align*}
+R(&x_1, x_2, x_3, x_4, x_5) = \\[6bp]
+\Bigl(
+&x_1 + x_2 - \frac{3 x_3}{4} - \frac{3 x_4}{8} + \frac{15 x_5}{16}, \
+x_2 + \frac{3 x_3}{2}  + \frac{3 x_4}{8} - \frac{3 x_5}{4}, \\[6bp]
+&x_3 - \frac{x_4}{2} + \frac{x_5}{2}, \
+x_4 + 2 x_5, \
+x_5
+\Bigr)
+\end{align*}
+is a square root of $I + T\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is a complex vector space. Prove that every invertible operator
+on~$V$ has a cube root.
+
+\begin{Solution}
+First suppose $T \in \L(V)$ is nilpotent.  We will show that $I + T$
+has a cube root by imitating the proof of \ref{196}.  Specifically, we
+guess that there is a cube root of $I + T$ of the form
+\[
+I + a_1 T + a_2 T^2 + \dots + a_{m-1} T^{m-1},
+\]
+where $m$ is such that $T^m = 0$.  Having made this guess, we can try to choose
+$a_1, a_2, \dots, a_{m-1}$ so that  the
+operator above has its cube equal to $I + T\3$.  Now
+\begin{multline*}
+(I + a_1 T + a_2 T^2 + a_3 T^3 + \dots + a_{m-1} T^{m-1})^3 \\
+= I + 3a_1 T + (3a_2 + 3{a_1}^{\2}) T^2 +
+(3a_3 + 6 a_1 a_2 + {a_1}^{\2[3]}) T^3 + \dotsb \\
+{} + (3a_{m-1} + \text{terms involving $a_1, \dots, a_{m-2}$}) T^{m-1}.
+\end{multline*}
+We want the right side of the equation above to equal $I + T\3$.  Hence
+choose $a_1$ so that $3a_1 = 1$ (thus $a_1 = 1/3$).  Next, choose $a_2$ so
+that $3a_2 + 3{a_1}^{\2} = 0$ (thus $a_2 = -1/9$).  Then choose $a_3$ so that the
+coefficient of $T^3$ on the right side of the equation above equals $0$ (thus
+$a_3 = 5/81$).  Continue in this fashion for each $k = 4, \dots, m-1$, at each step
+solving for $a_k$ so that the coefficient of $T^k$ on the right side of the
+equation above equals $0$.  Actually we do not care about the explicit formula for
+the $a_k$'s.  We only need to know that some choice of the $a_k$'s gives a cube
+root of $I + T\3$.
+
+Having shown that the identity plus a nilpotent always has a cube root, we now
+look at the proof that every invertible operator on a complex vector space has a
+square root (see~\ref{397}).  In that proof, if we replace the words ``square
+root'' with ``cube root'', we get a proof that every invertible operator on
+a complex vector space has a cube root.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a real vector space. Prove that the operator $-I$ on $V$ has a square root if and only if $\dim V$ is an even number.
+
+\begin{Solution}
+First suppose $-1$ has a square root $T \in \L(V)$. If $\la \in \R{}$ is an eigenvalue of $T$ with eigenvector $v \in V\1$, then
+\[
+-v = T^2 v = T(Tv) = T(\la v) = \la Tv = \la^2 v,
+\]
+which impiles that $\la^2 = -1$, which is impossible. Thus $T$ has no eigenvalues. By \ref{5odd}, this implies that $\dim V$ is an even number.
+
+To prove the implication in the other direction, now suppose that $\dim V$ is an even number. Let $v_1, \ldots, v_{2m}$ be a basis of $V\1$. Define $T \in \L(V)$ by
+\[
+T(v_1, \ldots, v_{2m}) = (-v_2, v_1, -v_4, v_3, \ldots, -v_{2m}, v_{2m-1}).
+\]
+Then $T^2 = -I$. Thus $-I$ has a square root.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C2}$ is the operator defined by $T(w, z) = (-w - z, 9w + 5z)$. Find a Jordan basis for $T\3$.
+
+\begin{Solution}
+The matrix of $T$ with respect to the standard basis of $\C2$ is
+\[
+\mat{cc}{
+-1 & -1 \\
+9 & 5}.
+\]
+Thus the minimal polynomial of $T$ is $z^2 -4z + 4$ (by Exercise \ref{5minpoly} in Section \ref{eigenuppertri}). Because
+$z^2 -4z + 4 = (z-2)^2$, the only zero of the minimal polynomial of $T$ is $2$, and hence the only eigenvalue of $T$ is $2$.
+
+Thus $T - 2I$ is nilpotent. The proof of \ref{452} shows that $(T-2I)v, v$ is a Jordan basis for $T$ for each $v \in \C2$ such that $(T-2I)v \ne 0$. Thus we take $v = (1,0)$, which gives $(T-2I)v = (-3, 9)$. Thus our Jordan basis for $T-2I$ (and hence for $T$) is $(-3,9), (1,0)$.
+
+As can be easily verified, the matrix of $T$ with respect to this basis is
+\[
+\mat{cc}{
+2 & 1 \\
+0 & 2}.
+\]
+\end{Solution}
+
+\exercise
+Find a basis of $\P\1_4(\R{})$ that is a Jordan basis for the differentiation operator $D$ on $\P\1_4(\R{})$ defined by $Dp = p'$.
+
+\begin{Solution}
+Because $D(x^k) = k x^{k-1}$, we see that
+\[
+1, x, \frac{x^2}{2}, \frac{x^3}{6}, \frac{x^4}{24}
+\]
+is a basis of $\P\1_4(\R{})$ with respect to which the matrix of $D$ is
+\[
+\mat{ccccc}{
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0
+}.
+\]
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $v_1, \ldots, v_n$ is a Jordan basis for $T\3$.  Prove that the minimal polynomial of $T$ is
+$z^{m+1}$, where $m$ is the length of the longest consecutive string of $1$'s that
+appears on the line directly above the diagonal in the matrix of $T$ with respect to
+$v_1, \ldots, v_n$. \label{nilmin}
+
+\begin{Solution}
+Let $m$ be the length of the longest consecutive string of $1$'s that appears on the line directly
+above the diagonal of $\M\bigl(T, (v_1, \dots, v_n)\bigr)$. The diagonal of
+$\M\bigl(T, (v_1, \dots, v_n)\bigr)$ contains only $0$'s because $0$ is the only eigenvalue of $T$ (by \ref{a33}). Thus $\M\bigl(T, (v_1, \dots, v_n)\bigr)$ is a block diagonal matrix
+whose blocks have the form
+\[
+\mat{cccc}{0 &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &0},
+\]
+and the largest such block in an \by{(m+1)}{(m+1)} matrix.  For each $v_k$, we see
+that $T^{m+1} v_k = 0$.  Because $T^{m+1}$ equals $0$ on a basis of $V\1$, we conclude
+that $T^{m+1} = 0$.  Thus the minimal polynomial of $T$ divides $z^{m+1}$
+(by~\ref{140}) and hence is of the form $z^k$ for some $k \le m + 1$.  But there
+is a basis vector $v_k$ such that $T^m v_k \ne 0$.  Thus $T^m \ne 0$, which
+implies that the minimal polynomial of $T$ equals $z^{m+1}$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V$ that is a Jordan
+basis for~$T\3$. Describe the matrix of~$T$ with respect to the basis
+$v_n, \dots, v_1$ obtained by reversing the order of the $v$'s.
+
+\begin{Solution}
+The matrix of $T$ with respect to $v_1, \dots, v_n$ is a block diagonal matrix
+\[
+\mat{ccc}{C_1 & &0 \\ &\ddots & \\ 0 & &C_m},
+\]
+where each\/ $C_j$ is an upper-triangular matrix of the form
+\[
+C_j = \mat{cccc}{\la_j &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &\la_j}.
+\]
+Temporarily fix $j$, and let $u_1, \dots, u_k$ be the part of $v_1, \dots, v_n$
+corresponding to the block $C_j$.  Thus
+\begin{align*}
+&Tu_1 = \la_j u_1 \\
+&Tu_2 = u_1 + \la_j u_2 \\
+&Tu_3 = u_2 + \la_j u_3 \\
+&\quad \vdots \\
+&Tu_k = u_{k-1} + \la_j u_k.
+\end{align*}
+Write the equations above in the form
+\begin{align*}
+&Tu_k = \la_j u_k + u_{k-1} \\
+&Tu_{k-1} = \la_j u_{k-1} + u_{k-2} \\
+&\quad \vdots \\
+&Tu_2 = \la_j u_2 + u_1\\
+&Tu_1 =\la_j u_1.
+\end{align*}
+Thus the matrix of $T|_{\Span(u_1, \dots, u_k)}$ with respect to
+$u_k, \dots, u_1$ is
+\[
+B_j = \mat{cccc}{\la_j & & &0 \\
+1 &\ddots & & \\
+& \ddots&\ddots & \\
+0 & & 1&\la_j}.
+\]
+In other words, in $B_j$ the $1$'s lie below the diagonal instead of above it; thus $B_j$ is the transpose of $C_j$. Now we see that the
+matrix of $T$ with respect to $v_n, \dots, v_1$ is the block diagonal matrix
+\[
+\mat{ccc}{B_m & &0 \\ &\ddots & \\ 0 & &B_1}.
+\]
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V$ that is a Jordan
+basis for~$T\3$. Describe the matrix of~$T^2$ with respect to this basis.
+
+\begin{Solution}
+First consider the case where there is only one Jordan block in $\M(T)$. This means that there a number $\la \in \C{}$ such that every diagonal entry of $\M(T)$ equals $\la$, every entry on the line directly above the diagonal equals $1$, and all other entries of the matrix equal $0$. In other words, we have
+\begin{align*}
+Tv_1 &= \la v_1 \\
+T v_k &= v_{k-1} + \la v_k \quad \text{for } k = 2, \dots, n.
+\end{align*}
+and
+\[
+\M(T) = \mat{cccc}{\la &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &\la}. \tag{$(*)$}
+\]
+Thus
+\begin{align*}
+T^2v_1 &= \la^2 v_1 \\
+T^2 v_2 &= 2 v_1 + \la^2 v_2 \\
+T^2 v_k &= v_{k-2} + 2\la v_{k-1} + \la^2 v_k\quad \text{for } k = 3, \dots, n.
+\end{align*}
+Thus every diagonal entry of $\M(T^2)$ equals $\la^2$, every entry on the line directly above the diagonal equals $2 \la$, every entry on the line directly above that equals $1$, and all other entries of the matrix equal $0$. In other words,
+\[
+\M(T^2) =
+\mat{ccccc}{\la^2 & 2\la &1 & &0 \\[3bp]
+&\ddots &\ddots &\ddots & \\[3bp]
+& & \la^2 & 2 \la &1 \\[3bp]
+& &  &  \la^2 & 2\la \\[3bp]
+0 & & & &\la^2}. \tag{$(\dagger)$}
+\]
+
+Now consider the more general case in which there is more than one Jordan block in the matrix of $T$ with respect to the Jordan basis $v_1, \dots, v_n$. In this case, $\M(T)$ is a block diagonal matrix, where the $k^\nth$ matrix on the diagonal is of the form $(*)$ with $\la$ replaced with $\la_k$. By Exercise \ref{blockmult} is Section \ref{decompop}, the matrix $\M(T^2)$ is a block diagonal matrix, where the $k^\nth$ matrix on the diagonal is of the form $(\dagger)$ with $\la$ replaced with $\la_k$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Explain why every vector in each Jordan basis for $T$ is a generalized eigenvector of $T\3$.\label{8JorGenEig}
+
+\begin{Solution}
+Suppose $u \in V$ is a vector in some Jordan basis for $T\3$. Then either $u$ is an eigenvector of $T$ (in which case $u$ is a generalized eigenvector of $T$) or there exists an eigenvalue $\la$ of $T$ and $u_0, \ldots, u_m \in V$ such that $u_m = u$ and
+$Tu_k = \la u_k + u_{k-1}$ for $k = 1, \ldots, m$ and $Tu_0 = \la u_0$.
+
+Now $(T-\la I)^m u = u_0$. Thus $(T - \la)^{m+1} u  = 0$. Hence $u$ is a generalized eigenvector for $T\3$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is diagonalizable. Show that $\M(T)$ is a diagonal matrix with respect to every Jordan basis for $T\3$.
+
+\begin{Solution}
+Suppose $\la$ is an eigenvalue of $T\3$. The generalized eigenspace $G(\la, T)$ is invariant under $T$ [by \ref{31}(a)]. Thus
+$T|_{G(\la, T)}$ is diagonalizable (as follows from \ref{5RestrictDi}).
+
+If $\al$ is an eigenvalue of $T|_{G(\la, T)}$, then $\al = \la$ (by \ref{8intgeneig}). Because the diagonalizable operator $T|_{G(\la, T)}$ has $\la$ as its only eigenvalue, $T|_{G(\la, T)}$ equals $\la$ times the identity operator on $G(\la, T)$. Hence every vector in $G(\la, T)$ is an eigenvector of $T$ (with eigenvalue $\la$).
+
+Thus we have shown that every generalized eigenvector of $T$ is an eigenvector of $T\3$. Hence Exercise \ref{8JorGenEig} implies the every vector in each Jordan basis for $T$ is an eigenvector of $T\3$. Thus the matrix of $T$ with respect to each Jordan basis for $T$ is a diagonal matrix.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that if $v_1, \dots, v_n$ are vectors in $V$ and $m_1, \dots, m_n$ are nonnegative integers such that
+\[
+T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n \text{ is a basis of } V
+\]
+and
+\[
+T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0,
+\]
+then $T^{m_1}v_1, \dots, T^{m_n}v_n$ is a basis of $\ker T\3$.
+\exercisecomment{This exercise shows that\/ $n = \dim \ker T\3$. Thus the positive integer\/ $n$ that appears in \ref{452} depends only on\/ $T$ and not on the specific Jordan basis chosen for\/ $T\3$.}
+
+\begin{Solution}
+Suppose $v_1, \dots, v_n$ are vectors in $V$ and $m_1, \dots, m_n$ are nonnegative integers such that
+\[
+T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n \text{ is a basis of } V
+\]
+and
+\[
+T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0.
+\]
+
+Because
+\[
+T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0,
+\]
+each of the vectors $T^{m_1}v_1, \dots, T^{m_n}v_n$ is in $\ker T\3$.
+
+The list
+$T^{m_1}v_1, \dots, T^{m_n}v_n$ is linearly independent because it is a sublist of the list in \ref{452}(a), which is a basis of $V\1$.
+
+If we apply $T$ to each of the vectors in the list in \ref{452}(a) except the vectors $T^{m_1}v_1, \dots, T^{m_n}v_n$, we get a linearly independent list [because after applying $T$ we get a sublist of the list in \ref{452}(a), which is a basis of $V\1$.] Thus
+\[
+\dim \ran T \ge m_1 + \dots + m_n.
+\]
+The fundamental theorem of linear maps (\ref{ab11}) thus implies that
+\[
+\dim \ker T \le n.
+\]
+Thus our linearly independent list $T^{m_1}v_1, \dots, T^{m_n}v_n$, which has length $n$, is a basis of $\ker T\3$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$.  Prove that there
+does not exist a direct sum decomposition of $V$ into two nonzero subspaces
+invariant under~$T$ if and only if the minimal polynomial of $T$ is of the form
+$(z - \la)^{\dim V}$ for some $\la \in \C{}$.
+
+\begin{Solution}
+First suppose there does not exist a direct sum decomposition of $V$ into
+two nonzero subspaces invariant under~$T\3$.  Thus $T$ has only one eigenvalue
+(by the generalized eigenspace decomposition \ref{31}), which we will call $\la$.
+
+There is a Jordan basis of $T$ (by \ref{398}), meaning that with respect to this
+basis $T$ has a block diagonal matrix
+\[
+\mat{ccc}{C_1 & &0 \\ &\ddots & \\ 0 & &C_m},
+\]
+where each\/ $C_k$ is an upper-triangular matrix of the form
+\[
+C_k = \mat{cccc}{\la &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &\la}.
+\]
+If $m > 1$, then we could let $U$ denote the span of the basis vectors
+corresponding to $C_1$ and let $W$ denote the span of the basis vectors
+corresponding to $C_2, \dots, C_m$; we would have $V = U \oplus W\3$, where $U$
+and $W$ would be proper subspaces of $V$ invariant under $T\3$.  This contradiction
+shows that $m = 1$.  Thus the matrix of $T$ with respect to our Jordan basis is
+just $C_1$.  In other words, there is a basis $v_1, \dots, v_{\dim V}$ of $V$ such
+that the matrix of $T - \la I$ with respect to this basis is
+\[
+\mat{cccc}{0 &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &0}.
+\]
+Exercise \ref{nilmin} now implies that the minimal polynomial of $T - \la I$ equals
+$z^{\dim V}\!$.  This clearly implies that the minimal polynomial of $T$ equals
+$(z - \la)^{\dim V}\!$, as desired.
+
+To prove the implication in the other direction, suppose the minimal
+polynomial of $T$ equals $(z - \la)^{\dim V}\!$.  Suppose there exist two nonzero subspaces $V\1_1, V\1_2$ of $V\1$, each invariant under $T$,
+such that $V = V\1_1 \oplus V\1_2$.
+
+Let $p_1$ denote the minimal polynomial of $T|_{V\1_1}$
+and $p_2$ denote the minimal polynomial of $T|_{V\1_2}$.  If $v_1 \in V\1_1$, then
+\begin{align*}
+(p_1 p_2)(T)v_1 &= p_2(T)p_1(T) v_1 \\
+&= 0.
+\end{align*}
+Similarly, if $v_2 \in V\1_2$, then
+\begin{align*}
+(p_1 p_2)(T)v_2 &= p_1(T)p_2(T) v_2 \\
+&= 0.
+\end{align*}
+Because every vector in $V$ can be written in the form $v_1 + v_2$, where
+$v_1 \in V\1_1$ and $v_2 \in V\1_2$, the equations above imply that $(p_1 p_2)(T) =
+0$.  Thus the minimal polynomial of $T$, which equals $(z - \la)^{\dim V}\!$,
+is a divisor of $p_1 p_2$ (by~\ref{140}).
+
+The degree of the monic polynomial $p_1 p_2$ equals the degree of $p_1$ plus the
+degree of $p_2$, which is less than or equal to $\dim V\1_1 + \dim V\1_2$, which equals
+$\dim V\1$.  Because $(z - \la)^{\dim V}$ is a divisor of $p_1 p_2$, this implies
+that
+\[
+p_1(z) p_2(z) = (z - \la)^{\dim V}.
+\]
+This implies that
+\[
+p_1(z) = (z - \la)^{\dim V\1_1} \andd p_2(z) = (z - \la)^{\dim V\1_2}.
+\]
+Let $m = \max \{\dim V\1_1, \dim V\1_2 \}$.  Let
+$p(z) = (z - \la)^m\!$.  The equations above show that
+$p(T)|_{V\1_1} = 0$ and $p(T)|_{V\1_2} = 0$.  Thus $p(T) = 0$.  Because the degree of
+$p$ is less than $\dim V\1$, this contradicts our hypothesis that
+$(z - \la)^{\dim V}$ is the minimal polynomial of $T\3$.  This contradiction means
+that our assumption that there exists a direct sum decomposition of $V$ into two
+nonzero subspaces invariant under $T$ was false, as desired.
+\end{Solution}
+

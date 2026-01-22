@@ -1,0 +1,749 @@
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the exponent of $z-\la$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.
+
+\begin{Solution}
+Let $n$ denote the exponent of $z-\la$ in the factorization of the minimal polynomial of $T\3$, and let $m$ denote the smallest positive integer such that $(T - \la I)^m|_{G(\la, T)} = 0$.
+
+Thus the minimal polynomial of $T$ has the form $(z-\la)^n q(z)$, where $q$ is a polynomial such that $q(\la) \ne 0$. Then
+\[
+0 = (T - \la I)^n q(T).
+\]
+\end{Solution}
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (-z, w)$.
+Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T\3$.
+
+\begin{Solution}
+In Example \ref{a117} we saw that the eigenvalues of $T$ are $i$
+and $-i$.  Note that $T^2 = -I$.
+
+We have $G(i, T) = \ker (T - iI)^2$ (by \ref{180}).  To compute this, note that
+\begin{align*}
+(T - iI)^2 &= T^2 - 2iT - I \\
+&= -2I - 2iT \\
+&= -2i(T - iI).
+\end{align*}
+Thus $\ker (T - iI)^2$ equals the eigenspace of $T$ corresponding to the
+eigenvalue~$i$.  In Example~\ref{a117} we noted that this equals
+\mbox{$\{(a, -ia): a \in \C{}\}$}.
+
+We have $G(-i, T) = \ker (T + iI)^2$ (by \ref{180}).  To compute this, note that
+\begin{align*}
+(T + iI)^2 &= T^2 + 2iT - I \\
+&= -2I + 2iT \\
+&= 2i(T + iI).
+\end{align*}
+Thus $\ker (T + iI)^2$ equals the eigenspace of $T$ corresponding to the
+eigenvalue~$-i$.  In Example~\ref{a117} we noted that this equals
+\mbox{$\{(a, ia): a \in \C{}\}$}.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that $G(\la, T) = G\paren[\Big]{\frac{1}{\la}, T^{-1}}$ for every $\la \in \F{}$ with $\la \ne 0$.
+
+\begin{Solution}
+Suppose $\la \in \F{}$ with $\la \ne 0$. Let $n = \dim V\1$.
+
+Suppose $v \in G(\la, T)$. Thus
+\[
+0 = (T - \la I)^n v,
+\]
+by \ref{180}. Apply $\paren[\big]{T^{-1}}^n$ to both sides of the equation above, getting
+\begin{align*}
+0 &= \paren[\big]{T^{-1}}^n (T - \la I)^n v \\
+&= \bigl( T^{-1}(T - \la I) \bigr)^n v \\
+&= (I - \la T^{-1})^n v,
+\end{align*}
+where the second equality holds because all the operators involved commute.
+
+Multiply both sides of the equation above by $\bigl(\frac{-1}{\la}\bigr)^n\1$, getting
+\begin{align*}
+0 &= \bigl(\tfrac{-1}{\la}\bigr)^n (I - \la T^{-1})^n v \\[3bp]
+&= \bigl(T^{-1} - \tfrac{1}{\la}I  \bigr)^n v.
+\end{align*}
+The last equation above implies that $v \in G(\frac{1}{\la}, T^{-1})$. Thus
+\[
+G(\la, T) \subset G(\tfrac{1}{\la}, T^{-1}).
+\]
+Replacing $\la$ with $\frac{1}{\la}$ and replacing $T$ with $T^{-1}$ gives the inclusion in the other direction. Thus $G(\la, T) = G(\frac{1}{\la}, T^{-1})$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T$ with multiplicity $d$. Prove that
+$
+G(\la, T) = \ker(T - \la I)^d\!$.
+\exercisecomment{This exercise improves upon \ref{180}.}
+
+\begin{Solution}
+Note that $(T - \la I)|_{G(\la, T)}$ is a nilpotent operator on $G(\la, T)$, which is a vector space with dimension $d$. Thus by \ref{181} with $T$ replaced by $(T - \la I)|_{G(\la, T)}$, we have $(T - \la I)^d|_{G(\la, T)} = 0$. Thus $G(\la, T) = \ker(T - \la I)^d\!$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $\la_1, \ldots, \la_m$ are the distinct eigenvalues of $T\3$. Prove that\label{8Rdecomp}
+\[
+V = G(\la_1, T) \oplus \cdots \oplus G(\la_m, T)
+\]
+if and only if the minimal polynomial of $T$ equals
+$(z-\la_1)^{k_1} \cdots (z - \la_m)^{k_m}$ for some positive integers $k_1, \ldots, k_m$.
+\exercisecomment{The case where\/ $\F{} = \C{}$ follows immediately from \ref{136}\uppar{b} and the generalized eigenspace decomposition \uppar{\ref{31}}; thus this exercise is interesting only when\/ $\F{} = \R{}$.}
+
+\begin{Solution}
+First suppose $V = G(\la_1, T) \oplus \cdots \oplus G(\la_n, T)$. Let
+\[
+q(z) = (z-\la_1)^{\dim V} \cdots (z - \la_m)^{\dim V\1}.
+\]
+Then $q(T) = 0$ because $(T - \la_k)^{\dim V} v = 0$ for all $v \in G(\la_k, T)$ and we are assuming that
+$V$ is the span of $G(\la_1, T), \ldots, G(\la_m, T)$.
+
+Thus $q$ is a polynomial multiple of the minimal polynomial of $T\3$. Hence the minimal polynomial of $T$ equals
+$(z-\la_1)^{k_1} \cdots (z - \la_m)^{k_m}$ for some nonnegative integers $k_1, \ldots, k_m$. However, each of $k_1, \ldots, k_m$ must be a positive integer because the zeros of the minimal polynomial equal the set of eigenvalues of $T$ [by \ref{136}(a)], completing the proof in this direction.
+
+To prove the implication in the other direction, now suppose that the minimal polynomial of $T$ equals
+$(z-\la_1)^{k_1} \cdots (z - \la_m)^{k_m}$ for some positive integers $k_1, \ldots, k_m$. Let $n = \dim V\1$. Recall that $G(\la_k, T) = \ker (T - \la_k I)^n$ for each~$k$ (by~\ref{180}).
+
+We will prove that $V = G(\la_1, T) \oplus \cdots \oplus G(\la_m, T)$ by induction on $n$. To get started, note that the desired result holds if $n = 1$. Thus we can assume that $n > 1$ and that the desired result holds on all vector spaces of smaller dimension.
+
+Applying \ref{8nulloplusran} to
+$T - \la_1 I$ shows that
+\[ \tag{$(*)$}
+V = G(\la_1, T) \oplus U,
+\]
+where $U = \ran(T - \la_1 I)^n\1$. If $U = \br{0}$, then every vector in $V$ is a generalized eigenvector corresponding to $\la_1$ and we are done. Thus we assume that $U \ne \br{0}$.
+
+Using \ref{130} [with $p(z) = (z - \la_1)^n$], we see that $U$ is invariant under~$T\3$. Because $G(\la_1, T) \ne \{0\}$, we have
+$0 < \dim U < n$. Also, \ref{5minU} shows that $T|_U$ has a minimal polynomial that satisfies our induction hypothesis. Thus we can apply our induction hypothesis to $T|_U$.
+
+None of the generalized eigenvectors of $T|_U$ correspond to the eigenvalue $\la_1$, because all generalized eigenvectors of $T$  corresponding to $\la_1$ are in $G(\la_1, T)$. Thus each eigenvalue of $T|_U$ is in $\{\la_2, \dots, \la_m\}$.
+
+By our induction hypothesis, $U = G(\la_2, T|_U) \oplus \dots \oplus G(\la_m, T|_U)$. Combining this information with $(*)$ will complete the proof if we can show that $G(\la_k, T|_U) = G(\la_k, T)$ for each $k = 2, \dots, m$.
+
+Fix $k \in \{2, \dots, m\}$. The inclusion $G(\la_k, T|_U) \subset G(\la_k, T)$ is clear.
+
+To prove the inclusion in the other direction, suppose $v \in G(\la_k, T)$. By \ref{8nulloplusran}, we can write $v = v_1 + u$, where $v_1 \in G(\la_1, T)$ and $u \in U$. Our induction hypothesis implies that
+\[
+u = v_2 + \dots + v_m,
+\]
+where each $v_j$ is in $G(\la_j, T|_U)$, which is a subset of $G(\la_j, T)$. Thus
+\[
+v = v_1 + v_2 + \dots + v_m.
+\]
+Because $v \in G(\la_k, T)$ and generalized eigenvectors corresponding to distinct eigenvalues are linearly independent (by \ref{genind}), the equation above implies that each $v_j$ equals $0$ except possibly when $j = k$. In particular, $v_1 = 0$ and thus $v = u \in U$. Because $v \in U$, this implies $v \in G(\la_k, T|_U)$, completing the proof.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$.  Suppose $S \in \L(V)$ is invertible. Prove that $T$ and $S^{-1} T S$ have the same eigenvalues with the same multiplicities.
+
+\begin{Solution}
+Let $n = \dim V\1$.
+
+Suppose $\la \in \F{}$.  Clearly
+\[
+S^{-1} TS - \la I = S^{-1}(T - \la I)S.
+\]
+Thus
+\begin{align*}
+\paren[\big]{S^{-1} TS &- \la I}^n \\
+&= \underbrace{\Big( S^{-1}(T - \la I) S \Bigr) \Big( S^{-1}(T - \la I) S \Bigr)\dotsm \Big( S^{-1}(T - \la I) S \Bigr)}_{n\text{ times}} \\[6bp]
+&= S^{-1} (T - \la I)^n S.
+\end{align*}
+
+The equation above shows that
+\[
+\ker \paren[\big]{S^{-1} T S - \la I}^n = \{ v \in V : S v \in \ker (T - \la I)^n\}.
+\]
+This implies (using \ref{180}) that
+\[
+G(\la, S^{-1} T S) = \ran S|_{G(\la, T)}.
+\]
+Because $S$ is injective, the equation above and the fundamental theorem of linear maps (\ref{ab11}) as applied to $S|_{G(\la, T)}$ imply that
+\[
+\dim G(\la, S^{-1} T S) = \dim G(\la, T).
+\]
+Now $\la$ is an eigenvalue of $S^{-1}TS$ if and only if the left side of the equation above is nonzero, and $\la$ is an eigenvalue of $T$ if and only if the right side of the equation above is nonzero. Thus the equation above shows that $S^{-1}TS$ and $T$ have the same eigenvalues.
+
+The multiplicity of an eigenvalue $\la$ of $S^{-1}TS$ and $T$ is given by the left and right sides of the equation above, and thus these multiplicities are equal.
+\end{Solution}
+
+\exercise
+Suppose $\dim V \ge 2$ and $T \in \L(V)$ is such that $\ker T^{\dim V-2\!}  \ne \ker T^{\dim V-1\!}$.
+Prove that $T$ has at most two distinct eigenvalues.
+
+\begin{Solution}
+Because $\ker T^{n-2} \ne \ker T^{n-1}$, we know (by~\ref{a113}) that we have
+$\ker T^{k-1} \ne \ker T^k$ whenever $0 \le k \le n-1$.  Thus
+\[
+\{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dotsm
+\subsetneq \ker T^{n-2} \subsetneq \ker T^{n-1}.
+\]
+At each of the strict inclusions in the chain above, the dimension increases
+by at least~$1$. Thus
+\[
+\dim \ker T^{n-1} \ge n-1.
+\]
+In other words, the multiplicity of $0$ as an eigenvalue of $T$ is at least $n-1$. Because the sum of the multiplicities of all the eigenvalues of $T$ is at most $n$ (as follows from \ref{genind} and \ref{3directsumdim}), this implies that $T$ can have at most one additional eigenvalue other than $0$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $3$ and $8$ are eigenvalues of $T\3$. Let $n = \dim V\1$. Prove that
+$V = \paren[\big]{\ker T^{n-2}} \oplus \paren[\big]{\ran T^{n-2}}$.
+
+\begin{Solution}
+The sum of the multiplicities of all the eigenvalues of $T$ is at most $n$, by \ref{genind} (if $\F{} = \C{}$, then \ref{363} tells us that the sum of the multiplicities equals $n$). We know that $3$ and $8$ are eigenvalues of $T$ with multiplicities at least $1$. Thus the multiplicity of $0$ as an eigenvalue of $T$ is at most $n-2$.
+
+Now \ref{76} and \ref{a113} imply that
+\[
+\ker T^{n-2} = \ker T^{n-1} = \ker T^n,
+\]
+because otherwise we would have $\dim \ker T^n \ge n-2$.
+
+By the fundamental theorem of linear maps (\ref{ab11}),
+\[
+\dim \ker T^{n-2} + \dim \ran T^{n-2} = \dim V
+\]
+and
+\[
+\dim \ker T^n + \dim \ran T^n = \dim V\1.
+\]
+Hence $\dim \ran T^{n-2} = \dim \ran T^n\1$. Because $\ran T^{n-2} \supset \ran T^n\1$, this implies that
+\[
+\ran T^{n-2} = \ran T^n\1.
+\]
+
+Now \ref{8nulloplusran} implies that $V = \ker T^{n-2} \oplus \ran T^{n-2}$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that there exist $D, N \in \L(V)$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.\index{diagonalizable}
+
+\begin{Solution}
+Let $\la_1, \dots, \la_m$ be the distinct eigenvalues of $T\3$. By the generalized eigenspace decomposition (\ref{31}), we have
+\[
+V = G(\la_1, T) \oplus \dots \oplus G(\la_m, T),
+\]
+where each $G(\la_k, T)$ is invariant under~$T$ and each $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent.
+
+Define $D \in \L(V)$ by
+\[
+D(v_1 + \dots + v_m) = \la_1 v_1 + \dots + \la_m v_m,
+\]
+where each $v_k \in G(\la_k, T)$. In other words, $D|_{G(\la_k, T)} = \la_k I$ for each $k$. The operator $D$ is diagonalizable because choosing a basis of each $G(\la_k, T)$ and putting them together gives a basis of $V$ consisting of eigenvectors of $T\3$.
+
+Let $N = T - D$. Thus $G(\la_k, T)$ is invariant under $N$ for each $k$ (because $T$ and $D$ each have that property), and $T = D + N$.
+
+Note that
+\[
+N|_{G(\la_k, T)} = (T - \la_k I)|_{G(\la_k, T)}
+\]
+for each $k$. Because each $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent, this shows that $N$ is nilpotent.
+
+For each $k$, we have
+\begin{align*}
+(DN)|_{G(\la_k, T)} &= D|_{G(\la_k, T)} N|_{G(\la_k, T)} \\[3bp]
+&= (\la_k I) N|_{G(\la_k, T)} \\[3bp]
+&= N|_{G(\la_k, T)} (\la_k I)\\[3bp]
+&= N|_{G(\la_k, T)} D|_{G(\la_k, T)} \\[3bp]
+&= (ND)|_{G(\la_k, T)},
+\end{align*}
+where here $I$ denotes the identity operator on $G(\la_k, T)$. Because the equation above holds for each $k$, it implies that $DN = ND$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a complex inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $T$, and $T \in \L(V)$.  Let
+$\la_1, \dots, \la_n$ be the eigenvalues of~$T$, each included as many times as its multiplicity. Prove that
+\[
+|\la_1|^2 + \dots + |\la_n|^2 \le \norm{Te_1}^2 + \cdots + \norm{Te_n}^2.
+\]
+\exercisecomment{See the comment after Exercise \ref{6sumT2} in Section \ref{7001}.}
+
+\begin{Solution}
+There is an orthonormal basis $f_1, \dots, f_n$ with respect to which $T$ has
+an upper-triangular matrix (by~\ref{214}).  The diagonal entries of the matrix of
+$T$ with respect to $f_1, \dots, f_n$ are precisely $\la_1, \dots, \la_n$
+(by \ref{253}), where we can relabel the eigenvalues of $T$ so that they appear
+in the same order as on the diagonal.  In other words,
+\[
+\M\bigl(T, (f_1, \dots, f_n) \bigr)
+= \mat{ccc}{ \la_1 & &* \\ &\ddots & \\ 0 & &\la_n }.
+\]
+{}From the matrix above, we see that
+\[
+|\la_k|^2 \le \|Tf_k\|^2
+\]
+for each $k$.  Thus
+\begin{align*}
+|\la_1|^2 + \dots + |\la_n|^2 &\le \|Tf_1\|^2 + \dots + \|Tf_n\|^2 \\
+&=  \|Te_1\|^2 + \dots + \|Te_n\|^2,
+\end{align*}
+where the last equality holds by the comment following Exercise \ref{6sumT2} in Section \ref{7001}.
+\end{Solution}
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $(z - 7)^2 (z - 8)^2\1$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C{4}}$ by
+\[
+T(z_1, z_2, z_3, z_4) = (7z_1, 7z_2, 8z_3, 8z_4).
+\]
+Then $\ker (T - 7I)$ is the two-dimensional subspace
+\[
+\{(z_1, z_2, 0, 0): z_1, z_2 \in \C{} \}
+\]
+and
+$\ker (T - 8I)$ is the two-dimensional subspace
+\[
+\{(0, 0, z_3, z_4): z_3, z_4 \in \C{} \}.
+\]
+Thus $7$ is an eigenvalue of $T$ with multiplicity at least $2$ and $8$ is an
+eigenvalue of $T$ with multiplicity at least $2$.  Because
+$2 + 2 = 4 = \dim \CC{4}$, there can be no other eigenvalues of $T$ and the
+eigenvalues $7$ and $8$ have multiplicity~$2$ (by~\ref{363}).  Thus the
+characteristic polynomial of $T$ equals $(z - 7)^2 (z - 8)^2\1$.
+
+Of course there are also many other examples.
+\end{Solution}
+
+\exercise
+Give an example of an operator on $\C4$ whose characteristic
+polynomial equals $(z - 1) (z - 5)^3$ and whose minimal polynomial equals
+$(z - 1) (z - 5)^2\1$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C4}$ by
+\[
+T(z_1, z_2, z_3, z_4) = (z_1, 5z_2 + z_4, 5z_3, 5z_4).
+\]
+Thus
+\[
+\M(T) = \mat{cccc}{
+1 & 0 & 0 & 0\\
+0 & 5 & 0 & 1\\
+0 & 0 & 5 & 0\\
+0& 0& 0& 5}.
+\]
+
+It is easy to see that
+\[
+G(1, T) = \Span \paren[\big]{ (1, 0, 0, 0) }
+\]
+and
+\[
+G(5, T) = \Span \bigl( (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) \bigr).
+\]
+Thus the eigenvalue $1$ has multiplicity $1$ and the eigenvalue $5$ has multiplicity $3$. Hence the characteristic polynomial of $T$ equals $(z-1)(z-5)^3\1$.
+
+By \ref{136} and \ref{charmult}, the minimal polynomial of $T$ equals $(z-1)(z-5)$ or $(z-1)(z-5)^2$ or $(z-1)(z-5)^3\1$. It is easy to check that $(T - I)(T - 5I) \ne 0$ but $(T - I)(T - 5I)^2 = 0$. Thus the minimal polynomial of $T$ is $(z-1)(z-5)^2\1$.
+\end{Solution}
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic and
+minimal polynomials both equal $z (z - 1)^2 (z - 3)$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C{4}}$ by
+\[
+T(w_1, w_2, w_3, w_4) = (0, w_2 + w_3, w_3, 3w_4).
+\]
+
+An easy computation shows that $T(T - I)^2(T - 3I) = 0$.  Thus the minimal
+polynomial of $T$ is a divisor of $z (z - 1)^2 (z - 3)$ (by~\ref{140}).
+
+Note that $0$ is an eigenvalue of $T$ because $T(1,0,0,0) = (0, 0, 0, 0)$ and $1$
+is an eigenvalue of $T$ because $T(0,1,0,0) = (0,1,0,0)$ and $3$ is an eigenvalue
+of $T$ because $T(0,0,0,1) = (0,0,0,3)$.  Thus $0$, $1$, and $3$ are zeros of
+the minimal polynomial of $T$ (by~\ref{136}).
+
+The only monic polynomials that divide $z (z - 1)^2 (z - 3)$ and have $0, 1, 3$
+as zeros are $z (z - 1) (z - 3)$ and $z (z - 1)^2 (z - 3)$.  Because
+$T(T-1)(T-3) \ne 0$, as is easy to check, this implies that $z (z - 1)^2 (z - 3)$
+is the minimal polynomial of $T$, as desired.
+
+Because $T$ is an operator on a four-dimensional complex vector space and the
+minimal polynomial of $T$ has degree $4$, the characteristic polynomial of $T$
+(which is a monic polynomial of degree $4$ that is divisible by the minimal
+polynomial of $T$) equals the minimal polynomial of $T\3$.
+
+Of course there are also many other examples.
+\end{Solution}
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $z (z - 1)^2 (z - 3)$ and whose minimal polynomial equals
+$z (z - 1) (z - 3)$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C{4}}$ by
+\[
+T(w_1, w_2, w_3, w_4) = (0, w_2, w_3, 3w_4).
+\]
+
+An easy computation shows that $T(T - I)(T - 3I) = 0$.  Thus the minimal
+polynomial of $T$ is a divisor of $z (z - 1) (z - 3)$ (by~\ref{140}).
+
+Note that $0$ is an eigenvalue of $T$ because $T(1,0,0,0) = (0, 0, 0, 0)$ and $1$
+is an eigenvalue of $T$ because $T(0,1,0,0) = (0,1,0,0)$ and $3$ is an eigenvalue
+of $T$ because $T(0,0,0,1) = (0,0,0,3)$.  Thus $0$, $1$, and $3$ are zeros of
+the minimal polynomial of $T$ (by~\ref{136}).
+
+The only monic polynomial that is a divisor of $z (z - 1) (z - 3)$ and has
+$0, 1, 3$ as zeros is $z (z - 1) (z - 3)$.  Thus $z (z - 1) (z - 3)$
+is the minimal polynomial of~$T$, as desired.
+
+Note that every vector in $\{(0, w_2, w_3, 0) : w_2, w_3 \in \C{})$ is in $E(1, T)$.  Thus the eigenvalue $1$
+of $T$ has multiplicity at least~$2$.  The eigenvalues $0$ and $3$ of $T$ have
+multiplicity at least~$1$.
+
+Because $T$ is an operator on a
+four-dimensional complex vector space, the sum of the multiplicities of all the
+eigenvalues equals~$4$ (by~\ref{363}).  Thus the each use of the phrase ``at
+least'' in the previous paragraph can be replaced with ``equal'' because if some eigenvalue had larger multiplicity, then the sum of the multiplicities of all the
+eigenvalues would exceed~$4$.
+
+Because $0$ and $3$ are eigenvalues of $T$ with multiplicity $1$ and $1$ is an
+eigenvalue of $T$ with multiplicity $2$ and $T$ has no other eigenvalues (the
+multiplicities of the eigenvalues mentioned already sum to~$4$), the characteristic
+polynomial of $T$ equals $z(z-1)^2(z-3)$, as desired.
+
+Of course there are also many other examples.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Give an example of an operator on $\C{3}$ whose minimal polynomial
+equals~$z^2\1$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C{3}}$ by
+\[
+T(w_1, w_2, w_3) = (w_3, 0, 0).
+\]
+Clearly $T^2 = 0$.  In other words, the polynomial $z^2$ when applied to $T$
+gives~$0$.  Thus the minimal polynomial of $T$ is a divisor of $z^2$
+(by~\ref{140}).  But the only monic polynomials that divide $z^2$ are $1$, $z$,
+and $z^2\1$.  The polynomial $1$ applied to $T$ gives the identity operator, which
+is not $0$, and the polynomial $z$ applied to $T$ gives $T$, which is also not
+$0$.  Thus the minimal polynomial of $T$ is~$z^2\1$.
+
+Of course there are also many other examples.
+\end{Solution}
+
+\exercise
+Give an example of an operator on $\C{4}$ whose minimal polynomial
+equals~$z (z - 1)^2\1$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\C{4}}$ by
+\[
+T(w_1, w_2, w_3, w_4) = (0, w_2 + w_4, w_3, w_4).
+\]
+Then
+\[
+(T - I)(w_1, w_2, w_3, w_4) = (-w_1, w_4, 0, 0),
+\]
+which implies that
+\[
+(T - I)^2(w_1, w_2, w_3, w_4) = (w_1, 0, 0, 0),
+\]
+which implies that
+\[
+T(T- I)^2 = 0.
+\]
+In other words, the polynomial $z(z-1)^2$ when applied to $T$
+gives~$0$.  Thus the minimal polynomial of $T$ is a divisor of $z(z-1)^2$
+(by~\ref{140}).
+
+Note that $0$ is an eigenvalue of $T$ because $T(1,0,0,0) = (0,0,0,0)$ and $1$ is
+an eigenvalue of $T$ because $T(0,1,0,0) = (0,1,0,0)$.  Thus $0$ and $1$ are
+both zeros of the minimal polynomial of $T$ (by~\ref{136}).
+
+The only monic polynomials that divide $z(z-1)^2$ and have $0, 1$ as zeros are
+$z(z-1)$ and $z(z-1)^2\1$.  Because $T(T-I) \ne 0$, as is easy to check, this
+implies that $z(z-1)^2$ is the minimal polynomial of $T\3$.
+
+Of course there are also many other examples.
+\end{Solution}
+
+\end{comment}
+
+\exercise
+Let $T$ be the operator on $\C4$ defined by
+$
+T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)$.
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+\begin{Solution}
+Because $T$ is a nilpotent operator on $\FF4$, we have
+\[
+G(0, T) = \FF4.
+\]
+Thus the characteristic polynomial of $T$ is $z^4\1$.
+
+Because the characteristic polynomial is a polynomial multiple of the minimal polynomial (by \ref{charmult}), the minimal polynomial of $T$ is $z$, $z^2$, $z^3$, or $z^4\1$. However, $T^3 \ne 0$, and thus the minimal polynomial of $T$ is $z^4\1$.
+\end{Solution}
+
+\exercise
+Let $T$ be the operator on $\C6$ defined by
+\[
+T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+\]
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+\begin{Solution}
+Because $T$ is a nilpotent operator on $\FF6$, we have
+\[
+G(0, T) = \FF6.
+\]
+Thus the characteristic polynomial of $T$ is $z^6\1$.
+
+Because the characteristic polynomial is a polynomial multiple of the minimal polynomial (by \ref{charmult}), the minimal polynomial of $T$ is $z$, $z^2$, $z^3$, $z^4$, $z^5$, or $z^6\1$. It is easy to check that $T \ne 0$ and  $T^2 \ne 0$ but $T^3 = 0$. Thus the minimal polynomial of $T$ is $z^3\1$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $P \in \L(V)$ is such that $P^2 = P\1$. Prove that the characteristic polynomial of $P$ is $z^m (z-1)^n\1$, where $m = \dim \ker P$ and $n = \dim \ran P\1$.\label{8P2}
+
+\begin{Solution}
+First we will prove that
+\[
+V = \ker P \oplus \ran P.
+\]
+To do this, first suppose $u \in \ker P \cap \ran P$.  Then $Pu = 0$, and there exists
+$w \in V$ such that $u = Pw$.  Applying $P$ to both sides of the last equation, we
+have $Pu = P^2 w = Pw$.  But $Pu = 0$, so this implies that
+$Pw = 0$.  Because $u = Pw$, this implies that $u = 0$.  Because $u$ was an
+arbitrary vector in $\ker P \cap \ran P$, this implies that $\ker P \cap \ran P = \{0\}$.
+
+Now suppose $v \in V\1$.  Then obviously
+\[
+v = (v - Pv) + Pv.
+\]
+Note that $P(v - Pv) = Pv - P^2v = 0$, so $(v - Pv) \in \ker P$.  Clearly
+$Pv \in \ran P$.  Thus the equation above shows that $v \in \ker P + \ran P$.
+Because $v$ was an arbitrary vector in $V\1$, this implies that
+$V = \ker P + \ran P$.
+
+We have shown that $\ker P \cap \ran P = \{0\}$ and $V = \ker P + \ran P$.  Thus
+$V = \ker P \oplus \ran P$ (by \ref{219}).
+
+Note that
+\[
+G(0, P) \supset E(0, P) = \ker P\1.
+\]
+
+If $v \in \ran P\1$, then there exists $u \in V$ such that $v = Pu$. Applying $P$ to both sides shows that
+$
+Pv = P^2 u = Pu = v$,
+which implies that $v \in E(1, P)$. Hence
+\[
+G(1, P) \supset E(1, P) \supset \ran P\1.
+\]
+Thus $m + n = \dim V\1$. Because the sum of the multiplicities of the eigenvalues of $P$ equal $\dim V$ (by \ref{363}), the inclusions above must be equalities and there are no other eigenvalues of $P\1$. Thus the characteristic polynomial of $P$ is $z^m(1-z)^n\1$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the following four numbers equal each other.
+\begin{subtheorem}*
+\item
+The exponent of $z-\la$ in the factorization of the minimal polynomial of $T$.
+\item
+The smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.
+\item
+The smallest positive integer $m$ such that
+\[
+\ker (T - \la I)^m = \ker (T - \la I)^{m+1}.
+\exercisesubtheoremend
+\]
+\item
+The smallest positive integer $m$ such that
+\[
+\ran (T - \la I)^m = \ran (T - \la I)^{m+1}.
+\exercisesubtheoremend
+\]
+\end{subtheorem}
+
+\begin{Solution}
+Let $A$ denote the integer in (a), $B$ denote the integer in (b), $C$ denote the integer in (c), and $D$ denote the integer in (d).
+
+Exercise \ref{kerran} in Section \ref{geneig} implies that $C = D$.
+
+We know that $(T - \la I)^{\dim V}|_{G(\la, T)} = 0$ (by \ref{180}). Thus \ref{a113} andd \ref{23} imply that $(T - \la I)^C|_{G(\la, T)} = 0$. Hence $B \le C$.
+
+The definition of $B$ tells us that
+\[
+(T - \la I)^B|_{G(\la, T)} = 0.
+\]
+Thus if $v \in \ker (T - \la I)^{B+1}$, then $(T - \la I)^B = 0$ [because
+$v \in G(\la, T)$]. Hence $\ker(T - \la I)^B = \ker(T - \la I)^{B=1}$. Thus $C \le B$, completing the proof that $B = C$.
+
+The minimal polynomial of $T|_{G(\la, T)}$ is $(z - \la)^B$ (as follows from \ref{140}). Thus the minimal polynomial of $T$ is a polynomial multiple of $(z-\la)^B$ (by \ref{5minU}). Hence $A \ge B$.
+
+Let $q$ be the minimal polynomial of $T|_{\ran(T-\la I)^{\dim V}}\!$. Note that $q(\la) \ne 0$ because otherwise $\la$ would be an eigenvalue of $T|_{\ran(T-\la I)^{\dim V}}\!$ and thus $T$ woud have an eigenvector in
+$\ran(T-\la I)^{\dim V}$ corresponding to the eigenvalue $\la$, which does not happen because
+$(\ker T) \cap T|_{\ran(T-\la I)^{\dim V}} = \br{0}$ (as follows from \ref{8nulloplusran}).
+
+Now
+\[
+q(T) (T - \la I)^B = 0
+\]
+because the operator above, when restricted to $G(\la, T)$, equals $0$ and when restricted to $\ran(T-\la I)^{\dim V}$ also equals $0$ (to see this, write the two factors on the left side of the equation above in the reverse order) and because every vector in $V$ is the sum of a vector in $G(\la, T)$ and a vector in $\ran(T-\la I)^{\dim V}$ (by \ref{8nulloplusran}). The equation displayed above, along with the information that $q$ is not a polynomial multiple of $z-\la$, implies that $A \le B$, completing the proof that $A = B$. Thus
+$A = B = C = D$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $S \in \L(V)$ is a unitary operator. Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
+
+\begin{Solution}
+By \ref{263}, all the eigenvalues of $S$ have absolute value $1$. Thus the constant term of the characteristic polynomial of $S$, which equals $(-1)^{\dim V}$ times the product of the eigenvalues, with each eigenvalue listed according to its multiplicity, has absolute value $1$.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $a_0, \dots, a_{n-1} \in \C{}$.
+Find the characteristic polynomial of the operator on $\C{n}$ whose
+matrix (with respect to the standard basis) is
+\[
+\mat{cccccc}{
+0 & & & & & -a_0 \\
+1 & 0  & & & & -a_1 \\
+& 1 & \ddots & & & -a_2 \\
+& & \ddots & & & \vdots \\
+& & & & 0 & -a_{n-2} \\
+& & & & 1 & -a_{n-1} }.
+\]
+\exercisecomment{This exercise shows that  every monic polynomial is the characteristic polynomial of some operator. Also, see Exercise \ref{8FTAneeded} in Section \ref{eigenuppertri}.}
+
+\begin{Solution}
+Suppose $T \in \L\paren[\big]{\C{n}}$ has matrix as above with respect to the standard
+basis $e_1, \dots, e_n$ of $\CC{n}$.  Thus
+\begin{align*}
+&Te_1 = e_2 \\
+&T^2 e_1 = Te_2 = e_3 \\
+&\quad\quad\vdots \\
+&T^{n-1}e_1 = Te_{n-1} = e_n \\
+&T^n e_1 = Te_n = -a_0 e_1 - a_1 e_2 - \dots - a_{n-1} e_n.
+\end{align*}
+Hence the list $e_1, Te_1, T^2 e_1, \dots, T^{n-1}e_1$ equals the list $e_1, e_2, e_3, \dots, e_n$, which is linearly independent.
+Thus if $p$ is a monic polynomial with degree less than $n$, then
+$p(T)e_1 \ne 0$.  Thus the minimal polynomial of $T$ has degree~$n$.
+
+Writing $T^n e_1$ as a linear combination of
+$e_1, Te_1, T^2 e_1, \dots, T^{n-1}e_1$ is possible in only one way:
+\[
+T^n e_1 = -a_0 e_1 - a_1 Te_1 - \dots - a_{n-1} T^{n-1}e_1.
+\]
+Thus setting
+\[
+p(z) = a_0 + a_1 z + \dots + a_{n-1}z^{n-1} + z^n,
+\]
+we see that $p$ is the only monic polynomial of degree $n$ such that
+$p(T)e_1 = 0$.  Hence $p$ equals the minimal polynomial of~$T\3$.
+
+Because $T$ is an operator on an $n$-dimensional complex vector space and the
+minimal polynomial of $T$ has degree $n$, the characteristic polynomial of~$T$
+(which is a monic polynomial of degree $n$ that is divisible by the minimal
+polynomial of $T$) equals the minimal polynomial of $T\3$.  Thus the
+characteristic polynomial of $T$ also equals~$p$.
+\end{Solution}
+\end{comment}
+
+\begin{comment}
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and with respect to some basis of $V$ the matrix of $T$ is upper triangular, with $\la_1, \dots, \la_n$ on the diagonal of this matrix. Prove that the characteristic polynomial of $T$ is
+$(z - \la_1) \dotsm (z - \la_n)$.
+
+\begin{Solution}
+This follows immediately from \ref{253}.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose that $\F{} = \C{}$ and $V\1_1, \dots, V\1_m$ are nonzero subspaces of $V$ such that
+$V = V\1_1 \oplus \dots \oplus V\1_m$. Suppose $T \in \L(V)$ and each $V\1_k$ is invariant under $T\3$. For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V\1_k}$. Prove that
+the characteristic polynomial of $T$ equals $p_1 \dotsm p_m$.
+
+\begin{Solution}
+For each $\la \in \C{}$, the definitions clearly imply that
+\[
+G(\la, T|_{V\1_k}) \subset G(\la, T)
+\]
+for each $k$. Thus
+\[
+G(\la, T|_{V\1_1}) \oplus \dots \oplus G(\la, T|_{V\1_m}) \subset G(\la, T)
+\]
+Because the dimension of a direct sum equals the sum of the dimensions of the summands (see \ref{3directsumdim}), this implies that
+\[
+\dim G(\la, T|_{V\1_1}) + \dots + \dim G(\la, T|_{V\1_m}) \le \dim G(\la, T)
+\]
+The left side of the inequality above is nonzero for only finitely many $\la \in \C{}$. Summing the left side over all such $\la \in \C{}$, we get (by \ref{363} as applied to each $T|_{V\1_k}$)
+\[
+\dim V\1_1 + \dots + \dim V\1_m,
+\]
+which equals $\dim V$ (by \ref{3directsumdim}). Thus \ref{363} implies that $T$ has no generalized eigenvectors other than those that come from some $T|_{V\1_k}$. This implies that the multiplicity of a number $\la \in \C{}$ as an eigenvalue of $T$ equals the sum of the multiplicities of $\la$ as an eigenvalue of $T|_{V\1_1}, \dots, T|_{V\1_m}$. Hence the characteristic polynomial of $T$ equals the product of the characteristic polynomials of $T|_{V\1_1}, \dots, T|_{V\1_m}$.
+\end{Solution}
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$. Prove that there exists $T \in \L\paren[\big]{\C{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
+\exercisecomment{This exercise implies that every monic polynomial is the characteristic polynomial of some operator.}
+
+\begin{Solution}
+First consider the case where $p, q$ each have only one zero, which we call $\la$. Thus $p(z) = (z - \la)^m$ and $q(z) = (z-\la)^n\1$, where $1 \le m \le n$. Let $T \in \L\paren[\big]{\C{n}}$ be the operator such that (with respect to the usual basis) $\M(T)$ is a block diagonal matrix with the first block the $\by{m}{m}$ matrix
+\[
+\mat{cccc}{\la &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &\la} %\tag{$(*)$}
+\]
+and the other blocks are all \by{1}{1} matrices with $\la$ as the entry. Then the minimal polynomial of $T$ is $p$ and the characteristic polynomial of $T$ is $q$.
+
+Now consider the general case where $p, q$ have the same zeros. Thus $p$ is a polynomial of the form
+\[
+p(z) = (z - \la_1)^{m_1} \dotsm (z - \la_T)^{m_M}
+\]
+and $q$ is a polynomial of the form
+\[
+q(z) = (z - \la_1)^{n_1} \dotsm (z - \la_T)^{n_M},
+\]
+where $1 \le m_k \le n_k$ for each $k = 1, \dots, M$. Let
+\[
+N = n_1 + \dots + n_M.
+\]
+ Let $T \in \L\paren[\big]{\C{N}}$ be the operator such that (with respect to the usual basis) $\M(T)$ is a block diagonal matrix of appropriate size (the $k^\nth$ block has size $\by{n_k}{n_k}$) with each block of the form considered above where $p, q$ each have only one zero. Then the minimal polynomial of $T$ is $p$ and the characteristic polynomial of $T$ is $q$.
+\end{Solution}
+
+\exercise
+Suppose $A$ and $B$ are block diagonal matrices of the form\label{blockmult}
+\[
+A = \mat{ccc}{
+A_1 & &0 \\
+& \ddots & \\
+0 & &A_m},
+\quad B = \mat{ccc}{
+B_1 & &0 \\
+& \ddots & \\
+0 & &B_m},
+\]
+where $A_k$ and $B_k$ are square matrices with the same size for each $k = 1, \dots, m$. Show that $AB$ is a
+block diagonal matrix of the form
+\[
+AB = \mat{ccc}{
+A_1 B_1 & &0 \\
+& \ddots & \\
+0 & &A_m B_m}.
+\]
+
+\begin{Solution}
+Suppose $A$ and $B$ as above have size $\by{n}{n}$. The block diagonal structure above partitions the set of integers from $1$ to $n$ into disjoint subsets
+\[
+\hspace*{-.2in}\{1, 2, \dots, n_1\}, \{n_1 + 1, n_1 + 2, \dots, n_2\}, \dots, \{n_{m-1}+ 1, n_{m-1} + 2,\dots, n_m\},
+\]
+where $n_m = n$ and the matrices $A_1$ and $B_1$ have size $\by{n_1}{n_1}$, the matrices $A_2$ and $B_2$ have size
+$\by{(n_2 - n_1)}{(n_2 - n_1)}$, and so on, with the matrices $A_m$ and $B_m$ having size $\by{(n_m - n_{m-1})}{(n_m - n_{m-1})}$.
+
+Let $p, q$ be integers with $1 \le p, q \le n$. If $p$ and $q$ lie in different subsets of the partition above, then it is easy to see that $(AB)_{p, q}$, which denotes the entry in row $p$, column $q$ of $AB$, equals $0$. If $p, q$ lie in the same subset
+$\{n_{k-1} + 1, n_{k-1} + 2, \dots, n_k\}$ of the partition above (where $n_0 = 0$ in case $k = 1$), then clearly $(AB)_{p, q}$ is the appropriate entry of $A_k B_k$. Thus $AB$ is the block diagonal matrix of the form given above.
+\end{Solution}
+

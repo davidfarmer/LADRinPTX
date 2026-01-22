@@ -1,0 +1,154 @@
+
+\exercise
+Suppose $m$ is a positive integer. Show that $\dim V^{(m)} = (\dim V)^m\!$.
+
+\begin{Solution}
+Let $n = \dim V$. Let $W$ be the vector space of functions from $\br{1, \ldots, n}^m$ to $\F{}\3$, with the usual operations of addition and scalar multiplication of functions. Then $W$ is isomorphic to $\F {(n^m)}$. Hence $\dim W = n^m\!$.
+
+Suppose $e_1, \ldots, e_n$ in a basis of $V\1$. Define $\fun \Gamma { V^{(m)} } W$ by
+\[
+\paren[\big]{\Gamma(\beta)}(j_1, \ldots, j_m) = \beta(e_{j_1}, \ldots, e_{j_m})
+\]
+for $ j_1, \ldots, j_m \in \br{1, \ldots, n}$. Clearly $\Gamma$ is a linear map of $V^{(m)}$ into $W\3$.
+
+If $\beta \in V^{(m)}$ and $\Gamma(\beta) = 0$, then $\beta = 0$, as follows because $\beta$ is an $m$-linear form. Thus $\Gamma$ is injective.
+
+To show that $\Gamma$ is surjective, suppose $A \in W\3$. Define
+\[
+\beta_A(e_{j_1}, \ldots, e_{j_m}) = A(j_1, \ldots, j_m)
+\]
+and extend $\beta_A$ using multilinearity to an element of $V^{(m)}$ (see the definition of $\beta_A$ in the proof of \ref{9dimV2}, which is the case $m=2$). Then $\Gamma(\beta_A) = A$, showing that $\Gamma$ is surjective.
+
+Because $\Gamma$ is an isomorphism from $V^{(m)}$ to $W$, we see that
+\[
+\dim V^{(m)} = n^m\!.
+\]
+\end{Solution}
+
+\exercise
+Suppose $n \ge 3$ and $\fun \al {\F n \times \F n \times \F n} {\F{}}$ is defined by
+\begin{align*}
+\al\paren[\big]{ (&x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n)} \\
+&= x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1
+-x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
+\end{align*}
+Show that $\al$ is an alternating $3$-linear form on $\FF n$.\label{9threelin}
+
+\begin{Solution}
+Taking $(y_1, \ldots, y_n) = (x_1, \ldots, x_n)$, we have
+\begin{align*}
+\al\paren[\big]{ (&x_1, \ldots, x_n), (x_1, \ldots, x_n), (z_1, \ldots, z_n)} \\
+&= x_1 x_2 z_3 - x_2 x_1 z_3 - x_3 x_2 z_1
+-x_1 x_3 z_2 + x_3 x_1 z_2 + x_2 x_3 z_1 \\
+&= 0.
+\end{align*}
+Similarly,
+\[
+\al\paren[\big]{ (x_1, \ldots, x_n), (y_1, \ldots, y_n), (x_1, \ldots, x_n)} = 0
+\]
+and
+\[
+\al\paren[\big]{ (x_1, \ldots, x_n), (y_1, \ldots, y_n), (y_1, \ldots, y_n)} =0.
+\]
+Thus  $\al$ is an alternating $3$-linear form on $\FF n$.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer and $\al$ is an $m$-linear form on $V$ such that $\al(v_1, \ldots, v_m) = 0$ whenever
+$v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_{j+1}$ for some $j \in \br{1, \ldots, m-1}$. Prove that $\al$ is an alternating $m$-linear form on~$V\1$.
+
+\begin{Solution}
+If $j \in \br{1, \ldots, m-1}$ and $v_1, \ldots, v_m$ is a list of vectors in $V\1$, then
+\begin{align*}
+0 &= \al( v_1, \ldots, v_{j-1}, v_j + v_{j+1}, v_j + v_{j+1}, v_{j+2}, \ldots, v_m) \\
+&= \al( v_1, \ldots, v_m) + \al( v_1, \ldots, v_{j-1}, v_{j+1}, v_j, v_{j+2}, \ldots, v_m).
+\end{align*}
+The equation above shows that swapping any two consecutive slots in $\al( v_1, \ldots, v_m)$ changes the value by a factor of $-1$.
+
+Now suppose $v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_k$ for some $j, k \in \br{1, \ldots, m}$ with $j \ne k$. Swap consecutive slots to bring these two vectors adjacent to each other. This process changes the value of $\al$ by a factor of $(-1)^N\1$, where $N$ is the total number of swaps needed to bring the two equal vectors adjacent to each other. Once these vectors are adjacent, our hypothesis states that the value of $\al$ is $0$.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $\al \in V_\text{alt}^{(4)}\1$, then
+\[
+\br[\big]{ (v_1, v_2, v_3, v_4) \in V^4 : \al(v_1, v_2, v_3, v_4) = 0 }
+\]
+is a subspace of $V^4\1$.
+
+\begin{Solution}
+To get a counterexample, let $V$ be such that $\dim V = 4$. By \ref{9dimone}, there exists $\al \in V^{(4)}_\text{alt}$ such that $\al \ne 0$.
+
+Let $v_1, v_2, v_3, v_4$ be a basis of $V\1$. Then
+\[
+\al(v_1, v_2, 0, 0) = 0 \andd \al(0, 0, v_3, v_4) = 0
+\]
+but \ref{9altli} shows that
+\[
+\al\paren[\big]{ (v_1, v_2, 0, 0) + (0, 0, v_3, v_4) } = \al(v_1, v_2, v_3, v_4) \ne 0.
+\]
+Thus $\br{ (v_1, v_2, v_3, 4) \in V^4 : \al(v_1, v_2, v_3, v_4) = 0 }$ is not closed under addition and hence is not a subspace of $V^4\1$.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \paren[\big]{ \sign(j_1, \ldots, j_m) } \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why $\al \in V_{\text{alt}}^{(m)}\1$.
+
+\begin{Solution}
+The verification that $\al$ is an $m$-linear form on $V$ is straightforward.
+
+To see that $\al$ is alternating, suppose $v_1, \ldots, v_m$ is a list of vectors in $V$ and $v_k = v_\ell$ for some
+$k, \ell \in \br{1, \ldots, m}$ with $k \ne \ell$. Consider $(j_1, \ldots, j_m) \in \perm m$ and the permutation obtained by interchanging $k$ and $\ell$ in this list. These two permutations have opposite signs. Thus because $v_k = v_\ell$, the contributions from these two permutations to the sum above cancel either other. Hence $\al(v_1, \ldots, v_m) = 0$. Thus $\al$ is an alternating $m$-linear form.
+\end{Solution}
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why
+\[
+\al( v_{k_1}, \ldots, v_{k_m} ) = \al(v_1, \ldots, v_m)
+\]
+for all $v_1, \ldots, v_m \in V$ and all $(k_1, \ldots, k_m) \in \perm m$.
+
+\begin{Solution}
+The verification that $\al$ is an $m$-linear form on $V$ is straightforward.
+
+Suppose that $v_1, \ldots, v_m \in V$ and that $(k_1, \ldots, k_m) \in \perm m$. Let
+\[
+w_j = v_{k_j}
+\]
+for $j = 1, \ldots, n$. Then
+\begin{align*}
+\al( v_{k_1}, \ldots, v_{k_m} ) &= \al(w_1, \ldots, w_n) \\[6bp]
+&= \sum_{(j_1, \ldots, j_m) \in \perm m} \beta(w_{j_1}, \ldots, w_{j_m} ).
+\end{align*}
+As $(j_1, \ldots, j_m)$ ranges over all elements of $\perm m$, the list $w_{j_1}, \ldots, w_{j_m}$ ranges over all permutations of the list
+$v_1, \ldots, v_m$. Thus the right side of the equation above equals $\al(v_1, \ldots, v_m)$, which shows that
+\[
+\al( v_{k_1}, \ldots, v_{k_m} ) = \al(v_1, \ldots, v_m).
+\]
+\end{Solution}
+
+\exercise
+Give an example of a nonzero alternating $2$-linear form $\al$ on $\R3$ and a linearly independent list $v_1, v_2$ in $\R3$ such that
+$\al(v_1, v_2) = 0$.
+\exercisecomment{This exercise shows that \ref{9altli} can fail if the hypothesis that\/ $n = \dim V$ is deleted.}
+
+\begin{Solution}
+Define an alternating $2$-linear form $\al$ on $\R3$ by
+\[
+\al\paren[\big]{ (a, b, c), (x, y, z) } = ay - bx.
+\]
+Then
+\[
+\al\paren[\big]{ (1, 0, 0), (1, 0, 1) } = 0
+\]
+even though $(1, 0, 0), (1, 0, 1)$ is a linearly independent list in $\RR3$.
+\end{Solution}
+

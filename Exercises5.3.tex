@@ -1,0 +1,106 @@
+
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V\1$, then $T$ has an upper-triangular matrix with respect to some basis of $V\1$.
+
+
+\exercise
+Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\al_1, \ldots, \al_n$ on the diagonal of $A$ and
+$\beta_1, \ldots, \beta_n$ on the diagonal of $B$.\label{2AB}
+\begin{subtheorem}
+\item
+Show that $A+B$ is an upper-triangular matrix with $\al_1 + \beta _1, \ldots, \al_n + \beta_n$ on the diagonal.
+\item
+Show that $AB$ is an upper-triangular matrix with $\al_1 \beta _1, \ldots, \al_n \beta_n$ on the diagonal.
+\end{subtheorem}
+\exercisecomment{The results in this exercise are used in the proof of \ref{2EigenSum}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible and $v_1, \dots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\la_1, \ldots, \la_n$ on the diagonal.
+Show that the matrix of $T^{-1}$ is also upper triangular with respect to the basis $v_1, \dots, v_n$, with
+\[
+\frac{1}{\la_1}, \ldots, \frac{1}{\la_n}
+\]
+on the diagonal.
+
+
+\exercise
+Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
+\exercisecomment{This exercise and the exercise below show that \ref{a221} fails without the hypothesis that an upper-triangular matrix is under consideration.}
+
+
+\exercise
+Give an example of an operator whose matrix with respect to some basis contains
+only nonzero numbers on the diagonal, but the operator is not invertible.
+
+
+\exercise
+Suppose $\F{} = \C{}$, $V$ is finite-dimensional, and $T \in \L(V)$. Prove that if $k \in \br{1, \dots, \dim V}$,
+then $V$ has a $k$-dimensional subspace invariant under $T\3$. \label{457}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $v \in V\1$. \label{2minpolyv}
+\begin{subtheorem}
+\item
+Prove that there exists a unique monic polynomial $p_v$ of smallest degree such that $p_v(T)v = 0$.
+\item
+Prove that the minimal polynomial of $T$ is a polynomial multiple of $p_v$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and there exists a nonzero vector $v \in V$ such that
+$T^2 v + 2Tv = -2v$.
+\begin{subtheorem}
+\item
+Prove that if $\F{} = \R{}$, then there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+\item
+Prove that if $\F{} = \C{}$ and $A$ is an upper-triangular matrix that equals the matrix of $T$ with respect to some basis of $V\1$, then $-1 + i$ or $-1 - i$ appears on the diagonal of $A$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $B$ is a square matrix with complex entries. Prove that there exists an
+invertible square matrix $A$ with complex entries such that $A^{-1} B A$ is an
+upper-triangular matrix.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of $V\1$. Show that the following are equivalent.\label{5lower}\index{lower-triangular matrix}
+\begin{subtheorem}*
+\item
+The matrix of $T$ with respect to $v_1, \dots, v_n$ is lower triangular.
+\item
+$\Span(v_k, \dots, v_n)$ is invariant under $T$ for each $k = 1, \dots, n$.
+\item
+$Tv_k \in \Span(v_k, \dots, v_n)$ for each $k = 1, \dots, n$.
+\end{subtheorem}
+\exercisecomment{A square matrix is called \emph{lower triangular} if all entries above the diagonal are\/ $0$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $V$ is finite-dimensional. Prove that if $T \in \L(V)$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.\index{lower-triangular matrix}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$ has an upper-triangular matrix with respect to some basis of $V\1$, and $U$ is a subspace of $V$ that is invariant under $T\3$.
+\begin{subtheorem}
+\item
+Prove that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
+\item
+Prove that the quotient operator $T\3/U$ has an upper-triangular matrix with respect to some basis of $V\1/U$.\index{quotient!operator}
+\end{subtheorem}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Suppose there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$ and also $T\3/U$ has an upper-triangular matrix with respect to some basis of $V\1/U$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V\1$.\index{quotient!operator}\label{6Tutm}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'\!$.\index{dual!of a linear map}
+
+

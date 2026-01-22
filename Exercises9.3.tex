@@ -1,0 +1,186 @@
+
+\exercise
+Prove or give a counterexample: $S, T \in \L(V) \!\implies\! \det (S+T) = \det S + \det T\3$.
+
+
+\exercise
+Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$. Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$. Show that $\det A = A_{1,1} \det B$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $\det(I + T) = 1$.
+
+
+\exercise
+Suppose $S \in \L(V)$. Prove that $S$ is unitary if and only if $\abs{\det S} = \norm{S} = 1$.
+
+
+\exercise
+Suppose $A$ is a block upper-triangular matrix \label{blockdet}
+\[
+A = \mat{ccc}{A_1 & &* \\ &\ddots & \\ 0 & &A_m},
+\]
+where each $A_k$ along the diagonal is a square matrix.  Prove that
+\[
+\det A = (\det A_1) \dotsm (\det A_m).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A = \mat{ccc}{v_1 & \cdots & v_n}$ is an \by{n}{n} matrix, with $v_k$ denoting the $k^\nth$ column of $A$. Show that if
+$(m_1, \ldots, m_n) \in \perm n$, then
+\[
+\det \mat{ccc}{v_{m_1} &\cdots & v_{m_n}} = \paren[\big]{\sign(m_1, \ldots, m_n)} \det A.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Let $p$ denote the characteristic polynomial of $T$ and let $q$ denote the characteristic polynomial of $T^{-1}$. Prove that
+\[
+q(z) = \frac{1}{p(0)}\, z^{\dim V} \, p\paren[\bigg]{\frac{1}{z}}
+\]
+for all nonzero $z \in \F{}\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is an operator with no eigenvalues (which implies that $\F{} = \R{}$). Prove that $\det T > 0$.
+
+
+\exercise
+Suppose that $V$ is a real vector space of even dimension, $T \in \L(V)$, and $\det T < 0$. Prove that $T$ has at least two distinct eigenvalues.
+
+
+\exercise
+Suppose $V$ is a real vector space of odd dimension and $T \in \L(V)$. Without using the minimal polynomial, prove that $T$ has an eigenvalue.\label{9oddeigen}\index{eigenvalue!on odd-dimensional space}
+\exercisecomment{This result was previously proved without using determinants or the characteristic polynomial---see \ref{5odd}.}
+
+
+\exercise
+Prove or give a counterexample: If $\F{} = \R{}$, $T \in \L(V)$, and $\det T > 0$, then $T$ has a square root.
+\exercisecomment{If\/ $\F{} = \C{}$,\/ $T \in \L(V)$, and\/ $\det T \ne 0$, then\/ $T$ has a square root \uppar{see \ref{397}}.}
+
+
+\exercise
+Suppose $S, T \in \L(V)$ and $S$ is invertible. Define $\fun p {\F{}} {\F{}}$ by
+\[
+p(z) = \det(zS - T).
+\]
+Prove that $p$ is a polynomial of degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+
+
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and $n = \dim V > 2$. Let $\la_1, \ldots, \la_n$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
+\begin{subtheorem}
+\item
+Find a formula for the coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\item
+Find a formula for the coefficient of $z$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is an inner product space and $T$ is a positive operator on $V\1$. Prove that\label{9detsq}
+\[
+\det \sqrt{T} = \sqrt{ \det T }.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Use the polar decomposition to give a proof that
+\[
+\abs{\det T} = \sqrt{\det\paren[\big]{T^*T}}
+\]
+that is different from the proof given earlier (see \ref{324}).
+
+
+\exercise
+Suppose $T \in \L(V)$. Define $\fun g {\F{}} {\F{}}$ by
+$
+g(x) = \det(I + xT)$.
+Show that $g’(0) = \tr T\3$.
+\exercisecomment{Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.}
+
+
+\begin{comment}
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma$ is a function from $\Omega$ to $\RR{n}$. Suppose
+$x \in \Omega$ and $\sigma$ is differentiable at $x$. Prove that there is a unique operator $T \in \L\paren[\big]{\R{n}}$ such that \label{uniquederiv}
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}{\| y \|} = 0.
+\]
+\exercisecomment{The uniqueness of\/ $T$ shows that the notation\/ $\sigma' \! (x)$ in \ref{derivative} is justified. The uniqueness follows immediately from the formula given in Exercise~\ref{DerivPartial}, but this exercise asks for a more elementary proof of uniqueness that does not involve partial derivatives.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{n}}$ and $x \in \RR{n}$. Prove that $T$ is differentiable at $x$ and $T' \! (x) = T\3$.
+
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Suppose $x \in \Omega$. Prove that if $\sigma$ is differentiable at $x$, then the partial derivative $D_k\sigma_j(x)$ exists and \label{DerivPartial}
+\[
+\M\bigl(\sigma' \! (x)\bigr) = \mat{ccc}{
+D_1 \sigma_1(x) &\cdots &D_n \sigma_1(x) \\
+\vdots &   &\vdots \\
+D_1 \sigma_n(x) &\cdots &D_n \sigma_n(x) },
+\]
+where the matrix of $\sigma' \! (x)$ is with respect to the standard basis of $\RR n$.
+
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Prove that if each partial derivative $D_k\sigma_j$ exists and is continuous everywhere on $\Omega$, then $\sigma$ is differentiable everywhere on $\Omega$. \label{DerivPartial2}
+
+\end{comment}
+
+\exercise
+Suppose $a, b, c$ are positive numbers.  Find the volume of the ellipsoid
+\[
+\br[\bigg]{ (x, y, z) \in \R{3}: \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} < 1 }
+\]
+by finding a set $\Omega \subset \R{3}$ whose volume you know and an operator
+$T$ on $\R{3}$ such that $T(\Omega)$ equals the ellipsoid above.
+
+
+\exercise
+Suppose that $A$ is an invertible square matrix. Prove that Hadamard's \mbox{inequality} (\ref{Hadamard}) is an equality if and only if each column of $A$ is orthogonal to the other columns.\label{7HadEq}
+
+
+\exercise
+Suppose $V$ is an inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$, and $T \in \L(V)$ is a positive operator.
+\begin{subtheorem}
+\item
+Prove that $\det T \le \prod_{k=1}^n \ip{Te_k, e_k}$.
+\item
+Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_k$ is an eigenvector of $T$ for each
+$k = 1, \ldots, n$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix, and suppose $c$ is such that $\abs{A_{j,k}} \le c$ for all $j, k \in \br{1, \ldots, n}$. Prove that \label{2Had}
+\[
+\abs{\det A} \le c^n n^{n/2}\!.
+\]
+\exercisedisplayend
+\exercisecomment{The formula for the determinant of a matrix \uppar{\ref{9detformula}} shows that\/ $\abs{\det A} \le c^n n!$. However, the estimate given by this exercise is much better. For example, if\/ $c = 1$ and\/ $n = 100$, then\/ $c^n n! \approx 10^{158}\!$, but the estimate given by this exercise is the much smaller number\/ $10^{100}\!$. If\/ $n$ is an integer power of\/ $2$, then the inequality above is sharp and cannot be improved.} % Because there exist Hadamard matrices of order 2^m.
+
+
+\exercise
+Suppose $n$ is a positive integer and $\fun \delta {\C{n,n}} {\C{}}$ is a function such that
+\[
+\delta(AB) = \delta(A) \cdot \delta(B)
+\]
+for all $A, B \in \C{n,n}$ and $\delta(A)$ equals the product of the diagonal entries of $A$ for each diagonal matrix $A \in \C{n,n}$. Prove that
+\[
+\delta(A) = \det A
+\]
+for all $A \in \C{n,n}$.
+\exercisecomment{Recall that\/ $\C{n,n}$ denotes the set of\/ \by{n}{n} matrices with entries in\/~$\C{}$. This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices. This result is analogous to Exercise \ref{9trChar} in Section \ref{7trace}, which shows that the trace is uniquely determined by its algebraic properties.}
+
+

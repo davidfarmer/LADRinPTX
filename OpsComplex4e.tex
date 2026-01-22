@@ -1,0 +1,1888 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Operators on Complex Vector Spaces} \label{88}
+
+In this chapter we delve deeper into the structure of operators, with most of the attention on complex vector spaces. Some of the results in this chapter apply to both real and complex vector spaces; thus we do not make a standing assumption that $\F{} = \C{}$. Also, an inner product does not help with this material, so we return to the general setting of a finite-dimensional vector space.
+
+Even on a finite-dimensional complex vector space, an operator may not have enough eigenvectors to form a basis of the vector space. Thus we will consider the closely related objects called generalized eigenvectors. We will see that for each operator on a finite-dimensional complex vector space, there is a basis of the vector space consisting of generalized eigenvectors of the operator. The generalized eigenspace decomposition then provides a good description of arbitrary operators on a finite-dimensional complex vector space.
+
+Nilpotent operators, which are operators that when raised to some power equal~$0$, have an important role in these investigations. Nilpotent operators provide a key tool in our proof that every invertible operator on a finite-dimensional complex vector space has a square root and in our approach to Jordan form.
+
+This chapter concludes by defining the trace and proving its key properties.
+
+\StandingBox{\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$V$ denotes a finite-dimensional nonzero vector space over $\F{}\3$.
+}
+
+\begin{comment}
+\TopicsBox{
+\item
+generalized eigenvectors and generalized eigenspaces
+\item
+characteristic polynomial and the Cayley--Hamilton theorem
+\item
+decomposition of an operator
+\item
+minimal polynomial
+\item
+Jordan form
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Dublin2.jpg\else Dublin2R.jpg \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.116\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{The Long Room of the Old Library at the University of Dublin, where William Hamilton \uppar{1805--1865} was a student and then a faculty member. Hamilton proved a special case of what we now call the Cayley--Hamilton theorem in 1853.\index{Hamilton, William}\index{University of Dublin}}{.6in}{David Iliff CC BY-SA}
+
+\section{Generalized Eigenvectors and Nilpotent Operators} \label{geneig}
+
+\subsection{Null Spaces of Powers of an Operator}
+
+We begin this chapter with a  study of null spaces of powers of an operator.\index{null space!of powers of an operator}
+
+\ResultBox[76]{sequence of increasing null spaces}
+{Suppose $T \in \L(V)$. Then
+\[
+\{0\} = \ker T^0 \subset \ker T^1 \subset \cdots
+\subset \ker T^k \subset \ker T^{k+1} \subset \dotsb .
+\]
+}
+
+\proof
+Suppose $k$ is a nonnegative integer and $v \in \ker T^k\!$. Then $T^k v = 0$, which implies that $T^{k+1} v = T\paren[\big]{T^kv} = T(0) = 0$. Thus $v \in \ker T^{k+1}\!$. Hence \mbox{$\ker T^k \subset \ker T^{k+1}\!$}, as desired. \qed
+
+\mar{For similar results about decreasing sequences of ranges, see Exercises \ref{range1}, \ref{range2}, and \ref{range3}.}
+
+The following result states that if two consecutive terms in the sequence of subspaces above are equal, then all later terms in the sequence are equal.
+
+\ResultBox[a113]{equality in the sequence of null spaces}{%
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer such that
+\[
+\ker T^m = \ker T^{m+1}\!.
+\]
+Then
+\[
+\ker T^m = \ker T^{m+1} = \ker T^{m+2} = \ker T^{m+3} = \dotsb .
+\]
+}
+
+\proof
+Let $k$ be a positive integer.  We want to prove
+that
+\[
+\ker T^{m+k} = \ker T^{m + k + 1}\!.
+\]
+We already know from \ref{76} that $\ker T^{m+k} \subset \ker T^{m + k + 1}\!$.
+
+To prove the inclusion in the other direction, suppose $v \in \ker T^{m+ k+1}\!$.  Then
+\[
+T^{m+1} \paren[\big]{T^k v} = T^{m+k+1}v =0.
+\]
+Hence
+\[
+T^k v \in \ker T^{m+1} = \ker T^m\!.
+\]
+Thus $T^{m+k} v = T^m\paren[\big]{T^k v} = 0$, which means that $v \in \ker T^{m+k}\!$.  This
+implies that $\ker T^{m + k+1} \subset \ker T^{m+k}\!$, completing the proof.
+\qed
+
+The result above raises the question of whether there exists a
+nonnegative integer $m$ such that $\ker T^m = \ker T^{m+1}\!$.  The
+next result shows that this equality holds at least when $m$ equals the
+dimension of the vector space on which $T$ operates.
+
+\ResultBox[23]{null spaces stop growing}{%
+Suppose $T \in \L(V)$. Then
+\[
+\ker T^{\dim V} = \ker T^{\dim V + 1} = \ker T^{\dim V + 2} = \dotsb .
+\]
+}
+
+\proof
+We only need to prove that $\ker T^{\dim V} = \ker T^{\dim V + 1}$ (by
+\ref{a113}).  Suppose this is not true.  Then, by \ref{76} and \ref{a113}, we have
+\[
+\{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots
+\subsetneq \ker T^{\dim V} \subsetneq \ker T^{\dim V + 1}\!,
+\]
+where the symbol $\subsetneq$\sindex{subsetneq@$\subsetneq$} means ``contained in but not equal to''\!.
+At each of the strict inclusions in the chain above, the dimension increases
+by at least~$1$.  Thus $\dim \ker T^{\dim V + 1} \ge \dim V+ 1$, a contradiction
+because a subspace of~$V$ cannot have a larger dimension than $\dim V\1$.
+\qed
+
+It is not true that $V = \ker T \oplus \ran T$ for every $T \in \L(V)$. However, the next result can be a useful substitute.
+
+\ResultBox[8nulloplusran]{$V$ is the direct sum of\/ $\ker T^{\dim V}$ and\/ $\ran T^{\dim V}$\index{direct sum!of null Tn and ran Tn@of $\ker T^{\dim V}$ and $\ran T^{\dim V}$}}
+{Suppose $T \in \L(V)$. Then
+\[
+V = \ker T^{\dim V} \oplus \ran T^{\dim V}\!.
+\]
+}
+
+\proof
+Let $n = \dim V\1$. First we show that
+\begin{equation} \label{nullran}
+\paren[\big]{\ker T^n} \cap \paren[\big]{\ran T^n} = \{0\}.
+\end{equation}
+Suppose $v \in \paren[\big]{\ker T^n} \cap \paren[\big]{\ran T^n}$. Then $T^n v = 0$, and there exists $u \in V$ such that $v = T^n u$. Applying $T^n$ to both sides of the last equation shows that $T^n v = T^{2n} u$. Hence $T^{2n} u = 0$, which implies that $T^n u = 0$ (by \ref{23}). Thus $v = T^n u = 0$, completing the proof of \ref{nullran}.
+
+Now \ref{nullran} implies that $\ker T^n + \ran T^n$ is a direct sum (by \ref{219}). Also,
+\[
+\dim\paren[\big]{\ker T^n \oplus \ran T^n} = \dim \ker T^n + \dim \ran T^n = \dim V\1,
+\]
+where the first equality above comes from \ref{3directsumdim} and the second equality comes from the fundamental theorem of linear maps (\ref{3ab11}). The equation above implies that $\ker T^n \oplus \ran T^n = V\1$ (see \ref{2subfull}), as desired.
+\qed
+
+For an improvement of the result above, see Exercise \ref{8notnil}.
+
+\begin{example}{$\F3 = \ker T^3 \oplus \ran T^3$ for\/ $T \in \L\paren[\big]{\F3}$}
+Suppose $T \in \L\paren[\big]{\F{3}}$ is defined by
+\[
+T(z_1, z_2, z_3) = (4z_2, 0, 5z_3).
+\]
+Then $\ker T = \br[\big]{(z_1, 0, 0): z_1 \in \F{}}$ and
+$\ran T = \br[\big]{(z_1, 0, z_3): z_1, z_3 \in \F{}}$. Thus $\ker T \cap \ran T \ne \{0\}$. Hence $\ker T + \ran T$ is not a direct sum. Also note that
+$\ker T + \ran T \ne \FF3$. However, we have $T^3(z_1, z_2, z_3) = (0, 0, 125z_3)$. Thus we see that
+\[
+\ker T^3 = \br[\big]{(z_1, z_2, 0): z_1, z_2 \in \F{}} \andd
+\ran T^3 = \br[\big]{(0, 0, z_3): z_3 \in \F{}}.
+\]
+Hence $\FF3 = \ker T^3 \oplus \ran T^3\1$, as expected by \ref{8nulloplusran}.
+\end{example}
+
+\subsection{Generalized Eigenvectors}
+
+Some operators do not have enough eigenvectors to lead to good descriptions of their behavior. Thus in this subsection we introduce the concept of generalized eigenvectors, which will play a major role in our description of the structure of an operator.
+
+To understand why we need more than eigenvectors, let's examine the
+question of describing an operator by decomposing its domain into
+invariant subspaces.  Fix $T \in \L(V)$.  We seek to describe $T$ by
+finding a ``nice'' direct sum decomposition
+\[
+V = V\1_1 \oplus \dots \oplus V\1_n,
+\]
+where each $V\1_k$ is a subspace of $V$ invariant under~$T\3$. The simplest
+possible nonzero invariant subspaces are one-dimensional.  A
+decomposition as above in which each $V\1_k$ is a one-dimensional subspace
+of $V$ invariant under $T$ is possible if and only if $V$ has a basis
+consisting of eigenvectors of~$T$ (see~\ref{427}). This happens if
+and only if $V$ has an eigenspace decomposition
+\begin{equation} \label{429}
+V = E(\la_1, T) \oplus \dots \oplus E(\la_m, T),
+\end{equation}%
+where $\la_1, \dots, \la_m$ are the distinct
+eigenvalues of $T$ (see~\ref{427}).
+
+The spectral theorem in the previous chapter shows that if $V$ is an inner product space, then a decomposition of the form \ref{429} holds for every self-adjoint operator if $\F{} = \R{}$ and for every normal operator if $\F{} = \C{}$ because operators of those types have enough eigenvectors to form a basis of $V$ (see \ref{86} and \ref{85}).
+
+However, a decomposition of the form \ref{429} may not
+hold for more general operators, even on a complex vector space. An
+example was given by the operator in \ref{428}, which does not have
+enough eigenvectors for \ref{429} to hold. Generalized eigenvectors and generalized eigenspaces,
+which we now introduce, will remedy this situation.
+
+\DefinitionBox{generalized eigenvector}{Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of~$T\3$.  A vector
+$v \in V$ is  called a
+\emph{generalized eigenvector}\index{generalized eigenvector} of~$T$
+corresponding to~$\la$ if $v \ne 0$ and
+\[
+(T - \la I)^k v = 0
+\]
+for some positive integer~$k$.}
+
+\mar{Generalized eigenvalues are not defined because doing so would not lead to anything new.  Reason: if\/
+$(T - \la I)^k$ is not injective for some positive integer\/ $k$, then\/
+$T - \la I$ is not injective, and hence\/
+$\la$ is an eigenvalue of\/ $T\3$.}
+
+A nonzero vector $v \in V$ is a generalized eigenvector of $T$ corresponding to $\la$ if and only if
+\[
+(T - \la I)^{\dim V} v = 0,
+\]
+as follows from applying \ref{76} and \ref{23} to the operator $T  - \la I$.
+
+As we know, an operator on a complex vector space may not have enough
+eigenvectors to form a basis of the domain.  The next result shows that on a
+complex vector space there are enough generalized eigenvectors to do this.
+
+\ResultBox[28]{a basis of generalized eigenvectors}{\index{basis!of generalized eigenvectors}%
+Suppose $\F{} = \C{}$ and $T \in \L(V)$.  Then there is a basis of $V$ consisting of generalized eigenvectors of $T\3$.}
+
+\proof
+Let $n = \dim V\1$. We will use induction on $n$. To get started, note that the desired result holds if $n=1$ because then every nonzero vector in $V$ is an eigenvector of $T\3$.
+
+\mar{This step is where we use the hypothesis that\/ $\F{} = \C{}$, because if\/ $\F{} = \R{}$ then\/ $T$ may not have any eigenvalues.}
+
+Now suppose $n > 1$ and the desired result holds for all smaller values of $\dim V\1$. Let $\la$ be an eigenvalue of $T\3$. Applying \ref{8nulloplusran} to $T - \la I$ shows that
+\[
+V = \ker(T - \la I)^n \oplus \ran (T - \la I)^n\1.
+\]
+
+If $\ker(T - \la I)^n = V\1$, then every nonzero vector in $V$ is a generalized eigenvector of $T$, and thus in this case there is a basis of $V$ consisting of generalized eigenvectors of $T\3$. Hence we can assume that $\ker(T - \la I)^n \ne V\1$, which implies that
+$\ran (T - \la I)^n \ne \br{0}$.
+
+Also, $\ker(T - \la I)^n \ne \br{0}$, because $\la$ is an eigenvalue of $T\3$. Thus we have
+\[
+0 < \dim \ran(T - \la I)^n < n.
+\]
+Furthermore,
+$\ran(T - \la I)^n$ is invariant under $T$ \sbr{by \ref{130} with $p(z) = (z - \la)^n$}.
+Let $S \in \L\paren[\big]{ \ran(T - \la I)^n }$ equal $T$
+restricted to $\ran(T - \la I)^n\1$. Our induction hypothesis applied to the operator $S$ implies that there is a basis of $\ran(T - \la I)^n$ consisting of generalized eigenvectors of $S$, which of course are generalized eigenvectors of $T\3$. Adjoining that basis of $\ran(T - \la I)^n$ to a basis of $\ker(T - \la I)^n$ gives a basis of $V$ consisting of generalized eigenvectors of $T\3$.
+\qed
+
+If $\F{} = \R{}$ and $\dim V > 1$, then some operators on $V$ have the property that there exists a basis of $V$ consisting of generalized eigenvectors of the operator, and (unlike what happens when $\F{}=\C{}$) other operators do not have this property. See Exercise \ref{8geneigb} for a necessary and sufficient condition that determines whether an operator has this property.
+
+\begin{example}[8exgeneig]{generalized eigenvectors of an operator on\/ $\C3$}
+Define $T \in \L\paren[\big]{\C{3}}$ by
+\[
+T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
+\]
+for each $(z_1, z_2, z_3) \in \CC3$. A routine use of the definition of eigenvalue shows that the eigenvalues of $T$ are $0$ and $5$. Furthermore, the eigenvectors corresponding to the eigenvalue $0$ are the nonzero vectors of the form $(z_1, 0, 0)$, and the eigenvectors corresponding to the eigenvalue $5$ are the nonzero vectors of the form $(0, 0, z_3)$. Hence this operator does not have enough eigenvectors to span its domain~$\CC3$.
+
+We compute that $T^3(z_1, z_2, z_3) = (0, 0, 125 z_3)$. Thus \ref{76} and \ref{23} imply that the generalized eigenvectors of $T$ corresponding to the eigenvalue $0$ are the nonzero vectors of the form $(z_1, z_2, 0)$.
+
+We also have $(T-5I)^3(z_1, z_2, z_3) = (-125z_1 + 300z_2, -125z_2, 0)$. Thus the generalized eigenvectors of $T$ corresponding to the eigenvalue $5$ are the nonzero vectors of the form $(0,0,z_3)$.
+
+The paragraphs above show that each of the standard basis vectors of $\C3$ is a generalized eigenvector of $T\3$. Thus $\C3$ indeed has a basis consisting of generalized eigenvectors of $T\3$, as promised by \ref{28}.
+\end{example}
+
+If $v$ is an eigenvector of $T \in \L(V)$, then the corresponding eigenvalue $\la$ is uniquely determined by the equation $Tv = \la v$, which can be satisfied by only one $\la \in \F{}$ (because $v\ne 0$).
+However, if $v$ is a generalized eigenvector of $T$, then it is not obvious that the equation $(T - \la I)^{\dim V}v = 0$ can be satisfied by only one $\la \in \F{}\3$. Fortunately, the next result tells us that all is well on this issue.
+
+\ResultBox[8intgeneig]{generalized eigenvector corresponds to a unique eigenvalue}
+{Suppose $T \in \L(V)$. Then each generalized eigenvector of $T$ corresponds to only one eigenvalue of $T\3$.}
+
+\proof
+Suppose $v \in V$ is a generalized eigenvector of $T$ corresponding to eigenvalues $\al$ and $\la$ of $T\3$. Let $m$ be the smallest positive integer such that $(T - \al I)^m v = 0$. Let $n = \dim V\1$. Then
+\begin{align*}
+0 &= (T - \la I)^n v \\
+&= \paren[\big]{ (T - \al I) + (\al - \la) I }^n v \\
+&= \sum_{k=0}^n b_k (\al - \la)^{n-k} (T - \al I)^k v,
+\end{align*}
+where $b_0 = 1$ and the values of the other binomial coefficients $b_k$ do not matter. Apply the operator $(T - \al I)^{m-1}$ to both sides of the equation above, getting
+\[
+0 = (\al - \la)^n (T - \al I)^{m-1} v.
+\]
+Because $(T - \al I)^{m-1} v \ne 0$, the equation above implies that $\al = \la$, as desired.
+\qed
+
+We saw earlier (\ref{26}) that eigenvectors corresponding to distinct eigenvalues are linearly independent. Now we prove a similar result for generalized eigenvectors, with a proof that roughly follows the pattern of the proof of that earlier result.
+
+\ResultBox[genind]{linearly independent generalized eigenvectors}
+{Suppose that $T \in \L(V)$. Then every list of generalized eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.}
+
+\proof
+Suppose the desired result is false. Then there exists a smallest positive integer $m$ such that there exists a linearly dependent list
+$v_1, \ldots, v_m$ of generalized eigenvectors of $T$ corresponding to distinct eigenvalues $\la_1, \ldots, \la_m$ of $T$ (note that $m\ge 2$ because a generalized eigenvector is, by definition, nonzero). Thus there exist
+$a_1, \ldots, a_m \in \F{}\3$, none of which are $0$ (because of the minimality of $m$), such that
+\[
+a_1 v_1 + \cdots + a_m v_m = 0.
+\]
+
+Let $n = \dim V\1$. Apply $(T - \la_m I)^n$ to both sides of the equation above, getting
+\begin{equation}
+a_1 (T - \la_m I)^n v_1 + \cdots + a_{m-1} (T - \la_m I)^n v_{m-1} = 0. \label{8gene}
+\end{equation}%
+Suppose $k \in \br{1, \ldots, m-1}$. Then
+\[(T - \la_m I)^n v_k \ne 0
+\]
+because otherwise $v_k$ would be a generalized eigenvector of $T$  corresponding to the distinct eigenvalues $\la_k$ and $\la_m$, which would contradict \ref{8intgeneig}. However,
+\[
+(T - \la_k I)^n \paren[\big]{ (T - \la_m I)^n v_k } = (T - \la_m I)^n \paren[\big]{ (T - \la_k I)^n v_k } = 0.
+\]
+
+Thus the last two displayed equations show that $(T - \la_m I)^n v_k$ is a generalized eigenvector of $T$ corresponding to the eigenvalue $\la_k$.
+Hence
+\[(T - \la_m I)^n v_1, \ldots, (T - \la_m I)^n v_{m-1}
+\]
+is a linearly dependent list (by \ref{8gene}) of $m-1$ generalized eigenvectors corresponding to distinct eigenvalues, contradicting the minimality of $m$. This contradiction completes the proof.
+\qed
+
+\subsection{Nilpotent Operators}
+
+\DefinitionBox{nilpotent}{An operator is called \emph{nilpotent}\index{nilpotent operator} if some power of it equals $0$.}
+
+Thus an operator $T \in \L(V)$ is nilpotent if and only if every nonzero vector in $V$ is a generalized eigenvector of $T$ corresponding to the eigenvalue $0$.
+
+\pagebreak[3]
+
+\begin{example}[8nil]{nilpotent operators}
+\begin{subtheorem}*
+\item
+The operator $T \in \L\paren[\big]{\F{4}}$ defined by
+\[
+T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2)
+\]
+is nilpotent because $T^2 = 0$.
+
+\item
+The operator on $\F3$ whose matrix (with respect to the standard basis) is
+\[
+\mat{ccc}{
+-3 & 9 & 0 \\
+-7 & 9 & 6 \\
+4 & 0 & -6}
+\]
+is nilpotent, as can be shown by cubing the matrix above to get the zero matrix.\looseness=-1
+
+\item
+The operator of differentiation\index{differentiation linear map} on $\P\1_m(\R{})$ is nilpotent because the $(m + 1)^{\nth}$
+derivative of every polynomial of degree at most $m$ equals~$0$.  Note that on
+this space of dimension $m + 1$, we need to raise the nilpotent operator to the
+power $m + 1$ to get the $0$ operator.
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+\mar{The Latin word\/ \marbf{nil} means nothing or zero; the Latin word\/ \marbf{potens} means having power.
+Thus\/ \marbf{nilpotent} literally means having a power that is zero.}
+\
+The next result shows that when raising a nilpotent operator to a power, we never need to use a power higher than the dimension of the space. For a slightly stronger result, see Exercise \ref{nilrange}.
+
+\ResultBox[181]{nilpotent operator raised to dimension of domain is $0$}{%
+Suppose $T \in \L(V)$ is nilpotent.  Then $T^{\dim V} = 0$.
+}
+
+\proof
+Because $T$ is nilpotent, there exists a positive integer $k$ such that $T^k = 0$. Thus $\ker T^k = V\1$. Now \ref{76} and \ref{23} imply that $\ker T^{\dim V} = V\1$. Thus $T^{\dim V} = 0$.
+\qed
+
+\ResultBox[8eignil]{eigenvalues of nilpotent operator}
+{Suppose $T \in \L(V)$.
+\begin{subtheorem}
+\item
+If $T$ is nilpotent, then $0$ is an eigenvalue of $T$ and $T$ has no other \mbox{eigenvalues}.
+\item
+If $\F{} = \C{}$ and $0$ is the only eigenvalue of $T$, then $T$ is nilpotent.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+To prove (a), suppose $T$ is nilpotent. Hence there is a positive integer $m$ such that $T^m = 0$.  This implies that $T$ is
+not injective. Thus $0$ is an eigenvalue of~$T\3$.
+
+To show that $T$ has no other eigenvalues, suppose $\la$ is an eigenvalue of $T\3$.  Then there exists a nonzero
+vector $v \in V$ such that
+\[
+\la v = Tv.
+\]
+Repeatedly applying $T$ to both sides of this equation shows that
+\[
+\la^m v = T^m v = 0.
+\]
+Thus $\la = 0$, as desired.
+
+\item
+Suppose $\F{} = \C{}$ and $0$ is the only eigenvalue of $T\3$. By \ref{136}(b), the minimal polynomial of $T$ equals $z^m$ for some positive integer $m$. Thus $T^m = 0$. Hence $T$ is nilpotent.
+\qed
+\end{subtheorem}
+
+Exercise \ref{Nil1} shows that the hypothesis that $\F{} = \C{}$ cannot be deleted in (b) of the result above.
+
+Given an operator on $V\1$, we want to find a basis of $V$ such that the
+matrix of the operator with respect to this basis is as simple as possible, meaning that
+the matrix contains many $0$'s. The next result shows that if $T$ is nilpotent, then we can choose a basis of $V$ such that the matrix of $T$ with respect  to this basis has more than half of its
+entries equal to $0$. Later in this chapter we will do even better.
+
+\ResultBox[a33]{minimal polynomial and upper-triangular matrix of nilpotent operator}{\index{matrix!of nilpotent operator}\index{minimal polynomial!of nilpotent operator}%
+Suppose $T \in \L(V)$. Then the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is nilpotent.
+\item
+The minimal polynomial of $T$ is $z^m$ for some positive integer $m$.
+\item
+There is a basis of\/ $V$ with respect to which the matrix of\/ $T$ has the form
+\[
+\mat{ccc}{ 0 & & * \\ & \ddots & \\ 0 & & 0 },
+\]
+where all entries on and below the diagonal equal\/ $0$.
+\end{subtheorem}
+}
+
+\proof
+Suppose (a) holds, so $T$ is nilpotent. Thus there exists a positive integer $n$ such that $T^n = 0$. Now \ref{140} implies that $z^n$ is a polynomial multiple of the minimal polynomial of $T\3$. Thus the minimal polynomial of $T$ is $z^m$ for some positive integer $m$, proving that (a) implies (b).
+
+Now suppose (b) holds, so the minimal polynomial of $T$ is $z^m$ for some positive integer $m$. This implies, by \ref{136}(a), that $0$ \big(which is the only zero of $z^m$\big) is the only eigenvalue of $T\3$. This further implies, by \ref{5necsuf}, that there is a basis of $V$ with respect to which the matrix of $T$ is upper triangular. This also implies, by \ref{a221}, that all entries on the diagonal of this matrix are $0$, proving that (b) implies~(c).
+
+Now suppose (c) holds. Then \ref{4polyut} implies that $T^{\dim V} = 0$. Thus $T$ is nilpotent, proving that (c) implies (a).
+\qed
+
+\pagebreak[3]
+
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that if $\dim \ker T^4 = 8$ and $\dim \ker T^6 = 9$, then $\dim \ker T^m = 9$ for all integers $m \ge 5$.
+
+
+\exercise
+Suppose $T \in \L(V)$, $m$ is a positive integer, $v \in V$, and $T^{m-1} v \ne 0$ but $T^m v = 0$. Prove that
+$
+v, Tv, T^2 v, \dots, T^{m-1} v
+$
+is linearly independent.\label{8linind}
+\exercisecomment{The result in this exercise is used in the proof of \ref{452}.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that
+\[
+V = \ker T \oplus \ran T \iff \ker T^2 = \ker T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$, $\la \in \F{}\3$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of
+$(z - \la)^m\!$. Prove that
+\[
+\dim \ker(T - \la I)^m \ge m.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a positive integer. Prove that
+\[
+\dim \ker T^m \le m \dim \ker T.
+\]
+\exercisedisplayend
+\hint{Exercise \ref{3diminv} in Section \ref{3nullspace} may be useful.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Show that\index{range!of powers of an operator} \label{range1}
+\[
+V = \ran T^0 \supset \ran T^1 \supset \cdots
+\supset \ran T^k \supset \ran T^{k+1} \supset \dotsb .
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer such that \label{range2}
+\[
+\ran T^m = \ran T^{m+1}\!.
+\]
+Prove that $\ran T^k = \ran T^m$ for all $k > m$.
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that\label{range3}
+\[
+\ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb .
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer. Prove that\label{kerran}
+\[
+\ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}\!.
+\]
+\exercisedisplayend
+
+
+\begin{comment}
+\exercise
+Find a vector space $W$ and $T \in \L(W)$ such that $\ker T^k \subsetneq \ker T^{k+1}$ and $\ran T^k \supsetneq \ran T^{k+1}$ for every positive integer~$k$.
+
+
+\end{comment}
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (z,0)$.
+Find all generalized eigenvectors of~$T\3$.
+
+
+\exercise
+Suppose that $T \in \L(V)$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some
+$\la_1, \ldots, \la_m \in \F{}\3$.\label{8geneigb}\index{minimal polynomial!and basis of generalized eigenvectors}
+\exercisecomment{Assume $\F{} = \R{}$ because the case\/ $\F{} = \C{}$ follows from \ref{136}\uppar{b} and \ref{28}.\\[3bp]
+This exercise states that the condition for there to be a basis of\/ $V$ consisting of generalized eigenvectors of\/ $T$ is the same as the condition for there to be a basis with respect to which\/ $T$ has an upper-triangular matrix \uppar{see \ref{5necsuf}}.\\[3bp]
+\textbf{Caution:} If\/ $T$ has an upper-triangular matrix with respect to a basis\/ $v_1, \ldots, v_n$ of\/ $V\1$, then\/ $v_1$ is an eigenvector of\/ $T$ but it is not necessarily true that\/ $v_2, \ldots, v_n$ are generalized eigenvectors of\/ $T\3$.}
+
+\pagebreak[1]
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that every nonzero vector in $V$ is a generalized eigenvector of $T\3$. Prove that there exists $\la \in \F{}$ such that
+$T - \la I$ is nilpotent.
+
+
+\exercise
+Suppose $S, T \in \L(V)$ and $ST$ is nilpotent. Prove that $TS$ is nilpotent.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $T \ne 0$. Prove $T$ is not diagonalizable.\index{diagonalizable}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if every generalized eigenvector of~$T$ is an eigenvector of~$T\3$.\label{425} \index{diagonalizable}
+\exercisecomment{For $\F{} = \C{}$, this exercise adds another
+equivalence to the list of conditions for diagonalizability in \ref{427}.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of nilpotent operators $S, T$ on the same vector space such that neither $S+T$ nor $ST$ is nilpotent.
+\item
+Suppose $S, T \in \L(V)$ are nilpotent and $ST = TS$. Prove that $S + T$ and $ST$ are nilpotent.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $m$ is a positive integer such that $T^m = 0$.
+\begin{subtheorem}
+\item
+Prove that $I-T$ is invertible and that
+$
+(I - T)^{-1} = I + T + \dots + T^{m-1}\!$.
+\item
+Explain how you would guess the formula above.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $T^{1 + \dim \ran T} = 0$.\label{nilrange}
+\exercisecomment{If\/ $\dim \ran T < \dim V - 1$, then this exercise improves \ref{181}.}
+
+
+\exercise
+Suppose $T\in \L(V)$ is not nilpotent. Show that\label{8notnil}
+\[
+V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}\!.
+\]
+\exercisedisplayend
+\exercisecomment{For operators that are not nilpotent, this exercise improves \ref{8nulloplusran}.}
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$ is normal and nilpotent. Prove that $T = 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!$.  Prove that $T$ is nilpotent and that
+$
+\dim \ker T^k = k$
+for every integer $k$ with $0 \le k \le \dim V\1$.\label{8nullTk}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{5}}$ is such that $\ran T^4 \ne \ran T^5\1$.  Prove that $T$ is
+nilpotent.
+
+
+\exercise
+Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent. \label{Nil1}
+\exercisecomment{This exercise shows that the implication \uppar{b} $\implies$ \uppar{a} in \ref{8eignil} does not hold without the hypothesis that
+$\F{} = \C{}$.}
+
+
+\exercise
+For each item in Example \ref{8nil}, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by \ref{a33}(c).
+
+
+\exercise
+Suppose that $V$ is an inner product space and $T \in \L(V)$ is nilpotent. Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by \ref{a33}(c).
+
+
+\end{exercises}
+
+\section{Generalized Eigenspace Decomposition} \label{decompop}
+
+\subsection{Generalized Eigenspaces}
+
+\DefinitionBox{generalized eigenspace, $G(\la, T)$}
+{Suppose $T \in \L(V)$ and $\la \in \F{}\3$. The \emph{generalized eigenspace} of $T$ corresponding to $\la$, denoted by
+$G(\la, T)$, is defined by
+\[
+G(\la, T) = \br[\big]{ v \in V : ( T- \la I)^k v = 0 \text{ for some positive integer } k}.
+\]
+Thus $G(\la, T)$ is the set of generalized eigenvectors of $T$ corresponding to $\la$, along with the $0$ vector.\sindex{GlambdaT@$G(\la, T)$}\index{generalized eigenspace}}
+
+Because every eigenvector of $T$ is a generalized eigenvector of $T$ (take $k=1$ in the definition of generalized eigenvector), each eigenspace is contained in the corresponding generalized eigenspace. In other words, if $T \in \L(V)$ and $\la \in \F{}\3$, then
+$
+E(\la, T) \subset G(\la, T)$.
+
+The next result implies that if $T \in \L(V)$ and $\la \in \F{}\3$, then the generalized eigenspace $G(\la, T)$ is a subspace of\/~$V$ (because the null space of each linear map on $V$ is a subspace of~$V$).
+
+\ResultBox[180]{description of generalized eigenspaces}{%
+Suppose $T \in \L(V)$ and $\la \in \F{}\3$. Then $G(\la, T) =\ker (T - \la I)^{\dim V}\!$.
+}
+
+\proof
+Suppose $v \in \ker (T - \la I)^{\dim V}\!$. The definitions imply $v \in G(\la, T)$. Thus $G(\la, T) \supset \ker (T - \la I)^{\dim V}$\!.
+
+Conversely, suppose $v \in G(\la, T)$.  Thus there is a positive integer $k$ such that
+$
+v \in
+\ker (T - \la I)^k\!$.
+From \ref{76} and \ref{23} (with $T - \la I$ replacing $T$), we get
+$v \in \ker (T - \la I)^{\dim V}$\!. Thus $G(\la, T) \subset \ker (T - \la I)^{\dim V}$\!, completing the proof.
+\qed
+
+\begin{example}[5exgeneig]{generalized eigenspaces of an operator on\/ $\C3$}
+Define $T \in \L\paren[\big]{\C{3}}$ by
+\[
+T(z_1, z_2, z_3) = (4z_2, 0, 5z_3).
+\]
+
+In Example \ref{8exgeneig}, we saw that the eigenvalues of $T$ are $0$ and $5$, and we found the corresponding sets of generalized eigenvectors. Taking the union of those sets with $\br{0}$, we have
+\[
+G(0, T) = \br[\big]{ (z_1, z_2, 0): z_1, z_2 \in \C{} } \andd G(5, T) = \br[\big]{ (0, 0, z_3): z_3 \in \C{} }.
+\]
+
+Note that $\CC{3} = G(0, T)\oplus G(5, T)$.
+\end{example}
+
+In Example \ref{5exgeneig}, the domain space $\C3$ is the direct sum of the generalized eigenspaces of the operator $T$ in that example. Our next result shows that this behavior holds in general. Specifically, the following major result shows that if
+$\F{} = \C{}$ and $T \in \L(V)$, then $V$ is the direct sum of the generalized eigenspaces of $T$, each of which is invariant under $T$ and on which $T$ is a nilpotent operator plus a scalar multiple of the identity. Thus the next result  achieves our goal of decomposing $V$ into invariant subspaces on which $T$ has a known behavior.
+
+As we will see, the proof follows from putting together what we have learned about generalized eigenspaces and then using our result that for each operator $T \in \L(V)$, there exists a basis of $V$ consisting of generalized eigenvectors of $T\3$.
+
+\ResultBox[31]{generalized eigenspace decomposition}{%
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Let $\la_1, \dots, \la_m$ be the distinct eigenvalues of~$T\3$.  Then
+\begin{subtheorem}*
+\item
+$G(\la_k, T)$ is invariant under $T$ for each $k = 1, \ldots, m$;
+
+\item
+$(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent  for each $k = 1, \ldots, m$;
+
+\item
+$V = G(\la_1, T) \oplus \dots \oplus G(\la_m, T)$.
+\end{subtheorem}
+}
+
+\proof
+\begin{subtheorem}
+\item
+Suppose $k \in \br{1, \ldots, m}$. Then \ref{180} shows that
+\[
+G(\la_k, T) = \ker (T - \la_k I)^{\dim V}\!.
+\]
+Thus \ref{130}, with $p(z) = (z - \la_k)^{\dim V}\!$, implies that $G(\la_k, T)$ is invariant under~$T$, proving~(a).
+
+\item
+Suppose $k \in \br{1, \ldots, m}$. If $v \in G(\la_k, T)$, then $(T - \la_k I)^{\dim V} v = 0$ (by \ref{180}). Thus
+$\paren[\big]{(T - \la_k I)|_{G(\la_k,T)}}^{\dim V} = 0$.
+Hence $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent, proving (b).
+
+\item
+To show that $G(\la_1, T) + \dots + G(\la_m, T)$ is a direct sum, suppose
+\[
+v_1 + \dots + v_m = 0,
+\]
+where each $v_k$ is in $G(\la_k, T)$.  Because generalized eigenvectors of $T$ corresponding to distinct eigenvalues are linearly
+independent (by \ref{genind}), this implies that each $v_k$
+equals~$0$. Thus $G(\la_1, T) + \dots + G(\la_m, T)$ is a direct sum (by~\ref{30}).
+
+Finally, each vector in $V$ can be written as a finite sum of generalized eigenvectors of $T$ (by \ref{28}). Thus
+\[
+V = G(\la_1, T) \oplus \dots \oplus G(\la_m, T),
+\]
+proving (c).
+\qed
+\end{subtheorem}
+
+For the analogous result when $\F{}=\R{}$, see Exercise \ref{8Rdecomp}.
+
+\pagebreak[3]
+
+\subsection{Multiplicity of an Eigenvalue}
+
+If $V$ is a complex vector space and $T\in \L(V)$, then the decomposition of $V$ provided by the generalized eigenspace decomposition (\ref{31}) can be a powerful tool. The dimensions of the subspaces involved in this decomposition are sufficiently important to get a name, which is given in the next definition.
+
+\DefinitionBox[multeigen]{multiplicity}{
+\begin{Itemize}
+\item
+Suppose $T \in \L(V)$. The
+\emph{multiplicity}\index{multiplicity of an eigenvalue}
+of an eigenvalue $\la$ of~$T$ is defined to be the dimension of the corresponding generalized eigenspace $G(\la, T)$.
+\item
+In other words, the  multiplicity of an eigenvalue $\la$ of~$T$ equals
+\[
+\dim \ker (T - \la I)^{\dim V\!}.
+\]
+\end{Itemize}}
+
+The second bullet point above holds because $G(\la, T) = \ker (T - \la I)^{\dim V}$ (see \ref{180}).
+
+\begin{example}[multex]{multiplicity of each eigenvalue of an operator}
+Suppose $T \in \L\paren[\big]{\C{3}}$ is defined by
+\[
+T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3).
+\]
+The matrix of $T$ (with respect to the standard basis) is
+\[
+\mat{ccc}{ 6 & 3 & 4 \\
+0 & 6 & 2 \\
+0 & 0 & 7}.
+\]
+The eigenvalues of $T$ are the diagonal entries $6$ and $7$, as follows from \ref{a221}. You can verify that the generalized eigenspaces of $T$ are as follows:
+\[
+G(6, T)  =
+\Span\bigl( (1, 0, 0), (0, 1, 0) \bigr) \andd
+G(7, T) = \Span\bigl( (10, 2, 1) \bigr).
+\]
+
+\mar{In this example, the multiplicity of each eigenvalue equals the number of times that eigenvalue appears on the diagonal of an upper-triangular matrix representing the operator. This behavior always happens, as we will see in \ref{253}.}
+
+\noindent
+Thus the eigenvalue $6$ has multiplicity $2$ and the eigenvalue $7$ has multiplicity $1$.
+The direct sum $\CC3 = G(6, T) \oplus G(7, T)$ is the generalized eigenspace decomposition promised by \ref{31}. A basis of $\C3$ consisting of generalized eigenvectors of $T$, as promised by \ref{28}, is
+$
+(1, 0, 0), (0, 1, 0), (10, 2, 1)$. There does not exist a basis of $\C3$ consisting of eigenvectors of this operator.
+\end{example}
+
+In the example above, the sum of the multiplicities of the eigenvalues of~$T$ equals $3$, which is the dimension of the domain
+of~$T\3$.  The next result shows that this holds for all operators on finite-dimensional complex vector spaces.
+
+\ResultBox[8sm]{sum of the multiplicities equals $\dim V$}{%
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Then the sum of the
+multiplicities of all eigenvalues of\/~$T$ equals\/~$\dim V\1$.
+}
+
+\proof
+The desired result follows from the generalized eigenspace decomposition (\ref{31}) and the formula for the dimension of a direct sum (see \ref{3directsumdim}).
+\qed
+
+The terms \emph{algebraic multiplicity}\index{algebraic multiplicity} and \emph{geometric \mbox{multiplicity}}\index{geometric multiplicity} are used in some books. In case you encounter this terminology, be aware that the algebraic multiplicity is the same as the multiplicity defined here and the geometric multiplicity is the dimension of the corresponding eigenspace. In other words, if $T \in \L(V)$ and $\la$ is an eigenvalue of $T$, then
+\begin{gather*}
+\text{algebraic multiplicity of\ }\la = \dim \ker(T - \la I)^{\dim V} = \dim G(\la, T),\\[6bp]
+\text{geometric multiplicity of\ }\la = \dim \ker (T - \la I) = \dim E(\la, T).
+\end{gather*}
+Note that as defined above, the algebraic multiplicity also has a geometric meaning as the dimension of a certain null space. The definition of multiplicity given here is cleaner than the traditional definition that involves determinants; \ref{9chareqdet} implies that  these definitions are equivalent.
+
+If $V$ is an inner product space, $T \in \L(V)$ is normal, and $\la$ is an eigenvalue of $T$, then the algebraic multiplicity of $\la$ equals the geometric multiplicity of $\la$, as can be seen from applying Exercise \ref{399} in Section \ref{7001} to the normal operator $T - \la I$. As a special case, the singular values of $S \in \L(V\1, W)$ (here $V$ and $W$ are both finite-dimensional inner product spaces) depend on the multiplicities (either algebraic or geometric) of the eigenvalues of the self-adjoint operator $S^* S$.
+
+The next definition associates a monic polynomial with each operator on a finite-dimensional complex vector space.
+
+\DefinitionBox[7charpoly]{characteristic polynomial}{Suppose $\F{} = \C{}$ and $T \in \L(V)$.  Let
+$\la_1, \dots, \la_m$ denote the distinct eigenvalues of~$T$, with multiplicities $d_1, \dots, d_m$.  The polynomial
+\[
+(z - \la_1)^{d_1} \dotsm (z - \la_m)^{d_m}
+\]
+is called the \emph{characteristic polynomial}\index{characteristic polynomial!
+on complex vector space}
+of~$T\3$.}
+
+\begin{example}[multex2]{the characteristic polynomial of an operator}
+Suppose $T \in \L\paren[\big]{\C3}$ is defined as in Example~\ref{multex}. Because the eigenvalues of $T$ are $6$, with multiplicity $2$, and $7$, with multiplicity~$1$, we see that the characteristic polynomial of $T$ is $(z-6)^2 (z-7)$.
+\end{example}
+
+\ResultBox[degreezeros]{degree and zeros of characteristic polynomial}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Then
+\begin{subtheorem}*
+\item
+the characteristic polynomial of $T$ has degree $\dim V$;
+\item
+the zeros of the characteristic polynomial of $T$ are the eigenvalues of $T\3$.
+\end{subtheorem}}
+
+\proof
+Our result about the sum of the multiplicities (\ref{8sm}) implies (a). The definition of the characteristic polynomial implies (b).
+\qed
+
+Most texts define the characteristic polynomial  using determinants (the two definitions are equivalent by \ref{9chareqdet}).  The approach  taken here, which is considerably simpler, leads to the following nice proof of the Cayley--Hamilton theorem.
+
+\ResultBox[139]{Cayley--Hamilton theorem}{\index{Cayley--Hamilton theorem!on complex vector space}%
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and $q$ is the characteristic  polynomial of~$T\3$.  Then $q(T) =0$.
+}
+
+\proof
+Let $\la_1, \dots, \la_m$ be the distinct eigenvalues of $T$, and let $d_k = \dim G(\la_k, T)$. For each $k \in \{1, \dots, m\}$, we know that $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent. Thus we have
+\mar[6]{Arthur Cayley \uppar{1821--1895} published three mathematics papers before completing his undergraduate degree.\index{Cayley, Arthur}}
+\vspace{-6bp}
+\[
+(T - \la_k I)^{d_k}|_{G(\la_k, T)} = 0
+\]
+(by \ref{181}) for each $k \in \{1, \dots, m\}$.
+
+The generalized eigenspace decomposition (\ref{31}) states that every vector in $V$ is a sum of vectors in $G(\la_1, T), \dots, G(\la_m, T)$. Thus to prove that $q(T) = 0$, we only need to show that \mbox{$q(T)|_{G(\la_k, T)} = 0$} for each $k$.
+
+Fix $k \in \{1, \dots, m\}$. We have
+\[
+q(T) = (T - \la_1 I)^{d_1} \dotsm (T - \la_m I)^{d_m}\1.
+\]
+The operators on the right side of the equation above all commute, so we can move the factor $(T - \la_k I)^{d_k}$ to be the last term in the expression on the right. Because $(T - \la_k I)^{d_k}|_{G(\la_k, T)} = 0$, we have $q(T)|_{G(\la_k, T)} = 0$, as desired.
+\qed
+
+The next result implies that if the minimal polynomial of an operator $T \in \L(V)$ has degree $\dim V$ (as happens almost always---see the paragraphs following \ref{2defminpoly}), then the characteristic polynomial of $T$ equals the minimal polynomial of $T\3$.
+
+\ResultBox[charmult]{characteristic polynomial is a multiple of minimal polynomial}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Then the characteristic polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T\3$.\index{minimal polynomial!and characteristic polynomial}}
+
+\proof
+The desired result follows immediately from the Cayley--Hamilton theorem (\ref{139}) and \ref{140}.
+\qed
+
+Now we can prove that the result suggested by Example \ref{multex} holds for all operators on finite-dimensional complex vector spaces.
+
+\ResultBox[253]{multiplicity of an eigenvalue equals number of times on diagonal}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Suppose $v_1, \ldots, v_n$ is a basis of $V$ such that
+$\M\paren[\big]{T, (v_1, \ldots, v_n)}$ is upper triangular. Then the number of times that each eigenvalue $\la$ of $T$ appears on the diagonal of $\M\paren[\big]{T, (v_1, \ldots, v_n)}$ equals the multiplicity of $\la$ as an eigenvalue of $T\3$.}
+
+\proof
+Let $A = \M\paren[\big]{T, (v_1, \ldots, v_n)}$. Thus $A$ is an upper-triangular matrix. Let $\la_1, \ldots, \la_n$ denote the entries on the diagonal of $A$. Thus for each $k \in \br{1, \ldots, n}$, we have
+\[
+Tv_k = u_k + \la_k v_k
+\]
+for some $u_k \in \Span(v_1, \ldots, v_{k-1})$. Hence if $k \in \br{1, \ldots, n}$ and $\la_k \ne 0$, then $Tv_k$ is not a linear combination of $Tv_1, \ldots, Tv_{k-1}$. The linear dependence lemma (\ref{4}) now implies that the list of those $Tv_k$ such that $\la_k \ne 0$ is linearly independent.
+
+Let $d$ denote the number of indices $k \in \br{1, \ldots, n}$ such that $\la_k = 0$. The conclusion of the previous paragraph implies that
+\[
+\dim \ran T \ge n - d.
+\]
+Because $n = \dim V = \dim \ker T + \dim \ran T$, the inequality above implies that
+\begin{equation} \label{8dimnullT}
+\dim \ker T \le d.
+\end{equation}%
+
+The matrix of the operator $T^n$ with respect to the basis $v_1, \ldots, v_n$ is the upper-triangular matrix $A^n\1$, which has diagonal entries
+${\la_1}^{\2[n]}, \ldots, {\la_n}^{\2[n]}$ \sbr{see Exercise \ref{2AB}(b) in Section \ref{4utm}}. Because ${\la_k}^{\2[n]} = 0$ if and only if
+$\la_k = 0$, the number of times that $0$ appears on the diagonal of $A^n$ equals $d$. Thus applying \ref{8dimnullT} with $T$ replaced with $T^n\1$, we have
+\begin{equation} \label{8dimnullTn}
+\dim \ker T^n \le d.
+\end{equation}%
+
+For $\la$ an eigenvalue of $T\3$, let $m_{\la}$ denote the multiplicity of $\la$ as an eigenvalue of $T$ and let $d_{\la}$ denote the number of times that $\la$ appears on the diagonal of $A$. Replacing $T$ in \ref{8dimnullTn} with $T - \la I$, we see that
+\begin{equation} \label{8md}
+m_{\la} \le d_{\la}
+\end{equation}%
+for each eigenvalue $\la$ of $T\3$. The sum of the multiplicities $m_{\la}$ over all eigenvalues $\la$ of $T$ equals $n$, the dimension of $V$ (by \ref{8sm}). The sum of the numbers $d_{\la}$ over all eigenvalues $\la$ of $T$ also equals $n$, because the diagonal of $A$ has length $n$.
+
+Thus summing both sides of \ref{8md} over all eigenvalues $\la$ of $T$ produces an equality. Hence \ref{8md} must actually be an equality for each eigenvalue $\la$ of $T\3$. Thus the multiplicity of $\la$ as an eigenvalue of $T\3$ equals the number of times that $\la$ appears on the diagonal of $A$, as desired.
+\qed
+
+\subsection{Block Diagonal Matrices}
+
+\mar{Often we can understand a matrix \mbox{better} by thinking of it as composed of smaller matrices.}
+
+To interpret our results in matrix form, we make the following definition, generalizing the notion of a diagonal matrix.
+If each matrix $A_k$ in the definition below is a \by{1}{1} matrix, then we actually have a diagonal matrix.
+
+\DefinitionBox{block diagonal matrix}
+{A \emph{block diagonal matrix}\index{block diagonal matrix} is a square
+matrix of the form
+\[
+\mat{ccc}{
+A_1 & &0 \\
+&\ddots & \\
+0 & &A_m},
+\]
+where $A_1, \dots, A_m$ are square matrices lying along the diagonal and all other entries of the matrix equal~$0$.}
+
+\begin{example}[260]{a block diagonal matrix}
+The \by{5}{5} matrix
+\[
+A = \mat{ccc}{
+\mat{c}{4} & \begin{matrix} 0 &0 \end{matrix} & \begin{matrix} 0 &0 \end{matrix}\\[6bp]
+\begin{matrix} 0 \\[4bp] 0 \end{matrix} & \mat{cc}{ 2 &-3 \\[4bp] 0 & 2} &
+    \begin{matrix} 0 & 0 \\[4bp] 0 & 0 \end{matrix} \\[12bp]
+\begin{matrix} 0 \\[4bp] 0 \end{matrix} & \begin{matrix} 0 & 0 \\[4bp] 0 & 0 \end{matrix} &
+    \mat{cc}{ 1 &7 \\[4bp] 0 & 1}
+}
+\]
+is a block diagonal matrix with
+\[
+A = \mat{ccc}{
+A_1 & &0 \\[4bp]
+& A_2 & \\[4bp]
+0 & & A_3},
+\]
+where
+\[
+A_1 = \mat{c}{4},
+\quad A_2 = \mat{cc}{2 &-3 \\[4bp] 0 &2},
+\quad A_3 = \mat{cc}{1 &7 \\[4bp] 0 &1}.
+\]
+Here the inner matrices in the \by{5}{5} matrix above are blocked off to show how we can think of it as a block diagonal matrix.
+\end{example}
+
+Note that in the example above, each of $A_1$, $A_2$, $A_3$ is an upper-triangular matrix whose diagonal entries are all equal. The next result shows that with respect to an appropriate basis, every operator on a finite-dimensional complex vector space has a matrix of this form. Note that this result gives us many more zeros
+in the matrix than are needed to make it upper triangular.\index{upper-triangular matrix}
+
+\ResultBox[187]{block diagonal matrix with upper-triangular blocks}{%
+Suppose $\F{} = \C{}$ and $T \in \L(V)$.  Let
+$\la_1, \dots, \la_m$ be the  distinct eigenvalues of $T$, with multiplicities $d_1, \dots, d_m$.  Then there is a
+basis of $V$ with respect to  which $T$ has a block diagonal matrix of the form
+\[
+\mat{ccc}{A_1 & &0 \\ &\ddots & \\ 0 & &A_m},
+\]
+where each\/ $A_k$ is a \by{d_k}{d_k} upper-triangular matrix of the form
+\[
+A_k = \mat{ccc}{\la_k & &* \\ &\ddots & \\ 0 & &\la_k}.
+\]
+}
+
+\proof
+Each $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent (see \ref{31}).  For each $k$,
+choose a basis of $G(\la_k, T)$, which is a vector space of dimension $d_k$, such that the matrix of $(T - \la_k I)|_{G(\la_k, T)}$
+with respect to this basis is as in~\ref{a33}(c).  Thus with respect to this basis, the matrix of
+$T|_{G(\la_k, T)}$, which equals $(T - \la_k I)|_{G(\la_k, T)} + \la_k I|_{G(\la_k, T)}$, looks like the desired form shown above for $A_k$.
+
+The generalized eigenspace decomposition (\ref{31}) shows that putting together the bases of the $G(\la_k, T)$'s chosen above gives a basis of $V\1$.  The matrix of $T$ with respect to this basis has the desired form.
+\qed
+
+\begin{example}[decompex]{block diagonal matrix via generalized eigenvectors}
+Let $T \in \L\paren[\big]{\C{3}}$ be defined by
+$
+T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3)$.
+The matrix of $T$ (with respect to the standard basis) is
+\[
+\mat{ccc}{ 6 & 3 & 4 \\
+0 & 6 & 2 \\
+0 & 0 & 7},
+\]
+which is an upper-triangular matrix but is not of the form promised by \ref{187}.
+
+As we saw in Example \ref{multex}, the eigenvalues of $T$ are $6$ and $7$; also,
+\[
+G(6, T)  =
+\Span\bigl( (1, 0, 0), (0, 1, 0) \bigr) \andd
+G(7, T) = \Span\bigl( (10, 2, 1) \bigr).
+\]
+We also saw that a basis of $\C3$ consisting of generalized eigenvectors of $T$ is
+\vspace{-.01in} %VisualFormatting for page break.
+\[
+(1, 0, 0), (0, 1, 0), (10, 2, 1).
+\vspace{-.01in} %VisualFormatting for page break.
+\]
+The matrix of $T$ with respect to this basis is
+\[
+\mat{cc}{
+\mat{cc}{6 & 3 \\ 0 & 6} & \begin{matrix} 0 \\ 0 \end{matrix} \\
+\begin{matrix} 0 & 0 \end{matrix} & \mat{c}{7}
+},
+\]
+which is a matrix of the block diagonal form promised by \ref{187}.
+\end{example}
+
+\pagebreak[3]
+
+\begin{comment}
+\pagebreak[3]
+
+When we discuss the Jordan form in the next section, we will see that we can find a basis with respect to which an operator has a matrix with even more $0$'s than promised by \ref{187}. However, \ref{187} and the generalized eigenspace decomposition are already quite powerful. For example, in the next section we will use the generalized eigenspace decomposition to show that every invertible operator on a complex vector space has a square root.
+
+\end{comment}
+
+\begin{exercises}
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (-z, w)$.
+Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that $G(\la, T) = G\paren[\Big]{\frac{1}{\la}, T^{-1}}$ for every $\la \in \F{}$ with $\la \ne 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$.  Suppose $S \in \L(V)$ is invertible. Prove that $T$ and $S^{-1} T S$ have the same eigenvalues with the same multiplicities.
+
+
+\exercise
+Suppose $\dim V \ge 2$ and $T \in \L(V)$ is such that $\ker T^{\dim V-2\!}  \ne \ker T^{\dim V-1\!}$.
+Prove that $T$ has at most two distinct eigenvalues.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $3$ and $8$ are eigenvalues of $T\3$. Let $n = \dim V\1$. Prove that
+$V = \paren[\big]{\ker T^{n-2}} \oplus \paren[\big]{\ran T^{n-2}}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the exponent of $z-\la$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T$ with multiplicity $d$. Prove that
+$
+G(\la, T) = \ker(T - \la I)^d\!$.
+\exercisecomment{If $d < \dim V\1$, then this exercise improves \ref{180}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la_1, \ldots, \la_m$ are the distinct eigenvalues of $T\3$. Prove that\label{8Rdecomp}\index{minimal polynomial!and generalized eigenspace decomposition}
+\[
+V = G(\la_1, T) \oplus \cdots \oplus G(\la_m, T)
+\]
+if and only if the minimal polynomial of $T$ equals
+$(z-\la_1)^{k_1} \cdots (z - \la_m)^{k_m}$ for some positive integers $k_1, \ldots, k_m$.
+\exercisecomment{The case\/ $\F{} = \C{}$ follows immediately from \ref{136}\uppar{b} and the generalized eigenspace decomposition \uppar{\ref{31}}; thus this exercise is interesting only when\/ $\F{} = \R{}$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that there exist $D, N \in \L(V)$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.\index{diagonalizable}
+
+
+\exercise
+Suppose $V$ is a complex inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \L(V)$.  Let
+$\la_1, \dots, \la_n$ be the eigenvalues of~$T$, each included as many times as its multiplicity. Prove that
+\[
+|\la_1|^2 + \dots + |\la_n|^2 \le \norm{Te_1}^2 + \cdots + \norm{Te_n}^2\1.
+\]
+\exercisecomment{See the comment after Exercise \ref{6sumT2} in Section \ref{7001}.}
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $(z - 7)^2 (z - 8)^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C4$ whose characteristic
+polynomial equals $(z - 1) (z - 5)^3$ and whose minimal polynomial equals
+$(z - 1) (z - 5)^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic and
+minimal polynomials both equal $z (z - 1)^2 (z - 3)$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose characteristic
+polynomial equals $z (z - 1)^2 (z - 3)$ and whose minimal polynomial equals
+$z (z - 1) (z - 3)$.
+
+
+\begin{comment}
+\exercise
+Give an example of an operator on $\C{3}$ whose minimal polynomial
+equals~$z^2\1$.
+
+
+\exercise
+Give an example of an operator on $\C{4}$ whose minimal polynomial
+equals~$z (z - 1)^2\1$.
+
+
+\end{comment}
+
+\exercise
+Let $T$ be the operator on $\C4$ defined by
+$
+T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)$.
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+
+\exercise
+Let $T$ be the operator on $\C6$ defined by
+\[
+T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+\]
+Find the characteristic polynomial and the minimal polynomial of $T$.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $P \in \L(V)$ is such that $P^2 = P\1$. Prove that the characteristic polynomial of $P$ is $z^m (z-1)^n\1$, where $m = \dim \ker P$ and $n = \dim \ran P\1$.\label{8P2}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Explain why the following four numbers equal each other.
+\begin{subtheorem}*
+\item
+The exponent of $z-\la$ in the factorization of the minimal polynomial of $T$.
+\item
+The smallest positive integer $m$ such that $(T - \la I)^m|_{G(\la, T)} = 0$.\index{minimal polynomial!and generalized eigenspaces}
+\item
+The smallest positive integer $m$ such that
+\[
+\ker (T - \la I)^m = \ker (T - \la I)^{m+1}\!.
+\exercisesubtheoremend
+\]
+\item
+The smallest positive integer $m$ such that
+\[
+\ran (T - \la I)^m = \ran (T - \la I)^{m+1}\!.
+\exercisesubtheoremend
+\]
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $S \in \L(V)$ is a unitary operator. Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
+
+
+\begin{comment}
+\exercise
+Suppose $a_0, \dots, a_{n-1} \in \C{}$.
+Find the characteristic polynomial of the operator on $\C{n}$ whose
+matrix (with respect to the standard basis) is
+\[
+\mat{cccccc}{
+0 & & & & & -a_0 \\
+1 & 0  & & & & -a_1 \\
+& 1 & \ddots & & & -a_2 \\
+& & \ddots & & & \vdots \\
+& & & & 0 & -a_{n-2} \\
+& & & & 1 & -a_{n-1} }.
+\]
+\exercisecomment{This exercise shows that  every monic polynomial is the characteristic polynomial of some operator. Also, see Exercise \ref{8FTAneeded} in Section \ref{eigenuppertri}.}
+
+\end{comment}
+
+\begin{comment}
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and with respect to some basis of $V$ the matrix of $T$ is upper triangular, with $\la_1, \dots, \la_n$ on the diagonal of this matrix. Prove that the characteristic polynomial of $T$ is
+$(z - \la_1) \dotsm (z - \la_n)$.
+
+\end{comment}
+
+\exercise
+Suppose that $\F{} = \C{}$ and $V\1_1, \dots, V\1_m$ are nonzero subspaces of $V$ such that
+\[
+V = V\1_1 \oplus \dots \oplus V\1_m.
+\]
+Suppose $T \in \L(V)$ and each $V\1_k$ is invariant under $T\3$. For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V\1_k}$. Prove that
+the characteristic polynomial of $T$ equals $p_1 \dotsm p_m$.
+
+
+\exercise
+Suppose $p, q \in \P(\C{})$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$. Prove that there exists $T \in \L\paren[\big]{\C{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
+\exercisecomment{This exercise implies that every monic polynomial is the characteristic polynomial of some operator.}
+
+
+\exercise
+Suppose $A$ and $B$ are block diagonal matrices of the form\label{blockmult}
+\[
+A = \mat{ccc}{
+A_1 & &0 \\
+& \ddots & \\
+0 & &A_m},
+\quad B = \mat{ccc}{
+B_1 & &0 \\
+& \ddots & \\
+0 & &B_m},
+\]
+where $A_k$ and $B_k$ are square matrices of the same size for each $k = 1, \dots, m$. Show that $AB$ is a
+block diagonal matrix of the form
+\[
+AB = \mat{ccc}{
+A_1 B_1 & &0 \\
+& \ddots & \\
+0 & &A_m B_m}.
+\]
+
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \C{}$.\index{complexification!generalized eigenvectors of}\index{complexification!multiplicity of eigenvalues}\index{eigenvalue!on odd-dimensional space}\label{8compmult}
+\begin{subtheorem}
+\item
+Show that $u + iv \in G\paren{ \la, T\3_{\C{}} }$ if and only if $u - iv \in G\paren[\big]{ \overline{\la}, T\3_{\C{}}}$.
+\item
+Show that the multiplicity of $\la$ as an eigenvalue of $T\3_{\C{}}$ equals the \mbox{multiplicity} of $\bar{\la}$ as an eigenvalue of $T\3_{\C{}}$.
+\item
+Use (b) and the result about the sum of the multiplicities (\ref{8sm}) to show that if $\dim V$ is an odd number, then $T\3_{\C{}}$ has a real eigenvalue.
+\item
+Use (c) and the result about real eigenvalues of $T\3_{\C{}}$ (Exercise \ref{5realeig} in Section \ref{5invar}) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of \ref{5odd}).
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{3complexMap} in Section \ref{3nullspace} for the definition of the complexification\/ $T\3_{\C{}}$.}
+
+
+\end{exercises}
+
+\CrCom
+
+\section[Consequences of Generalized Eigenspace Decomposition]{\hspace*{-2.1bp}Consequences of Generalized Eigenspace Decomposition} \label{8geneigde}
+
+\subsection{Square Roots of Operators}
+
+Recall that a square root of an operator $T \in \L(V)$ is an operator $R \in \L(V)$
+such that $R^2 = T$ (see \ref{sqrt}). Every complex number has a square root, but not every operator on
+a complex vector space has a square root.
+For example, the operator on~$\C{3}$ defined by $T(z_1, z_2, z_3) = (z_2, z_3, 0)$ does not have a square root, as you are asked to show in Exercise~\ref{195}.  The noninvertibility of that operator is no accident, as we will soon see.  We begin by showing that the identity plus any nilpotent operator has a square root.
+
+\ResultBox[196]{identity plus nilpotent has a square root}{%
+Suppose\/ $T \in \L(V)$ is nilpotent.  Then\/ $I + T$ has a square root.
+}
+
+\proof
+Consider the Taylor series for the function $\sqrt{1 +
+x}$:
+\begin{equation} \label{364}
+\sqrt{1 + x} = 1 + a_1 x + a_2 x^2 + \dotsb .
+\end{equation}%
+
+\mar[5]{Because $a_1 = \frac{1}{2}$, the formula above implies that $1 + \frac{x}{2}$ is a good estimate for $\sqrt{1 + x}$ when $x$ is small.}
+
+We do not find an explicit formula for the coefficients or worry about whether the infinite sum converges because we use this equation only as \mbox{motivation}.
+
+Because $T$ is nilpotent, $T^m = 0$ for some positive integer $m$.  In~\ref{364},
+suppose we replace $x$ with $T$ and $1$ with $I$.  Then the infinite sum on the right
+side becomes a finite sum (because $T^k = 0$ for all $k \ge m$).  Thus we
+guess that there is a square root of $I + T$ of the form
+\[
+I + a_1 T + a_2 T^2 + \dots + a_{m-1} T^{m-1}\!.
+\]
+Having made this guess, we can try to choose $a_1, a_2, \dots, a_{m-1}$ such that
+the operator above has its square equal to $I + T\3$.  Now
+\begin{align*}
+\paren[\big]{I + &a_1 T + a_2 T^2 + a_3 T^3 + \dots + a_{m-1} T^{m-1}}^2 \\[4bp]
+&= I + 2a_1 T + \paren[\big]{2a_2 + {a_1}^{\2}} T^2 + (2a_3 + 2 a_1 a_2) T^3 + \dotsb \\
+&\quad {} + (2a_{m-1} + \text{terms involving $a_1, \dots, a_{m-2}$}) T^{m-1}\!.
+\end{align*}
+We want the right side of the equation above to equal $I + T\3$.  Hence
+choose $a_1$ such that $2a_1 = 1$ (thus $a_1 = 1/2$).  Next, choose $a_2$ such
+that $2a_2 + {a_1}^{\2} = 0$ (thus $a_2 = -1/8$).  Then choose $a_3$ such that the
+coefficient of $T^3$ on the right side of the equation above equals $0$ (thus
+$a_3 = 1/16$).  Continue in this fashion for each $k = 4, \dots, m-1$, at each step solving
+for $a_k$ so that the coefficient of $T^k$ on the right side of the equation above
+equals $0$.  Actually we do not care about the explicit formula for the $a_k$'s.  We
+only need to know that some choice of the $a_k$'s gives a square root of $I + T\3$.
+\qed
+
+The previous lemma is valid on real and complex vector spaces.
+However, the result below holds only on complex vector spaces. For example, the
+operator of multiplication by $-1$ on the one-dimensional real vector space $\R{}$ has no square root.
+
+\marF{\includegraphics{Mathematica/polar.pdf}}{Representation of a complex number with polar coordinates.}
+
+For the proof below, we need to know that every $z \in \C{}$ has a square root in~$\C{}$. To show this, write
+\[
+z = r( \cos \theta + i \sin \theta),
+\]
+where $r$ is the length of the line segment in the complex plane from the origin to $z$ and $\theta$ is the angle of that line segment with the positive horizontal axis. Then
+\[
+\sqrt{r} \paren[\Big]{ \cos \tfrac{\theta}{2} + i \sin \tfrac{\theta}{2} }
+\]
+is a square root of $z$, as you can verify by showing that the square of the complex number above equals $z$.
+
+\ResultBox[397]{over $\C{}$, invertible operators have square roots}{%
+Suppose\/ $V$ is a complex vector space and $T \in \L(V)$ is invertible. Then $T$ has a square root.\index{square root of an operator}
+}
+
+\proof
+Let $\la_1, \dots, \la_m$ be the distinct eigenvalues of~$T\3$.  For each $k$, there exists a nilpotent operator
+$T\3_k \in \L\bigl(G(\la_k, T)\bigr)$ such that $T|_{G(\la_k, T)} = \la_k I +T\3_k$ \sbr{see \ref{31}(b)}.  Because $T$ is invertible, none of the
+$\la_k$'s equals $0$, so we can write
+\[
+T|_{G(\la_k, T)} = \la_k \paren[\Bigg]{I + \frac{T\3_k}{\la_k}}
+\]
+for each $k$.  Because $T\3_k/\la_k$ is nilpotent, $I + T\3_k/\la_k$ has a square
+root (by \ref{196}).  Multiplying a square root of the complex number $\la_k$ by a
+square root of $I + T\3_k/\la_k$, we obtain a square root $R_k$ of~$T|_{G(\la_k, T)}$.
+
+By the generalized eigenspace decomposition (\ref{31}), a typical vector $v \in V$ can be written uniquely in the form
+\[
+v = u_1 + \dots + u_m,
+\]
+where each $u_k$ is in $G(\la_k, T)$.  Using this decomposition,
+define an operator $R \in \L(V)$ by
+\[
+Rv = R_1 u_1 + \dots + R_m u_m.
+\]
+You should verify that this operator $R$ is a square root of~$T$, completing the proof.
+\qed
+
+By imitating the techniques in this subsection, you should be able to
+prove that if $V$ is a complex vector space and $T \in \L(V)$ is
+invertible, then $T$ has a $k^\nth$~root for every positive integer~$k$.
+
+\pagebreak[3]
+
+\subsection{Jordan Form} \label{Jordan}
+
+We know that if $V$ is a complex vector space, then for every $T \in \L(V)$
+there is a basis of~$V$ with respect to which $T$ has a nice upper-triangular
+matrix (see \ref{187}).  In this subsection we will see that we can do even
+better---there is a basis of~$V$ with respect to which the matrix of~$T$
+contains $0$'s everywhere except possibly on the diagonal and the
+line directly above the diagonal.
+
+We begin by looking at two examples of nilpotent operators.
+
+\begin{example}{nilpotent operator with nice matrix}
+Let $T$ be the operator on $\C4$ defined by
+\[
+T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3).
+\]
+Then $T^4 = 0$; thus $T$ is nilpotent. If $v = (1, 0, 0, 0)$, then $T^3v, T^2v, Tv, v$ is a basis of $\CC{4}$. The matrix of $T$ with respect to this basis is
+\[
+\mat{cccc}{
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0}.
+\]
+\vspace{-.15in}
+\end{example}
+
+The next example of a nilpotent operator has more complicated behavior than the example above.
+
+\begin{example}{nilpotent operator with slightly more complicated matrix}
+Let $T$ be the operator on $\C6$ defined by
+\[
+T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+\]
+Then $T^3 = 0$; thus $T$ is nilpotent. In contrast to the nice behavior of the nilpotent operator of the previous example, for this nilpotent operator there does not exist a vector $v \in \CC{6}$ such that
+$T^5v, T^4 v, T^3 v, T^2 v, Tv, v$ is a basis of~$\CC{6}$.  However, if we take
+$v_1 = (1, 0, 0, 0, 0, 0)$, $v_2 = (0, 0, 0, 1, 0, 0)$, and
+$v_3 = (0, 0, 0, 0, 0, 1)$, then
+$T^2 v_1, Tv_1, v_1, Tv_2, v_2, v_3$ is a basis of $\CC{6}$. The matrix of $T$ with respect to this basis is
+\[
+\mat{ccc}{
+\mat{ccc}{
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0} & \begin{matrix}
+0 & 0 \\
+0 & 0 \\
+0 & 0\end{matrix}
+& \begin{matrix} 0 \\ 0 \\ 0 \end{matrix}\\
+\begin{matrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \end{matrix}
+& \mat{cc}{0 & 1 \\ 0 & 0}
+& \begin{matrix}0 \\ 0\end{matrix}\\
+\begin{matrix} 0 & 0 & 0 \end{matrix}
+& \begin{matrix} 0 & 0 \end{matrix}
+& \mat{c}{0}
+}.
+\]
+Here the inner matrices are blocked off to show that we can think of the \by{6}{6} matrix above as a block diagonal matrix consisting of a \by{3}{3} block with $1$'s on the line above the diagonal and $0$'s elsewhere, a \by{2}{2} block with $1$ above the diagonal and $0$'s elsewhere, and a \by{1}{1} block containing $0$.
+\end{example}
+
+Our next goal is to show that every nilpotent operator $T \in \L(V)$ behaves similarly to the operator in the previous example. Specifically, there is a finite collection of vectors $v_1, \dots, v_n \in V$ such that there is a basis of $V$ consisting of the vectors of the form $T^j v_k$, as $k$ varies from $1$ to $n$ and $j$ varies (in reverse order) from $0$ to the largest nonnegative integer $m_k$ such that $T^{m_k} v_k \ne 0$. With respect to this basis, the matrix of $T$ looks like the matrix in the previous example. More specifically, $T$ has a block diagonal matrix with respect to this basis, with each block a square matrix that is $0$ everywhere except on the line above the diagonal.
+
+In the next definition, the diagonal of each $A_k$ is filled with some eigenvalue $\la_k$ of~$T$, the line directly above the diagonal of $A_k$ is filled with $1$'s, and all other entries in $A_k$ are $0$ (to understand why each $\la_k$ is an eigenvalue of $T$, see~\ref{a221}). The $\la_k$'s need not be distinct. Also, $A_k$ may be a \by{1}{1} matrix $(\la_k)$ containing just an eigenvalue of $T\3$. If each $\la_k$ is $0$, then the next definition captures the behavior described in the paragraph above (recall that if $T$ is nilpotent, then $0$ is the only eigenvalue of $T$).
+
+\DefinitionBox{Jordan basis}{Suppose $T \in \L(V)$.  A basis of $V$ is called a
+\emph{Jordan basis}\index{Jordan basis} for $T$ if with respect to this basis
+$T$ has a block diagonal matrix
+\[
+\mat{ccc}{A_1 & &0 \\ &\ddots & \\ 0 & &A_p}
+\]
+in which each\/ $A_k$ is an upper-triangular matrix of the form
+\[
+A_k = \mat{cccc}{\la_k &1 & &0 \\
+&\ddots &\ddots & \\
+& &\ddots &1 \\
+0 & & &\la_k}.
+\]}
+
+Most of the work in proving that every operator on a finite-dimensional complex vector space has a Jordan basis occurs in proving the special case below of nilpotent operators. This special case holds on real vector spaces as well as complex vector spaces.
+
+\ResultBox[452]{every nilpotent operator has a Jordan basis\index{nilpotent operator}}{%
+Suppose $T \in \L(V)$ is nilpotent. Then there is a basis of $V$ that is a Jordan basis for $T$.}
+
+\proof
+We will prove this result by induction on $\dim V\1$. To get started, note that the desired result holds if $\dim V = 1$ (because in that case, the only nilpotent operator is the $0$ operator). Now assume that $\dim V > 1$ and that the desired result holds on all vector spaces of smaller dimension.
+
+\pagebreak[3]
+
+Let $m$ be the smallest positive integer such that $T^m = 0$. Thus there exists $u \in V$ such that $T^{m-1}u \ne 0$. Let
+\[
+U = \Span \paren[\big]{u, Tu, \ldots, T^{m-1}u}.
+\]
+The list $u, Tu, \ldots, T^{m-1}u$ is linearly independent (see Exercise \ref{8linind} in Section \ref{geneig}). If $U = V\1$, then
+writing this list in reverse order gives a Jordan basis for $T$ and we are done. Thus we can assume that $U \ne V\1$.
+
+Note that $U$ is invariant under $T\3$. By our induction hypothesis, there is a basis of $U$ that is a Jordan basis for $T|_U$. The strategy of our proof is that we will find a subspace $W$ of $V$ such that $W$ is also invariant under $T$ and $V = U \oplus W\3$. Again by our induction hypothesis, there will be a basis of $W$ that is a Jordan basis for $T|_W$. Putting together the Jordan bases for $T|_U$ and $T|_W$, we will have a Jordan basis for $T\3$.
+
+Let $\phi \in V'$ be such that $\phi\paren[\big]{ T^{m-1}u } \ne 0$. Let
+\[
+W = \br[\Big]{ v \in V: \phi\paren[\big]{T^k v} = 0 \text{ for each } k = 0, \ldots, m-1}.
+\]
+Then $W$ is a subspace of $V$ that is invariant under $T$ \Big(the invariance holds because if $v \in W$ then $\phi\paren[\big]{ T^k(Tv) } = 0$ for $k = 0, \ldots, m-1$, where the case $k = m-1$ holds because $T^m = 0$\Big). We will show that $V = U \oplus W$, which by the previous paragraph will complete the proof.
+
+To show that $U + W$ is a direct sum, suppose $v \in U \cap W\3$ with $v \ne 0$. Because $v \in U$, there exist
+$c_0, \ldots, c_{m-1} \in \F{}$ such that
+\[
+v = c_0 u + c_1 Tu + \cdots + c_{m-1} T^{m-1}u.
+\]
+Let $j$ be the smallest index such that $c_j \ne 0$. Apply $T^{m-j-1}$ to both sides of the equation above, getting
+\[
+T^{m-j-1} v = c_j T^{m-1} u,
+\]
+where we have used the equation $T^m = 0$. Now apply $\phi$ to both sides of the equation above, getting
+\[
+\phi\paren[\big]{T^{m-j-1} v} = c_j \phi\paren[\big]{T^{m-1} u} \ne 0.
+\]
+The equation above shows that $v \notin W\3$. Hence we have proved that $U \cap W = \br{0}$, which implies that $U + W$ is a direct sum (see \ref{219}).
+
+To show that $U \oplus W = V$, define $\fun S V {\F m}$ by
+\[
+Sv = \paren[\Big]{ \phi(v), \phi(Tv), \ldots, \phi\paren[\big]{ T^{m-1}v } }.
+\]
+Thus $\ker S = W\3$. Hence
+\[
+\dim W = \dim \ker S = \dim V - \dim \ran S \ge \dim V - m,
+\]
+where the second equality comes from the fundamental theorem of linear maps (\ref{3ab11}). Using the inequality above, we have
+\[
+\dim (U \oplus W) = \dim U + \dim W \ge m + (\dim V - m) = \dim V.
+\]
+Thus $U \oplus W = V$ (by \ref{2subfull}), completing the proof.
+\qed
+
+\mar{Camille Jordan \uppar{1838--1922} published a proof of \ref{398} in 1870.\index{Jordan, Camille}}
+
+Now the generalized eigenspace decomposition allows us to extend the previous result to operators that may not be nilpotent. Doing this requires that we deal with complex vector spaces.
+
+\ResultBox[398]{Jordan form}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Then there is a
+basis of $V$ that is a Jordan basis for $T\3$.\index{Jordan form}}
+
+\proof
+Let $\la_1, \dots, \la_m$ be the distinct eigenvalues of~$T\3$. The generalized eigenspace decomposition states that
+\[
+V = G(\la_1, T) \oplus \dots \oplus G(\la_m, T),
+\]
+where each $(T - \la_k I)|_{G(\la_k, T)}$ is nilpotent (see~\ref{31}).  Thus \ref{452} implies that some basis of each $G(\la_k, T)$ is a Jordan basis for $(T - \la_k I)|_{G(\la_k, T)}$. Put these bases together to get a basis of $V$ that is a Jordan basis for~$T\3$.
+\qed
+
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{3}}$ is the operator defined by $T(z_1, z_2, z_3) = (z_2, z_3, 0)$.  Prove
+that $T$ does not have a square root.\label{195}
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{5}}$ by
+%\[ \addtolength{\belowdisplayskip}{-3bp}
+$T(x_1, x_2, x_3, x_4, x_5) = (2 x_2, 3 x_3, -x_4, 4 x_5, 0)$.
+\begin{subtheorem}
+\item
+Show that $T$ is nilpotent.
+\item
+Find a square root of $I + T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is a complex vector space. Prove that every invertible operator
+on~$V$ has a cube root.
+
+
+\exercise
+Suppose $V$ is a real vector space. Prove that the operator $-I$ on $V$ has a square root if and only if $\dim V$ is an even number.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C2}$ is the operator defined by $T(w, z) = (-w - z, 9w + 5z)$. Find a Jordan basis for $T\3$.
+
+
+\exercise
+Find a basis of $\P\1_4(\R{})$ that is a Jordan basis for the differentiation operator $D$ on $\P\1_4(\R{})$ defined by $Dp = p'\!$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $v_1, \ldots, v_n$ is a Jordan basis for $T\3$.  Prove that the minimal polynomial of $T$ is
+$z^{m+1}$, where $m$ is the length of the longest consecutive string of $1$'s that
+appears on the line directly above the diagonal in the matrix of $T$ with respect to
+$v_1, \ldots, v_n$. \label{nilmin}\index{minimal polynomial!of nilpotent operator}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V$ that is a Jordan
+basis for~$T\3$. Describe the matrix of~$T^2$ with respect to this basis.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Explain why there exist \ $v_1, \dots, v_n \in V$ and nonnegative integers $m_1, \dots, m_n$ such that (a) and (b) below both hold.
+\begin{subtheorem}*
+\item
+$T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n$ is a basis of~$V$.
+\item
+$T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V$ that is a Jordan
+basis for~$T\3$. Describe the matrix of~$T$ with respect to the basis
+$v_n, \dots, v_1$ obtained by reversing the order of the $v$'s.
+
+
+\exercise
+Suppose $T \in \L(V)$. Explain why every vector in each Jordan basis for $T$ is a generalized eigenvector of $T\3$.\label{8JorGenEig}
+
+
+\exercise
+Suppose $T \in \L(V)$ is diagonalizable. Show that $\M(T)$ is a diagonal matrix with respect to every Jordan basis for $T\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that if $v_1, \dots, v_n$ are vectors in $V$ and $m_1, \dots, m_n$ are nonnegative integers such that
+\[
+T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n \text{ is a basis of } V
+\]
+and
+\[
+T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0,
+\]
+then $T^{m_1}v_1, \dots, T^{m_n}v_n$ is a basis of $\ker T\3$.
+\exercisecomment{This exercise shows that\/ $n = \dim \ker T\3$. Thus the positive integer\/ $n$ that appears above depends only on\/ $T$ and not on the specific Jordan basis chosen for\/ $T\3$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$.  Prove that there
+does not exist a direct sum decomposition of $V$ into two nonzero subspaces
+invariant under~$T$ if and only if the minimal polynomial of $T$ is of the form
+$(z - \la)^{\dim V}$ for some $\la \in \C{}$.\index{minimal polynomial!no direct sum decomposition}
+
+
+\end{exercises}
+
+\section{Trace: A Connection Between Matrices and Operators} \label{7trace}
+
+We begin this section by defining the trace of a square matrix. After developing some properties of the trace of a square matrix, we will use this concept to define the trace of an operator.
+
+\DefinitionBox{trace of a matrix}{Suppose $A$ is a square matrix with entries in $\F{}\3$. The \emph{trace} of $A$, denoted
+$\tr A$, is defined to be the sum of the diagonal entries of $A$.\index{trace!of a matrix}\sindex{traceA@$\tr A$}}
+
+\begin{example}{trace of a \by{3}{3} matrix}
+Suppose
+\[
+A = \mat{ccc}{\textcolor{red}{3} &-1 &-2 \\ 5 &\textcolor{red}{2} &-3 \\ 1 &6 &\textcolor{red}{0}}.
+\]
+The diagonal entries of $A$, which are shown in red above, are $3$, $2$, and $0$. Thus $\tr A = 3 + 2 + 0 = 5$.
+\end{example}
+
+Matrix multiplication is not commutative, but the next result shows that the order of matrix multiplication does not matter to the trace.
+
+\ResultBox[304]{trace of $AB$ equals trace of $BA$}{%
+Suppose $A$ is an \by{m}{n} matrix and $B$ is an \by{n}{m} matrix. Then
+\[
+\tr (AB) = \tr (BA).
+\]
+}
+
+\proof
+Suppose
+\[
+A = \mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\[2bp]
+\vdots &   & \vdots \\[2bp]
+A_{m,1} & \cdots & A_{m,n} }, \quad
+B = \mat{ccc}{
+B_{1,1} & \cdots & B_{1,m} \\[2bp]
+\vdots &   & \vdots \\[2bp]
+B_{n,1} & \cdots & B_{n,m} }.
+\]
+The $j^{\nth}$ term on the diagonal of the \by{m}{m} matrix $AB$ equals
+$
+\sum_{k=1}^n A_{j,k}B_{k,j}$.
+Thus
+\begin{align*}
+\tr (AB) &= \sum_{\js}^m \sum_{k=1}^n A_{j,k}B_{k,j} \\[2bp]
+&= \sum_{k=1}^n \sum_{\js}^m B_{k,j} A_{j,k} \\[2bp]
+&= \sum_{k=1}^n \paren[\big]{\text{$k^{\nth}$ term on diagonal of the \by{n}{n} matrix $BA$}} \\[2bp]
+&= \tr (BA),
+\end{align*}
+as desired.
+\qed
+
+We want to define the trace of an operator $T \in \L(V)$ to be the trace of the matrix of $T$ with respect to some basis of $V\1$. However, this definition should not depend on the choice of basis. The following result will make this possible.
+
+\ResultBox[8trbasis]{trace of matrix of operator does not depend on basis}
+{Suppose $T \in \L(V)$. Suppose $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V\1$. Then
+\[
+\tr \M\paren[\big]{ T, (u_1, \ldots, u_n) } = \tr \M\paren[\big]{ T, (v_1, \ldots, v_n) }.
+\]}
+
+\proof
+Let $A = \M\paren[\big]{ T, (u_1, \ldots, u_n) }$ and $B = \M\paren[\big]{ T, (v_1, \ldots, v_n) }$. The change-of-basis formula tells us that there exists an invertible \by{n}{n} matrix $C$ such that $A = C^{-1} B C$ (see \ref{303}). Thus
+\begin{align*}
+\tr A &= \tr \paren[\Big]{\paren[\big]{ C^{-1} B } C} \\[2bp]
+&= \tr \paren[\Big]{C \paren[\big]{ C^{-1} B }} \\[2bp]
+&= \tr \paren[\Big]{\paren[\big]{ C C^{-1} } B} \\[2bp]
+&= \tr B,
+\end{align*}
+where the second line comes from \ref{304}.
+\qed
+
+Because of \ref{8trbasis}, the following definition now makes sense.
+
+\DefinitionBox{trace of an operator}
+{Suppose $T \in \L(V)$. The\/ \emph{trace} of $T$, denoted $\tr T$, is defined by
+\[
+\tr T = \tr \M\paren[\big]{ T, (v_1, \ldots, v_n) },
+\]
+where $v_1, \ldots, v_n$ is any basis of $V\1$.\index{trace!of an operator}\sindex{traceT@$\tr T$}}
+
+Suppose $T \in \L(V)$ and $\la$ is an eigenvalue of $T\3$. Recall that we defined the multiplicity of $\la$ to be the dimension of the generalized eigenspace $G(\la, T)$ (see \ref{multeigen});  we proved that this multiplicity equals $\dim \ker(T - \la I)^{\dim V}$ (see \ref{180}). Recall also that if $V$ is a complex vector space, then the sum of the multiplicities of all eigenvalues of $T$ equals $\dim V$ (see \ref{8sm}).
+
+In the following result, the sum of the eigenvalues ``with each eigenvalue included as many times as its multiplicity'' means that if
+$\la_1, \dots, \la_m$ are the distinct eigenvalues of $T$ with multiplicities $d_1, \dots, d_m$, then the sum is
+\[
+d_1 \la_1 + \dots + d_m \la_m.
+\]
+Or if you prefer to work with a list of not-necessarily-distinct eigenvalues, with each eigenvalue included as many times as its multiplicity, then the eigenvalues could be denoted by $\la_1, \dots, \la_n$ (where $n$ equals $\dim V$) and the sum is
+\[
+\la_1 + \dots + \la_n.
+\]
+
+\pagebreak[3]
+
+\ResultBox[9sumeigen]{on complex vector spaces, trace equals sum of eigenvalues}{Suppose $\F{} = \C{}$ and $T \in \L(V)$.
+Then $\tr T$ equals the sum of the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.}
+
+\proof
+There is a basis of $V$ with respect to which $T$ has an upper-triangular matrix with the diagonal entries of the matrix consisting of the eigenvalues of $T\3$, with each eigenvalue included as many times as its multiplicity---see \ref{187}. Thus the definition of the trace of an operator along with \ref{8trbasis}, which allows us to use a basis of our choice, implies that $\tr T$ equals the sum of the eigenvalues of $T\3$, with each eigenvalue included as many times as its multiplicity.
+\qed
+
+\begin{example}{trace of an operator on\/ $\C3$}
+Suppose $T \in \L\paren[\big]{\C{3}}$ is defined by
+\[
+T(z_1, z_2, z_3) = (3z_1 - z_2 - 2z_3, 3z_1 + 2z_2 - 3z_3, z_1 + 2z_2).
+\]
+Then the matrix of $T$ with respect to the standard basis of $\C3$ is
+\[
+\mat{ccc}{3 &-1 &-2 \\ 3 &2 &-3 \\ 1 &2 &0}.
+\]
+Adding up the diagonal entries of this matrix, we see that $\tr T = 5$.
+
+The eigenvalues of~$T$ are $1$, $2+3i$, and $2-3i$, each with multiplicity~$1$, as you can verify. The sum of these eigenvalues, each included as many times as its multiplicity, is $1 + (2 + 3i) + (2 - 3i)$, which equals $5$, as expected by \ref{9sumeigen}.
+\end{example}
+
+The trace has a close connection with the characteristic polynomial. Suppose $\F{} = \C{}$, $T \in \L(V)$, and $\la_1, \dots, \la_n$ are the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity. Then by definition (see \ref{7charpoly}), the characteristic polynomial of~$T$ equals
+\[
+(z - \la_1) \dotsm (z - \la_n).
+\]
+Expanding the polynomial above, we can write the
+characteristic polynomial of~$T$ in the form
+\[
+z^n - (\la_1 + \dots + \la_n) z^{n-1} + \dots + (-1)^n (\la_1 \dotsm \la_n).
+\]
+
+The expression above immediately leads to the next result. Also see \ref{9dettr}, which does not require the hypothesis that $\F{} = \C{}$.
+
+\ResultBox[8tracechar]{trace and characteristic polynomial}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Let $n = \dim V\1$. Then $\tr T$ equals the negative of the coefficient of $z^{n-1}$ in the characteristic polynomial of $T\3$.}
+
+\begin{comment}
+If we know the matrix of an operator on a complex vector space, the result
+above allows us to find the sum of all the eigenvalues without finding any of the eigenvalues, as shown by the next example.
+
+\begin{example}{finding sum of eigenvalues without finding eigenvalues}
+Consider the operator on~$\C{5}$ whose matrix is
+\[
+\mat{ccccc}{
+0 &0 &0 &0 &-3 \\
+1 &0 &0 &0 &6 \\
+0 &1 &0 &0 &0 \\
+0 &0 &1 &0 &0 \\
+0 &0 &0 &1 &0 }.
+\]
+No one can find an exact formula for any of the eigenvalues of this operator.
+However, \ref{306} tells us that the sum of the eigenvalues of this operator equals~$0$, because the sum
+of the diagonal entries of the matrix above equals~$0$.
+\end{example}
+\end{comment}
+
+The next result gives a nice formula for the trace of an operator on an inner product space.
+
+\ResultBox[9trinner]{trace on an inner product space}
+{Suppose $V$ is an inner product space, $T \in \L(V)$, and $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$. Then
+\[
+\tr T = \ip{Te_1, e_1} + \cdots + \ip{Te_n, e_n}.
+\]}
+
+\proof
+The desired formula follows from the observation that the entry in row $k$, column $k$ of
+$\M\paren[\big]{T, (e_1, \ldots, e_n)}$ equals $\ip{Te_k, e_k}$ [use \ref{190}(a) with $v = Te_k$].
+\qed
+
+\begin{comment}
+We can use the equation $\tr T = \tr \M(T)$ (\ref{306}) to give easy proofs of some useful properties about
+traces of operators by shifting to the language of traces of matrices, where
+certain properties may be easier to prove. The proof of the next result is an example of this technique. The eigenvalues of $S + T$ are not, in general, formed from adding together eigenvalues of $S$ and eigenvalues of $T$ (however, see \ref{2EigenSum}, for the situation when $S$ and $T$ commute). Thus the additivity part of the next result would be difficult to prove without using the equality between the trace of an operator and the trace of its matrix.
+\end{comment}
+
+The algebraic properties of the trace as defined on square matrices translate to algebraic properties of the trace as defined on operators, as shown in the next result.
+
+\ResultBox[372]{trace is linear}%
+{The function $\fun {\tr} {\L(V)} {\F{}}$ is a linear functional on $\L(V)$ such that
+\[
+\tr(ST) = \tr(TS)
+\]
+for all $S, T \in \L(V)$.}
+
+\proof
+Choose a basis of $V\1$. All matrices of operators in this proof will be with respect to that basis. Suppose $S, T \in \L(V)$.
+
+If $\la \in \F{}\3$, then
+\[
+\tr(\la T) = \tr \M(\la T) = \tr \paren[\big]{ \la \M(T) } = \la \tr \M(T) = \la \tr T,
+\]
+where the first and last equalities come from the definition of the trace of an operator, the second equality comes from \ref{102}, and the third equality follows from the definition of the trace of a square matrix.
+
+Also,
+\[
+\tr (S + T) = \tr \M(S + T)
+= \tr \bigl( \M(S) + \M(T) \bigr)
+= \tr \M(S) + \tr \M(T)
+= \tr S + \tr T,
+\]
+where the first and last equalities come from the definition of the trace of an operator, the second equality comes from \ref{101}, and the third equality follows from the definition of the trace of a square matrix. The two paragraphs above show that $\fun {\tr} {\L(V)} {\F{}}$ is a linear functional on $\L(V)$.
+
+Furthermore,
+\[
+\tr(ST) \1=\1 \tr \M(ST) \1=\1\tr \bigl(\M(S) \M(T) \bigr)
+\1=\1 \tr \bigl(\M(T) \M(S) \bigr)
+\1=\1 \tr \M(TS)
+\1=\1 \tr(TS),
+\]
+where the second and fourth equalities come from \ref{3matproduct} and  the crucial third equality comes from \ref{304}.
+\qed
+
+The equations $\tr(ST) = \tr(TS)$ and $\tr I = \dim V$ uniquely characterize the trace among the linear functionals on $\L(V)$---see Exercise \ref{9trChar}.
+
+\mar{The statement of the next result does not involve traces, but the short proof uses traces.  When something
+like this happens in mathematics, then usually a good definition lurks in the background.}
+
+The equation $\tr(ST) = \tr(TS)$ leads to our next result, which does not hold on infinite-dimensional vector spaces (see Exercise \ref{9commutator}). However, additional hypotheses on $S$, $T$, and $V$ lead to an infinite-dimensional generalization of the result below, with important applications to quantum theory.
+
+\ResultBox[10ST]{identity operator is not the difference of\/ $ST$ and\/ $TS$}
+{There do not exist operators $S, T \in \L(V)$ such that $ST - TS = I$.}
+
+\proof
+Suppose $S, T \in \L(V)$. Then
+\[
+\tr(ST - TS) = \tr(ST) - \tr(TS) = 0,
+\]
+where both equalities come from \ref{372}. The trace of
+$I$ equals $\dim V\1$, which is not~$0$.  Because $ST - TS$ and $I$ have
+different traces, they cannot be equal.
+\qed
+
+\begin{exercises}
+
+\exercise
+Suppose $V$ is an inner product space and $v, w \in V\1$.  Define an operator
+$T \in \L(V)$ by $Tu = \ip{u, v} w$.  Find a formula for~$\tr T\3$.
+
+
+\exercise
+Suppose $P \in \L(V)$ satisfies $P^2 = P\1$. Prove that
+\[
+\tr P = \dim \ran P\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $T^5 = T\3$. Prove that the real and imaginary parts of $\tr T$ are both integers.
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Prove that \label{393}
+\[
+\tr T^* = \overline{\tr T}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is an inner product space.  Suppose $T \in \L(V)$ is a positive
+operator and $\tr T = 0$. Prove that $T = 0$. \label{391}
+
+
+\exercise
+Suppose $V$ is an inner product space and $P\1, Q \in \L(V)$ are orthogonal projections. Prove that $\tr(PQ) \ge 0$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{3}}$ is the operator whose matrix is
+\[
+\mat{ccc}{
+51 &-12 &-21 \\
+60 &-40 &-28 \\
+57 &-68 &1}.
+\]
+Someone tells you (accurately) that $-48$ and $24$ are eigenvalues of~$T\3$.
+Without using a computer or writing anything down, find the third eigenvalue
+of~$T\3$.
+
+
+\exercise
+Prove or give a counterexample: If $S, T \in \L(V)$, then
+$
+\tr (ST) = (\tr S) (\tr T)$.
+%\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\tr(ST) = 0$ for all $S \in \L(V)$. Prove that $T = 0$.
+
+
+\exercise
+Prove that the trace is the only linear functional $\fun \tau {\L(V)} {\F{}}$ such that\label{9trChar}
+\[
+\tau(ST) = \tau(TS)\]
+for all $S, T \in \L(V)$ and $\tau(I) = \dim V\1$.
+\hint{Suppose that\/ $v_1, \ldots, v_n$ is a basis of\/ $V\1$. For\/ $j, k \in \br{1, \ldots, n}$, define\/ $P_{j,k} \in \L(V)$ by
+$
+P_{j,k}(a_1 v_1 + \cdots + a_n v_n) = a_k v_j$.
+Prove that
+\vspace{-7bp}
+\[
+\tau(P_{j,k}) = \begin{cases}
+1 & \text{if } j = k, \\
+0 &\text{if } j \ne k.
+\end{cases}
+\vspace{-6bp}
+\]
+Then for\/ $T \in \L(V)$, use the equation\/ $T = \sum_{k=1}^n \sum_{\js}^n \M(T)_{j,k} P_{j,k}$ to show that\/ $\tau(T) = \tr T$.}
+
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces and $T \in \L(V\1,W)$.
+Prove that if $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$, then\label{390}
+\[
+\tr\paren[\big]{T^*T} = \sum_{k=1}^n \sum_{\js}^m \abs{ \ip{Te_k, f_j} }^2\1.
+\]
+\exercisecomment{The numbers\/ $\ip{Te_k, f_j}$ are the entries of the matrix of\/ $T$ with respect to the orthonormal bases\/
+$e_1, \dots, e_n$ and\/ $f_1, \ldots, f_m$. These numbers depend on the bases, but\/ $\tr (T^*T)$ does not depend on a choice of bases. Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional inner product spaces.
+\begin{subtheorem}
+\item
+Prove that
+$
+\ip{S, T} = \tr \paren[\big]{T^*S}
+$
+defines an inner product on $\L(V\1, W)$.
+\item
+Suppose $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$. Show that the inner product on $\L(V\1, W)$ from (a) is the same as the standard inner product on $\FF{mn}$, where we
+identify each element of $\L(V\1, W)$ with its matrix (with respect to the bases just mentioned) and then with an element of
+$\FF {mn}$.\index{Frobenius norm}\index{Hilbert--Schmidt norm}
+\end{subtheorem}
+\exercisecomment{Caution: The norm of a linear map\/ $T \in \L(V\1, W)$ as defined by \ref{7norm} is not the same as the norm that comes from the inner product in \uppar{a} above. Unless explicitly stated otherwise, always assume that\/ $\norm{T}$ refers to the norm as defined by \ref{7norm}.  The norm that comes from the inner product in \uppar{a} is called the \emph{Frobenius norm} or the \emph{Hilbert--Schmidt norm}.}
+
+
+\exercise
+Find $S, T \in \L\paren[\big]{ \P(\F{}) }$ such that $ST - TS = I$.\label{9commutator}
+\hint{Make an appropriate modification of the operators in Example \ref{3noncom}.}
+\exercisecomment{This exercise shows that additional hypotheses are needed on $S$ and $T$ to extend \ref{10ST} to the setting of infinite-dimensional vector spaces.}
+
+
+\end{exercises}
+
+\endinput 

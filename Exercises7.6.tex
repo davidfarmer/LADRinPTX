@@ -1,0 +1,239 @@
+
+\exercise
+Prove that if $S, T \in \L(V\1, W)$, then $\abs[\Big]{\, \norm{S} - \norm{T} \,} \le \norm{S-T}$. \label{5reverse}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}.\index{reverse triangle inequality}}
+
+
+\exercise
+Suppose that $T \in \L(V)$ is self-adjoint or that $\F{}= \C{}$ and $T \in \L(V)$ is normal. Prove that
+\[
+\norm{T} = \max \br[\big]{ \abs{\la} : \la \text{ is an eigenvalue of } T}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $v \in V$. Prove that\label{7eq}
+\[
+\norm{Tv} = \norm{T} \, \norm{v} \iff T^*T v = \norm{T}^2 v.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$, $v \in V\1$, and $\norm{Tv} = \norm{T} \, \norm{v}$. Prove that if $u \in V$ and $\ip{u, v} = 0$, then
+$\ip{Tu, Tv} = 0$.
+
+
+\exercise
+Suppose $U$ is a finite-dimensional inner product space, $T \in \L(V\1, U)$, and $S \in \L(U, W)$. Prove that \label{2prod}
+\[
+\norm{ST} \le \norm{S} \, \norm{T}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove or give a counterexample: If $S, T \in \L(V)$, then $\norm{ST} = \norm{TS}$.
+
+
+\exercise
+Show that defining $d(S, T) = \norm{S-T}$ for $S, T \in \L(V\1, W)$ makes $d$ a metric on $\L(V\1, W)$.\label{7met}
+\exercisecomment{This exercise is intended for readers who are familiar with metric spaces.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Prove that if $T \in \L(V)$ and $\norm{I - T} < 1$, then $T$ is invertible.
+\item
+Suppose that $S \in \L(V)$ is invertible. Prove that if $T \in \L(V)$ and $\norm{S - T} < 1/\norm[\big]{S^{-1}}$, then $T$ is invertible.
+\end{SUBtheorem}
+\exercisecomment{This exercise shows that the set of invertible operators in $\L(V)$ is an open subset of $\L(V)$, using the metric defined in Exercise \ref{7met}.}
+
+
+\begin{comment}
+\exercise
+Suppose $S \in \L(V)$ is invertible. Prove that there exists $\delta > 0$ such that $T$ is invertible for every $T \in \L(V)$ with
+$\norm{S-T} < \delta$.
+
+\end{comment}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that for every $\epsilon > 0$, there exists an invertible operator $S \in \L(V)$ such that
+$0 < \norm{T - S} < \epsilon$. \label{7invert}
+
+
+\exercise
+Suppose $\dim V > 1$ and $T \in \L(V)$ is not invertible. Prove that for every $\epsilon > 0$, there exists
+$S \in \L(V)$ such that $0 < \norm{T - S} < \epsilon$ and $S$ is not invertible.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that for every $\epsilon > 0$ there exists a diagonalizable operator $S \in \L(V)$ such that $0 < \norm{T - S} < \epsilon$.\index{diagonalizable}
+
+
+\exercise
+Suppose $T \in \L(V)$ is a positive operator. Show that $\norm[\Big]{\sqrt{T}\,} = \sqrt{\norm{T}}$.
+
+
+\exercise
+Suppose $S, T \in \L(V)$ are positive operators. Show that
+\[
+\norm{S-T} \le \max\br[\big]{ \norm{S}, \norm{T} } \le \norm{S+T}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $U$ and $W$ are subspaces of $V$ such that $\norm{P_U - P_W} < 1$. Prove that $\dim U = \dim W$.
+
+
+\pagebreak[3]
+
+\exercise
+Define $T \in \L\paren[\big]{\F{3}}$ by
+\[
+T(z_1, z_2, z_3) = (z_3, 2z_1, 3z_2).
+\]
+Find (explicitly) a unitary operator $S \in \L\paren[\big]{\F{3}}$ such that $T = S \sqrt{T^*T}$.
+
+
+\exercise
+Suppose $S \in \L(V)$ is a positive invertible operator. Prove that there exists $\delta > 0$ such that $T$ is a positive operator for every self-adjoint operator $T \in \L(V)$ with $\norm{S-T} < \delta$.
+
+
+\exercise
+Prove that if $u \in V$ and $\phi_u$ is the linear functional on $V$ defined by the equation $\phi_u(v) = \ip{v, u}$, then
+$\norm{\phi_u} = \norm{u}$.
+\exercisecomment{Here we are thinking of the scalar field\/ $\F{}$ as an inner product space with\/ $\ip{\al,\beta} = \al \overline{\beta}$ for all\/ $\al, \beta \in \F{}\3$. Thus\/ $\norm{\phi_u}$ means the norm of\/ $\phi_u$ as a linear map from\/ $V$ to\/ $\F{}\3$.}
+
+
+\exercise
+Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $T \in \L(V\1,W)$.
+\begin{subtheorem}
+\item
+Prove that
+$\max\br{ \norm{Te_1}, \ldots, \norm{Te_n} }
+\le \norm{T} \le \paren[\big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}\!$.
+\item
+Prove that $\norm{T} = \paren[\big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}$ if and only if $\dim \ran T \le 1$.
+\end{subtheorem}
+\exercisecomment{Here\/ $e_1, \ldots, e_n$ is an arbitrary orthonormal basis of\/ $V\1$, not necessarily connected with a singular value decomposition of\/ $T\3$. If\/ $s_1, \ldots, s_n$ is the list of singular values of\/ $T$, then the right side of the inequality above equals\/
+$\paren[\big]{{s_1}^{\2} + \cdots + {s_n}^{\2}}^{1/2}\!$, as was shown in Exercise \ref{7sums2}\uppar{a} in Section \ref{2SVD}.}
+
+
+\exercise
+Prove that if $T \in \L(V\1, W)$, then  $\norm[\big]{T^*T} = \norm{T}^2\1$.\index{C*@$C^*$-algebras}\label{8Cstar}
+\exercisecomment{This formula for\/ $\norm[\big]{T^*T}$ leads to the important subject of\/ $C^*$-algebras.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is normal. Prove that $\norm[\big]{T^k} = \norm{T}^k$ for every positive integer $k$.\label{7normTk}
+
+
+\exercise
+Suppose $\dim V > 1$ and $\dim W > 1$. Prove that the norm on $\L(V\1, W)$ does not come from an inner product. In other words, prove that there does not exist an inner product on $\L(V\1, W)$ such that \label{6notinner}
+\[
+\max \br[\big]{ \norm{Tv} : v \in V \text{ and } \norm{v} \le 1} = {\textstyle \sqrt{\ip{T, T}}}
+\]
+for all $T \in \L(V\1, W)$.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Let $n = \dim V$ and let $s_1 \ge \cdots \ge s_n$ denote the singular values of $T\3$. Prove that if $1 \le k \le n$, then \label{7approx}
+\[
+\min \br[\big]{ \norm{T|_U} : U \text { is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T$ is uniformly continuous with respect to the metrics on $V$ and $W$ that arise from the norms on those spaces (see Exercise \ref{4metric} in Section \ref{orthobases}).
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that
+\vspace{-3bp}
+\[
+\norm[\big]{ T^{-1} } = \norm{T}^{-1} \iff \frac{T}{\norm{T}} \text{ is a unitary operator}.
+\]
+\vspace{-16bp}
+
+
+\pagebreak[3]
+
+\exercise
+Fix $u, x \in V$ with $u \ne 0$. Define $T \in \L(V)$ by
+$
+Tv = \ip{v, u}x
+$
+for every $v \in V\1$.  Prove that
+\[
+\sqrt{T^* T}v = \frac{ \|x\| }{ \|u\| } \ip{v,u} u
+\]
+for every $v \in V\1$.
+
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that $T$ is invertible if and only if there exists a
+unique unitary operator $S \in \L(V)$ such that $T = S \sqrt{T^* T}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $s_1, \ldots, s_n$ are the singular values of $T\3$. Let $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$ be orthonormal bases of $V$ such that \label{7unitary}
+\[
+Tv = s_1\ip{v, e_1} f_1 + \cdots + s_n \ip{v, e_n} f_n
+\]
+for all $v \in V\1$. Define $S \in \L(V)$ by
+\[
+Sv = \ip{v, e_1} f_1 + \cdots + \ip{v, e_n} f_n.
+\]
+\begin{subtheorem}*
+\item
+Show that $S$ is unitary and $\norm{T-S} = \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} }$.
+\item
+Show that if $E \in \L(V)$ is unitary, then $\norm{T-E} \ge \norm{T-S}$.
+\end{subtheorem}
+\exercisecomment{This exercise finds a unitary operator $S$ that is as close as possible \uppar{among the unitary operators} to a given operator $T\3$.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that there exists a unitary operator $S \in \L(V)$ such that
+$
+T = \sqrt{TT^*}\, S$.
+
+
+\exercise
+Suppose $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Use the polar decomposition to show that there exists a unitary operator $S \in \L(V)$ such that
+$TT^* = ST^*TS^*\1$.
+\item
+Show how (a) implies that $T$ and $T^*$ have the same singular values.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$, $S \in \L(V)$ is a unitary operator,
+and $R \in \L(V)$ is a  positive operator such that $T = SR$.  Prove that
+$R = \sqrt{T^* T}$.
+\exercisecomment{This exercise shows that if we write\/ $T$ as the product of a unitary operator and a positive operator
+\uppar{as in the polar decomposition \ref{244}\hspace{.6bp}}, then the positive operator equals\/
+$\sqrt{T^*T}$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is normal. Prove that there exists a unitary operator $S \in \L(V)$ such that $T = S \sqrt{T^*T}$ and such that $S$ and $\sqrt{T^*T}$ both have diagonal matrices with respect to the same orthonormal basis of $V\1$. \label{8PolarNor}
+
+
+\exercise
+Suppose that $T \in \L(V\1,W)$ and $T \ne 0$. Let $s_1, \ldots, s_m$ denote the positive singular values of $T\3$. Show that there exists an orthonormal basis $e_1, \ldots, e_m$ of $(\ker T)^\perp$ such that
+\[
+T\paren[\bigg]{ E\paren[\Big]{ \frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m} } }
+\]
+equals the ball in $\ran T$ of radius $1$ centered at $0$.
+
+

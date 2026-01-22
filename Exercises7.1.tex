@@ -1,0 +1,302 @@
+
+\exercise
+Suppose $n$ is a positive integer.  Define $T \in \L\paren[\big]{\F{n}}$ by
+\[
+T(z_1, \dots, z_n) = (0, z_1, \dots, z_{n-1}).
+\]
+Find a formula for $T^*(z_1, \dots, z_n)$.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Prove that
+\[
+T = 0 \iff T^* = 0 \iff T^* T = 0 \iff T T^* = 0.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $\la \in \F{}\3$.  Prove that \label{259}\index{eigenvalue!of adjoint}
+\[
+\la \text{ is an eigenvalue of } T \iff \bar{\la} \text{ is an eigenvalue of } T^*\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a subspace of~$V\1$.  Prove that \label{348}
+\[
+U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } T^*\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$. Prove that\label{6sumT2}
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = \norm[\big]{T^* \! f_1}^2 + \cdots + \norm[\big]{T^* \! f_m}^2\1.
+\]
+\exercisecomment{The numbers\/ $\norm{Te_1}^2\1, \ldots, \norm{Te_n}^2$ in the equation above depend on the orthonormal basis $e_1, \ldots, e_n$, but the right side of the equation does not depend on $e_1, \ldots, e_n$. Thus the equation above shows that the sum on the left side does not depend on which orthonormal basis $e_1, \ldots, e_n$ is used.}
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Prove that
+\begin{subtheorem}*
+\item
+$T$ is injective $\iff$ $T^*$ is surjective;
+
+\item
+$T$ is surjective $\iff$ $T^*$ is injective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Prove that if $T \in \L(V\1, W)$, then \label{395}
+\begin{subtheorem}*
+\item
+$\dim \ker T^* = \dim \ker T + \dim W - \dim V$;
+\item
+$\dim \ran T^* = \dim \ran T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $A$ is an \by{m}{n} matrix with entries in $\F{}\3$. Use (b) in Exercise \ref{395} to prove that the row rank of $A$ equals the column rank of $A$.\label{7rank}\index{column rank of a matrix}\index{row rank of a matrix}\index{rank of a matrix}
+\exercisecomment{This exercise asks for yet another alternative proof of a result that was previously proved in \ref{3colrow} and \ref{3rank}.}
+
+
+\exercise
+Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is self-adjoint if and only if
+\[
+\ip{Tv, v} = \ip[\big]{T^*v, v}
+\]
+for all $v \in V\1$.
+
+
+\pagebreak[3]
+
+\exercise
+Define an operator $\fun S {\F 2} {\F 2}$ by $S(w, z) = (-z, w)$.
+\begin{subtheorem}
+\item
+Find a formula for $S^*\1$.
+\item
+Show that $S$ is normal but not self-adjoint.
+\item
+Find all eigenvalues of $S$.
+\end{subtheorem}
+\exercisecomment{If\/ $\F{} = \R{}$, then\/ $S$ is the operator on\/ $\R2$ of counterclockwise rotation by\/ $90^\circ$.}
+
+
+\exercise
+An operator $B \in \L(V)$ is called $\emph{skew}$ if
+\[
+B^* = -B.
+\]
+Suppose that \mbox{$T \in \L(V)$}. Prove that $T$ is normal if and only if there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is a skew operator, and $T = A + B$. \label{skewadj} \index{skew operator}
+
+
+\exercise
+Suppose $\F{} = \R{}$. Define $\A \in \L\paren[\big]{\L(V)}$ by $\A T = T^*$ for all $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Find all eigenvalues of $\A$.
+\item
+Find the minimal polynomial of $\A$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Define an inner product on $\P\1_2(\R{})$ by
+$
+\ip{p,q} = \int_0^1 pq$.
+Define an operator $T \in \L\bigl(\P\1_2(\R{})\bigr)$ by
+\[
+T\paren[\big]{a x^2 + bx + c} = b x.
+\]
+\begin{subtheorem}*
+\item
+Show that with this inner product, the operator $T$ is not self-adjoint.
+\item
+The matrix of $T$ with respect to the basis $1, x, x^2$ is
+\[
+\mat{ccc}{
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0}.
+\]
+This matrix equals its conjugate transpose, even though $T$ is not self-adjoint.
+Explain why this is not a contradiction.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that
+\begin{subtheorem}*
+\item
+$T$ is self-adjoint $\iff$ $T^{-1}$ is self-adjoint;
+\item
+$T$ is normal $\iff$ $T^{-1}$ is normal.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\F{} = \R{}$.
+\begin{subtheorem}
+\item
+Show that the set of self-adjoint operators on $V$ is a subspace of~$\L(V)$.
+\item
+What is the dimension of the subspace of $\L(V)$ in (a) [in terms of $\dim V$]?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\F{} = \C{}$. Show that the set of self-adjoint
+operators on $V$ is not a subspace of $\L(V)$.
+
+
+\exercise
+Suppose $\dim V \ge 2$. Show that the set of normal operators on $V$ is not a
+subspace of $\L(V)$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and
+$
+\norm[\big]{T^*v } \le \| Tv \|$
+for every $v \in V\1$. Prove that $T$ is normal.\index{hyponormal operator}
+\exercisecomment{This exercise fails on infinite-dimensional inner product
+spaces, leading to what are called hyponormal operators, which have a
+well-developed theory.}
+
+
+\exercise
+Suppose $P \in \L(V)$ is such that $P^2 = P\1$.  Prove that the following are equivalent.\label{7proj}
+\begin{subtheorem}*
+\item
+$P$ is self-adjoint.
+\item
+$P$ is normal.
+\item
+There is a subspace $U$ of $V$ such that $P = P_{\!U}$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\fun D {\P\1_8(\R{})} {\P\1_8(\R{})}$ is the differentiation operator defined by $Dp = p'\!$. Prove that there does not exist an inner product on $\P\1_8(\R{})$ that makes $D$ a  normal operator.
+
+
+\exercise
+Give an example of an operator $T \in \L\paren[\big]{\R{3}}$ such that $T$ is normal but not self-adjoint.
+
+
+\exercise
+Suppose $T$ is a normal operator on $V\1$. Suppose also that $v, w \in V$ satisfy the equations
+\[
+\|v\| = \|w \| = 2, \quad Tv = 3v, \quad Tw = 4w.
+\]
+Show that $\|T(v + w)\| = 10$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and\index{minimal polynomial!of adjoint}\label{7minpoly}
+\[
+a_0 + a_1 z + a_2 z^2 + \dots + a_{m-1} z^{m-1} + z^m
+\]
+is the minimal polynomial of $T\3$. Prove that the minimal polynomial of $T^*$ is
+\[
+\overline{a_0} + \overline{a_1}\, z + \overline{a_2} \,z^2 + \dots + \overline{a_{m-1}} \,z^{m-1} + z^m\!.
+\]
+\exercisedisplayend
+\exercisecomment{This exercise shows that the minimal polynomial of\/ $T^*$ equals the minimal polynomial of\/ $T$ if\/ $\F{} = \R{}$.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if $T^*$ is diagonalizable.
+
+
+\exercise
+Fix $u, x \in V\1$. Define $T \in \L(V)$ by
+$
+Tv = \ip{v, u}x$
+for every $v \in V\1$.
+\begin{subtheorem}
+\item
+Prove that if $V$ is a real vector space, then $T$ is self-adjoint if and only if the list $u, x$ is linearly dependent.
+\item
+Prove that $T$ is normal if and only if the list $u, x$ is linearly dependent.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T\in \L(V)$ is normal. Prove that \label{399}
+\[
+\ker T^k = \ker T \andd \ran T^k = \ran T
+\]
+for every positive integer $k$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is normal. Prove that if $\la \in \F{}\3$, then the minimal polynomial of~$T$ is not a polynomial multiple of $(x-\la)^2\1$.\index{minimal polynomial!of normal operator}
+
+\begin{comment}
+\exercisecomment{If $V$ is a complex inner product space, then this exercise can be done by using the complex spectral theorem \uppar{\ref{85}} and \ref{500}. However, a different proof must be found for real inner product spaces.}
+\end{comment}
+
+
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and there is an orthonormal basis $e_1, \dots, e_n$ of $V$ such that
+$\|Te_k\| = \norm[\big]{T^* e_k}$ for each~$k= 1, \ldots, n$, then $T$ is normal.
+
+
+\begin{comment}
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ such that
+$\ip{Te_j, Te_k} = \ip[\big]{T^* e_j, T^* e_k}$ for each $j$ and $k$ in $\br{1, \ldots, n}$, then $T$ is normal.
+
+\end{comment}
+
+\exercise
+Suppose that $T \in \L\paren[\big]{\F{3}}$ is normal and $T(1,1,1) = (2,2,2)$. Suppose $(z_1, z_2, z_3) \in \ker T\3$. Prove that
+$
+z_1 + z_2 + z_3 = 0$.
+
+
+\exercise
+Fix a positive integer $n$. In the inner product space of
+continuous real-valued functions on $[-\pi,\pi]$ with inner product
+$
+\ip{f, g} = \int_{-\pi}^{\pi} fg$,
+let \label{1100}
+\[ \addtolength{\belowdisplayskip}{-3bp}
+V = \Span( 1, \cos x, \cos 2x, \dots, \cos nx, \sin x, \sin 2x, \dots, \sin nx).
+\]
+\begin{subtheorem}
+\item
+Define $D \in \L(V)$ by $Df = f'\!$. Show that $D^* = -D$. Conclude that $D$ is normal but not self-adjoint.
+\item
+Define $T \in \L(V)$ by $Tf = f''\!$. Show that $T$ is self-adjoint.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $\fun T V W$ is a linear map. Show that under the standard identification of $V$ with $V'$ (see \ref{3RRT}) and the corresponding identification of $W$ with $W'\!$, the adjoint map $\fun {T^*} W V$ corresponds to the dual map $\fun {T'} {W'} {V'}$. More precisely, show that
+\[
+T' \! (\phi_w) = \phi_{T^* w}
+\]
+for all $w \in W\3$, where $\phi_w$ and $\phi_{T^* w}$  are defined as in \ref{3RRT}. \label{IdentifyTstarTprime}
+
+

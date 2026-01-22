@@ -1,0 +1,161 @@
+
+\exercise
+Suppose $\dim V \ge 2$ and $S\in \L(V\1, W)$. Prove that $S$ is an isometry if and only if $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V\1$.\label{2iso}
+
+
+\exercise
+Suppose $T \in \L(V, W)$ and $T \ne 0$. Prove that $T$ is a scalar multiple of an isometry if and only if $T$ preserves orthogonality.
+\exercisecomment{The phrase ``$T$ preserves orthogonality'' means that\/ $\ip{Tu, Tv} = 0$ for all\/ $u, v \in V$ such
+that\/ $\ip{u,v} = 0$.}
+
+
+\begin{comment}
+\exercise
+Suppose $S \in \L(V\1, W)$ preserves orthogonality, meaning that $u, v \in V$ and $\ip{u, v} = 0$ implies $\ip{Su, Sv} = 0$. Suppose also that there exists $e \in V$ such that $e \ne 0$ and $\norm{Se} = \norm{e}$. Prove that $S$ is an isometry.
+
+\end{comment}
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that the product of two unitary operators on $V$ is a unitary operator.
+\item
+Show that the inverse of a unitary operator on $V$ is a unitary operator.
+\end{SUBtheorem}
+\exercisecomment{This exercise shows that the set of unitary operators on $V$ is a group, where the group operation is the usual product of two operators.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $A, B \in \L(V)$ are self-adjoint. Show that $A + iB$ is unitary if and only if $AB = BA$ and
+$A^2 + B^2 = I$.
+
+
+\exercise
+Suppose $S \in \L(V)$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$S$ is a self-adjoint unitary operator.
+\item
+$S = 2P - I$ for some orthogonal projection $P$ on $V\1$.
+\item
+There exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^\perp\!$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T\3_1, T\3_2$ are both normal operators on $\F{3}$ with $2, 5, 7$ as eigenvalues. Prove that there exists a unitary operator $S\in \L\paren[\big]{\F{3}}$ such that
+$
+T\3_1 = S^* T\3_2 S$.
+
+
+\exercise
+Give an example of two self-adjoint operators $T\3_1, T\3_2 \in \L\paren[\big]{\F{4}}$ such that the eigenvalues of both operators are $2, 5, 7$ but there does not exist a unitary operator $S\in \L\paren[\big]{\F{4}}$ such that
+$T\3_1 = S^* T\3_2 S$.
+Be sure to explain why there is no unitary operator with the required property.
+
+
+\exercise
+Prove or give a counterexample: If $S \in \L(V)$ and there exists an orthonormal basis $e_1, \dots, e_n$ of~$V$ such that $\|Se_k\| = 1$ for each~$e_k$, then $S$ is a unitary operator.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Suppose every eigenvalue of $T$ has absolute value 1 and
+$\|Tv\| \le \|v\|$ for every $v \in V\1$. Prove that $T$ is a unitary operator.
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is a self-adjoint operator such that $\norm{Tv} \le \norm{v}$ for all $v \in V\1$.
+\begin{subtheorem}
+\item
+Show that $I - T^2$ is a positive operator.
+\item
+Show that $T + i \sqrt{I - T^2}$ is a unitary operator.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $S \in \L(V)$. Prove that $S$ is a unitary operator if and only if \label{IsoBall}
+\[
+\br[\big]{ Sv : v \in V \text{ and } \norm{v} \le 1} = \br[\big]{ v \in V: \norm{v} \le 1}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove or give a counterexample: If $S \in \L(V)$ is invertible and \mbox{$\norm[\big]{S^{-1} v} =  \norm{S v}$} for every $v \in V\1$, then $S$ is unitary.
+
+
+\pagebreak[3]
+
+\exercise
+Explain why the columns of a square matrix of complex numbers form an orthonormal list in $\C{n}$ if and only if the rows of the matrix form an orthonormal list in $\C{n}$.
+
+
+\exercise
+Suppose $v \in V$ with $\|v\| = 1$ and $b \in \F{}\3$. Also suppose $\dim V \ge 2$. Prove that there exists a unitary operator $S \in \L(V)$ such that $\ip{Sv, v} = b$ if and only if $|b| \le 1$.
+
+
+\exercise
+Suppose $T$ is a unitary operator on $V$ such that $T - I$ is invertible.\index{unit circle in $\C{}$} \label{4UnitCircle}
+\begin{subtheorem}
+\item
+Prove that $(T + I)(T - I)^{-1}$ is a skew operator (meaning that it equals the negative of its adjoint).\index{skew operator}
+\item
+Prove that if $\F{} = \C{}$, then $i (T + I)(T - I)^{-1}$ is a self-adjoint operator.
+\end{subtheorem}
+\exercisecomment{The function\/ $z \mapsto i(z+1)(z-1)^{-1}$ maps the unit circle in\/ $\C{}$ \uppar{except for the point\/ $1$} to\/ $\R{}$. Thus \uppar{b} illustrates the analogy between the unitary operators and the unit circle in\/ $\C{}$, along with the analogy between the self-adjoint operators and\/ $\R{}$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is self-adjoint. Prove that $(T + iI)(T - iI)^{-1}$ is a unitary operator and $1$ is not an eigenvalue of this operator.
+
+
+\exercise
+Explain why the characterizations of unitary matrices given by \ref{7unitarymat} hold.
+
+
+\exercise
+A square matrix $A$ is called \textit{symmetric} if it equals its transpose. Prove that if $A$ is a symmetric matrix with real entries, then there exists a unitary matrix $Q$ with real entries such that $Q^* A Q$ is a diagonal matrix.\index{symmetric matrix}
+
+
+\exercise
+Suppose $n$ is a positive integer. For this exercise, we adopt the notation that a typical element $z$ of $\C n$ is denoted by
+$z = (z_0, z_1, \ldots, z_{n-1})$. Define linear functionals $\omega_0, \omega_1, \ldots, \omega_{n-1}$ on $\C n$ by
+\[
+\omega_j(z_0, z_1, \ldots, z_{n-1}) = \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} z_m \,e^{-2\pi i j m/n}.
+\]
+The \emph{discrete Fourier transform} is the operator $\fun \CF {\C n} {\C n}$ defined by\index{discrete Fourier transform}
+\[
+\CF z = \paren[\big]{ \omega_0(z), \omega_1(z), \ldots, \omega_{n-1}(z) }.
+\]
+\begin{subtheorem}*
+\item
+Show that $\CF$ is a unitary operator on $\CC n$.
+\item
+Show that if $(z_0, \ldots, z_{n-1}) \in \C n$ and $z_n$ is defined to equal $z_0$, then
+\[
+\CF^{-1}(z_0, z_1, \ldots, z_{n-1}) = \CF(z_n, z_{n-1}, \ldots, z_1).
+\]
+\item
+Show that $\CF^4 = I$.
+%\item
+%Show that if $n = 2$, then the eigenvalues of $\CF$ are $1, -1$.
+%\item
+%Show that if $n = 3$ or $n = 4$, then the eigenvalues of $\CF$ are $1, -1, -i$.
+%\item
+%Show that if $n \ge 5$, then the eigenvalues of $\CF$ are $1, -1, i, -i$.
+\end{subtheorem}
+\exercisecomment{The discrete Fourier transform has many important applications in data analysis. The usual Fourier transform involves expressions of the form\/ $\int_{-\infty}^{\infty} f(x) e^{-2\pi i t x} dx$ for complex-valued integrable functions\/ $f$ defined on\/ $\R{}$.}
+
+
+\exercise
+Suppose $A$ is a square matrix with linearly independent columns. Prove that there exist unique matrices $R$ and $Q$ such that $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.\label{7Cholt}
+
+
+\begin{comment}\exercise
+Suppose $B$ is a positive definite matrix. Prove that there exists a unique upper-triangular matrix $R$ with only positive numbers on its diagonal such that $B = R R^*\1$.
+
+\end{comment}
+

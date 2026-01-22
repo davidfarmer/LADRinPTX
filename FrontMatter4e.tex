@@ -1,0 +1,461 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\pagenumbering{roman}
+\setcounter{secnumdepth}{-1}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+
+\setcounter{page}{0}
+
+\chapter{Linear Algebra Done Right}
+
+\thispagestyle{empty}
+
+\begin{center}
+
+fourth edition
+
+\medskip
+14 January 2026
+\\\copyright\ 2024 Sheldon Axler
+
+\vfill
+
+{\huge
+Sheldon Axler}
+
+\vfill
+
+Comments, corrections, and suggestions\\about this book are most welcome.\\Please send them to \PClink{linear@axler.net}.
+
+\vfill
+
+The print version of this book is published by Springer.
+
+\bigskip
+
+\end{center}
+
+\CrCom
+
+\ifnum\sizepaper=2\renewcommand{\CrCom}{}\fi
+
+\vfill
+
+{\changefontsize{16}
+
+\[
+F_n = \frac{1}{\sqrt{5}} \, \Biggl[ \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}
+-\paren[\Bigg]{ \frac{1 - \sqrt{5}}{2} }^{\!n} \Biggr]
+\]}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\setcounter{page}{4}
+
+\chapter{About the Author}
+
+Sheldon Axler received his undergraduate degree from Princeton University, followed by a PhD in mathematics from the University of California at Berkeley.
+
+%Sheldon Axler was valedictorian of his high school class in Miami, Florida. He received his AB from Princeton University with highest honors, followed by a PhD in mathematics from the University of California at Berkeley.
+
+As a postdoctoral Moore Instructor at MIT, Axler received a university-wide teaching award. He was then an assistant professor, associate professor, and professor at Michigan State University, where he received the first J. Sutherland Frame Teaching Award and the Distinguished Faculty Award.
+
+Axler received the Lester R. Ford Award for expository writing from the Mathematical Association of America in 1996, for a paper that eventually expanded into this book. In addition to publishing numerous research papers, he is the author of six mathematics textbooks, ranging from freshman to graduate level. Previous editions of this book have been adopted as a textbook at over 375 universities and colleges and have been translated into three languages.
+
+Axler has served as Editor-in-Chief of the \textit{Mathematical Intelligencer} and Associate Editor of the \textit{American Mathematical Monthly}. He has been a member of the Council of the American Mathematical Society and of the Board of Trustees of the Mathematical Sciences Research Institute. He has also served on the editorial board of Springer's series Undergraduate Texts in Mathematics, Graduate Texts in Mathematics, Universitext, and Springer Monographs in Mathematics.
+
+Axler is a Fellow of the American Mathematical Society and has been a recipient of numerous grants from the National Science Foundation.
+
+Axler joined San Francisco State University as chair of the Mathematics Department in 1997. He served as dean of the College of Science \& Engineering from 2002 to 2015, when he returned to a regular faculty appointment as a professor in the Mathematics Department.
+
+\smallskip
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 SheldonMoonGGBridge.png\else SheldonMoonGGBridgeR.png \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.39\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{The author and his cat Moon.}{0in}{Carrie Heeter, Bishnu Sarangi} \label{0moon}\index{Moon}
+
+\medskip
+
+\noindent
+\textit{Cover equation}: Formula for the $n^\nth$ Fibonacci number. Exercise \ref{Fibonacci} in Section~\ref{diagmat} uses linear algebra to derive this formula.
+
+{\overfullrule=0in
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+
+\parfillskip=14.2bp plus1fil
+%\renewcommand{\footfix}{\protect\footnotemark[1]}
+\chapter{Contents}\tableofcontents}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\chapter{Preface for Students}
+
+You are probably about to begin your second exposure to linear
+algebra. Unlike your first brush with the subject, which probably emphasized
+Euclidean spaces and matrices, this encounter will focus on abstract vector
+spaces and linear maps. These terms will be defined later, so don't
+worry if you do not know what they mean. This book starts from the
+beginning of the subject, assuming no knowledge of linear algebra.
+The key point is that you are about to immerse yourself in serious
+mathematics, with an emphasis on attaining a deep understanding
+of the definitions, theorems, and proofs.
+
+You cannot read mathematics the way you read a novel.  If you zip
+through a page in less than an hour, you are probably going too fast.
+When you encounter the phrase ``as you should verify''\!, you should
+indeed do the verification, which will usually require some writing on
+your part. When steps are left out, you need to supply the missing
+pieces. You should ponder and internalize each definition. For each
+theorem, you should seek examples to show why each hypothesis is
+necessary. Discussions with other students should help.
+
+As a visual aid, definitions and notations are in yellow boxes (and have a title begining with the word ``{\small\textsf{definition}}'' or ``{\small\textsf{notation}}'') and theorems are in blue boxes (in color versions of the book). Each theorem has an informal descriptive name.
+
+% VIDEOS
+
+% ELECTRONIC VERSION AVAILABLE FREE AT
+
+Please check the website below for additional information about the book, including a link to videos that are freely available to accompany the book.
+
+Your suggestions, comments, and corrections are most welcome.
+
+Best wishes for success and enjoyment in learning linear algebra!
+
+\bigskip
+
+{
+\setlength{\parindent}{0bp}
+Sheldon Axler \\
+San Francisco State University
+
+\medskip
+
+website: \url{https://linear.axler.net}\\
+e-mail: \PClink{linear@axler.net}
+}
+
+\chapter{Preface for Instructors}
+
+\begin{comment}
+Why coming back to inner products is good for students even if it seems slightly inefficient.
+
+New: Eigenspaces and generalized eigenspaces.
+
+New: Lists of vectors not surrounded by parentheses.
+
+Most linear algebra texts define linearly
+independent sets instead of linearly independent lists.  With that
+definition, the set\/ $\{ (0,1), (0,1), (1,0)\}$ is linearly
+independent in\/ $\F{2}$ because it equals the set\/ $\{ (0,1), (1,0)
+\}$.  With our definition, the list\/ $\bigl((0,1), (0,1),
+(1,0)\bigr)$ is not linearly independent (because\/ $1$ times the
+first vector plus\/ $-1$ times the second vector plus\/ $0$ times the
+third vector equals\/ $0$).  By dealing with lists instead of sets, we
+will avoid some problems associated with the usual approach.
+
+\end{comment}
+
+You are about to teach a course that will probably give students their
+second exposure to linear algebra.  During their first brush with the
+subject, your students probably worked with Euclidean spaces and
+matrices.  In contrast, this course will emphasize abstract vector
+spaces and linear maps.
+
+The title of this book deserves an explanation.  Most linear
+algebra textbooks use determinants to prove that every linear operator on a
+finite-dimensional complex vector space has an eigenvalue.
+Determinants are difficult, nonintuitive, and often defined without
+motivation.  To prove the theorem about existence of eigenvalues on
+complex vector spaces, most books must define determinants, prove that
+a linear operator is not invertible if and only if its determinant
+equals~$0$, and then define the characteristic polynomial.  This
+tortuous (torturous?)\ path gives students little feeling for why
+eigenvalues exist.
+
+\begin{comment}
+
+Compare the simple proof of this
+theorem given here (see \ref{151}) with the standard proof using determinants.  With the standard
+proof, first the difficult concept of determinants must be defined, then
+an operator with $0$ determinant must be shown to be not invertible,
+then the characteristic polynomial needs to be defined, and by the time the
+proof of this theorem is reached, no insight remains about why it is true.
+
+\end{comment}
+
+In contrast, the simple determinant-free proofs presented here (for example, see \ref{151}) offer more insight.
+Once determinants have been moved to the end of the book, a new route
+opens to the main goal of linear algebra---understanding the structure
+of linear operators.
+
+This book starts at the beginning of the subject, with no prerequisites other than the usual demand for suitable mathematical maturity. A few examples and exercises involve calculus concepts such as continuity, differentiation, and integration. You can easily skip those examples and exercises if your students have not had calculus. If your students have had calculus, then those examples and exercises can enrich their experience by showing connections between different parts of mathematics.
+
+Even if your students have already seen some of the material in the first few chapters, they may be unaccustomed to working exercises of the type presented here, most of which require an understanding of proofs.
+
+Here is a chapter-by-chapter summary of the highlights of the book:
+
+{
+\setlength{\leftmargini}{.15in}
+
+\begin{Itemize}
+\item
+Chapter \ref{129}: Vector spaces are defined in this chapter, and their basic properties are developed.
+
+\item
+Chapter~\ref{16}: Linear independence, span, basis, and dimension are defined in
+this chapter, which presents the basic theory of finite-dimensional
+vector spaces.
+
+\item
+Chapter~\ref{166}: This chapter introduces linear maps.  The key result
+here is the fundamental theorem of linear maps: if $T$ is a linear map on~$V\1$, then
+$\dim V = \dim \ker T + \dim \ran T\3$. Quotient spaces and duality are topics in this chapter at a higher level of abstraction than most of the book; these topics can be skipped (except that duality is needed for tensor products in Section \ref{9TensorSect}).\looseness=-1
+
+\item
+Chapter~\ref{173}: The part of the theory of polynomials that will be needed to understand linear
+operators is presented in this chapter. This chapter contains no linear algebra. It can be covered quickly, especially if your students are already familiar with these results.
+
+\item
+Chapter~\ref{182}: The idea of studying a linear operator by restricting it to small subspaces
+leads to eigenvectors in the early part of this chapter.  The highlight of this chapter is a
+simple  proof that on complex vector spaces, eigenvalues always exist.
+This result is then used to show that each linear operator on a
+complex vector space has an upper-triangular matrix with respect to
+some basis. The minimal polynomial plays an important role here and later in the book. For example, this chapter gives a characterization of the diagonalizable operators in terms of the minimal polynomial.
+Section \ref{2diagmat} can be skipped if you want to save some time.
+
+\item
+Chapter~\ref{89}: Inner product spaces are defined in this chapter, and their basic
+properties are developed along with tools such as orthonormal bases and the Gram--Schmidt procedure. This chapter also shows
+how orthogonal projections can be used to solve certain minimization problems. The pseudoinverse is then introduced as a useful tool when the inverse does not exist. The material on the pseudoinverse can be skipped if you want to save some time.
+
+\item
+Chapter~\ref{183}: The spectral theorem, which characterizes the linear operators for which there exists an orthonormal basis consisting of eigenvectors, is one of the highlights of this book.  The work in earlier chapters pays off here with especially simple proofs.  This chapter also deals with positive operators, isometries, unitary operators, matrix factorizations, and especially the singular value decomposition, which leads to the polar decomposition and norms of linear maps.
+
+\item
+Chapter~\ref{88}: This chapter shows that for each operator on a complex vector space, there is a basis of the vector space consisting of generalized eigenvectors of the operator. Then the generalized eigenspace decomposition describes a linear operator on  a complex vector space. The multiplicity of an eigenvalue is defined as the dimension of the corresponding generalized eigenspace. These tools are used to prove that every invertible linear operator on a complex vector space has a square root. Then the chapter gives a proof that every linear operator on a complex vector space can be put into Jordan form. The chapter concludes with an investigation of the trace of operators.
+
+\item
+Chapter~\ref{MultLATensors}: This chapter begins by looking at bilinear forms and showing that the vector space of bilinear forms is the direct sum of the subspaces of symmetric bilinear forms and alternating bilinear forms. Then quadratic forms are diagonalized. Moving to multilinear forms, the chapter shows that the subspace of alternating $n$-linear forms on an $n$-dimensional vector space has dimension one. This result leads to a clean basis-free definition of the determinant of an operator. For complex vector spaces, the determinant turns out to equal the product of the eigenvalues, with each eigenvalue included in the product as many times as its multiplicity. The chapter concludes with an introduction to tensor products.
+
+\end{Itemize}
+%}   % This matching close bracket was left out of print version. It can change line and page breaks.
+
+This book usually develops linear algebra simultaneously for real and
+complex vector spaces by letting $\F{}$ denote either the real or the
+complex numbers. If you and your students prefer to think of $\F{}$ as an arbitrary field, then see the comments at the end of Section \ref{fields}. I prefer avoiding arbitrary fields at this level because they  introduce extra abstraction without leading to any new linear
+algebra.  Also, students are more comfortable thinking of polynomials as
+functions instead of the more formal objects needed for polynomials
+with coefficients in finite fields.  Finally, even if the beginning
+part of the theory were developed with arbitrary fields, inner product
+spaces would push consideration back to just real and complex vector
+spaces.\looseness=-1
+
+You probably cannot cover everything in this book in one semester.  Going through all the material in the first seven or eight chapters during a one-semester course may require a rapid pace.  If you must reach Chapter \ref{MultLATensors},
+then consider skipping the material on quotient spaces in Section \ref{pq}, skipping Section \ref{duals} on duality (unless you intend to cover tensor products in Section \ref{9TensorSect}), covering Chapter~\ref{173} on polynomials in a half hour, skipping Section \ref{2diagmat} on commuting operators, and skipping the subsection in Section \ref{OrthoMin} on the pseudoinverse.
+
+A goal more important than teaching any particular theorem is to develop
+in students the ability to understand  and manipulate the objects of linear
+algebra.   Mathematics can  be learned only by doing. Fortunately, linear
+algebra has many good homework exercises.  When teaching this course, during each class I
+usually  assign as homework several of the exercises, due the next
+class. Going over the homework might take up significant time in a typical class.
+
+Some of the exercises are intended to lead curious students into important topics beyond what might usually be included in a basic second course in linear algebra.
+
+\bigskip
+
+\textbf{The author's top ten}
+
+\medskip
+
+\noindent
+Listed below are the author's ten favorite results in the book, in order of their appearance in the book. Students who leave your course with a good understanding of these crucial results will have an excellent foundation in linear algebra.
+
+\begin{Itemize}
+\item
+any two bases of a vector space have the same length (\ref{3basislen})
+
+\item
+fundamental theorem of linear maps (\ref{3ab11})
+
+\item
+existence of eigenvalues if $\F{} = \C{}$ (\ref{151})
+
+\item
+upper-triangular form always exists if $\F{} = \C{}$ (\ref{a226})
+
+\item
+Cauchy--Schwarz inequality (\ref{177})
+
+%\item Parseval's identity for orthonormal bases (\ref{190})
+
+\item
+Gram--Schmidt procedure (\ref{186})
+
+\item
+spectral theorem (\ref{86} and \ref{85})
+
+\item
+singular value decomposition (\ref{382})
+
+\item
+generalized eigenspace decomposition theorem when $\F{} = \C{}$ (\ref{31})
+
+\item
+dimension of alternating $n$-linear forms on $V$ is $1$ if $\dim V = n$ (\ref{9dimone})
+
+\end{Itemize}
+
+\pagebreak[3]
+
+\textbf{Major improvements and additions for the fourth edition}
+
+\begin{Itemize}
+
+\item
+Over 250 new exercises and over 70 new examples.
+
+\item
+Increasing use of the minimal polynomial to provide cleaner proofs of multiple results, including necessary and sufficient conditions for an operator to have an upper-triangular matrix with respect to some basis (see Section \ref{4utm}), necessary and sufficient conditions for diagonalizability (see Section \ref{diagmat}), and the real spectral theorem (see Section \ref{SpectralTheorem}).
+
+\item
+New section on commuting operators (see Section \ref{2diagmat}).
+
+\item
+New subsection on pseudoinverse (see Section \ref{OrthoMin}).
+
+\item
+New subsections on QR factorization/Cholesky factorization (see Section \ref{3QR}).\looseness=-1
+
+\item
+Singular value decomposition now done for linear maps from an inner product space to another (possibly different) inner product space, rather than only dealing with linear operators from an inner product space to itself (see Section~\ref{2SVD}).
+
+\item
+Polar decomposition now proved from singular value decomposition, rather than in the opposite order; this has led to cleaner proofs of both the singular value decomposition (see Section \ref{2SVD}) and the polar decomposition (see Section~\ref{9SVD}).
+
+\item
+New subsection on norms of linear maps on finite-dimensional inner product spaces, using the singular value decomposition to avoid even mentioning supremum in the definition of the norm of a linear map (see Section \ref{9SVD}).
+
+\item
+New subsection on approximation by linear maps with lower-dimensional range (see Section \ref{9SVD}).
+
+\item
+New elementary proof of the important result that if $T$ is an operator on a finite-dimensional complex vector space $V\1$, then there exists a basis of $V$ consisting of generalized eigenvectors of $T$ (see \ref{28}).
+
+%\item
+%Complexification is now treated in exercises (which the instructor can skip) across several chapters instead of in a separate section.
+
+\item
+New Chapter \ref{MultLATensors} on multilinear algebra, including bilinear forms, quadratic forms, multilinear forms, and tensor products. Determinants now are defined using a basis-free approach via alternating multilinear forms.
+
+\item
+New formatting to improve the student-friendly appearance of the book. For example, the definition and result boxes now have rounded corners instead of right-angle corners, for a gentler look. The main font size has been reduced from 11 point to 10.5 point.
+
+\end{Itemize}
+
+\begin{comment}
+
+\begin{Itemize}
+\item
+This edition contains 561 exercises, including 337 new exercises that were not in the previous edition. Exercises now appear at the end of each section, rather than at the end of each chapter.
+
+\item
+Many new examples have been added to illustrate the key ideas of linear algebra.
+
+\item
+Beautiful new formatting, including the use of color, creates pages with an unusually pleasant appearance in both print and
+electronic versions. As a visual aid, definitions are in yellow boxes and theorems are in blue boxes (in color versions of the book).
+
+\item
+Each theorem now has a descriptive name.
+
+\item
+New topics covered in the book include product spaces, quotient spaces, and duality.
+
+\item
+Chapter~\ref{337} (Operators on Real Vector Spaces) has been completely \mbox{rewritten} to take advantage of simplifications via complexification. This approach allows for more streamlined presentations in Chapters \ref{182} and \ref{183} because those chapters now focus mostly on complex vector spaces.
+
+\item
+Hundreds of improvements have been made throughout the book. For example, the proof of Jordan form (Section~\ref{Jordan}) has been simplified.
+\end{Itemize}
+} %end \setlength{\leftmargini}
+
+\end{comment}
+
+Please check the website below for additional links and information about the book. Your suggestions, comments, and corrections are most welcome.
+
+Best wishes for teaching a successful linear algebra class!
+
+\medskip
+
+\mar{Contact the author, or Springer if the author is not available, for permission for translations or other commercial reuse of the contents of this book.}
+
+\noindent
+Sheldon Axler \\
+%Mathematics Department \\
+San Francisco State University
+%\\ San Francisco, CA 94132, USA
+
+\medskip
+
+\noindent
+website: \url{https://linear.axler.net} \\
+e-mail: \PClink{linear@axler.net}
+%\quad X (Twitter): @AxlerLinear
+
+\pagebreak[3]
+
+\chapter{Acknowledgments}
+
+I owe a huge intellectual debt to all the mathematicians who created linear algebra over the past two centuries. The results in this book belong to the common heritage of mathematics.  A special case of a theorem may first have been proved long ago, then sharpened and improved by many mathematicians in different time periods.  Bestowing proper credit on all contributors would be a difficult task that I have not undertaken. In no case should the reader assume that any result presented here represents my original contribution.
+%However, in writing this book I tried to think about the best way to present linear algebra and to prove its theorems.%, without regard to the standard methods and proofs used in most textbooks.
+
+
+
+
+\begin{comment}
+
+thanks to class testers who (or their students) provided useful suggestions:
+
+John Alongi
+Marc Becker
+Dustin Cartwright
+Jill Dunham
+Art Duval
+Pam Gorkin
+Michael Hartl (not a class tester, but several useful suggestions; send free copy, address in 6 June 2023 email)
+Shelly Harvey
+Andrew Hetzel
+Noel Hinton (not a class tester, but lots of excellent suggestions; send free copy, address in 20 June 2023 email)
+Olga Holtz
+Paula Kemp
+José-Javier Martínez (not a class tester, but useful suggestions about pseudoinverse)
+Frank Moore
+Sean Raleigh
+Jeremy Teitelbaum
+John Travis
+Javier Trigos
+Rob van Stee
+Daniel Worrall (suggested idea for half of proof of \ref{253})
+\end{comment}
+
+Many people helped make this a better book. The three previous editions of this book were used as a textbook at over 375 universities and colleges around the world. I received thousands of suggestions and comments from faculty and students who used the book. Many of those suggestions led to improvements in this edition. The manuscript for this fourth edition was class tested at 30 universities. I am extremely grateful for the useful feedback that I received from faculty and students during this class testing.
+
+The long list of people who should be thanked for their suggestions would fill up many pages. Lists are boring to read. Thus to represent all contributors to this edition, I will mention only Noel Hinton, a graduate student at Australian National University, who sent me more suggestions and corrections for this fourth edition than anyone else. To everyone who contributed suggestions, let me say how truly grateful I am to all of you. Many many thanks!
+
+I thank Springer for providing me with help when I needed it and for allowing me the freedom to make the final decisions about the content and appearance of this book. Special thanks to the two terrific mathematics editors at Springer who worked with me on this project---Loretta Bartolini during the first half of my work on the fourth edition, and Elizabeth Loew during the second half of my work on the fourth edition. I am deeply indebted to David Kramer, who did a magnificent job of copyediting and prevented me from making many mistakes.
+
+Extra special thanks to my fantastic partner Carrie Heeter. Her understanding and encouragement enabled me to work intensely on this new edition. Our wonderful cat Moon, whose picture appears on the \textit{About the Author} page, provided sweet breaks throughout the writing process. Moon died suddenly due to a blood clot as this book was being finished. We are grateful for five precious years with him.\index{Moon}
+
+\bigskip
+
+\hfill Sheldon Axler
+
+\clearpage
+\pagenumbering{arabic}
+
+\endinput

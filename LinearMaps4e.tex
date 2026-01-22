@@ -1,0 +1,3804 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Linear Maps} \label{166}
+
+So far our attention has focused on vector spaces.  No one gets excited about vector spaces.  The interesting part of linear algebra is the subject to which we now turn---linear maps.
+
+We will frequently use the powerful fundamental theorem of linear maps, which states that the dimension of the domain of a linear map equals the dimension of the subspace that gets sent to $0$ plus the dimension of the range. This will imply the striking result that a linear map from a finite-dimensional vector space to itself is one-to-one if and only if its range is the whole space.
+
+A major concept that we will introduce in this chapter is the matrix associated with a linear map and with a basis of the domain space and a basis of the target space. This correspondence between linear maps and matrices provides much insight into key aspects of linear algebra.
+
+This chapter concludes by introducing product, quotient, and dual spaces.
+
+In this chapter we will need additional vector spaces, which we call $U$ and $W\3$, in addition to $V\1$. Thus our standing assumptions are now as follows.
+
+\StandingBox{
+\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$U$, $V$, and $W$ denote vector spaces over $\F{}\3$.
+}
+
+\begin{comment}
+\TopicsBox{
+\item
+fundamental theorem of linear maps
+\item
+the matrix of a linear map with respect to given bases
+\item
+isomorphic vector spaces
+\item
+product spaces
+\item
+quotient spaces
+\item
+the dual space of a vector space and the dual of a linear map
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Brunswick.jpg\else BrunswickR.jpg \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.163\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{The twelfth-century Dankwarderode Castle in Brunswick \uppar{Braunschweig}, where Carl Friedrich Gauss \uppar{1777--1855} was born and grew up. In 1809 Gauss published a method for solving systems of linear equations. This method, now called Gaussian elimination, was used in a Chinese book written over 1600 years earlier.
+ \index{Gaussian elimination}\index{Gauss, Carl Friedrich}}{.5in}{Stefan Schäfer CC BY-SA}
+
+\section{Vector Space of Linear Maps} \label{vslinear}
+
+\subsection{Definition and Examples of Linear Maps}
+
+Now we are ready for one of the key definitions in linear algebra.
+
+\DefinitionBox{linear map}{A \emph{linear map}\index{linear map}
+from $V$ to $W$ is a function $T\colon V \rightarrow W$ with the following properties.\index{additivity}\index{homogeneity}
+\begin{description}
+\item[additivity] \ \\
+$T(u + v) = Tu + Tv$ for all $u, v \in V\1$.
+
+\item[homogeneity] \ \\
+$T(\la v) = \la(Tv)$ for all $\la \in \F{}$ and all $v \in V\1$.
+\end{description}
+}
+
+\mar[3]{Some mathematicians use the phrase\/ \marbf{linear transformation}\index{linear transformation},
+which means the same as  linear map.}
+
+Note that for linear maps we often use the notation $Tv$ as well as the usual function notation $T(v)$.
+
+\bigskip
+
+\NotationBox{$\L(V\1,W)$, $\L(V)$}
+{\begin{Itemize}
+\item
+The set of linear maps from $V$ to $W$ is denoted by $\L(V\1,W)$.\sindex{LVW@$\L(V\1,W)$}
+\item
+The set of linear maps from $V$ to $V$ is denoted by $\L(V)$. In other words, $\L(V) = \L(V\1,V)$.\sindex{LV@$\L(V)$}
+\end{Itemize}
+}
+
+Let's look at some examples of linear maps.  Make sure you verify that each of
+the functions defined in the next example is indeed a linear map:
+
+\begin{example}[2a111]{linear maps}
+\setlength{\leftmargini}{0bp}\begin{description}
+\item[zero] \ \\
+In addition to its other uses, we let the symbol $0$ denote the linear map that takes every element of some vector space to the additive identity of another (or possibly the same) vector space.  To be specific, $0 \in \L(V\1,W)$ is defined by
+\[
+0v = 0.
+\]
+The $0$ on the left side of the equation above is a function from
+$V$ to $W\3$, whereas the $0$ on the right side is the additive identity in
+$W\3$.  As usual, the context should allow you to distinguish between the many
+uses of the symbol~$0$.
+
+\item[identity operator] \ \\
+The \emph{identity operator}\index{identity operator}, denoted by $I$, is the\sindex{I@$I$}
+linear map on some vector space that takes each element to itself.  To be specific,
+$I \in \L(V)$ is defined by
+\[
+Iv = v.
+\]
+
+\pagebreak[2]
+
+\item[differentiation] \ \\
+Define $D\in \L\bigl(\P(\R{})\bigr)$ by\index{differentiation linear map}
+\[
+Dp = p'\!.
+\]
+The assertion that this function is a linear map is another way of stating a basic
+result about differentiation: $(f + g)' = f' + g'$ and $(\la f)' = \la f'$ whenever $f, g$
+are differentiable and $\la$ is a constant.
+
+\item[integration] \ \\
+Define $T\in \L\bigl(\P(\R{}),\R{}\bigr)$ by
+\[
+Tp = \int_0^1 p.
+\]
+The assertion that this function is linear is another way of stating a basic
+result about integration: the integral of the sum of two functions equals the
+sum of the integrals, and the integral of a constant times a function equals the
+constant times the integral of the function.
+
+\item[multiplication by $x^2$]\ \\
+Define a linear map $T\in \L\bigl(\P(\R{})\bigr)$ by
+\[
+(Tp)(x) = x^2 p(x)
+\]
+for each $x \in \R{}$.
+
+\item[backward shift] \ \\
+Recall that $\F{\infty}$ denotes the vector space of all sequences of elements of $\F{}\3$.  Define a linear map $T\in \L\paren[\big]{\F{\infty}}$ by\index{backward shift}
+\[
+T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots).
+\]
+
+\item[from $\R3$ to $\R2$] \ \\
+Define a linear map $T\in \L\paren[\big]{\RR{3},\R{2}}$ by
+\[
+T(x,y,z) = (2x - y + 3z, 7x + 5y -6z).
+\]
+
+\item[from $\F{n}$ to $\F{m}$] \ \\
+To generalize the previous example, let $m$ and $n$ be positive integers, let
+$A_{j,k} \in \F{}$ for each $j = 1, \dots, m$ and each $k = 1, \dots , n$, and define
+a linear map $T\in \L\paren[\big]{\FF{n},\F{m}}$ by
+\[
+T(x_1, \dots, x_n) =
+(A_{1,1}x_1 + \dots + A_{1,n} \, x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n}\,x_n).
+\]
+Actually every linear map from $\F{n}$ to $\F{m}$ is of this form.
+
+\item[composition] \ \\
+Fix a polynomial $q \in \P(\R{})$. Define a linear map $T \in \L\paren[\big]{\P(\R{})}$ by
+\[
+(Tp)(x) = p\paren[\big]{q(x)}.
+\]
+\end{description}
+\exampleitemend
+\end{example}
+
+The existence part of the next result means that we can find a linear map that takes on whatever values we wish on the vectors in a basis. The uniqueness part of the next result means that a linear map is completely determined by its values on a basis.
+
+\pagebreak[2]
+
+\ResultBox[3linearmap]{linear map lemma}
+{Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_n \in W\3$.  Then there exists a unique linear map $T \colon V \to W$ such that\index{linear map lemma}
+\[
+Tv_k = w_k
+\]
+for each $k = 1, \dots, n$.}
+
+\proof
+First we show the existence of a linear map $T$ with the desired property.
+Define $T \colon V \to W$ by
+\[
+T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n,
+\]
+where $c_1, \dots, c_n$ are arbitrary elements of $\F{}\3$.  The list
+$v_1, \dots, v_n$ is a basis of $V\1$. Thus the equation above does indeed define a
+function $T$ from $V$ to~$W$ (because each element of $V$ can be uniquely written in the form $c_1 v_1 + \dots + c_n v_n$).
+
+For each $k$, taking $c_k = 1$ and the other $c$'s equal to $0$ in the equation above shows that $Tv_k = w_k$.
+
+If $u, v \in V$ with $u = a_1 v_1 + \dots + a_n v_n$ and $v = c_1 v_1 + \dots + c_n v_n$, then
+\begin{align*}
+T(u + v) &= T\bigl( (a_1 + c_1) v_1 + \dots + (a_n + c_n) v_n \bigr)\\[4bp]
+&= (a_1 + c_1) w_1 + \dots + (a_n + c_n) w_n\\[4bp]
+&= (a_1 w_1 + \dots + a_n w_n) + (c_1 w_1 + \dots + c_n w_n)\\[4bp]
+&= Tu + Tv.
+\end{align*}
+Similarly, if $\la \in \F{}$ and $v = c_1 v_1 + \dots + c_n v_n$, then
+\begin{align*}
+T(\la v) &= T( \la c_1 v_1 + \dots + \la c_n v_n) \\[4bp]
+&= \la c_1 w_1 + \dots + \la c_n w_n \\[4bp]
+&= \la (c_1 w_1 + \dots + c_n w_n) \\[4bp]
+&= \la Tv.
+\end{align*}
+Thus $T$ is a linear map from $V$ to $W\3$.
+
+To prove uniqueness, now suppose that $T \in \L(V\1,W)$ and that $Tv_k = w_k$ for each $k = 1, \dots, n$. Let $c_1, \dots, c_n \in \F{}\3$. Then the homogeneity of $T$ implies that $T(c_k v_k) = c_k w_k$ for each $k = 1, \dots, n$. The additivity of $T$ now implies that
+\[
+T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n.
+\]
+Thus $T$ is uniquely determined on $\Span(v_1, \dots, v_n)$ by the equation above. Because $v_1, \dots, v_n$ is a basis of $V\1$, this implies that $T$ is uniquely determined on~$V\1$, as desired.
+\qed
+
+\pagebreak[3]
+
+\ifnum\sizepaper=2
+    \subsection{\texorpdfstring{Algebraic Operations on $\L(V\1, W)$}{Algebraic Operations on L(V, W)}} % To get correct pdf bookmarks.
+    \else
+    \subsection{Algebraic Operations on $\L(V\1, W)$}
+    \fi
+
+We begin by defining addition and scalar multiplication on $\L(V\1,W)$.
+
+\DefinitionBox{addition and scalar multiplication on $\L(V\1,W)$}
+{Suppose $S, T \in \L(V\1,W)$ and $\la \in \F{}\3$. The \emph{sum} $S + T$\index{sum|see{addition}}\index{addition!of linear maps} and the \emph{product} $\la T$\index{product!of scalar and linear map}\index{multiplication|see {product}}\index{scalar multiplication!of linear maps} are the linear maps from $V$ to $W$ defined by
+\[
+(S+T)(v) = Sv + Tv \andd (\la T)(v) = \la (Tv)
+\]
+for all $v \in V\1$.
+}
+
+\mar{Linear maps are pervasive throughout mathematics. However, they are not as ubiquitous
+as imagined by people who seem to think\/ $\cos$ is a
+linear map from\/ $\R{}$ to\/ $\R{}$ when they incorrectly write that\/ $\cos(x + y)$ equals\/ $\cos x + \cos y$ and that\/
+$\cos 2x$ equals\/ $2\cos x$.}
+
+You should verify that $S+T$ and $\la T$ as defined above are indeed linear maps. In other words, if $S, T \in \L(V\1,W)$ and $\la \in \F{}\3$, then $S+T \in \L(V\1, W)$ and $\la T \in \L(V\1, W)$.
+
+Because we took the trouble to define addition and scalar multiplication on $\L(V\1,W)$, the next result should not be a surprise.
+
+\ResultBox[LVW]{$\L(V\1,W)$ is a vector space}
+{With the operations of addition and scalar multiplication as defined above, $\L(V\1,W)$ is a vector space.}
+
+The routine proof of the result above is left to the reader. Note that the
+additive identity of $\L(V\1,W)$ is the zero  linear map defined in Example \ref{2a111}.
+
+Usually it makes no sense to multiply together two elements of a vector
+space, but for some pairs of linear maps a useful product exists, as in the next definition.
+
+\DefinitionBox[3ST]{product of linear maps}
+{If $T \in \L(U,V)$ and $S \in \L(V\1,W)$, then the \emph{product} $ST \in \L(U,W)$ is defined by\index{product!of linear maps}
+\[
+(ST)(u) = S(Tu)
+\]
+for all $u \in U$.}
+
+Thus $ST$ is just the usual composition $S \circ T$  of two functions, but when both functions are linear, we usually write $ST$ instead of $S \circ T\3$. The product notation $ST$ helps make the distributive properties (see next result) seem natural.\sindex{composition@$\circ$}
+
+Note that $ST$ is defined only when $T$ maps into the domain of $S$. You should verify that $ST$ is indeed a linear map from $U$ to $W$ whenever $T \in \L(U,V)$ and $S \in \L(V\1,W)$.
+
+\ResultBox[algprod]{algebraic properties of products of linear maps}
+{\begin{description}
+\item[associativity] \ \\
+$
+(T\3_1T\3_2)T\3_3 = T\3_1(T\3_2T\3_3)$
+whenever $T\3_1$, $T\3_2$, and $T\3_3$ are linear
+maps such that the products make sense (meaning $T\3_3$ maps into
+the domain of~$T\3_2$, and $T\3_2$ maps into the domain of~$T\3_1$).\index{associativity}
+
+\item[identity] \ \\
+$
+TI = IT = T
+$
+whenever $T \in \L(V\1,W)$; here the first $I$ is the identity operator on~$V\1$, and the second $I$ is the identity operator
+on~$W$.\index{identity operator}
+
+\item[distributive properties] \ \\
+$
+(S_1 + S_2) T = S_1 T + S_2 T \andd S(T\3_1 + T\3_2) = ST\3_1 + ST\3_2
+$
+whenever
+$T\3,T\3_1,T\3_2 \in \L(U,V)$ and $S, S_1, S_2 \in \L(V\1,W)$.\index{distributive property}
+\end{description}
+}
+
+The routine proof of the result above is left to the reader.
+
+Multiplication of linear maps is not commutative\index{commutativity}.  In other words, it is not
+necessarily true that $ST = TS$, even if both sides of the equation make sense.
+
+\begin{example}[3noncom]{two noncommuting linear maps from\/ $\P(\R{})$ to\/ $\P(\R{})$}
+Suppose $D \in \L\bigl(\P(\R{})\bigr)$ is the differentiation map\index{differentiation linear map} defined
+in Example \ref{2a111} and $T \in \L\bigl(\P(\R{})\bigr)$ is the multiplication by
+$x^2$ map defined earlier in this section. Then
+\[
+\bigl((TD)p\bigr)(x) = x^2 p' \! (x) \butt \bigl((DT)p\bigr)(x) = x^2 p' \! (x) + 2 x p(x).
+\]
+Thus $TD \ne DT\3$---differentiating and then multiplying by $x^2$ is not the same as multiplying by $x^2$ and then differentiating.
+\end{example}
+
+\ResultBox[zerotozero]{linear maps take $0$ to $0$}
+{Suppose $T$ is a linear map from $V$ to $W\3$. Then $T(0) = 0$.}
+
+\proof
+By additivity, we have
+\[
+T(0) = T(0 + 0) = T(0) + T(0).
+\]
+Add the additive inverse of $T(0)$ to each side of the equation above to conclude that $T(0) = 0$.
+\qed
+
+Suppose $m, b \in \R{}$. The function $\fun f {\R{}} {\R{}}$ defined by
+\[
+f(x) = mx + b
+\]
+is a linear map if and only if $b = 0$ (use \ref{zerotozero}). Thus the linear functions of high school algebra are not the same as linear maps in the context of linear algebra.
+
+\pagebreak[3]
+
+\begin{exercises}
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \R3 \to \R2$ by
+\[
+T(x, y, z) = (2x -4y + 3z + b, 6x + c xyz).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \P(\R{}) \to \R2$ by
+\[
+Tp = \Bigl(3p(4) + 5p' \! (6) + b p(1) p(2), \int_{-1}^2 x^3 p(x)\, dx + c \sin p(0)\Bigr).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+
+\exercise
+Suppose that $T \in \L\paren[\big]{\FF{n}, \F{m}}$.  Show that there exist scalars $A_{j, k} \in \F{}$ for $j = 1, \dots, m$ and $k = 1, \dots, n$ such that
+\[
+T(x_1, \dots, x_n) =
+(A_{1,1}x_1 + \dots + A_{1,n}\,x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n}\,x_n)
+\]
+for every $(x_1, \dots, x_n) \in \FF{n}$.
+\exercisecomment{This exercise shows that the linear map $T$ has the form promised in the second to last item of Example~\ref{2a111}.}
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $v_1, \dots, v_m$ is a list of vectors in $V$ such that
+$Tv_1, \dots, Tv_m$ is a linearly independent list in $W\3$. Prove that $v_1, \dots, v_m$ is linearly independent.
+
+
+\exercise
+Prove that $\L(V\1,W)$ is a vector space, as was asserted in \ref{LVW}.
+
+
+\exercise
+Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in \ref{algprod}.
+
+
+\exercise
+Show that every linear map from a one-dimensional vector space to
+itself is multiplication by some scalar.  More precisely, prove that
+if $\dim V = 1$ and $T \in \L(V)$, then there exists $\la \in \F{}$ such
+that $Tv = \la v$ for all $v \in V\1$. \label{dualone}
+
+
+\exercise
+Give an example of a function $\phi\colon \R{2} \to \R{}$ such that \label{403}
+\[
+\phi(av) = a \phi(v)
+\]
+for all $a \in \R{}$ and all $v \in \R{2}$ but $\phi$ is not linear.
+\exercisecomment{This exercise and the next exercise show that neither homogeneity nor additivity alone is
+enough to imply that a function is a linear map.}
+
+
+\exercise
+Give an example of a function $\phi \colon \C{} \to \C{}$ such that
+\[
+\phi(w + z) = \phi(w) + \phi(z)
+\]
+for all $w, z \in \C{}$ but $\phi$ is not linear. (Here $\C{}$ is thought of as a complex vector space.)
+\exercisecomment{There also exists a function\/ $\phi \colon \R{} \to \R{}$ such that\/ $\phi$ satisfies the additivity condition above but\/ $\phi$ is not linear. However, showing the existence of such a function involves considerably more advanced tools.}
+
+\pagebreak[3]
+
+
+\exercise
+Prove or give a counterexample: If $q \in \P(\R{})$ and $\fun T {\P(\R{})} {\P(\R{})}$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
+\exercisecomment{The function $T$ defined here differs from the function $T$ defined in the last bullet point of \ref{2a111} by the order of the functions in the compositions.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ is a
+scalar multiple of the identity if and  only if $ST = TS$ for every $S \in \L(V)$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ with $U \ne V\1$. Suppose $S \in \L(U, W)$ and $S \ne 0$ (which means that $Su \ne 0$ for some $u \in U$). Define $T \colon V \to W$ by
+\[
+Tv =
+\begin{cases}
+Sv & \text{if } v \in U,\\
+0 & \text{if } v \in V \text{\ and \ }v \notin U.
+\end{cases}
+\]
+Prove that $T$ is not a linear map on $V\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional.  Prove that every linear map on a
+subspace of $V$ can be extended to a linear map on $V\1$.  In other words, show
+that if $U$ is a subspace of $V$ and $S \in \L(U, W)$, then there exists
+$T \in \L(V\1, W)$ such that $Tu = Su$ for all $u \in U$.\label{384}
+\exercisecomment{The result in this exercise is used in the proof of \ref{dimannih}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\L(V\1,W)$ is infinite-dimensional.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a linearly dependent list of vectors in $V\1$. Suppose also that $W \ne \{0\}$. Prove that there exist $w_1, \dots, w_m \in W$ such that no $T \in \L(V\1, W)$ satisfies $Tv_k = w_k$ for each $k = 1, \dots, m$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \L(V)$ such that $ST \ne TS$. \label{noncomm}
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\L(V)$ are $\br{0}$ and $\L(V)$.
+\index{two-sided ideal}\label{ideals}
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{two-sided ideal} of\/ $\L(V)$ if\/ $TE \in \E$ and\/ $ET \in \E$ for all\/ $E \in \E$ and all\/ $T \in \L(V)$.}
+
+
+\begin{comment}
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a left ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{left ideal}
+\[
+\E = \br{E \in \L(V): U \subset \ker E}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{left ideal} of $\L(V)$ if\/ $TE \in \E$ for all\/ $E \in \E$ and all\/
+$T \in \L(V)$.}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a right ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{right ideal}
+\[
+\E = \br{E \in \L(V): \ran E \subset U}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{right ideal} of $\L(V)$ if\/ $ET \in \E$ for all\/ $E \in \E$ and
+all\/ $T \in \L(V)$.}
+
+\end{comment}
+
+\end{exercises}
+
+\CrCom
+
+\section{Null Spaces and Ranges} \label{3nullspace}
+
+\subsection{Null Space and Injectivity}
+
+In this section we will learn about two subspaces that are intimately connected with each linear map. We begin with the set of vectors that get mapped to $0$.
+
+\DefinitionBox{null space, $\ker T$}
+{For $T \in \L(V\1,W)$, the \emph{null space} of $T$, denoted by $\ker T$, is the subset of $V$ consisting of
+those vectors that $T$ maps to $0$:\index{null space}
+\[
+\ker T = \{v \in V: Tv = 0 \}.
+\]
+}
+
+\begin{example}[null]{null space}
+
+\begin{Itemize}
+\item
+If $T$ is the zero map from $V$ to $W\3$, meaning that $Tv = 0$ for every $v \in V\1$, then $\ker T = V\1$.
+\item
+Suppose $\phi \in \L\paren[\big]{\CC3, \C{}}$ is defined by $\phi(z_1, z_2, z_3) = z_1 + 2z_2 + 3z_3$. Then
+$\ker \phi$ equals $\br[\big]{(z_1, z_2, z_3) \in \C3: z_1 + 2z_2 + 3z_3 = 0}$, which is a subspace of the domain of $\phi$. We will soon see that the null space of each linear map is a subspace of its domain.
+\item
+\raisebox{.1in}{\begin{minipage}[t]{4.43in}\mar[6]{The word ``null'' means zero. Thus the term ``null space''should remind you of the connection to\/~$0$. Some mathematicians use the term\/ \marbf{kernel}\index{kernel}
+instead of null space.}
+Suppose $D\in \L\bigl(\P(\R{})\bigr)$ is the differentiation map defined by
+$Dp = p'\!$. The only functions whose derivative equals the zero
+function are the constant functions. Thus the null space of
+$D$ equals the set of constant functions.
+\end{minipage}}\index{differentiation linear map}
+\item
+Suppose that $T\in \L\bigl(\P(\R{})\bigr)$ is the multiplication by $x^2$ map defined
+by $(Tp)(x) = x^2 p(x)$. The only polynomial $p$ such that $x^2 p(x) = 0$
+for all $x \in \R{}$ is the $0$ polynomial.  Thus $
+\ker T = \{ 0 \}$.
+\item
+Suppose $T\in \L\paren[\big]{\F{\infty}}$ is the backward shift defined by\index{backward shift}
+\[
+T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots).
+\]
+Then $T(x_1, x_2, x_3, \dots)$ equals $0$ if and only if
+the numbers $x_2, x_3, \dots$ are all $0$.  Thus
+$
+\ker T = \br[\big]{ (a, 0, 0, \dots): a \in \F{} }$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+The next result shows that the null space of each linear map is a subspace of
+the domain.  In particular, $0$ is in the null space of every linear map.
+
+\ResultBox{the null space is a subspace}%
+{Suppose $T \in \L(V\1,W)$. Then\/ $\ker T$ is a subspace of\/ $V\1$.
+}
+
+%\mar{Take another look at the null spaces that were computed in Example \ref{null} and note that all of them are subspaces.}
+
+\proof
+Because $T$ is a linear map, $T(0) = 0$ (by \ref{zerotozero}).  Thus $0 \in \ker T\3$.
+
+Suppose $u, v \in \ker T\3$. Then
+\[
+T(u + v) = Tu + Tv = 0 + 0 = 0.
+\]
+Hence $u + v \in \ker T\3$.  Thus $\ker T$ is closed under addition.
+
+Suppose $u \in \ker T$ and $\la \in \F{}\3$. Then
+\[
+T(\la u) = \la Tu = \la 0 = 0.
+\]
+Hence $\la u \in \ker T\3$.  Thus $\ker T$ is closed under scalar
+multiplication.
+
+We have shown that $\ker T$ contains $0$ and is closed under
+addition and scalar multiplication.  Thus $\ker T$ is a subspace of~$V$ (by \ref{subspace}).
+\qed
+
+As we will soon see, for a linear map the next definition is closely connected to the null space.
+
+\DefinitionBox{injective}{A function $T\colon V \rightarrow W$ is called \emph{injective}
+if $Tu = Tv$ implies $u = v$.\index{injective}}
+
+\mar{The term\/ \marbf{one-to-one}\index{one-to-one} means the same as injective.}
+
+We could rephrase the definition above to say that $T$ is injective if $u \ne v$ implies that $Tu \ne Tv$. Thus $T$ is injective if and only if it maps distinct inputs to distinct outputs.
+
+The next result says that we can check whether a linear map is
+injective by checking whether $0$ is the only vector
+that gets mapped to $0$. As a simple  application of this result, we see
+that of the linear maps whose null spaces we computed in \ref{null}, only
+multiplication by $x^2$ is injective (except that the zero map is injective in the special case $V = \{0\}$).
+
+\ResultBox[12]{injectivity $\iff$ null space equals $\{0\}$}{%
+Let $T \in \L(V\1,W)$.  Then $T$ is injective if and only if\/ $\ker T = \{0\}$.
+}
+
+\proof
+First suppose $T$ is injective.  We want to prove that $\ker T = \{0\}$.  We
+already know that $\{0\} \subset \ker T$ (by \ref{zerotozero}).  To prove the inclusion in
+the other direction, suppose $v \in \ker T\3$. Then
+\[
+T(v) = 0 = T(0).
+\]
+Because $T$ is injective, the equation above implies that $v = 0$.  Thus we can conclude that
+\mbox{$\ker T = \{0\}$}, as desired.
+
+To prove the implication in the other direction, now suppose $\ker T = \{0\}$.
+We want to prove that $T$ is injective.  To
+do this, suppose $u, v \in V$ and $Tu = Tv$.  Then
+\[
+0 = Tu - Tv = T(u - v).
+\]
+Thus $u - v$ is in $\ker T$, which equals $\{0\}$.  Hence $u - v = 0$, which
+implies that $u = v$.  Hence $T$ is injective, as  desired.
+\qed
+
+\subsection{Range and Surjectivity}
+
+Now we give a name to the set of outputs of a linear map.
+
+\DefinitionBox{range}{For $T \in \L(V\1, W)$, the \emph{range} of $T$ is the subset of $W$ consisting of
+those vectors that are equal to $Tv$ for some $v \in V$:\index{range}
+\[
+\ran T = \{Tv: v \in V \}.
+\]}
+
+\begin{example}[range]{range}
+{\begin{Itemize}
+\item
+If $T$ is the zero map from $V$ to $W\3$, meaning that $Tv=0$ for every $v \in V\1$, then $\ran T = \{0\}$.
+\item
+Suppose $T \in \L\paren[\big]{\RR2, \R3}$ is defined by $T(x, y) = (2x, 5y, x + y)$. Then
+\[
+\ran T = \br[\big]{ (2x, 5y, x + y ): x, y \in \R{} }.
+\]
+Note that $\ran T$ is a subspace of $\R3$. We will soon see that the range of each element of $\L(V\1,W)$ is a subspace of $W\3$.
+\item
+Suppose $D\in \L\bigl(\P(\R{})\bigr)$ is the differentiation
+map defined by $Dp = p'\!$. Because for every polynomial $q \in \P(\R{})$
+there exists a polynomial $p \in \P(\R{})$ such that $p' = q$, the range of $D$ is $\P(\R{})$.\index{differentiation linear map}
+\end{Itemize}}
+\exampleitemend
+\end{example}
+
+The next result shows that the range of each linear map is a subspace of
+the vector space into which it is being mapped.
+
+\ResultBox{the range is a subspace}{
+If\/ $T \in \L(V\1,W)$, then\/ $\ran T$ is a subspace of\/ $W\3$.
+}
+
+\proof
+Suppose $T \in \L(V\1,W)$. Then $T(0) = 0$ (by \ref{zerotozero}), which implies
+that $0 \in \ran T\3$.
+
+If $w_1, w_2 \in \ran T$, then there exist $v_1, v_2 \in V$ such that
+$Tv_1 = w_1$ and $Tv_2 = w_2$.  Thus
+\[
+T(v_1 + v_2) = Tv_1 + Tv_2 = w_1 + w_2.
+\]
+Hence $w_1 + w_2 \in \ran T\3$. Thus $\ran T$ is closed under
+addition.
+
+If $w \in \ran T$ and $\la \in \F{}\3$, then there exists $v \in V$ such that $Tv = w$. Thus
+\[
+T(\la v) = \la Tv = \la w.
+\]
+Hence $\la w \in \ran T\3$.  Thus $\ran T$ is closed under scalar
+multiplication.
+
+We have shown that $\ran T$ contains $0$ and is closed under
+addition and scalar multiplication.  Thus $\ran T$ is a subspace of~$W$ (by \ref{subspace}).
+\qed
+
+\DefinitionBox{surjective}{A function $T\colon V \rightarrow W$ is called
+\emph{surjective} if its range equals~$W\3$.\index{surjective}}
+
+To illustrate the definition above, note that of the ranges we computed in \ref{range}, only the differentiation map\index{differentiation linear map} is surjective (except that the zero map is surjective in the special case $W = \{0\}$).
+
+\mar[3]{Some people use the term\/
+\marbf{onto}\index{onto}, which means the same as surjective.}
+
+Whether a linear map is surjective depends on what
+we are thinking of as the vector space into which it maps.
+
+\begin{example}{surjectivity depends on the target space}
+The differentiation map $D \in \L\bigl(\P\1_5(\R{})\bigr)$\index{differentiation linear map}
+defined by $Dp = p'$ is not surjective, because the polynomial $x^5$
+is not in the range of~$D$.  However, the differentiation map
+$S \in \L\bigl(\P\1_5(\R{}), \P\1_4(\R{})\bigr)$ defined by $Sp = p'$ is
+surjective, because its range equals $\P\1_4(\R{})$, which is the
+vector space into which $S$ maps.
+\end{example}
+
+\subsection{Fundamental Theorem of Linear Maps}
+
+The next result is so important that it gets a dramatic name.
+
+\ResultBox[3ab11]{fundamental theorem of linear maps\index{fundamental theorem of linear maps}}{%
+Suppose $V$ is finite-dimensional and $T \in \L(V\1,W)$. Then\/ $\ran T$ is finite-dimensional and
+\[
+\dim V = \dim \ker T + \dim \ran T\3.
+\]
+}
+
+\proof
+Let $u_1, \dots, u_m$  be a basis of $\ker T$; thus \mbox{$\dim \ker
+T = m$}.  The  linearly independent list $u_1, \dots, u_m$ can be extended to a
+basis
+\[
+u_1, \dots, u_m, v_1, \dots, v_n
+\]
+of $V$ (by \ref{9}). Thus
+$\dim V = m + n$. To complete the proof, we need to show that $\ran T$ is
+finite-dimensional and $\dim \ran T =  n$.  We will do this by proving that
+$Tv_1, \dots, Tv_n$ is a basis of $\ran T\3$.
+
+Let $v \in V\1$.  Because $u_1, \dots, u_m,  v_1, \dots, v_n$ spans $V\1$, we can
+write
+\[
+v = a_1 u_1 + \dots + a_m u_m + b_1 v_1 + \dots + b_n v_n,
+\]
+where the $a$'s and $b$'s are in $\F{}\3$.  Applying $T$ to both sides of this equation, we  get
+\[
+Tv = b_1 Tv_1 + \dots + b_n Tv_n,
+\]
+where the terms of the form $Tu_k$ disappeared because each $u_k$ is in $\ker T\3$.
+The last equation implies that the list $Tv_1, \dots, Tv_n$ spans $\ran T\3$.  In
+particular, $\ran T$ is finite-dimensional.
+
+To show $Tv_1, \dots, Tv_n$ is linearly independent, suppose
+$c_1, \dots, c_n \in \F{}$ and
+\[
+c_1 Tv_1 + \dots + c_n Tv_n = 0.
+\]
+Then
+\[
+T(c_1 v_1 + \dots + c_n v_n) = 0.
+\]
+Hence
+\[
+c_1 v_1 + \dots + c_n v_n \in \ker T\3.
+\]
+Because $u_1, \dots, u_m$ spans $\ker T$, we can write
+\[
+c_1 v_1 + \dots + c_n v_n = d_1 u_1 + \dots + d_m u_m,
+\]
+where the $d$'s are in $\F{}\3$. This equation implies that all the $c$'s (and $d$'s) are
+$0$ (because $u_1, \dots, u_m, v_1, \dots, v_n$ is linearly independent).  Thus
+$Tv_1, \dots, Tv_n$ is linearly independent and hence is a basis of $\ran T$, as desired.
+\qed
+
+Now we can show that no linear map from a finite-dimensional vector space to
+a ``smaller'' vector space can be injective, where ``smaller'' is measured by
+dimension.
+
+\ResultBox[13]{linear map to a lower-dimensional space is not injective}{%
+Suppose\/ $V$ and\/ $W$ are finite-dimensional vector spaces such that\/
+\mbox{$\dim V > \dim W\3$.} Then no linear map from\/ $V$ to\/ $W$ is injective.
+}
+
+\proof
+Let $T \in \L(V\1,W)$.  Then
+\begin{align*}
+\dim \ker T &= \dim V - \dim \ran T \\[4bp]
+&\ge \dim V - \dim W \\[4bp]
+&> 0,
+\end{align*}
+where the first line above comes from the fundamental theorem of linear maps (\ref{3ab11}) and the second line follows from \ref{2subdim}. The inequality above states that \mbox{$\dim \ker T > 0$}.  This means that $\ker T$ contains vectors other than~$0$.
+Thus $T$ is not injective (by~\ref{12}).
+\qed
+
+\begin{example}{linear map from\/ $\F4$ to $\F3$ is not injective}
+Define a linear map $\fun T {\F4} {\F3}$ by
+\[
+T(z_1, z_2, z_3, z_4)
+= \paren[\Big]{ \sqrt{7} z_1 + \pi z_2 + z_4, 97 z_1 + 3 z_2 + 2z_3, z_2 + 6z_3 + 7z_4 }.
+\]
+Because $\dim \F4 > \dim \FF3$, we can use \ref{13} to assert that $T$ is not injective, without doing any calculations.
+\end{example}
+
+\pagebreak[3]
+
+The next result shows that no linear map from a finite-dimensional vector space to a ``bigger''
+vector space can be surjective, where ``bigger'' is measured by dimension.
+
+\ResultBox[14]{linear map to a higher-dimensional space is not surjective}{%
+Suppose\/ $V$ and\/ $W$ are finite-dimensional vector spaces such that\/
+\mbox{$\dim V < \dim W\3$.} Then no linear map from\/ $V$ to\/ $W$ is surjective.
+}
+
+\proof
+Let $T \in \L(V\1,W)$.  Then
+\begin{align*}
+\dim \ran T &= \dim V - \dim \ker T \\[4bp]
+&\le \dim V \\[4bp]
+&< \dim W\3,
+\end{align*}
+where the equality above comes from the fundamental theorem of linear maps (\ref{3ab11}). The inequality above states that
+\mbox{$\dim \ran T < \dim W\3$.}  This means that $\ran T$ cannot equal $W\3$.  Thus $T$ is not
+surjective.
+\qed
+
+As we will soon see, \ref{13} and \ref{14} have important consequences in the theory of linear
+equations. The idea is to express questions about systems of linear equations in terms of linear maps. Let's begin by rephrasing in terms of linear maps the question of whether a homogeneous system of linear equations has a nonzero solution.\index{linear equations|(}
+
+\mar[4]{\marbf{Homogeneous}, in  this context, means that the constant term on the right side of each equation below is\/ $0$.}
+
+Fix positive integers $m$ and $n$, and let
+$A_{j,k} \in \F{}$ for $j = 1, \dots, m$ and \mbox{$k = 1, \dots , n$}. Consider the homogeneous system of linear equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k}\,x_k &= 0 \\%[-3bp]
+& \vdots \\%[-3bp]
+\sum_{k=1}^n A_{m,k}\,x_k &= 0.
+\end{align*}
+Clearly $x_1 = \dots = x_n = 0$ is a solution of the system of equations above; the question here is whether any other solutions exist.
+
+Define $T\colon \F{n}  \rightarrow \F{m}$
+by
+\begin{equation} \label{3sim}
+T(x_1, \dots, x_n) =
+\paren[\bigg]{\sum_{k=1}^n A_{1,k} \, x_k, \dots, \sum_{k=1}^n A_{m,k} \, x_k}.
+\end{equation}%
+
+The equation $T(x_1, \dots, x_n) = 0$ (the $0$ here is the
+additive identity in $\FF{m}$, namely, the list of length $m$ of all~$0$'s) is the same as the homogeneous system of linear equations above.
+
+Thus we want to know if $\ker T$ is strictly bigger than $\{0\}$, which is equivalent to $T$ not being injective (by \ref{12}). The next result gives an important condition for ensuring that $T$ is not injective.
+
+\ResultBox[13a]{homogeneous system of linear equations\index{homogeneous system of linear equations}}
+{A homogeneous system of linear equations with more variables than equations has nonzero solutions.}
+
+\proof
+Use the notation and result from the discussion above. Thus $T$ is a linear map from $\F{n}$ to $\FF{m}$, and we have a homogeneous system of $m$ linear equations with $n$ variables $x_1, \dots, x_n$. From~\ref{13} we see that $T$ is not injective if
+$n > m$.
+\qed
+
+Example of the result above: a homogeneous system of four linear equations with five variables has nonzero solutions.
+
+Now we consider the question of whether a system of linear equations has no solutions for some choice of the constant terms. To rephrase this question in terms of a linear map, fix positive integers $m$ and $n$, and let
+$A_{j,k} \in \F{}$ for all $j = 1, \dots, m$ and all \mbox{$k = 1, \dots , n$}. For $c_1, \dots, c_m \in \F{}\3$, consider the system of linear equations
+\begin{align}
+\sum_{k=1}^n A_{1,k} \, x_k &= c_1 \notag\\
+& \vdots \label{3inhomeq}\\
+\sum_{k=1}^n A_{m,k} \, x_k &= c_m. \notag
+\end{align}
+With this notation, the question here is whether there is some choice of the constant terms $c_1, \dots, c_m \in \F{}$ such that no solution exists to the system above.
+
+\mar{The results \ref{13a} and \ref{14a}, which compare the number of variables and the number of equations, can also be proved using Gaussian elimination. The abstract approach taken here seems to provide cleaner proofs.\index{Gaussian elimination}}
+
+Define $T\colon \F{n}  \rightarrow \F{m}$ as in \ref{3sim}.
+The equation
+$
+T(x_1, \dots, x_n) \!= \!(c_1, \dots, c_m)
+$
+is the same as the system of equations \ref{3inhomeq}.
+Thus we want to know if $\ran T \ne \FF{m}$. Hence  we can rephrase our question about not having a solution for some choice of $c_1, \dots, c_m \in \F{}$ as follows: What condition ensures that $T$ is not surjective? The next result gives one such condition.
+
+\ResultBox[14a]{system of linear equations with more equations than variables}
+{A system of linear equations with more equations than variables has no solution for some choice of the constant terms.}
+
+\proof
+Use the notation from the discussion above. Thus $T$ is a linear map from $\F{n}$ to $\FF{m}$, and we have a system of $m$ equations with $n$ variables $x_1, \dots, x_n$; see \ref{3inhomeq}. If $n < m$, then \ref{14} implies that $T$ is not surjective. As discussed above, this shows that if we have more equations than variables in a system of linear equations, then there is no solution for some choice of the constant terms.
+\qed
+
+Example of the result above: a system of five linear equations with four variables has no solution for some choice of the constant terms.\index{linear equations|)}
+
+\begin{exercises}
+
+\exercise
+Give an example of a linear map $T$ with $\dim \ker T = 3$ and $\dim \ran T = 2$.
+
+
+\exercise
+Suppose $S, T \in \L(V)$ are such that
+$
+\ran S \subset \ker T\3$.
+Prove that $(ST)^2 = 0$.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a list of vectors in $V\1$.  Define $T \in \L\paren[\big]{\FF{m}, V}$ by
+\[ \addtolength{\belowdisplayskip}{-3bp}
+T(z_1, \dots, z_m) = z_1 v_1 + \dots + z_m v_m.
+\]
+\begin{subtheorem}
+\item
+What property of $T$ corresponds to $v_1, \dots, v_m$ spanning $V$?
+\item
+What property of $T$ corresponds to the list $v_1, \dots, v_m$ being linearly \mbox{independent}?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Show that
+$
+\br[\big]{T \in \L\paren[\big]{\RR{5}, \R4}: \dim \ker T > 2}
+$
+is not a subspace of $ \L\paren[\big]{\RR{5}, \R4}$.
+
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\R{4}}$ such that $\ran T = \ker T\3$.
+
+
+\exercise
+Prove that there does not exist $T \in \L\paren[\big]{\R{5}}$ such that $\ran T = \ker T\3$.
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional with $2 \le \dim V \le \dim W\3$. Show that
+$
+\br[\big]{ T \in \L(V\1, W) : T \text{ is not injective} }
+$
+is not a subspace of $\L(V\1, W)$.
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional with $\dim V \ge \dim W \ge 2$. Show that
+$
+\br[\big]{ T \in \L(V\1, W) : T \text{ is not surjective} }
+$
+is not a subspace of $\L(V\1, W)$.
+
+
+\exercise
+Suppose $T \in \L(V\1,W)$ is injective and $v_1, \dots, v_n$ is linearly independent in~$V\1$.  Prove that $Tv_1, \dots, Tv_n$ is linearly independent in $W\3$.\label{3001}
+
+
+\exercise
+Suppose $v_1, \dots, v_n$ spans $V$ and $T \in \L(V\1,W)$. Show
+that $Tv_1, \dots, Tv_n$ spans $\ran T\3$.\label{3spanrange}
+
+
+\begin{comment}
+\exercise
+Suppose $S_1, \dots, S_n$ are injective linear maps such that
+$S_1 S_2 \dotsm S_n$ makes sense. Prove that $S_1 S_2 \dotsm S_n$ is injective.
+
+
+\end{comment}
+
+\exercise
+Suppose that $V$ is finite-dimensional and that $T \in \L(V\1,W)$.  Prove that
+there exists a subspace $U$ of $V$ such that
+\[
+U \cap \ker T = \{0\} \andd \ran T = \{Tu:u\in U\}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T$ is a linear map from $\F{4}$ to $\F{2}$ such that
+\[
+\ker T = \br[\big]{(x_1, x_2, x_3, x_4) \in \F{4}: x_1 = 5 x_2 \mbox{\ and\ } x_3 = 7 x_4 }.
+\]
+Prove that $T$ is surjective.
+
+
+\exercise
+Suppose $U$ is a three-dimensional subspace of $\R{8}$ and that $T$ is a linear
+map from $\R{8}$ to $\R{5}$ such that $\ker  T  = U$.  Prove that $T$
+is  surjective.
+
+
+\exercise
+Prove that there does not exist a linear map from $\F{5}$ to $\F{2}$ whose
+null space equals
+$
+\br[\big]{(x_1, x_2, x_3, x_4, x_5) \in \F{5}: x_1 = 3 x_2 \mbox{\ and\ } x_3 = x_4 = x_5}$.
+
+
+\exercise
+Suppose there exists a linear map on $V$ whose null space and range are both
+finite-dimensional. Prove that $V$ is finite-dimensional.
+
+
+\exercise
+Suppose $V$ and $W$ are both finite-dimensional.  Prove that there exists
+an injective linear map from $V$ to $W$ if and only if \mbox{$\dim V \le \dim W\3$.}
+
+
+\exercise
+Suppose $V$ and $W$ are both finite-dimensional.  Prove that there exists
+a surjective linear map from $V$ onto $W$ if and only if \mbox{$\dim V \ge \dim W\3$.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and that
+$U$ is a subspace of~$V\1$.
+Prove that there exists $T \in \L(V\1,W)$ such that $\ker T = U$
+if and only if $\dim U \ge \dim V - \dim W\3$.
+
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1,W)$.  Prove that $T$ is
+injective if and only if there exists $S \in \L(W\3, V)$ such that $ST$ is the identity operator on~$V\1$.
+
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1,W)$.  Prove that $T$  is
+surjective if and only if there exists $S \in \L(W\3, V)$ such that $TS$ is the
+identity operator  on~$W\3$.
+
+
+\exercise
+Suppose $V$  is finite-dimensional, $T \in \L(V\1, W)$, and $U$ is a subspace of $W\3$. Prove that $\br{v \in V: Tv \in U}$ is a subspace of $V$ and\label{3diminv}
+\[
+\dim \br{v \in V: Tv \in U} = \dim \ker T + \dim (U \cap \ran T).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.  Prove that
+\[
+\dim \ker ST \le \dim \ker S + \dim \ker T\3.
+\]
+\exercisedisplayend
+
+
+\exercise  \label{5dimST}
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.  Prove that
+\[
+\dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}.
+\]
+\exercisedisplayend
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\dim V = 5$ and $S, T \in \L(V)$ are such that $ST = 0$. Prove that $\dim \ran TS \le 2$.
+\item
+Give an example of $S, T \in \L\paren[\big]{\F5}$ with $ST = 0$ and $\dim \ran TS = 2$.
+\end{SUBtheorem}
+
+
+\exercise\label{kerT1}
+Suppose that $W$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that $\ker S \subset \ker T$ if and only if there exists $E \in \L(W)$ such that \mbox{$T = E S$}.
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that $\ran S \subset \ran T$ if and only if there exists $E \in \L(V)$ such that \mbox{$S = T E$}.
+
+
+\begin{comment}
+\exercise
+Suppose $V$ is finite-dimensional and $S_1, \dots, S_m \in \L(V)$. Prove that
+\[
+\dim \ker S_1 \dotsm S_m \le \dim \ker S_1 + \dots + \dim \ker S_m.
+\]
+\exercisedisplayend
+
+\exercise
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.
+\begin{subtheorem}
+\item
+Prove that $\dim \ker ST \le \dim \ker S + \dim \ker T\3$.
+\item
+Prove that $\dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}$.
+\end{subtheorem}
+\end{comment}
+
+\begin{comment}
+\exercise
+Suppose $T \in \L\paren[\big]{\RR{\R{}}, \R{\R{}}}$ is the multiplication by $x^2$ map defined by $(Tf)(x) = x^2 f(x)$. Show that $T$ is not injective and find $\ker T\3$.
+\exercisecomment{Compare the result above to the fourth bullet point of\/ \ref{null}.}
+
+\end{comment}
+
+\exercise
+Suppose $P \in \L(V)$ and $P^2 = P$.  Prove that $V = \ker P \oplus \ran P$.
+
+
+\exercise
+Suppose $D \in \L\bigl(\P(\R{})\bigr)$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \P(\R{})$. Prove that $D$ is surjective.\index{differentiation linear map}\label{3polydeg}
+\exercisecomment{The notation $D$ is used above to remind you of the differentiation map that sends a polynomial $p$ to $p'\!$.}
+
+
+\exercise
+Suppose $p \in \P(\R{})$. Prove that there exists a polynomial $q \in \P(\R{})$ such that $5 q'' + 3 q' = p$.
+\exercisecomment{This exercise can be done without linear algebra, but it's more fun to do it using linear algebra.}
+
+
+\exercise
+Suppose $\phi \in \L(V\1, \F{})$ and $\phi \ne 0$. Suppose $u \in V$ is not in $\ker \phi$. Prove that
+\[
+V = \ker \phi \oplus \{au: a \in \F{}\}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $X$ is a subspace of $V\1$, and $Y$ is a finite-dimensional subspace of $W\3$. Prove that there exists $T \in \L(V, W)$ such that $\ker T = X$ and $\ran T = Y$ if and only if
+$\dim X + \dim Y = \dim V\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 1$. Show that if \mbox{$\fun \phi {\!\L(V)\!} {\F{}}$} is a linear map such that
+$
+\phi(ST) = \phi(S) \phi(T)
+$
+for all $S, T \in \L(V)$, then $\phi = 0$.
+\hint{The description of the two-sided ideals of $\L(V)$ given by Exercise \ref{ideals} in Section \ref{vslinear} might be useful.}
+
+
+\exercise
+Suppose that $V$ and $W$ are real vector spaces and $T \in \L(V\1, W)$. Define $\fun {T\3_{\C{}}} {V\1_{\C{}}} {W\3_{\C{}}}$ by\index{complexification!of a linear map}\label{3complexMap}\sindex{TC@$T\3_{\C{}}$}
+\[
+T\3_{\C{}}(u + iv) = Tu + iTv
+\]
+for all $u, v \in V\1$.
+\begin{subtheorem}
+\item
+Show that $T\3_{\C{}}$ is a (complex) linear map from $V\1_{\C{}}$ to $W\3_{\C{}}$.
+\item
+Show that $T\3_{\C{}}$ is injective if and only if $T$ is injective.
+\item
+Show that $\ran T\3_{\C{}} = W\3_{\C{}}$ if and only if $\ran T = W\3$.
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{1VC} in Section \ref{1DefVS} for the definition of the complexification\/ $V\1_{\C{}}$.
+The linear map\/ $T\3_{\C{}}$ is called the \emph{complexification} of the linear map\/ $T\3$.}
+
+
+\end{exercises}
+
+\section{Matrices} \label{matrices}
+
+\subsection{Representing a Linear Map by a Matrix}
+
+We know that if $v_1, \dots, v_n$ is a basis of $V$ and
+$T \colon V \rightarrow W$ is linear, then the values of $Tv_1, \dots, Tv_n$
+determine the values of $T$ on arbitrary vectors in~$V$---see the linear map lemma (\ref{3linearmap}). As we will soon see, matrices provide an efficient method of recording the values of the $Tv_k$'s in terms of a basis of $W\3$.
+
+\DefinitionBox{matrix, $A_{j,k}$\sindex{Ajk@$A_{j,k}$}}{%
+Suppose $m$ and $n$ are nonnegative integers.  An
+\by{m}{n} \emph{matrix}\index{matrix} $A$ is a rectangular array of elements of $\F{}$ with $m$ rows and $n$ columns:
+\[
+A = \mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\
+\vdots &   & \vdots \\
+A_{m,1} & \cdots & A_{m,n} }.
+\]
+The notation $A_{j,k}$ denotes the entry in row $j$, column $k$ of $A$.}
+
+\begin{example}{$A_{j,k}$ equals entry in row\/ $j$, column\/ $k$ of\/ $A$}
+\vspace{-5bp} %Visual formatting for page break in LADR4e
+\mar{When dealing with matrices, the first index refers to the row number; the second index refers to the column number.}
+
+Suppose $A = \mat{ccc}{ 8 & 4 & 5-3i\\ 1 & 9 & 7}$. Thus $A_{2,3}$ refers to the entry in the second row,
+third column of $A$, which means that $A_{2,3} = 7$.
+\end{example}
+
+Now we come to the key definition in this section.
+
+\DefinitionBox{matrix of a linear map, $\M(T)$\sindex{MT@$\M(T)$}}
+{Suppose $T \in \L(V\1,W)$ and $v_1, \dots, v_n$ is a basis of $V$ and
+$w_1, \dots, w_m$ is a basis of $W\3$. The
+\emph{matrix of}\index{matrix!of linear map} $T$ with respect to these bases
+is the \by{m}{n} matrix $\M(T)$ whose entries $A_{j,k}$ are defined by
+\[
+Tv_k = A_{1,k} w_1 + \dots + A_{m,k} w_m.
+\]
+If the bases $v_1, \dots, v_n$ and $w_1, \dots, w_m$ are not clear from the context, then the notation
+$\M\bigl( T, (v_1, \dots, v_n), (w_1, \dots, w_m) \bigr)$ is used.
+}
+
+The matrix $\M(T)$ of a linear map $T \in \L(V\1,W)$ depends on the basis $v_1, \dots, v_n$ of $V$ and the basis $w_1, \dots, w_m$ of $W\3$, as well as on $T\3$. However, the bases should be clear from the context, and thus they are often not included in the notation.
+
+To remember how $\M(T)$ is constructed from $T$, you might
+write across the top of the matrix the basis vectors $v_1, \dots, v_n$ for the domain and along the left the basis vectors $w_1, \dots, w_m$ for the vector space into which $T$ maps, as
+follows:
+\begin{gather*}
+\hspace*{19bp} v_1 \Space \cdots \Space v_k \Space \cdots  \Space v_n \\
+\begin{array}{c}
+w_1 \\
+\makebox[0in][r]{$\M(T) =$\quad\ }\vdots \\
+w_m
+\end{array}
+\mat{ccccccccc}{
+& &  & & A_{1,k} & & & &\\
+& &  & & \vdots & &  & &\\
+& &  & & A_{m,k} & &  & & }.
+\end{gather*}
+
+\mar[9]{The\/ $k^\nth$ column of\/~$\M(T)$ consists of the scalars needed to write\/ $Tv_k$ as a linear combination of\/
+$w_1, \dots, w_m$\textup{:}
+\vspace{-6bp}
+\[
+Tv_k = \sum_{j=1}^m A_{j,k} w_j.
+\vspace{-10bp}
+\]}
+
+In the matrix above only the $k^\nth$ column is shown. Thus
+the second index of each displayed entry of the matrix above is $k$. The picture above should remind you that $Tv_k$ can be computed from
+$\M(T)$ by  multiplying each entry in the $k^\nth$ column by the
+corresponding $w_j$ from  the left column, and then adding up the resulting vectors.
+
+\mar{If\/ $T$ is a linear map from an\/ \mbox{$n$-dimensional} vector space to an\/ \mbox{$m$-dimensional} vector space, then\/ $\M(T)$ is an\/ \by{m}{n} matrix.}
+
+If $T$ is a linear map from $\F{n}$ to~$\FF{m}$, then unless stated otherwise, assume the bases in question are the standard ones (where the $k^\nth$ basis vector is $1$ in the $k^\nth$ slot and $0$ in all other  slots). If you think of elements of~$\F{m}$ as columns of $m$ numbers, then you can think of the $k^\nth$ column of $\M(T)$ as $T$ applied to the $k^\nth$ standard basis vector.
+
+\begin{example}{the matrix of a linear map from\/ $\F2$ to\/ $\F3$}
+Suppose $T \in \L\paren[\big]{\FF{2}, \F{3}}$ is defined by
+\[
+T(x, y) = (x + 3y, 2x + 5y, 7x + 9y).
+\]
+Because $T(1,0) = (1, 2, 7)$ and $T(0,1) = (3, 5, 9)$, the matrix of
+$T$ with respect to the standard bases is the \by{3}{2} matrix below:
+\[
+\M(T) =
+\mat{cc}{
+1 & 3 \\
+2 & 5 \\
+7 & 9}.
+\vspace{1bp}
+\]
+\end{example}
+
+When working with $\P\1_m(\F{})$, use the standard basis $1, x, x^2\1, \dots, x^m$ unless the context indicates otherwise.
+
+\begin{example}[diffmatrix]{matrix of the differentiation map from $\P\1_3(\R{})$ to $\P\1_2(\R{})$\index{differentiation linear map}}
+Suppose $D \in \L\bigl(\P\1_3(\R{}), \P\1_2(\R{}) \bigr)$ is the differentiation map defined by $Dp = p'\!$.
+Because ${(x^n)}' = nx^{n-1}\!$, the matrix of $D$ with respect to the standard bases is the \by{3}{4} matrix below:
+\vspace{-6bp}
+\[
+\M(D) =
+\mat{cccc}{
+0& 1 & 0 & 0 \\
+0 & 0 & 2 & 0 \\
+0 & 0 & 0 & 3 \\}.
+\vspace{1bp}
+\]
+\end{example}
+
+\subsection{Addition and Scalar Multiplication of Matrices}
+
+For the rest of this section, assume that $U$, $V$, and $W$ are finite-dimensional and that a basis has been chosen for each of these vector spaces. Thus for each linear map from $V$ to $W\3$, we can talk about its matrix
+(with respect to the chosen bases).
+
+Is the matrix of the sum of two linear maps equal to the sum of the matrices of the two maps?
+Right now this question does not yet make sense because although we have defined the sum of two linear maps, we have not defined the sum of two matrices.  Fortunately, the natural definition of the sum of two matrices has the right properties. Specifically, we make the following definition.
+
+\DefinitionBox{matrix addition}
+{The \emph{sum of two matrices of the same size}\index{addition!of matrices} is the matrix obtained by adding
+corresponding entries in the matrices:
+\begin{multline*}
+\mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\
+\vdots &   & \vdots \\
+A_{m,1} & \cdots & A_{m,n} } +
+\mat{ccc}{
+C_{1,1} & \cdots & C_{1,n} \\
+\vdots &   & \vdots \\
+C_{m,1} & \cdots & C_{m,n} } \\[6bp]
+=
+\mat{ccc}{
+A_{1,1} + C_{1,1} & \cdots & A_{1,n} + C_{1,n} \\
+\vdots &   & \vdots \\
+A_{m,1} + C_{m,1} & \cdots & A_{m,n} + C_{m,n} }.
+\end{multline*}
+%In other words, $(A + C)_{j,k} = A_{j,k} + C_{j,k}$.
+}
+
+In the next result, the assumption is that the same bases are used for all three linear maps $S+T$, $S$, and $T\3$.
+
+\ResultBox[101]{matrix of the sum of linear maps}
+{Suppose $S, T \in \L(V\1, W)$. Then $\M(S + T) = \M(S) + \M(T)$.}
+
+The verification of the result above follows from the definitions and is left to the reader.
+
+Still assuming that we have some bases in mind, is the matrix of a scalar times
+a linear map equal to the scalar times the matrix of the linear map?  Again, the
+question does not yet make sense because we have not defined scalar
+multiplication on matrices.  Fortunately, the natural definition again has the
+right properties.
+
+\DefinitionBox{scalar multiplication of a matrix}
+{The product of a scalar and a matrix is the matrix obtained
+by multiplying each entry in the matrix by the scalar:\index{scalar multiplication!of matrices}
+\[
+\la \mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\
+\vdots &   & \vdots \\
+A_{m,1} & \cdots & A_{m,n} } =
+\mat{ccc}{
+\la A_{1,1} & \cdots & \la A_{1,n} \\
+\vdots &   & \vdots \\
+\la A_{m,1} & \cdots & \la A_{m,n} }.
+\]
+% In other words, $(\la A)_{j,k} = \la A_{j, k}$.
+}
+
+\begin{example}{addition and scalar multiplication of matrices}
+\vspace{-.2in}
+\[
+2 \mat{cc}{
+3 & 1 \\
+-1 & 5} +
+\mat{cc}{
+4 & 2 \\
+1 & 6}
+= \mat{cc}{
+6 & 2 \\
+-2 & 10 } +
+\mat{cc}{
+4 & 2  \\
+1 & 6 }
+= \mat{cc}{
+10 & 4  \\
+-1 & 16 }
+\]
+\end{example}
+
+In the next result, the assumption is that the same bases are used for both the linear maps $\la T$ and $T\3$.
+
+\ResultBox[102]{the matrix of a scalar times a linear map}
+{Suppose $\la \in \F{}$ and $T \in \L(V\1, W)$. Then $\M(\la T) = \la \M(T)$.}
+
+The verification of the result above is also left to the reader.
+
+Because addition and scalar multiplication have now been defined for matrices, you should not be surprised that a vector space is about to appear.  First we introduce a bit of notation so that this new vector space has a name, and then we find the dimension of this new vector space.
+
+\NotationBox[3mnmatrices]{$\F{m,n}$}
+{For $m$ and $n$ positive integers, the set of all
+\by{m}{n} matrices with entries in $\F{}$ is denoted by
+$\FF{m,n}$.\sindex{Fmn@$\F{m,n}\1$}}
+
+\ResultBox[dimFmn]{$\dim \F{m,n} = mn$}
+{Suppose $m$ and $n$ are positive integers. With addition and scalar multiplication defined as above, $\F{m,n}$ is a vector space of dimension $mn$.}
+
+\proof
+The verification that $\F{m,n}$ is a vector space is left to the reader.
+Note that the additive  identity of $\F{m,n}$ is the \by{m}{n} matrix all of whose entries equal~$0$.
+
+The reader should also verify that the list of distinct \by{m}{n} matrices
+that have $0$ in all entries except for a $1$ in one entry is a basis of $\FF{m,n}$.  There are $mn$ such
+matrices, so the dimension of $\F{m,n}$ equals $mn$. \qed
+
+\subsection{Matrix Multiplication}
+
+Suppose, as previously, that $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of~$W\3$.  Suppose also that
+$u_1, \dots, u_p$ is a basis of~$U$.
+
+Consider linear maps $T\colon U  \rightarrow V$
+and $S\colon V \rightarrow W\3$.  The composition $ST$ is a linear map from $U$
+to $W\3$.  Does $\M(ST)$ equal $\M(S) \M(T)$? This question does not yet make sense because
+we have not defined the product of two matrices. We will choose a definition of matrix multiplication that forces this question to have a positive answer.  Let's see how to do this.
+
+Suppose $\M(S) = A$ and $\M(T) = B$.
+For $1 \le k \le p$, we have
+\begin{align*}
+(ST)u_k &= S\paren[\bigg]{ \sum_{r=1}^n B_{r,k} v_r } \\[4bp]
+&= \sum_{r=1}^n B_{r,k} Sv_r \\[4bp]
+&= \sum_{r=1}^n B_{r,k} \sum_{j=1}^m A_{j,r} w_j \\[4bp]
+&= \sum_{j=1}^m \paren[\bigg]{\sum_{r=1}^n A_{j,r} B_{r,k}}  w_j.
+\end{align*}
+Thus $\M(ST)$ is the \by{m}{p} matrix whose entry in row $j$, column $k$,
+equals
+\[
+\sum_{r=1}^n A_{j,r} B_{r,k}.
+\]
+
+Now we see how to define matrix multiplication so that the desired equation $\M(ST) = \M(S) \M(T)$ holds.
+
+\DefinitionBox{matrix multiplication}
+{Suppose $A$ is an \by{m}{n} matrix and $B$ is an
+\by{n}{p} matrix. Then $AB$\index{product!of matrices}\index{matrix!multiplication} is defined to be the
+\by{m}{p} matrix whose entry in row $j$, column $k$, is given by the equation
+\[
+(AB)_{j,k} = \sum_{r=1}^n A_{j,r} B_{r,k}.
+\]
+Thus the entry in row  $j$, column $k$, of $AB$ is computed by taking
+row~$j$ of $A$ and column~$k$ of $B$, multiplying together corresponding
+entries, and then summing.}
+
+\mar[4]{You may have learned this definition of matrix multiplication in an earlier course, although you may not have seen this motivation
+for it.}
+
+Note that we define the product of two matrices only when the number of
+columns of the first matrix equals the number of rows of the second matrix.
+
+\medskip
+
+\begin{example}[matprod]{matrix multiplication}
+Here we multiply together a \by{3}{2} matrix and a \by{2}{4} matrix, obtaining a \by{3}{4} matrix:
+\[
+\mat{cc}{
+1 & 2 \\
+3 & 4 \\
+5 & 6}
+\mat{cccc}{
+6 & 5 & 4 & 3 \\
+2 & 1 & 0 & -1} =
+\mat{cccc}{
+10 & 7 & 4 & 1 \\
+26 & 19 & 12 & 5 \\
+42 & 31 & 20 & 9}.
+\]
+\vspace{-.13in}
+\end{example}
+
+Matrix multiplication is not commutative\index{commutativity}---$AB$ is not necessarily equal to $BA$ even if both products are defined (see Exercise \ref{noncommute}). Matrix multiplication is distributive and associative\ (see Exercises \ref{3distrib} and \ref{assoc}).
+
+In the next result, we assume that the same basis of $V$ is used in considering $T \in \L(U, V)$ and $S \in \L(V\1, W)$, the same basis of $W$ is used in considering $S \in \L(V\1, W)$ and $ST \in \L(U,W)$, and the same basis of $U$ is used in considering $T \in \L(U, V)$ and $ST \in \L(U, W)$.
+
+\ResultBox[3matproduct]{matrix of product of linear maps\index{matrix!of product of linear maps}}
+{If $T \in \L(U, V)$ and $S \in \L(V\1, W)$, then $\M(ST) = \M(S) \M(T)$.}
+
+The proof of the result above is the calculation that was done as motivation before the definition of matrix multiplication.
+
+In the next piece of notation, note that as usual the first index refers to a row and the second index refers to a column, with a vertically centered dot used as a placeholder.
+
+\NotationBox[Ajk]{$A_{j, \cdot}\,\,$, $A_{\cdot, k}$\sindex{Aj@$A_{j, \cdot}\,$}\sindex{Ak@$A_{\cdot, k}$}}
+{Suppose $A$ is an \by{m}{n} matrix.
+\begin{Itemize}
+\item
+If $1 \le j \le m$, then $A_{j, \cdot}$ denotes the \by{1}{n} matrix consisting of row $j$ of $A$.
+\item
+If $1 \le k \le n$, then $A_{\cdot, k}$ denotes the \by{m}{1} matrix consisting of column $k$ of $A$.
+\end{Itemize}}
+
+\begin{example}{$A_{j,\cdot}$ equals\/ $j^\nth$ row of\/ $A$ and $A_{\cdot, k}$ equals\/ $k^\nth$ column of\/ $A$}
+The notation $A_{2,\cdot}$ denotes the second row of $A$ and $A_{\cdot, 2} $ denotes the second column of $A$.
+Thus if $A = \mat{ccc}{ 8 & 4 & 5\\ 1 & 9 & 7}$, then
+\[
+A_{2,\cdot} = \mat{ccc}{1 & 9 & 7} \andd
+A_{\cdot, 2} = \mat{c}{4 \\ 9}.
+\]
+\vspace{-.2in}
+\end{example}
+
+The product of a \by{1}{n} matrix and an \by{n}{1} matrix is a \by{1}{1} matrix. However, we will frequently identify a \by{1}{1} matrix with its entry.
+For example,
+\[
+\mat{cc}{3 & 4} \mat{c}{6 \\ 2} = \mat{c}{26}
+\]
+because $3 \cdot 6 + 4 \cdot 2 = 26$. However, we can identify $\mat{c}{26}$ with $26$, writing $\mat{cc}{3 & 4} \mat{c}{6 \\ 2} = 26$.
+
+The next result uses the convention discussed in the paragraph above to give another way to think of matrix multiplication. For example, the next result and the calculation in the paragraph above explain why the entry in row $2$, column~$1$, of the product in Example~\ref{matprod} equals $26$.
+
+\ResultBox{entry of matrix product equals row times column}
+{Suppose $A$ is an \by{m}{n} matrix and $B$ is an
+\by{n}{p} matrix. Then
+\vspace{-.06in} %VisualFormatting
+\[
+(AB)_{j,k} = A_{j,\cdot} \, B_{\cdot, k}
+\vspace{-.06in} %VisualFormatting
+\]
+if $1 \le j \le m$ and $1 \le k \le p$. In other words, the entry in row~$j$, column~$k$, of $AB$ equals (row $j$ of $A$) times (column $k$ of~$B$).}
+
+\proof
+Suppose $1 \le j \le m$ and $1 \le k \le p$. The definition of matrix multiplication states that
+\begin{equation} \label{3ABjk}
+(AB)_{j,k} = A_{j,1} B_{1,k} + \cdots + A_{j,n} B_{n,k}.
+\end{equation}%
+The definition of matrix multiplication also implies that the product of the \by{1}{n} matrix $A_{j, \cdot}$ and the \by{n}{1} matrix
+$B_{\cdot, k}$ is the \by{1}{1} matrix whose entry is the number on the right side of the equation above. Thus the entry in row~$j$, column~$k$, of $AB$ equals (row $j$ of $A$) times (column $k$ of~$B$).
+\qed
+
+The next result gives yet another way to think of matrix multiplication. In the result below, $(AB)_{\cdot,k}$ is column $k$ of the \by{m}{p} matrix $AB$. Thus $(AB)_{\cdot,k}$ is an \by{m}{1} matrix. Also, $A B_{\cdot, k}$ is an \by{m}{1} matrix because it is the product of an \by{m}{n} matrix and an \by{n}{1} matrix. Thus the two sides of the equation in the result below have the same size, making it reasonable that they might be equal.
+
+\ResultBox[3matrixcol]{column of matrix product equals matrix times column}
+{Suppose $A$ is an \by{m}{n} matrix and $B$ is an \by{n}{p} matrix. Then
+\vspace{-.06in} %VisualFormatting
+\[
+(AB)_{\cdot,k} = A B_{\cdot, k}
+\vspace{-.06in} %VisualFormatting
+\]
+if $1 \le k \le p$. In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$.}
+
+\proof
+As discussed above, $(AB)_{\cdot,k}$ and $A B_{\cdot, k}$ are both \by{m}{1} matrices. If $1 \le j \le m$, then the entry in row $j$ of $(AB)_{\cdot,k}$ is the left side of \ref{3ABjk} and the entry in row $j$ of $A B_{\cdot, k}$ is the right side of \ref{3ABjk}. Thus $(AB)_{\cdot,k} = A B_{\cdot, k}$.
+\qed
+
+Our next result will give another way of thinking about the product of an \by{m}{n} matrix and an \by{n}{1} matrix, motivated by the next example.
+
+\begin{example}{product of a \by{3}{2} matrix and a \by{2}{1} matrix}
+Use our definitions and basic arithmetic to verify that
+\vspace{-.03in}
+\[
+\mat{cc}{
+1 & 2 \\
+3 & 4 \\
+5 & 6} \mat{c}{5 \\ 1} = \mat{c}{7 \\ 19 \\ 31}
+= 5 \mat{c}{1\\3\\5} + 1 \mat{c}{2\\4\\6}.
+\vspace{-.03in}
+\]
+Thus in this example, the product of a \by{3}{2} matrix and a \by{2}{1} matrix is a linear combination of the columns of the \by{3}{2} matrix, with the scalars ($5$ and $1$) that multiply the columns coming from the \by{2}{1} matrix.
+\end{example}
+
+\pagebreak[2]
+
+The next result generalizes the example above.
+
+\ResultBox[3combcol]{linear combination of columns}
+{Suppose $A$ is an \by{m}{n} matrix and
+$
+b = \mat{c}{b_1\\ \vdots \\ b_n}
+$
+is an \by{n}{1} matrix. Then
+\[
+Ab = b_1 A_{\cdot, 1} + \dots + b_n \, A_{\cdot, n}.
+\]
+In other words, $Ab$ is a linear combination of the columns of $A$, with the scalars that multiply the columns coming from $b$.}
+
+\proof
+If $k \in \br{1, \ldots, m}$, then the definition of matrix multiplication implies that the entry in row $k$ of the \by{m}{1} matrix $Ab$ is
+\[
+A_{k, 1} b_1 + \cdots + A_{k,n} b_n.
+\]
+The entry in row $k$ of $b_1 A_{\cdot, 1} + \dots + b_n \, A_{\cdot, n}$ also equals the number displayed above.
+
+Because $Ab$ and $b_1 A_{\cdot, 1} + \dots + b_n \, A_{\cdot, n}$ have the same entry in row $k$ for each $k \in \br{1, \ldots, m}$, we conclude that $Ab = b_1 A_{\cdot, 1} + \dots + b_n \, A_{\cdot, n}$.
+\qed
+
+Our two previous results focus on the columns of a matrix. Analogous results hold for the rows of a matrix. Specifically, see Exercises \ref{3think1} and \ref{3think2}, which can be proved using appropriate modifications of the proofs of \ref{3matrixcol} and \ref{3combcol}.
+
+The next result is the main tool used in the next subsection to prove the column--row factorization (\ref{3CR}) and to prove that the column rank of a matrix equals the row rank (\ref{3colrow}). To be consistent with the notation often used with the column--row factorization, including in the next subsection, the matrices in the next result are called $C$ and $R$ instead of $A$ and $B$.
+
+\ResultBox[3mmcol]{matrix multiplication as linear combinations of columns or rows}
+{Suppose $C$ is an \by{m}{c} matrix and $R$ is a \by{c}{n} matrix.
+\begin{subtheorem}
+\item
+If $k \in \br{1, \ldots, n}$, then column $k$ of $CR$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
+\item
+If $j \in \br{1, \ldots, m}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination coming from row $j$ of $C$.
+\end{subtheorem}}
+
+\proof
+Suppose $k \in \br{1, \ldots, n}$. Then column $k$ of $CR$ equals $CR_{\cdot, k}$ (by \ref{3matrixcol}), which equals the linear combination of the columns of $C$ with coefficients coming from $R_{\cdot, k}$ (by \ref{3combcol}). Thus (a) holds.
+
+To prove (b), follow the pattern of the proof of (a) but use rows instead of columns and use Exercises \ref{3think1} and \ref{3think2} instead of \ref{3matrixcol} and \ref{3combcol}.
+\qed
+
+\subsection{Column--Row Factorization and Rank of a Matrix}
+
+We begin by defining two nonnegative integers associated with each matrix.
+
+\DefinitionBox[7rcrank]{column rank, row rank}
+{Suppose $A$ is an \by{m}{n} matrix with entries in $\F{}\3$.
+\begin{Itemize}
+\item
+The \emph{column rank}\index{column rank of a matrix} of $A$ is the dimension of the span of the columns of $A$ in~$\FF{m,1}$.
+\item
+The \emph{row rank}\index{row rank of a matrix} of $A$ is the dimension of the span of the rows of $A$ in $\FF{1, n}$.
+\end{Itemize}}
+
+If $A$ is an \by{m}{n} matrix, then the column rank of $A$ is at most $n$ (because $A$ has $n$ columns) and the column rank of $A$ is also at most $m$ (because $\dim \F{m,1} = m$). Similarly, the row rank of $A$ is also at most $\min \br{m,n}$.
+
+\begin{example}[rowcolrank]{column rank and row rank of a\/ \by{2}{4} matrix}
+Suppose
+\vspace{-.06in} %VisualFormatting for page break.
+\[
+A = \mat{cccc}{
+4 & 7 & 1 & 8 \\
+3 & 5 & 2 & 9}.
+\]
+
+The column rank of $A$ is the dimension of
+\[
+\Span \left( \rule{0bp}{18.5bp} \mat{c}{4 \\ 3}, \mat{c}{7 \\ 5}, \mat{c}{1 \\ 2}, \mat{c}{8 \\9 } \right)
+\vspace{-.01in} %VisualFormatting for page break.
+\]
+in $\FF{2,1}$. Neither of the first two vectors listed above in $\F{2,1}$ is a scalar multiple of the other. Thus the span of this list of length four has dimension at least two. The span of this list of vectors in $\F{2,1}$ cannot have dimension larger than two because $\dim \FF{2,1} = 2$. Thus the span of this list has dimension two, which means that the column rank of $A$ is two.
+
+The row rank of $A$ is the dimension of
+\[
+\Span \Bigl( \mat{cccc}{
+4 & 7 & 1 & 8}, \mat{cccc}{3 & 5 & 2 & 9} \Bigr)
+\vspace{-.01in} %VisualFormatting for page break.
+\]
+in $\FF{1, 4}$. Neither of the two vectors listed above in $\F{1, 4}$ is a scalar multiple of the other. Thus the span of this list of length two has dimension two, which means that the row rank of $A$ is two.
+\end{example}
+
+We now define the transpose of a matrix.
+
+\DefinitionBox{transpose, $\tran{A}$}
+{The \emph{transpose}\index{transpose of a matrix}\sindex{At@$\tran{A}$} of a matrix $A$, denoted by $\tran{A}\3$, is the matrix obtained from $A$ by interchanging rows and columns. Specifically, if $A$ is an \by{m}{n} matrix, then $\tran{A}$ is the \by{n}{m} matrix whose entries are given by the equation
+\[
+\paren[\big]{\tran{A}}_{k,j} = A_{j, k}.
+\]
+}
+
+\pagebreak[3]
+
+\begin{example}{transpose of a matrix}
+\vspace{-0.06in} %VisualFormatting for LADR4e page break
+If $A = \mat{cc}{5 & -7\\ 3 & 8 \\ -4 & 2}$, then
+$\tran{A} = \mat{ccc}{5 & 3 & -4 \\ -7 & 8 & 2}$.
+
+Note that here $A$ is a \by{3}{2} matrix and $\tran{A}$ is a \by{2}{3} matrix.
+\end{example}
+
+The transpose has nice algebraic properties: $\tran{(A+B)} = \tran{A} + \tran{B\hspace{.08em}}\3$, $\tran{(\la A)} = \la \tran{A}\3$, and
+$\tran{(AC)} = \tran{C} \tran{A}$ for all \by{m}{n} matrices $A, B$, all $\la \in \F{}\3$, and all \by{n}{p} matrices $C$ (see Exercises~\ref{3translinear} and \ref{3tran}).
+
+The next result will be the main tool used to prove that the column rank equals the row rank (see \ref{3colrow}).
+
+\ResultBox[3CR]{column--row factorization}
+{Suppose $A$ is an \by{m}{n} matrix with entries in $\F{}$ and column rank $c \ge 1$.
+Then there exist an \by{m}{c} matrix $C$ and a \by{c}{n} matrix $R$, both with entries in $\F{}\3$, such that
+$A = CR$.\index{column--row factorization}}
+
+\proof
+Each column of $A$ is an \by{m}{1} matrix. The list $A_{\cdot, 1}, \ldots, A_{\cdot, n}$ of columns of $A$ can be reduced to a basis of the span of the columns of $A$ (by \ref{267}). This basis has length $c$, by the definition of the column rank. The $c$ columns in this basis can be put together to form an \by{m}{c} matrix $C$.
+
+If $k \in \br{1, \ldots, n}$, then column $k$ of $A$ is a linear combination of the columns of $C$. Make the coefficients of this linear combination into column $k$ of a \by{c}{n} matrix that we call $R$. Then $A = CR$, as follows from \ref{3mmcol}(a).
+\qed
+
+In Example \ref{rowcolrank}, the column rank and row rank turned out to equal each other. The next result states that this happens for all matrices.
+
+\ResultBox[3colrow]{column rank equals row rank}
+{Suppose $A \in \FF{m, n}$. Then the column rank of $A$ equals the row rank of $A$.}
+
+\proof
+Let $c$ denote the column rank of $A$. If $c = 0$, then $A = 0$ and hence the row rank of $A$ also equals $0$. Thus we can assume that $c \ge 1$.
+
+Let $A = CR$ be the column--row factorization of $A$ given by \ref{3CR}, where $C$ is an \by{m}{c} matrix and $R$ is a \by{c}{n} matrix. Then \ref{3mmcol}(b) tells us that every row of $A$ is a linear combination of the rows of $R$. Because $R$ has $c$ rows, this implies that the row rank of $A$ is less than or equal to the column rank $c$ of $A$.
+
+To prove the inequality in the other direction, apply the previous paragraph result to $\tran{A}\3$, getting
+\vspace{-.13in} %VisualFormatting for LADR4e page break
+\begin{align*}
+\text{column rank of } A &= \text{row rank of } \tran{A}\\[-2bp]
+&\le \text{column rank of } \tran{A}\\[-2bp]
+&= \text{row rank of } A.
+\end{align*}
+\vspace{-.1in}
+Thus the column rank of $A$ equals the row rank of $A$.
+\qed
+
+\pagebreak[3]
+
+Because the column rank equals the row rank, the last result allows us to dispense with the terms ``column rank'' and ``row rank'' and just use the simpler term ``rank''\!.
+
+\DefinitionBox{rank}
+{The \emph{rank} of a matrix $A \in \F{m,n}$\index{rank of a matrix} is the column rank of $A$.}
+
+See \ref{3rank} and Exercise \ref{7rank} in Section \ref{7001} for alternative proofs that the column rank equals the row rank.
+
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that with respect to each choice of bases of $V$ and $W\3$, the matrix of $T$ has at least $\dim \ran T$ nonzero entries.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$, where $V$ and $W$ are finite-dimensional and nonzero. Prove that $\dim \ran T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\M(T)$ equal $1$.
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W\3$.
+\begin{subtheorem}
+\item
+Show that if $S, T \in \L(V\1, W)$, then $\M(S+T) = \M(S) + \M(T)$.
+\item
+Show that if $\la \in \F{}$ and $T \in \L(V\1, W)$, then $\M(\la T) = \la \M(T)$.
+\end{subtheorem}
+\exercisecomment{This exercise asks you to verify \ref{101} and \ref{102}.}
+
+
+\exercise
+Suppose that $D \in \L\bigl(\P\1_3(\R{}), \P\1_2(\R{}) \bigr)$ is the differentiation map defined by \mbox{$Dp = p'\!$}. Find a basis of $\P\1_3(\R{})$ and a basis of $\P\1_2(\R{})$ such that the matrix of $D$ with respect to these bases is\index{differentiation linear map}
+\[
+\mat{cccc}{
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\}.
+\]
+\vspace{-.15in}
+\exercisecomment{Compare with Example \ref{diffmatrix}. The next exercise generalizes this exercise.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\M(T)$ are $0$ except that the entries in row $k$, column~$k$, equal $1$ if $1 \le k \le \dim \ran T\3$. \label{zeroonematrix}
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a basis of $V$ and $W$ is finite-dimensional. Suppose $T \in \L(V\1, W)$. Prove that there exists a basis $w_1, \dots, w_n$ of $W$ such that all entries in the first column of $\M(T)$ [with respect to the bases $v_1, \dots, v_m$ and $w_1, \dots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\exercisecomment{In this exercise, unlike Exercise \ref{zeroonematrix}, you are given the basis of $V$ instead of being able to choose a basis of $V\1$.}
+
+
+\exercise
+Suppose $w_1, \dots, w_n$ is a basis of $W$ and $V$ is finite-dimensional. Suppose $T \in \L(V\1, W)$. Prove that there exists a basis $v_1, \dots, v_m$ of $V$ such that all entries in the first row of $\M(T)$ [with respect to the bases $v_1, \dots, v_m$ and $w_1, \dots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\exercisecomment{In this exercise, unlike Exercise \ref{zeroonematrix}, you are given the basis of $W$ instead of being able to choose a basis of $W\3$.}
+
+
+\exercise
+Suppose $A$ is an \by{m}{n} matrix and $B$ is an \by{n}{p} matrix. Prove that \label{3think1}
+\[
+(AB)_{j,\cdot} = A_{j,\cdot} \, B
+\]
+for each $1 \le j \le m$. In other words, show that row $j$ of $AB$ equals (row~$j$~of~$A$) times $B$.
+\exercisecomment{This exercise gives the row version of \ref{3matrixcol}.}
+
+
+\exercise
+Suppose $a = \mat{ccc}{a_1 & \cdots & a_n}$ is a \by{1}{n} matrix and $B$ is an \by{n}{p} matrix. Prove that \label{3think2}
+\[
+aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}\ .
+\]
+In other words, show that $aB$ is a linear combination of the rows of $B$, with the scalars that multiply the rows coming from $a$.
+\exercisecomment{This exercise gives the row version of \ref{3combcol}.}
+
+
+%\exercise
+%Suppose $A$ is an \by{n}{n} matrix and $m$ is an integer greater than~$2$. Show that the entry in row~$j$, column %$k$ of $A^m$ (which is defined to mean $\underbrace{A A \dotsm A}_{m \text{\ times}}$) is
+%\[ \sum_{p_1=1}^n \sum_{p_2=1}^n \dotsm \sum_{p_{m-1}=1}^n A_{j, p_1} A_{p_1, p_2} A_{p_2, p_3} \dotsm A_{p_{m-1}, k}.= \]
+%\exercisedisplayend
+
+\exercise
+Give an example of \by{2}{2} matrices $A$ and $B$ such that $AB \ne BA$. \label{noncommute}\index{commutativity}
+
+
+\exercise
+Prove that the distributive property holds for matrix addition and matrix
+multiplication.  In other words, suppose $A$, $B$, $C$, $D$, $E$, and $F$ are matrices whose
+sizes are such that $A(B+C)$ and $(D+E)F$ make sense.  Explain why $AB + AC$ and $DF + EF$ both make sense
+and prove that\label{3distrib}\index{distributive property}
+\[
+A(B+C) = AB + AC \andd (D+E)F = DF + EF.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove that matrix multiplication is associative.  In other words, suppose $A$,
+$B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
+Explain why $A(BC)$ makes sense and prove that\label{assoc} \[(AB)C = A(BC).\]
+\exercisecomment{Try to find a clean proof that illustrates the following quote from Emil Artin: ``It is my experience that proofs involving matrices can be shortened by 50\% if one throws the matrices out.''\index{Artin, Emil}}
+
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix and $1 \le j, k \le n$. Show that the entry in row~$j$, column~$k$, of $A^3$ (which is defined to mean $AAA$) is
+\[
+\sum_{p=1}^n \sum_{r=1}^n A_{j, p} \, A_{p, r} \, A_{r, k}.
+\]
+\vspace{-10bp}
+
+
+\exercise
+Suppose $m$ and $n$ are positive integers. Prove that the function $A \mapsto \tran{A}$ is a linear map from $\F{m, n}$ to
+$\FF{n, m}$.\label{3translinear}
+
+
+\pagebreak[3]
+
+\exercise
+Prove that if $A$ is an \by{m}{n} matrix and $C$ is an \by{n}{p} matrix, then\label{3tran}
+\[
+\tran{(AC)} = \tran{C} \tran{A}\3.
+\]
+\exercisedisplayend
+\exercisecomment{This exercise shows that the transpose of the product of two matrices is the product of the transposes in the opposite order.}
+
+
+\pagebreak[3]
+
+\exercise
+Suppose $A$ is an \by{m}{n} matrix with $A \ne 0$. Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \dots, c_m) \in \F{m}$ and $(d_1, \dots, d_n)\in \F{n}$ such that $A_{j,k} = c_j d_k$ for every $j = 1, \dots, m$ and every $k = 1, \dots, n$.
+
+
+\exercise
+Suppose $T \in \L(V)$, and $u_1, \dots, u_n$ and $v_1, \dots, v_n$ are bases of $V\1$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is injective.
+\item
+The columns of $\M(T)$ are linearly independent in $\FF{n,1}$.
+\item
+The columns of $\M(T)$ span $\FF{n,1}$.
+\item
+The rows of $\M(T)$ span $\FF{1,n}$.
+\item
+The rows of $\M(T)$ are linearly independent in $\FF{1,n}$.
+\end{subtheorem}
+Here $\M(T)$ means $\M\bigl( T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr)$.
+
+
+\end{exercises}
+
+\section{Invertibility and Isomorphisms} \label{invertible}
+
+\subsection{Invertible Linear Maps}
+
+We begin this section by defining the notions of invertible and inverse in the context of linear maps.
+
+\DefinitionBox{invertible, inverse}{
+\begin{Itemize}
+\item
+A linear map $T \in \L(V\1,W)$ is called \emph{invertible}\index{invertible linear map} if
+there exists a linear map $S \in \L(W\3,V)$ such that $ST$ equals the identity operator
+on $V$ and $TS$ equals the identity operator on $W\3$.
+\item
+A linear map $S \in \L(W\3,V)$
+satisfying $ST = I$ and $TS = I$ is called an \emph{inverse}\index{inverse!of a
+linear map} of $T$ (note  that the first $I$ is the identity operator on $V$ and the
+second $I$ is the identity operator on $W$).
+\end{Itemize}}
+
+The definition above mentions ``an inverse''\!. However, the next result shows that we can change this terminology to ``the inverse''\!.
+
+\ResultBox[UniqueInv]{inverse is unique}
+{An invertible linear map has a unique inverse.}
+
+\proof
+Suppose $T \in \L(V\1,W)$ is invertible and $S_1$ and $S_2$ are inverses of~$T\3$. Then
+\[
+S_1 = S_1I = S_1(TS_2) = (S_1T)S_2 = IS_2 = S_2.
+\]
+Thus $S_1 = S_2$. \qed
+
+Now that we know that the inverse is unique, we can give it a notation.
+
+\NotationBox{$T^{-1}$\sindex{T-1@$T^{-1}\1$}}
+{If $T$ is invertible, then its inverse is denoted by $T^{-1}\1$. In other words, if \mbox{$T \in \L(V\1,W)$} is invertible, then $T^{-1}$ is the unique element of $\L(W\3,V)$ such
+that $T^{-1}T = I$ and $TT^{-1} = I$.}
+
+\begin{example}{inverse of a linear map from\/ $\R3$ to\/ $\R3$}
+Suppose $T \in \L\paren[\big]{ \R3 }$ is defined by
+$
+T(x, y, z) = (-y, x, 4z)$.
+Thus $T$ is a counterclockwise rotation by $90^\circ$ in the $xy$-plane and a stretch by a factor of $4$ in the direction of the $z$-axis.
+
+Hence the inverse map $T^{-1} \in \L\paren[\big]{ \R3 }$ is the clockwise rotation by $90^\circ$ in the $xy$-plane and a stretch by a factor of $\frac{1}{4}$ in the direction of the $z$-axis:
+\[
+T^{-1}(x, y, z) = \paren[\big]{y, -x, \tfrac{1}{4}z }.
+\]
+\exampledisplayend
+\end{example}
+
+The next result shows that a linear map is invertible if and only if it is one-to-one and onto.
+
+\ResultBox[a112]{invertibility $\iff$ injectivity and surjectivity}{%
+A linear map is invertible if and only if it is injective and surjective.
+}
+
+\proof
+Suppose $T\in \L(V\1,W)$.  We need to show that $T$ is
+invertible if  and only if it is injective and surjective.
+
+First suppose $T$ is invertible.  To show that $T$ is injective, suppose
+$u, v \in V$ and $Tu = Tv$.  Then
+\[
+u = T^{-1}(Tu) = T^{-1}(Tv) = v,
+\]
+so $u = v$.  Hence $T$ is injective.
+
+We are still assuming that $T$ is invertible.  Now we want to prove that $T$ is
+surjective.  To do this, let $w \in W\3$.  Then $w = T\paren[\big]{T^{-1}w}$, which shows that
+$w$ is in the range of $T\3$.  Thus $\ran T = W\3$. Hence $T$ is surjective,
+completing this direction of the proof.
+
+Now suppose $T$ is injective and surjective.  We want to prove that $T$ is
+invertible.  For each $w \in W\3$, define $S(w)$ to be the unique element of $V$ such
+that $T\paren[\big]{S(w)} = w$ (the existence and uniqueness of such an element follow from
+the surjectivity and injectivity of $T$). The definition of $S$ implies that $T \circ S$ equals the identity operator
+on~$W\3$.
+
+To prove that $S \circ T$ equals the identity operator on $V\1$, let $v \in V\1$.  Then
+\[
+T\bigl((S \circ T)v \bigr) = (T \circ S)(Tv) = I(Tv) = Tv.
+\]
+This equation implies that $(S \circ T)v = v$ (because $T$ is injective). Thus $S \circ T$
+equals the identity operator on~$V\1$.
+
+To complete the proof, we need to show that
+$S$ is linear.  To do this, suppose $w_1$, $w_2 \in W\3$.  Then
+\[
+T\paren[\big]{S(w_1) + S(w_2)} = T\paren[\big]{S(w_1)} + T\paren[\big]{S(w_2)} = w_1 + w_2.
+\]
+Thus $S(w_1) + S(w_2)$ is the unique element of $V$ that $T$ maps to
+$w_1 + w_2$.  By the definition of $S$, this implies that $S(w_1 + w_2) = S(w_1) + S(w_2)$.  Hence $S$ satisfies the additive property required for linearity.
+
+The proof of homogeneity is similar.  Specifically, if $w \in W$ and $\la \in \F{}\3$, then
+\[
+T\paren[\big]{\la S(w)} = \la T\paren[\big]{S(w)} = \la w.
+\]
+Thus $\la S(w)$ is the unique element of $V$ that $T$ maps to $\la w$.  By the
+definition of $S$, this implies that $S(\la w) = \la S(w)$.  Hence $S$ is
+linear, as desired.
+\qed
+
+For a linear map from a vector space to itself, you might wonder whether injectivity alone, or surjectivity alone, is enough to imply invertibility.  On infinite-dimensional vector spaces, neither condition alone implies invertibility, as illustrated by the next example, which uses two familiar linear maps from Example~\ref{2a111}.
+
+\begin{example}[ninsii]{neither injectivity nor surjectivity implies invertibility}
+\begin{Itemize}
+\item
+The multiplication by $x^2$ linear map from $\P(\R{})$ to $\P(\R{})$ (see \ref{2a111}) is injective but it is not invertible because it is not surjective (the polynomial $1$ is not in the range).
+\item
+The backward shift linear map from $\F{\infty}$ to $\F{\infty}$ (see \ref{2a111}) is surjective but it is not invertible because it is not injective \sbr{the vector $(1, 0, 0, 0, \dotsc)$ is in the null space}.\index{backward shift}
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+In view of the example above, the next result is remarkable---it states that for a linear map from a finite-dimensional vector space to a vector space of the same dimension, either injectivity or surjectivity alone implies the other condition. Note that the hypothesis below that $\dim V = \dim W$ is automatically satisfied in the important special case where $V$ is finite-dimensional and $W = V\1$.
+
+\ResultBox[18]{injectivity is equivalent to surjectivity \uppar{if\/ $\dim V = \dim W <\infty$}}{%
+Suppose that $V$ and $W$ are finite-dimensional vector spaces, $\dim V = \dim W\3$, and $T \in \L(V\1, W)$. Then
+\[
+T \mbox{ is invertible }
+\iff
+T \mbox{ is injective }
+\iff
+T \mbox{ is surjective}.
+\]}
+
+\proof
+The fundamental theorem of linear maps (\ref{3ab11}) states that
+\begin{equation} \label{3FTLM}
+\dim V = \dim \ker T + \dim \ran T\3.
+\end{equation}%
+
+If $T$ is injective (which by \ref{12} is equivalent to the condition $\dim \ker T = 0$), then the equation above implies that
+\[
+\dim \ran T = \dim V - \dim \ker T = \dim V = \dim W\3,
+\]
+which implies that $T$ is surjective (by \ref{2subfull}).
+
+Conversely, if $T$ is surjective, then \ref{3FTLM} implies that
+\[
+\dim \ker T = \dim V - \dim \ran T = \dim V - \dim W = 0,
+\]
+which implies that $T$ is injective.
+
+Thus we have shown that $T$ is injective if and only if $T$ is surjective. Thus if $T$ is either injective or surjective, then $T$ is both injective and surjective, which implies that $T$ is invertible. Hence $T$ is invertible if and only if $T$ is injective if and only if $T$ is surjective.
+\qed
+
+The next example illustrates the power of the previous result. Although it is possible to prove the result in the example below without using linear algebra, the proof using linear algebra is cleaner and easier.
+
+\begin{example}{\!there exists a polynomial\/ $p$ such that\/ $\bigl((x^2 + 5x + 7)p\bigr)'' = q$}
+The linear map
+\[
+p \mapsto \bigl((x^2 + 5x + 7)p\bigr)''
+\]
+from $\P(\R{})$ to itself is injective, as you can show. Thus we are tempted to use \ref{18} to show that this map is surjective. However, Example \ref{ninsii} shows that the magic of \ref{18} does not apply to the infinite-dimensional vector space $\P(\R{})$. We will get around this problem by restricting attention to the finite-dimensional vector space $\P\1_m(\R{})$.
+
+Suppose $q \in \P(\R{})$. There exists a nonnegative integer $m$ such that $q \in \P\1_m(\R{})$. Define $T \colon \P\1_m(\R{}) \to \P\1_m(\R{})$ by
+\[
+Tp = \bigl((x^2 + 5x + 7)p\bigr)''\!.
+\]
+Multiplying a nonzero polynomial by $(x^2 + 5x + 7)$ increases the degree by~$2$, and then differentiating twice reduces the degree by $2$. Thus $T$ is indeed a linear map from $\P\1_m(\R{})$ to itself.
+
+Every polynomial whose second derivative equals $0$ is of the form $ax + b$, where $a, b \in \R{}$. Thus $\ker T = \{0\}$. Hence $T$ is injective.
+
+Thus $T$ is surjective (by \ref{18}), which means that there exists a polynomial $p \in \P\1_m(\R{})$ such that
+$\bigl((x^2 + 5x + 7)p\bigr)'' = q$, as claimed in the title of this example.\looseness=-1
+\end{example}
+
+Exercise \ref{harmonic} in Section \ref{6ipn} gives a similar but more spectacular example of using \ref{18}.
+
+The hypothesis in the result below that $\dim V = \dim W$ holds in the important special case in which $V$ is finite-dimensional and
+$W = V\1$. Thus in that case, the equation $ST = I$ implies that $ST = TS$, even though we do not have multiplicative commutativity of arbitrary linear maps from $V$ to $V\1$.
+
+\ResultBox[203]{$ST = I \iff TS = I$\/ \uppar{on vector spaces of the same dimension}}
+{Suppose $V$ and $W$ are finite-dimensional vector spaces of the same dimension, $S \in \L(W\3,V)$, and $T \in \L(V\1, W)$.  Then $ST = I$ if and only if $TS = I$.}
+
+\proof
+First suppose
+$
+ST = I$.
+If $v \in V$ and $Tv = 0$, then
+\[
+v = Iv= (ST)v = S(Tv) = S(0) = 0.
+\]
+Thus $T$ is injective (by \ref{12}). Because $V$ and $W$ have the same dimension, this implies that $T$ is invertible (by \ref{18}).
+
+Now multiply both sides of the equation $ST = I$ by $T^{-1}$ on the right, getting
+\[
+S = T^{-1}\1.
+\]
+Thus $TS = TT^{-1} = I$, as desired.
+
+To prove the implication in the other direction, simply reverse the roles of $S$ and $T$ (and $V$ and $W$) in the direction we have already proved, showing that if $TS = I$, then $ST = I$.
+\qed
+
+\pagebreak[3]
+
+\subsection{Isomorphic Vector Spaces}
+
+The next definition captures the idea of two vector spaces that are essentially the same, except for the names of their elements.
+
+\DefinitionBox{isomorphism, isomorphic}
+{\begin{Itemize}
+\item
+An \emph{isomorphism}\index{isomorphism} is an invertible linear map.
+\item
+Two vector spaces are called \emph{isomorphic}\index{isomorphic vector spaces}
+if there is an isomorphism from one  vector space onto the other one.
+\end{Itemize}}
+
+%\mar{The Greek word\/ \marbf{isos} means equal; the Greek word\/ \marbf{morph} means
+%shape.  Thus\/ \marbf{isomorphic} literally means equal shape.}
+
+Think of an isomorphism $T\colon V \to W $ as relabeling $v \in V$ as $Tv \in W\3$. This viewpoint explains why two isomorphic  vector spaces have the same vector
+space properties. The terms ``isomorphism'' and ``invertible linear map'' mean
+the same thing. Use ``isomorphism'' when you want to emphasize that the two spaces are essentially the same.
+
+It can be difficult to determine whether two mathematical structures (such as groups or topological spaces) are essentially the same, differing only in the names of the elements of underlying sets. However, the next result shows that we need to look at only a single number (the dimension) to determine whether two vector spaces are isomorphic.
+
+\ResultBox[104]{dimension shows whether vector spaces are isomorphic}{%
+Two finite-dimensional vector spaces over $\F{}$ are isomorphic if and only if they have  the same dimension.}
+
+\proof
+First suppose $V$ and $W$ are isomorphic finite-dimensional vector
+spaces.  Thus there exists an isomorphism $T$ from~$V$ onto~$W\3$.
+Because $T$ is invertible, we have $\ker T = \{0\}$ and
+$\ran T = W\3$.  Thus
+\[
+\dim \ker T = 0 \andd \dim \ran T = \dim W\3.
+\]
+The formula
+\[
+\dim V = \dim \ker T + \dim \ran T
+\]
+(the fundamental theorem of linear maps, which is \ref{3ab11}) thus becomes the equation $\dim V = \dim W\3$, completing the proof in one direction.
+
+To prove the other direction, suppose $V$ and $W$ are finite-dimensional
+vector spaces of the same dimension.  Let $v_1, \dots, v_n$ be a basis of
+$V$ and $w_1, \dots, w_n$ be a basis of $W\3$.  Let $T \in \L(V\1, W)$ be defined by
+\[
+T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n.
+\]
+Then $T$ is a well-defined linear map because $v_1, \dots, v_n$ is a basis of $V\1$. Also, $T$ is surjective because $w_1, \dots, w_n$ spans $W\3$. Furthermore, $\ker T = \{0\}$ because $w_1, \dots, w_n$ is linearly independent. Thus $T$ is injective.  Because $T$ is injective and surjective, it is an isomorphism (see~\ref{a112}). Hence $V$  and $W$ are  isomorphic.
+\qed
+
+\mar[15]{Every finite-dimensional vector space is isomorphic to some\/ $\FF{n}$. Thus why not just study $\F{n}$ instead of more general vector spaces? To answer this question, note that an investigation of\/ $\F{n}$ would soon lead to
+other vector spaces.  For example, we would encounter the null space and range of linear maps.  Although each of these vector spaces is isomorphic to some\/ $\FF{m}$, thinking of them that way often adds complexity but no new insight.}
+
+The previous result implies that each finite-dimensional vector space $V$ is isomorphic to~$\FF{n}$, where $n = \dim V\1$. For example, if $m$ is a nonnegative integer, then $\P\1_m(\F{})$ is isomorphic to $\FF{m+1}$.
+
+Recall that the notation $\F{m,n}$ denotes the vector space of \by{m}{n} matrices with entries in $\F{}\3$. If $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W\3$,
+then for each $T \in \L(V\1,W)$, we have a matrix $\M(T) \in  \FF{m,n}$. Thus once bases have been fixed for~$V$ and~$W\3$, $\M$ becomes a function from~$\L(V\1,W)$ to~$\FF{m,n}$. Notice that
+\ref{101} and \ref{102} show that $\M$ is a linear map.
+This linear map is actually an isomorphism, as we now show.
+
+\ResultBox[103]{$\L(V\1,W)$ and\/ $\F{m,n}$ are isomorphic}{%
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$
+is a basis of $W\3$.  Then~$\M$ is an isomorphism between $\L(V\1,W)$
+and $\FF{m,n}$.
+}
+
+\proof
+We already noted that $\M$ is linear. We need to prove that $\M$ is
+injective and surjective.
+
+We begin with injectivity.  If $T \in  \L(V\1,W)$ and $\M(T) = 0$, then $Tv_k = 0$ for each
+$k = 1, \dots, n$.  Because $v_1, \dots, v_n$ is a basis of $V\1$, this implies
+$T = 0$.  Thus $\M$ is injective (by~\ref{12}).
+
+To prove that $\M$ is surjective, suppose $A \in \FF{m,n}$.  By the linear map lemma (\ref{3linearmap}), there exists $T \in \L(V\1,W)$ such that
+\[
+Tv_k = \sum_{j=1}^m A_{j,k}w_j
+\]
+for each $k = 1, \dots, n$. Because $\M(T)$ equals $A$, the range of $\M$ equals~$\FF{m,n}$,  as desired.
+\qed
+
+Now we can determine the dimension of the vector space of linear maps from
+one finite-dimensional vector space to another.
+
+\ResultBox[247]{$\dim \L(V\1,W) = (\dim V)(\dim W)$}{%
+Suppose $V$ and\/ $W$ are finite-dimensional. Then $\L(V\1,W)$ is finite-dimensional
+and
+\[
+\dim \L(V\1,W) = (\dim V)(\dim W).
+\]
+}
+
+\proof
+The desired result follows from \ref{103}, \ref{104}, and \ref{dimFmn}.
+\qed
+
+\subsection{Linear Maps Thought of as Matrix Multiplication}
+
+Previously we defined the matrix of a linear map. Now we define the matrix of a vector.
+
+\DefinitionBox{matrix of a vector, $\M(v)$\sindex{Mv@$\M(v)$}}
+{Suppose $v \in V$ and $v_1, \dots, v_n$ is a basis of $V\1$. The \emph{matrix of} $v$\index{matrix!of vector} with respect to this basis is the \by{n}{1} matrix
+\[
+\M(v) =
+\mat{c}{
+b_1 \\
+\vdots \\
+b_n},
+\]
+where $b_1, \dots, b_n$ are the scalars such that
+\[
+v = b_1 v_1 + \dots + b_n v_n.
+\]
+}
+
+The matrix $\M(v)$ of a vector $v \in V$ depends on the basis $v_1, \dots, v_n$ of~$V\1$, as well as on $v$. However, the basis should be clear from the context and thus it is not included in the notation.
+
+\begin{example}{matrix of a vector}
+\begin{Itemize}
+\item
+The matrix of the polynomial $2 - 7x + 5x^3 + x^4$ with respect to the standard basis of $\P\1_4(\R{})$ is
+\[
+\mat{c}{2 \\ -7 \\ 0 \\ 5 \\ 1}.
+\]
+\item
+The matrix of a vector $x \in \F{n}$ with respect to the standard basis
+is obtained by writing the coordinates of $x$ as the  entries in an
+\by{n}{1} matrix.  In other words, if $x = (x_1, \dots, x_n) \in \FF{n}$, then
+\[
+\M(x) =
+\mat{c}{
+x_1 \\
+\vdots \\
+x_n }.
+\]
+\end{Itemize}
+\vspace{-.05in}
+\end{example}
+
+Occasionally we want to think of elements of $V$ as relabeled to be \by{n}{1} matrices. Once a basis $v_1, \dots, v_n$ is chosen, the function $\M$ that takes $v \in V$ to $\M(v)$ is an isomorphism of $V$ onto $\F{n,1}$ that implements this relabeling.
+
+Recall that if $A$ is an \by{m}{n}  matrix, then $A_{\cdot, k}$ denotes the $k^\nth$ column of $A$, thought of as an \by{m}{1} matrix. In the next result, $\M(Tv_k)$ is computed with respect to the basis $w_1, \dots, w_m$ of $W\3$.
+
+\ResultBox[kthcol]{$\M(T)_{\cdot, k} = \M(Tv_k)$}
+{Suppose $T \in \L(V\1, W)$ and $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W\3$. Let $1 \le k \le n$. Then the $k^\nth$ column of $\M(T)$, which is denoted by $\M(T)_{\cdot, k}$, equals $\M(Tv_k)$.}
+
+\proof
+The desired result follows immediately from the definitions of $\M(T)$ and $\M(Tv_k)$. \qed
+
+The next result shows how the notions of the matrix of a linear map, the matrix
+of a vector, and matrix multiplication fit together.
+
+\ResultBox[438]{linear maps act like matrix multiplication}{%
+Suppose\/ $T \in \L(V\1,W)$ and $v \in V\1$. Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W\3$. Then
+\[
+\M(Tv) = \M(T) \M(v).
+\]}
+
+\proof
+Suppose $v = b_1 v_1 + \dots + b_n v_n$, where $b_1, \dots, b_n \in \F{}\3$. Thus
+\begin{equation} \label{Tv}
+Tv = b_1 Tv_1 + \dots + b_n Tv_n.
+\end{equation}%
+Hence
+\begin{align*}
+\M(Tv) &= b_1 \M(Tv_1) + \dots + b_n \M(Tv_n) \\
+&= b_1 \M(T)_{\cdot, 1} + \dots + b_n \M(T)_{\cdot, n} \\
+&= \M(T) \M(v),
+\end{align*}
+where the first equality follows from \ref{Tv} and the linearity of $\M$, the second equality comes from \ref{kthcol},
+and the last equality comes from \ref{3combcol}.
+\qed
+
+Each \by{m}{n} matrix $A$ induces a linear map from $\F{n,1}$ to $\FF{m,1}$, namely the matrix multiplication function that takes $x \in \F{n,1}$ to $Ax \in \FF{m,1}$. The result above can be used to think of every linear map (from a finite-dimensional vector space to another finite-dimensional vector space) as a matrix multiplication map after suitable relabeling via the isomorphisms given by $\M\!$. Specifically, if \mbox{$T \in \L(V\1,W)$} and we identify $v \in V$ with $\M(v) \in \FF{n,1}$, then the result above says that we can identify $Tv$ with $\M(T)\M(v)$.
+
+Because the result above allows us to think (via isomorphisms) of each linear map as multiplication on $\F{n,1}$ by some matrix $A$, keep in mind that the specific matrix $A$ depends not only on the linear map but also on the choice of bases. One of the themes of many of the most important results in later chapters will be the choice of a basis that makes the matrix $A$ as simple as possible.
+
+In this book, we concentrate on linear maps rather than on matrices. However, sometimes thinking of linear maps as matrices (or thinking of matrices as linear maps) gives important insights that we will find useful.
+
+Notice that no bases are in sight in the statement of the next result. Although $\M(T)$ in the next result depends on a choice of bases of $V$ and~$W\3$, the next result shows that the column rank of $\M(T)$ is the same for all such choices (because $\ran T$ does not depend on a choice of basis).
+
+\ResultBox[3rangecolrank]{dimension of\/ $\ran T$ equals column rank of\/ $\M(T)$}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then $\dim \ran T$ equals the column rank of $\M(T)$.}
+
+\proof
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of~$W\3$.  The linear map that takes $w \in W$ to $\M(w)$ is an isomorphism from $W$ onto the space $\F{m,1}$ of \by{m}{1} column vectors. The restriction of this isomorphism to $\ran T$ \sbr{which equals $\Span(Tv_1, \dots, Tv_n)$ by Exercise \ref{3spanrange} in Section \ref{3nullspace}} is an isomorphism from $\ran T$ onto $\Span\bigl( \M(Tv_1), \dots, \M(Tv_n) \bigr)$. For each $k \in \br{1, \ldots, n}$, the \by{m}{1} matrix $\M(Tv_k)$ equals column $k$ of $\M(T)$. Thus
+\[
+\dim \ran T =  \text{ the column rank of } \M(T),
+\]
+as desired.
+\qed
+
+\subsection{Change of Basis}
+
+In Section~\ref{matrices} we defined the matrix
+\[
+\M\bigl(T, (v_1, \dots, v_n), (w_1, \dots, w_m) \bigr)
+\]
+of a linear map $T$ from $V$ to a possibly different vector space $W\3$, where $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W\3$. For  linear maps from a vector space to itself, we usually use the same basis for both the domain vector space and the target vector space. When using a single basis in both capacities, we often write the basis only once. In other words, if $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of $V\1$, then the notation $\M\paren[\big]{ T, (v_1, \ldots, v_n) }$ is defined by the equation
+\[
+\M\paren[\big]{ T, (v_1, \ldots, v_n) } = \M\paren[\big]{ T, (v_1, \ldots, v_n), (v_1, \ldots, v_n) }.
+\]
+If the basis $v_1, \ldots, v_n$ is clear from the context, then we can write just $\M(T)$.
+
+\DefinitionBox{identity matrix, I\sindex{I@$I$}}
+{Suppose $n$ is a positive integer. The \by{n}{n} matrix
+\[
+\mat{ccc}{1 & &0 \\ &\ddots & \\ 0 & &1}
+\]
+with $1$'s on the diagonal (the entries where the row number equals the column number) and $0$'s elsewhere is called the \emph{identity matrix} and is denoted by $I$.\index{identity matrix}}
+
+In the definition above, the $0$ in the lower left corner of the matrix indicates that all entries below the diagonal are $0$, and the $0$ in the upper right corner indicates that all entries above the diagonal are $0$.
+
+With respect to each basis of~$V\1$, the matrix of the identity operator $I \in \L(V)$ is the identity matrix $I$. Note that the symbol $I$ is used to denote both the identity operator and the identity matrix. The context indicates which meaning of $I$ is
+intended.  For example, consider the equation
+$
+\M(I) = I;
+$
+on the left side $I$ denotes the identity operator, and on the right side $I$
+denotes the identity matrix.
+
+If $A$ is a square matrix (meaning it has the same number of rows as columns) with the same size as~$I$, then $AI = IA = A$, as you should verify.\index{square matrix}
+
+\DefinitionBox[3invertm]{invertible, inverse, $A^{-1}$}
+{A square matrix $A$ is called
+\emph{invertible}\index{invertible matrix}\sindex{A1@$A^{-1}\1$}
+if there is a square matrix $B$ of the same size such that $AB = BA = I$; we call $B$ the \emph{inverse}\index{inverse!of a matrix} of~$A$ and denote it by $A^{-1}\1$.}
+
+\mar{Some mathematicians use the terms \marbf{nonsingular} and \mbox{\marbf{singular}}, which mean the  same as
+invertible and noninvertible.\index{nonsingular matrix}\index{singular matrix}}
+
+The same proof as used in \ref{UniqueInv} shows that if $A$ is an invertible square matrix, then there is a unique matrix $B$ such that $AB = BA = I$ (and thus the notation $B = A^{-1}$ is justified).
+
+If $A$ is an invertible matrix, then ${\paren[\big]{A^{-1}}}^{-1} = A$ because
+\[
+A^{-1} A = A A^{-1} = I.
+\]
+Also, if $A$ and $C$ are invertible square matrices of the same size, then $AC$ is invertible and $(AC)^{-1} = C^{-1} A^{-1}$ because
+\begin{align*}
+(AC) \paren[\big] {C^{-1} A^{-1}} &= A \paren[\big]{ C C^{-1} } A^{-1} \\
+&= AIA^{-1} \\
+&= A A^{-1} \\
+&= I,
+\end{align*}
+and similarly $\paren[\big] {C^{-1} A^{-1}}(AC) = I$.
+
+The next result holds because we defined matrix multiplication to
+make it true---see~\ref{3matproduct} and the material preceding it. Now we are just being more explicit about the bases involved.
+
+\ResultBox[298]{matrix of product of linear maps}
+{Suppose $T \in \L(U, V)$ and $S \in \L(V\1, W)$. If $u_1, \dots, u_m$ is a basis of $U$, $v_1, \dots, v_n$ is a basis of $V\1$, and
+$w_1, \dots, w_p$ is a basis of $W\3$, then\index{matrix!of product of linear maps}
+\begin{align*}
+\M\bigl(ST&, (u_1, \dots, u_m), (w_1, \dots, w_p) \bigr) = \\
+&\M\bigl(S, (v_1, \dots, v_n), (w_1, \dots, w_p) \bigr)
+\M\bigl(T, (u_1, \dots, u_m), (v_1, \dots, v_n) \bigr).
+\end{align*}}
+
+The next result deals with the matrix of the identity operator $I$ with respect to two different bases.  Note that the $k^{\nth}$ column of
+$\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr)$ consists of the scalars needed to write $u_k$ as a linear combination of the basis
+$v_1, \dots, v_n$.
+
+In the statement of the next result, $I$ denotes the identity operator from $V$ to $V\1$. In the proof, $I$ also denotes the \by{n}{n} identity matrix.
+
+\ResultBox[299]{matrix of identity operator with respect to two bases}{%
+Suppose that $u_1, \dots, u_n$ and\/ $v_1, \dots, v_n$ are bases of~$V\1$. Then the matrices
+\[
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr) \andd \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n)\bigr)
+\]
+are invertible, and each is the inverse of the other.}
+
+\proof
+In \ref{298}, replace $w_k$ with~$u_k$, and replace
+$S$ and $T$ with~$I$, getting
+\[
+I = \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr)
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr).
+\]
+Now interchange the roles of the $u$'s and $v$'s, getting
+\[
+I = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr)
+\M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr).
+\]
+These two equations above give the desired result.
+\qed
+
+\begin{example}{matrix of identity operator on\/ $\F2$ with respect to two bases}
+Consider the bases $ (4, 2), (5, 3)$ and $\ (1, 0), (0, 1) $ of~$\FF{2}$. Because $I(4,2) = 4(1,0) + 2(0,1)$ and $I(5, 3) = 5(1,0) + 3(0, 1)$, we have
+\[
+\M\Bigl(I, \bigl((4, 2), (5, 3)\bigr), \bigl((1, 0), (0, 1)\bigr) \Bigr) =
+\mat{cc}{4 &5 \\ 2 &3}.
+\]
+
+The inverse of the matrix above is
+\[
+\mat{cc}{ \frac{3}{2} &-\frac{5}{2} \\[3bp] -1 &2 },
+\]
+as you should verify.  Thus \ref{299} implies that
+\[
+\M\Bigl(I, \bigl((1, 0), (0, 1)\bigr), \bigl((4, 2), (5, 3)\bigr) \Bigr) =
+\mat{cc}{\frac{3}{2} &-\frac{5}{2} \\[3bp] -1 &2}.
+\]
+\vspace{-12bp}
+\end{example}
+
+Our next result shows how the matrix of~$T$ changes when we change bases. In the next result, we have two different bases of $V\1$, each of which is used as a basis for the domain space and as a basis for the target space. Recall our shorthand notation that allows us to display a basis only once when it is used in both capacities:
+\[
+\M\bigl(T, (u_1, \dots, u_n)\bigr) = \M\bigl(T, (u_1, \dots, u_n), (u_1, \dots, u_n) \bigr).
+\]
+
+\ResultBox[303]{change-of-basis formula}{%
+Suppose $T \in \L(V)$. Suppose $u_1, \dots, u_n$
+and $v_1, \dots, v_n$ are bases of $V\1$.  Let\index{change-of-basis formula!for operators}
+\[
+A= \M\bigl(T, (u_1, \dots, u_n)\bigr) \andd B = \M\bigl(T, (v_1, \dots, v_n)\bigr)
+\]
+and $C = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr)$. Then
+\[
+A = C^{-1}B C.
+\]
+}
+
+\proof
+In \ref{298}, replace $w_k$ with~$u_k$ and replace $S$
+with~$I$, getting
+\begin{equation} \label{300}
+A =
+C^{-1} \M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr),
+\end{equation}%
+where we have used~\ref{299}.
+
+Again use \ref{298}, this time replacing
+$w_k$ with~$v_k$. Also replace $T$
+with~$I$ and replace $S$ with~$T$, getting
+\[
+\M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr) = B C.
+\]
+Substituting the equation above into \ref{300} gives the equation $A = C^{-1}B C$.
+\qed
+
+The proof of the next result is left as an exercise.
+
+\ResultBox{matrix of inverse equals inverse of matrix}
+{Suppose that $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \L(V)$ is invertible. Then
+$
+\M\bigl(T^{-1}\bigr) = \paren[\big]{\M(T)}^{-1}\1$,
+where both matrices are with respect to the basis $v_1, \ldots, v_n$.}
+
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ is invertible. Show that $T^{-1}$ is invertible and
+\[
+\paren[\big]{ T^{-1} }^{-1} = T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(U, V)$ and $S \in \L(V\1,W)$ are both invertible linear maps. Prove that $ST \in \L(U, W)$ is invertible and that $(ST)^{-1} = T^{-1} S^{-1}\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is invertible.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for every basis $v_1, \ldots, v_n$ of $V\1$.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V\1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\dim V > 1$. Prove that the set of
+noninvertible linear maps from $V$ to itself is  not a subspace of~$\L(V)$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $U$ is a subspace of $V\1$, and $S \in \L(U, V)$. Prove that there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$ if and only if $S$ is injective.\label{3inv}
+
+
+\exercise
+Suppose that $W$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ker S = \ker T$
+if and only if there exists an invertible \mbox{$E \in \L(W)$} such that $S = ET\3$. \label{1020}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ran S = \ran T
+$
+if and only if there exists an invertible $E \in \L(V)$ such that $S = T E$.
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $S, T\in \L(V\1, W)$. Prove that there exist invertible
+$E_1 \in \L(V)$ and $E_2\in \L(W)$ such that $S = E_2 T E_1$ if and only if $\dim \ker S = \dim \ker T\3$.
+
+
+\begin{comment} % A more general exercise has replaced this one.
+\exercise
+Suppose $V$ and $W$ are finite-dimensional. Let $v \in V\1$. Let
+\[
+E = \br[\big]{T \in \L(V\1, W): Tv = 0}.
+\]
+\begin{subtheorem}
+\item
+Show that $E$ is a subspace of $\L(V\1, W)$.
+\item
+Suppose $v \ne 0$. What is $\dim E$?
+\end{subtheorem}
+
+\end{comment}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \colon V \to W$ is a surjective linear map of $V$ onto $W\3$.  Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W\3$.
+\exercisecomment{Here\/ $T|_U$ means the function\/ $T$ restricted to\/ $U$. Thus\/ $T|_U$ is the function whose domain is\/ $U$, with\/ $T|_U$ defined by\/ $T|_U(u) = Tu$ for every\/ $u \in U$.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V\1$. Let
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\E = \br[\big]{ T \in \L(V\1, W): U \subset \ker T}.
+\]
+\begin{subtheorem}
+\item
+Show that $\E$ is a subspace of $\L(V\1, W)$.
+\item
+Find a formula for $\dim \E$ in terms of $\dim V\1$, $\dim W\3$, and $\dim U$.
+\end{subtheorem}
+\hint{Define\/ $\fun \Phi {\L(V\1, W)} {\L(U,W)}$ by\/ $\Phi(T) = T|_U$. What is\/ $\ker \Phi$? What is\/ $\ran \Phi$?}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$.  Prove that \label{379}
+\[
+ST \text{ is invertible} \iff S \text{ and } T \text{ are invertible}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T, U \in \L(V)$ and
+$
+STU = I$.
+Show that $T$ is invertible and that $T^{-1} = US$.\label{3STU}
+
+
+\exercise
+Show that the result in Exercise \ref{3STU} can fail without the hypothesis that $V$ is finite-dimensional.
+
+
+\exercise
+Prove or give a counterexample: If $V$ is a finite-dimensional vector space and $R, S, T \in
+\L(V)$ are such that $RST$ is surjective, then $S$ is  injective.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_m$ is a list in $V$ such that $Tv_1, \dots, Tv_m$ spans~$V\1$. Prove that
+$v_1, \dots, v_m$ spans $V\1$.
+
+
+\begin{comment}
+
+\exercise
+Suppose $w_1, \dots, w_m$ is a basis of $W\3$.  Prove that the map
+$w \mapsto \M(w)$ is an isomorphism of $W$ onto $\F{m,1}$; here $\M(w)$ is
+the matrix of $w \in W$ with respect to the basis $w_1, \dots, w_m$.
+
+
+\end{comment}
+
+\exercise
+Prove that every linear map from $\F{n,1}$ to $\F{m,1}$ is given by a matrix multiplication.  In other words, prove that if
+$T \in \L\paren[\big]{\FF{n,1}, \F{m,1}}$, then there exists an \by{m}{n} matrix $A$ such that $Tx = Ax$ for every $x \in \FF{n,1}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S \in \L(V)$. Define $\A \in \L\paren[\big]{\L(V)}$ by
+\[
+\A(T) = ST
+\vspace{-6bp}
+\]
+for $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Show that $\dim \ker \A  = (\dim V)(\dim \ker S)$.
+\item
+Show that $\dim \ran \A  = (\dim V)(\dim \ran S)$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Show that $V$ and $\L(\F{}, V)$ are isomorphic vector spaces.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has the same matrix with respect to every basis of~$V$ if and only if $T$ is a scalar multiple of the identity operator.
+
+
+\exercise
+Suppose $q \in \P(\R{})$. Prove that there exists a polynomial $p \in \P(\R{})$ such that
+\[
+q(x) = \paren[\big]{x^2 + x} p'' \! (x) +2x p' \! (x) + p(3)
+\]
+for all $x \in \R{}$.
+
+
+\exercise
+Suppose $n$ is a positive integer and $A_{j,k} \in \F{}$ for all $j,k = 1, \dots, n$.
+Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of  variables).\index{homogeneous system of linear equations}\index{linear equations}
+\begin{subtheorem}*
+\item
+The trivial solution $x_1 = \dots = x_n = 0$ is the only solution to the
+homogeneous system of equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= 0 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= 0.
+\end{align*}
+
+\item
+For every $c_1, \dots, c_n \in \F{}\3$, there exists a solution to the system of
+equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= c_1 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= c_n.
+\end{align*}
+\end{subtheorem}
+
+
+\begin{comment}
+\exercise
+Suppose $T \in \L\bigl( \P(\F{}) \bigr)$ is such that $T$ is injective and $\deg Tp \le \deg p$ for every nonzero polynomial $p \in \P(\F{})$.
+\begin{subtheorem}
+\item
+Prove that $T$ is surjective.
+\item
+Prove that $\deg Tp = \deg p$ for every nonzero $p \in \P(\F{})$.
+\end{subtheorem}
+
+\end{comment}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V\1$.  Prove that
+\[
+\M\bigl(T, (v_1, \dots, v_n) \bigr) \text{ is invertible} \iff T \text{ is invertible}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose that $u_1, \dots, u_n$ and $v_1, \dots, v_n$ are bases of~$V\1$.  Let
+$T \in \L(V)$ be such that $Tv_k = u_k$ for each
+$k = 1, \dots, n$.  Prove that
+\[
+\M\bigl( T, (v_1, \dots, v_n) \bigr) =
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A$ and $B$ are square matrices of the same size and $AB = I$. Prove that $BA = I$.
+
+
+\end{exercises}
+
+\section{Products and Quotients of Vector Spaces}
+\label{pq}
+
+\subsection{Products of Vector Spaces}
+
+As usual when dealing with more than one vector space, all vector spaces in use should be over the same field.
+
+\DefinitionBox[3prod]{product of vector spaces}
+{Suppose $V\1_1, \dots, V\1_m$ are vector spaces over $\F{}\3$.
+\begin{Itemize}
+\item
+The \emph{product}\index{product!of vector spaces} $V\1_1 \times \dots \times V\1_m$ is defined by
+\[
+V\1_1 \times \dots \times V\1_m = \br[\big]{(v_1, \dots, v_m): v_1 \in V\1_1, \dots, v_m \in V\1_m}.
+\]
+\item
+Addition on $V\1_1 \times \dots \times V\1_m$ is defined by
+\[
+(u_1, \dots, u_m) + (v_1, \dots, v_m) = (u_1 + v_1, \dots, u_m + v_m).
+\]
+\item
+Scalar multiplication on $V\1_1 \times \dots \times V\1_m$ is defined by
+\[
+\la (v_1, \dots, v_m) = (\la v_1, \dots, \la v_m).
+\]
+\end{Itemize}}
+
+\begin{example}{product of the vector spaces\/ $\P\1_5(\R{})$ and $\R3$}
+Elements of $\P\1_5(\R{}) \times \R3$ are lists of length two, with the first item in the list an element of $\P\1_5(\R{})$ and the second item in the list an element of $\RR3$.
+
+For example,
+$\paren[\big]{ 5 - 6x + 4x^2\1, (3, 8, 7) }$ and $\paren[\big]{x + 9x^5\1, (2,2,2)}$ are elements of $\P\1_5(\R{}) \times \RR3$. Their sum is defined by
+\begin{align*}
+\paren[\big]{ 5 - 6x &+ 4x^2\1, (3, 8, 7) } + \paren[\big]{x + 9x^5\1, (2,2,2) } \\[3bp]
+&= \paren[\big]{ 5 - 5x + 4x^2 + 9x^5\1, (5, 10,9) }.
+\end{align*}
+Also, $2 \paren[\big]{ 5 - 6x + 4x^2\1, (3, 8, 7) } = \paren[\big]{ 10 - 12x + 8x^2\1, (6, 16,14) }$.
+\end{example}
+
+The next result should be interpreted to mean that the product of vector spaces is a vector space with the operations of addition and scalar multiplication as defined by \ref{3prod}.
+
+\ResultBox{product of vector spaces is a vector space}
+{Suppose $V\1_1, \dots, V\1_m$ are vector spaces over $\F{}\3$. Then $V\1_1 \times \dots \times V\1_m$ is a vector space over $\F{}\3$.}
+
+The proof of the result above is left to the reader. Note that the additive identity of $V\1_1 \times \dots \times V\1_m$ is $(0, \dots, 0)$, where the $0$ in the $k^\nth$ slot is the additive identity of~$V\1_k$. The additive inverse of $(v_1, \dots, v_m) \in V\1_1 \times \dots \times V\1_m$ is $(-v_1, \dots, -v_m)$.
+
+\begin{example}{$\R2 \times \R3 \ne \R5$ but $\R2 \times \R3$ is isomorphic to $\R5$}
+Elements of the vector space $\R2 \times \R3$ are lists
+\[
+\bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr),
+\]
+where $x_1, x_2, x_3, x_4, x_5 \in \R{}$. Elements of $\R5$ are lists
+\[
+(x_1, x_2, x_3, x_4, x_5),
+\]
+where $x_1, x_2, x_3, x_4, x_5 \in \R{}$.
+
+Although elements of $\R2 \times \R3$ and $\R5$ look similar, they are not the same kind of object. Elements of $\R2 \times \R3$ are lists of length two (with the first item itself a list of length two and the second item a list of length three), and elements of $\R5$ are lists of length five. Thus $\R2 \times \R3$ does not equal $\RR5$.
+
+\addtolength{\marnotewidth}{-.1in}
+\addtolength{\marlen}{-.1in}
+\mar[7]{This isomorphism is so natural that we should think of it as a relabeling. Some people informally say that $\R2 \times \R3$ equals $\RR5$, which is not technically correct but which captures the spirit of identification via relabeling.}
+
+The linear map
+\[\overfullrule=0bp
+\bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr) \mapsto (x_1, x_2, x_3, x_4, x_5)
+\]
+is an isomorphism of the vector space $\R2 \times \R3$ onto the vector space $\RR5$. Thus these two vector spaces are isomorphic, although they are not equal.
+\end{example}
+
+The next example illustrates the idea that we will use in the proof of \ref{3dimproduct}.
+
+\begin{example}{a basis of\/ $\P\1_2(\R{}) \times \R2$}
+Consider this list of length five of elements of $\P\1_2(\R{}) \times \R2$:
+\[
+\bigl(1, (0,0) \bigr), \bigl(x,(0,0) \bigr), \bigl(x^2\1, (0,0) \bigr), \bigl(0, (1,0) \bigr), \bigl(0, (0, 1)\bigr).
+\]
+The list above is linearly independent and it spans $\P\1_2(\R{}) \times \RR2$. Thus it is a basis of $\P\1_2(\R{}) \times \RR2$.
+\end{example}
+
+\ResultBox[3dimproduct]{dimension of a product is the sum of dimensions}
+{Suppose $V\1_1, \dots, V\1_m$ are finite-dimensional vector spaces. Then $V\1_1 \times \dots \times V\1_m$  is finite-dimensional and
+\[
+\dim (V\1_1 \times \dots \times V\1_m) = \dim V\1_1 + \dots + \dim V\1_m.
+\]}
+
+\proof
+Choose a basis of each $V\1_k$. For each basis vector of each $V\1_k$, consider the element of $V\1_1 \times \dots \times V\1_m$ that equals the basis vector in the $k^\nth$ slot and $0$ in the other slots. The list of all such vectors is linearly independent and spans $V\1_1 \times \dots \times V\1_m$. Thus it is a basis of $V\1_1 \times \dots \times V\1_m$. The length of this basis is $\dim V\1_1 + \dots + \dim V\1_m$, as desired.
+\qed
+
+In the next result, the map $\Gamma$ is surjective by the definition of $V\1_1 + \dots + V\1_m$. Thus the last word in the result below could be changed from ``injective'' to ``invertible''\!.
+
+\ResultBox[productsum]{products and direct sums}
+{Suppose that $V\1_1, \dots, V\1_m$ are subspaces of $V\1$. Define a linear map \mbox{$\Gamma: V\1_1 \times \dots \times V\1_m \to V\1_1 + \dots + V\1_m$} by
+\[
+\Gamma(v_1, \dots, v_m) = v_1 + \dots + v_m.
+\]
+Then $V\1_1 + \dots + V\1_m$ is a direct sum if and only if $\Gamma$ is injective.
+}
+
+\proof
+By \ref{12}, $\Gamma$ is injective if and only if the only way to write $0$ as a sum $v_1 + \dots + v_m$, where each $v_k$ is in $V\1_k$, is by taking each $v_k$ equal to~$0$. Thus \ref{30} shows that $\Gamma$ is injective if and only if $V\1_1 + \dots + V\1_m$ is a direct sum, as desired. \qed
+
+\ResultBox[3directsumdim]{a sum is a direct sum if and only if dimensions add up}
+{Suppose $V$ is finite-dimensional and $V\1_1, \dots, V\1_m$ are subspaces of $V\1$. Then $V\1_1 + \dots + V\1_m$ is a direct sum if and only if\index{direct sum}
+\[
+\dim(V\1_1 + \dots + V\1_m) = \dim V\1_1 + \dots + \dim V\1_m.
+\]
+}
+
+\proof
+The map $\Gamma$ in \ref{productsum} is surjective. Thus by the fundamental theorem of linear maps (\ref{3ab11}), $\Gamma$ is injective if and only if
+\[
+\dim(V\1_1 + \dots + V\1_m) = \dim (V\1_1 \times \dots \times V\1_m).
+\]
+Combining \ref{productsum} and \ref{3dimproduct} now shows that $V\1_1 + \dots + V\1_m$ is a direct sum if and only if
+\[
+\dim(V\1_1 + \dots + V\1_m) = \dim V\1_1 + \dots + \dim V\1_m,
+\]
+as desired. \qed
+
+In the special case $m = 2$, an alternative proof that $V\1_1 + V\1_2$ is a direct sum if and only if $\dim(V\1_1 + V\1_2) = \dim V\1_1 + \dim V\1_2$ can be obtained by combining \ref{219} and \ref{128}.
+
+\subsection{Quotient Spaces}
+
+We begin our approach to quotient spaces by defining the sum of a vector and a subset.
+
+\NotationBox[2vU]{$v + U$}
+{Suppose $v \in V$ and $U \subset V\1$. Then $v + U$ is the subset of $V$ defined by\sindex{vU@$v + U$}
+\[
+v + U = \{ v + u: u \in U\}.
+\]
+}
+
+\begin{example}[U1720]{sum of a vector and a one-dimensional subspace of\/ $\R2$}
+ \marF[16]{\includegraphics{Mathematica/UPlus.pdf}}{$(17,20) + U$ is parallel\\to the subspace\/ $U$.}
+
+ Suppose
+ \[
+ U = \br[\big]{(x, 2x) \in \R2: x \in \R{}}.
+ \]
+ Hence $U$ is the line in $\R2$ through the origin with slope $2$. Thus \[(17,20) + U\] is the line in $\R2$ that contains the point $(17,20)$ and has slope $2$.
+
+ Because
+ \[
+ (10, 20) \in U \andd (17,20) \in (17, 20) + U,
+ \]
+ we see that $(17,20) + U$ is obtained by moving $U$ to the right by $7$ units.
+\end{example}
+
+\DefinitionBox{translate}
+{For $v \in V$ and $U$ a subset of $V\1$, the set $v +U$ is said to be a \emph{translate} of $U$.\index{translate}}
+
+\begin{example}{translates}
+\begin{Itemize}
+\item
+If $U$ is the line in $\R2$ defined by $U = \br[\big]{(x, 2x) \in \R2: x \in \R{}}$, then all lines in $\R2$ with slope $2$ are translates of~$U$. See Example~\ref{U1720} above for a drawing of $U$ and one of its translates.
+\item
+More generally, if $U$ is a line in $\RR 2$, then the set of all translates of $U$ is the set of all lines in $\R2$ that are parallel to $U$.
+\item
+If $U = \br[\big]{(x, y, 0) \in \R{3}: x, y \in \R{}}$, then the translates of $U$ are the planes in $\R3$ that are parallel to the $xy$-plane~$U$.
+\item
+More generally, if $U$ is a plane in $\R3\!$, then the set of all translates of $U$ is the set of all planes in $\R3$ that are parallel to $U$ (see, for example, Exercise \ref{3translates}).
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\DefinitionBox{quotient space, $V\1/U$\sindex{V/U@$V\hspace{-.16667em}/U$}}
+{Suppose $U$ is a subspace of $V\1$. Then the \emph{quotient space} $V\1/U$ is the set of all translates of $U$. Thus\index{quotient!space}
+\[
+V\1/U = \{ v + U : v \in V \}.
+\]}
+
+\begin{example}{quotient spaces}
+\begin{Itemize}
+\item
+If $U = \br[\big]{(x, 2x) \in \R2: x \in \R{}}$, then $\RR2/U$ is the set of all lines in $\R2$ that have slope $2$.
+\item
+If $U$ is a line in $\R3$ containing the origin, then $\RR3/U$ is the set of all lines in $\R3$ parallel to $U$.
+\item
+If $U$ is a plane in $\R3$ containing the origin, then $\RR3/U$ is the set of all planes in $\R3$ parallel to $U$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+Our next goal is to make $V\1/U$ into a vector space. To do this, we will need the next result.
+
+\ResultBox[equalordisjoint]{two translates of a subspace are equal or disjoint}
+{Suppose $U$ is a subspace of $V$ and $v, w \in V\1$. Then
+\[
+v - w \in U
+\iff
+v+U =w+U
+\iff
+(v+U) \cap (w+U) \ne \emptyset.
+\]
+}
+
+\proof
+First suppose $v - w \in U$.  If $u \in U$, then
+\[
+v + u = w + \bigl((v - w) + u\bigr) \in w + U.
+\]
+Thus $v + U \subset w + U$. Similarly, $w + U \subset v + U$. Thus $v+U =w+U$, completing the proof that $v - w \in U$ implies
+$v+U =w+U$.
+
+The equation $v+U =w+U$ implies that $(v+U) \cap (w+U) \ne \emptyset$.
+
+Now suppose $(v+U) \cap (w+U) \ne \emptyset$. Thus there exist $u_1, u_2 \in U$ such that
+\[
+v + u_1 = w + u_2.
+\]
+Thus $v-w = u_2 - u_1$. Hence $v - w \in U$, showing that $(v+U) \cap (w+U) \ne \emptyset$ implies $v - w \in U$, which completes the proof.
+\qed
+
+Now we can define addition and scalar multiplication on $V\1/U$.
+
+\DefinitionBox{addition and scalar multiplication on $V\1/U$}
+{Suppose $U$ is a subspace of $V\1$. Then \emph{addition} and \emph{scalar multiplication} are defined on $V\1/U$ by\index{addition!in quotient space}\index{scalar multiplication!in quotient space}
+\begin{align*}
+(v + U) + (w + U) &= (v+w) + U\\
+\la(v + U) &= (\la v) + U
+\end{align*}
+for all $v, w \in V$ and all $\la \in \F{}\3$.
+}
+
+As part of the proof of the next result, we will show that the definitions above make sense.
+
+\ResultBox{quotient space is a vector space}
+{Suppose $U$ is a subspace of $V\1$. Then $V\1/U$, with the operations of addition and scalar multiplication as defined above, is a vector space.}
+
+\proof
+The potential problem with the definitions above of addition and scalar multiplication on $V\1/U$ is that the representation of a translate of $U$ is not unique. Specifically, suppose $v_1, v_2, w_1, w_2\in V$ are such that
+\[
+v_1 + U = v_2 + U \andd w_1 + U = w_2 + U.
+\]
+To show that the definition of addition on $V\1/U$ given above makes sense, we must show that $(v_1+w_1) + U = (v_2 + w_2) + U$.
+
+By \ref{equalordisjoint}, we have
+\[
+v_1 - v_2 \in U \andd w_1 - w_2 \in U.
+\]
+Because $U$ is a subspace of $V$ and thus is closed under addition, this implies that
+$(v_1 - v_2) + (w_1 - w_2) \in U$. Thus $(v_1 + w_1) - (v_2 + w_2) \in U$. Using \ref{equalordisjoint} again, we see that
+\[
+(v_1+w_1) + U = (v_2+w_2) + U,
+\]
+as desired. Thus the definition of addition on $V\1/U$ makes sense.
+
+Similarly, suppose $\la \in \F{}\3$. We are still assuming that $v_1 + U = v_2 + U$. Because $U$ is a subspace of $V$ and thus is closed under scalar multiplication, we have $\la(v_1 - v_2) \in U$. Thus $\la v_1 - \la v_2 \in U$. Hence \ref{equalordisjoint} implies that
+\[
+(\la v_1) + U = (\la v_2) + U.
+\]
+Thus the definition of scalar multiplication on $V\1/U$ makes sense.
+
+Now that addition and scalar multiplication have been defined on $V\1/U$, the verification that these operations make $V\1/U$ into a vector space is straightforward and is left to the reader. Note that the additive identity of $V\1/U$ is $0 + U$ (which equals $U$) and that the additive inverse of $v + U$ is $(-v) + U$. \qed
+
+The next concept will lead to a computation of the dimension of $V\1/U$.
+
+\DefinitionBox{quotient map, $\pi$\sindex{pi@$\pi$}}
+{Suppose $U$ is a subspace of $V\1$. The \emph{quotient map}\index{quotient!map} $\pi \colon V \to V\1/U$ is the linear map defined by
+\[
+\pi(v) = v + U
+\]
+for each $v \in V\1$.}
+
+The reader should verify that $\pi$ is indeed a linear map. Although $\pi$ depends on $U$ as well as $V\1$, these spaces are left out of the notation because they should be clear from the context.
+
+\ResultBox[dimVmodU]{dimension of quotient space}
+{Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Then
+\vspace{-.04in}
+\[
+\dim V\1/U = \dim V - \dim U.
+\]}
+
+\proof
+Let $\pi$ denote the quotient map from $V$ to $V\1/U$. If $v \in V\1$, then $v + U = 0 + U$ if and only if $v \in U$ (by \ref{equalordisjoint}), which implies that $\ker \pi = U$. The definition of $\pi$ implies $\ran \pi = V\1/U$. The fundamental theorem of linear maps (\ref{3ab11}) now implies
+$
+\dim V = \dim U + \dim V\1/U$,
+which gives the desired result.
+\qed
+
+Each linear map $T$ on $V$ induces a linear map $\tilde{T}$ on $V\1/(\ker T)$, as defined below.
+
+\NotationBox{$\tilde{T}$\sindex{T@$\protect\tilde{T}$}}
+{Suppose $T \in \L(V\1, W)$. Define $\tilde{T} \colon V\1/(\ker T) \to W$ by
+\vspace{-.05in}
+\[
+\tilde{T}(v + \ker T) = Tv.
+\]}
+
+To show that the definition of $\tilde{T}$ makes sense, suppose $u, v \in V$ are such that $u + \ker T = v + \ker T\3$. By \ref{equalordisjoint}, we have $u - v \in \ker T\3$. Thus $T(u - v) = 0$. Hence $Tu = Tv$. Thus the definition of $\tilde{T}$ indeed makes sense. The routine verification that $\tilde{T}$ is a linear map from $V\1/(\ker T)$ to $W$ is left to the reader.
+
+The next result shows that we can think of $\tilde{T}$ as a modified version of $T\3$, with a domain that produces a one-to-one map.
+
+\ResultBox[nullranTtilde]{null space and range of\/ $\tilde{T}$}
+{Suppose $T \in \L(V\1,W)$. Then
+\begin{subtheorem}*
+\item
+$\tilde{T} \circ \pi = T$, where $\pi$ is the quotient map of $V$ onto $V\1/(\ker T)$;
+\item
+$\tilde{T}$ is injective;
+\item
+$\ran \tilde{T} = \ran T$;
+\item
+$V\1/(\ker T)$ and $\ran T\3$ are isomorphic vector spaces.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+If $v \in V\1$, then $\paren[\big]{\tilde T \circ \pi}(v) = \tilde{T} \paren[\big]{\pi(v)} = \tilde{T}(v + \ker T) = Tv$, as desired.
+
+\item
+Suppose $v \in V$ and $\tilde{T}(v + \ker T) = 0$. Then $Tv = 0$. Thus $v \in \ker T\3$. Hence \ref{equalordisjoint} implies that $v + \ker T = 0 + \ker T\3$. This implies that $\ker \tilde{T} = \{0 + \ker T\}$. Hence $\tilde{T}$ is injective, as desired.
+
+\item
+The definition of $\tilde{T}$ shows that $\ran \tilde{T} = \ran T\3$.
+
+\item
+Now (b) and (c) imply that if we think of $\tilde{T}$ as mapping into $\ran T$, then $\tilde{T}$ is an isomorphism from $V\1/(\ker T)$ onto $\ran T\3$. \qed
+\end{subtheorem}
+
+\pagebreak[3]
+
+\begin{exercises}
+
+\exercise
+Suppose $T$ is a function from $V$ to $W\3$. The \emph{graph} of $T$\index{graph of a linear map} is the subset of
+$V\1 \times W$ defined by
+\[
+\text{graph of}\ T = \br[\big]{ (v, Tv) \in V\1 \times W: v \in V }.
+\]
+Prove that $T$ is a linear map if and only if the graph of $T$
+is a subspace of $V\1 \times W\3$.
+\exercisecomment{Formally, a function\/ $T$ from\/ $V$ to\/ $W$ is a subset\/ $T$ of\/ $V\1 \times W$ such that for each\/ $v \in V\1$, there exists exactly one element\/ $(v, w) \in T\3$. In other words, formally a function is what is called above its graph. We do not usually think of functions in this formal manner. However, if we do become formal, then this exercise could be rephrased as follows: Prove that a function\/ $T$ from\/ $V$ to\/ $W$ is a linear map if and only if\/ $T$ is a subspace of\/ $V\1 \times W\3$.}
+
+
+\exercise
+Suppose that $V\1_1, \dots, V\1_m$ are vector spaces such that $V\1_1 \times \dots \times V\1_m$ is finite-dimensional. Prove that $V\1_k$ is finite-dimensional for each $k = 1, \dots, m$.
+
+
+\begin{comment}
+\exercise
+Give an example of a vector space $V$ and subspaces $V\1_1, V\1_2$ of $V$ such that $V\1_1 \times V\1_2$ is isomorphic to $V\1_1 + V\1_2$ but $V\1_1 + V\1_2$ is not a direct sum.
+\hint{The vector space $V$ must be infinite-dimensional.}
+
+\end{comment}
+
+\exercise
+Suppose $V\1_1, \dots, V\1_m$ are vector spaces. Prove that $\L(V\1_1 \times \dots \times V\1_m, W)$ and $\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ are isomorphic vector spaces.
+\exercisecomment{There is no assumption in the exercise above or in the two following exercises that the vector spaces are finite-dimensional.}
+
+
+
+\exercise
+Suppose $W\3_1, \dots, W\3_m$ are vector spaces. Prove that $\L(V\1, W\3_1 \times \dots \times W\3_m)$ and
+$\L(V\1, W\3_1) \times \dots \times \L(V\1, W\3_m)$ are isomorphic vector spaces.
+
+
+\exercise
+For $m$ a positive integer, define $V^m$ by\sindex{Vm@$V^m\mskip -2mu$}
+\[
+V^m = \underbrace{V\1 \times \dots \times V}_{m \text{\ times}}\!.
+\]
+Prove that $V^m$ and $\L\paren[\big]{\FF{m}, V}$ are isomorphic vector spaces.
+
+
+\exercise
+Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W\3$. Prove that $U = W\3$.
+
+
+\exercise
+Let $U = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= 0}$. Suppose $A \subset \RR3$. Prove that $A$ is a translate of $U$ if and only if there exists $c \in \R{}$ such that\label{3translates}
+\[
+A = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= c}.
+\]
+\exercisedisplayend
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $T \in \L(V, W)$ and $c \in W\3$. Prove that $\br{x \in V : Tx = c}$ is either the empty set or is a translate of
+$\ker T\3$.
+
+\item
+Explain why the set of solutions to a system of linear equations such as \ref{3inhomeq} is either the empty set or is a translate of some subspace of $\FF n$.
+\end{SUBtheorem}
+
+
+\exercise
+Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\la v + (1-\la)w \in A$ for all $v, w \in A$ and all $\la \in \F{}\3$. \label{affine}
+
+
+\exercise
+Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V\1$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+
+\pagebreak[4]
+
+
+\exercise
+Suppose $U = \br[\big]{(x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{for only finitely many}\ k}$.
+\begin{subtheorem}
+\item
+Show that $U$ is a subspace of $\FF{\infty}$.
+\item
+Prove that $\FF{\infty}/U$ is infinite-dimensional.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $v_1, \dots, v_m \in V\1$. Let
+\[
+A = \{ \la_1 v_1 + \dots + \la_m v_m : \la_1, \dots, \la_m \in \F{}\ \text{and}\ \la_1 + \dots + \la_m = 1 \}.
+\]
+\begin{subtheorem}*
+\item
+Prove that $A$ is a translate of some subspace of $V\1$.
+\item
+Prove that if $B$ is a translate of some subspace of $V$ and $\br{v_1, \dots, v_m} \subset B$, then $A \subset B$.
+\item
+Prove that $A$ is a translate of some subspace of $V$ of dimension less than~$m$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional. Prove that $V$ is isomorphic to
+$U \times (V\1/U)$.
+
+
+\exercise
+Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W\3$. Suppose $w_1, \ldots, w_m$ is a basis of $W\3$. Prove that
+$w_1 + U, \ldots, w_m + U$ is a basis of $V\1/U$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ and $v_1 + U, \dots, v_m + U$ is a basis of $V\1/U$ and $u_1, \dots, u_n$ is a basis of $U$. Prove that $v_1, \dots, v_m, u_1, \dots, u_n$ is a basis of $V\1$. \label{basisUVmodU}
+
+
+\exercise
+Suppose $\phi \in \L(V\1, \F{})$ and $\phi \ne 0$. Prove that $\dim V \!/\! (\ker \phi) = 1$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $\dim V\1/U = 1$. Prove that there exists $\phi \in \L(V\1, \F{})$ such that $\ker \phi = U$.
+
+
+\exercise
+Suppose that $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional.
+\begin{subtheorem}
+\item
+Show that if $W$ is a finite-dimensional subspace of $V$ and \mbox{$V = U + W$}, then $\dim W \ge \dim V\1/U$.
+\item
+Prove that there exists a finite-dimensional subspace $W$ of $V$ such that \mbox{$\dim W = \dim V\1/U$} and \mbox{$V = U \oplus W$}.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $U$ is a subspace of $V\1$. Let $\pi$ denote the quotient map from $V$ onto $V\1/U$. Prove that there exists $S \in \L(V\1/U, W)$ such that $T = S \circ \pi$ if and only if $U \subset \ker T\3$. \label{1715}
+
+
+\begin{comment} %This exercise deleted from LADR4e because it is too similar to Exercise 18 in Section 3.E of LADR3e.
+\exercise
+Suppose $U$ is a subspace of $V\1$. Define $\Gamma \colon \L(V\1/U, W) \to \L(V\1, W)$ by
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\Gamma(S) = S \circ \pi.
+\]
+\begin{subtheorem}
+\item
+Show that $\Gamma$ is a linear map.
+\item
+Show that $\Gamma$ is injective.
+\item
+Show that
+\mbox{$\ran \Gamma = \{ T \in \L(V\1, W): Tu = 0 \text{\ for every\ } u \in U\}$}.
+\end{subtheorem}
+
+\end{comment}
+
+\begin{comment} % Exercise deleted because T^2 has not yet been defined.
+\exercise
+Suppose $T \in \L(V)$ and $\pi$ is the quotient map of $V$ onto $V\1/(\ker T)$. Prove that
+\[
+\ker \pi \circ \tilde T = \br{v + \ker T : v \in V \text{ and } T^2 v = 0}.
+\]
+\exercisecomment{The exercise above implies that\/ $\pi \circ \tilde T$ is the zero map from\/ $V\1/(\ker T)$ to itself if and only if\/ $T^2$ is the zero map from\/ $V\1$ to itself.}
+
+
+\end{comment}
+
+\end{exercises}
+
+\section{Duality} \label{duals}
+
+\subsection{Dual Space and Dual Map}
+
+Linear maps into the scalar field $\F{}$ play a special role in linear algebra, and thus they get a special name.
+
+\DefinitionBox{linear functional}
+{A \emph{linear functional}\index{linear functional} on $V$ is a linear map from $V$ to $\F{}\3$. In other words, a linear functional is an element of $\L(V\1, \F{})$.}
+
+\begin{example}{linear functionals}
+\begin{Itemize}
+\item
+Define $\phi \colon \R3 \to \R{}$ by $\phi(x, y, z) = 4x - 5y + 2z$. Then $\phi$ is a linear functional on $\RR3$.
+\item
+Fix $(c_1, \dots, c_n) \in \FF{n}$. Define $\phi \colon \F{n} \to \F{}$ by $\phi(x_1, \dots, x_n) = c_1 x_1 + \dots + c_n \, x_n$. Then $\phi$ is a linear functional on $\FF{n}$.
+\item
+Define $\phi \colon \P(\R{}) \to \R{}$ by \[\phi(p) = 3 p'' \! (5) + 7 p(4).\] Then $\phi$ is a linear functional on~$\P(\R{})$.
+\item
+Define $\fun \phi {\P(\R{})} {\R{}}$ by
+\[
+\phi(p) =\int_0^1 p
+\]
+for each $p \in \P(\R{})$. Then $\phi$ is a linear functional on~$\P(\R{})$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+The vector space $\L(V\1, \F{})$ also gets a special name and special notation.
+
+\DefinitionBox[DualSpace]{dual space, $V'$\sindex{V'@$V'\1$}}
+{The \emph{dual space}\index{dual!of a vector space} of $V\1$, denoted by $V'\!$, is the vector space of all linear \mbox{functionals} on $V\1$. In other words, $V' = \L(V\1, \F{})$.}
+
+\ResultBox[3dimdual]{$\dim V' = \dim V$}
+{Suppose $V$ is finite-dimensional. Then $V'$ is also finite-dimensional and
+\[
+\dim V' = \dim V\1.
+\]}
+
+\proof
+By \ref{247} we have
+\[
+\dim V' = \dim \L(V\1, \F{}) = (\dim V)(\dim \F{}) = \dim V\1,
+\]
+as desired.
+\qed
+
+In the following definition, the linear map lemma (\ref{3linearmap}) implies that each $\phi_j$ is well defined.
+
+\DefinitionBox[DualBasis]{dual basis}
+{If $v_1, \dots, v_n$ is a basis of $V\1$, then the \emph{dual basis}\index{dual!of a basis} of $v_1, \dots, v_n$ is the list $\phi_1, \dots, \phi_n$ of elements of $V'\!$, where each $\phi_j$ is the linear functional on $V$ such that
+\[
+\phi_j(v_k) =
+\begin{cases}
+1 & \text{if } k = j,\\
+0 & \text{if } k \ne j.
+\end{cases}
+\]
+}
+
+\begin{example}[dualstandard]{the dual basis of the standard basis of\/ $\F{n}$}
+Suppose $n$ is a positive integer. For $1 \le j \le n$, define $\phi_j$ to be the linear functional on $\F{n}$ that selects the $j^\nth$ coordinate of a vector in $\FF{n}$. Thus
+\[
+\phi_j(x_1, \dots, x_n) = x_j
+\]
+for each $(x_1, \dots, x_n) \in \FF{n}$.
+
+Let $e_1, \dots, e_n$ be the standard basis of $\FF{n}$. Then
+\[
+\phi_j(e_k) = \begin{cases}
+1 & \text{if } k = j,\\
+0 & \text{if } k \ne j.
+\end{cases}
+\]
+Thus $\phi_1, \dots, \phi_n$ is the dual basis of the standard basis $e_1, \dots, e_n$ of $\FF{n}$.
+\end{example}
+
+The next result shows that the dual basis of a basis of $V$ consists of the linear functionals on $V$ that give the coefficients for expressing a vector in $V$ as a linear combination of the basis vectors.
+
+\ResultBox[3dualbasis]{dual basis gives coefficients for linear combination}
+{Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the dual basis. Then
+\[
+v = \phi_1(v) v_1 + \cdots + \phi_n(v) v_n
+\]
+for each $v \in V\1$.}
+
+\proof
+Suppose $v \in V\1$. Then there exist $c_1, \ldots, c_n \in \F{}$ such that
+\begin{equation} \label{2dualb}
+v = c_1 v_1 + \cdots + c_n v_n.
+\end{equation}%
+If $j \in \br{1, \ldots, n}$, then applying $\phi_j$ to both sides of the equation above gives
+\[
+\phi_j(v) = c_j.
+\]
+Substituting the values for $c_1, \ldots, c_n$ given by the equation above into \ref{2dualb} shows that
+$v = \phi_1(v) v_1 + \cdots + \phi_n(v) v_n$.
+\qed
+
+The next result shows that the dual basis is indeed a basis of the dual space. Thus the terminology ``dual basis'' is justified.
+
+\ResultBox[dualbasis]{dual basis is a basis of the dual space}
+{Suppose $V$ is finite-dimensional. Then the dual basis of a basis of $V$ is a basis of $V'\!$.}
+
+\proof
+Suppose $v_1, \dots, v_n$ is a basis of $V\1$. Let $\phi_1, \dots, \phi_n$ denote the dual basis.
+
+To show that $\phi_1, \dots, \phi_n$ is a linearly independent list of elements of $V'\!$, suppose $a_1, \dots, a_n \in \F{}$ are such that
+\begin{equation} \label{3dualb}
+a_1 \phi_1 + \dots + a_n \phi_n = 0.
+\end{equation}%
+Now
+\[
+(a_1 \phi_1 + \dots + a_n \phi_n)(v_k) = a_k
+\]
+for each $k = 1, \dots, n$. Thus \ref{3dualb} shows that $a_1 = \dots = a_n = 0$. Hence $\phi_1, \dots, \phi_n$ is linearly \mbox{independent}.
+
+Because $\phi_1, \dots, \phi_n$ is a linearly independent list in $V'\!$ whose length equals $\dim V'$ (by \ref{3dimdual}), we can conclude that $\phi_1, \dots, \phi_n$ is a basis of $V'\!$ (see \ref{75}).
+\qed
+
+In the definition below, note that if $T$ is a linear map from $V$ to $W$ then $T'$ is a linear map from $W'$ to $V'\!$.
+
+\DefinitionBox[DualMap]{dual map, $T'$\sindex{T'@$T'\1$}}
+{Suppose $T \in \L(V\1,W)$. The \emph{dual map}\index{dual!of a linear map} of $T$ is the linear map $T' \in \L\paren[\big]{W'\!, V'}$ defined for each $\phi \in W'\!$ by
+\[
+T' \! (\phi) = \phi \circ T.
+\]
+}
+
+If $T \in \L(V\1,W)$ and $\phi \in W'\!$, then $T' \! (\phi)$ is defined above to be the composition of the linear maps $\phi$ and $T\3$. Thus $T' \! (\phi)$ is indeed a linear map from $V$ to $\F{}$; in other words, $T' \! (\phi) \in V'\!$.
+
+The following two bullet points show that $T'$ is a linear map from $W'$ to $V'\!$.
+\begin{Itemize}
+\item
+If $\phi, \psi \in W'\!$, then
+\[
+T' \! (\phi + \psi) = (\phi + \psi) \circ T = \phi \circ T + \psi \circ T = T' \! (\phi) + T' \! (\psi).
+\]
+\item
+If $\la \in \F{}$ and $\phi \in W'\!$, then
+\[
+T' \! (\la \phi) = (\la \phi) \circ T = \la(\phi \circ T) = \la T' \! (\phi).
+\]
+\end{Itemize}
+
+The prime notation appears with two unrelated meanings in the next example: $D'$ denotes the dual of the linear map $D$, and $p'$ denotes the derivative of a polynomial~$p$.
+
+\begin{example}{dual map of the differentiation linear map}
+Define $D \colon \P(\R{}) \to \P(\R{})$ by $Dp = p'\!$.
+\vspace{-1bp}
+\begin{Itemize}
+\item
+Suppose $\phi$ is the linear functional on $\P(\R{})$ defined by $\phi(p) = p(3)$. Then $D' \! (\phi)$ is the linear functional on $\P(\R{})$ given by
+\[
+\bigl(D' \! (\phi)\bigr)(p) = (\phi \circ D)(p) = \phi(Dp) = \phi\paren[\big]{p'} = p' \! (3).
+\]
+Thus $D' \! (\phi)$ is the linear functional on $\P(\R{})$ taking $p$ to $p' \! (3)$.
+\item
+Suppose $\phi$ is the linear functional on $\P(\R{})$ defined by $\phi(p) = \int_0^1 p$. Then $D' \! (\phi)$ is the linear functional on $\P(\R{})$ given by
+\begin{align*}
+\bigl(D' \! (\phi)\bigr)(p) &= (\phi \circ D)(p)\\
+&= \phi(Dp)\\
+&= \phi\paren[\big]{p'}\\
+&= \int_0^1 p'\\
+&= p(1) - p(0).
+\end{align*}
+Thus $D' \! (\phi)$ is the linear functional on $\P(\R{})$ taking $p$ to $p(1) - p(0)$.
+\end{Itemize}
+\vspace{-6.1bp}
+\end{example}
+
+ In the next result, (a) and (b) imply that the function that takes $T$ to $T'$ is a linear map from
+$\L(V\1, W)$ to $\L\paren[\big]{W'\!, V'}$.
+
+In (c) below, note the reversal of order from $ST$ on the left to $T' S'$ on the right.
+
+\ResultBox[3dualmaps]{algebraic properties of dual maps}
+{Suppose $T \in \L(V\1,W)$. Then
+\begin{subtheorem}*
+\item
+$(S + T)' = S' + T'$ for all $S \in \L(V\1,W)$;
+\item
+$(\la T)' = \la T'$ for all $\la \in \F{}$;
+\item
+$(ST)' = T'S'$ for all $S \in \L(W\3, U)$.
+\end{subtheorem}}
+
+\proof
+The proofs of (a) and (b) are left to the reader.
+
+To prove (c), suppose $\phi \in U'\!$. Then
+\[
+(ST)' \! (\phi) = \phi \circ (ST) = (\phi \circ S) \circ T = T' \! (\phi \circ S) = T'\bigl(S' \! (\phi)\bigr) = \paren[\big]{T'S'}(\phi),
+\]
+\mar[9]{Some books use the notation\/ $V^*$ and\/ $T^*$ for duality instead of\/ $V'$ and\/ $T'\!$. However, here we reserve the notation\/ $T^*$ for the adjoint, which will be introduced when we study linear maps on inner product spaces in Chapter \ref{183}.}
+where the first, third, and fourth equalities above hold because of the definition of the dual map, the second equality holds because composition of functions is associative, and the last equality follows from the definition of composition.
+
+The equation above shows that $(ST)' \! (\phi) = \paren[\big]{T'S'}(\phi)$ for all $\phi \in U'\!$. Thus $(ST)' = T'S'\!$.
+\qed
+
+\subsection{Null Space and Range of Dual of Linear Map}
+
+Our goal in this subsection is to describe $\ker T'$ and $\ran T'$ in terms of $\ran T$ and $\ker T\3$. To do this, we will need the next definition.
+
+\DefinitionBox[annihilator]{annihilator, $U^0$\sindex{U0@$U^0$}}
+{For $U \subset V\1$, the \emph{annihilator}\index{annihilator} of $U$, denoted by $U^0\1$, is defined by
+\[
+U^0 = \br[\big]{\phi \in V': \phi(u) = 0 \text{\ for all\ } u \in U}.
+\]}
+
+\begin{example}{element of an annihilator}
+Suppose $U$ is the subspace of $\P(\R{})$ consisting of polynomial multiples of~$x^2\1$. If $\phi$ is the linear functional on $\P(\R{})$ defined by $\phi(p) = p' \! (0)$, then $\phi \in U^0\1$.
+\end{example}
+
+For $U \subset V\1$, the annihilator $U^0$ is a subset of the dual space $V'\!$. Thus $U^0$ depends on the vector space containing $U$, so a notation such as $U^0_V$ would be more precise. However, the containing vector space will always be clear from the context, so we will use the simpler notation~$U^0\1$.
+
+\begin{example}[annih]{the annihilator of a two-dimensional subspace of\/ $\R5$}
+Let $e_1, e_2, e_3, e_4, e_5$ denote the standard basis of $\R5$; let $\phi_1, \phi_2, \phi_3, \phi_4,\phi_5 \in {\paren[\big]{\R5}}'\!$ denote the dual basis of $e_1, e_2, e_3, e_4, e_5$. Suppose
+\[
+U = \Span(e_1, e_2) = \br[\big]{(x_1, x_2, 0, 0, 0) \in \R5: x_1, x_2 \in \R{}}.
+\]
+We want to show that $U^0 = \Span(\phi_3, \phi_4, \phi_5)$.
+
+Recall (see \ref{dualstandard}) that $\phi_j$ is the linear functional on $\R5$ that selects the $j^\nth$ coordinate: $\phi_j(x_1, x_2, x_3, x_4, x_5) = x_j$.
+
+First suppose $\phi \in \Span(\phi_3, \phi_4, \phi_5)$. Then there exist $c_3, c_4, c_5 \in \R{}$ such that $\phi = c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5$. If $(x_1, x_2, 0, 0, 0) \in U$, then
+\[
+\phi(x_1, x_2, 0, 0, 0) = (c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5)(x_1, x_2, 0, 0, 0) = 0.
+\]
+Thus $\phi \in U^0\1$. Hence we have shown that $\Span(\phi_3, \phi_4, \phi_5) \subset U^0\1$.
+
+To show the inclusion in the other direction, suppose that $\phi \in U^0\1$. Because the dual basis is a basis of ${\paren[\big]{\R5}}'\!$, there exist $c_1, c_2, c_3, c_4, c_5 \in \R{}$ such that \mbox{$\phi = c_1 \phi_1 + c_2 \phi_2 + c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5$}. Because $e_1 \in U$ and $\phi \in U^0\1$, we have
+\[
+0 = \phi(e_1) = (c_1 \phi_1 + c_2 \phi_2 + c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5)(e_1) = c_1.
+\]
+Similarly, $e_2 \in U$ and thus $c_2 = 0$. Hence $\phi = c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5$. Thus $\phi \in \Span(\phi_3, \phi_4, \phi_5)$, which shows that $U^0 \subset \Span(\phi_3, \phi_4, \phi_5)$.
+
+Thus $U^0 = \Span(\phi_3, \phi_4, \phi_5)$.
+\end{example}
+
+\ResultBox{the annihilator is a subspace}
+{Suppose $U \subset V\1$. Then $U^0$ is a subspace of $V'\!$.}
+
+\proof
+Note that $0 \in U^0$ (here $0$ is the zero linear functional on $V$) because the zero linear functional applied to every vector in $U$ equals $0 \in \F{}$.
+
+Suppose $\phi, \psi \in U^0\1$. Thus $\phi, \psi \in V'$ and $\phi(u) = \psi(u) = 0$ for every $u \in U$. If $u \in U$, then
+\[
+(\phi + \psi)(u) = \phi(u) + \psi(u) = 0 + 0 = 0.
+\]
+Thus $\phi + \psi \in U^0\1$.
+
+Similarly, $U^0$ is closed under scalar multiplication. Thus \ref{subspace} implies that $U^0$ is a subspace of $V'\!$.
+\qed
+
+The next result shows that $\dim U^0$ is the difference of $\dim V$ and $\dim U$.
+For example, this shows that if $U$ is a two-dimensional subspace of $\RR5$, then $U^0$ is a three-dimensional subspace of ${\paren[\big]{\R{5}}}'\!$, as in Example~\ref{annih}.
+
+The next result can be proved following the pattern of Example~\ref{annih}: choose a basis $u_1, \dots, u_m$ of $U$, extend to a basis $u_1, \dots, u_m, \dots, u_n$ of $V\1$, let $\phi_1, \dots, \phi_m, \dots, \phi_n$ be the dual basis of $V'\!$, and then show that $\phi_{m+1}, \dots, \phi_n$ is a basis of $U^0\1$, which implies the desired result. You should construct the proof just outlined, even though a slicker proof is presented here.
+
+\ResultBox[dimannih]{dimension of the annihilator}
+{Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Then
+\[
+\dim U^0 = \dim V - \dim U.
+\]}
+
+\proof
+Let $i \in \L(U, V)$ be the inclusion map defined by $i(u) = u$ for each $u \in U$. Thus $i'$ is a linear map from $V'$ to $U'\!$. The fundamental theorem of linear maps (\ref{3ab11}) applied to $i'$ shows that
+\[
+\dim \ran i' + \dim \ker i' = \dim V'\!.
+\]
+However, $\ker i' = U^0$ (as can be seen by thinking about the definitions) and $\dim V' = \dim V$ (by \ref{3dimdual}), so we can rewrite the equation above as
+\begin{equation} \label{ranip}
+\dim \ran i' + \dim U^0 = \dim V\1.
+\end{equation}%
+
+If $\phi \in U'\!$, then $\phi$ can be extended to a linear functional $\psi$ on $V$ (see, for example, Exercise~\ref{384} in Section \ref{vslinear}). The definition of $i'$ shows that \mbox{$i' \! (\psi) = \phi$}. Thus $\phi \in \ran i'\!$, which implies that $\ran i' = U'\!$. Hence
+\[
+\dim \ran i' = \dim U' = \dim U,
+\]
+and then \ref{ranip} becomes the equation $\dim U + \dim U^0 = \dim V\1$, as desired.
+\qed
+
+\pagebreak[3]
+
+The next result can be a useful tool to show that a subspace is as big as possible---see (a)---or to show that a subspace is as small as possible---see (b).
+
+\ResultBox[2annih]{condition for the annihilator to equal\/ $\br{0}$ or the whole space}
+{Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Then
+\begin{subtheorem}*
+\item
+$U^0 = \{0\} \iff U = V$;
+\item
+$U^0 = V' \iff U = \br{0}$.
+\end{subtheorem}}
+
+\proof
+To prove (a), we have
+\begin{align*}
+U^0 = \br{0} &\iff \dim U^0 = 0 \\
+&\iff \dim U = \dim V \\
+&\iff U = V\1,
+\end{align*}
+where the second equivalence follows from \ref{dimannih} and the third equivalence follows from \ref{2subfull}.
+
+Similarly, to prove (b) we have
+\begin{align*}
+U^0 = V' &\iff \dim U^0 = \dim V' \\[4bp]
+&\iff \dim U^0 = \dim V \\[4bp]
+&\iff \dim U = 0\\[4bp]
+&\iff U = \br{0},
+\end{align*}
+where one direction of the first equivalence follows from \ref{2subfull}, the second equivalence follows from \ref{3dimdual}, and the third equivalence follows from \ref{dimannih}.
+\qed
+
+The proof of (a) in the next result does not use the hypothesis that $V$ and $W$ are finite-dimensional.
+
+\ResultBox[nullTprime]{the null space of $T'$}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then\index{null space!of T@of $T'\1$}
+\begin{subtheorem}*
+\item
+$\ker T' = (\ran T)^0$;
+\item
+$\dim \ker T' = \dim \ker T + \dim W - \dim V\1$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}*
+\item
+First suppose $\phi \in \ker T'\!$. Thus $0 = T' \! (\phi) = \phi \circ T\3$. Hence
+\[
+0 = (\phi \circ T)(v) = \phi(Tv) \quad \text{for every\ } v \in V\1.
+\]
+Thus $\phi \in (\ran T)^0\1$. This implies that $\ker T' \subset (\ran T)^0\1$.
+
+To prove the inclusion in the opposite direction, now suppose $\phi \in (\ran T)^0\1$. Thus $\phi(Tv) = 0$ for every vector $v \in V\1$. Hence \mbox{$0 = \phi \circ T = T' \! (\phi)$}. In other words, $\phi \in \ker T'\!$, which shows that $(\ran T)^0 \subset \ker T'\!$, completing the proof of (a).
+
+\pagebreak[3]
+
+\item
+We have
+\begin{align*}
+\dim \ker T' &= \dim (\ran T)^0 \\[4bp]
+&= \dim W - \dim \ran T \\[4bp]
+&= \dim W - (\dim V - \dim \ker T) \\[4bp]
+&= \dim \ker T + \dim W - \dim V\1,
+\end{align*}
+where the first equality comes from (a), the second equality comes from \ref{dimannih}, and the third equality comes from the fundamental theorem of linear maps (\ref{3ab11}).
+\qed
+\end{subtheorem}
+
+\vspace{-3bp} %VisualFormatting
+
+The next result can be useful because sometimes it is easier to verify that $T'$ is injective than to show directly that $T$ is surjective.
+
+\ResultBox[TsurTprimeinj]{$T$ surjective is equivalent to $T'$ injective}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then
+\[
+T \text{ is surjective} \iff T' \text{ is injective}.
+\]}
+
+\proof
+We have
+\begin{align*}
+T \in \L(V\1,W) \text{ is surjective} &\iff \ran T = W \\
+&\iff (\ran T)^0 = \{0\} \\
+&\iff \ker T' = \{0\} \\
+&\iff T' \text{ is injective},
+\end{align*}
+where the second equivalence comes from \ref{2annih}(a) and the third equivalence comes from \ref{nullTprime}(a).
+\qed
+
+\ResultBox[rangeTprime]{the range of $T'$}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then\index{range!of T@of $T'\1$}
+\begin{subtheorem}*
+\item
+$\dim \ran T' = \dim \ran T$;
+\item
+$\ran T' = (\ker T)^0\1$.
+\end{subtheorem}}
+
+\proof
+
+%\vspace{-3bp}  %VisualFormatting
+
+\begin{subtheorem}*
+\item
+We have
+%\vspace{-6bp} %VisualFormatting
+\begin{align*}
+\dim \ran T' &= \dim W' - \dim \ker T'\\
+&= \dim W - \dim (\ran T)^0 \\
+&= \dim \ran T,
+\end{align*}
+where the first equality comes from \ref{3ab11}, the second equality comes from \ref{3dimdual} and \ref{nullTprime}(a), and the third equality comes from \ref{dimannih}.
+
+\item
+First suppose $\phi \in \ran T'\!$. Thus there exists $\psi \in W'$ such that $\phi = T' \! (\psi)$. If $v \in \ker T$, then
+\[
+\phi(v) = \bigl(T' \! (\psi)\bigr) v = (\psi \circ T)(v) = \psi(Tv) = \psi(0) = 0.
+\]
+Hence $\phi \in (\ker T)^0\1$. This implies that $\ran T' \subset (\ker T)^0\1$.
+
+We will complete the proof by showing that $\ran T'$ and $(\ker T)^0$ have the same dimension. To do this, note that
+\begin{align*}
+\dim \ran T' &= \dim \ran T \\
+&= \dim V - \dim \ker T \\
+&= \dim (\ker T)^0\1,
+\end{align*}
+where the first equality comes from (a), the second equality comes from \ref{3ab11}, and the third equality comes from \ref{dimannih}.
+\qed
+\end{subtheorem}
+
+The next result should be compared to \ref{TsurTprimeinj}.
+
+\ResultBox[TinjTprimesur]{$T$ injective is equivalent to $T'$ surjective}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then
+\[
+T \text{ is injective} \iff T' \text{ is surjective}.
+\]}
+
+\proof
+We have
+\begin{align*}
+T \text{ is injective} &\iff \ker T = \{0\} \\
+&\iff (\ker T)^0 = V' \\
+&\iff \ran T' = V' \!,
+\end{align*}
+where the second equivalence follows from \ref{2annih}(b) and the third equivalence follows from \ref{rangeTprime}(b).
+\qed
+
+\subsection{Matrix of Dual of Linear Map}
+
+The setting for the next result is the assumption that we have a basis $v_1, \dots, v_n$ of $V\1$, along with its dual basis $\phi_1, \dots, \phi_n$ of $V'\!$. We also have a basis $w_1, \dots, w_m$ of $W\3$, along with its dual basis $\psi_1, \dots, \psi_m$ of $W'\!$. Thus $\M(T)$ is computed with respect to the bases just mentioned of $V$ and~$W\3$, and $\M\paren[\big]{T'}$ is computed with respect to the dual bases just mentioned of $W'$ and~$V'\!$. Using these bases gives the following pretty result.
+
+\ResultBox[3matrixTprime]{matrix of\/ $T'$ is transpose of matrix of\/ $T$\index{matrix!of T@of $T'$}}
+{Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Then
+\[
+\M\paren[\big]{T'} = \tran{\bigl(\M(T)\bigr)}\3.
+\]}
+
+\proof
+Let $A = \M(T)$ and $C = \M\paren[\big]{T'}$. Suppose $1 \le j \le m$ and $1 \le k \le n$.
+
+From the definition of $\M\paren[\big]{T'}$ we have
+\[
+T' \! (\psi_j) = \sum_{r=1}^n C_{r,j} \phi_r.
+\]
+The left side of the equation above equals $\psi_j \circ T\3$. Thus applying both sides of the equation above to $v_k$ gives
+\begin{align*}
+(\psi_j \circ T)(v_k) &= \sum_{r=1}^n C_{r,j} \phi_r(v_k)\\[2bp]
+&= C_{k,j}.
+\end{align*}
+We also have
+\begin{align*}
+(\psi_j \circ T)(v_k) &= \psi_j(Tv_k) \\[2bp]
+&= \psi_j\paren[\bigg]{ \sum_{r=1}^m A_{r,k} w_r }\\[2bp]
+&= \sum_{r=1}^m A_{r,k} \psi_j(w_r) \\[2bp]
+&= A_{j,k}.
+\end{align*}
+Comparing the last line of the last two sets of equations, we have $C_{k,j} = A_{j,k}$. Thus $C = \tran{A}\3$. In other words,
+$\M\paren[\big]{T'} = \tran{\bigl(\M(T)\bigr)}\3$, as desired.
+\qed
+
+Now we use duality to give an alternative proof that the column rank of a matrix equals the row rank of the matrix. This result was previously proved using different tools---see \ref{3colrow}.\index{column rank of a matrix}\index{row rank of a matrix}\index{rank of a matrix}
+
+\ResultBox[3rank]{column rank equals row rank}
+{Suppose $A \in \FF{m, n}$. Then the column rank of $A$ equals the row rank of $A$.}
+
+\proof
+Define $T \colon \F{n,1} \to \F{m,1}$ by $Tx = Ax$. Thus $\M(T) = A$, where $\M(T)$ is computed with respect to the standard bases of $\F{n,1}$ and $\FF{m,1}$. Now
+\begin{align*}
+\text{column rank of}\ A &= \text{column rank of}\ \M(T)\\
+&= \dim \ran T \\
+&= \dim \ran T' \\
+&= \text{column rank of}\ \M\paren[\big]{T'} \\
+&= \text{column rank of}\ \tran{A} \\
+&= \text{row rank of}\ A,
+\end{align*}
+where the second equality comes from \ref{3rangecolrank}, the third equality comes from \ref{rangeTprime}(a), the fourth equality comes from \ref{3rangecolrank}, the fifth equality comes from \ref{3matrixTprime}, and the last equality follows from the definitions of row and column rank.
+\qed
+
+See Exercise \ref{7rank} in Section \ref{7001} for another alternative proof of the result above.
+
+\pagebreak[3]
+
+\begin{exercises}
+
+\exercise
+Explain why each linear functional is surjective or is the zero map.
+
+
+\exercise
+Give three distinct examples of linear functionals on $\RR{[0,1]}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $v \in V$ with $v \ne 0$. Prove that there exists $\phi \in V'$ such that $\phi(v) = 1$. \label{HB1}
+
+
+\exercise  \label{4321}
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $U \ne V\1$. Prove that there exists $\phi \in V'$ such that $\phi(u) = 0$ for every $u \in U$ but~$\phi \ne 0$.
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $w_1, \ldots, w_m$ is a basis of $\ran T\3$. Hence for each $v \in V\1$, there exist unique numbers
+$\phi_1(v), \ldots, \phi_m(v)$ such that
+\[
+Tv = \phi_1(v) w_1 + \cdots + \phi_m(v) w_m,
+\]
+thus defining functions $\phi_1, \ldots, \phi_m$ from $V$ to $\F{}\3$.
+Show that each of the functions $\phi_1, \ldots, \phi_m$ is a linear functional on $V\1$.
+
+
+\exercise
+Suppose $\phi, \beta \in V'\!$. Prove that $\ker \phi \subset \ker \beta$ if and only if there exists $c \in \F{}$ such that $\beta = c \phi$.\label{7nullsub}
+
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are vector spaces. Prove that $(V\1_1 \times \dots \times V\1_m)'$ and ${V\1_1}' \times \dots \times {V\1_m}'$ are isomorphic vector spaces.
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the dual basis of $V'\!$. Define $\fun \Gamma  V {\F n}$ and
+$\fun \Lambda {\F n} V$ by
+\[
+\Gamma(v) = \paren[\big]{ \phi_1(v), \ldots, \phi_n(v) }
+\andd
+\Lambda(a_1, \ldots, a_n) = a_1 v_1 + \cdots + a_n v_n.
+\]
+Explain why $\Gamma$ and $\Lambda$ are inverses of each other.
+
+
+\exercise
+Suppose $m$ is a positive integer. Show that the dual basis of the basis $1, x, \dots, x^m$ of $\P\1_m(\R{})$ is $\phi_0, \phi_1, \dots, \phi_m$, where
+\[
+\phi_k(p) = \frac{p^{(k)}(0)}{k!}.
+\]
+\exercisecomment{Here\/ $p^{(k)}$ denotes the\/ $k^\nth$ derivative  of\/ $p$, with the understanding that the\/ $0^\nth$ derivative of\/ $p$ is\/ $p$.}
+
+
+\exercise
+Suppose $m$ is a positive integer.
+\begin{subtheorem}
+\item
+Show that $1, x-5, \dots, (x-5)^m$ is a basis of $\P\1_m(\R{})$.
+\item
+What is the dual basis of the basis in (a)?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $\phi_1, \dots, \phi_n$ is the corresponding dual basis of $V'\!$. Suppose $\psi \in V'\!$. Prove that
+\[
+\psi = \psi(v_1) \phi_1 + \dots + \psi(v_n) \phi_n.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $S, T \in \L(V\1, W)$.
+\begin{subtheorem}
+\item
+Prove that $(S + T)' = S' + T'\!$.
+\item
+Prove that $(\la T)' = \la T'$ for all $\la \in \F{}\3$.
+\end{subtheorem}
+\exercisecomment{This exercise asks you to verify \uppar{a} and \uppar{b} in \ref{3dualmaps}.}
+
+
+\exercise
+Show that the dual map of the identity operator on $V$ is the identity operator on~$V'\!$.
+
+
+\exercise
+Define $T \colon \R{3} \to \R2$ by
+\[
+T(x, y, z) = (4x + 5y + 6z, 7x + 8y + 9z).
+\]
+Suppose $\phi_1, \phi_2$ denotes the dual basis of the standard basis of $\R2$ and $\psi_1, \psi_2, \psi_3$ denotes the dual basis of the standard basis of $\RR3$.
+\begin{subtheorem}
+\item
+Describe the linear functionals $T' \! (\phi_1)$ and $T' \! (\phi_2)$.
+\item
+Write $T' \! (\phi_1)$ and $T' \! (\phi_2)$ as linear combinations of $\psi_1, \psi_2, \psi_3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Define $T \colon \P(\R{})\to \P(\R{})$ by
+\[
+(Tp)(x) = x^2 p(x) + p'' \! (x)
+\]
+for each $x \in \R{}$.
+\begin{subtheorem}
+\item
+Suppose $\phi \in \P(\R{})'$ is defined by \mbox{$\phi(p) = p' \! (4)$}.
+Describe the linear functional $T' \! (\phi)$ on $\P(\R{})$.
+\item
+Suppose $\phi \in \P(\R{})'$ is defined by
+$
+\phi(p) = \int_0^1 p$.
+Evaluate $\bigl(T' \! (\phi)\bigr)(x^3)$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1, W)$. Prove that \label{Tprime}
+\[
+T' = 0 \iff T = 0.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that $T$ is invertible if and only if
+$T' \in \L\paren[\big]{W'\!, V'}$ is invertible.
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional. Prove that the map that takes $T \in \L(V\1,W)$ to $T' \in \L\paren[\big]{W'\!, V'}$ is an isomorphism of $\L(V\1,W)$ onto $\L\paren[\big]{W'\!, V'}$.
+
+
+\exercise
+Suppose $U \subset V\1$. Explain why
+\[
+U^0 = \br[\big]{\phi \in V': U \subset \ker \phi}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Show that\label{3Uan}
+\[
+U = \br[\big]{v \in V: \phi(v) = 0 \text{\ for every\ } \phi \in U^0}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V\1$.
+\begin{subtheorem}
+\item
+Prove that $W^0 \subset U^0$ if and only if $U \subset W\3$.
+\item
+Prove that $W^0 = U^0$ if and only if $U = W\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V\1$.\label{2222}
+\begin{subtheorem}
+\item
+Show that $(U + W)^0 = U^0 \cap W^0\1$.
+\item
+Show that $(U \cap W)^0 = U^0 + W^0\1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_m \in V'\!$. Prove that the following three sets are equal to each other.\label{3intersectnull}
+\begin{subtheorem}*
+\item
+$\Span(\phi_1, \dots, \phi_m)$
+\item
+$\bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0$
+\item
+$\br[\big]{ \phi \in V': (\ker \phi_1) \cap \dots \cap (\ker \phi_m) \subset \ker \phi }$
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $v_1, \dots, v_m \in V\1$. Define a linear map $\Gamma \colon V' \to \F{m}$ by
+$
+\Gamma(\phi) = \bigl(\phi(v_1), \dots, \phi(v_m) \bigr)$.
+\begin{subtheorem}
+\item
+Prove that $v_1, \dots, v_m$ spans $V$ if and only if $\Gamma$ is injective.
+\item
+Prove that $v_1, \dots, v_m$ is linearly independent if and only if $\Gamma$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_m \in V'\!$. Define a linear map $\Gamma \colon V \to \F{m}$ by
+$
+\Gamma(v) = \paren[\big]{ \phi_1(v), \dots, \phi_m(v) }$.
+\begin{subtheorem}
+\item
+Prove that $\phi_1, \dots, \phi_m$ spans $V'$ if and only if $\Gamma$ is injective.
+\item
+Prove that $\phi_1, \dots, \phi_m$ is linearly independent if and only if $\Gamma$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\Omega$ is a subspace of $V'\!$. Prove that
+\[
+\Omega = \br[\big]{v \in V: \phi(v) = 0 \text{\ for every } \phi \in \Omega}^0\1.
+\]
+\exercisedisplayend
+
+
+ \exercise
+Suppose $T \in \L\bigl( \P\1_5(\R{}) \bigr)$ and $\ker T' = \Span(\phi)$, where $\phi$ is the linear functional on $\P\1_5(\R{})$ defined by $\phi(p) = p(8)$. Prove that
+\[
+\ran T = \br[\big]{ p \in \P\1_5(\R{}): p(8) = 0 }.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_m$ is a linearly independent list in $V'\!$. Prove that \label{intker}
+\[
+\dim \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr) = (\dim V) - m.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$.
+\begin{subtheorem}
+\item
+Prove that if $\phi \in W'$ and $\ker T' = \Span(\phi)$, then $\ran T = \ker \phi$.
+\item
+Prove that if $\psi \in V'$ and $\ran T' = \Span(\psi)$, then $\ker T = \ker \psi$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\phi_1, \dots, \phi_n$ is a basis of $V'\!$. Show that there exists a basis of $V$ whose dual basis is $\phi_1, \dots, \phi_n$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V\1$. Let $i \colon U \to V$ be the inclusion map defined by $i(u) = u$. Thus
+$i' \in \L\paren[\big]{V'\!, U'}$.
+\begin{subtheorem}
+\item
+Show that $\ker i' = U^0\1$.
+\item
+Prove that if $V$ is finite-dimensional, then $\ran i' = U'\!$.
+\item
+Prove that if $V$ is finite-dimensional, then $\tilde[7.3]{i'}$ is an isomorphism from $V'\!/U^0$ onto $U'\!$.
+\end{subtheorem}
+\exercisecomment{The isomorphism in \uppar{c} is natural in that it does not depend on a choice of basis in either vector space.}
+
+
+\pagebreak[3]
+
+\exercise
+The \emph{double dual space} of $V\1$, denoted by $V''\!$, is defined to be the dual space of~$V'\!$. In other words,
+$V'' = {\paren[\big]{V'}}'$\!. Define $\Lambda \colon V \to V''$ by\index{double dual space}
+\[
+(\Lambda v)(\phi) = \phi(v)
+\]
+for each $v \in V$ and each $\phi \in V'\!$.
+\begin{subtheorem}
+\item
+Show that $\Lambda$ is a linear map from $V$ to $V''\!$.
+\item
+Show that if $T \in \L(V)$, then $T'' \circ \Lambda = \Lambda \circ T$, where $T'' = {\paren[\big]{T'}}'\!$.
+\item
+Show that if $V$ is finite-dimensional, then $\Lambda$ is an isomorphism from $V$ onto $V''\!$.
+\end{subtheorem}
+\exercisecomment{Suppose\/ $V$ is finite-dimensional. Then\/ $V$ and\/ $V'$ are isomorphic, but finding an isomorphism from\/ $V$ onto\/ $V'$ generally requires choosing a basis of\/ $V\1$. In contrast, the isomorphism\/ $\Lambda\,$ from\/ $V$ onto\/ $V''$ does not require a choice of basis and thus is considered more natural.}
+
+
+\begin{comment}
+\exercise
+Show that $\bigl( \P(\R{}) \bigr)'$ and $\R{\infty}$ are isomorphic.
+
+\end{comment}
+
+\exercise
+Suppose $U$ is a subspace of $V\1$. Let $\pi \colon V \to V\1/U$ be the usual quotient map. Thus $\pi' \in \L\bigl((V\1/U)'\!, V'\bigr)$.
+\begin{subtheorem}
+\item
+Show that $\pi'$ is injective.
+\item
+Show that $\ran \pi' = U^0\1$.
+\item
+Conclude that $\pi'$ is an isomorphism from $(V\1/U)'$ onto $U^0\1$.
+\end{subtheorem}
+\exercisecomment{The isomorphism in \uppar{c} is natural in that it does not depend on a choice of basis in either vector space. In fact, there is no assumption here that any of these vector spaces are finite-dimensional.}
+
+
+\end{exercises}
+
+\endinput 

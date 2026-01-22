@@ -1,0 +1,138 @@
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \R3 \to \R2$ by
+\[
+T(x, y, z) = (2x -4y + 3z + b, 6x + c xyz).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \P(\R{}) \to \R2$ by
+\[
+Tp = \Bigl(3p(4) + 5p' \! (6) + b p(1) p(2), \int_{-1}^2 x^3 p(x)\, dx + c \sin p(0)\Bigr).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+
+\exercise
+Suppose that $T \in \L\paren[\big]{\FF{n}, \F{m}}$.  Show that there exist scalars $A_{j, k} \in \F{}$ for $j = 1, \dots, m$ and $k = 1, \dots, n$ such that
+\[
+T(x_1, \dots, x_n) =
+(A_{1,1}x_1 + \dots + A_{1,n}\,x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n}\,x_n)
+\]
+for every $(x_1, \dots, x_n) \in \FF{n}$.
+\exercisecomment{This exercise shows that the linear map $T$ has the form promised in the second to last item of Example~\ref{2a111}.}
+
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $v_1, \dots, v_m$ is a list of vectors in $V$ such that
+$Tv_1, \dots, Tv_m$ is a linearly independent list in $W\3$. Prove that $v_1, \dots, v_m$ is linearly independent.
+
+
+\exercise
+Prove that $\L(V\1,W)$ is a vector space, as was asserted in \ref{LVW}.
+
+
+\exercise
+Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in \ref{algprod}.
+
+
+\exercise
+Show that every linear map from a one-dimensional vector space to
+itself is multiplication by some scalar.  More precisely, prove that
+if $\dim V = 1$ and $T \in \L(V)$, then there exists $\la \in \F{}$ such
+that $Tv = \la v$ for all $v \in V\1$. \label{dualone}
+
+
+\exercise
+Give an example of a function $\phi\colon \R{2} \to \R{}$ such that \label{403}
+\[
+\phi(av) = a \phi(v)
+\]
+for all $a \in \R{}$ and all $v \in \R{2}$ but $\phi$ is not linear.
+\exercisecomment{This exercise and the next exercise show that neither homogeneity nor additivity alone is
+enough to imply that a function is a linear map.}
+
+
+\exercise
+Give an example of a function $\phi \colon \C{} \to \C{}$ such that
+\[
+\phi(w + z) = \phi(w) + \phi(z)
+\]
+for all $w, z \in \C{}$ but $\phi$ is not linear. (Here $\C{}$ is thought of as a complex vector space.)
+\exercisecomment{There also exists a function\/ $\phi \colon \R{} \to \R{}$ such that\/ $\phi$ satisfies the additivity condition above but\/ $\phi$ is not linear. However, showing the existence of such a function involves considerably more advanced tools.}
+
+\pagebreak[3]
+
+
+\exercise
+Prove or give a counterexample: If $q \in \P(\R{})$ and $\fun T {\P(\R{})} {\P(\R{})}$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
+\exercisecomment{The function $T$ defined here differs from the function $T$ defined in the last bullet point of \ref{2a111} by the order of the functions in the compositions.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ is a
+scalar multiple of the identity if and  only if $ST = TS$ for every $S \in \L(V)$.
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ with $U \ne V\1$. Suppose $S \in \L(U, W)$ and $S \ne 0$ (which means that $Su \ne 0$ for some $u \in U$). Define $T \colon V \to W$ by
+\[
+Tv =
+\begin{cases}
+Sv & \text{if } v \in U,\\
+0 & \text{if } v \in V \text{\ and \ }v \notin U.
+\end{cases}
+\]
+Prove that $T$ is not a linear map on $V\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional.  Prove that every linear map on a
+subspace of $V$ can be extended to a linear map on $V\1$.  In other words, show
+that if $U$ is a subspace of $V$ and $S \in \L(U, W)$, then there exists
+$T \in \L(V\1, W)$ such that $Tu = Su$ for all $u \in U$.\label{384}
+\exercisecomment{The result in this exercise is used in the proof of \ref{dimannih}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\L(V\1,W)$ is infinite-dimensional.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a linearly dependent list of vectors in $V\1$. Suppose also that $W \ne \{0\}$. Prove that there exist $w_1, \dots, w_m \in W$ such that no $T \in \L(V\1, W)$ satisfies $Tv_k = w_k$ for each $k = 1, \dots, m$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \L(V)$ such that $ST \ne TS$. \label{noncomm}
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\L(V)$ are $\br{0}$ and $\L(V)$.
+\index{two-sided ideal}\label{ideals}
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{two-sided ideal} of\/ $\L(V)$ if\/ $TE \in \E$ and\/ $ET \in \E$ for all\/ $E \in \E$ and all\/ $T \in \L(V)$.}
+
+
+\begin{comment}
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a left ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{left ideal}
+\[
+\E = \br{E \in \L(V): U \subset \ker E}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{left ideal} of $\L(V)$ if\/ $TE \in \E$ for all\/ $E \in \E$ and all\/
+$T \in \L(V)$.}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a right ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{right ideal}
+\[
+\E = \br{E \in \L(V): \ran E \subset U}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{right ideal} of $\L(V)$ if\/ $ET \in \E$ for all\/ $E \in \E$ and
+all\/ $T \in \L(V)$.}
+
+\end{comment}
+

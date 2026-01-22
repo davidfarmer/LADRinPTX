@@ -1,0 +1,870 @@
+
+\exercise
+Give an example of a linear map $T$ with $\dim \ker T = 3$ and $\dim \ran T = 2$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\RR5, \R2}$ by
+\[
+T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).
+\]
+Then $\ker T = \{ (0, 0, x_3, x_4, x_5) : x_3, x_4, x_5 \in \R{} \}$, which has dimension three, and
+$\ran T = \RR2$, which has dimension two.
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V)$ are such that
+$
+\ran S \subset \ker T\3$.
+Prove that $(ST)^2 = 0$.
+
+\begin{Solution}
+Suppose $v \in V\1$. Then
+\[
+(ST)^2 v = ST\bigl(S(Tv)\bigr).
+\]
+Now $S(Tv) \in \ran S \subset \ker T\3$. Thus $T\bigl(S(Tv)\bigr) = 0$. Hence the equation above shows that
+$(ST)^2 v = 0$. Thus $(ST)^2 = 0$.
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a list of vectors in $V\1$.  Define $T \in \L\paren[\big]{\FF{m}, V}$ by
+\[ \addtolength{\belowdisplayskip}{-3bp}
+T(z_1, \dots, z_m) = z_1 v_1 + \dots + z_m v_m.
+\]
+\begin{subtheorem}
+\item
+What property of $T$ corresponds to $v_1, \dots, v_m$ spanning $V$?
+\item
+What property of $T$ corresponds to the list $v_1, \dots, v_m$ being linearly \mbox{independent}?
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+The list $v_1, \dots, v_m$ spans $V$ if and only if $T$ is surjective.
+\item
+The list $v_1, \dots, v_m$ is linearly independent if and only if $T$ is injective.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Show that
+$
+\br[\big]{T \in \L\paren[\big]{\RR{5}, \R4}: \dim \ker T > 2}
+$
+is not a subspace of $ \L\paren[\big]{\RR{5}, \R4}$.
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{\RR{5}, \R4}$ by
+\[
+S(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, 0, 0)
+\]
+and
+\[
+T(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).
+\]
+Then
+\[
+\ker S = \{(0, 0, x_3, x_4, x_5): x_3, x_4, x_5 \in \R{} \}
+\]
+and
+\[
+\ker T = \{(x_1, x_2, 0, 0, x_5): x_1, x_2, x_5 \in \R{} \}.
+\]
+Thus $\dim \ker S = \dim \ker T = 3$. However,
+\[
+(S + T)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4).
+\]
+Thus $\ker(S + T) = \{ (0, 0, 0, 0, x_5): x_5 \in \R{} \}$, which has dimension one. Thus
+$\br[\big]{T \in \L\paren[\big]{\RR{5}, \R4}: \dim \ker T > 2}$ is not closed under addition and hence is not a subspace of $ \L\paren[\big]{\RR{5}, \R4}$.
+\end{Solution}
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\R{4}}$ such that $\ran T = \ker T\3$.
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\RR4, \R4}$ by
+\[
+T(x_1, x_2, x_3, x_4) = (x_3, x_4, 0, 0).
+\]
+Then $\ran T = \ker T = \{ (x_3, x_4, 0, 0) \in \R4: x_3, x_4 \in \R{} \}$.
+\end{Solution}
+
+\exercise
+Prove that there does not exist $T \in \L\paren[\big]{\R{5}}$ such that $\ran T = \ker T\3$.
+
+\begin{Solution}
+Suppose $T \in \L\paren[\big]{\RR5, \R5}$. By the fundamental theorem of linear maps (\ref{3ab11}), we have
+\[
+5 = \dim \ker T + \dim \ran T\3.
+\]
+If $\ran T = \ker T$, then the right side of the equation above would be an even number, which is a contradiction to the value on the left side. Hence $\ran T \ne \ker T\3$.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional with $2 \le \dim V \le \dim W\3$. Show that
+$
+\br[\big]{ T \in \L(V\1, W) : T \text{ is not injective} }
+$
+is not a subspace of $\L(V\1, W)$.
+
+\begin{Solution}
+Let $v_1, \dots, v_m$ be a basis of $V$ and let $w_1, \dots, w_n$ be a basis of~$W\3$. Thus $2 \le m \le n$.
+
+Using the linear map lemma (\ref{3linearmap}), let $S, T \in \L(V\1, W)$ be such that
+\[
+Sv_1 = 0 \andd Sv_k = w_k \text{ for } k = 2, \dots, m
+\]
+and
+\[
+Tv_1 = w_1 \andd Tv_k = 0 \text{ for } k = 2, \dots, m.
+\]
+Then neither $S$ nor $T$ is injective because $Sv_1 = Tv_2 = 0$. However,
+$(S+T)v_k = w_k$ for each $k = 1, \dots, m$, and thus $S+T$ is injective (as is easy to see). Hence the set of linear maps from $V$ to $W$ that are not injective is not closed under addition and thus is not a subspace of $\L(V\1,W)$.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional with $\dim V \ge \dim W \ge 2$. Show that
+$
+\br[\big]{ T \in \L(V\1, W) : T \text{ is not surjective} }
+$
+is not a subspace of $\L(V\1, W)$.
+
+\begin{Solution}
+Let $v_1, \dots, v_m$ be a basis of $V$ and let $w_1, \dots, w_n$ be a basis of~$W\3$. Thus $m \ge n \ge 2$.
+
+Using the linear map lemma (\ref{3linearmap}), let $S, T \in \L(V\1, W)$ be such that
+\[
+\hspace*{-20bp} %VisualFormatting
+Sv_k = w_k \text{ for } k = 2, \dots, n \andd Sv_k = 0 \text{ for } k = 1, n+1, n+2, \dots, m
+\]
+and
+\[
+Tv_1 = w_1 \andd Tv_k = 0 \text{ for } k = 2, \dots, m.
+\]
+Then neither $S$ nor $T$ is surjective because $w_1 \notin \ran S$ and $w_2 \notin \ran T\3$. However,
+$(S+T)v_k = w_k$ for each $k = 1, \dots, n$, and thus $S+T$ is surjective (as is easy to see). Hence the set of linear maps from $V$ to $W$ that are not surjective is not closed under addition and thus is not a subspace of $\L(V\1,W)$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1,W)$ is injective and $v_1, \dots, v_n$ is linearly independent in~$V\1$.  Prove that $Tv_1, \dots, Tv_n$ is linearly independent in $W\3$.\label{3001}
+
+\begin{Solution}
+To show that $Tv_1, \dots, Tv_n$ is linearly
+independent, suppose that $a_1, \dots, a_n \in \F{}$ are such that
+\[
+a_1 Tv_1 + \dots + a_n Tv_n = 0.
+\]
+Because $T$ is a linear map, this equation can be rewritten as
+\[
+T(a_1 v_1 + \dots + a_n v_n) = 0.
+\]
+Because $T$ is injective, this implies that
+\[
+a_1 v_1 + \dots + a_n v_n = 0.
+\]
+Because $v_1, \dots, v_n$ is linearly independent, the equation above implies
+that $a_1 = \dots = a_n = 0$.  Thus $Tv_1, \dots, Tv_n$ is linearly
+independent.
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_n$ spans $V$ and $T \in \L(V\1,W)$. Show
+that $Tv_1, \dots, Tv_n$ spans $\ran T\3$.\label{3spanrange}
+
+\begin{Solution}
+Let $w \in \ran T\3$. Thus there exists $v \in V$ such that
+$Tv = w$.  Because $v_1, \dots, v_n$ spans $V\1$, there exist
+$a_1, \dots, a_n \in \F{}$ such that
+\[
+v = a_1 v_1 + \dots + a_n v_n.
+\]
+Applying $T$ to both sides of this equation, we get
+\[
+Tv = a_1 Tv_1 + \dots + a_n Tv_n.
+\]
+Because $Tv = w$, the equation above implies that
+$w \in \Span(Tv_1, \dots, Tv_n)$.  Because $w$ was an arbitrary vector in $\ran T$,
+this implies that $Tv_1, \dots, Tv_n$ spans $\ran T\3$.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $S_1, \dots, S_n$ are injective linear maps such that
+$S_1 S_2 \dotsm S_n$ makes sense. Prove that $S_1 S_2 \dotsm S_n$ is injective.
+
+\begin{Solution}
+Suppose $v$ is a vector in the
+domain of $S_1 \dotsm S_n$  (which equals the domain of $S_n$) such that
+\[
+(S_1 \dotsm S_n) v = 0.
+\]
+To show that $S_1 \dotsm S_n$ is injective, we need to show that $v = 0$ (see
+\ref{12}).  To do this, rewrite the equation above as
+\[
+S_1\bigl((S_2 \dotsm S_n) v\bigr) = 0.
+\]
+Because $S_1$ is injective, this implies that
+\[
+(S_2 \dotsm S_n) v = 0.
+\]
+The same argument, now applied to the equation above, shows that
+\[
+(S_3 \dotsm S_n) v = 0.
+\]
+Repeat this process until reaching the equation $S_nv = 0$, which implies (because
+$S_n$ is injective) that $v = 0$, as desired.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose that $V$ is finite-dimensional and that $T \in \L(V\1,W)$.  Prove that
+there exists a subspace $U$ of $V$ such that
+\[
+U \cap \ker T = \{0\} \andd \ran T = \{Tu:u\in U\}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+There exists a subspace $U$ of $V$ such that
+\[
+V = \ker T \oplus U;
+\]
+this follows from \ref{a220} (with $\ker T$ playing the role of $U$ and $U$ playing
+the role of~$W$).
+
+{}From the definition of direct sum, we have $U \cap \ker T = \{0\}$.
+
+Clearly $\ran T \supset \{Tu:u\in U\}$.  To prove the inclusion in the other
+direction, suppose $v \in V\1$.  Then there exist $w \in \ker T$ and $x \in U$ such
+that
+\[
+v = w + x.
+\]
+Applying $T$ to both sides of this equation, we have $Tv = Tw + Tx = Tx$.  Thus
+$Tv \in \{Tu:u\in U\}$.  Because $v$ was an arbitrary vector in $V$ (and thus $Tv$
+is an arbitrary vector in $\ran T$), this implies that
+\[
+\ran T \subset \{Tu:u \in U\}.
+\]
+Thus $\ran T = \{Tu:u \in U\}$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T$ is a linear map from $\F{4}$ to $\F{2}$ such that
+\[
+\ker T = \br[\big]{(x_1, x_2, x_3, x_4) \in \F{4}: x_1 = 5 x_2 \mbox{\ and\ } x_3 = 7 x_4 }.
+\]
+Prove that $T$ is surjective.
+
+\begin{Solution}
+The hypothesis implies that
+$(5,1,0,0), (0,0,7,1)$ is a basis of $\ker T\3$. Hence
+$\dim \ker T = 2$.  {}From the fundamental theorem of linear maps we have
+\begin{align*}
+\dim \ran T &= \dim \F{4} - \dim \ker T \\
+&= 4 - 2 \\
+&= 2.
+\end{align*}
+Because $\ran T$ is a two-dimensional subspace of $\FF{2}$, we have
+$\ran T = \FF{2}$.  In other words, $T$ is surjective.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a three-dimensional subspace of $\R{8}$ and that $T$ is a linear
+map from $\R{8}$ to $\R{5}$ such that $\ker  T  = U$.  Prove that $T$
+is  surjective.
+
+\begin{Solution}
+From the fundamental theorem of linear maps (\ref{3ab11}), we have
+\begin{align*}
+8 &= \dim \ker T + \dim \ran T \\
+&= \dim U + \dim \ran T \\
+&= 3 + \dim \ran T\3.
+\end{align*}
+Thus $\dim \ran T = 5$. Hence $\ran T = \RR5$. Thus $T$ is surjective.
+\end{Solution}
+
+\exercise
+Prove that there does not exist a linear map from $\F{5}$ to $\F{2}$ whose
+null space equals
+$
+\br[\big]{(x_1, x_2, x_3, x_4, x_5) \in \F{5}: x_1 = 3 x_2 \mbox{\ and\ } x_3 = x_4 = x_5}$.
+
+\begin{Solution}
+Suppose $U$ is the subspace of $\F{5}$ displayed above.  Then
+\[
+(3,1,0,0,0), (0,0,1,1,1)
+\]
+is a basis of $U$. Hence $\dim U = 2$.
+
+If $T \in \L\paren[\big]{\FF{5}, \F{2}}$ then from the fundamental theorem of linear maps we have
+\begin{align*}
+\dim \ker T &= \dim \F{5} - \dim \ran T \\
+&= 5 - \dim \ran T \\
+&\ge 3 \\
+&> \dim U,
+\end{align*}
+where the first inequality holds because $\ran T \subset \FF{2}$.  The inequality
+above shows that if $T \in \L\paren[\big]{\FF{5}, \F{2}}$, then $\ker T \ne U$, as desired.
+\end{Solution}
+
+\exercise
+Suppose there exists a linear map on $V$ whose null space and range are both
+finite-dimensional. Prove that $V$ is finite-dimensional.
+
+\begin{Solution}
+Suppose $T$ is a linear map from $V$ into some vector space such that
+$\ker T$ and $\ran T$ are both finite-dimensional.  Thus there exist vectors
+$u_1, \dots, u_m \in V$ and $w_1, \dots, w_n \in \ran T$ such that
+$u_1, \dots, u_m$ spans $\ker T$ and $w_1, \dots, w_n$ spans $\ran T\3$.
+Because each $w_k \in \ran T$, there exists $v_k \in V$ such that $w_k = Tv_k$.
+
+Suppose $v \in V\1$.  Then $Tv \in \ran T$, so there exist
+$b_1, \dots, b_n \in \F{}$ such that
+\begin{align*}
+Tv &= b_1 w_1 + \dots + b_n w_n \\
+&= b_1 Tv_1 + \dots + b_n Tv_n \\
+&= T(b_1 v_1 + \dots b_n v_n).
+\end{align*}
+The equation above implies that $T(v - b_1 v_1 - \dots - b_n v_n) = 0$.  In other
+words, $v - b_1 v_1 - \dots - b_n v_n \in \ker T\3$.  Thus there exist
+$a_1, \dots, a_m \in \F{}$ such that
+\[
+v - b_1 v_1 - \dots - b_n v_n  = a_1 u_1 + \dots + a_m u_m.
+\]
+The equation above can be rewritten as
+\[
+v = a_1 u_1 + \dots + a_m u_m + b_1 v_1 + \dots + b_n v_n.
+\]
+The equation above shows that every vector $v \in V$ is a linear
+combination of $u_1, \dots, u_m, v_1, \dots, v_n$.  In other words,
+$u_1, \dots, u_m, v_1, \dots, v_n$ spans $V\1$.  Thus $V$ is finite-dimensional.
+
+\Comment
+The hypothesis of the fundamental theorem of linear maps is that $V$ is finite-dimensional (which is what we are
+trying to prove in this exercise), so the fundamental theorem of linear maps cannot be used in this exercise.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are both finite-dimensional.  Prove that there exists
+an injective linear map from $V$ to $W$ if and only if \mbox{$\dim V \le \dim W\3$.}
+
+\begin{Solution}
+First suppose that there exists an injective linear map $T$ from $V$ to $W\3$. Then by the fundamental theorem of linear maps (\ref{3ab11}), we have
+\begin{align*}
+\dim V &= \dim \ker T + \dim \ran T \\
+&= \dim \{0\} + \dim \ran T \\
+&= \dim \ran T\\
+&\le \dim W\3.
+\end{align*}
+
+Conversely, suppose $\dim V \le \dim W\3$. Let $v_1, \dots, v_m$ be a basis of $V$ and let $w_1, \dots, w_n$ be a basis of $W\3$. Thus $m \le n$. Use the linear map lemma (\ref{3linearmap}) to define a linear map $T \in \L(V\1, W)$ such that
+\[
+Tv_k = w_k \text{ for } k = 1, \dots, m.
+\]
+
+Suppose $v \in V$ and $Tv = 0$. There exist $c_1, \dots, c_m \in \F{}$ such that
+\[
+v = c_1 v_1 + \dots + c_m v_m.
+\]
+Thus
+\begin{align*}
+0 &= Tv \\
+&= c_1 Tv_1 + \dots + c_m Tv_m \\
+&= c_1 w_1 + \dots + c_m w_m.
+\end{align*}
+Because $w_1, \dots, w_m$ is linearly independent, we have $c_1 = \dots = c_m = 0$. Thus $v = 0$. Thus $T$ is injective, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are both finite-dimensional.  Prove that there exists
+a surjective linear map from $V$ onto $W$ if and only if \mbox{$\dim V \ge \dim W\3$.}
+
+\begin{Solution}
+First suppose there exists a surjective linear map $T$ from $V$ onto $W\3$.
+Then
+\begin{align*}
+\dim W &= \dim \ran T \\
+&= \dim V - \dim \ker T \\
+&\le \dim V\1,
+\end{align*}
+where the second equality comes from the fundamental theorem of linear maps.
+
+To prove the other direction, now suppose $\dim W \le \dim V\1$.  Let
+$w_1, \dots, w_m$ be a basis of $W$ and let $v_1, \dots, v_n$ be a basis
+of~$V\1$.  For scalars $a_1, \dots, a_n \in \F{}$ define $T(a_1 v_1 + \dots + a_n v_n)$ by
+\[
+T(a_1 v_1 + \dots + a_n v_n) = a_1 w_1 + \dots + a_m w_m.
+\]
+Because $\dim W \le \dim V\1$, we have $m \le n$ and so $a_m$ on the right side
+of the equation above makes sense.  Clearly $T$ is a surjective linear map from
+$V$ onto~$W\3$.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and that
+$U$ is a subspace of~$V\1$.
+Prove that there exists $T \in \L(V\1,W)$ such that $\ker T = U$
+if and only if $\dim U \ge \dim V - \dim W\3$.
+
+\begin{Solution}
+First suppose there exists $T \in \L(V\1,W)$ such that $\ker T = U$.
+Then\begin{align*}
+\dim U &= \dim \ker T \\
+&= \dim V - \dim \ran T \\
+&\ge \dim V - \dim W\3,
+\end{align*}
+where the second equality comes from the fundamental theorem of linear maps.
+
+To prove the other direction, now suppose $\dim U \ge \dim V - \dim W\3$.  Let
+$u_1, \dots, u_m$ be a basis of~$U$.  Extend to a basis
+$u_1, \dots, u_m, v_1, \dots, v_n$ of~$V\1$.  Let $w_1, \dots, w_p$ be a basis
+of~$W\3$.  For $a_1, \dots, a_m, b_1, \dots, b_n \in \F{}$ define
+\[
+T(a_1 u_1 + \dots + a_m u_m + b_1 v_1 + \dots + b_n v_n)
+= b_1 w_1 + \dots + b_n w_n.
+\]
+Because $\dim W \ge \dim V - \dim U$, we have $p \ge n$ and so $w_n$ on the
+right side of the equation above makes sense.  Clearly $T \in \L(V\1,W)$ and
+$\ker T = U$.
+\end{Solution}
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1,W)$.  Prove that $T$ is
+injective if and only if there exists $S \in \L(W\3, V)$ such that $ST$ is the identity operator on~$V\1$.
+
+\begin{Solution}
+First suppose $T$ is injective.  Define
+$S_1 \colon \ran T \to V$ by
+\[
+S_1(Tv) = v;
+\]
+because $T$ is injective, each element of $\ran T$ can be represented in the
+form $Tv$ in only one way, so $T$ is well defined.  As can easily be checked,
+$S_1$ is a linear map on~$\ran T\3$.  By Exercise~\ref{384} in Section \ref{vslinear}, $S_1$ can
+be extended to a linear map $S\in \L(W\3, V)$.  If $v \in V\1$, then $(ST)v = S(Tv) =
+S_1(Tv) = v$.  Thus $ST$ is the identity operator on~$V\1$, as desired.
+
+To prove the implication in the other direction, now suppose there exists
+$S \in \L(W\3, V)$ such that $ST$ is the identity operator on~$V\1$.  If $u, v \in V$ are such
+that $Tu = Tv$, then
+\[
+u = (ST)(u) = S(Tu) = S(Tv) = (ST)v = v.
+\]
+Hence $u = v$.  Thus $T$ is injective, as desired.
+\end{Solution}
+
+\exercise
+Suppose $W$ is finite-dimensional and $T \in \L(V\1,W)$.  Prove that $T$  is
+surjective if and only if there exists $S \in \L(W\3, V)$ such that $TS$ is the
+identity operator  on~$W\3$.
+
+\begin{Solution}
+First suppose $T$ is surjective.  Let $w_1, \dots, w_m$ be a basis of~$W\3$.
+Because $T$ is surjective, for each $k$ there exists $v_k \in V$ such that
+$w_k = Tv_k$.  Define $S \in \L(W\3,V)$ by
+\[
+S(a_1 w_1 + \dots + a_m w_m) = a_1 v_1 + \dots + a_m v_m.
+\]
+Then
+\begin{align*}
+(TS)(a_1 w_1 + \dots + a_m w_m) &= T(a_1 v_1 + \dots + a_m v_m) \\
+&= a_1 Tv_1 + \dots + a_m Tv_m \\
+&= a_1 w_1 + \dots + a_m w_m.
+\end{align*}
+Thus $TS$ is the identity operator on $W\3$.
+
+To prove the implication in the other direction, now suppose there exists
+$S \in \L(W\3, V)$ such that $TS$ is the identity operator on~$W\3$.  If $w \in W\3$, then
+$w = T(Sw)$, and hence $w \in \ran T\3$.  Thus $\ran T = W\3$.  In other words, $T$ is
+surjective, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$  is finite-dimensional, $T \in \L(V\1, W)$, and $U$ is a subspace of $W\3$. Prove that $\br{v \in V: Tv \in U}$ is a subspace of $V$ and\label{3diminv}
+\[
+\dim \br{v \in V: Tv \in U} = \dim \ker T + \dim (U \cap \ran T).
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let
+\[
+E = \br{v \in V: Tv \in U}.
+\]
+If $v \in E$ and $\la \in \F{}\3$, then $Tv \in U$ and hence $T(\la v) = \la T v \in U$, which means that $\la v \in E$. Also, if $v, w \in E$ then
+$Tv \in U$ and $Tw \in U$ and hence $T(u + w) = Tu + Tw \in U$, which means that $v + w \in E$. Thus $E$ is a subspace of $V\1$.
+
+Note that $\ker T \subset E$. Let $S = T|_E$. Then
+\[
+\ker S = \ker T \andd \ran S = U \cap \ran T\3.
+\]
+Thus the fundamental theorem of linear maps, as applied to $S$, shows that
+\begin{align*}
+\dim E &= \dim \ker S + \dim \ran S \\[4bp]
+&= \dim \ker T + \dim (U \cap \ran T),
+\end{align*}
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.  Prove that
+\[
+\dim \ker ST \le \dim \ker S + \dim \ker T\3.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Define a linear map $R \colon \ker ST \to V$ by $Ru = Tu$.
+If $u \in \ker ST$, then $S(Tu) = 0$, which means that \mbox{$Tu \in \ker S$}.  In
+other words, $\ran R \subset \ker S$.  Now
+\begin{align*}
+\dim \ker ST &= \dim \ker R + \dim \ran R \\
+& \le \dim \ker R + \dim \ker S \\
+& \le \dim \ker T + \dim \ker S,
+\end{align*}
+where the first line follows from the fundamental theorem of linear maps (applied to $R$), the second line holds
+because $\ran R \subset \ker S$, and the third line holds because of the inclusion $\ker R \subset \ker T\3$.
+\end{Solution}
+
+\exercise  \label{5dimST}
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.  Prove that
+\[
+\dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First note that $\ran ST \subset \ran S$. Thus
+\[
+\dim \ran ST \le \dim \ran S.
+\]
+
+Next, note that
+\[
+\dim \ran ST = \dim S|_{\ran T} \le \dim \ran T,
+\]
+where the inequality above follows from the fundamental theorem of linear maps (\ref{3ab11}).
+
+Combining the two displayed inequalities above gives the desired result.
+\end{Solution}
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $\dim V = 5$ and $S, T \in \L(V)$ are such that $ST = 0$. Prove that $\dim \ran TS \le 2$.
+\item
+Give an example of $S, T \in \L\paren[\big]{\F5}$ with $ST = 0$ and $\dim \ran TS = 2$.
+\end{SUBtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+The equation $ST = 0$ implies that $\ran T \subset \ker S$. Thus
+\[
+\dim \ran T \le \dim \ker S = \dim V - \dim \ran S = 5 - \dim \ran V\1.
+\]
+Hence
+\[
+\dim \ran S + \dim \ran T \le 5,
+\]
+which implies that at least one of $\dim \ran S$ and $\dim \ran T$ is less than or equal to $2$. Thus Exercise \ref{5dimST} implies that $\dim \ran TS \le 2$.
+
+\item
+Define $S, T \in \L\paren[\big]{\F5}$ by
+\[
+S(z_1, z_2, z_3, z_4, z_5) = (z_3, z_4, z_5, 0, 0)
+\]
+and
+\[
+T(z_1, z_2, z_3, z_4, z_5) = (z_1, z_2,0, 0, 0).
+\]
+Then $ST = 0$ and
+\[
+TS(z_1, z_2, z_3, z_4, z_5) = (z_3, z_4, 0, 0, 0).
+\]
+Thus $\dim \ran TS = 2$, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise\label{kerT1}
+Suppose that $W$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that $\ker S \subset \ker T$ if and only if there exists $E \in \L(W)$ such that \mbox{$T = E S$}.
+
+\begin{Solution}
+First suppose there exists $E \in \L(W)$ such that $T = E S$. Suppose $v \in \ker S$. Thus
+\[
+T v = (ES)v = E(Sv) = E(0) = 0.
+\]
+Thus $v \in \ker T\3$. Hence $\ker S \subset \ker T$, as desired.
+
+Now suppose that $\ker S \subset \ker T\3$. Define $E_1 \colon \ran S \to W$ by
+\[
+E_1(S v) = T v
+\]
+for each $v \in V\1$. To show that this definition makes sense, we must show that if $u, v \in V$ and $S u = S v$, then $T u = T v$. But this is true, because if $Su = Sv$ then $u - v \in \ker S \subset \ker T$ and hence $T u = T v$.
+
+Now that $E_1$ is well defined, it is easy to verify that $E_1$ is a linear map from $\ran S$ to $W\3$. Thus $E_1$ can be extended to a linear map $E$ from $W$ to $W$ (see Exercise \ref{384} in Section \ref{vslinear}). The displayed equation above shows that $T = ES$, as desired.
+\end{Solution}
+
+\exercise
+Suppose that $V$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that $\ran S \subset \ran T$ if and only if there exists $E \in \L(V)$ such that \mbox{$S = T E$}.
+
+\begin{Solution}
+First suppose there exists $E \in \L(V)$ such that $S = T E $. Suppose $w \in \ran S$. Hence there exists $v \in V$ such that $w = Sv$. Thus
+\[
+w = S v = (TE)v = T(Ev).
+\]
+Thus $w \in \ran T\3$. Hence $\ran S \subset \ran T$, as desired.
+
+Now suppose that $\ran S \subset \ran T\3$. Let $v_1, \dots, v_n$ be a basis of $V\1$. For each $k = 1, \dots, n$,  we have $S v_k \in \ran S \subset \ran T$, and hence there exists $u_k \in V$ such that
+\[
+S v_k = T u_k.
+\]
+Use the linear map lemma (\ref{3linearmap}) to define a linear map $E\in \L(V)$ such that
+\[
+Ev_k = u_k
+\]
+for each $k = 1, \dots, n$. Then
+\[
+S v_k = T u_k = T E v_k
+\]
+for each $k = 1, \dots, n$. Because $S$ and $TE$ are linear maps on $V$ that agree on a basis of $V\1$, we have $S = T E$, as desired.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $V$ is finite-dimensional and $S_1, \dots, S_m \in \L(V)$. Prove that
+\[
+\dim \ker S_1 \dotsm S_m \le \dim \ker S_1 + \dots + \dim \ker S_m.
+\]
+\exercisedisplayend
+
+\exercise
+Suppose $U$ and $V$ are finite-dimensional vector spaces and
+\mbox{$S \in \L(V\1, W)$} and $T \in \L(U, V)$.
+\begin{subtheorem}
+\item
+Prove that $\dim \ker ST \le \dim \ker S + \dim \ker T\3$.
+\item
+Prove that $\dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}$.
+\end{subtheorem}
+\end{comment}
+
+\begin{comment}
+\exercise
+Suppose $T \in \L\paren[\big]{\RR{\R{}}, \R{\R{}}}$ is the multiplication by $x^2$ map defined by $(Tf)(x) = x^2 f(x)$. Show that $T$ is not injective and find $\ker T\3$.
+\exercisecomment{Compare the result above to the fourth bullet point of\/ \ref{null}.}
+
+\begin{Solution}
+To find $\ker T$, suppose $f \in \R{\R{}}$ and $Tf = 0$. Thus $f$ is a function from $\R{}$ to $\R{}$ such that
+\[
+x^2 f(x) = 0
+\]
+for all $x \in \R{}$. Thus $f(x) = 0$ for all $x \in \R{}$ with $x \ne 0$.
+
+Conversely, if $f \in \R{}$ to $\R{}$ and $f(x) = 0$ for all $x \in \R{}$ with $x \ne 0$, then $Tf = 0$.
+
+Thus we see that $\ker T$ is the set of functions $f$ from $\R{}$ to $\R{}$ such that $f(x) = 0$ for all $x \in \R{}$ with $x \ne 0$. All such functions are scalar multiples of the function $\delta \colon \R{} \to \R{}$ defined by
+\[
+\delta(x) =
+\begin{cases}
+0 & \text{if } x \ne 0,\\
+1 & \text{if } x = 0.
+\end{cases}
+\]
+In other words, $\ker T = \{ c \delta: c\in \R{} \}$.
+
+Because $\ker T \ne \{0\}$, we see that $T$ is not injective.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $P \in \L(V)$ and $P^2 = P$.  Prove that $V = \ker P \oplus \ran P$.
+
+\begin{Solution}
+First suppose $u \in \ker P \cap \ran P$.  Then $Pu = 0$, and there exists
+$w \in V$ such that $u = Pw$.  Applying $P$ to both sides of the last equation, we
+have $Pu = P^2 w = Pw$.  But $Pu = 0$, so this implies that
+$Pw = 0$.  Because $u = Pw$, this implies that $u = 0$.  Because $u$ was an
+arbitrary vector in $\ker P \cap \ran P$, this implies that $\ker P \cap \ran P
+= \{0\}$.
+
+Now suppose $v \in V$.  Then obviously
+\[
+v = (v - Pv) + Pv.
+\]
+Note that $P(v - Pv) = Pv - P^2v = 0$, so $(v - Pv) \in \ker P$.  Clearly
+$Pv \in \ran P$.  Thus the equation above shows that $v \in \ker P + \ran P$.
+Because $v$ was an arbitrary vector in $V$, this implies that
+$V = \ker P + \ran P$.
+
+We have shown that $\ker P \cap \ran P = \{0\}$ and $V = \ker P + \ran P$.  Thus
+$V = \ker P \oplus \ran P$ (by \ref{219}).
+\end{Solution}
+
+\exercise
+Suppose $D \in \L\bigl(\P(\R{})\bigr)$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \P(\R{})$. Prove that $D$ is surjective.\index{differentiation linear map}\label{3polydeg}
+\exercisecomment{The notation $D$ is used above to remind you of the differentiation map that sends a polynomial $p$ to $p'\!$.}
+
+\begin{Solution}
+Let $m$ be a positive integer. Let $V = \Span (x, x^2\1, \dots, x^m)$ in $\P(\R{})$. Note that $\dim V = m$.
+
+Let $T = D|_V\1$. Our hypothesis on $D$ implies that $D$ is a linear map from $V$ into $\P\1_{m-1}(\R{})$. Furthermore, our hypothesis on $D$ implies that $\ker D = \{0\}$. The fundamental theorem of linear maps (\ref{3ab11}) thus implies that
+\[
+m = \dim V = \dim \ran T\3.
+\]
+Because $\ran T$ has dimension $m$ and $\ran T$ is a subspace of the $m$-dimensional vector space $\P\1_{m-1}(\R{})$, we conclude that $\ran T = \P\1_{m-1}(\R{})$.
+
+Thus $\ran D$ contains $\P\1_n(\R{})$ for every nonnegative integer $n$. This implies that $\ran D$ contains $\P(\R{})$. Hence $D$ is surjective.
+\end{Solution}
+
+\exercise
+Suppose $p \in \P(\R{})$. Prove that there exists a polynomial $q \in \P(\R{})$ such that $5 q'' + 3 q' = p$.
+\exercisecomment{This exercise can be done without linear algebra, but it's more fun to do it using linear algebra.}
+
+\begin{Solution}
+Define $D \in \L\bigl(\P(\R{}), \P(\R{}\bigr)$ by
+\[
+Dq = 5 q'' + 3 q'.
+\]
+Then $D$ satisfies the hypotheses of Exercise \ref{3polydeg}. Thus by Exercise \ref{3polydeg}, $D$ is surjective. Hence there exists a polynomial $q \in \P(\R{})$ such that $5 q'' + 3 q' = p$.
+\end{Solution}
+
+\exercise
+Suppose $\phi \in \L(V\1, \F{})$ and $\phi \ne 0$. Suppose $u \in V$ is not in $\ker \phi$. Prove that
+\[
+V = \ker \phi \oplus \{au: a \in \F{}\}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+If $a \in \F{}$ and $au \in \ker \phi$, then
+$0 = \phi(au) = a \phi(u)$, which implies that $a = 0$ (because $\phi(u) \ne 0$).  Thus
+\[
+\ker \phi \cap \{au: a \in \F{}\} = \{0\}.
+\]
+
+If $v \in V\1$, then
+\[
+v = \paren[\bigg]{v - \frac{\phi(v)}{\phi(u)}u} + \frac{\phi(v)}{\phi(u)}u.
+\]
+Note that $\phi\paren[\Big]{v - \frac{\phi(v)}{\phi(u)}u} = \phi(v) - \frac{\phi(v)}{\phi(u)}\phi(u) = 0$.  Thus
+the equation above expresses an arbitrary vector $v \in V$ as the sum of a vector
+in $\ker \phi$ and a scalar multiple of~$u$.  Hence
+\mbox{$V = \ker \phi + \{au: a \in \F{}\}$}.  Using
+\ref{219}, we conclude that $V = \ker \phi \oplus \{au: a \in \F{}\}$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional, $X$ is a subspace of $V\1$, and $Y$ is a finite-dimensional subspace of $W\3$. Prove that there exists $T \in \L(V, W)$ such that $\ker T = X$ and $\ran T = Y$ if and only if
+$\dim X + \dim Y = \dim V\1$.
+
+\begin{Solution}
+First suppose there exists $T \in \L(V, W)$ such that $\ker T = X$ and $\ran T = Y\1$. Then $\dim X + \dim Y = \dim V$ by the fundamental theorem of linear maps.
+
+To prove the implication in the other direction, now suppose
+\[
+\dim X + \dim Y = \dim V\1.
+\]
+Let $x_1, \ldots, x_m$ be a basis of $X$, and extend to a basis $x_1, \ldots, x_m, v_1, \ldots, v_n$ of $V\1$. Our hypothesis implies that $n = \dim Y\1$. Let $(y_1, \ldots, y_n)$ be a basis of $Y\1$.
+
+Let $T \in \L(V, W)$ be the linear map from $V$ to $W$ such that
+\[
+Tx_j = 0 \text{ for } j = 1, \ldots, m \andd Tv_k = y_k \text{ for } k = 1, \ldots, n.
+\]
+Then $\ker T = X$ and $\ran T = Y\1$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 1$. Show that if \mbox{$\fun \phi {\!\L(V)\!} {\F{}}$} is a linear map such that
+$
+\phi(ST) = \phi(S) \phi(T)
+$
+for all $S, T \in \L(V)$, then $\phi = 0$.
+\hint{The description of the two-sided ideals of $\L(V)$ given by Exercise \ref{ideals} in Section \ref{vslinear} might be useful.}
+
+\begin{Solution}
+Suppose $\fun \phi {\L(V)} {\F{}}$ is a linear map such that
+\[
+\phi(ST) = \phi(S) \phi(T)
+\]
+for all $S, T \in \L(V)$. Then it is straightforward to verify that $\ker \phi$ is a two-sided ideal of $\L(V)$. By Exercise \ref{ideals} in Section \ref{vslinear}, this implies that
+\[
+\ker \phi = \br{0} \orr \ker \phi = \L(V).
+\]
+
+Suppose $v_1, \dots, v_n$ is a basis of $V\1$, where $n \ge 2$. Then there exist $S, T \in \L(V)$ such that
+\[
+Sv_1 = v_1 \andd Sv_2 = 0
+\]
+and
+\[
+Tv_1 = 0 \andd Tv_2 = v_2,
+\]
+where we have used the linear map lemma (\ref{3linearmap}). Neither $S$ nor $T$ is a scalar multiple of the other, and thus $S, T$ is a linearly independent list of length two in $\L(V)$. Hence
+\[
+\dim \L(V) \ge 2.
+\]
+The inequality above implies that $\phi$ is not injective (see \ref{13}). Thus $\ker \phi \ne \br{0}$, which implies that $\ker \phi = \L(V)$. Hence $\phi = 0$.
+\end{Solution}
+
+\exercise
+Suppose that $V$ and $W$ are real vector spaces and $T \in \L(V\1, W)$. Define $\fun {T\3_{\C{}}} {V\1_{\C{}}} {W\3_{\C{}}}$ by\index{complexification!of a linear map}\label{3complexMap}
+\[
+T\3_{\C{}}(u + iv) = Tu + iTv
+\]
+for all $u, v \in V\1$.
+\begin{subtheorem}
+\item
+Show that $T\3_{\C{}}$ is a (complex) linear map from $V\1_{\C{}}$ to $W\3_{\C{}}$.
+\item
+Show that $T\3_{\C{}}$ is injective if and only if $T$ is injective.
+\item
+Show that $\ran T\3_{\C{}} = W\3_{\C{}}$ if and only if $\ran T = W\3$.
+\end{subtheorem}
+\exercisecomment{See Exercise \ref{1VC} in Section \ref{1DefVS} for the definition of the complexification\/ $V\1_{\C{}}$.
+The linear map\/ $T\3_{\C{}}$ is called the \emph{complexification} of the linear map\/ $T\3$.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $u_1, v_1, u_2, v_2 \in V\1$. Then
+\begin{align*}
+T\3_{\C{}}\bigl( (u_1 + iv_1) + (u_2 + iv_2) \bigr) &= T\3_{\C{}}\bigl( (u_1 + u_2) + i(v_1 + v_2)\bigr) \\
+&= T(u_1 + u_2) + i \bigl(T(v_1 + v_2) \bigr) \\
+&= (Tu_1 + Tu_2) + i(Tv_1 + Tv_2) \\
+&= (Tu_1+ iTv_1) + (Tu_2 + iTv_2) \\
+&= T\3_{\C{}}(u_1 + iv_1)  + T\3_{\C{}}(u_2 + iv_2).
+\end{align*}
+Thus $T\3_{\C{}}$ is additive.
+
+Suppose now that $a, b \in \R{}$ and $u, v \in V\1$. Then
+\begin{align*}
+T\3_{\C{}}\bigl( (a + bi)(u + iv) \bigr) &= T\3_{\C{}}\bigl( (au - bv) + i(av + bu) \bigr) \\
+&= T(au -bv) + i T(av + bu) \\
+&=( a Tu - bTv) + i (a Tv + b Tu) \\
+&= (a + bi)(Tu + i Tv)\\
+&= (a + bi)T\3_{\C{}}(u + iv).
+\end{align*}
+Thus $T\3_{\C{}}$ is homogeneous.
+
+\item
+First suppose $T\3_{\C{}}$ is injective. If $v \in V$ and $Tv = 0$, then $T\3_{\C{}}(v) = Tv = 0$, which implies that $v = 0$. Hence $T$ is injective.
+
+To prove the implication in the other direction, now suppose $T$ is injective. If $u, v \in V$ and $T\3_{\C{}}(u+ iv) = 0$, then $Tu=0$ and $Tv=0$, which implies that $u=0$ and $v = 0$, which implies that $u+iv = 0$. Hence $T\3_{\C{}}$ is injective.
+
+\item
+First suppose $\ran T\3_{\C{}} = W\3_{\C{}}$. If $w \in W\3$, then there exist $u, v \in V$ such that $T\3_{\C{}}(u+ iv) = w$, which implies that $Tu = w$, which implies that $w \in \ran T\3$. Thus $\ran T = W\3$.
+
+To prove the implication in the other direction, now suppose
+\[
+\ran T = W\3.
+\]
+If $w_1, w_2 \in W\3$, then there exist $v_1, v_2 \in V$ such that $Tv_1 = w_1$ and $Tv_2 = w_2$, which implies that $T\3_{\C{}}(v_1 + iv_2) = w_1 + iw_2$, which implies that $w_1 + iw_2 \in \ran T\3_{\C{}}$. Thus $\ran T\3_{\C{}} = W\3_{\C{}}$.
+\end{subtheorem}
+\end{Solution}
+

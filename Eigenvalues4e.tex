@@ -1,0 +1,2564 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Eigenvalues and Eigenvectors} \label{182}
+
+Linear maps from one vector space to another vector space were the objects of study in Chapter~\ref{166}.  Now we begin our investigation of operators, which are linear maps from a vector space to itself.  Their study constitutes the most important part of linear algebra.
+
+To learn about an operator, we might try restricting it to a smaller subspace. Asking for that restriction to be an operator will lead us to the notion of invariant subspaces. Each one-dimensional invariant subspace arises from a vector that the operator maps into a scalar multiple of the vector. This path will lead us to eigenvectors and eigenvalues.
+
+We will then prove one of the most important results in linear algebra: every operator on a finite-dimensional nonzero complex vector space  has an eigenvalue. This result will allow us to show that for each operator on a finite-dimensional complex vector space, there is a basis of the vector space with respect to which the matrix of the operator has at least almost half its entries equal to $0$.
+
+\StandingBox{
+\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$V$ denotes a vector space over $\F{}\3$.
+}
+
+\begin{comment}
+\TopicsBox{
+\item
+invariant subspaces
+\item
+eigenvalues, eigenvectors, and eigenspaces
+\item
+each operator on a finite-dimensional complex vector space has an eigenvalue and an upper-triangular matrix with respect to some basis
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Fibonacci.png\else FibonacciR.png \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.78\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{Statue of Leonardo of Pisa \uppar{1170--1250, approximate dates}\index{Leonardo of Pisa}, also known as Fibonacci\index{Fibonacci}. Exercise \ref{Fibonacci} in Section \ref{diagmat} shows how linear algebra can be used to find\\the explicit formula for the Fibonacci sequence shown on the front cover.}{.7in}{Hans-Peter Postel CC BY}
+
+\section{Invariant Subspaces} \label{5invar}
+
+\subsection{Eigenvalues}
+
+\DefinitionBox{operator}{
+A linear map from a vector space to itself is called an \emph{operator}\index{operator}.}%  Linear maps from a vector space to itself are so important that we now give them a special name in addition to the special notation that we previously defined.
+
+%\mar{The deepest and most important parts of linear algebra, as well as most of the rest of this book, deal with operators.}
+
+\mar{Recall that we defined the notation $\L(V)$ to mean $\L(V\1, V)$.}
+
+Suppose $T \in \L(V)$.  If $m \ge 2$ and
+\[
+V = V\1_1 \oplus \dots \oplus V\1_m\, ,
+\]
+where each $V\1_k$ is a nonzero subspace of $V\1$, then to understand the behavior
+of $T$ we only need to understand the behavior of each $T|_{V\1_k}$;\sindex{TU@$T"|_U$}
+here $T|_{V\1_k}$  denotes the restriction of $T$ to the smaller domain $V\1_k$.  Dealing
+with $T|_{V\1_k}$ should be easier than dealing with $T$ because $V\1_k$ is a smaller
+vector space than $V\1$.
+
+However, if we intend to apply tools useful in the study of operators (such as taking powers), then we have a problem: $T|_{V\1_k}$ may not map $V\1_k$ into itself; in other words, $T|_{V\1_k}$ may not be an operator on~$V\1_k$.  Thus we are led to consider only decompositions of $V$ of the form above in which $T$ maps each $V\1_k$ into itself. Hence we now give a name to subspaces of $V$ that get mapped into themselves by $T\3$.
+
+\DefinitionBox{invariant subspace}{Suppose $T \in \L(V)$. A subspace $U$ of~$V$ is called \emph{invariant}\index{invariant subspace} under $T$ if $Tu \in U$ for every $u \in U$.}
+
+Thus $U$ is invariant under $T$ if $T|_U$ is an operator on~$U$.
+
+\begin{example}{subspace invariant under differentiation operator}
+Suppose that $T \in \L\bigl(\P(\R{})\bigr)$ is defined by $Tp = p'\!$. Then $\P\1_4(\R{})$, which is a subspace of
+$\P(\R{})$, is invariant under $T$ because if $p \in \P(\R{})$ has
+degree at most~$4$, then $p'$ also has degree at most~$4$.
+\end{example}
+
+\begin{example}[invariant]{four invariant subspaces, not necessarily all different}
+If $T \in \L(V)$, then the following subspaces of $V$ are all invariant under $T\3$.
+\begin{Subtheorem} \leftskip=-8bp
+\item[\hfill$\br{0}$\hfill]
+The subspace $\{0\}$ is invariant under $T$ because if $u \in \{0\}$, then $u = 0$ and hence $Tu = 0 \in \{0\}$.
+\item[\hfill$V$\hfill]
+The subspace $V$ is invariant under $T$ because if $u \in V\1$, then $Tu \in V\1$.
+\item[\hfill$\ker T$\hfill]
+The subspace $\ker T$ is invariant under $T$ because if $u \in \ker T$, then $Tu = 0$, and hence $Tu \in \ker T\3$.
+\item[\hfill$\ran T$\hfill]
+The subspace $\ran T$ is invariant under $T$ because if $u \in \ran T$, then $Tu \in \ran T\3$.
+\end{Subtheorem}
+\vspace{-.11in}
+\end{example}
+
+\pagebreak[2]
+
+\begin{comment}
+\mar{The most famous unsolved problem in functional analysis is called the \marbf{\mbox{invariant} subspace problem}. This problem deals with the subspaces invariant under operators on infinite-dimensional vector spaces.}
+\end{comment}
+
+Must an operator $T \in \L(V)$ have any invariant subspaces other than $\{0\}$ and~$V$? Later we will see that this question has an affirmative answer if $V$ is finite-dimensional and $\dim V > 1$ (for $\F{} = \C{}$) or $\dim V > 2$ (for $\F{} = \R{})$; see \ref{151} and Exercise \ref{5inv2} in Section \ref{eigenuppertri}.
+
+The previous example noted that $\ker T$ and $\ran T$ are invariant under~$T$. However, these subspaces do not necessarily provide easy answers to the question above about the existence of invariant subspaces other than $\{0\}$ and $V\1$, because $\ker T$ may equal $\{0\}$ and $\ran T$ may equal $V$ (this happens when $T$ is invertible).
+
+We will return later to a deeper study of invariant subspaces.
+Now we turn to an investigation of the simplest possible nontrivial invariant
+subspaces---invariant subspaces of dimension one.
+
+Take any $v \in V$ with $v \ne 0$ and let $U$ equal the set of all scalar multiples of~$v$:
+\[
+U = \{\la v: \la \in \F{}\} = \Span (v).
+\]
+Then $U$ is a one-dimensional subspace of $V$ (and every one-dimensional subspace
+of $V$ is of this form for an appropriate choice of $v$). If $U$ is invariant under an operator $T \in \L(V)$, then $Tv \in U$,
+and hence there is a scalar $\la \in \F{}$ such that
+\[
+Tv = \la v.
+\]
+Conversely, if $Tv = \la v$ for some $\la \in \F{}\3$, then $\Span (v)$ is a one-dimensional subspace of $V$ invariant under $T\3$.
+
+The equation
+$
+Tv = \la v$,
+which we have just seen is intimately connected with one-dimensional  invariant
+subspaces, is important enough that the scalars $\la$ and vectors $v$ satisfying it
+are given special names.
+
+\DefinitionBox{eigenvalue}{Suppose $T \in \L(V)$. A number $\la \in \F{}$ is called an
+\emph{eigenvalue}\index{eigenvalue!of operator} of $T$ if there exists $v \in V$ such that $v \ne 0$ and
+$Tv = \la v$.}
+
+\mar{The word \marbf{eigenvalue} is half-German, half-English.  The German prefix
+\marbf{eigen} means ``own'' in the sense of characterizing an intrinsic
+property.%Some mathematicians use the term \marbf{characteristic value}\index{characteristic value} instead of eigenvalue.
+}
+
+In the definition above, we require that $v \ne 0$ because every scalar $\la \in \F{}$ satisfies $T0 = \la 0$.
+
+The comments above show that $V$ has a one-dimensional subspace invariant \mbox{under} $T$ if and only if $T$ has an eigenvalue.
+
+\begin{example}{eigenvalue}
+Define an operator $T \in \L\paren[\big]{\F3}$ by
+\[
+T(x,y,z) = (7x + 3z, 3x +6y + 9z, -6y)
+\]
+for $(x, y, z) \in \FF3$.
+Then $T(3,1,-1) = (18, 6, -6) = 6(3,1,-1)$. Thus $6$ is an eigenvalue of $T\3$.
+\end{example}
+
+The equivalences in the next result, along with many deep results in linear algebra, are valid only in the context of finite-dimensional vector spaces.
+
+\ResultBox[eigenequiv]{equivalent conditions to be an eigenvalue}
+{Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $\la \in \F{}\3$. Then the following are equivalent.
+\begin{subtheorem}*
+\item
+$\la$ is an eigenvalue of $T\3$.
+\item
+$T - \la I$ is not injective.
+\item
+$T - \la I$ is not surjective.  \hfill
+\raisebox{0in}[0in][0in]{\marbox{Reminder: $I \in \L(V)$ is the identity operator. Thus $Iv = v$ for all \mbox{$v \in V\1$}.}}
+\item
+$T - \la I$ is not invertible.
+\end{subtheorem}}
+
+\proof
+Conditions (a) and (b) are equivalent because the equation
+$Tv = \la v$ is equivalent to the equation $(T - \la I)v = 0$.  Conditions (b), (c), and (d) are equivalent by  \ref{18}. \qed
+
+\DefinitionBox{eigenvector}
+{Suppose $T \in \L(V)$ and $\la \in \F{}$ is an eigenvalue of $T\3$.
+A vector $v \in V$ is called an \emph{eigenvector}\index{eigenvector} of~$T$ corresponding
+to~$\la$ if $v \ne 0$ and $Tv = \la v$.}
+
+In other words, a nonzero vector $v \in V$ is an eigenvector of an operator $T \in \L(V)$ if and only if $Tv$ is a scalar multiple of $v$.
+Because $Tv = \la v$ if and only if $(T - \la I)v = 0$, a vector $v \in V$ with $v \ne 0$ is an eigenvector of $T$ corresponding to $\la$ if and only if $v \in \ker (T - \la I)$.
+
+\begin{example}[a117]{eigenvalues and eigenvectors}
+Suppose $T \in \L\paren[\big]{\F{2}}$ is defined by
+$ %\[ \addtolength{\belowdisplayskip}{-3bp}
+T(w,z) = (-z,w)$.
+\begin{subtheorem}
+\item
+First consider the case $\F{} = \R{}$. Then $T$ is a counterclockwise rotation by $90^\circ$ about the origin in $\RR{2}$.
+An operator has an eigenvalue if and only if there exists a nonzero vector in its domain that gets sent by the operator to a scalar multiple of itself.  A $90^\circ$ counterclockwise rotation of a nonzero vector in $\R{2}$ cannot equal a scalar multiple of itself.  Conclusion: if $\F{} = \R{}$, then $T$ has no eigenvalues (and thus has no eigenvectors).
+
+\item
+Now consider the case $\F{} = \C{}$. To find eigenvalues of $T$, we must
+find the scalars $\la$ such that
+$
+T(w,z) = \la (w, z)$
+has some solution other than $w = z = 0$.  The
+equation $T(w,z) = \la (w, z)$ is equivalent to the simultaneous equations
+\begin{equation}%
+-z = \la w, \quad w = \la z. \label{118}
+\end{equation}%
+Substituting the value for $w$ given by the second equation into the first
+equation gives
+\[
+-z = \la^2 z.
+\]
+
+\pagebreak[3]
+
+Now $z$ cannot equal $0$ \sbr{otherwise \ref{118} implies that $w = 0$; we are
+looking for solutions to \ref{118} such that $(w, z)$ is not the $0$ vector}, so the
+equation above leads to the equation
+\[
+-1 = \la^2\1.
+\]
+The solutions to this equation are $\la = i$ and $\la = -i$.
+
+You can verify that $i$ and $-i$ are eigenvalues of $T\3$.  Indeed, the eigenvectors
+corresponding to the eigenvalue $i$ are the vectors of the form $(w, -wi)$, with
+$w \in \C{}$ and $w \ne 0$. Furthermore, the eigenvectors corresponding to the eigenvalue $-i$ are the
+vectors of the form $(w, wi)$, with $w \in \C{}$ and $w \ne 0$.
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+In the next proof, we again use the equivalence
+\[
+Tv = \la v \iff (T - \la I)v = 0.
+\]
+
+\ResultBox[26]{linearly independent eigenvectors}{%
+Suppose $T \in \L(V)$. Then every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.}
+
+\proof
+Suppose the desired result is false. Then there exists a smallest positive integer $m$ such that there exists a linearly dependent list
+$v_1, \ldots, v_m$ of eigenvectors of $T$ corresponding to distinct eigenvalues $\la_1, \ldots, \la_m$ of $T$ (note that $m\ge 2$ because an eigenvector is, by definition, nonzero). Thus there exist
+$a_1, \ldots, a_m \in \F{}\3$, none of which are $0$ (because of the minimality of $m$), such that
+\[
+a_1 v_1 + \cdots + a_m v_m = 0.
+\]
+Apply $T - \la_m I$ to both sides of the equation above, getting
+\[
+a_1 (\la_1 - \la_m) v_1 + \cdots + a_{m-1} (\la_{m-1} - \la_m) v_{m-1} = 0.
+\]
+Because the eigenvalues $\la_1, \ldots, \la_m$ are distinct, none of the coefficients above equal $0$. Thus $v_1, \ldots, v_{m-1}$ is a linearly dependent list of $m-1$ eigenvectors of $T$ corresponding to distinct eigenvalues, contradicting the minimality of $m$. This contradiction completes the proof.
+\qed
+
+The result above leads to a short proof of the result below, which puts an upper bound on the number of distinct eigenvalues that an operator can have.
+
+\ResultBox[279]{operator cannot have more eigenvalues than dimension of vector space}{%
+Suppose $V$ is finite-dimensional. Then each operator on\/ $V$ has at most\/ $\dim V$ distinct eigenvalues.
+}
+
+\proof
+Let $T \in \L(V)$.  Suppose $\la_1, \dots, \la_m$ are distinct eigenvalues of~$T\3$.  Let $v_1, \dots, v_m$ be corresponding eigenvectors. Then \ref{26} implies that the list $v_1, \dots, v_m$ is linearly independent.  Thus $m \le \dim V$ (see~\ref{7}), as desired.
+\qed
+
+\pagebreak[3]
+
+\subsection{Polynomials Applied to Operators}
+
+The main reason that a richer theory exists for operators (which map a vector space into itself) than for more general linear maps is that
+operators can be raised to powers.  In this subsection we define that notion and the concept of applying a polynomial to an operator. This concept will be the key tool that we use in the next section when we prove that every operator on a nonzero finite-dimensional complex vector space has an eigenvalue.
+
+If $T$ is an operator, then $TT$ makes sense (see \ref{3ST}) and is also an operator on the same vector space as $T\3$.  We usually write $T^2$ instead of $TT\3$.  More generally, we have the following definition of $T^m\!$.
+
+\NotationBox{$T^m$}
+{Suppose $T \in \L(V)$ and $m$ is a positive integer.\sindex{Tm@$T^m\1$}
+\begin{itemize} % Here itemize looks better than Itemize.
+\item
+$T^m \in \L(V)$ is defined by
+$
+T^m = \underbrace{T \dotsm T}_{m \text{\ times}}\3$.
+\item
+$T^0$ is defined to be the identity operator $I$ on $V\1$.
+\item
+If $T$ is invertible with inverse $T^{-1}\1$, then $T^{-m} \in \L(V)$ is defined by
+\[
+T^{-m} = \paren[\big]{T^{-1}}^m\!.
+\]
+\end{itemize}}
+
+You should verify that if $T$ is an operator, then
+\[
+T^m T^n = T^{m+n} \andd \paren[\big]{T^m}^n = T^{mn}\!,
+\]
+where $m$ and $n$ are arbitrary integers if $T$ is invertible and are nonnegative integers if $T$ is not invertible.
+
+Having defined powers of an operator, we can now define what it means to apply a polynomial to an operator.
+
+\NotationBox{$p(T)$}
+{Suppose $T \in \L(V)$ and $p \in \P(\F{})$ is a
+polynomial given by
+\[
+p(z) = a_0 + a_1 z + a_2 z^2 + \dots + a_m z^m
+\]
+for all $z \in \F{}\3$. Then $p(T)$ is the operator on $V$ defined by\sindex{pt@$p(T)$}
+\[
+p(T) = a_0 I + a_1 T + a_2 T^2 + \dots + a_m T^m\!.
+\]}
+
+This is a new use of the symbol $p$ because we are applying $p$ to operators, not just elements of $\F{}\3$. The idea here is that to evaluate $p(T)$, we simply replace $z$ with $T$ in the expression defining $p$. Note that the constant term $a_0$ in $p(z)$ becomes the operator $a_0 I$ \big(which is a reasonable choice because $a_0 = a_0 z^0$ and thus we should replace $a_0$ with $a_0 T^0\1$, which equals $a_0 I$\big).
+
+\pagebreak[3]
+
+\begin{example}{a polynomial applied to the differentiation operator}
+Suppose $D \in \L\bigl(\P(\R{})\bigr)$ is the differentiation operator\index{differentiation linear map} defined by $Dq = q'$ and $p$ is the polynomial defined by $p(x) = 7 - 3x + 5x^2\1$. Then $p(D) = 7I - 3D + 5D^2\1$. Thus
+\[
+\bigl(p(D)\bigr)q  = 7q - 3q' + 5q''
+\]
+for every $q \in \P(\R{})$.
+\end{example}
+
+If we fix an operator $T \in \L(V)$, then the function from $\P(\F{})$ to $\L(V)$ given by
+$p \mapsto p(T)$ is linear, as you should  verify.
+
+\DefinitionBox{product of polynomials}
+{If $p, q \in \P(\F{})$, then $pq \in \P(\F{})$ is the
+polynomial defined by\index{product!of polynomials}
+\[
+(pq)(z) = p(z) q(z)
+\]
+for all $z \in \F{}\3$.}
+
+The order does not matter in taking products of polynomials of a single operator, as shown by (b) in the next result.
+
+\ResultBox[multprop]{multiplicative properties}
+{Suppose $p, q \in \P(\F{})$ and $T \in \L(V)$.\\Then
+\begin{subtheorem}*
+\item
+$(pq)(T) = p(T)q(T)$;
+\item
+$p(T)q(T) = q(T)p(T)$.\hfill \raisebox{-2bp}[0in][0in]{\marbox{Informal proof: When a product of polynomials is expanded using the distributive property, it does not matter whether the symbol is $z$ or $T\3$.}}\index{commuting operators}
+\end{subtheorem}
+}
+
+\proof
+\begin{subtheorem}*
+\item
+Suppose $\displaystyle p(z) = \sum_{\js[=0]}^m a_j z^j$ and $\displaystyle q(z) = \sum_{k=0}^n b_k z^k$ for all $z \in \F{}\3$. Then
+\[
+(pq)(z) = \sum_{\js[=0]}^m \sum_{k=0}^n a_j b_k z^{j+k}\!.
+\]
+Thus
+\begin{align*}
+(pq)(T) &= \sum_{\js[=0]}^m \sum_{k=0}^n a_j b_k T^{j+k}\\[4bp]
+&= \paren[\bigg]{ \sum_{\js[=0]}^m a_j T^j } \paren[\bigg]{ \sum_{k=0}^n b_k T^k } \\[4bp]
+&= p(T) q(T).
+\end{align*}
+
+\item
+Using (a) twice, we have $p(T)q(T) = (pq)(T) = (qp)(T) = q(T)p(T)$.
+\qed
+\end{subtheorem}
+
+We observed earlier that if $T \in \L(V)$, then the subspaces $\ker T$ and $\ran T$ are invariant under~$T$ (see \ref{invariant}).
+Now we show that the null space and the range of every polynomial of~$T$ are also invariant under~$T\3$.
+
+\ResultBox[130]{null space and range of\/ $p(T)$ are invariant under\/ $T$}{%
+Suppose $T \in \L(V)$ and $p \in \P(\F{})$. Then\/ $\ker p(T)$ and $\ran p(T)$ are invariant under $T\3$.
+}
+
+\proof
+Suppose $u \in \ker p(T)$. Then
+$p(T)u = 0$.  Thus
+\[
+\bigl(p(T)\bigr)(Tu) = \paren[\big]{ p(T)\,T }(u) = \paren[\big]{ T\,p(T) }(u) =
+T\bigl(p(T)u\bigr) = T(0) = 0.
+\]
+Hence $Tu \in \ker p(T)$.  Thus $\ker p(T)$ is invariant under~$T$, as
+desired.
+
+Suppose $u \in \ran p(T)$. Then there exists $v \in V$ such that $u = p(T)v$. Thus
+\[
+Tu = T\bigl(p(T)v\bigr) = p(T)(Tv).
+\]
+Hence $Tu \in \ran p(T)$.  Thus $\ran p(T)$ is invariant under~$T$, as
+desired.
+\qed
+
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a subspace of $V\1$.
+\begin{subtheorem}
+\item
+Prove that if $U \subset \ker T$, then $U$ is invariant under $T\3$.
+\item
+Prove that if $\ran T \subset U$, then $U$ is invariant under $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose that $T \in \L(V)$ and $V\1_1, \dots, V\1_m$ are subspaces of $V$
+invariant under~$T\3$. Prove that $V\1_1 + \dots + V\1_m$ is invariant under $T\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that the intersection of every collection of
+subspaces of $V$ invariant under $T$ is invariant under~$T\3$.
+
+
+\exercise
+Prove or give a counterexample: If $V$ is finite-dimensional and $U$ is a subspace of $V$ that is invariant
+under every operator on $V\1$, then $U = \{0\}$ or $U = V\1$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{2}}$ is defined by $T(x, y) = (-3y, x)$. Find the eigenvalues of~$T\3$.
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{2}}$ by
+$
+T(w, z) = (z, w)$.
+Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{3}}$ by
+$
+T(z_1, z_2, z_3) = (2 z_2, 0, 5z_3)$.
+Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Suppose $P \in \L(V)$ is such that $P^2 = P\1$. Prove that if $\la$ is an eigenvalue of~$P\1$, then $\la = 0$ or
+$\la = 1$.\label{5P}
+
+
+\exercise
+Define $T \colon \P(\R{}) \to \P(\R{})$ by $Tp = p'\!$. Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Define $T \in \L\bigl( \P\1_4(\R{}) \bigr)$ by
+$
+(Tp)(x) = x p' \! (x)
+$
+for all $x \in \R{}$. Find all eigenvalues and eigenvectors of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $\al \in \F{}\3$. Prove that there exists $\delta > 0$ such that
+$T - \la I$ is invertible for all $\la \in \F{}$ such that \mbox{$0 < |\al - \la| < \delta$}.
+
+
+\exercise
+Suppose $V = U \oplus W\3$,  where $U$ and $W$ are nonzero subspaces of~$V\1$. Define $P \in \L(V)$ by $P(u + w) = u$ for each $u \in U$ and each $w \in W\3$. Find all eigenvalues and eigenvectors of~$P\1$.
+
+
+\exercise
+Suppose $T \in \L(V)$. Suppose $S \in \L(V)$ is invertible.
+\begin{subtheorem}
+\item
+Prove that $T$ and $S^{-1} T S$ have the same eigenvalues.
+\item
+What is the relationship between the eigenvectors of $T$ and the eigenvectors of $S^{-1} T S$?
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Give an example of an operator on $\R{4}$ that has no (real) eigenvalues.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $\la \in \F{}\3$. Show that $\la$ is an eigenvalue of $T$ if and only if $\la$ is an eigenvalue of the dual operator $T' \in \L(V')$.\index{dual!of an operator}\index{eigenvalue!of dual of an operator}\label{5eigdual}
+
+
+\exercise
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \L(V)$. Prove that if $\la$ is an eigenvalue of $T$, then
+\[
+\abs{\la} \le n \max \br[\big]{ \abs[\big]{\M(T)_{j,k}} : 1 \le j, k \le n },
+\]
+where $\M(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+\exercisecomment{See Exercise~\ref{2HSeigen} in Section~\ref{6ipn} for a different bound on\/ $\abs{\la}$.}
+
+
+\begin{comment}
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space, $T \in \L(V)$, and the matrix of $T$ with respect to some basis of $V$ contains only real entries. Show that if $\la$ is an eigenvalue of $T$, then so is $\bar{\la}$.
+
+\end{comment}
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \R{}$. Prove that $\la$ is an eigenvalue of $T$ if and only if $\la$ is an eigenvalue of the complexification $T\3_{\C{}}$.\index{complexification!eigenvalues of|(}\label{5realeig}
+\exercisecomment{See Exercise \ref{3complexMap} in Section \ref{3nullspace} for the definition of\/ $T\3_{\C{}}$.}
+
+
+\exercise
+Suppose $\F{} = \R{}$, $T \in \L(V)$, and $\la \in \C{}$. Prove that $\la$ is an eigenvalue of the complexification $T\3_{\C{}}$ if and only if $\bar{\la}$ is an eigenvalue of $T\3_{\C{}}$.\index{complexification!eigenvalues of|)}\label{5TC}
+
+
+\exercise
+Show that the forward shift operator $T \in \L\paren[\big]{\F{\infty}}$ defined by\index{forward shift}
+\[
+T(z_1, z_2, \dots ) = (0, z_1, z_2, \dots )
+\]
+has no eigenvalues.
+
+
+\exercise
+Define the backward shift operator $S \in \L\paren[\big]{\F{\infty}}$ by\index{backward shift}
+\[ \addtolength{\belowdisplayskip}{-3bp}
+S(z_1, z_2, z_3, \dots) = (z_2, z_3, \dots).
+\]
+\begin{subtheorem}
+\item
+Show that every element of $\F{}$ is an eigenvalue of $S$.
+\item
+Find all eigenvectors of $S$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible.
+\begin{subtheorem}
+\item
+Suppose $\la \in \F{}$ with $\la \ne 0$. Prove that $\la$ is an eigenvalue of $T$ if and only if $\frac{1}{\la}$ is an eigenvalue of~$T^{-1}\1$.
+\item
+Prove that $T$ and $T^{-1}$ have the same eigenvectors.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ and there exist nonzero vectors $u$ and $w$ in $V$ such that
+\[
+Tu = 3w \andd Tw = 3u.
+\]
+Prove that $3$ or $-3$ is an eigenvalue of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$.  Prove that $ST$ and $TS$ have the same eigenvalues.
+
+
+\begin{comment}
+\exercise
+Prove or give a counterexample: If $V$ is finite-dimensional and $R, S, T \in \L(V)$, then  $RST$ and $RTS$ have the same eigenvalues.
+
+\end{comment}
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix with entries in $\F{}\3$. Define $T \in \L\paren[\big]{\F{n}}$ by $Tx = Ax$, where elements of $\F{n}$ are thought of as \by{n}{1} column vectors.
+\begin{subtheorem}
+\item
+Suppose the sum of the entries in each row of $A$ equals~$1$.
+Prove that $1$ is an eigenvalue of $T\3$.
+\item
+Suppose the sum of the entries in each column of $A$ equals~$1$.
+Prove that $1$ is an eigenvalue of $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $u, w$ are eigenvectors of $T$ such that $u+w$ is also an eigenvector of $T\3$. Prove that $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that every nonzero vector in $V$ is an
+eigenvector of~$T\3$.  Prove that $T$ is a scalar multiple of the identity operator.\label{388}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $k \in \br{1, \ldots,\dim V - 1}$. Suppose $T \in \L(V)$ is such that every subspace of $V$ of dimension $k$ is invariant under~$T\3$.  Prove that $T$ is a scalar multiple of the identity operator.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ has at most $1 + \dim \ran T$ distinct eigenvalues.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{3}}$ and $-4$, $5$, and $ \sqrt{7}$ are eigenvalues of $T\3$. Prove that there exists $x \in \R{3}$ such that
+$
+Tx - 9x = \paren[\big]{-4, 5, \sqrt{7}}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $(T-2I) (T-3 I) (T-4 I) = 0$. Suppose $\la$ is an eigenvalue of $T\3$. Prove that $\la = 2$ or $\la = 3$ or $\la = 4$.
+
+
+\exercise
+Give an example of $T \in \L\paren[\big]{\R2}$ such that $T^4 = -I$.
+
+
+\exercise
+Suppose $T \in \L(V)$ has no eigenvalues and $T^4 = I$. Prove that $T^2 = -I$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a positive integer.
+\begin{subtheorem}
+\item
+Prove that $T$ is injective if and only if $T^m$ is injective.
+\item
+Prove that $T$ is surjective if and only if $T^m$ is surjective.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $v_1, \dots, v_m \in V\1$. Prove that the list $v_1, \dots, v_m$ is linearly independent if and only if there exists $T \in \L(V)$ such that $v_1, \dots, v_m$ are eigenvectors of $T$ corresponding to distinct \mbox{eigenvalues}.
+
+
+\exercise
+Suppose that $\la_1, \dots, \la_n$ is a list of distinct real numbers. Prove that the list $e^{\la_1 x}, \dots, e^{\la_n x}$ is linearly independent in the vector space of real-valued functions on $\R{}$.
+\hint{Let\/ $V = \Span\paren[\big]{e^{\la_1 x}, \dots, e^{\la_n x}}$, and define an operator\/ $D \in \L(V)$ by\/ $Df = f'\!$. Find eigenvalues and eigenvectors of\/ $D$.}
+
+
+\exercise
+Suppose that $\la_1, \dots, \la_n$ is a list of distinct positive numbers. Prove that the list $\cos(\la_1 x), \dots, \cos(\la_n x)$ is linearly independent in the vector space of real-valued functions on $\R{}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Define $\A \in \L\paren[\big]{\L(V)}$ by \label{LLV}
+\[
+\A(S) = TS
+\]
+for each $S \in \L(V)$. Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\A$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ invariant under $T\3$. The \emph{quotient operator}\index{quotient!operator}
+$T\3/U \in \L(V\1/U)$ is defined by\sindex{TU2@$T\3/U$}\label{5quotient}
+\[
+(T\3/U)(v + U) = Tv +U
+\]
+for each $v \in V\1$.
+\begin{subtheorem}
+\item
+Show that the definition of $T\3/U$ makes sense (which requires using the condition that $U$ is invariant under $T$) and show that $T\3/U$ is an operator on $V\1/U$.
+\item
+Show that each eigenvalue of $T\3/U$ is an eigenvalue of $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has an eigenvalue if and only if there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T\3$.
+
+
+\begin{comment}
+\exercise
+Give an example of a vector space $V\1$, an operator $T \in \L(V)$, and a subspace $U$ of $V$ that is invariant under $T$ such that $T\3/U$ has an eigenvalue that is not an eigenvalue of $T\3$.
+
+\end{comment}
+
+\exercise
+Suppose $S, T \in \L(V)$ and $S$ is invertible.  Suppose $p \in \P(\F{})$ is a polynomial. Prove that
+\[
+p\paren[\big]{STS^{-1}} = S p(T) S^{-1}\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a subspace of $V$ invariant under $T\3$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \P(\F{})$.\label{InvPoly}
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{n}}$ by
+$
+T(x_1, x_2, x_3, \dots, x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)$.
+\begin{subtheorem}
+\item
+Find all eigenvalues and eigenvectors of $T\3$.
+\item
+Find all subspaces of $\F n$ that are invariant under $T\3$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \L(V)$. Prove that
+$
+\br[\big]{p(T): p \in \P(\F{})} \ne \L(V)$.
+%\exercisedisplayend
+
+
+\end{exercises}
+
+\section{The Minimal Polynomial}
+\label{eigenuppertri}
+
+\subsection{Existence of Eigenvalues on Complex Vector Spaces}
+
+Now we come to one of the central results about operators on finite-dimensional complex vector spaces.
+
+\ResultBox[151]{existence of eigenvalues}
+{Every operator on a finite-dimensional nonzero complex vector space  has an eigenvalue.}
+
+\proof
+Suppose $V$ is a finite-dimensional complex vector space of dimension $n > 0$ and $T \in \L(V)$.
+Choose $v \in V$ with $v \ne 0$. Then
+\[
+v, Tv,T^2 v, \dots , T^n v
+\]
+is not linearly independent, because $V$ has dimension $n$ and this list has length $n+1$. Hence some linear combination (with not all the coefficients equal to $0$) of the vectors above equals $0$. Thus there exists a nonconstant polynomial $p$ of smallest degree such that
+\[
+p(T)v = 0.
+\]
+
+By the first version of the fundamental theorem of algebra (see \ref{FTA1}), there exists $\la \in \C{}$ such that $p(\la) = 0$. Hence there exists a polynomial $q \in \P(\C{})$ such that
+\[
+p(z) = (z-\la) q(z)
+\]
+for every $z \in \C{}$ (see \ref{460}). This implies (using \ref{multprop}) that
+\[
+0 = p(T)v = (T - \la I) \bigl( q(T)v \bigl).
+\]
+Because $q$ has smaller degree than $p$, we know that $q(T)v \ne 0$. Thus the equation above implies that $\la$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
+\qed
+
+The proof above makes crucial use of the fundamental theorem of algebra. The comment following Exercise \ref{8FTAneeded} helps explain why the fundamental theorem of algebra is so tightly connected to the result above.
+
+The hypothesis in the result above that $\F{} = \C{}$ cannot be replaced with the hypothesis that $\F{} = \R{}$, as shown by Example \ref{a117}. The next example shows that the finite-dimensional hypothesis in the result above also cannot be deleted.
+
+\begin{example}{an operator on a complex vector space with no eigenvalues}
+Define $T \in \L\paren[\big]{ \P(\C{}) }$ by
+$
+(Tp)(z) = z p(z)$.
+If $p \in \P(\C{})$ is a nonzero poly\-nomial, then the degree of $Tp$ is one more than the degree of $p$, and thus $Tp$ cannot equal a scalar multiple of $p$. Hence $T$ has no eigenvalues.
+
+Because $\P(\C{})$ is infinite-dimensional, this example does not contradict the result above.
+\end{example}
+
+\subsection{Eigenvalues and the Minimal Polynomial}
+
+In this subsection we introduce an important polynomial associated with each operator. We begin with the following definition.
+
+\DefinitionBox{monic polynomial}{A \emph{monic polynomial}\index{monic
+polynomial} is a polynomial whose highest-degree coefficient
+equals~$1$.}
+
+For example, the polynomial $2 + 9z^2 + z^7$ is a monic polynomial of degree $7$.
+
+\ResultBox[3minpoly]{existence, uniqueness, and degree of minimal polynomial}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then there is a unique monic polynomial $p \in \P(\F{})$ of smallest degree such that $p(T) = 0$. Furthermore, $\deg p \le \dim V\1$.}
+
+\proof
+If $\dim V = 0$, then $I$ is the zero operator on $V$ and thus we take $p$ to be the constant polynomial $1$.
+
+{
+\addtolength{\abovedisplayskip}{-.01in} % VisualFormatting for page break.
+\addtolength{\belowdisplayskip}{-.01in}
+Now use induction on $\dim V\1$. Thus assume that $\dim V > 0$ and that the desired result is true for all operators on all vector spaces of smaller dimension. Let
+$u \in V$ be such that $u \ne 0$. The list $u, Tu, \ldots, T^{\dim V} u$ has length $1 + \dim V$ and thus is linearly dependent. By the linear dependence lemma (\ref{4}), there is a smallest positive integer $m \le \dim V$ such that $T^m u$ is a linear combination of
+$u, Tu, \dots, T^{m-1} u$. Thus there exist scalars $c_0, c_1, c_2, \dots, c_{m-1} \in \F{}$ such that
+\begin{equation} \label{minlindep}
+c_0 u + c_1 Tu + \dots + c_{m-1} T^{m-1} u  + T^m u = 0.
+\end{equation}%
+Define a monic polynomial $q \in \P\1_m(\F{})$ by
+\[
+q(z) = c_0 + c_1 z + \dots + c_{m-1} z^{m-1} + z^m\!.
+\]
+Then \ref{minlindep} implies that $q(T)u = 0$.
+
+\enlargethispage*{.11in} %VisualFormatting for page break
+
+If $k$ is a nonnegative integer, then
+\[
+q(T) \paren[\big]{T^k u} = T^k \paren[\big]{ q(T)u } = T^k(0) = 0.
+\]
+The linear dependence lemma (\ref{4}) shows that $u, Tu, \dots, T^{m-1} u$ is linearly independent. Thus the equation above implies
+that $\dim \ker q(T) \ge m$. Hence
+\[
+\dim \ran q(T) = \dim V - \dim \ker q(T) \le \dim V - m.
+\]
+Because $\ran q(T)$ is invariant under $T$ (by \ref{130}), we can apply our induction hypothesis to the operator $T|_{\ran q(T)}$ on the vector space $\ran q(T)$. Thus there is a monic polynomial $s \in \P(\F{})$ with
+\[
+\deg s \le \dim V-m \andd s( T|_{\ran q(T)}) = 0.
+\]
+Hence for all $v \in V$ we have
+\[
+\paren[\big]{(sq)(T)}(v) = s(T) \paren[\big]{ q(T) v } = 0
+\]
+because $q(T)v \in \ran q(T)$ and $s(T)|_{\ran q(T)} = s( T|_{\ran q(T)}) = 0$. Thus $sq$ is a monic polynomial such that $\deg sq \le \dim V$ and $(sq)(T) = 0$.
+\\} % End group for \abovedisplayskip and \belowdisplayskip}
+
+\pagebreak[3]
+
+The paragraph above shows that there is a monic polynomial of degree at most $\dim V$ that when applied to $T$ gives the $0$ operator. Thus there is a monic polynomial of smallest degree with this property, completing the existence part of this result.
+
+Let $p \in \P(\F{})$ be a monic polynomial of smallest degree such that \mbox{$p(T) = 0$}. To prove the uniqueness part of the result, suppose $r \in \P(\F{})$ is a monic polynomial of the same degree as $p$ and $r(T) = 0$. Then $(p - r)(T) = 0$ and also
+\mbox{$\deg (p - r) < \deg p$}. If $p-r$ were not equal to $0$, then we could divide $p-r$ by the coefficient of the highest-order term in $p-r$ to get a monic polynomial (of smaller degree than $p$) that when applied to $T$ gives the $0$ operator. Thus $p-r = 0$, as desired.
+\qed
+
+The previous result justifies the following definition.
+
+\DefinitionBox[2defminpoly]{minimal polynomial}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then the \emph{minimal polynomial} of $T$\index{minimal polynomial!definition of} is the unique monic polynomial
+$p \in \P(\F{})$ of smallest degree such that $p(T) = 0$.}
+
+To compute the minimal polynomial of an operator $T \in \L(V)$, we need to find the smallest positive integer $m$ such that the equation\index{minimal polynomial!computing}
+\[
+c_0 I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^m
+\]
+has a solution $c_0, c_1, \ldots, c_{m-1} \in \F{}\3$. If we pick a basis of $V$ and replace $T$ in the equation above with the matrix of $T$, then the equation above can be thought of as a system of $(\dim V)^2$ linear equations in the $m$ unknowns
+$c_0, c_1, \ldots, c_{m-1} \in \F{}\3$. Gaussian elimination or another fast method of solving systems of linear equations can tell us whether a solution exists, testing successive values $m = 1, 2, \ldots$ until a solution exists. By \ref{3minpoly}, a solution exists for some smallest positive integer $m \le \dim V\1$. The minimal polynomial of $T$ is then $c_0 + c_1 z + \cdots + c_{m-1} z^{m-1} + z^m\!$.
+
+Even faster (usually), pick $v \in V$ with $v \ne 0$ and consider the equation
+\begin{equation} \label{2simul}
+c_0 v + c_1 Tv + \dots + c_{\dim V-1} T^{\dim V-1} v= -T^{\dim V} v.
+\end{equation}
+Use a basis of $V$ to convert the equation above to a system of $\dim V$ linear equations in $\dim V$ unknowns
+$c_0, c_1, \ldots, c_{\dim V-1}$. If this system of equations has a unique solution $c_0, c_1, \dots, c_{\dim V-1}$ (as happens
+most of the time), then the scalars $c_0, c_1, \dots, c_{\dim V-1}, 1$ are the coefficients of the minimal polynomial of $T$ (because \ref{3minpoly} states that the degree of the minimal polynomial is at most $\dim V$).
+
+\mar{These estimates are based on testing millions of random matrices.}
+
+Consider operators on $\R4$ (thought of as \by{4}{4} matrices with respect to the standard basis), and take $v = (1,0,0,0)$ in the paragraph above. The faster method described above works on over 99.8\% of the \by{4}{4} matrices with integer entries in the interval $[-10,10]$ and on over 99.999\% of the \by{4}{4} matrices with integer entries in $[-100,100]$.
+
+The next example illustrates the faster procedure discussed above.
+
+\begin{example}[141]{minimal polynomial of an operator on\/ $\F5$}
+Suppose $T \in \L\paren[\big]{\F{5}}$ and
+\vspace{-.12in}
+\[
+\M(T) = \mat{ccccc}{
+0 &0 &0 &0 &-3 \\
+1 &0 &0 &0 &6 \\
+0 &1 &0 &0 &0 \\
+0 &0 &1 &0 &0 \\
+0 &0 &0 &1 &0 }
+\]
+with respect to the standard basis $e_1, e_2, e_3, e_4, e_5$. Taking $v = e_1$ for \ref{2simul}, we have
+\begin{align*}
+Te_1 &= e_2, \quad \quad &T^4e_1 &= T\paren[\big]{T^3e_1} = Te_4 = e_5,\\
+T^2e_1 &= T(Te_1) = Te_2 = e_3, \quad \quad &T^5 e_1 & = T\paren[\big]{T^4e_1} = Te_5 = -3e_1 + 6e_2. \\
+T^3e_1 &= T\paren[\big]{T^2e_1} = Te_3 = e_4,
+\end{align*}
+Thus $3e_1 - 6 Te_1 = -T^5 e_1$. The list $e_1, Te_1, T^2 e_1, T^3 e_1, T^4 e_1$, which equals the list $e_1, e_2, e_3, e_4, e_5$, is linearly independent, so no other linear combination of this list equals $-T^5e_1$. Hence the minimal polynomial of $T$ is $3 - 6z + z^5\1$.
+\end{example}
+
+Recall that by definition, eigenvalues of operators on $V$ and zeros of polynomials in $\P(\F{})$ must be elements of $\F{}\3$. In particular, if $\F{} = \R{}$, then eigenvalues and zeros must be real numbers.
+
+\ResultBox[136]{eigenvalues are the zeros of the minimal polynomial}{%
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.\index{minimal polynomial!zeros of}
+\begin{subtheorem}*
+\item
+The zeros of the minimal polynomial of $T$ are the eigenvalues of $T\3$.
+\item
+ If $V$ is a complex vector space, then the minimal polynomial of $T$ has the form
+\[
+(z-\la_1) \cdots (z-\la_m),
+\]
+where $\la_1, \ldots, \la_m$ is a list of all eigenvalues of $T$, possibly with repetitions.
+\end{subtheorem}
+}
+
+\proof Let $p$ be the minimal polynomial of $T\3$.
+
+\begin{subtheorem}*
+\item
+First suppose $\la \in \F{}$ is a zero of $p$. Then $p$ can be written in the form
+\[
+p(z) = (z - \la) q(z),
+\]
+where $q$ is a monic polynomial  with coefficients in $\F{}$ (see~\ref{460}).
+Because $p(T) = 0$,  we have
+\[
+0 = (T - \la I)\paren[\big]{q(T)v}
+\]
+for all $v \in V\1$. Because $\deg q = (\deg p) - 1$ and $p$ is the minimal polynomial of $T$, there exists at least one vector $v \in V$ such that $q(T)v \ne 0$.  The equation above thus implies that $\la$ is an eigenvalue
+of $T$, as desired.
+
+To prove that every eigenvalue of $T$ is a zero of $p$, now suppose $\la \in \F{}$ is an eigenvalue
+of~$T\3$. Thus there exists $v \in V$ with $v \ne 0$ such that $Tv = \la v$.  Repeated
+applications of $T$ to both sides of this equation show that $T^k v = \la^k v$ for
+every nonnegative integer $k$.  Thus
+\[
+p(T) v = p(\la) v.
+\]
+Because $p$ is the minimal polynomial of $T$, we have $p(T)v = 0$. Hence the equation above implies that $p(\la) = 0$. Thus $\la$ is a zero of $p$, as desired.
+\item
+To get the desired result, use (a) and the second version of the fundamental theorem of algebra (see \ref{4FTA2}).
+\qed
+\end{subtheorem}
+
+A nonzero polynomial has at most as many distinct zeros as its degree (see \ref{4polyzero}). Thus (a) of the previous result, along with the result that the minimal polynomial of an operator on $V$ has degree at most $\dim V\1$, gives an alternative proof of \ref{279}, which states that an operator on $V$ has at most $\dim V$ distinct eigenvalues.
+
+Every monic polynomial is the minimal polynomial of some operator, as shown by Exercise \ref{8FTAneeded}, which generalizes Example \ref{141}. Thus \ref{136}(a) shows that finding exact expressions for the eigenvalues of an operator is equivalent to the problem of finding exact expressions for the zeros of a polynomial (and thus is not possible for some operators).
+
+\begin{example}[5noexact]{An operator whose eigenvalues cannot be found exactly}
+Let $T \in \L\paren[\big]{ \C{5} }$ be the operator defined by
+\[
+T(z_1, z_2, z_3, z_4, z_5) = (-3z_5, z_1 + 6z_5, z_2, z_3, z_4).
+\]
+The matrix of $T$ with respect to the standard basis of $\C5$ is the \by{5}{5} matrix in
+Example \ref{141}. As we showed in that example, the minimal polynomial of $T$ is the polynomial
+\[
+3 - 6z + z^5\1.
+\]
+
+No zero of the polynomial above can be expressed using rational numbers, roots of rational numbers, and the usual rules of arithmetic (a proof of this would take us considerably beyond linear algebra). Because the zeros of the polynomial above are the eigenvalues of $T$ \sbr{by \ref{136}(a)}, we cannot find an exact expression for any eigenvalue of~$T$ in any familiar form.
+
+Numeric techniques, which we will not discuss here, show that the zeros of the polynomial above, and thus the eigenvalues of $T$, are approximately the following five complex numbers:
+\[
+-1.67, \quad 0.51, \quad 1.40, \quad -0.12 + 1.59i, \quad -0.12 - 1.59i.
+\]
+Note that the two nonreal zeros of this polynomial are complex conjugates of each other, as we expect for a polynomial with real coefficients (see \ref{170}).
+\end{example}
+
+The next result completely characterizes the polynomials that when applied to an operator give the $0$ operator.
+
+\ResultBox[140]{$q(T) = 0 \iff q$ is a polynomial multiple of the minimal polynomial}{%
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $q \in \P(\F{})$. Then $q(T) = 0$ if and only if $q$ is a polynomial multiple of the minimal polynomial of $T\3$.\index{minimal polynomial!polynomial multiple of}
+}
+
+\proof
+Let $p$ denote the minimal polynomial of $T\3$.
+
+First suppose $q(T) = 0$.  By the division algorithm for polynomials (\ref{121}), there exist polynomials $s, r \in \P(\F{})$ such that
+\begin{equation} \label{120}
+q = p s + r
+\end{equation}%
+and $\deg r < \deg p$.  We have
+\[
+0 = q(T) = p(T)s(T) + r(T) = r(T).
+\]
+The equation above implies that $r = 0$ (otherwise, dividing $r$ by its highest-degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$; this polynomial would have a smaller degree than the minimal polynomial, which would be a contradiction).  Thus \ref{120} becomes the equation $q = ps$. Hence $q$ is a polynomial multiple of $p$, as desired.
+
+To prove the other direction, now suppose $q$ is a polynomial multiple of~$p$.  Thus there exists a polynomial $s \in \P(\F{})$ such that $q = ps$.  We have
+\[
+q(T) = p(T)s(T) = 0 \, s(T) = 0,
+\]
+as desired.
+\qed
+
+The next result is a nice consequence of the result above.
+
+\ResultBox[5minU]{minimal polynomial of a restriction operator}
+{Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ that is invariant under $T\3$.
+Then the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T|_U$.\index{minimal polynomial!of restriction operator}}
+
+\proof
+Suppose $p$ is the minimal polynomial of $T\3$. Thus $p(T)v = 0$ for all $v \in V\1$. In particular,
+\[
+p(T)u = 0 \text{ for all } u \in U.
+\]
+Thus $p(T|_U) = 0$. Now \ref{140}, applied to the operator $T|_U$ in place of $T\3$, implies that $p$ is a polynomial multiple of the minimal polynomial of  $T|_U$.
+\qed
+
+See Exercise \ref{8minq} for a result about quotient operators that is analogous to the result above.
+
+The next result shows that the constant term of the minimal polynomial of an operator determines whether the operator is invertible.
+
+\ResultBox[8minpoly]{$T$ not invertible $\iff$ constant term of minimal polynomial of\/ $T$ is\/ $0$}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then $T$ is not invertible if and only if the constant term of the minimal polynomial of $T$ is $0$.\index{minimal polynomial!and invertibility}}
+
+\proof
+Suppose $T \in \L(V)$ and $p$ is the minimal polynomial of $T\3$. Then
+\begin{align*}
+T \text{ is not invertible} &\iff 0 \text{ is an eigenvalue of } T\\
+&\iff 0 \text{ is a zero of } p\\
+&\iff \text{the constant term of } p \text{ is } 0,
+\end{align*}
+where the first equivalence holds by \ref{eigenequiv}, the second equivalence holds by \ref{136}(a), and the last equivalence holds because the constant term of $p$ equals $p(0)$.
+\qed
+
+\subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
+
+The next result will be the key tool that we use to show that every operator on an odd-dimensional real vector space has an eigenvalue.
+
+\ResultBox[5evennull]{even-dimensional null space}
+{Suppose $\F{} = \R{}$ and $V$ is finite-dimensional. Suppose also that $T \in \L(V)$ and $b, c \in \R{}$ with $b^2 < 4c$. Then
+$\dim \ker \paren[\big]{T^2 + bT + cI}$ is an even number.}
+
+\proof
+Recall that $\ker \paren[\big]{T^2 + bT + cI}$ is invariant under $T$ (by \ref{130}). By replacing $V$ with $\ker \paren[\big]{T^2 + bT + cI}$ and replacing $T$ with $T$ restricted to $\ker \paren[\big]{T^2 + bT + cI}$, we can assume that
+$
+T^2 + bT + cI = 0$;
+we now need to prove that $\dim V$ is even.
+
+Suppose $\la \in \R{}$ and $v \in V$ are such that $Tv = \la v$. Then
+\[
+0 = \paren[\big]{T^2 + bT + cI} v = \paren[\big]{\la^2 + b \la + c} v = \paren[\bigg]{\paren[\Big]{\la + \tfrac{b}{2}}^2 + c - \tfrac{b^2}{4}} v.
+\]
+The term in large parentheses above is a positive number. Thus the equation above implies that $v = 0$. Hence we have shown that $T$ has no eigenvectors.
+
+Let $U$ be a subspace of $V$ that is invariant under $T$ and has the largest dimension among all subspaces of $V$ that are invariant under $T$ and have even dimension. If $U = V\1$, then we are done; otherwise assume there exists $w \in V$ such that
+$w \notin U$.
+
+Let $W = \Span(w, Tw)$. Then $W$ is invariant under $T$ because $T(Tw) = -bTw - cw$. Furthermore, $\dim W = 2$ because otherwise $w$ would be an eigenvector of $T\3$. Now
+\[
+\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = \dim U + 2,
+\]
+where $U \cap W = \br{0}$ because otherwise $U \cap W$ would be a one-dimensional subspace of $V$ that is invariant under $T$ (impossible because $T$ has no eigenvectors).
+
+Because $U + W$ is invariant under $T\3$, the equation above shows that there exists a subspace of $V$ invariant under $T$ of even dimension larger than $\dim U$. Thus the assumption that $U \ne V$ was incorrect. Hence $V$ has even dimension.
+\qed
+
+\pagebreak[3]
+
+The next result states that on odd-dimensional vector spaces, every operator has an eigenvalue. We already know this result for finite-dimensional complex vector spaces (without the odd hypothesis). Thus in the proof below, we will assume that $\F{} = \R{}$.
+
+\ResultBox[5odd]{operators on odd-dimensional vector spaces have eigenvalues}
+{Every operator on an odd-dimensional vector space has an eigenvalue.\index{eigenvalue!on odd-dimensional space}}
+
+\proof
+Suppose $\F{} = \R{}$ and $V$ is finite-dimensional. Let $n = \dim V\1$, and suppose $n$ is an odd number. Let $T \in \L(V)$. We will use induction on $n$ in steps of size two to show that $T$ has an eigenvalue. To get started, note that the desired result holds if $\dim V = 1$ because then every nonzero vector in $V$ is an eigenvector of~$T\3$.
+
+Now suppose that $n \ge 3$ and the desired result holds for all operators on all odd-dimensional vector spaces of dimension less than $n$. Let $p$ denote the minimal polynomial of $T\3$. If $p$ is a polynomial multiple of $x-\la$ for some $\la \in \R{}$, then $\la$ is an eigenvalue of $T$ \sbr{by \ref{136}(a)} and we are done. Thus we can assume that there exist $b, c \in \R{}$ such that $b^2 < 4c$ and $p$ is a polynomial multiple of $x^2 + bx + c$ (see \ref{158}).
+
+There exists a monic polynomial $q \in \P(\R{})$ such that $p(x) = q(x) \paren[\big]{x^2 + bx + c}$ for all $x \in \R{}$. Now
+\[
+0 = p(T) = \paren[\big]{q(T)}\paren[\big]{T^2 + b T + cI},
+\]
+which means that $q(T)$ equals $0$ on $\ran\paren[\big]{T^2 + bT + cI}$. Because $\deg q < \deg p$ and $p$ is the minimal polynomial of $T\3$, this implies that $\ran\paren[\big]{T^2 + bT + cI} \ne V\1$.
+
+The fundamental theorem of linear maps (\ref{3ab11}) tells us that
+\[
+\dim V = \dim \ker\paren[\big]{T^2 + bT + cI} + \dim \ran\paren[\big]{T^2 + bT + cI}.
+\]
+Because $\dim V$ is odd (by hypothesis) and $\dim \ker\paren[\big]{T^2 + bT + cI}$ is even (by \ref{5evennull}), the equation above shows that
+$\dim \ran\paren[\big]{T^2 + bT + cI}$ is odd.
+
+Hence $\ran\paren[\big]{T^2 + bT + cI}$ is a subspace of $V$ that is invariant under $T$ (by \ref{130}) and that has odd dimension less than
+$\dim V$. Our induction hypothesis now implies that $T$ restricted to $\ran\paren[\big]{T^2 + bT + cI}$ has an eigenvalue, which means that $T$ has an eigenvalue.
+\qed
+
+See Exercise \ref{8compmult} in Section \ref{decompop} and Exercise \ref{9oddeigen} in Section \ref{9det} for alternative proofs of the result above.
+\
+\begin{exercises}
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that $9$ is an
+eigenvalue of~$T^2$ if and only if $3$ or $-3$ is an eigenvalue of $T\3$.
+
+
+\exercise
+Suppose $V$ is a complex vector space and $T \in \L(V)$ has no eigenvalues. Prove
+that every subspace of $V$ invariant under $T$ is either $\{0\}$ or infinite-dimensional.
+
+
+\exercise
+Suppose $n$ is an integer with $n>1$ and $T \in \L\paren[\big]{\F{n}}$ is defined by
+\[
+T(x_1, \dots, x_n) = (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n).
+\]
+\begin{subtheorem}*
+\item
+Find all eigenvalues and eigenvectors of~$T\3$.
+\item
+Find the minimal polynomial of $T\3$.
+\end{subtheorem}
+\exercisecomment{The matrix of\/ $T$ with respect to the standard basis of\/ $\F n$ consists of all\/ $1$'s.}
+
+
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, $p \in \P(\C{})$ is a nonconstant polynomial,
+and $\al \in \C{}$.  Prove that $\al$ is an eigenvalue of $p(T)$ if and only if
+$\al = p(\la)$ for some eigenvalue $\la$ of~$T\3$.\label{5peig}
+
+
+\exercise
+Give an example of an operator on $\R2$ that shows the result in Exercise \ref{5peig} does not hold if $\C{}$ is replaced with~$\R{}$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F2}$ is defined by $T(w, z) = (-z, w)$. Find the minimal polynomial of $T\3$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of $S, T \in \L\paren[\big]{\F2}$ such that the minimal polynomial of $ST$ does not equal the minimal polynomial of $TS\3$.
+\item
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$. Prove that if at least one of $S, T$  is invertible, then the minimal polynomial of $ST$ equals the minimal polynomial of $TS$.
+\end{SUBtheorem}
+\hint{Show that if\/ $S$ is invertible and\/ $p \in \P(\F{})$, then\/ $p(TS) = S^{-1} p(ST) S$.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R2}$ is the operator of counterclockwise rotation by $1^\circ$. Find the minimal polynomial of $T\3$.
+\exercisecomment{Because\/ $\dim \R2 = 2$, the degree of the minimal polynomial of\/ $T$ is at most\/ $2$. Thus the minimal polynomial of\/ $T$ is not the tempting polynomial\/ $x^{180} + 1$, even though\/ $T^{180} = -I$.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that with respect to some basis of $V\1$, all entries of the matrix of $T$ are rational numbers. Explain why all coefficients of the minimal polynomial of $T$ are rational numbers.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $v \in V\1$. Prove that
+\[
+\Span\paren[\big]{ v, Tv, \ldots, T^m v} = \Span\paren[\big]{v, Tv, \ldots, T^{\dim V - 1}v}
+\]
+for all integers $m \ge \dim V - 1$.
+
+
+\exercise
+Suppose $V$ is a two-dimensional vector space, $T \in \L(V)$, and the matrix of $T$ with respect to some basis of $V$ is
+$
+\mat{cc}{a & c \\ b & d}$.\label{5minpoly}
+\begin{subtheorem}
+\item
+Show that $T^2 - (a+d)T + (ad - bc)I = 0$.
+\item
+Show that the minimal polynomial of $T$ equals
+\[
+\begin{cases}
+z-a &\text{if } b = c = 0 \text{ and } a = d, \\
+z^2 - (a+d)z + (ad-bc) &\text{otherwise}.
+\end{cases}
+\]
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{n}}$ by
+$
+T(x_1, x_2, x_3, \dots, x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)$.
+Find the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p \in \P(\F{})$. Prove that there exists a unique $r \in \P(\F{})$ such that $p(T) = r(T)$ and $\deg r$ is less than the degree of the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$ has minimal polynomial $4 + 5z - 6z^2 - 7z^3 + 2 z^4 + z^5\1$. Find the minimal polynomial of $T^{-1}\1$.
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space with $\dim V > 0$ and $T \in \L(V)$. Define $f \colon \C{} \to \R{}$ by
+\[
+f(\la) = \dim \ran (T - \la I).
+\]
+Prove that $f$ is not a continuous function.
+
+
+\exercise
+Suppose $a_0, \dots, a_{n-1} \in \F{}\3$. Let $T$ be the operator on $\F n$ whose matrix (with respect to the standard basis) is
+\label{8FTAneeded}
+\[
+\mat{cccccc}{
+0 & & & & & -a_0 \\
+1 & 0  & & & & -a_1 \\
+& 1 & \ddots & & & -a_2 \\
+& & \ddots & & & \vdots \\
+& & & & 0 & -a_{n-2} \\
+& & & & 1 & -a_{n-1} }.
+\]
+Here all entries of the matrix are $0$ except for all $1$'s on the line under the diagonal and the entries in the last column (some of which might also be $0$). Show that the minimal polynomial of $T$ is the polynomial\index{companion matrix}\index{minimal polynomial!of companion matrix}
+\[
+a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n\1.
+\]
+\exercisecomment{The matrix above is called the \emph{companion matrix} of the polynomial above. This exercise shows that  every monic polynomial is the minimal polynomial of some operator. Hence a formula or an algorithm that could produce exact eigenvalues for each operator on each\/ $\F n$ could then produce exact zeros for each polynomial \sbr{by \ref{136}\uppar{a}}. Thus there is no such formula or algorithm. However, efficient numeric methods exist for obtaining very good approximations for the eigenvalues of an operator.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Suppose $\la \in \F{}\3$.
+Show that the minimal polynomial of $T - \la I$ is the polynomial $q$ defined by $q(z) = p(z+\la)$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Suppose
+$\la \in \F{} \sm \br{0}$. Show that the minimal polynomial of $\la T$ is the polynomial $q$ defined by
+$q(z) = \la^{\deg p} \, p\paren[\bigg]{\dfrac{z}{\la}}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $\E$ be the subspace of $\L(V)$ defined by
+\[
+\E = \br[\big]{ q(T): q \in \P(\F{}) }.
+\]
+Prove that $\dim \E$ equals the degree of the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F{4}}$ is such that the eigenvalues of $T$ are $3, 5, 8$. Prove that
+$
+(T - 3I)^2 (T - 5I)^2 (T - 8 I)^2 = 0$.
+%\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the minimal polynomial of $T$ has degree at most $1 + \dim \ran T\3$.
+\exercisecomment{If\/ $\dim \ran T < \dim V - 1$, then this exercise gives a better upper bound than \ref{3minpoly} for the degree of the minimal polynomial of\/ $T\3$.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ is invertible if and only if
+$I \in \Span\paren[\big]{T, T^2\1, \ldots, T^{\dim V}}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $n = \dim V\1$. Prove that if $v \in V\1$, then
+$
+\Span\paren[\big]{v, Tv, \ldots, T^{n-1}v}
+$
+is invariant under $T\3$.
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space.  Suppose $T \in \L(V)$ is such that $5$
+and $6$ are eigenvalues of $T$ and that $T$ has no other eigenvalues.  Prove
+that
+$
+(T - 5I)^{\dim V-1} (T - 6I)^{\dim V-1} = 0$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ that is invariant under $T\3$.\index{quotient!operator}\index{minimal polynomial!of quotient operator}\label{8minq}
+\begin{subtheorem}
+\item
+Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T\3/U$.
+\item
+Prove that
+\[
+\text{(minimal polynomial of $T|_U$) $\times$ (minimal polynomial of $T\3/U$)}
+\]
+is a polynomial multiple of the minimal polynomial of $T\3$.
+\end{subtheorem}
+\vspace{-0.03in}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ that is invariant under $T\3$. Prove that the set of eigenvalues of $T$ equals the union of the set of eigenvalues of $T|_U$ and the set of eigenvalues of $T\3/U$.\index{quotient!operator}
+
+
+\begin{comment}
+\item
+Show that each eigenvalue of $T\3/U$ is an eigenvalue of~$T\3$.
+
+\item
+Suppose $\la \in \F{}$ is an eigenvalue of $T\3/U$. Then there exists $w \in V$ such that
+$w \notin U$ (which is equivalent to the condition $w + U \ne 0 + U$) and
+\[
+(T\3/U)(w+U) = \la(w +U).
+\]
+The equation above could be rewritten as $Tw + U = \la w + U$. This implies that
+$(T - \la I)w \in U$.
+
+Define $S \colon U + \Span(w) \to V$ by
+\[
+Sv = (T - \la I)v
+\]
+for each $v \in U + \Span(w)$. Clearly $S$ is a linear map.
+
+If $u \in U$ and $c \in \F{}\3$, then $S(u + cw) = Tu - \la u + c(T - \la I)w\in U$, where the inclusion holds because $U$ is invariant under $T\3$. Thus $\ran S \subset U$.
+
+Because $w \notin U$, we know that $\dim \bigl( U + \Span(w) \bigr) > \dim U$. The fundamental theorem of linear maps (\ref{3ab11}) applied to $S$ now implies that $\dim \ker S > 0$. Thus there exists $v \in  U + \Span(w)$ such that $v \ne 0$ and $Sv = 0$. Thus $\la$ is an eigenvalue of $T$, as desired.
+\end{comment}
+
+\exercise
+Suppose $\F{} = \R{}$, $V$ is finite-dimensional, and $T \in \L(V)$. Prove that the minimal polynomial of $T\3_{\C{}}$ equals the minimal polynomial of $T\3$.\index{complexification!minimal polynomial of}\index{minimal polynomial!of complexification}
+\exercisecomment{The complexification\/ $T\3_{\C{}}$ was defined in Exercise \ref{3complexMap} of Section \ref{3nullspace}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the minimal polynomial of $T' \in \L\paren[\big]{V'}$ equals the minimal polynomial of $T\3$.\index{dual!of a linear map}\index{minimal polynomial!of dual map}\label{5dualmin}
+\exercisecomment{The dual map $T'$ was defined in Section \ref{duals}.}
+
+
+\exercise
+Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.\label{5inv2}
+\exercisecomment{Exercise \ref{457} in Section \ref{4utm} will give an improvement of this result when\/ $\F{} = \C{}$.}
+
+
+\end{exercises}
+
+\section{Upper-Triangular Matrices} \label{4utm}
+
+In Chapter~\ref{166} we defined the matrix of a linear map from a finite-dimensional vector space to another finite-dimensional vector space.  That matrix depends on a choice of basis of each of the two vector spaces.  Now that we are studying operators, which map a vector space to itself, the emphasis is on using only one basis.\looseness=-1
+
+\DefinitionBox{matrix of an operator, $\M(T)$\sindex{MT@$\M(T)$}}
+{Suppose $T \in \L(V)$. The \emph{matrix of} $T$ with respect to a basis $v_1, \dots, v_n$ of $V$ is the \by{n}{n} matrix\index{matrix!of operator}
+\vspace{-.04in} %VisualFormatting for page break.
+\[
+\M(T) = \mat{ccc}{
+A_{1,1} & \cdots & A_{1,n} \\
+\vdots &   & \vdots \\
+A_{n,1} & \cdots & A_{n,n} }
+\]
+whose entries $A_{j,k}$ are defined by
+\[
+Tv_k = A_{1,k} v_1 + \dots + A_{n,k} v_n.
+\]
+The notation $\M\bigl( T, (v_1, \dots, v_n) \bigr)$ is used if the basis is not clear from the context.
+}
+
+Operators have square matrices (meaning that the number of rows equals the number of columns), rather than the more general rectangular matrices that we considered earlier for linear maps.
+
+\mar{The\/ $k^\nth$
+column of the matrix\/ $\M(T)$ is formed from the coefficients used to write\/
+$Tv_k$ as a linear combination of the basis\/ $v_1, \dots, v_n$.}
+
+If $T$ is an operator on $\F{n}$ and no basis is specified, assume that the basis in question is the standard one \big(where the $k^\nth$ basis vector is $1$ in the $k^\nth$ slot and $0$ in all other slots\big).  You can then think of the $k^\nth$ column of $\M(T)$ as $T$ applied to the $k^\nth$ basis vector, where we identify \by{n}{1} column vectors with elements of $\FF n$.
+
+\begin{example}[uppertmat]{matrix of an operator with respect to standard basis}
+Define $T \in \L\paren[\big]{\F3}$ by $T(x, y, z) = (2x + y, 5y + 3z, 8z)$. Then the matrix of $T$ with respect to the standard basis of $\F3$ is
+\[
+\M(T) = \mat{ccc}{2 & 1 & 0 \\
+0 & 5 & 3 \\
+0 & 0 & 8},
+\]
+as you should verify.
+\end{example}
+
+A central goal of linear algebra is to show that given an operator $T$ on a finite-dimensional vector space $V\1$, there exists a basis of~$V$ with respect to which $T$ has a reasonably simple matrix. To make this vague formulation a bit more precise, we might try to choose a basis of $V$ such that $\M(T)$ has many $0$'s.
+
+\pagebreak[3]
+
+If $V$ is a finite-dimensional complex vector space, then we already know enough to show that there is a basis of $V$ with respect to which the matrix of $T$ has $0$'s everywhere in
+the first column, except possibly the first entry.  In other words, there is a basis
+of $V$ with respect to which the matrix of $T$ looks like
+\[
+\mat{ccccc}{
+\la & & & & \\
+0 & & * & & \\
+\vdots & & & & \\
+0 & & & & };
+\]
+here $*$ denotes the entries in all columns other than the first column.
+To prove this, let $\la$ be an eigenvalue of~$T$ (one exists by~\ref{151}) and let $v$
+be a corresponding eigenvector.  Extend $v$ to a basis of~$V\1$. Then the
+matrix of $T$ with respect to this basis has the form above.
+Soon we will see that we can choose a basis of $V$ with respect to which the matrix of $T$ has even more~$0$'s.
+
+\DefinitionBox{diagonal of a matrix}{The \emph{diagonal}\index{diagonal of a square matrix} of a square matrix consists of the entries on the line from the upper left corner to the bottom right corner.}
+
+For example, the diagonal of the matrix
+\[
+\M(T) = \mat{ccc}{\color{red}2 & 1 & 0 \\
+0 & \color{red}5 & 3 \\
+0 & 0 & \color{red}8}
+\]
+from Example \ref{uppertmat} consists of the entries $2, 5, 8$, which are shown in red in the matrix above.
+
+\DefinitionBox{upper-triangular matrix}{A square matrix is called \emph{upper triangular} if all entries below the diagonal are~$0$.\index{upper-triangular matrix|(}}
+
+For example, the \by{3}{3} matrix above is upper triangular.
+
+Typically we represent an
+upper-triangular matrix in the form
+\[
+\mat{ccc}{
+\la_1 & & * \\
+& \ddots & \\
+0 & & \la_n };
+\]
+\mar{We often use\/ $*$ to denote matrix entries that we do not know or that are irrelevant to the questions being \mbox{discussed}.}
+the $0$ in the matrix above indicates that all entries below the diagonal in this
+\by{n}{n} matrix equal~$0$.  Upper-triangular matrices can be considered
+reasonably simple---if $n$ is large, then at least almost half the entries in an \by{n}{n} upper-triangular matrix are~$0$.
+
+The next result provides a useful connection between upper-triangular matrices and invariant subspaces.
+
+\ResultBox[a225]{conditions for upper-triangular matrix}{%
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of $V\1$. Then the following are equivalent.
+\begin{subtheorem}*
+\item
+The matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
+
+\item
+$\Span(v_1, \dots, v_k)$ is invariant under $T$ for each $k = 1, \dots, n$.
+
+\item
+$Tv_k \in \Span(v_1, \dots, v_k)$ for each $k = 1, \dots, n$.
+\end{subtheorem}
+}
+
+\proof
+First suppose (a) holds. To prove that (b) holds, suppose $k \in \br{1, \ldots, n}$. If $j \in \br{1, \ldots, n}$, then
+\[
+Tv_j \in \Span (v_1, \ldots, v_j)
+\]
+because the matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular. Because
+$\Span(v_1, \ldots, v_j) \subset \Span(v_1, \ldots, v_k)$ if $j \le k$, we see that
+\[
+Tv_j \in \Span(v_1, \ldots, v_k)
+\]
+for each $j \in \br{1, \ldots, k}$. Thus $\Span(v_1, \dots, v_k)$ is invariant under $T$, completing the proof that (a) implies (b).
+
+Now suppose (b) holds, so $\Span(v_1, \dots, v_k)$ is invariant under $T$ for each \mbox{$k = 1, \dots, n$}. In particular,
+$Tv_k \in \Span(v_1, \dots, v_k)$ for each $k = 1, \dots, n$. Thus (b) implies (c).
+
+Now suppose (c) holds, so $Tv_k \in \Span(v_1, \dots, v_k)$ for each $k = 1, \dots, n$. This means that when writing each $Tv_k$ as a linear combination of the basis vectors $v_1, \ldots, v_n$, we need to use only the vectors $v_1, \ldots, v_k$. Hence all entries under the diagonal of $\M(T)$ are $0$. Thus $\M(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
+
+We have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a), which shows that (a), (b), and (c) are equivalent.
+\qed
+
+The next result tells us that if $T \in \L(V)$ and with respect to some basis of $V$ we have
+\[
+\M(T) = \mat{ccc}{
+\la_1 & & * \\
+&  \ddots & \\
+0 & & \la_n },
+\]
+then $T$ satisfies a simple equation depending on $\la_1, \ldots, \la_n$.
+
+\ResultBox[4polyut]{equation satisfied by operator with upper-triangular matrix}
+{Suppose $T \in \L(V)$ and $V$ has a basis with respect to which $T$  has an upper-triangular matrix with diagonal entries
+$\la_1, \ldots, \la_n$. Then
+\[
+(T-\la_1 I) \cdots (T - \la_n I) = 0.
+\]}
+
+\proof
+Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$ has an upper-triangular matrix with diagonal entries
+$\la_1, \ldots, \la_n$. Then $Tv_1 = \la_1 v_1$, which means that $(T-\la_1 I)v_1 = 0$, which implies that
+$(T-\la_1 I) \cdots (T - \la_m I) v_1 = 0$ for $m=1, \ldots, n$ (using the commutativity of each $T - \la_j I$ with each $T - \la_k I$).
+
+Note that $(T - \la_2 I)v_2 \in \Span(v_1)$. Thus $(T - \la_1 I)(T - \la_2 I)v_2 = 0$ (by the previous paragraph), which implies that
+$(T-\la_1 I) \cdots (T - \la_m I) v_2 = 0$ for $m=2, \ldots, n$ (using the commutativity of each $T - \la_j I$ with each $T - \la_k I$).
+
+Note that $(T - \la_3 I)v_3 \in \Span(v_1, v_2)$. Thus by the previous paragraph, $(T - \la_1 I)(T - \la_2 I)(T - \la_3 I) v_3 = 0$, which implies that $(T-\la_1 I) \cdots (T - \la_m I) v_3 = 0$ for $m=3, \ldots, n$ (using the commutativity of each $T - \la_j I$ with each
+$T - \la_k I$).
+
+Continuing this pattern, we see that $(T-\la_1 I) \cdots (T - \la_n I)v_k = 0$ for each $k = 1, \ldots, n$. Thus $(T-\la_1 I) \cdots (T - \la_n I)$ is the $0$ operator because it is $0$ on each vector in a basis of $V\1$.
+\qed
+
+Unfortunately no method exists for exactly computing the eigenvalues of an operator
+from its matrix.  However, if we are fortunate enough to find a basis with respect to which the matrix of the operator is upper
+triangular, then the problem of computing the eigenvalues becomes trivial, as the next result shows.
+
+\ResultBox[a221]{determination of eigenvalues from upper-triangular matrix}{%
+Suppose $T \in \L(V)$ has an upper-triangular matrix with respect to some basis of~$V\1$. Then the eigenvalues of~$T$ are precisely the entries on the diagonal of that upper-triangular matrix.
+}
+
+\proof
+Suppose $v_1, \dots, v_n$ is a basis of~$V$ with respect to which $T$ has an
+upper-triangular matrix
+\[
+\M(T) = \mat{ccc}{
+\la_1 & & * \\
+&  \ddots & \\
+0 & & \la_n }.
+\]
+
+Because $Tv_1 = \la_1 v_1$, we see that $\la_1$ is an eigenvalue of $T\3$.
+
+Suppose $k \in \br{2, \ldots, n}$. Then $(T - \la_k I)v_k \in \Span(v_1, \dots, v_{k-1})$. Thus $T - \la_k I$ maps $\Span(v_1, \dots, v_k)$ into $\Span(v_1, \dots, v_{k-1})$. Because
+\[
+\dim \Span(v_1, \dots, v_k) = k \andd  \dim \Span(v_1, \dots, v_{k-1}) = k-1,
+\]
+this implies that $T- \la_k I$ restricted to $\Span(v_1, \dots, v_k)$ is not injective (by \ref{13}). Thus there exists
+$v \in \Span(v_1, \dots, v_k) $ such that $v \ne 0$ and $(T - \la_k I)v = 0$. Thus $\la_k$ is an eigenvalue of $T\3$. Hence we have shown that every entry on the diagonal of $\M(T)$ is an eigenvalue of $T\3$.
+
+To prove $T$ has no other eigenvalues, let $q$ be the polynomial defined by $q(z) = (z-\la_1)\cdots(z-\la_n)$. Then $q(T) = 0$ (by \ref{4polyut}). Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ (by \ref{140}). Thus every zero of the minimal polynomial of $T$ is a zero of $q$. Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ (by \ref{136}), this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list
+$\la_1, \ldots, \la_n$.
+\qed
+
+\begin{example}{eigenvalues via an upper-triangular matrix}
+Define $T \in \L\paren[\big]{\F3}$ by $T(x, y, z) = (2x + y, 5y + 3z, 8z)$. The matrix of $T$ with respect to the standard basis is
+\[
+\M(T) = \mat{ccc}{2 & 1 & 0 \\
+0 & 5 & 3 \\
+0 & 0 & 8}.
+\]
+Now \ref{a221} implies that the eigenvalues of $T$ are $2$, $5$, and $8$.
+\end{example}
+
+The next example illustrates \ref{5necsuf}: an operator has an upper-triangular matrix with respect to some basis if and only if the minimal polynomial of the operator is the product of polynomials of degree $1$.
+
+\begin{example}{whether\/ $T$ has an upper-triangular matrix can depend on\/ $\F{}$}
+Define $T \in \L\paren[\big]{\F4}$ by
+\[
+T(z_1, z_2, z_3, z_4) = (-z_2, z_1, 2 z_1 + 3z_3, z_3+3z_4).
+\]
+Thus with respect to the standard basis of $\F4$, the matrix of $T$ is
+\[
+\mat{cccc}{
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+2 & 0 & 3 & 0\\
+0 & 0 & 1 & 3}.
+\]
+You can ask a computer to verify that the minimal polynomial of $T$ is the polynomial $p$ defined by
+\[
+p(z) = 9 - 6z + 10 z^2 -6z^3 + z^4\1.
+\]
+
+First consider the case $\F{} = \R{}$. Then the polynomial $p$ factors as
+\[
+p(z) = \paren[\big]{z^2 + 1} (z-3)(z-3),
+\]
+with no further factorization of $z^2 + 1$ as the product of two polynomials of degree $1$ with real coefficients. Thus \ref{5necsuf} states that there does not exist a basis of $\R4$ with respect to which $T$ has an upper-triangular matrix.
+
+Now consider the case $\F{} = \C{}$. Then the polynomial $p$ factors as
+\[
+p(z) = (z-i)(z+i)(z-3)(z-3),
+\]
+where all factors above have the form $z - \la_k$. Thus \ref{5necsuf} states that there is a basis of $\C4$ with respect to which $T$ has an upper-triangular matrix. Indeed, you can verify that with respect to the basis $(4-3i, -3-4i,-3+i,1), (4+3i,-3+4i,-3-i,1),$ $(0, 0, 0, 1), (0,0,1, 0)$ of $\C4$, the operator $T$ has the upper-triangular matrix
+\[
+\mat{cccc}{
+i & 0 & 0 & 0 \\
+0 & -i & 0 & 0 \\
+0 & 0 & 3 & 1\\
+0 & 0 & 0 & 3}.
+\]
+\end{example}
+
+\ResultBox[5necsuf]{necessary and sufficient condition to have an upper-triangular matrix}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}\3$.\index{minimal polynomial!and upper-triangular matrices}}
+
+\proof
+First suppose $T$ has an upper-triangular matrix with respect to some basis of $V\1$. Let $\al_1, \ldots, \al_n$ denote the diagonal entries of that matrix. Define a polynomial $q \in \P(\F{})$ by
+\[
+q(z) = (z-\al_1) \cdots (z-\al_n).
+\]
+Then $q(T) = 0$, by \ref{4polyut}. Hence $q$ is a polynomial multiple of the minimal polynomial of $T$, by \ref{140}. Thus the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}$ with
+$\br{\la_1, \ldots, \la_m} \subset \br{\al_1, \ldots, \al_n}$.
+
+To prove the implication in the other direction, now suppose the minimal polynomial of $T$ equals
+$(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}\3$. We will use induction on $m$. To get started, if $m = 1$ then $z-\la_1$ is the minimal polynomial of $T$, which implies that $T = \la_1 I$, which implies that the matrix of $T$ (with respect to any basis of $V$) is upper triangular.
+
+Now suppose $m > 1$ and the desired result holds for all smaller positive integers. Let
+\[
+U = \ran (T - \la_m I).
+\]
+Then $U$ is invariant under~$T$ \sbr{this is a special case of \ref{130} with $p(z) = z - \la_m$}.
+Thus $T|_U$ is an operator on~$U$.
+
+If $u \in U$, then $u = (T - \la_m I) v$ for some $v \in V$ and
+\[
+(T - \la_1 I) \cdots (T - \la_{m-1} I) u = (T - \la_1 I) \cdots (T - \la_m I) v = 0.
+\]
+Hence $(z - \la_1) \cdots (z-\la_{m-1})$ is a polynomial multiple of the minimal polynomial of $T|_U$, by \ref{140}. Thus the minimal polynomial of $T|_U$ is the product of at most $m-1$ terms of the form $z-\la_k$.
+
+By our induction hypothesis, there is a basis
+$u_1, \dots, u_M$ of $U$ with respect to which $T|_U$ has an upper-triangular
+matrix.  Thus for each $k \in \br{1, \ldots, M}$, we have (using \ref {a225})
+\begin{equation} \label{401}
+Tu_k = (T|_U)(u_k) \in \Span(u_1, \dots, u_k).
+\end{equation}%
+
+Extend $u_1, \dots, u_M$ to a basis $u_1, \dots, u_M, v_1, \dots, v_N$ of~$V\1$.
+If $k \in \br{1, \ldots, N}$, then
+\[
+Tv_k = (T - \la_m I)v_k + \la_m v_k.
+\]
+The definition of $U$ shows that $(T - \la_m I)v_k \in U = \Span(u_1, \dots, u_M)$.
+Thus the equation above shows that
+\begin{equation} \label{402}
+Tv_k \in \Span(u_1, \dots, u_M, v_1, \dots, v_k).
+\end{equation}%
+
+From \ref{401} and \ref{402}, we conclude (using \ref {a225}) that $T$ has
+an upper-triangular matrix with respect to the basis $u_1, \dots, u_M, v_1, \dots, v_N$ of $V\1$, as desired.
+\qed
+
+The set of numbers $\br{\la_1, \ldots, \la_m}$ from the previous result equals the set of eigenvalues of $T$ (because the set of zeros of the minimal polynomial of $T$ equals the set of eigenvalues of $T$, by \ref{136}), although the list $\la_1, \ldots, \la_m$ in the previous result may contain repetitions.
+
+In Chapter~\ref{88} we will improve even the wonderful result below; see \ref{187} and \ref{398}.
+
+\ResultBox[a226]{if\/ $\F{} = \C{}$, then every operator on\/ $V$ has an upper-triangular matrix}
+{Suppose $V$ is a finite-dimensional complex vector space and $T \in \L(V)$. Then $T$ has an upper-triangular matrix with respect to some basis of $V\1$.}
+
+\proof
+The desired result follows immediately from \ref{5necsuf} and the second version of the fundamental theorem of algebra (see \ref{4FTA2}).
+\qed
+
+
+
+%\mar[7]{For additional necessary and sufficient conditions for an operator on a real vector space to have an upper-triangular matrix with respect to some basis, see Exercise \ref{1Ruppertri} in Section \ref{geneig}.}
+
+For an extension of the result above to two operators $S$ and $T$ such that
+\[
+ST = TS,
+\]
+see \ref{2commute}. Also, for an extension to more than two operators, see Exercise \ref{4ManyOps}(b) in Section \ref{2diagmat}.
+
+\textbf{Caution:} If an operator $T\in\L(V)$ has an upper-triangular matrix with respect to some basis $v_1, \ldots, v_n$ of $V\1$, then the eigenvalues of $T$ are exactly the entries on the diagonal of $\M(T)$, as shown by \ref{a221}, and furthermore $v_1$ is an eigenvector of $T\3$. However, $v_2, \ldots, v_n$ need not be eigenvectors of $T\3$. Indeed, a basis vector $v_k$ is an eigenvector of $T$ if and only if all  entries in the $k^\nth$ column of the matrix of $T$ are $0$, except possibly the $k^\nth$ entry.
+
+\mar{The row echelon form of the matrix of an operator does not give us a list of the eigenvalues of the operator. In contrast, an upper-triangular matrix with respect to some basis gives us a list of all the eigenvalues of the operator. However, there is no method for computing exactly such an upper-triangular matrix, even though \ref{a226} guarantees its existence if\/ $\F{} = \C{}$.}
+
+You may recall from a previous course that every matrix of numbers can be changed to a matrix in what is called row echelon form. If one begins with a square matrix, the matrix in row echelon form will be an upper-triangular matrix.
+Do not confuse this upper-triangular matrix with the upper-triangular matrix of an operator with respect to some basis whose existence is proclaimed by \ref{a226} (if $\F{} = \C{}$)---there is no connection between these upper-triangular matrices.\index{upper-triangular matrix|)}
+
+\begin{exercises}
+
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V\1$, then $T$ has an upper-triangular matrix with respect to some basis of $V\1$.
+
+
+\exercise
+Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\al_1, \ldots, \al_n$ on the diagonal of $A$ and
+$\beta_1, \ldots, \beta_n$ on the diagonal of $B$.\label{2AB}
+\begin{subtheorem}
+\item
+Show that $A+B$ is an upper-triangular matrix with $\al_1 + \beta _1, \ldots, \al_n + \beta_n$ on the diagonal.
+\item
+Show that $AB$ is an upper-triangular matrix with $\al_1 \beta _1, \ldots, \al_n \beta_n$ on the diagonal.
+\end{subtheorem}
+\exercisecomment{The results in this exercise are used in the proof of \ref{2EigenSum}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible and $v_1, \dots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\la_1, \ldots, \la_n$ on the diagonal.
+Show that the matrix of $T^{-1}$ is also upper triangular with respect to the basis $v_1, \dots, v_n$, with
+\[
+\frac{1}{\la_1}, \ldots, \frac{1}{\la_n}
+\]
+on the diagonal.
+
+
+\exercise
+Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
+\exercisecomment{This exercise and the exercise below show that \ref{a221} fails without the hypothesis that an upper-triangular matrix is under consideration.}
+
+
+\exercise
+Give an example of an operator whose matrix with respect to some basis contains
+only nonzero numbers on the diagonal, but the operator is not invertible.
+
+
+\exercise
+Suppose $\F{} = \C{}$, $V$ is finite-dimensional, and $T \in \L(V)$. Prove that if $k \in \br{1, \dots, \dim V}$,
+then $V$ has a $k$-dimensional subspace invariant under $T\3$. \label{457}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $v \in V\1$. \label{2minpolyv}
+\begin{subtheorem}
+\item
+Prove that there exists a unique monic polynomial $p_v$ of smallest degree such that $p_v(T)v = 0$.
+\item
+Prove that the minimal polynomial of $T$ is a polynomial multiple of $p_v$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and there exists a nonzero vector $v \in V$ such that
+$T^2 v + 2Tv = -2v$.
+\begin{subtheorem}
+\item
+Prove that if $\F{} = \R{}$, then there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+\item
+Prove that if $\F{} = \C{}$ and $A$ is an upper-triangular matrix that equals the matrix of $T$ with respect to some basis of $V\1$, then $-1 + i$ or $-1 - i$ appears on the diagonal of $A$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $B$ is a square matrix with complex entries. Prove that there exists an
+invertible square matrix $A$ with complex entries such that $A^{-1} B A$ is an
+upper-triangular matrix.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of $V\1$. Show that the following are equivalent.\label{5lower}\index{lower-triangular matrix}
+\begin{subtheorem}*
+\item
+The matrix of $T$ with respect to $v_1, \dots, v_n$ is lower triangular.
+\item
+$\Span(v_k, \dots, v_n)$ is invariant under $T$ for each $k = 1, \dots, n$.
+\item
+$Tv_k \in \Span(v_k, \dots, v_n)$ for each $k = 1, \dots, n$.
+\end{subtheorem}
+\exercisecomment{A square matrix is called \emph{lower triangular} if all entries above the diagonal are\/ $0$.}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $V$ is finite-dimensional. Prove that if $T \in \L(V)$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.\index{lower-triangular matrix}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$ has an upper-triangular matrix with respect to some basis of $V\1$, and $U$ is a subspace of $V$ that is invariant under $T\3$.
+\begin{subtheorem}
+\item
+Prove that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
+\item
+Prove that the quotient operator $T\3/U$ has an upper-triangular matrix with respect to some basis of $V\1/U$.\index{quotient!operator}
+\end{subtheorem}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Suppose there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$ and also $T\3/U$ has an upper-triangular matrix with respect to some basis of $V\1/U$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V\1$.\index{quotient!operator}\label{6Tutm}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'\!$.\index{dual!of a linear map}
+
+
+\end{exercises}
+
+\CrCom
+
+\section{Diagonalizable Operators} \label{diagmat}
+
+\subsection{Diagonal Matrices}
+
+\DefinitionBox{diagonal matrix}{A \emph{diagonal matrix}\index{diagonal matrix} is a square matrix
+that is $0$ everywhere except possibly on the diagonal.}
+
+\begin{example}[diagmatex]{diagonal matrix}
+\vspace{-.15in}
+\[
+\mat{ccc}{
+8 & 0 & 0\\
+0 & 5 & 0\\
+0 & 0 & 5}
+\]
+is a diagonal matrix.
+\end{example}
+
+\mar{Every diagonal matrix is upper triangular. Diagonal matrices typically have many more $0$'s than most upper-triangular matrices of the same size.}
+
+If an operator has a diagonal matrix with respect to some basis, then the  entries on the diagonal are precisely the eigenvalues of the operator; this follows from~\ref{a221} (or find an easier direct proof for diagonal matrices).
+
+\DefinitionBox{diagonalizable}
+{An operator on $V$ is called \emph{diagonalizable}\index{diagonalizable} if the operator has a diagonal matrix with respect to some basis of $V\1$.}
+
+\begin{example}{diagonalization may require a different basis}
+Define $T \in \L\paren[\big]{\R2}$ by
+\[
+T(x, y) = (41x + 7y, -20x + 74y).
+\]
+The matrix of $T$ with respect to the standard basis of $\R2$ is
+\[
+\mat{cc}
+{41 & 7 \\
+-20 & 74},
+\]
+which is not a diagonal matrix. However, $T$ is diagonalizable. Specifically, the matrix of $T$ with respect to the basis $ (1,4), (7, 5)$ is
+\[
+\mat{cc}
+{69 & 0 \\
+0 & 46}
+\]
+because $T(1,4) = (69, 276) = 69(1, 4)$ and $T(7, 5) = (322, 230) = 46(7,5)$.
+\end{example}
+
+\pagebreak[3]
+
+For $\la \in \F{}\3$, we will find it convenient to have a name and a notation for the set of vectors that an operator $T$ maps to $\la$ times the vector.
+
+\DefinitionBox[eigenspace]{eigenspace, $E(\la, T)$}
+{Suppose $T \in \L(V)$ and $\la \in \F{}\3$. The \emph{eigenspace} of $T$ corresponding to $\la$ is the subspace
+$E(\la, T)$ of $V$ defined by\sindex{ElambdaT@$E(\la, T)$}\index{eigenspace}
+\[
+E(\la, T) = \ker(T - \la I) = \br{v \in V: Tv = \la v}.
+\]
+Hence $E(\la, T)$ is the set of all eigenvectors of $T$ corresponding to $\la$, along with the $0$ vector.}
+
+For $T \in \L(V)$ and $\la \in \F{}\3$, the set $E(\la, T)$ is a subspace of $V$ because the null space of each linear map on $V$ is a subspace of $V\1$. The definitions imply that  $\la$ is an eigenvalue of~$T$ if and only if
+$E(\la, T) \ne \{0\}$.
+
+\begin{example}{eigenspaces of an operator}
+Suppose the matrix of an operator $T \in\L(V)$ with respect to a basis $v_1, v_2, v_3$ of $V$ is the matrix in Example~\ref{diagmatex}. Then
+\[
+E(8, T) = \Span(v_1), \quad E(5, T) = \Span(v_2, v_3).
+\]
+\exampledisplayend
+\end{example}
+
+If $\la$ is an eigenvalue of an operator $T \in \L(V)$, then $T$ restricted to $E(\la, T)$ is just the operator of multiplication by $\la$.
+
+\ResultBox[dirE]{sum of eigenspaces is a direct sum}
+{Suppose $T \in \L(V)$ and $\la_1, \dots, \la_m$ are distinct eigenvalues of $T\3$. Then
+\[
+E(\la_1, T) + \dots + E(\la_m, T)
+\]
+is a direct sum. Furthermore, if $V$ is finite-dimensional, then
+\[
+\dim E(\la_1, T) + \dots + \dim E(\la_m, T) \le \dim V\1.
+\]}
+
+\proof
+To show that $E(\la_1, T) + \dots + E(\la_m, T)$ is a direct sum, suppose
+\vspace{-1bp} %VisualFormatting for 4e page break
+\[
+v_1 + \dots + v_m = 0,
+\]
+\vspace{-1bp}% VisualFormatting for 4e page break
+where each $v_k$ is in $E(\la_k, T)$.  Because eigenvectors corresponding to distinct eigenvalues are linearly
+independent (by \ref{26}), this implies that each $v_k$
+equals~$0$.  Thus $E(\la_1, T) + \dots + E(\la_m, T)$ is a direct sum (by \ref{30}), as desired.
+
+Now suppose $V$ is finite-dimensional. Then
+\begin{align*}
+\dim E(\la_1, T) + \dots + \dim E(\la_m, T) &= \dim \bigl(E(\la_1, T) \oplus \dots \oplus  E(\la_m, T) \bigr)\\[2bp]
+&\le \dim V\1,
+\end{align*}
+where the first line follows from \ref{3directsumdim} and the second line follows from \ref{2subdim}.
+\qed%
+
+\subsection{Conditions for Diagonalizability}
+
+The following characterizations of diagonalizable operators will be useful.
+
+\ResultBox[427]{conditions equivalent to diagonalizability}{%
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $\la_1, \dots, \la_m$ denote the distinct eigenvalues of $T\3$.
+Then the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is diagonalizable.
+
+\item
+$V$ has a basis consisting of eigenvectors of\/ $T\3$.\index{basis!of eigenvectors}
+
+\item
+$V = E(\la_1, T) \oplus \dots \oplus E(\la_m, T)$.
+
+\item
+$\dim V = \dim E(\la_1, T) + \dots + \dim E(\la_m, T)$.
+\end{subtheorem}
+}
+
+\proof
+An operator $T \in \L(V)$ has a diagonal matrix
+\[
+\mat{ccc}{
+\la_1 & &0 \\
+& \ddots & \\
+0 & & \la_n}
+\]
+with respect to a basis $v_1, \dots, v_n$ of $V$ if and only if $Tv_k = \la_k v_k$ for each~$k$. Thus (a) and (b) are equivalent.
+
+Suppose (b) holds; thus $V$ has a basis consisting of
+eigenvectors of~$T\3$.  Hence every vector in $V$ is a linear combination
+of eigenvectors of~$T$, which implies that
+\[
+V = E(\la_1, T) + \dots + E(\la_m, T).
+\]
+Now \ref{dirE} shows that (c) holds, proving that (b) implies (c).
+
+That (c) implies (d) follows immediately from \ref{3directsumdim}.
+
+Finally, suppose (d) holds; thus
+\begin{equation} \label{426}
+\dim V = \dim E(\la_1, T) + \dots + \dim E(\la_m, T).
+\end{equation}%
+Choose a basis of each $E(\la_k, T)$; put all these
+bases together to form a list $v_1, \dots, v_n$ of eigenvectors
+of~$T$, where $n = \dim V$ (by \ref{426}).  To show that this list is
+linearly independent, suppose
+\[
+a_1 v_1 + \dots + a_n v_n = 0,
+\]
+where $a_1, \dots, a_n \in \F{}\3$.  For each $k = 1, \dots, m$, let
+$u_k$ denote the sum of all the terms $a_j v_j$ such that
+$v_j \in E(\la_k, T)$.  Thus each $u_k$ is in $E(\la_k, T)$, and
+\[
+u_1 + \dots + u_m = 0.
+\]
+Because eigenvectors corresponding to distinct eigenvalues are linearly
+independent (see \ref{26}), this implies that each $u_k$ equals
+$0$.  Because each $u_k$ is a sum of terms $a_j v_j$, where the
+$v_j$'s were chosen to be a basis of $E(\la_k, T)$, this implies
+that all $a_j$'s equal~$0$.  Thus $v_1, \dots, v_n$ is linearly
+independent and hence is a basis of $V$ (by~\ref{75}).  Thus (d)
+implies (b), completing the proof.
+\qed
+
+For additional conditions equivalent to diagonalizability, see \ref{500}, Exercises~\ref{diagKerRan} and \ref{2gcd} in this section, Exercise \ref{Diag2} in Section \ref{SpectralTheorem}, and Exercise \ref{425} in Section \ref{geneig}.
+
+\pagebreak[3]
+
+As we know, every operator on a nonzero finite-dimensional complex \mbox{vector} space has an eigenvalue. However, not every operator on a nonzero finite-dimensional complex vector space has enough eigenvectors to be diagonalizable, as shown by the next example.
+
+\begin{example}[428]{an operator that is not diagonalizable}
+Define an operator $T \in \L\paren[\big]{\F{3}}$ by
+$
+T(a,b,c) = (b,c, 0)$. The matrix of $T$ with respect to the standard basis of $\F3$ is
+\[
+\mat{ccc}{
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0},
+\]
+which is an upper-triangular matrix but is not a diagonal matrix.
+
+As you should verify, $0$ is the only eigenvalue of $T$ and furthermore
+\[
+E(0, T) = \br[\big]{(a,0,0) \in \F3: a \in \F{}}.
+\]
+Hence conditions (b), (c), and (d) of \ref{427} fail (of course, because these conditions are equivalent, it is sufficient to check that only one of them fails). Thus condition (a) of \ref{427} also fails. Hence $T$ is not diagonalizable, regardless of  whether
+$\F{} = \R{}$ or $\F{} =\C{}$.
+\end{example}
+
+The next result shows that if an operator has as many distinct
+eigenvalues as the dimension of its domain, then the operator is diagonalizable.
+
+\ResultBox[453]{enough eigenvalues implies diagonalizability}{%
+Suppose $V$ is finite-dimensional and $T \in \L(V)$ has $\dim V$ distinct eigenvalues. Then $T$ is diagonalizable.
+}
+
+\proof
+Suppose $T$ has distinct eigenvalues $\la_1, \dots, \la_{\dim V}$.  For each $k$, let $v_k \in V$ be an
+eigenvector corresponding to the eigenvalue $\la_k$.  Because eigenvectors corresponding to distinct eigenvalues are linearly
+independent (see~\ref{26}), $v_1, \dots, v_{\dim V}$ is linearly independent.
+
+A linearly independent list of $\dim V$ vectors in $V$ is a basis of $V$ (see~\ref{75}); thus $v_1, \dots, v_{\dim V}$ is a basis of $V\1$.  With respect to this basis consisting of eigenvectors, $T$ has a diagonal matrix.
+\qed
+
+In later chapters we will find additional conditions that imply that certain
+operators are diagonalizable. For example, see the real spectral theorem (\ref{86}) and the complex spectral theorem (\ref{85}).
+
+The result above gives a sufficient condition for an operator to be diagonalizable. However, this condition is not necessary. For example, the operator $T$ on $\F3$ defined by $T(x,y,z) = (6x, 6y, 7z)$ has only two eigenvalues ($6$ and $7$) and $\dim \F3 = 3$, but $T$ is diagonalizable \big(by the standard basis of $\F3$\big).
+
+\pagebreak[3]
+
+\mar{For a spectacular application of these techniques, see Exercise~\ref{Fibonacci}, which shows how to use diagonalization to find an exact formula for the $n^\nth$ term of the Fibonacci sequence.}
+
+The next example illustrates the importance of diagonalization, which can be used to compute high powers of an operator, taking advantage of the equation $T^k v = \la^k v$ if $v$ is an eigenvector of $T$ with eigenvalue $\la$.
+
+\begin{example}{using diagonalization to compute\/ $T^{100}$}
+Define $T \in \L\paren[\big]{\F3}$ by $T(x, y, z) = (2x + y, 5y + 3z, 8z)$.
+With respect to the standard basis, the matrix of $T$ is
+\[
+\mat{ccc}{2 & 1 & 0 \\
+0 & 5 & 3 \\
+0 & 0 & 8}.
+\]
+The matrix above is an upper-triangular matrix but it is not a diagonal matrix. By \ref{a221}, the eigenvalues of $T$ are $2$, $5$, and $8$. Because $T$ is an operator on a vector space of dimension three and $T$ has three distinct eigenvalues, \ref{453} assures us that there exists a basis of $\F3$ with respect to which $T$ has a diagonal matrix.
+
+To find this basis, we only have to find an eigenvector for each eigenvalue. In other words, we have to find a nonzero solution to the equation
+\[
+T(x, y, z) = \la(x, y, z)
+\]
+for $\la = 2$, then for $\la = 5$, and then for $\la = 8$. Solving these simple equations shows that for $\la = 2$ we have an eigenvector
+$(1, 0, 0)$, for $\la = 5$ we have an eigenvector $(1, 3, 0)$, and for $\la = 8$ we have an eigenvector $(1, 6, 6)$.
+
+Thus $(1, 0, 0), (1, 3, 0), (1, 6, 6) $ is a basis of $\FF3$ consisting of eigenvectors of $T$, and with respect to this basis the matrix of $T$ is the diagonal matrix
+\[
+\mat{ccc}{2 & 0 & 0 \\
+0 & 5 & 0 \\
+0 & 0 & 8}.
+\]
+
+To compute $T^{100}(0, 0, 1)$, for example, write $(0, 0,1)$ as a linear combination of our basis of eigenvectors:
+\[
+(0, 0, 1) =\tfrac{1}{6} (1,0,0) - \tfrac{1}{3} (1,3, 0) + \tfrac{1}{6}(1,6, 6).
+\]
+Now apply $T^{100}$ to both sides of the equation above, getting
+\begin{align*}
+T^{100}(0,0,1) &= \tfrac{1}{6} \paren[\Big]{ T^{100}(1,0,0) }- \tfrac{1}{3} \paren[\Big]{ T^{100} (1,3,0)} + \tfrac{1}{6} \paren[\Big]{T^{100} (1,6,6) } \\[5bp]
+&= \tfrac{1}{6} \paren[\Big]{ 2^{100}(1,0,0) - 2 \cdot 5^{100} (1,3,0) + 8^{100} (1,6,6) } \\[5bp]
+&= \tfrac{1}{6} \paren[\Big]{ 2^{100} - 2 \cdot 5^{100} + 8^{100},\, 6 \cdot 8^{100} - 6 \cdot 5^{100},\,
+6 \cdot 8^{100} }.
+\end{align*}
+\vspace{-.25in}
+\end{example}
+
+\pagebreak[3]
+
+We saw earlier that an operator $T$ on a finite-dimensional vector space $V$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some $\la_1, \ldots, \la_m \in \F{}$ (see \ref{5necsuf}). As we previously noted (see \ref{a226}), this condition is always satisfied if $\F{} = \C{}$.
+
+Our next result \ref{500} states that an operator $T \in \L(V)$ has a diagonal matrix with respect to some basis of $V$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some \textit{\textbf{distinct}} $\la_1, \ldots, \la_m \in \F{}\3$. Before formally stating this result, we give two examples of using it.
+
+\begin{example}{diagonalizable, but with no known exact eigenvalues}
+Define $T \in \L\paren[\big]{ \C5 }$ by
+\[
+T(z_1, z_2, z_3, z_4 ,z_5) = (-3z_5, z_1 + 6z_5, z_2, z_3, z_4).
+\]
+The matrix of $T$ is shown in Example \ref{141}, where we showed that the minimal polynomial of $T$ is $3 - 6z + z^5\1$.
+
+As mentioned in Example \ref{5noexact}, no exact expression is known for any of the zeros of this polynomial, but numeric techniques show that the zeros of this polynomial are approximately
+$
+-1.67, \  0.51, \  1.40, \  -0.12 + 1.59i, \  -0.12 - 1.59i$.
+
+The software that produces these approximations is accurate to more than three digits. Thus these approximations are good enough to show that the five numbers above are distinct. The minimal polynomial of $T$ equals the fifth degree monic polynomial with these zeros.
+Now \ref{500} shows that $T$ is diagonalizable.
+\end{example}
+
+\begin{example}{showing that an operator is not diagonalizable}
+Define $T \in \L\paren[\big]{\F{3}}$ by
+\[
+T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3).
+\]
+The matrix of $T$ with respect to the standard basis of $\F3$ is
+\[
+\mat{ccc}{ 6 & 3 & 4 \\
+0 & 6 & 2 \\
+0 & 0 & 7}.
+\]
+The matrix above is an upper-triangular matrix but is not a diagonal matrix. Might $T$ have a diagonal matrix with respect to some other basis of $\F3$?
+
+To answer this question, we will find the minimal polynomial of $T\3$. First note that the eigenvalues of $T$ are the diagonal entries of the matrix above (by \ref{a221}). Thus the zeros of the minimal polynomial of $T$ are $6, 7$ \sbr{by \ref{136}(a)}. The diagonal of the matrix above tells us that $(T-6I)^2 (T-7I) = 0$ (by \ref{4polyut}). The minimal polynomial of $T$ has degree at most $3$ (by \ref{3minpoly}). Putting all this together, we see that the minimal polynomial of $T$ is either $(z-6)(z-7)$ or $(z-6)^2 (z-7)$.
+
+A simple computation shows that
+$
+(T - 6I)(T - 7I) \ne 0$.
+Thus the minimal polynomial of $T$ is $(z-6)^2 (z-7)$.
+
+Now \ref{500} shows that $T$ is not diagonalizable.
+\end{example}
+
+\pagebreak[3]
+
+\ResultBox[500]{necessary and sufficient condition for diagonalizability}
+{Suppose $V$ is finite-dimensional and $T \in \L(V)$. Then $T$ is diagonalizable if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some list of distinct numbers $\la_1, \ldots, \la_m \in \F{}\3$.\index{minimal polynomial!and diagonalizability}}
+
+\proof
+First suppose $T$ is diagonalizable. Thus there is a basis $v_1, \dots, v_n$ of $V$ consisting of eigenvectors of $T\3$.  Let
+$\la_1, \dots, \la_m$ be the distinct eigenvalues of $T\3$.  Then for each $v_j$, there exists $\la_k$ with
+$(T - \la_k I)v_j = 0$.  Thus
+\[
+(T - \la_1 I) \dotsm (T - \la_m I)v_j = 0,
+\]
+which implies that the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$.
+
+\begin{comment}
+for each $j$ (the equation above holds because all operators in sight commute, and hence for each $j$, the appropriate $T - \la_k I$ can be moved to the last position in the product above).  An operator that sends each vector in a basis to the $0$ vector is the
+$0$ operator; hence
+\[
+(T - \la_1 I) \cdots (T - \la_m I) = 0.
+\]
+Thus the polynomial
+\[
+(z - \la_1) \dotsm (z - \la_m)
+\]
+when applied to $T$ gives $0$.  Hence the polynomial above is a polynomial multiple of the minimal polynomial of $T$ (by \ref{140}), which shows that the minimal polynomial of $T$ has the desired form. (Because each eigenvalue of $T$ is a zero of the minimal polynomial of $T$, the minimal polynomial of $T$ actually equals the polynomial above, but we do not need that conclusion for this proof.)
+\end{comment}
+
+To prove the implication in the other direction, now suppose the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some list of distinct numbers $\la_1, \ldots, \la_m \in \F{}\3$. Thus
+\begin{equation} \label{9Tr}
+(T - \la_1 I) \dotsm (T - \la_m I) = 0.
+\end{equation}%
+
+We will prove that $T$ is diagonalizable by induction on $m$. To get started, suppose $m = 1$. Then $T - \la_1 I = 0$, which means that $T$ is a scalar multiple of the identity operator, which implies that $T$ is diagonalizable.
+
+Now suppose that $m > 1$ and the desired result holds for all smaller values of $m$. The subspace $\ran(T-\la_m I)$ is invariant under~$T$ \sbr{this is a special case of \ref{130} with $p(z) = z - \la_m$}. Thus $T$ restricted to $\ran(T - \la_m I)$ is an operator on
+$\ran(T - \la_m I)$.
+
+If $u \in \ran(T-\la_m I)$, then $u = (T - \la_m I) v$ for some $v \in V\1$, and \ref{9Tr} implies
+\begin{equation} \label{7minr}
+(T - \la_1 I) \cdots (T - \la_{m-1} I) u = (T - \la_1 I) \cdots (T - \la_m I) v = 0.
+\end{equation}%
+Hence $(z - \la_1) \cdots (z-\la_{m-1})$ is a polynomial multiple of the minimal polynomial of $T$ restricted to $\ran(T - \la_m I)$ [by \ref{140}].
+Thus by our induction hypothesis, there is a basis of $\ran(T - \la_m I)$ consisting of eigenvectors of $T\3$.
+
+Suppose that $u \in \ran(T - \la_m I) \cap \ker(T - \la_m I)$. Then $Tu = \la_m u$. Now \ref{7minr} implies that
+\begin{align*}
+0 &= (T - \la_1 I) \cdots (T - \la_{m-1} I)u \\
+&= (\la_m - \la_1) \cdots (\la_m - \la_{m-1}) u.
+\end{align*}
+Because $\la_1, \ldots, \la_m$ are distinct, the equation above implies that $u = 0$. Hence $\ran(T - \la_m I) \cap \ker(T - \la_m I) = \br{0}$.
+
+Thus $\ran(T - \la_m I) + \ker(T - \la_m I)$ is a direct sum (by \ref{219}) whose dimension is $\dim V$ (by \ref{3directsumdim} and \ref{3ab11}). Hence $\ran(T - \la_m I) \oplus \ker(T - \la_m I) = V\1$. Every nonzero vector in $\ker(T-\la_m I)$ is an eigenvector of $T$ with eigenvalue $\la_m$. Earlier in this proof we saw that there is a basis of $\ran(T - \la_m I)$ consisting of eigenvectors of~$T\3$. Adjoining to that basis a basis of $\ker(T - \la_m I)$ gives a basis of $V$ consisting of eigenvectors of $T\3$. The matrix of $T$ with respect to this basis is a diagonal matrix, as desired.
+\qed
+
+No formula exists for the zeros of polynomials of degree $5$ or greater. However, the previous result can be used to determine whether an operator on a complex vector space is diagonalizable without even finding approximations of the zeros of the minimal polynomial---see Exercise \ref{2gcd}.
+
+The next result will be a key tool when we prove a result about the simultaneous diagonalization of two operators; see \ref{8SimDiag}. Note how the use of a characterization of diagonalizable operators in terms of the minimal polynomial (see \ref{500}) leads to a short proof of the next result.
+
+\ResultBox[5RestrictDi]{restriction of diagonalizable operator to invariant subspace}
+{Suppose $T \in \L(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T\3$. Then $T|_U$ is a diagonalizable operator on $U$.}
+
+\proof
+Because the operator $T$ is diagonalizable, the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some list of distinct numbers $\la_1, \ldots, \la_m \in \F{}$ (by \ref{500}). The minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T|_U$ (by \ref{5minU}). Hence the minimal polynomial of $T|_U$ has the form required by \ref{500}, which shows that $T|_U$ is diagonalizable.
+\qed
+
+\subsection{Gershgorin Disk Theorem}
+
+\DefinitionBox{Gershgorin disks}
+{Suppose $T \in \L(V)$ and $v_1, \ldots, v_n$ is a basis of $V\1$. Let $A$ denote the matrix of $T$ with respect to this basis. A \emph{Gershgorin disk} of $T$ with respect to the basis $v_1, \ldots, v_n$ is a set of the
+form\index{Gershgorin disk}
+\[
+\br[\Bigg]{ z \in \F{}: \abs{ z - A_{j,j} } \le \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \abs{A_{j,k}}},
+\vspace{-.1in} %VisualFormatting
+\]
+where $j \in \br{1, \ldots, n}$.}
+
+Because there are $n$ choices for $j$ in the definition above, $T$ has $n$ Gershgorin disks. If $\F{} = \C{}$, then for each $j \in \br{1, \ldots, n}$, the corresponding Gershgorin disk is a closed disk in $\C{}$ centered at $A_{j,j}$, which is the $j^\nth$ entry on the diagonal of $A$. The radius of this closed disk is the sum of the absolute values of the entries in row $j$ of $A$, excluding the diagonal entry. If $\F{} = \R{}$, then the Gershgorin disks are closed intervals in $\R{}$.
+
+In the special case that the square matrix $A$ above is a diagonal matrix, each Gershgorin disk consists of a single point that is a diagonal entry of $A$ (and each eigenvalue of $T$ is one of those points, as required by the next result). One consequence of our next result is that if the nondiagonal entries of $A$ are small, then each eigenvalue of $T$ is near a diagonal entry of $A$.
+
+\ResultBox[5Gershg]{Gershgorin disk theorem}
+{Suppose $T \in \L(V)$ and $v_1, \ldots, v_n$ is a basis of $V$. Then each eigenvalue of $T$ is contained in some Gershgorin disk of $T$ with respect to the basis $v_1, \ldots, v_n$.\index{Gershgorin disk theorem}}
+
+\proof
+Suppose $\la \in \F{}$ is an eigenvalue of $T$. Let $w \in V$ be a corresponding eigenvector. There exist $c_1, \ldots, c_n \in \F{}$ such that
+\begin{equation} \label{5Ger}
+w = c_1 v_1 + \cdots + c_n v_n.
+\end{equation}%
+
+Let $A$ denote the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+Applying $T$ to both sides of the equation above gives
+\begin{align}
+\la w &= \sum_{k=1}^n c_k Tv_k \label{52Ger} \\[4bp]
+&= \sum_{k=1}^n c_k \sum_{\js}^n A_{j,k} v_j \notag \\[4bp]
+&= \sum_{\js}^n \paren[\bigg] { \sum_{k=1}^n A_{j,k} c_k } v_j. \label{53Ger}
+\end{align}
+
+Let $j \in \br{1, \ldots, n}$ be such that
+\[
+\abs{c_j} = \max\br{ \abs{c_1}, \ldots, \abs{c_n} }.
+\]
+Using \ref{5Ger}, we see that the coefficient of $v_j$ on the left side of \ref{52Ger} equals $\la c_j$, which must equal the coefficient of $v_j$ on the right side of \ref{53Ger}. In other words,
+\[
+\la c_j = \sum_{k=1}^n A_{j,k} \, c_k.
+\]
+Subtract $A_{j,j} \, c_j$ from each side of the equation above and then divide both sides by $c_j$ to get
+\vspace{-.1in}
+\begin{align*}
+\abs{ \la - A_{j,j} } &= \abs[\Bigg]{\sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n A_{j,k} \frac{c_k}{c_j}} \\[5bp]
+&\le \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \abs{A_{j,k}}.
+\end{align*}
+Thus $\la$ is in the $j^\nth$ Gershgorin disk with respect to the basis $v_1, \ldots, v_n$.
+\qed
+
+\mar{The Gershgorin disk theorem is named for Semyon Aronovich Gershgorin, who published this result in 1931.\index{Gershgorin, Semyon Aronovich}}
+
+Exercise \ref{5Gershgor} gives a nice application of the Gershgorin disk theorem.
+
+Exercise \ref{5Gershgo} states that the radius of each Gershgorin disk could be changed to the sum of the absolute values of corresponding column entries (instead of row entries), excluding the diagonal entry, and the theorem above would still hold.
+
+\begin{exercises}
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space and $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Prove that if $T^4 = I$, then $T$ is diagonalizable.
+\item
+Prove that if $T^4 = T$, then $T$ is diagonalizable.
+\item
+Give an example of an operator $T \in \L\paren[\big]{\C2}$ such that $T^4 = T^2$ and $T$ is not diagonalizable.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ has a diagonal matrix $A$ with respect to some
+basis of $V\1$. Prove that if $\la \in \F{}\3$, then $\la$ appears on the diagonal of $A$ precisely $\dim E(\la, T)$ times.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.
+Prove that if the operator $T$ is diagonalizable, then $V = \ker T \oplus \ran T\3$.\label{5diagdir}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the following are equivalent.\label{nullrandir}
+\begin{subtheorem}*
+\item
+$V = \ker T \oplus \ran T\3$.
+\item
+$V = \ker T + \ran T\3$.
+\item
+$\ker T \cap \ran T = \{0\}$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\begin{comment}
+\exercise
+Give an example to show that the exercise above is false without the assumption that $V$ is finite-dimensional.
+
+\end{comment}
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if \label{diagKerRan}\index{diagonalizable}
+\[
+V = \ker(T - \la I) \oplus \ran(T - \la I)
+\]
+for every $\la \in \C{}$.
+
+
+\begin{comment}
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$ has $\dim V$ distinct eigenvalues, and
+$S \in \L(V)$ has the same eigenvectors as $T$ (not necessarily with the
+same eigenvalues).  Prove that $ST = TS$.
+
+\end{comment}
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F{5}}$ and $\dim E(8, T) = 4$. Prove that $T - 2I$ or $T - 6I$ is invertible.
+
+\pagebreak[1]
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that
+\[
+E(\la, T) = E\paren[\Big]{\tfrac{1}{\la}, T^{-1}}
+\]
+for every $\la \in \F{}$ with $\la \ne 0$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $\la_1, \dots, \la_m$ denote the distinct nonzero eigenvalues of $T\3$. Prove that
+\[
+\dim E(\la_1, T) + \dots + \dim E(\la_m, T) \le \dim \ran T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $R, T \in \L\paren[\big]{\F3}$ each have $2$, $6$, $7$ as eigenvalues. Prove that there exists an invertible operator $S \in \L\paren[\big]{\F3}$ such that $R = S^{-1} T S$.
+
+
+\exercise
+Find $R, T \in \L\paren[\big]{\F4}$ such that $R$ and $T$ each have $2$, $6$, $7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S \in \L\paren[\big]{\F4}$ such that $R = S^{-1} T S$.
+
+
+\exercise
+Find $T \in \L\paren[\big]{\C3}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\CC3$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C3}$ is such that $6$ and $7$ are eigenvalues of $T\3$. Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\CC3$. Prove that there exists $(z_1, z_2, z_3) \in \C3$ such that
+\[
+T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $A$. Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of a finite-dimensional complex vector space and an operator $T$ on that vector space such that $T^2$ is diagonalizable but $T$ is not diagonalizable.
+\item
+Suppose $\F{} = \C{}$, $k$ is a positive integer, and $T \in \L(V)$ is invertible. Prove that $T$ is diagonalizable if and only if $T^k$ is diagonalizable.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Prove that the following are equivalent.\label{2gcd}\index{minimal polynomial!gcd with its derivative}
+\begin{subtheorem}*
+\item
+$T$ is diagonalizable.
+\item
+There does not exist $\la \in \C{}$ such that $p$ is a polynomial multiple of $(z-\la)^2\1$.
+\item
+$p$ and its derivative $p'$ have no zeros in common.
+\item
+The greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
+\end{subtheorem}
+\exercisecomment{The \textbf{greatest common divisor} of\/ $p$ and\/ $p'$ is the monic polynomial\/ $q$ of largest degree such that\/ $p$ and\/ $p'$ are both polynomial multiples of\/ $q$. The Euclidean algorithm for polynomials \uppar{look it up} can quickly determine the greatest common divisor of two polynomials, without requiring any information about the zeros of the polynomials. Thus the equivalence of \uppar{a} and \uppar{d} above shows that we can determine whether\/ $T$ is diagonalizable without knowing anything about the zeros of\/ $p$.}
+
+
+\exercise
+Suppose that $T \in \L(V)$ is diagonalizable. Let~$\la_1, \ldots, \la_m$ denote the distinct eigenvalues of $T\3$. Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that
+$U_k \subset E(\la_k, T)$ for each $k$ and
+$
+U = U_1 \oplus \cdots \oplus U_m$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Prove that $\L(V)$ has a basis consisting of diagonalizable operators.\label{5basisdiag}
+
+
+\exercise
+Suppose that $T \in \L(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T\3$. Prove that the quotient operator $T\3/U$ is a diagonalizable operator on $V\1/U$.\index{quotient!operator}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Prove or give a counterexample: If $T \in \L(V)$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ and $T\3/U$ are both diagonalizable, then $T$ is diagonalizable.
+\exercisecomment{See Exercise \ref{6Tutm} in Section \ref{4utm} for an analogous statement about upper-triangular matrices.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.\index{dual!of a linear map}
+
+
+\exercise
+The \emph{Fibonacci sequence} $F_0, F_1, F_2, \dots$ is defined by\index{Fibonacci sequence} \label{Fibonacci}
+\[
+F_0 = 0,\ F_1 = 1, \text{ and }F_n = F_{n-2} + F_{n-1} \text{\ for\ } n \ge 2.
+\]
+Define $T \in \L\paren[\big]{\R2}$ by $T(x, y) = (y, x+y)$.
+\begin{subtheorem}
+\item
+Show that $T^n(0, 1) = (F_n, F_{n+1})$ for each nonnegative integer $n$.
+\item
+Find the eigenvalues of $T\3$.
+\item
+Find a basis of $\R2$ consisting of eigenvectors of $T\3$.
+\item
+Use the solution to (c) to compute $T^n(0, 1)$. Conclude that
+\[
+F_n = \frac{1}{\sqrt{5}} \Biggl[ \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}
+-\paren[\Bigg]{ \frac{1 - \sqrt{5}}{2} }^{\!n} \Biggr]
+\]
+for each nonnegative integer $n$.
+\item
+Use (d) to conclude that if $n$ is a nonnegative integer, then the Fibonacci number $F_n$ is the integer that is closest to
+\[
+\frac{1}{\sqrt{5}}  \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}.
+\]
+\end{subtheorem}
+\exercisecomment{Each\/ $F_n$ is a nonnegative integer, even though the right side of the formula in \uppar{d} does not look like an integer. The number
+\[
+\frac{1 + \sqrt{5}}{2}
+\]
+is called the \emph{golden ratio}.}
+
+
+\exercise
+Suppose $T \in \L(V)$ and $A$ is an \by{n}{n} matrix that is the matrix of $T$ with respect to some basis of $V$. Prove that if
+\[
+\abs{ A_{j,j} } > \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \abs{A_{j,k}}
+\]
+for each $j \in \br{1, \ldots, n}$, then $T$ is invertible.\label{5Gershgor}
+\exercisecomment{This exercise states that if the diagonal entries of the matrix of\/ $T$ are large compared to the nondiagonal entries, then\/ $T$ is invertible.}
+
+
+\exercise
+Suppose the definition of the Gershgorin disks is changed so that the radius of the $k^\nth$ disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry. Show that the Gershgorin disk theorem (\ref{5Gershg}) still holds with this changed definition.\label{5Gershgo}
+
+
+\end{exercises}
+
+\section{Commuting Operators} \label{2diagmat}
+
+\DefinitionBox{commute}
+{\begin{Itemize}\index{commuting operators|(}
+\item
+Two operators $S$ and $T$ on the same vector space \emph{commute} if $ST = TS$.
+\item
+Two square matrices $A$ and $B$ of the same size \emph{commute} if $AB = BA$.
+\end{Itemize}}
+
+For example, if $I$ is the identity operator on $V$ and $\la \in \F{}\3$, then $\la I$ commutes with every operator on $V\1$.
+
+As another example, if $T$ is an operator then $T^2$ and $T^3$ commute. More generally, if $p, q \in \P(\F{})$, then $p(T)$ and $q(T)$ commute \sbr{see \ref{multprop}(b)}.
+
+\begin{example}[PD]{partial differentiation operators commute}
+Suppose $m$ is a nonnegative integer. Let $\P\!_m\3(\CC2, \C{})$ denote the complex vector space of polynomials (with coefficients in $\C{}$) in two variables and of degree at most~$m$, with the usual operations of addition and scalar multiplication of $\C{}$-valued functions. Thus the elements of $\P\!_m\3(\CC2, \C{})$ are functions $p$ from $\C2$ to $\C{}$ of the form
+\begin{equation} \label{2p}
+p(w,z) = \sum_{j+k \le m} a_{j,k} w^j z^k\!,
+\end{equation}%
+where the indices $j$ and $k$ take on all nonnegative integer values such that $j + k \le m$, each
+$a_{j,k}$ is in $\C{}$, and $w^j z^k$ denotes the function on $\C2$ defined by $(w, z) \mapsto w^j z^k\!$.
+
+Define operators $D_w, D_z \in \L\paren[\big]{\P\!_m\3(\CC2, \C{})}$ by
+\[
+D_w p = \frac{ \partial p}{\partial w} = \sum_{j+k \le m} j a_{j,k} w^{j-1} z^k
+\andd
+D_z p = \frac{ \partial p}{\partial z} = \sum_{j+k \le m} k a_{j,k} w^j z^{k-1}\!,
+\]
+where $p$ is as in \ref{2p}. The operators $D_w$ and $D_z$ are called partial differentiation operators because each of these operators differentiates with respect to one of the variables while pretending that the other variable is a constant.\index{partial differentiation operator}
+
+The operators $D_w$ and $D_z$ commute because if $p$ is as in \ref{2p}, then
+\[
+ (D_w D_z)p = \sum_{j+k \le m} j k a_{j,k} w^{j-1} z^{k-1} = (D_z D_w)p.
+\]
+
+The equation $D_w D_z = D_z D_w$ on $\P\!_m\3(\CC2, \C{})$ illustrates a more general result that the order of partial differentiation does not matter for nice functions.
+\end{example}
+
+\mar[5]{All 214,358,881 \uppar[\big]{which equals\/ $11^8$} ordered pairs of the\/ \by{2}{2} matrices under consideration were checked by a computer to discover that only 674,609 of these ordered pairs of matrices \mbox{commute}.}
+
+Commuting matrices are unusual. For example, there are 214,358,881 ordered pairs of \by{2}{2} matrices all of whose entries are integers in the interval $[-5,5]$. Only about 0.3\% of these ordered pairs of matrices commute.
+
+\pagebreak[3]
+
+The next result shows that two operators commute if and only if their matrices (with respect to the same basis) commute.
+
+\ResultBox[3comm]{commuting operators correspond to commuting matrices}
+{Suppose $S, T \in \L(V)$ and $v_1, \ldots, v_n$ is a basis of $V\1$. Then $S$ and $T$ commute if and only if
+$\M\paren[\big]{ S, (v_1, \ldots, v_n) }$ and $\M\paren[\big]{ T, (v_1, \ldots, v_n) }$ commute.}
+
+\proof
+We have
+\begin{align*}
+S \text{ and } T \text{ commute} & \iff ST = TS \\
+&\iff \M(ST) = \M(TS) \\
+&\iff \M(S) \M(T) = \M(T) \M(S) \\
+& \iff \M(S) \text{ and } \M(T) \text{ commute},
+\end{align*}
+as desired.
+\qed
+
+The next result shows that if two operators commute, then every eigenspace for one operator is invariant under the other operator. This result, which we will use several times, is one of the main reasons why a pair of commuting operators behaves better than a pair of operators that does not commute.
+
+\ResultBox[2ComInv]{eigenspace is invariant under commuting operator}
+{Suppose $S, T \in \L(V)$ commute and $\la \in \F{}\3$. Then $E(\la, S)$ is invariant under~$T\3$.}
+
+\proof
+Suppose $v \in E(\la, S)$. Then
+\[
+S( Tv ) = (ST)v = (TS)v = T(Sv) = T(\la v) = \la Tv.
+\]
+The equation above shows that $Tv \in E(\la, S)$. Thus $E(\la, S)$ is invariant under~$T\3$.
+\qed
+
+Suppose we have two operators, each of which is diagonalizable. If we want to do computations involving both operators (for example, involving their sum), then we want the two operators to be diagonalizable by the same basis, which according to the next result is possible when the two operators commute.
+
+\ResultBox[8SimDiag]{simultaneous diagonalizability\/ $\iff$ commutativity\index{diagonalizable}\index{simultaneous diagonalization}}
+{Two diagonalizable operators on the same vector space have diagonal matrices with respect to the same basis if and only if the two operators commute.}
+
+\proof
+First suppose $S, T \in \L(V)$ have diagonal matrices with respect to the same basis. The product of two diagonal matrices of the same size is the diagonal matrix obtained by multiplying the corresponding elements of the two diagonals. Thus any two diagonal matrices of the same size commute. Thus $S$ and $T$ commute, by \ref{3comm}.
+
+\pagebreak[3]
+
+To prove the implication in the other direction, now suppose that $S, T \in \L(V)$ are diagonalizable operators that commute. Let $\la_1, \ldots, \la_m$ denote the distinct eigenvalues of $S$. Because $S$ is diagonalizable, \ref{427}(c) shows that
+\begin{equation} \label{VdirSum}
+V = E(\la_1, S) \oplus \cdots \oplus E(\la_m, S).
+\end{equation}%
+
+ For each $k = 1, \ldots, m$, the subspace $E(\la_k, S)$ is invariant under $T$ (by \ref{2ComInv}). Because $T$ is diagonalizable, \ref{5RestrictDi} implies that $T|_{E(\la_k, S)}$ is diagonalizable for each~$k$. Hence for each $k=1, \ldots, m$, there is a basis of $E(\la_k, S)$ consisting of eigenvectors of $T\3$. Putting these bases together gives a basis of $V$ (because of \ref{VdirSum}), with each vector in this basis being an eigenvector of both $S$ and $T\3$. Thus $S$ and $T$ both have diagonal matrices with respect to this basis, as desired.
+\qed
+
+See Exercise \ref{3Diag} for an extension of the result above to more than two operators.
+
+Suppose $V$ is a finite-dimensional nonzero complex vector space. Then every operator on $V$ has an eigenvector (see \ref{151}). The next result shows that if two operators on $V$ commute, then there is a vector in $V$ that is an eigenvector for both operators (but the two commuting operators might not have a common eigenvalue). For an extension of the next result to more than two operators, see Exercise \ref{4ManyOps}(a).
+\looseness=-1 %VisualFormatting for pagebreak
+
+\ResultBox[2common]{common eigenvector for commuting operators}
+{Every pair of commuting operators on a finite-dimensional nonzero complex vector space has a common eigenvector.}
+
+\proof
+Suppose $V$ is a  finite-dimensional nonzero complex vector space and $S, T \in \L(V)$ commute. Let $\la$ be an eigenvalue of $S$ (\ref{151} tells us that $S$ does indeed have an eigenvalue). Thus $E(\la, S) \ne \br{0}$. Also, $E(\la, S)$ is invariant under~$T$
+(by \ref{2ComInv}).
+
+Thus $T|_{E(\la, S)}$ has an eigenvector (again using \ref{151}), which is an eigenvector for both $S$ and $T$, completing the proof.
+\qed
+
+\begin{example}{common eigenvector for partial differentiation operators}
+Let $\P\!_m\3(\CC2, \C{})$ be as in Example~\ref{PD} and let
+$D_w, D_z \in \L\paren[\big]{\P\!_m\3(\CC2, \C{})}$ be the commuting partial differentiation operators in that example. As you can verify, $0$ is the only eigenvalue of each of these operators. Also
+\begin{align*}
+E(0, D_w) &= \br[\bigg]{ \sum_{k=0}^m a_k z^k: a_0, \ldots, a_m \in \C{}}, \\[6bp]
+E(0, D_z) &= \br[\bigg]{ \sum_{j=0}^m c_j w^j: c_0, \ldots, c_m \in \C{}}.
+\end{align*}
+The intersection of these two eigenspaces is the set of common eigenvectors of the two operators. Because
+$E(0, D_w) \cap E(0, D_z)$ is the set of constant functions, we see that $D_w$ and $D_z$ indeed have a common eigenvector, as promised by~\ref{2common}.
+\end{example}
+
+\pagebreak[2]
+
+The next result extends \ref{a226} (the existence of a basis that gives an upper-triangular matrix) to two commuting operators.
+
+\ResultBox[2commute]{commuting operators are simultaneously upper triangularizable\index{simultaneously upper triangularizable}}
+{Suppose $V$ is a finite-dimensional complex vector space and $S, T$ are \mbox{commuting} operators on $V\1$. Then there is a basis of $V$ with respect to which both $S$ and $T$ have upper-triangular matrices.}
+
+\proof
+Let $n = \dim V\1$. We will use induction on $n$. The desired result holds if $n = 1$ because all \by{1}{1} matrices are upper triangular.
+Now suppose $n > 1$ and the desired result holds for all complex vector spaces whose dimension is $n-1$.
+
+Let $v_1$ be any common eigenvector of $S$ and~$T$ (using \ref{2common}). Hence
+$
+Sv_1 \in \Span(v_1)$ and $Tv_1 \in \Span(v_1)$.
+Let $W$ be a subspace of $V$ such that
+\[
+V = \Span(v_1) \oplus W;
+\]
+see \ref{a220} for the existence of $W\3$. Define a linear map $\fun P V W$~by
+\[
+P(a v_1 + w) = w
+\]
+for each $a \in \C{}$ and each $w \in W\3$. Define $\hat S, \hat T \in \L(W)$ by
+\[
+\hat S w = P(Sw) \andd \hat T w = P(Tw)
+\]
+for each $w \in W\3$. To apply our induction hypothesis to $\hat S$ and $\hat T$, we must first show that these two operators on $W$ commute. To do this, suppose $w \in W\3$. Then there exists $a \in \C{}$ such that
+\[
+\paren[\big]{\hat S \hat T}w = \hat S \paren[\big]{ P(Tw) } = \hat S (Tw - av_1) = P \paren[\big]{ S(Tw - a v_1) }
+= P \paren[\big]{ (ST) w },
+\]
+where the last equality holds because $v_1$ is an eigenvector of $S$ and $Pv_1 = 0$. Similarly,
+\[
+\paren[\big]{\hat T \hat S}w = P \paren[\big]{ (TS) w }.
+\]
+Because the operators $S$ and $T$ commute, the last two displayed equations show that
+$\paren[\big]{\hat S \hat T}w = \paren[\big]{\hat T \hat S}w$. Hence $\hat S$ and $\hat T$ commute.
+
+Thus we can use our induction hypothesis to state that there exists a basis $v_2, \ldots, v_n$ of $W$ such that $\hat S$ and $\hat T$ both have upper-triangular matrices with respect to this basis. The list $v_1, \ldots, v_n$ is a basis of $V\1$.
+
+If $k \in \br{2, \ldots, n}$, then there exist $a_k, b_k \in \C{}$ such that
+\[
+Sv_k =  a_k v_1 + \hat S v_k \andd Tv_k = b_k v_1 + \hat T v_k.
+\]
+Because $\hat S$ and $\hat T$ have upper-triangular matrices with respect to $v_2, \ldots, v_n$, we know that
+$
+\hat S v_k \in \Span(v_2, \ldots, v_k)$ and $\hat T v_k \in \Span(v_2, \ldots, v_k)$.
+Hence the equations above imply that
+\[
+Sv_k \in \Span(v_1, \ldots, v_k) \andd Tv_k \in \Span(v_1, \ldots, v_k).
+\]
+Thus $S$ and $T$ have upper-triangular matrices with respect to $v_1, \ldots, v_n$, as desired.
+\qed
+
+Exercise \ref{4ManyOps}(b) extends the result above to more than two operators.
+
+\pagebreak[3]
+
+In general, it is not possible to determine the eigenvalues of the sum or product of two operators from the eigenvalues of the two operators. However, the next result shows that something nice happens when the two operators commute.
+
+\ResultBox[2EigenSum]{eigenvalues of sum and product of commuting operators}
+{Suppose $V$ is a finite-dimensional complex vector space and $S, T$ are commuting operators on $V\1$. Then
+\begin{Itemize}
+\item
+every eigenvalue of $S + T$ is an eigenvalue of $S$ plus an eigenvalue of $T$,
+\item
+every eigenvalue of $ST$ is an eigenvalue of $S$ times an eigenvalue of $T\3$.
+\end{Itemize}}
+
+\proof
+There is a basis of $V$ with respect to which both $S$ and $T$ have upper-triangular matrices (by \ref{2commute}). With respect to that basis,
+\[
+\M(S+T) = \M(S) + \M(T) \andd \M(ST) = \M(S) \M(T),
+\]
+as stated in \ref{101} and \ref{3matproduct}.
+
+The definition of matrix addition shows that each entry on the diagonal of $\M(S+T)$ equals the sum of the corresponding entries on the diagonals of $\M(S)$ and $\M(T)$. Similarly, because $\M(S)$ and $\M(T)$ are upper-triangular matrices, the definition of matrix multiplication shows that each entry on the diagonal of $\M(ST)$ equals the product of the corresponding entries on the diagonals of $\M(S)$ and $\M(T)$. Furthermore, $\M(S+T)$ and $\M(ST)$ are upper-triangular matrices (see Exercise \ref{2AB} in Section \ref{4utm}).
+
+Every entry on the diagonal of $\M(S)$ is an eigenvalue of $S$, and every entry on the diagonal of $\M(T)$ is an eigenvalue of $T$ (by \ref{a221}). Every eigenvalue of $S+T$ is on the diagonal of $\M(S+T)$, and every eigenvalue of $ST$ is on the diagonal of $\M(ST)$ (these assertions follow from \ref{a221}). Putting all this together, we conclude that every eigenvalue of $S + T$ is an eigenvalue of $S$ plus an eigenvalue of $T$, and every eigenvalue of $ST$ is an eigenvalue of $S$ times an eigenvalue of~$T\3$.%
+\looseness=1% VisualFormatting for page break
+\index{commuting operators|)}%
+\qed
+
+\begin{exercises}
+
+\exercise
+Give an example of two commuting operators $S, T$ on $\F4$ such that there is a subspace of $\F4$ that is invariant under $S$ but not under $T$ and there is a subspace of $\F4$ that is invariant under $T$ but not under $S$.
+
+
+\exercise
+Suppose $\E$ is a subset of $\L(V)$ and every element of $\E$ is diagonalizable. Prove that there exists a basis of $V$ with respect to which every element of $\E$ has a diagonal matrix if and only if every pair of elements of $\E$ commutes.%
+ \label{3Diag}\index{commuting operators|(}
+\exercisecomment{This exercise extends \ref{8SimDiag}, which considers the case in which\/ $\E$ contains only two elements. For this exercise,\/ $\E$ may contain any number of elements, and\/ $\E$ may even be an infinite set.}
+
+
+\exercise
+Suppose $S, T \in \L(V)$ are such that $ST = TS$. Suppose $p \in \P(\F{})$.
+\begin{subtheorem}
+\item
+Prove that $\ker p(S)$ is invariant under $T$.
+\item
+Prove that $\ran p(S)$ is invariant under $T$.
+\end{subtheorem}
+\exercisecomment{See \ref{130} for the special case $S = T$.}
+
+
+\exercise
+Prove or give a counterexample: If $A$ is a diagonal matrix and $B$ is an upper-triangular matrix of the same size as $A$, then $A$ and $B$ commute.
+
+
+\exercise
+Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
+\exercisecomment{See \ref{DualMap} for the definition of the dual of an operator.}\label{5dualcom}
+
+
+\exercise
+Suppose that $V$ is a nonzero finite-dimensional complex vector space and $S, T \in \L(V)$ commute. Prove that there exist $\al, \la \in \C{}$ such that
+\[
+\ran (S - \al I) + \ran (T - \la I) \ne V\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is a complex vector space, $S \in \L(V)$ is diagonalizable, and $T \in \L(V)$ commutes with $S$. Prove that there is a basis of $V$ such that $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
+
+
+\exercise
+Suppose $m = 3$ in Example \ref{PD} and $D_x, D_y$ are the commuting partial differentiation operators on $\P\!_3\3\paren[\big]{\R2}$ from that example. Find a basis of $\P\!_3\3\paren[\big]{\R2}$ with respect to which $D_x$ and $D_y$ each have an upper-triangular matrix.
+
+
+\exercise
+Suppose $V$ is a finite-dimensional nonzero complex vector space. Suppose that $\E \subset \L(V)$ is such that $S$ and $T$ commute for all $S, T \in \E$. \label{4ManyOps}
+\begin{subtheorem}
+\item
+Prove that there is a vector in $V$ that is an eigenvector for every element of $\E$.
+\item
+Prove that there is a basis of $V$ with respect to which every element of $\E$ has an upper-triangular matrix.
+\end{subtheorem}
+\exercisecomment{This exercise extends \ref{2common} and \ref{2commute}, which consider the case in which\/ $\E$ contains only two elements. For this exercise,\/ $\E$ may contain any number of elements, and\/ $\E$ may even be an infinite set.}%
+
+
+\exercise
+Give an example of two commuting operators $S, T$ on a finite-dimensional real vector space such that $S+T$ has an eigenvalue that does not equal an eigenvalue of $S$ plus an eigenvalue of $T$ and $ST$ has an eigenvalue that does not equal an eigenvalue of $S$ times an eigenvalue of $T\3$.\index{commuting operators|)}
+\exercisecomment{This exercise shows that \ref{2EigenSum} does not hold on real vector spaces.}
+
+
+\end{exercises}
+
+\endinput 

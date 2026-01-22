@@ -1,0 +1,208 @@
+
+\exercise
+Prove that if $\beta$ is a bilinear form on $\F{}\3$, then there exists $c \in \F{}$ such that
+\[
+\beta(x,y) = c x y
+\]
+for all $x, y \in \F{}\3$.
+
+\begin{Solution}
+For each $x \in \F{}\3$, the function $y \mapsto \beta(x,y)$ is a linear functional on the one-dimensional vector space $\F{}\3$. Thus for each $x \in \F{}\3$, there exists $c_x \in \F{}$ such that
+\[ \tag{$(*)$}
+\beta(x,y) = c_x y
+\]
+for each $y \in \F{}\3$. Taking $y = 1$, we have
+\[
+\beta(x, 1) = c_x
+\]
+for each $x \in \F{}\3$. Because the function $x \mapsto \beta(x,1)$ is linear, the equation above implies that there exists $c \in \F{}$ such that $c_x = cx$ for each $x \in \F{}\3$. Hence $(*)$ implies that
+\[
+\beta(x,y) = c x y
+\]
+for all $x, y \in \F{}\3$.
+\end{Solution}
+
+\exercise
+Let $n = \dim V\1$. Suppose $\beta$ is a bilinear form on $V\1$. Prove that there exist
+$\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'$ such that
+\[
+\beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise shows that if\/ $n = \dim V\1$, then every bilinear form on\/ $V$ is of the form given by the last bullet point of Example \ref{9BilinearExample}.}
+
+\begin{Solution}
+Let $e_1, \ldots, e_n$ be a basis of $V\1$. Define $\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'$ by
+\[
+\phi_j( a_1 e_1 + \cdots + a_n e_n ) = a_j
+\andd
+\tau_j( c_1 e_1 + \cdots + c_n e_n ) = \sum_{k=1}^n c_k \beta(e_j, e_k)
+\]
+for each $j \in \br{1, \ldots, n}$ and all $a_1, \ldots, a_n, c_1, \ldots, c_n \in \F{}\3$.
+
+Suppose $u, v \in V$, with $u = a_1 e_1 + \cdots + a_n e_n$ and $v = c_1 e_n + \cdots + c_n e_n$. Then
+\begin{align*}
+\beta(u, v) &= \sum_{\js}^n \sum_{k=1}^n a_j c_k \beta(e_j, e_k) \\[6bp]
+&= \sum_{\js}^n a_j \sum_{k=1}^n c_k \beta(e_j, e_k) \\[6bp]
+&= \sum_{j=1}^n \phi_j(u) \tau_j(v),
+ \end{align*}
+ as desired.
+\end{Solution}
+
+\exercise
+Suppose $\fun \beta {V\1 \times V} {\F{}}$ is a bilinear form on $V$ and also is a linear functional on $V\1 \times V\1$. Prove that
+$\beta = 0$.\label{11zero}
+
+\begin{Solution}
+Let $u, v \in V\1$. Because $\beta$ is a bilinear form, we have
+\[
+\beta(2u, 2v) = 2 \beta(u, 2v) = 4 \beta(u, v).
+\]
+Because $\beta$ is a linear functional on $V\1 \times V\1$, we have
+\[
+\beta(2u, 2v) = 2 \beta(u, v).
+\]
+The last two equations show that $\beta(u, v) = 0$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V\1$. Show that there exists a unique operator $T \in \L(V)$ such that\label{9inn}
+\[
+\beta(u, v) = \ip{u,Tv}
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise states that if\/ $V$ is a real inner product space, then every bilinear form on\/ $V$ is of the form given by the third bullet point in \ref{9BilinearExample}.}
+
+\begin{Solution}
+Let $e_1, \ldots, e_n$ be an orthonormal basis of $V\1$. Let $T \in \L(V)$ be the operator whose matrix with respect to this basis has $\beta(e_j, e_k)$ in row $j$, column $k$. Thus
+\[ \tag{$(*)$}
+\ip{e_j, Te_k} = \ip{Te_k, e_j} = \beta(e_j, e_k)
+\]
+for all $j, k \in \br{1, \ldots, n}$. For each $k \in \br{1, \ldots, n}$, the equation above implies that
+\[
+\ip{u, Te_k} = \beta(u, e_k)
+\]
+for each $u \in V\1$, where we have used the linearity in the first slot on both sides of the equation above. For each $u \in V\1$, the equation above implies that
+\[
+\ip{u, Tv} = \beta(u,v)
+\]
+for each $v \in V\1$, where we have used the linearity in the second slot on both sides of the equation above.
+
+Any $T \in \L(V)$ such that $\beta(u, v) = \ip{u,Tv}$ for all $u,v \in V$ must satisfy $(*)$, which shows that $T$ is unique.
+\end{Solution}
+
+\exercise
+Suppose $\beta$ is a bilinear form on a real inner product space $V\1$ and $T$ is the unique operator on $V$ such that $\beta(u,v) = \ip{u, Tv}$ for all $u, v \in V$ (see Exercise \ref{9inn}). Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V\1$.
+
+\begin{Solution}
+Suppose $\beta$ is an inner product on $V\1$. Thus $\beta(u,v) = \beta(v,u)$ for all $u, v \in V\1$, which implies that
+$\ip{u,Tv} = \ip{v, Tu} = \ip{Tu,v}$ for all $u, v \in V\1$, which implies that $T$ is self-adjoint.
+
+Also, $\ip{v, Tv} = \beta(v, v) > 0$ for all $v \in V \sm \br{0}$, which implies that $T$ is an invertible positive operator.
+
+To prove the implication in the other direction, now suppose that $T$ is an invertible positive operator on $V\1$. In particular, $T$ is self-adjoint, which implies that
+\[
+\beta(u,v) = \ip{u,Tv} = \ip{Tu, v} = \ip{v, Tu} = \beta(v,u)
+\]
+for all $u, v \in V\1$.
+
+Also, $\beta(v,v) = \ip{v, Tv} > 0$ for all $v \in V \sm \br{0}$ (as follows from \ref{7TvvZero}), which completes the proof that $\beta$ is an inner product on $V\1$.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V\1$, then
+\[
+\br[\big]{v \in V: \rho(v, v) = 0}
+\]
+is a subspace of $V\1$.
+
+\begin{Solution}
+Define a symmetric bilinear form $\rho$ on $\R3$ by
+\[
+\rho\paren[\big]{(a,b,c), (x,y,z) } = ax - 4by + cz.
+\]
+Then
+\[
+\rho\paren[\big]{(2,1,0),(2,1,0) } = 0 \andd \rho\paren[\big]{(0,1,2),(0,1,2)} = 0.
+\]
+However
+\[
+(2,1,0)  + (0, 1,2) = (2,2,2)
+\]
+but
+\[
+\rho\paren[\big]{(2,2,2), (2,2,2)} \ne 0.
+\]
+Thus for this choice of $V$ and $\rho$, the set $\br{v \in V: \rho(v, v) = 0}$ is not a subspace of $V\1$.
+\end{Solution}
+
+\exercise
+Explain why the proof of \ref{9diagortho} (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\F{} = \R{}$ is dropped.
+
+\begin{Solution}
+In the proof of \ref{9diagortho}, the matrix $\M\paren[\big]{ f_1, \ldots, f_n }$ is symmetric. However, if $\F{} = \C{}$, this does not imply that the corresponding operator $T \in \L(V)$ is self-adjoint because the matrix of $T^*$ (with respect to the same orthonormal basis) is not the transpose but is the \emph{conjugate} transpose of the matrix of $T$. In other words, the proof does not work unless all entries of $\M\paren[\big]{ f_1, \ldots, f_n }$ are real numbers.
+\end{Solution}
+
+\exercise
+Find formulas for $\dim V^{(2)}_{\text{sym}}$ and $\dim V^{(2)}_{\text{alt}}$ in terms of $\dim V\1$.
+
+\begin{Solution}
+Fix a basis $e_1, \ldots, e_{\dim V}$ of $V\1$. By the isomorphism in \ref{9dimV2} and by the equivalence of (a) and (b) in \ref{9symdiag}, the dimension of $\dim V^{(2)}_{\text{sym}}$ equals the dimension of the set of symmetric \by{n}{n} matrices.
+
+To get a symmetric \by{n}{n} matrix, we can pick arbitrary elements of $\F{}$ to place on the diagonal and then arbitrary elements of $\F{}$ to place above the diagonal (and then reflect to get a symmetric matrix). In other words, we must choose $(\dim V)(1 + \dim V)/2$ elements of $\F{}\3$. Thus
+\[
+\dim V^{(2)}_{\text{sym}} = \frac{ (\dim V)(1 + \dim V) }{2}.
+\]
+
+Now by \ref{9V2} and \ref{3directsumdim}, we have
+\begin{align*}
+\dim V^{(2)}_{\text{alt}} &= \dim V^{(2)} - \dim V^{(2)}_{\text{sym}} \\[6bp]
+&= \frac{ (\dim V)(\dim V - 1) }{2}.
+\end{align*}
+\end{Solution}
+
+\exercise
+Suppose that $n$ is a positive integer and $V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) }$.
+Define $\fun \al {V\1 \times V} {\R{}}$ by
+\[
+\al(p,q) = \int_0^1 p q'\!.
+\]
+Show that $\al$ is an alternating bilinear form on $V\1$.
+
+\begin{Solution}
+Suppose $p, q \in V\1$. Then
+\begin{align*}
+\al(p, p) & = \int_0^1 p p' \\[4bp]
+&= \frac{p(t)^2}{2} \bigg]_{t=0}^{t=1} \\[4bp]
+&= \frac{ p(1)^2 - p(0)^2 }{2} \\[4bp]
+&=0,
+\end{align*}
+which shows that $\al$ is alternating.
+\end{Solution}
+
+\exercise
+Suppose that $n$ is a positive integer and
+\[
+V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) \text{ and } p'(0) = p'(1)}.
+\]
+Define $\fun \rho {V\1 \times V} {\R{}}$ by
+\[
+\rho(p,q) = \int_0^1 p q''\!.
+\]
+Show that $\rho$ is a symmetric bilinear form on $V\1$.
+
+\begin{Solution}
+Suppose $p, q \in V\1$. Then
+\begin{align*}
+\rho(p, q) & = \int_0^1 p q'' \\[4bp]
+&= p(1) q'(1) - p(0)q'(0) - \int_0^1 q' p' \\[4bp]
+&= - \int_0^1 q' p' \\[4bp]
+&= -p'(1) q(1) + p'(0)q(0) + \int_0^1 q p'' \\[4bp]
+&= \int_0^1 q p'' \\[4bp]
+&= \rho(q, p),
+\end{align*}
+where the second and fourth equations follow by integration by parts.
+
+The equation above shows that $\rho$ is symmetric.
+\end{Solution}
+

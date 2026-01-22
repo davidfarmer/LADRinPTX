@@ -1,0 +1,1313 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Finite-Dimensional Vector~Spaces} \label{16}
+
+In the last chapter we learned about vector spaces.  Linear algebra focuses not on arbitrary vector spaces, but on finite-dimensional vector spaces, which we introduce in this chapter.
+
+We begin this chapter by considering linear combinations of lists of vectors. This leads us to the crucial concept of linear independence. The linear dependence lemma will become one of our most useful tools.
+
+A list of vectors in a vector space that is small enough to be linearly independent and big enough so the linear combinations of the list fill up the vector space is called a basis of the vector space. We will see that every basis of a vector space has the same length, which will allow us to define the dimension of a vector space.
+
+This chapter ends with a formula for the dimension of the sum of two subspaces.
+
+\StandingBox{
+\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$V$ denotes a vector space over $\F{}\3$.
+}
+
+\begin{comment}
+\TopicsBox{
+\item
+span
+\item
+linear independence
+\item
+bases
+\item
+dimension
+}
+\end{comment}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 FuldHall.jpg\else FuldHallR.jpg \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.163\else 1\fi}
+
+\FigureHere{artwork/\FigureName}{\FigureScale}%
+{The main building of the Institute for Advanced Study, in Princeton, New Jersey.\\Paul Halmos \uppar{1916--2006} wrote the first modern linear algebra book in this building.\\Halmos's linear algebra book was published in 1942 \uppar{second edition published in 1958}.\\The title of Halmos's book was the same as the title of this
+chapter.\index{Halmos, Paul}\index{Institute for Advanced Study}}
+
+\section{Span and Linear Independence} \label{2spli}
+
+We have been writing lists of numbers surrounded by parentheses, and we will continue to do so for elements of $\F{n}$; for example, $(2, -7, 8) \in \FF{3}$. However, now we need to consider lists of vectors (which may be elements of $\F{n}$ or of other vector spaces). To avoid confusion, we will usually write lists of vectors without surrounding parentheses. For example, $(4, 1, 6), (9,5, 7)$ is a list of length two of vectors in $\RR{3}$.
+
+\NotationBox{list of vectors\index{list!of vectors}}
+{We will usually write lists of vectors without surrounding parentheses.}
+
+\subsection{Linear Combinations and Span}
+
+A sum of scalar multiples of the vectors in a list is called a linear combination of the list. Here is the formal definition.
+
+\DefinitionBox[433]{linear combination}{%
+A \emph{linear combination}\index{linear combination} of a list
+$v_1, \dots, v_m$ of vectors in~$V$ is a vector of the form
+\[
+a_1 v_1 + \dots + a_m v_m,
+\]
+where $a_1, \dots, a_m \in \F{}\3$.}
+
+\begin{example}{linear combinations in\/ $\R{3}$}
+\begin{Itemize}
+\item
+$(17, -4, 2)$ is a linear combination of $ (2, 1, -3), (1, -2, 4) $, which is a list of length two of vectors in $\RR3$, because
+\[
+(17, -4, 2) = 6(2, 1, -3) + 5(1, -2, 4).
+\]
+\vspace{-19bp}
+\item
+$(17, -4, 5)$ is not a linear combination of $ (2, 1, -3), (1, -2, 4)$, which is a list of length two of vectors in $\RR3$, because there do not exist numbers $a_1, a_2 \in \F{}$ such that
+\[
+(17, -4, 5) = a_1(2, 1, -3) + a_2(1, -2, 4).
+\]
+In other words, the system of equations
+\begin{align*}
+17 &= 2 a_1 + a_2 \\
+-4 &= a_1 - 2a_2 \\
+5 &= -3a_1 + 4a_2
+\end{align*}
+has no solutions (as you should verify).
+\end{Itemize}
+\vspace{-.15in}
+\end{example}
+
+\DefinitionBox{span}{The set of all linear combinations of
+a list of vectors $v_1, \dots, v_m$ in $V$ is called the \emph{span}\index{span}
+of $v_1, \dots, v_m$, denoted by
+$\Span(v_1, \dots, v_m)$.  In other words,
+\[
+\Span(v_1, \dots, v_m) =
+\{ a_1 v_1 + \dots + a_m v_m: a_1, \dots, a_m \in \F{} \}.
+\]
+The span of the empty list $(\ )$ is defined to be $\{0\}$.}
+
+\begin{example}{span}
+The previous example shows that in $\FF{3}$,
+\begin{Itemize}
+\item
+$(17, -4, 2) \in \Span \bigl( (2, 1, -3), (1, -2, 4) \bigr)$;
+\item
+$(17, -4, 5) \notin \Span \bigl( (2, 1, -3), (1, -2, 4) \bigr)$.
+\end{Itemize}
+\exampleitemend
+\vspace{2bp}
+\end{example}
+
+\ResultBox{span is the smallest containing subspace}
+{The span of a list of vectors in $V$ is the smallest subspace of~$V$ containing all vectors in the list.}
+
+\proof
+Suppose $v_1, \dots, v_m$ is a list of vectors in~$V\1$.
+
+\mar[5]{Some mathematicians use the terminology \marbf{linear span}\index{linear span}, which means the same as span.}
+
+First we show that $\Span (v_1, \dots, v_m)$ is a subspace of $V\1$. The additive identity is in $\Span (v_1, \dots, v_m)$ because
+\[
+0 = 0v_1 + \dots + 0v_m.
+\]
+Also, $\Span (v_1, \dots, v_m)$ is closed under addition because
+\[
+(a_1 v_1 + \dots + a_m v_m) + (c_1 v_1 + \dots + c_m v_m) = (a_1 + c_1)v_1 + \dots + (a_m + c_m)v_m.
+\]
+Furthermore, $\Span (v_1, \dots, v_m)$ is closed under scalar multiplication because
+\[
+\la(a_1 v_1 + \dots + a_m v_m) = \la a_1 v_1 + \dots + \la a_m v_m.
+\]
+Thus $\Span (v_1, \dots, v_m)$ is a subspace of $V$ (by \ref{subspace}).
+
+Each $v_k$ is  a linear combination of $v_1, \dots, v_m$
+(to show this, set $a_k = 1$ and let the other $a$'s in \ref{433}
+equal~$0$).  Thus $\Span (v_1, \dots, v_m)$ contains each~$v_k$.
+Conversely, because subspaces are closed under scalar multiplication
+and addition, every subspace of $V$ that contains each $v_k$
+contains $\Span (v_1, \dots, v_m)$.  Thus $\Span (v_1, \dots, v_m)$ is the smallest subspace of~$V$ containing all the vectors $v_1, \dots, v_m$.\qed
+
+\DefinitionBox{spans}{If $\Span(v_1, \dots, v_m)$ equals $V\1$, we say that the list $v_1, \dots, v_m$
+\emph{spans}\index{spans}~$V\1$.}
+
+\begin{example}[Fn]{a list that spans\/ $\F{n}$}
+Suppose $n$ is a positive integer. We want to show that
+\[
+(1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)
+\]
+spans $\FF{n}$. Here the $k^\nth$ vector in the list above has $1$ in the $k^\nth$ slot and $0$ in all other slots.
+
+Suppose $(x_1, \dots, x_n) \in \FF{n}$. Then
+\[
+(x_1, \dots, x_n) = x_1 (1, 0, \dots, 0) + x_2 (0, 1, 0, \dots, 0) + \dots + x_n (0, \dots, 0, 1).
+\]
+Thus $(x_1, \dots, x_n) \in \Span \bigl((1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)\bigr)$, as desired.
+\end{example}
+
+Now we can make one of the key definitions in linear algebra.
+
+\DefinitionBox{finite-dimensional vector space}
+{A vector space is called \emph{finite-dimensional}\index{finite-dimensional vector space} if some list of vectors in it spans the
+space.}
+
+\mar{Recall that by definition every list has finite length.}
+
+Example \ref{Fn} above shows that $\F{n}$ is a finite-dimensional vector space for every positive integer $n$.
+
+The definition of a polynomial is no doubt already familiar to you.
+
+\DefinitionBox{polynomial, $\P(\F{})$}
+{\begin{Itemize}
+\item
+A function $p \colon \F{} \to \F{}$  is called a \emph{polynomial}\index{polynomial} with
+coefficients in $\F{}$ if there exist $a_0, \dots, a_m \in \F{}$ such that
+\[
+p(z) = a_0 + a_1 z + a_2 z^2 + \dots + a_m z^m
+\]
+for all $z \in \F{}\3$.
+\item
+$\P(\F{})$\sindex{PF@$\P(\F{})$} is the set of all polynomials with coefficients in $\F{}\3$.
+\end{Itemize}}
+
+With the usual operations of addition and scalar multiplication, $\P(\F{})$ is a vector space over $\F{}\3$, as you should verify. Hence $\P(\F{})$ is a subspace of $\FF{\F{}}$, the vector space of functions from $\F{}$ to $\F{}\3$.
+
+If a polynomial (thought of as a function from $\F{}$ to $\F{}$) is represented by two sets of coefficients, then subtracting one representation of the polynomial from the other produces a polynomial that is identically zero as a function on $\F{}$ and hence has all zero coefficients (if you are unfamiliar with this fact, just believe it for now;
+we will prove it later---see \ref{4polyzero}). \textbf{Conclusion:} the coefficients of a polynomial are uniquely determined by the polynomial. Thus the next definition uniquely defines the degree of a polynomial.
+
+\DefinitionBox{degree of a polynomial, $\deg p$\sindex{deg}}{
+\begin{Itemize}
+\item
+A polynomial
+$p \in \P(\F{})$ is said to have \emph{degree}\index{degree of a polynomial} $m$ if there exist
+scalars $a_0, a_1, \dots, a_m \in \F{}$ with $a_m \ne 0$ such that for every $z \in \F\3$, we have
+\[
+p(z) = a_0 + a_1 z + \dots + a_m z^m\!.
+\]
+\vspace{-19bp}
+\item
+The polynomial that is identically $0$ is said to have degree~$-\infty$\sindex{infty@$-\infty$}.
+\item
+The degree of a polynomial $p$ is denoted by $\deg p$.
+\end{Itemize}}
+
+In the next definition, we use the convention that $-\infty < m$, which means that the polynomial $0$ is in $\P\1_m(\F{})$.
+
+\NotationBox{$\P\1_m(\F{})$}{For $m$ a nonnegative integer, $\P\1_m(\F{})$\sindex{PmF@$\P\1_m(\F{})$}
+denotes the set of all polynomials with coefficients in $\F{}$ and
+degree at most $m$.}
+
+If $m$ is a nonnegative integer, then $\P\1_m(\F{}) = \Span \paren[\big]{1, z, \dots, z^m}$ \sbr{here we slightly abuse notation by letting $z^k$ denote a function}. Thus $\P\1_m{(\F{})}$ is a finite-dimensional vector space for each nonnegative integer $m$.
+
+\DefinitionBox{infinite-dimensional vector space}{A vector space is called \emph{infinite-dimensional}\index{infinite-dimensional vector space} if it is not finite-dimensional.}
+
+\begin{example}{$\P(\F{})$ is infinite-dimensional}
+Consider any list of elements of $\P(\F{})$.  Let $m$ denote the highest degree of the polynomials in this list.  Then every polynomial in the span of this list has degree at most $m$.  Thus $z^{m+1}$ is not in the span of our list. Hence no list spans $\P(\F{})$. Thus $\P(\F{})$ is infinite-dimensional.
+\end{example}
+
+\subsection{Linear Independence}
+
+Suppose $v_1, \dots, v_m \in V$ and $v \in \Span (v_1, \dots, v_m)$.
+By the definition of span, there exist $a_1, \dots, a_m \in \F{}$ such
+that
+{\addtolength{\abovedisplayskip}{-.023in}\addtolength{\belowdisplayskip}{-.023in} % VisualFormatting for page break for LADR4e
+\[
+v = a_1 v_1 + \dots + a_m v_m.
+\]
+Consider the question of whether the choice of scalars in the equation
+above is unique.  Suppose $c_1, \dots, c_m$ is another set
+of scalars such that
+\[
+v = c_1 v_1 + \dots + c_m v_m.
+\]
+Subtracting the last two equations, we have
+\[
+0 = (a_1 - c_1) v_1 + \dots + (a_m - c_m)v_m.
+\]}
+
+\pagebreak[3]
+
+\noindent
+Thus we have written $0$ as a linear combination of $(v_1, \dots, v_m)$.  If the only way to do this is by using $0$ for
+all the scalars in the linear combination, then each $a_k - c_k$ equals~$0$, which means that each $a_k$ equals~$c_k$ (and thus the choice of scalars was indeed
+unique).  This situation is so important that we give it a special name---linear independence---which we now define.
+
+\DefinitionBox{linearly independent}{
+\begin{Itemize}
+\item
+A list $v_1, \dots, v_m$ of vectors in $V$ is called
+\emph{linearly independent}\index{linearly independent} if the only choice of
+$a_1, \dots, a_m \in \F{}$ that makes
+\[
+a_1 v_1 + \dots + a_m v_m =0
+\]
+is $a_1 = \dots = a_m = 0$.
+\item
+The empty list $(\ )$ is also declared to be linearly independent.
+\end{Itemize}}
+
+The reasoning above shows that $v_1, \dots, v_m$ is linearly independent if and
+only if each vector in $\Span (v_1, \dots, v_m)$ has only one representation as a
+linear combination of $v_1, \dots, v_m$.
+
+\begin{example}{linearly independent lists}
+\begin{subtheorem}*
+\item
+To see that the list $(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0)$ is linearly independent in $\FF{4}$, suppose $a_1, a_2, a_3 \in \F{}$ and
+\[
+a_1 (1, 0, 0, 0) + a_2(0, 1, 0, 0) + a_3(0,0,1, 0) = (0, 0, 0, 0).
+\]
+Thus
+\[
+(a_1, a_2, a_3, 0) = (0, 0, 0, 0).
+\]
+Hence $a_1 = a_2 = a_3 = 0$. Thus the list $(1, 0, 0, 0), (0, 1, 0, 0) ,(0,0,1, 0)$ is linearly independent in $\FF4$.
+
+\item
+Suppose $m$ is a nonnegative integer. To see that the list $1, z, \dots, z^m$ is linearly independent in\/~$\P(\F{})$, suppose $a_0, a_1, \dots, a_m \in \F{}$ and
+\[
+a_0 + a_1 z + \dots + a_m z^m = 0,
+\]
+where we think of both sides as elements of $\P(\F{})$. Then
+\[
+a_0 + a_1 z + \dots + a_m z^m = 0
+\]
+for all $z \in \F{}\3$. As discussed earlier (and as follows from \ref{4polyzero}), this implies that $a_0 = a_1 = \dots = a_m = 0$. Thus
+$1, z, \dots, z^m$ is a linearly independent list in $\P(\F{})$.
+\item
+A list of length one in a vector space is linearly independent if and only if the vector in the list is not~$0$.
+\item
+A list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+\pagebreak[3]
+
+If some  vectors are removed from a linearly independent list,  the remaining
+list is also linearly independent, as you should verify.
+
+\DefinitionBox{linearly dependent}{
+\begin{Itemize}
+\item
+A list of vectors in $V$ is called
+\emph{linearly dependent}\index{linearly dependent} if it is not \mbox{linearly}
+independent.
+\item
+In other words, a list $v_1, \dots, v_m$ of vectors in $V$ is
+linearly dependent if there exist $a_1, \dots, a_m \in \F{}\3$, not all $0$, such that
+$a_1 v_1 + \dots + a_m v_m= 0$.
+\end{Itemize}}
+
+{\addtolength{\abovedisplayskip}{-.023in}\addtolength{\belowdisplayskip}{-.023in} % VisualFormatting for page break for LADR4e
+
+\begin{example}[linearlydep]{linearly dependent lists}
+\begin{Itemize}
+\item
+$(2, 3, 1), (1, -1, 2), (7, 3, 8)$
+is linearly dependent in $\F{3}$ because
+\[
+2(2, 3, 1) + 3(1, -1, 2) + (-1)(7, 3, 8) = (0, 0, 0).
+\]
+\item
+The list $(2, 3, 1), (1, -1, 2), (7, 3, c)$ is linearly dependent in $\F{3}$ if and only if $c = 8$, as you should verify.
+\item
+If some vector in a list of vectors in $V$ is a linear combination of the other vectors, then the list is linearly dependent. (Proof: After writing one vector in the list as equal to a linear combination of the other vectors, move that vector to the other side of the equation, where it will be multiplied by $-1$.)
+\item
+Every list of vectors in $V$ containing the $0$ vector is
+linearly dependent. (This is a special case of the previous bullet point.)
+\end{Itemize}
+\exampleitemend
+\vspace{2bp}
+\end{example}
+
+The next lemma is a terrific tool.  It states that given a linearly dependent
+list of vectors, one of the vectors is in the
+span of the previous ones. Furthermore, we can throw out that vector
+without changing the span of the original list.
+
+\ResultBox[4]{linear dependence lemma}{\index{linear dependence lemma}%
+Suppose $v_1, \dots, v_m$ is a linearly dependent list in $V\1$. Then
+there exists \mbox{$k \in \{1, 2, \dots, m\}$} such that
+\[
+v_k \in \Span(v_1, \dots, v_{k-1}).
+\]
+
+Furthermore, if $k$ satisfies the condition above and the $k^\nth$ term is removed from $v_1, \dots, v_m$,
+then the span of the remaining list equals $\Span(v_1, \dots, v_m)$.}
+
+\proof
+Because the list $v_1, \dots, v_m$ is linearly dependent,
+there exist numbers $a_1, \dots, a_m \in \F{}\3$, not all $0$, such that
+\[
+a_1 v_1 + \dots + a_m v_m = 0.
+\]
+Let $k$ be
+the largest element of $\{1, \dots, m \}$ such that $a_k \ne 0$.  Then
+\[
+v_k = -\frac{a_1}{a_k} v_1 - \dots - \frac{a_{k-1}}{a_k} v_{k-1},
+\]
+which proves that $v_k \in \Span(v_1, \dots, v_{k-1})$, as desired.
+} % End addtolength
+
+\pagebreak[3]
+
+Now suppose $k$ is any element of $\{1, \dots, m \}$ such that $v_k \in \Span(v_1, \dots, v_{k-1})$. Let $b_1, \ldots, b_{k-1} \in \F{}$ be such that
+\begin{equation} \label{5}
+v_k = b_1 v_1 + \cdots + b_{k-1} v_{k-1}.
+\end{equation}%
+Suppose $u \in \Span(v_1, \dots, v_m)$.  Then there exist $c_1, \dots, c_m \in \F{}$ such that
+\[
+u = c_1 v_1 + \dots + c_m v_m.
+\]
+In the equation above, we can replace $v_k$ with the right side of \ref{5}, which
+shows that $u$ is in the span of the list obtained by removing the
+$k^\nth$ term from $v_1, \dots, v_m$.  Thus removing the $k^\nth$ term of the list $v_1, \dots, v_m$ does not change the span of the list.
+\qed
+
+If $k = 1$ in the linear dependence lemma, then $v_k \in \Span(v_1, \dots, v_{k-1})$ means that $v_1 = 0$, because $\Span(\ ) = \{0\}$. Note also that parts of the proof of the linear dependence lemma need to be modified if $k = 1$. In general, the proofs in the rest of the book will not call attention to special cases that must be considered involving lists of length $0$, the subspace $\{0\}$, or other trivial cases for which the result is true but needs a slightly different proof. Be sure to check these special cases yourself.
+
+\begin{example}{smallest\/ $k$ in linear dependence lemma}
+Consider the list
+\[
+(1, 2, 3), (6, 5,4), (15, 16, 17), (8, 9, 7)
+\]
+in $\RR3$. This list of length four is linearly dependent, as we will soon see. Thus the linear dependence lemma implies that there exists
+$k \in \br{1, 2, 3, 4}$ such that the $k^\nth$ vector in this list is a linear combination of the previous vectors in the list. Let's see how to find the smallest value of $k$ that works.
+
+Taking $k = 1$ in the linear dependence lemma works if and only if the first vector in the list equals $0$. Because $(1, 2, 3)$ is not the $0$ vector, we cannot take $k = 1$ for this list.
+
+Taking $k = 2$ in the linear dependence lemma works if and only if the second vector in the list is a scalar multiple of the first vector. However, there does not exist $c \in \R{}$ such that $(6, 5, 4) = c(1, 2, 3)$. Thus we cannot take $k = 2$ for this list.
+
+Taking $k = 3$ in the linear dependence lemma works if and only if the third vector in the list is a linear combination of the first two vectors. Thus for the list in this example, we want to know whether there exist $a, b \in \R{}$ such that
+\[
+(15, 16, 17) = a (1, 2,3) + b(6, 5,4).
+\]
+The equation above is equivalent to a system of three linear equations in the two unknowns $a, b$. Using Gaussian elimination or appropriate software, we find that $a = 3$, $b = 2$ is a solution of the equation above, as you can verify. Thus for the list in this example, taking $k=3$ is the smallest value of $k$ that works in the linear dependence lemma.
+\end{example}
+
+Now we come to a key result.  It says that no linearly independent
+list in $V$ is longer than a spanning list in $V\1$.
+
+\ResultBox[7]{length of linearly independent list\/ $\le\,$ length of spanning list}{%
+In a finite-dimensional vector space, the length of every linearly
+independent list of vectors is less than or equal  to the length of every spanning
+list of vectors.
+}
+
+\proof
+Suppose that $u_1, \dots, u_m$ is linearly independent in $V\1$. Suppose also that
+$w_1, \dots, w_n$ spans~$V\1$.  We need to prove that $m \le n$.  We do so
+through the process described below with $m$ steps; note that in each step we add
+one of the $u$'s and remove one of the~$w$'s.
+
+\begin{description}
+\item[Step 1] \ \\
+Let $B$ be the list $w_1, \dots, w_n$, which spans $V\1$. Adjoining $u_1$ at the beginning of this list
+produces a linearly dependent list (because $u_1$ can be written as a linear combination of $w_1, \ldots, w_n$).  In other words, the list
+\[
+u_1, w_1, \dots, w_n
+\]
+is linearly dependent.
+
+Thus by the linear dependence lemma (\ref{4}), one of the vectors in the list above is a linear combination of the previous vectors in the list. We know that $u_1 \ne 0$ because the list $u_1, \dots, u_m$ is linearly independent. Thus $u_1$ is not in the span of the previous vectors in the list above (because $u_1$ is not in $\br{0}$, which is the span of the empty list). Hence the linear dependence lemma implies that we can remove one of the $w$'s so that the new list $B$ (of length $n$) consisting of $u_1$ and the remaining $w$'s spans~$V\1$.
+
+\item[Step \textit{k}, for \textit{k} = 2, \ldots, \textit{m}] \ \\
+The list $B$ (of length $n$) from step $k-1$ spans $V\1$. In particular, $u_k$ is in the span of the list $B$. Thus the list of length $(n+1)$ obtained by adjoining $u_k$ to $B$, placing it just after $u_1, \dots, u_{k-1}$, is linearly dependent.  By the linear dependence lemma (\ref{4}), one of the vectors in this list  is in the span of the previous ones, and because $u_1, \dots, u_k$ is linearly  independent, this vector cannot be one of the $u$'s.
+
+Hence there still must be at least one remaining $w$ at this step. We can remove from our new list (after adjoining $u_k$ in the proper place) a $w$ that is a linear combination of the previous vectors in the list, so that the new list $B$ (of length $n$) consisting of $u_1, \dots, u_k$ and the
+remaining $w$'s spans~$V\1$.
+\end{description}
+
+After  step $m$, we have added all the $u$'s and the process stops.  At each step as we add a $u$ to $B$, the linear dependence lemma implies that there is some $w$ to remove.  Thus  there are at least as many $w$'s as~$u$'s.
+\qed
+
+\pagebreak[3]
+
+The next two examples show how the result above can be used to show, without any computations, that certain lists are not linearly independent and that certain lists do not span a given vector space.
+
+\begin{example}{no list of length\/ $4$ is linearly independent in\/ $\R{3}$}
+The list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$, which has length three, spans $\RR{3}$. Thus no list of length larger than three is linearly independent in $\RR{3}$.
+
+For example, we now know that $(1,2, 3), (4,5,8), (9, 6, 7), (-3, 2, 8)$, which is a list of length four, is not linearly independent in $\RR3$.
+\end{example}
+
+\begin{example}{no list of length\/ $3$ spans\/ $\R{4}$}
+The list $(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)$, which has length four, is linearly independent in $\RR{4}$. Thus no list of length less than four spans $\RR{4}$.
+
+For example, we now know that $(1,2, 3, -5), (4,5,8, 3), (9, 6, 7, -1)$, which is a list of length three, does not span $\RR{4}$.
+\end{example}
+
+Our intuition suggests that every subspace of a finite-dimensional vector space should also be finite-dimensional.  We now prove that this intuition is correct.
+
+\ResultBox[68]{finite-dimensional subspaces}{%
+Every subspace of a finite-dimensional vector space is finite-dimensional.
+}
+
+\proof
+Suppose $V$ is finite-dimensional and $U$ is a subspace of~$V\1$.  We need to prove that $U$ is finite-dimensional. We do this through the following multistep construction.
+
+\begin{description}
+\item[Step 1] \ \\ If $U = \{0\}$, then $U$ is finite-dimensional and we are done.
+If $U \ne \{0\}$, then choose a nonzero vector $u_1 \in U$.
+
+\item[Step \textit{k}] \ \\ If $U = \Span(u_1, \dots, u_{k-1})$, then $U$ is finite-dimensional and we are done. If $U \ne \Span(u_1, \dots, u_{k-1})$, then choose
+a  vector $u_k \in U$ such that
+\[
+u_k \notin \Span(u_1, \dots, u_{k-1}).
+\]
+\end{description}
+\vspace{-4bp}
+
+After each step, as long as the process continues, we have constructed a list
+of vectors such that no vector in this list is in the span of the previous
+vectors.  Thus after each step we have constructed a linearly independent
+list, by the linear dependence lemma (\ref{4}).  This linearly independent
+list cannot be longer than any
+spanning list of $V$ (by~\ref{7}). Thus the process eventually
+terminates, which means that $U$ is finite-dimensional.
+\qed
+
+\begin{exercises}
+
+\exercise
+Find a list of four distinct vectors in $\F3$ whose span equals
+\[
+\br[\big]{(x, y,z) \in \F3: x+y+z = 0}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ spans $V\1$, then the list
+\[
+v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
+\]
+also spans $V\1$.
+
+
+\exercise
+Suppose $v_1, \ldots, v_m$ is a list of vectors in $V\1$. For $k \in \br{1, \ldots, m}$, let\label{2span}
+\[
+w_k = v_1 + \cdots + v_k.
+\]
+Show that $\Span(v_1, \ldots, v_m) = \Span(w_1, \ldots, w_m)$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not~$0$.
+\item
+Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
+\end{SUBtheorem}
+
+
+\exercise
+Find a number $t$ such that
+\[
+(3,1, 4), (2, -3, 5), (5, 9, t)
+\]
+is not linearly independent in $\RR3$.
+
+
+\exercise
+Show that the list $(2, 3, 1), (1, -1, 2), (7, 3, c)$ is linearly dependent in $\F{3}$ if and only if $c = 8$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that if we think of $\C{}$ as a vector space over $\R{}$, then the list \mbox{$1 + i, 1 - i$} is linearly independent.
+\item
+Show that if we think of $\C{}$ as a vector space over $\C{}$, then the list \mbox{$1 + i, 1 - i$} is linearly dependent.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $v_1, v_2, v_3, v_4$ is linearly independent in $V\1$. Prove that the
+list
+\[
+v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
+\]
+is also linearly independent.
+
+
+\exercise
+Prove or give a counterexample: If $v_1, v_2, \dots, v_m$ is a linearly independent list of vectors in $V\1$, then
+\[
+5v_1 - 4v_2, v_2, v_3, \dots, v_m
+\]
+is linearly independent.
+
+
+\exercise
+Prove or give a counterexample: If $v_1, v_2, \dots, v_m$ is a linearly independent list of vectors in $V$ and $\la \in \F{}$ with $\la \ne 0$, then $\la v_1, \la v_2, \dots,\la v_m$ is linearly independent.
+
+
+\exercise
+Prove or give a counterexample: If $v_1, \dots, v_m$ and $w_1, \dots, w_m$ are linearly independent lists of vectors in $V\1$, then the list $v_1 + w_1, \dots, v_m + w_m$ is linearly independent.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is linearly independent in $V$ and $w \in V\1$.  Prove that
+if $v_1 + w, \dots, v_m + w$
+is linearly dependent, then $w \in \Span(v_1, \dots, v_m)$.
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is linearly independent in $V$ and $w \in V\1$. Show that
+\[
+v_1, \dots, v_m, w \text{ is linearly independent} \iff w \notin \Span (v_1, \dots, v_m).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $v_1, \ldots, v_m$ is a list of vectors in $V\1$. For $k \in \br{1, \ldots, m}$, let\label{2ind}
+\[
+w_k = v_1 + \cdots + v_k.
+\]
+Show that the list $v_1, \ldots, v_m$ is linearly independent if and only if the list $w_1, \ldots, w_m$ is linearly independent.
+
+
+\exercise
+Explain why there does not exist a list of six polynomials that is linearly independent in $\P\1_4(\F{})$.
+
+
+\exercise
+Explain why no list of four polynomials spans $\P\1_4(\F{})$.
+
+
+\exercise
+Prove that $V$ is infinite-dimensional if and only if there is a
+sequence $v_1, v_2, \dots$ of vectors in $V$ such that $v_1, \dots, v_m$ is
+linearly independent for every positive integer $m$.\label{2infdim}
+
+
+\exercise
+Prove that $\F{\infty}$ is infinite-dimensional.
+
+
+\exercise
+Prove that the real vector space of all continuous real-valued
+functions on the interval $[0, 1]$ is infinite-dimensional.
+
+
+\exercise
+Suppose $p_0, p_1, \dots, p_m$ are polynomials in $\P\1_m(\F{})$ such that
+$p_k(2) = 0$ for each $k \in \br{0, \ldots, m}$.  Prove that $p_0, p_1, \dots, p_m$ is not linearly
+independent in $\P\1_m(\F{})$.
+
+
+\end{exercises}
+
+\CrCom
+
+\section{Bases}
+
+In the previous section, we discussed linearly independent lists and we also discussed spanning lists. Now we bring these concepts together by considering lists that have both properties.
+
+\DefinitionBox{basis}{A \emph{basis}\index{basis} of $V$ is a list of vectors in $V$ that is linearly
+independent and  spans~$V\1$.}
+
+\begin{example}[bases]{bases}
+\begin{subtheorem}*
+\item
+The list $
+(1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)
+$
+is a basis of~$\FF{n}$, called the \emph{standard basis}\index{standard basis!of Fn@of $\F{n}$}
+of~$\FF{n}$.
+\item
+The list $(1,2), (3,5)$ is a basis of~$\FF{2}$. Note that this list has length two, which is the same as the length of the standard basis of~$\FF2$. In the next section, we will see that this is not a coincidence.
+\item
+The list $(1,2, -4), (7, -5, 6)$ is linearly independent in $\F3$ but is not a
+basis of $\F{3}$ because it does not span~$\FF{3}$.
+\item
+The list $(1,2), (3,5), (4,13)$ spans $\F{2}$ but is not a basis of $\F{2}$ because it is not linearly independent.
+\item
+The list $(1, 1, 0), (0, 0, 1) $ is a basis of $\br[\big]{(x, x, y) \in \F{3} \colon x, y \in \F{}}$.
+\item
+The list $(1, -1, 0), (1, 0, -1) $ is a basis of
+\[
+\br[\big]{(x, y, z) \in \F{3} \colon x + y + z = 0}.
+\]
+\item
+The list $1, z, \dots, z^m$ is a basis of~$\P\1_m(\F{})$, called the
+\emph{standard basis}\index{standard basis!of PmF@of $\P\1_m(\F{})$}
+of~$\P\1_m(\F{})$.%
+\end{subtheorem}
+\exampleitemend
+\end{example}
+
+In addition to the standard basis, $\F{n}$ has many other bases. For example,
+\[
+(7, 5), (-4, 9) \andd (1,2), (3,5)
+\]
+are both bases of $\FF{2}$.
+
+The next result helps explain why bases are useful. Recall that ``uniquely'' means ``in only one way''\!.
+
+\ResultBox[380]{criterion for basis}{%
+A list $v_1, \dots, v_n$ of vectors in $V$ is a basis of $V$ if and only if
+every $v \in V$ can be written uniquely in the form
+\begin{equation} \label{66}
+v = a_1 v_1 + \dots + a_n v_n,
+\end{equation}%
+where $a_1, \dots, a_n \in \F{}\3$.
+}
+
+\pagebreak[3]
+
+\mar[4]{This proof is essentially a repetition of the ideas that led us to the definition of linear independence.}
+
+\proof
+First suppose that $v_1, \dots, v_n$ is a basis of $V\1$.  Let $v \in V\1$.  Because $v_1, \dots, v_n$ spans $V\1$, there exist $a_1, \dots, a_n \in \F{}$ such that \ref{66} holds.  To show that the representation in \ref{66} is unique, suppose $c_1, \dots, c_n$ are scalars such that we also have
+\[
+v = c_1 v_1 + \dots + c_n v_n.
+\]
+Subtracting the last equation from \ref{66}, we get
+\[
+0 = (a_1 - c_1) v_1 + \dots + (a_n - c_n) v_n.
+\]
+This implies that each $a_k - c_k$ equals $0$ (because $v_1, \dots, v_n$ is linearly
+independent). Hence $a_1 = c_1, \dots, a_n = c_n$. We have
+the desired uniqueness, completing the proof in one direction.
+
+For the other direction, suppose every $v \in V$ can be written uniquely in
+the form given by~\ref{66}.  This implies that the list $v_1, \dots, v_n$ spans
+$V\1$.  To show that $v_1, \dots, v_n$ is linearly independent, suppose
+$a_1, \dots, a_n \in \F{}$ are such that
+\[
+0 = a_1 v_1 + \dots + a_n v_n.
+\]
+The uniqueness of the representation \ref{66} (taking $v = 0$) now implies that
+\mbox{$a_1 = \dots = a_n = 0$}.  Thus $v_1, \dots, v_n$ is linearly independent and
+hence is a basis of~$V\1$.
+\qed
+
+A spanning list in a vector space may not be a basis because it is not linearly
+independent.  Our next result says that given any spanning list, some (possibly none) of the vectors in it can be discarded so that the remaining list is linearly
+independent and still spans the vector space.
+
+As an example in the vector space $\FF{2}$, if the procedure in the proof below is applied to the list $ (1,2), (3, 6), (4, 7), (5, 9)$, then the second and fourth vectors will be removed. This leaves $(1,2), (4, 7)$, which is a basis of $\FF{2}$.
+
+\ResultBox[267]{every spanning list contains a basis}{%
+Every spanning list in a vector space can be reduced to a basis of the vector space.
+}
+
+\proof
+Suppose $v_1, \dots, v_n$ spans~$V\1$.  We want to remove some of the
+vectors from $v_1, \dots, v_n$ so that the remaining vectors form a basis
+of~$V\1$.  We do this through the multistep process described below.
+
+Start with $B$ equal to the list $v_1, \dots, v_n$.
+
+\begin{description}
+\item[Step 1] \ \\
+If $v_1 = 0$, then delete $v_1$  from $B$.  If $v_1 \ne 0$, then leave $B$ unchanged.
+
+\item[Step \textit{k}] \ \\
+If $v_k$ is in $\Span(v_1, \dots, v_{k-1})$, then delete $v_k$  from the list $B$.  If
+$v_k$ is not in $\Span(v_1, \dots, v_{k-1})$, then leave $B$ unchanged.
+\end{description}
+
+Stop the process after step $n$, getting a list $B$.  This list $B$
+spans~$V$ because our original list spanned $V$ and we have discarded only vectors that
+were already in the span of the previous  vectors.  The process ensures that no vector
+in $B$ is in the span of  the previous ones.  Thus $B$ is linearly independent, by the
+linear dependence lemma (\ref{4}).  Hence $B$ is a basis of~$V\1$.
+\qed
+
+We now come to an important corollary of the previous result.
+
+\ResultBox[6]{basis of finite-dimensional vector space}
+{Every finite-dimensional vector space has a basis.}
+
+\proof
+By definition, a finite-dimensional vector space has a spanning list.  The
+previous result tells us that each spanning list can be reduced to a basis.
+\qed
+
+Our next result is in some sense a dual of \ref{267}, which said that every
+spanning list can be reduced to a basis.  Now we show that given any linearly
+independent list, we can adjoin some additional vectors (this includes the possibility of adjoining no additional vectors) so that the extended list is still linearly independent but also spans the space.
+
+\ResultBox[9]{every linearly independent list extends to a basis}{%
+Every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space.}
+
+\proof
+Suppose $u_1, \dots, u_m$ is linearly independent in a finite-dimensional vector space $V\1$. Let $w_1, \dots, w_n$ be a list of vectors in $V$ that spans $V\1$. Thus the list
+\[
+u_1, \dots, u_m, w_1, \dots, w_n
+\]
+spans $V\1$. Applying the procedure of the proof of \ref{267} to reduce this list to a basis of $V$ produces a basis consisting of the vectors $u_1, \dots, u_m$ and some of the $w$'s (none of the $u$'s get deleted in this procedure because $u_1, \dots, u_m$ is linearly independent).
+\qed
+
+As an example in $\FF{3}$, suppose we start with the linearly independent list
+$ (2, 3, 4), (9, 6, 8) $. If we take $w_1, w_2, w_3$ to be the standard basis of $\FF{3}$, then applying the procedure in the proof above produces the list
+\[
+(2, 3, 4), (9, 6, 8), (0, 1, 0),
+\]
+which is a basis of $\FF{3}$.
+
+\mar[5]{Using the same ideas but more advanced tools, the next result can be proved without the
+hypothesis that $V$ is finite-dimensional.}
+
+As an application of the result above, we now show that every
+subspace of a finite-dimensional vector space can be paired with another
+subspace to form a direct sum of the whole space.
+
+\ResultBox[a220]{every subspace of\/ $V$ is part of a direct sum equal to\/ $V$}{%
+Suppose $V$ is finite-dimensional and $U$ is a subspace of~$V\1$.
+Then there is a subspace $W$ of~$V$ such that $V = U \oplus W\3$.\index{direct sum}}
+
+\proof
+Because $V$ is finite-dimensional, so is $U$ (see~\ref{68}).  Thus there is a basis
+$u_1, \dots, u_m$ of~$U$ (by~\ref{6}).  Of course $u_1, \dots, u_m$ is a
+linearly independent list of vectors in~$V\1$. Hence this list can be extended to a
+basis $u_1, \dots, u_m, w_1, \dots, w_n$ of~$V$ (by~\ref{9}).  Let
+$W = \Span(w_1, \dots, w_n)$.
+
+To prove that $V = U \oplus W\3$, by \ref{219} we only need to show that
+\[
+V = U + W \andd U \cap W = \{0\}.
+\]
+
+To prove the first equation above, suppose $v \in V\1$.  Then,  because the list $u_1, \dots, u_m, w_1, \dots, w_n$ spans $V\1$,
+there exist $a_1, \dots, a_m, b_1, \dots, b_n \in \F{}$ such that
+\vspace{-.05in} %VisualFormatting
+\[
+v = \underbrace{a_1 u_1 + \dots + a_m u_m}_u +
+\underbrace{b_1 w_1 + \dots + b_n w_n}_w\1.
+\]
+We have $v = u + w$, where $u \in U$ and $w \in W$ are defined
+as above.  Thus
+$v \in U + W\3$, completing the proof that $V = U + W\3$.
+
+To show that $U \cap W = \{0\}$, suppose
+$v \in U \cap W\3$.  Then there exist scalars
+$a_1, \dots, a_m, b_1, \dots, b_n \in \F{}$ such that
+\[
+v = a_1 u_1 + \dots + a_m u_m = b_1 w_1 + \dots + b_n w_n.
+\]
+Thus
+\[
+a_1 u_1 + \dots + a_m u_m - b_1 w_1 - \dots - b_n w_n = 0.
+\]
+Because $u_1, \dots, u_m, w_1, \dots, w_n$ is linearly independent, this
+implies that
+\[
+a_1 = \dots = a_m = b_1 = \dots = b_n = 0.
+\]
+Thus $v = 0$,
+completing the proof that $U \cap W = \{0\}$.
+\qed
+
+\begin{exercises}
+
+\exercise
+Find all vector spaces that have exactly one basis.
+
+
+\exercise
+Verify all assertions in Example \ref{bases}.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U$ be the subspace of $\R{5}$ defined by
+\[
+U =
+\br[\big]{ (x_1, x_2, x_3, x_4, x_5) \in \R{5}: x_1 = 3 x_2 \mbox{\ and\ } x_3 = 7x_4}.
+\]
+Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\RR5$.
+\item
+Find a subspace $W$ of $\R5$ such that $\R5 = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U$ be the subspace of $\C{5}$ defined by
+\[
+U =
+\br[\big]{ (z_1, z_2, z_3, z_4, z_5) \in \C{5}: 6 z_1 = z_2 \mbox{\ and\ } z_3 + 2z_4 + 3z_5 = 0}.
+\]
+Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\CC5$.
+\item
+Find a subspace $W$ of $\C5$ such that $\C5 = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W\3$. Prove that there exists a basis of $V$ consisting of vectors in $U \cup W\3$.
+
+
+\exercise
+Prove or give a counterexample: If $p_0, p_1, p_2, p_3$ is a list in $\P\1_3(\F{})$ such
+that none of the polynomials $p_0, p_1, p_2, p_3$ has degree~$2$, then $p_0, p_1, p_2, p_3$ is not a basis of $\P\1_3(\F{})$.
+
+
+\exercise
+Suppose $v_1, v_2, v_3, v_4$ is a basis of $V\1$. Prove that
+\[
+v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4
+\]
+is also a basis of $V\1$.
+
+
+\exercise
+Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U$ is a subspace of $V$ such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
+
+
+\exercise
+Suppose $v_1, \ldots, v_m$ is a list of vectors in $V\1$. For $k \in \br{1, \ldots, m}$, let
+\[
+w_k = v_1 + \cdots + v_k.
+\]
+Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V\1$.
+
+
+\exercise
+Suppose $U$ and $W$ are subspaces of $V$ such that $V = U \oplus W\3$. Suppose also that $u_1, \dots, u_m$ is a basis of $U$ and $w_1, \dots, w_n$ is a basis of $W\3$. Prove that
+\[
+u_1, \dots, u_m, w_1, \dots, w_n
+\]
+is a basis of $V\1$.
+
+
+\exercise
+Suppose $V$ is a real vector space.
+Show that if $v_1, \dots, v_n$ is a basis of $V$ (as a real vector space), then
+$v_1, \dots, v_n$ is also a basis of the complexification $V\1_{\C{}}$ (as a complex vector space).\index{complexification!of a vector space}
+\exercisecomment{See Exercise \ref{1VC} in Section \ref{1DefVS} for the definition of the complexification\/ $V\1_{\C{}}$.}
+
+
+\end{exercises}
+
+\section{Dimension} \label{dimension}
+
+Although we have been discussing finite-dimensional vector spaces, we have not yet defined the dimension of such an object.  How should dimension be defined?  A reasonable definition should force the dimension of $\F{n}$ to equal~$n$.  Notice that the standard basis
+\[
+(1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)
+\]
+of $\F{n}$ has length $n$.  Thus we are tempted to define the dimension as the length of a
+basis.  However, a finite-dimensional vector space in general has many
+different bases, and our attempted definition makes sense only if all bases in a
+given vector space have the same length.  Fortunately that turns out to be the
+case, as we now show.
+
+\ResultBox[3basislen]{basis length does not depend on basis}{
+Any two bases of a finite-dimensional vector space have the same length.
+}
+
+\proof
+Suppose $V$ is finite-dimensional.  Let $B_1$ and $B_2$ be two bases
+of~$V\1$.  Then $B_1$ is linearly independent in $V$ and $B_2$ spans $V\1$, so the
+length of $B_1$ is at most the length of $B_2$ (by~\ref{7}).  Interchanging
+the roles of $B_1$ and $B_2$, we also see that the length of $B_2$ is
+at most the length of~$B_1$.  Thus the length of $B_1$ equals the
+length of $B_2$, as desired.  \qed
+
+Now that we know that any two bases of a finite-dimensional vector space have  the same length, we can  formally define the dimension of such spaces.
+
+\DefinitionBox{dimension, $\dim V$}{
+\begin{Itemize}
+\item
+The \emph{dimension}\index{dimension} of a finite-dimensional vector space
+is the length of any basis of the vector space.
+\item
+The dimension of a finite-dimensional vector space $V$ is  denoted by $\dim V\1$.\sindex{dim}
+\end{Itemize}}
+
+\begin{example}{dimensions}
+\begin{Itemize}
+\item
+$\dim \F{n} = n$ because the standard basis of $\F n$ has length $n$.
+\item
+$\dim \P\1_m(\F{}) = m + 1$ because the standard basis $1, z, \dots, z^m$ of $\P\1_m(\F{})$ has length $m+1$.
+\item
+If $U = \br[\big]{(x, x, y) \in \F{3} \colon x, y \in \F{}}$, then $\dim U = 2$ because $(1, 1, 0), (0, 0, 1) $ is a basis of $U$.
+\item
+If $U = \br[\big]{(x, y, z) \in \F{3} \colon x + y + z = 0}$, then $\dim U = 2$ because the list $(1, -1, 0), (1, 0, -1) $ is a basis of $U$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+Every subspace of a finite-dimensional vector space is finite-dimensional (by~\ref{68}) and so has a dimension.  The next result
+gives the expected inequality about the dimension of a subspace.
+
+\ResultBox[2subdim]{dimension of a subspace}{
+If\/ $V$ is finite-dimensional and\/ $U$ is a subspace of\/~$V\1$, then
+$\dim U \le \dim V\1$.
+}
+
+\proof
+Suppose $V$ is finite-dimensional and $U$ is a subspace of~$V\1$. Think of a basis of $U$ as a linearly independent list in $V\1$, and think of a basis of $V$ as a spanning list in $V\1$. Now use \ref{7} to conclude that $\dim U \le \dim V\1$.\qed
+
+\mar[10]{The real vector space\/ $\R{2}$ has dimension two; the complex vector space\/ $\C{}$ has dimension one.  As sets,\/
+$\R{2}$ can be identified  with\/ $\C{}$ \uppar{and addition is the same on both spaces, as is scalar  multiplication by real numbers}.  Thus when we talk about the dimension of a vector space, the role played by the choice of\/ $\F{}$ cannot be neglected.}
+
+To check that a list of vectors in $V$ is a basis of $V\1$, we must, according to the definition, show that the list in question satisfies two properties: it must be linearly independent and it must span $V\1$.  The next two results show that if the list in question has the right length, then we only need to check that it satisfies one of the two required properties. First we prove that every linearly independent list of the right length is a basis.
+
+\ResultBox[75]{linearly independent list of the right length is a basis}{%
+Suppose $V$ is finite-dimensional. Then every linearly independent list of vectors in $V$ of length $\dim V$ is a basis of~$V\1$.
+}
+
+\proof
+Suppose $\dim V = n$ and $v_1, \dots, v_n$ is linearly independent in $V\1$.
+The list $v_1, \dots, v_n$ can be extended to a basis of $V$ (by~\ref{9}).
+However, every basis of $V$ has length $n$, so in this case the extension is the trivial one, meaning that no elements are adjoined to
+$v_1, \dots, v_n$. Thus $v_1, \dots, v_n$ is a basis of $V\1$, as desired.
+\qed
+
+The next result is a useful consequence of the previous result.
+
+\ResultBox[2subfull]{subspace of full dimension equals the whole space}
+{Suppose that $V$ is finite-dimensional and $U$ is a subspace of $V$ such that
+$\dim U = \dim V\1$.  Then $U = V\1$.}
+
+\proof
+Let $u_1, \dots, u_n$ be a basis of $U$.  Thus $n = \dim U$, and by hypothesis
+we also have $n = \dim V\1$.  Thus $u_1, \dots, u_n$ is a linearly
+independent list of vectors in $V$ (because it is a basis of~$U$) of length
+$\dim V\1$.  {}From \ref{75}, we see that $u_1, \dots, u_n$ is a basis of $V\1$.
+In particular every vector in $V$ is a linear combination of
+$u_1, \dots, u_n$.  Thus $U = V\1$.
+\qed
+
+\pagebreak[3]
+
+\begin{example}{a basis of\/ $\F{2}$}
+Consider the list $(5, 7), (4, 3)$ of vectors in $\FF2$.
+This list of length two is linearly independent in $\F2$ (because neither vector is a
+scalar multiple of the other).  Note that $\F{2}$ has dimension two. Thus
+\ref{75} implies that the linearly independent list $(5, 7), (4, 3)$ of
+length two is a basis of~$\F{2}$ (we do not need to bother checking
+that it spans~$\F{2}$).
+\end{example}
+
+\begin{example}[basissub]{a basis of a subspace of\/ $\P\1_3(\R{})$}
+Let $U$ be the subspace of $\P\1_3(\R{})$ defined by
+\[
+U = \br[\big]{p \in \P\1_3(\R{}): p' \! (5) = 0}.
+\]
+To find a basis of $U$, first note that each of the polynomials $1$, $(x - 5)^2\1$, and $(x-5)^3$ is in~$U$.
+
+Suppose $a, b, c \in \R{}$ and
+\[
+a + b(x-5)^2 + c(x-5)^3 = 0
+\]
+for every $x \in \R{}$. Without explicitly expanding the left side of the equation above, we can see that the left side has a $cx^3$ term. Because the right side has no $x^3$ term, this implies that $c = 0$. Because $c = 0$, we see that the left side has a $bx^2$ term, which implies that $b = 0$. Because $b = c = 0$, we can also conclude that $a = 0$. Thus the equation above implies that $a = b = c = 0$. Hence the list $ 1, (x - 5)^2\1, (x-5)^3 $ is linearly independent in $U$. Thus $3 \le \dim U$.
+Hence
+\[
+3 \le \dim U \le \dim \P\1_3(\R{}) = 4,
+\]
+where we have used \ref{2subdim}.
+
+The polynomial $x$ is not in $U$ because its derivative is the constant function~$1$. Thus $U \ne \P\1_3(\R{})$. Hence
+$\dim U \ne 4$ (by \ref{2subfull}). The inequality above now implies that $\dim U = 3$. Thus the linearly independent list $1, (x - 5)^2\1, (x-5)^3 $ in $U$ has length $\dim U$ and hence is a basis of $U$ (by \ref{75}).
+\end{example}
+
+Now we prove that a spanning list of the right length is a basis.
+
+\ResultBox[276]{spanning list of the right length is a basis}{%
+Suppose $V$ is finite-dimensional. Then every spanning list of vectors in $V$ of length $\dim V$ is a basis of~$V\1$.}
+
+\proof
+Suppose $\dim V = n$ and $v_1, \dots, v_n$ spans $V\1$.  The list
+$v_1, \dots, v_n$ can be reduced to a basis of $V$ (by~\ref{267}).  However,
+every basis of $V$ has length $n$, so in this case the reduction is the
+trivial one, meaning that no elements are deleted from $v_1, \dots, v_n$. Thus $v_1, \dots, v_n$ is a basis of $V\1$, as desired.
+\qed
+
+The next result gives a formula for the dimension of the sum of two
+subspaces of  a finite-dimensional vector space. This formula is
+analogous to a familiar counting formula: the number of elements in the union
+of two finite sets equals the number of elements in the first set, plus the
+number of elements in the second set, minus the number of elements in the
+intersection of the two sets.
+
+\ResultBox[128]{dimension of a sum\index{dimension!of a sum of subspaces}}{%
+If $V\1_1$ and $V\1_2$ are subspaces
+of a finite-dimensional vector space, then
+\[
+\dim(V\1_1 + V\1_2) = \dim V\1_1 + \dim V\1_2 - \dim(V\1_1 \cap V\1_2).
+\]
+}
+
+\proof
+Let $v_1, \dots, v_m$ be a basis of $V\1_1 \cap V\1_2$;
+thus $\dim(V\1_1 \cap V\1_2) = m$.  Because $v_1, \dots, v_m$ is a basis of
+$V\1_1 \cap V\1_2$, it is linearly independent in~$V\1_1$. Hence this list can be extended
+to a basis $v_1, \dots, v_m, u_1, \dots, u_j$ of~$V\1_1$ (by~\ref{9}).  Thus
+$\dim V\1_1 = m + j$.  Also extend $v_1, \dots, v_m$ to a basis
+$v_1, \dots, v_m, w_1, \dots, w_k$ of~$V\1_2$; thus $\dim V\1_2 = m + k$.
+
+We will show that
+\begin{equation} \label{3V1pV2}
+v_1, \dots, v_m, u_1, \dots, u_j, w_1, \dots, w_k
+\end{equation}%
+is a basis
+of $V\1_1 + V\1_2$.  This will complete the proof, because then we will have
+\begin{align*}
+\dim (V\1_1 + V\1_2) &= m + j + k \\
+&= (m + j) + (m + k) - m \\
+&= \dim V\1_1 + \dim V\1_2 - \dim(V\1_1 \cap V\1_2).
+\end{align*}
+
+The list \ref{3V1pV2} is contained in $V_1 \cup V_2$ and thus is contained in $V_1 + V_2$. The span of this list contains $V_1$ and contains $V_2$ and hence is equal to
+$V_1 + V_2$. Thus to show that \ref{3V1pV2} is a basis of $V\1_1 + V\1_2$ we only need to show that
+it is linearly independent.
+
+To prove that \ref{3V1pV2} is linearly independent, suppose
+\[
+a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_j u_j + c_1 w_1 + \dots + c_k w_k = 0,
+\]
+where all the $a$'s, $b$'s, and $c$'s are scalars.  We need to prove that all the
+$a$'s, $b$'s, and $c$'s equal $0$.  The equation above can be rewritten as
+\begin{equation} \label{2dimsum}
+c_1 w_1 + \dots + c_k w_k =
+- a_1 v_1 - \dots - a_m v_m - b_1 u_1 - \dots - b_j u_j,
+\end{equation}%
+which shows that $c_1 w_1 + \dots + c_k w_k \in V\1_1$.  All the $w$'s are in
+$V\1_2$, so  this implies that $c_1 w_1 + \dots + c_k w_k \in V\1_1 \cap V\1_2$.
+Because $v_1, \dots, v_m$ is a basis of $V\1_1 \cap V\1_2$, we have
+\[
+c_1 w_1 + \dots + c_k w_k = d_1 v_1 + \dots + d_m v_m
+\]
+for some scalars $d_1, \dots, d_m$.  But
+$v_1, \dots, v_m, w_1, \dots, w_k$ is linearly independent, so the last
+equation implies that all the $c$'s (and~$d$'s) equal $0$.  Thus \ref{2dimsum} becomes the equation
+\[
+a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_j u_j = 0.
+\]
+Because the list
+$v_1, \dots, v_m, u_1, \dots, u_j$ is linearly independent, this equation implies that all the $a$'s and $b$'s are $0$, completing the proof.
+\qed
+
+\pagebreak[3]
+
+For $S$ a finite set, let $\#S$ denote the number of elements of $S$. The table below compares finite sets with finite-dimensional vector spaces, showing the analogy between $\#S$ (for sets) and $\dim V$ (for vector spaces), as well as the analogy between unions of subsets (in the context of sets) and sums of subspaces (in the context of vector spaces).%\sindex{pound@$\#$}
+\[
+\begin{tabular}{|p{2.13in}|p{2.13in}|}
+\hline
+\vspace{-5bp}\hfil\small\textbf{sets} \vspace{1bp}& \vspace{-5bp}\hfil\small\textbf{vector spaces}\\ \hline
+\vspace{-5bp}\small $S$ is a finite set \vspace{1bp}& \vspace{-5bp}\small $V$ is a finite-dimensional vector space\\ \hline
+\vspace{-5bp}\small $\#S$ \vspace{1bp} & \vspace{-5bp}\small $\dim V$ \\ \hline
+\vspace{-5bp}\small for subsets $S_1, S_2$ of $S$, the union $S_1 \cup S_2$ is the smallest subset of $S$ containing $S_1$ and $S_2$ \vspace{1bp}
+& \vspace{-5bp}\small for subspaces $V\1_1, V\1_2$ of $V\1$, the sum $V\1_1 + V\1_2$ is the smallest subspace of $V$ containing $V\1_1$ and $V\1_2$\\ \hline
+\vspace{-5bp}\small $\#(S_1 \cup S_2)$ & \vspace{-5bp}\small $\dim(V\1_1 + V\1_2)$  \\
+\small $ = \#S_1 + \#S_2 - \#(S_1 \cap S_2)$ \vspace{1bp}
+&\small $= \dim V\1_1 + \dim V\1_2 - \dim(V\1_1 \cap V\1_2)$\\
+\hline
+\vspace{-5bp}\small $\#(S_1 \cup S_2) = \#S_1 + \#S_2 $
+& \vspace{-5bp}\small $\dim(V\1_1 + V\1_2) = \dim V\1_1 + \dim V\1_2$ \\
+\small $\iff S_1 \cap S_2 = \emptyset$ \vspace{1bp} & \small $\iff V\1_1 \cap V\1_2 = \br{0}$\\ \hline
+\vspace{-5bp}\small $S_1 \cup \cdots \cup S_m$ is a disjoint union $\iff$ $\#(S_1 \cup \cdots \cup S_m) = \#S_1 + \cdots + \#S_m$
+& \vspace{-5bp}\small $V\1_1 + \cdots + V\1_m$ is a direct sum $\iff$  $\dim(V\1_1 + \cdots + V\1_m) \hspace{1in}\ $ $= \dim V\1_1 + \cdots + \dim V\1_m$ \vspace{1bp}\\
+\hline
+\end{tabular}
+\]
+
+\smallskip
+
+The last row above focuses on the analogy between disjoint unions (for sets) and direct sums (for vector spaces). The proof of the result in the last box above will be given in \ref{3directsumdim}.
+
+You should be able to find results about sets that correspond, via analogy, to the results about vector spaces in Exercises \ref{7exer} through \ref{8exer}.
+
+\begin{exercises}
+
+\exercise
+Show that the subspaces of $\R{2}$ are precisely $\{0\}$, all lines in $\R{2}$ containing the origin, and $\RR{2}$.
+
+
+\exercise
+Show that the subspaces of $\R{3}$ are precisely $\{0\}$, all lines in $\R{3}$ containing the origin, all planes in $\R{3}$ containing the origin, and $\RR{3}$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U = \br[\big]{p \in \P\1_4(\F{}): p(6) = 0}$. Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\P\1_4(\F{})$.
+\item
+Find a subspace $W$ of $\P\1_4(\F{})$ such that $\P\1_4(\F{}) = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U = \br[\big]{p \in \P\1_4(\R{}): p'' \! (6) = 0}$. Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\P\1_4(\R{})$.
+\item
+Find a subspace $W$ of $\P\1_4(\R{})$ such that $\P\1_4(\R{}) = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise \label{2basis}
+\begin{SUBtheorem}
+\item
+Let $U = \br[\big]{p \in \P\1_4(\F{}): p(2) = p(5)}$. Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\P\1_4(\F{})$.
+\item
+Find a subspace $W$ of $\P\1_4(\F{})$ such that $\P\1_4(\F{}) = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U = \br[\big]{p \in \P\1_4(\F{}): p(2) = p(5) = p(6)}$. Find a basis of~$U$.
+\item
+Extend the basis in (a) to a basis of $\P\1_4(\F{})$.
+\item
+Find a subspace $W$ of $\P\1_4(\F{})$ such that $\P\1_4(\F{}) = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Let $U = \br[\Big]{p \in \P\1_4(\R{}): \int_{-1}^1 p = 0}$. Find a basis of $U$.
+\item
+Extend the basis in (a) to a basis of $\P\1_4(\R{})$.
+\item
+Find a subspace $W$ of $\P\1_4(\R{})$ such that $\P\1_4(\R{}) = U \oplus W\3$.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $v_1, \dots, v_m$ is linearly independent in $V$ and $w \in V\1$. Prove that
+\[
+\dim \Span(v_1 + w, \dots, v_m + w) \ge m-1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $m$ is a positive integer and $p_0, p_1, \dots, p_m \in \P(\F{})$ are such that each
+$p_k$ has degree~$k$.  Prove that $p_0, p_1, \dots, p_m$ is a basis of $\P\1_m(\F{})$.
+
+
+\exercise
+Suppose $m$ is a positive integer. For $0 \le k \le m$, let
+\[
+p_k(x) = x^k (1-x)^{m-k}.
+\]
+Show that $p_0, \ldots, p_m$ is a basis of $\P\1_m(\F{})$.
+\exercisecomment{The basis in this exercise leads to what are called \marbf{Bernstein polynomials}. You can do a web search to learn how Bernstein polynomials are used to approximate continuous functions on\/ $[0,1]$.\index{Bernstein polynomials}}
+
+
+\exercise
+Suppose $U$ and $W$ are both four-dimensional subspaces of $\CC{6}$.
+Prove that there exist two vectors in $U \cap W$ such that neither of these vectors is a scalar multiple of the other.
+
+
+\exercise
+Suppose that $U$ and $W$ are subspaces of $\R{8}$ such that $\dim U = 3$,
+$\dim W = 5$, and $U + W = \RR{8}$.  Prove that $\R8 = U \oplus W\3$. \label{7exer}
+
+
+\exercise
+Suppose $U$ and $W$ are both five-dimensional subspaces of~$\RR{9}$.
+Prove that $U \cap W \ne \{0\}$.
+
+
+\exercise
+Suppose $V$ is a ten-dimensional vector space and $V\1_1, V\1_2, V\1_3$ are subspaces of $V$ with
+$\dim V\1_1 = \dim V\1_2 = \dim V\1_3 = 7$. Prove that $V\1_1 \cap V\1_2 \cap V\1_3 \ne \br{0}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $V\1_1, V\1_2, V\1_3$ are subspaces of $V$ with
+$\dim V\1_1 + \dim V\1_2 + \dim V\1_3 > 2 \dim V\1$. Prove that $V\1_1 \cap V\1_2 \cap V\1_3 \ne \br{0}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ with $U \ne V\1$. Let $n = \dim V$ and $m = \dim U$. Prove that there exist $n - m$ subspaces of $V\1$, each of dimension $n-1$, whose intersection equals $U$.
+
+
+\exercise
+Suppose that $V\1_1, \dots, V\1_m$ are finite-dimensional subspaces of~$V\1$. Prove that $V\1_1 + \dots + V\1_m$ is finite-dimensional and
+\[
+\dim (V\1_1 + \dots + V\1_m) \le \dim V\1_1 + \dots + \dim V\1_m.
+\]
+%\exercisedisplayend
+\exercisecomment{The inequality above is an equality if and only if\/ $V\1_1 + \dots + V\1_m$ is a direct sum, as will be shown in \ref{3directsumdim}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, with $\dim V = n \ge 1$.  Prove that there
+exist one-dimensional subspaces $V\1_1, \dots, V\1_n$ of~$V$ such that \label{8exer}
+\[
+V = V\1_1 \oplus \dots \oplus V\1_n.
+\]
+\exercisedisplayend
+
+
+\begin{comment} % Exercise deleted because it is redundant with \ref{3directsumdim}.
+\exercise
+Suppose that $V\1_1, \dots, V\1_m$ are finite-dimensional subspaces of~$V$ such that
+$V\1_1 + \dots + V\1_m$ is a direct sum. Prove that \label{387}
+\[
+\dim V\1_1 \oplus \dots \oplus V\1_m = \dim V\1_1 + \dots + \dim V\1_m.
+\]
+\exercisedisplayend
+\exercisecomment{This exercise deepens the  analogy between direct sums of
+subspaces and disjoint unions of  subsets.  Specifically, compare this exercise to
+the following statement: if a set is written as a disjoint union of
+finite subsets, then the number of elements in the set equals the sum of the numbers of
+elements in the disjoint subsets.}
+
+
+\end{comment}
+
+\exercise
+Explain why you might guess, motivated by analogy with the formula for the number of elements in the
+union of three finite sets, that if $V\1_1, V\1_2, V\1_3$ are subspaces
+of a finite-dimensional vector space, then
+\begin{align*}
+\dim(V\1_1 + V\1_2 &+ V\1_3)\\
+=&\dim V\1_1 + \dim V\1_2 + \dim V\1_3 \\
+&{} - \dim (V\1_1 \cap V\1_2) - \dim (V\1_1 \cap V\1_3) - \dim (V\1_2 \cap V\1_3) \\
+&+ \dim (V\1_1 \cap V\1_2 \cap V\1_3).
+\end{align*}
+Then either prove the formula above or give a counterexample.
+
+
+\exercise
+Prove that if $V\1_1, V\1_2$, and $V\1_3$ are subspaces of a finite-dimensional vector space, then
+\begin{align*}
+\dim&(V\1_1 + V\1_2+ V\1_3) \\[6bp]
+= & \dim V\1_1 + \dim V\1_2 + \dim V\1_3\\[6bp]
+&-	\frac{ \dim(V\1_1 \cap V\1_2) + \dim(V\1_1 \cap V\1_3) + \dim(V\1_2 \cap V\1_3) }{3}\\[6bp]
+&-	\frac{ \dim\bigl( (V\1_1\! +\! V\1_2)\! \cap\! V\1_3 \bigr)
++ \dim\bigl( (V\1_1 \!+\! V\1_3)\! \cap\! V\1_2 \bigr)
++ \dim\bigl( (V\1_2\1 +\! V\1_3)\! \cap\! V\1_1 \bigr) }{3}.
+\end{align*}
+\exercisecomment{The formula above may seem strange because the right side does not look like an integer.}
+
+
+\end{exercises}
+
+\QuoteAuthor{%
+I at once gave up my former occupations, set down natural history and all its progeny as a deformed and abortive creation, and entertained the greatest disdain for a would-be science which could never even step within the threshold of real knowledge. In this mood I betook myself to the mathematics and the branches of study appertaining to that science as being built upon secure foundations, and so worthy of my consideration.}
+{\textit{Frankenstein}, Mary Wollstonecraft Shelley\index{Frankenstein@\textit{Frankenstein}}\index{Shelley, Mary Wollstonecraft}}
+
+\endinput

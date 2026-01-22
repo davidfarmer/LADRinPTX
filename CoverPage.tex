@@ -1,0 +1,131 @@
+\pagenumbering{roman}
+\setcounter{secnumdepth}{-1}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+
+\chapter{Linear Algebra Done Right}
+
+\thispagestyle{empty}
+
+\begin{center}
+
+preliminary version of fourth edition
+
+{\footnotesize
+\number\day\ \ifcase\month\or January\or February\or
+March\or April\or May\or June\or July\or August\or September\or October\or
+November\or December\fi\ \number\year\\
+\copyright\ \number\year}
+
+\vfill
+
+{\huge
+Sheldon Axler}
+
+\texttt{axler@sfsu.edu}
+
+\end{center}
+
+\vfill
+
+\noindent
+This document contains Chapter 5 of the future fourth edition of \textit{Linear Algebra Done Right}. Notice the nice results that follow from the increasing use of the minimal polynomial. Suggestions for improvements are most welcome.
+
+\bigskip
+
+\noindent
+The fourth edition of \textit{Linear Algebra Done Right} will be an Open Access book, which means that the electronic version will be legally free to the world. The print version will be published by Springer and will be reasonably priced. Both the electronic and the print versions will become available around November 2023.
+
+\bigskip
+
+\noindent
+Because this is not the final version of Chapter 5, please do not post this document elsewhere on the web, although it is fine to post a link to it (\url{https://linear.axler.net/}).
+
+\bigskip
+
+{\changefontsize{22}
+\[
+F_n = \frac{1}{\sqrt{5}} \, \Biggl[ \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n}
+-\paren[\Bigg]{ \frac{1 - \sqrt{5}}{2} }^{\!n} \Biggr]
+\]
+}
+
+\noindent
+\textit{Cover equation}: Formula for $n^\nth$ Fibonacci number. Exercise \ref{Fibonacci} in Section \ref{diagmat} derives this formula by diagonalizing an appropriate operator.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\setcounter{page}{4}
+
+\chapter{About the Author}
+
+Sheldon Axler was valedictorian of his high school in Miami, Florida. He received his AB from Princeton University with highest honors, followed by a PhD in Mathematics from the University of California at Berkeley.
+
+As a postdoctoral Moore Instructor at MIT, Axler received a university-wide teaching award. He was then an assistant professor, associate professor, and professor at Michigan State University, where he received the first J. Sutherland Frame Teaching Award and the Distinguished Faculty Award.
+
+Axler received the Lester R. Ford Award for expository writing from the Mathematical Association of America in 1996, for a paper that eventually expanded into this book. In addition to publishing numerous research papers, he is the author of six mathematics textbooks, ranging from freshman to graduate level. Previous editions of this book have been adopted as a textbook at over 350 universities and colleges and have been translated into three languages.
+
+Axler has served as Editor-in-Chief of the \textit{Mathematical Intelligencer} and Associate Editor of the \textit{American Mathematical Monthly}. He has been a member of the Council of the American Mathematical Society and a member of the Board of Trustees of the Mathematical Sciences Research Institute. He has also served on the editorial board of Springer's series Undergraduate Texts in Mathematics, Graduate Texts in Mathematics, Universitext, and Springer Monographs in Mathematics.
+
+He is a Fellow of the American Mathematical Society and has been a recipient of numerous grants from the National Science Foundation.
+
+Axler joined San Francisco State University as Chair of the Mathematics Department in 1997. He served as Dean of the College of Science \& Engineering from 2002 to 2015, when he returned to a regular faculty appointment as a professor in the Mathematics Department.
+
+\bigskip
+
+\FigureHereNoCaption{artwork/SheldonMoonGGBridge.png}{0.4} \label{SheldonBengal}\index{Bengal}
+
+{\overfullrule=0in
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+
+\parfillskip=14.2bp plus1fil
+%\renewcommand{\footfix}{\protect\footnotemark[1]}
+\chapter{Contents}\tableofcontents}
+
+\newpage
+
+\thispagestyle{empty}
+
+\textbf{Major changes for the fourth edition}
+
+\begin{itemize}
+
+\item
+Increasing use of the minimal polynomial to provide cleaner proofs of multiple results, including necessary and sufficient conditions for an operator to have an upper-triangular matrix with respect to some basis (see Section \ref{4utm}), necessary and sufficient conditions for diagonalizability (see Section \ref{diagmat}), and the real spectral theorem (see Section \ref{SpectralTheorem}).
+
+\item
+New section on commuting operators (see Section \ref{2diagmat}).
+
+\item
+New subsection on pseudoinverse (see Section \ref{OrthoMin}).
+
+\item
+New subsection on $QR$ factorization (see Section \ref{3QR}).
+
+\item
+Singular value decomposition now done for linear maps from an inner product space to another (possibly different) inner product space, rather than only dealing with linear operators from an inner product space to itself (see Section~\ref{2SVD}).
+
+\item
+Polar decomposition now proved from singular value decomposition, rather than in the opposite order; this has led to cleaner proofs of both the singular value decomposition (see Section \ref{2SVD}) and the polar decomposition (see Section~\ref{9SVD}).
+
+\item
+New subsection on norms of linear maps on finite-dimensional inner product spaces, using the singular value decomposition to avoid even mentioning supremum in the definition of the norm of a linear map (see Section \ref{9SVD}).
+
+\item
+New subsection on approximation by linear maps with lower-dimensional range (see Section \ref{9SVD}).
+
+\item
+New elementary proof of the important result that if $T$ is an operator on a finite-dimensional complex vector space $V\1$, then there exists a basis of $V$ consisting of generalized eigenvectors of $T$ (see \ref{28}).
+
+\item
+New formatting to improve the appearance of the book. For example, the definition and result boxes now have rounded corners instead of right-angle corners, for a gentler appearance. The main font size has been reduced from 11 point to 10.5 point.
+
+\end{itemize}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\clearpage
+
+\pagenumbering{arabic}
+
+\endinput 

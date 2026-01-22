@@ -1,0 +1,314 @@
+
+\exercise
+Suppose $v \in V$ and $w \in W\3$. Prove that $v \tensor w = 0$ if and only if $v = 0$ or $w = 0$.\label{9zeroten}
+
+\begin{Solution}
+First suppose $v \tensor w = 0$. This means that
+\[
+\phi(v) \tau(w) = 0
+\]
+for all $\phi \in V'$ and all $\tau \in W'\!$. If $v \ne 0$, then there exists $\phi \in V'$ such that $\phi(v) \ne 0$, which then implies that
+$\tau(w) = 0$ for all $\tau \in W'\1$, which implies that $w = 0$. Thus $v = 0$ or $w = 0$.
+
+To prove the implication in the other direction, now suppose $v = 0$ or $w = 0$. Thus $\phi(v) \tau(w) = 0$
+for all $\phi \in V'$ and all $\tau \in W'\!$, which implies that $\phi \tensor \tau = 0$.
+\end{Solution}
+
+\exercise
+Give an example of six distinct vectors $v_1, v_2, v_3, w_1, w_2, w_3$ in $\R3$ such that
+\[
+v_1 \tensor w_1 + v_2 \tensor w_2 + v_3 \tensor w_3 = 0
+\]
+but none of $v_1 \tensor w_1$, $v_2 \tensor w_2$, $v_3 \tensor w_3$ is a scalar multiple of another element of this list.
+
+\begin{Solution}
+Let
+\[
+v_1 = (2,3, 0), \quad v_2 = (-1,0, 0) \quad v_3 = (0,-1, 0)
+\]
+and
+\[
+w_1 = (0, 0, 1) \quad w_2 = (0, 0, 2) \quad w_3 = (0, 0, 3).
+\]
+ Then
+\begin{align*}
+v_1 \tensor w_1 + v_2 \tensor w_2 + v_3 \tensor w_3 &= v_1 \tensor w_1 + v_2 \tensor (2w_1) + v_3 \tensor (3 w_1)\\
+&= v_1 \tensor w_1 + 2 (v_2 \tensor w_1) + 3( v_3 \tensor w_1)\\
+&= v_1 \tensor w_1 + (2 v_2) \tensor w_1 + (3 v_3) \tensor w_1\\
+&= (v_1 + 2v_2 + 3v_3) \tensor w_1 \\
+&= (0, 0, 0) \tensor w_1 \\
+&= 0,
+\end{align*}
+as desired.
+
+To show that none of $v_1 \tensor w_1$, $v_2 \tensor w_2$, $v_3 \tensor w_3$ is a scalar multiple of another element of this list, suppose $j, k \in \br{1,2,3}$ with $j \ne k$ and $t \in \R{}$. Then
+\begin{align*}
+v_j \tensor w_j + t v_k \tensor w_k &= v_j \tensor (jw_1) + t v_k \tensor (kw_1) \\
+&= (j v_j + tkv_k) \tensor w_1.
+\end{align*}
+Now $j v_j + tk v_k \ne 0$ because none of $v_1, v_2, v_3$ is a scalar multiple of the other. Thus Exercise \ref{9zeroten} and the equation above imply that none of $v_1 \tensor w_1$, $v_2 \tensor w_2$, $v_3 \tensor w_3$ is a scalar multiple of another element of this list.
+\end{Solution}
+
+\exercise
+Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V\1$. Suppose also that $w_1, \ldots, w_m$ is a list in $W$ such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Prove that $w_1 = \cdots = w_m = 0$.
+
+\begin{Solution}
+The equation $v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0$ implies that
+\[
+\phi(v_1) \tau(w_1) + \cdots + \phi(v_n) \tau(w_n) = 0 \tag{(*)}
+\]
+for all $\phi \in V'$ and all $\tau \in W'\!$.
+
+Suppose $k \in \br{1, \ldots, n}$. Because $v_1, \ldots, v_n$ is a basis of $\Span(v_1, \ldots, v_n)$, the linear map lemma (\ref{3linearmap}) and Exercise \ref{384} in Section \ref{vslinear} imply that there exist $\phi \in V'$ such that
+\[
+\phi(v_j) = \begin{cases}
+1 & \text{if } j = k,\\
+0 & \text{otherwise}
+\end{cases}
+\]
+for each $j \in \br{1, \ldots, n}$. Thus from $(*)$ we get that $\tau(w_k) = 0$ for all $\tau \in W'\!$. Hence $w_k = 0$.
+Thus $w_1 = \cdots = w_m = 0$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $\dim V > 1$ and $\dim W > 1$. Prove that\label{9VtenW}
+\[
+\br{ v \tensor w : (v, w) \in V\1 \times W }
+\]
+is not a subspace of $V\1 \tensor W\3$.
+\exercisecomment{This exercise implies that if\/ $\dim V > 1$ and\/ $\dim W > 1$,\/ then
+\vspace{-3bp}
+\[
+\br{ v \tensor w : (v, w) \in V\1 \times W } \ne V\1 \tensor W\3.
+\]}
+\vspace{-10bp}
+
+\begin{Solution}
+Let $v_1, v_2$ be a linearly idependent list in $V$ and let $w_1, w_2$ be a linearly independent list in $W\3$. Suppose there exist $v \in V$ and $w \in W$ such that
+\[
+v_1 \tensor w_1 + v_2 \tensor w_2 = v \tensor w.
+\]
+Thus
+\[
+\phi(v_1)  \tau(w_1) + \phi(v_2) \tau(w_2) = \phi(v) \tau(w)
+\]
+for all $\phi \in V'$ and all $\tau \in W'\!$. Because $v_1, v_2$ is a basis of $\Span(v_1, v_2)$, the linear map lemma (\ref{3linearmap}) and Exercise \ref{384} in Section \ref{vslinear} imply that there exist $\phi \in V'$ such that
+\[
+\phi(v_1) = 1 \andd \phi(v_2) = 0.
+\]
+Thus
+\[
+\tau(w_1) = \phi(v) \tau(w) = \tau\paren[\big]{ \phi(v) w }
+\]
+for all $\tau \in W'\!$. Thus $w_1 = \phi(v) w$. Hence $w_1$ is a scalar multiple of $w$. Similarly, $w_2$ is a scalar multiple of $w$. Thus $w_1, w_2$ is not a linearly independent list.
+
+This contradiction shows that there do not exist $v \in V$ and $w \in W$ such that
+\[
+v_1 \tensor w_1 + v_2 \tensor w_2 = v \tensor w.
+\]
+Hence
+\[
+\br{ v \tensor w : (v, w) \in V\1 \times W }
+\]
+is not closed under addition, showing that it is not a subspace of $V\1 \tensor W\3$.
+\end{Solution}
+
+\exercise
+Suppose $m$ and $n$ are positive integers. For $v \in \F m$ and $w \in \F n$, identify $v \tensor w$ with an \by{m}{n} matrix as in Example \ref{9FmFn}. With that identification, show that the set\label{9rank1}
+\[
+\br{ v \tensor w : v \in \F m \text{ and } w \in \F n }
+\]
+is the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most one.
+
+\begin{Solution}
+If
+\[
+v = (v_1, \ldots, v_m) \in \F m \andd w = (w_1, \ldots, w_n) \in \F n,
+\]
+then Example \ref{9FmFn} identified $v \tensor w$ with the \by{m}{n} matrix
+\[
+\mat{ccc}{
+v_1 w_1 & \cdots &v_1 w_n \\[6bp]
+& \ddots & \\[6bp]
+v_m w_1 &\cdots & v_m w_n}.
+\]
+The matrix above has rank at most one because every row is a scalar multiple of $(w_1, \ldots, w_n)$, or we can see that the matrix has rank at most one because every column is a scalar multiple of $\tran{(v_1, \ldots, v_m)}$.
+
+Conversely, if a matrix has rank one, then some column is not the zero column, and all the other columns are scalar multiples of that column. This implies that the matrix has the form of the matrix above.
+\end{Solution}
+
+\exercise
+Suppose $m$ and $n$ are positive integers. Give a description, analogous to Exercise \ref{9rank1}, of the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most two.\label{9rank2}
+
+\begin{Solution}
+Using the standard bases for $\F m$ and $\F n$, we identify $\F m \tensor \F n$ with the vector spaces of \by{m}{n} matrices, as in Example \ref{9FmFn}. Under this identification, $\br{ v \tensor w : v \in \F m \text{ and } w \in \F n }$ is identified with the set of matrices with rank at most one, as discussed in Exercise \ref{9rank1}.
+
+A linear map from $\F n$ to $\F m$ has range with dimension at most two if and only if it is the sum of  two linear maps each of which has range with dimension at most one. Thus the set of \by{m}{n} matrices with rank at most two can be identified with the set
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in \F m \text{ and } w_1, w_2  \in \F n }.
+\]
+\end{Solution}
+
+\exercise
+Suppose $\dim V > 2$ and $\dim W > 2$. Prove that
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W } \ne V\1 \tensor W\3.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let $m = \dim V$ and $n = \dim W\3$. Pick a basis of $V$ and a basis of $W$ and use those bases to identify $V$ with $\F m$ and $W$ with $\FF n$. By the solution to Exercise \ref{9rank2},
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W }
+\]
+gets identified with the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most two. Because $m > 2$ and $n > 2$, there exist \by{m}{n} matrices with rank greater than two. Hence
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W } \ne V\1 \tensor W\3.
+\]
+\end{Solution}
+
+\exercise
+Suppose $v_1, \ldots, v_m \in V$ and $w_1, \ldots,w_m \in W$ are such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Suppose that $U$ is a vector space and $\fun \beta {V\1 \times W} U$ is a bilinear map.
+Show that
+\[
+\beta(v_1, w_1) + \cdots + \beta(v_m, w_m) = 0.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+By \ref{9bi2linear}(a), there exists a linear map $\fun {\hat[7.5]{\beta}} {V\1 \tensor W} U$ such that
+\[
+\hat[7.5]{\beta}(v \tensor w) = \beta(v, w)
+\]
+for all $v \in V$ and $w \in W\3$.
+
+Now
+\begin{align*}
+\beta(v_1, w_1) + \cdots + \beta(v_m, w_m) &= \hat[7.5]{\beta}(v_1 \tensor w_1) + \cdots + \hat[7.5]{\beta}(v_w \tensor w_m) \\
+&= \hat[7.5]{\beta}(v_1 \tensor w_1 + \cdots + v_m \tensor w_m ) \\
+&= \hat[7.5]{\beta}(0) \\
+&= 0,
+\end{align*}
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that there exists a unique operator on $V\1 \tensor W$ that takes
+$v \tensor w$ to $Sv \tensor Tw$ for all $v \in V$ and $w \in W\3$.
+\exercisecomment{In an abuse of notation, the operator on\/ $V\1 \tensor W$ given by this exercise is often called\/ $S \tensor T\3$.}\label{9LVtenLW}\sindex{Stensor@$S \tensor T\3$|(}
+
+\begin{Solution}
+Suppose $e_1, \ldots, e_m$ is a basis of $V$ and $f_1, \ldots, f_n$ is a basis of $W\3$. By \ref{9basisVtenW}(b),
+the list
+$\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is a basis of $V\1 \tensor W\3$. Thus by the linear map lemma (\ref{3linearmap}), there exists a unique operator $S \tensor T \in \L(V\1 \tensor W)$ such that
+\[
+(S \tensor T)(e_j \tensor f_k) = Se_j \tensor T f_k
+\]
+for all $j \in \br{1, \ldots, m}$ and all $k \in \br{1, \ldots, n}$.
+
+Suppose $v \in V$ and $w \in W\3$. There exist $a_1, \ldots, a_m, b_1, \ldots, b_n \in \F{}$ such that
+$
+v = a_1 e_1 + \cdots + a_m e_m \andd w = b_1 f_1 + \cdots + b_n f_n$.
+Thus
+\begin{align*}
+(S \tensor T)(v \tensor w) &= (S \tensor T) \paren[\bigg]{ \sum_{k=1}^n \sum_{\js}^m  (a_j b_k) (e_j \tensor f_k) } \\[6bp]
+&= \sum_{k=1}^n \sum_{\js}^m a_j b_k (S \tensor T)(e_j \tensor f_k) \\[6bp]
+&= \sum_{k=1}^n \sum_{\js}^m a_j b_k S(e_j) \tensor Tf_k \\[6bp]
+&= \paren[\bigg]{ \sum_{\js}^m a_j Se_j } \tensor \paren[\bigg]{ \sum_{k=1}^n b_k Tf_k } \\[6bp]
+&= Sv \tensor Tw
+\end{align*}
+as desired, where the second line holds because $\hat[7.5]{\beta}$ is linear, the third line holds by the definition of $\hat[7.5]{\beta}$, and the fourth line holds because $\beta$ is bilinear.
+
+The uniqueness of the operator $S \tensor T$ satisfying $(S \tensor T)(v \tensor w) = Sv \tensor Tw$ follows \ref{9basisVtenW}(b).
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that $S \tensor T$ is an invertible operator on $V\1 \tensor W$ if and only if both $S$ and $T$ are invertible operators. Also, prove that  if both $S$ and $T$ are invertible operators, then
+$(S \tensor T)^{-1} = S^{-1} \tensor T^{-1}$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.
+
+\begin{Solution}
+First suppose $S \tensor T$ is an invertible operator on $V\1 \tensor W\3$. Suppose $v \in V$ with $v \ne 0$ and
+$w \in W$ with $w \ne 0$. By Exercise \ref{9zeroten}, $v \tensor w \ne 0$. Because $S \tensor T$ is invertible, this implies that $(S \tensor T)(v \tensor w) \ne 0$. In other words, $Sv \tensor Tw \ne 0$. Thus $Sv \ne 0$ and $Tw \ne 0$. Hence $S$ and $T$ are both injective, and thus $S$ and $T$ are both invertible.
+
+To prove the other direction, now suppose $S$ and $T$ are invertible operators. If $v \in V$ and $w \in W$, then
+\begin{align*}
+\paren[\big]{ S^{-1} \tensor T^{-1} }(S \tensor T)(v \tensor w)
+&= \paren[\big]{ S^{-1} \tensor T^{-1} }( Sv \tensor Tw) \\[6bp]
+&= S^{-1}(Sv) \tensor T^{-1}(Tw) \\[6bp]
+&= v \tensor w.
+\end{align*}
+The equation above, along with the result that vectors of the form $v \tensor w$ span $V\1 \tensor W$ [by \ref{9basisVtenW}(b)], implies that $\paren[\big]{ S^{-1} \tensor T^{-1} }(S \tensor T)$ is the identity operator on $V\1 \tensor W\3$. Thus $S \tensor T$ is invertible and $(S \tensor T)^{-1} = S^{-1} \tensor T^{-1}$.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces. Prove that if $S \in \L(V)$ and $T \in \L(W)$, then $(S \tensor T)^* = S^* \tensor T^*\1$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.\label{9STstar}\sindex{Stensor@$S \tensor T\3$|)}
+
+\begin{Solution}
+Suppose $v_1, v_2 \in V$ and $w_1, w_2 \in W\3$. Then
+\begin{align*}
+\ip{ (S \tensor T)(v_1 \tensor w_1), v_2 \tensor w_2 } &= \ip{ Sv_1 \tensor Tw_1, v_2 \tensor w_2 } \\[6bp]
+&= \ip{Sv_1, v_2} \, \ip{Tw_1, w_2} \\[6bp]
+&= \ip{ v_1, S^* v_2} \, \ip{ w_1, T^* w_2 } \\[6bp]
+&= \ip{v_1 \tensor w_1, S^* v_2 \tensor T^* w_2 }.
+\end{align*}
+Because vectors of the form $v \tensor w$ span $V\1 \tensor W$ [by \ref{9basisVtenW}(b)], the equation above implies that $(S \tensor T)^*(v_2 \tensor w_2) = S^*v_2 \tensor T^* w_2$. Thus $(S \tensor T)^* = S^* \tensor T^*\1$.
+\end{Solution}
+
+\exercise
+Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces. Prove that there is a unique inner product on
+$V\1_1 \tensor \cdots \tensor V\1_m$ such that\label{9tenmip}
+\[
+\ip{ v_1 \tensor \cdots \tensor v_m, u_1 \tensor \cdots \tensor u_m } =
+\ip{ v_1, u_1} \cdots \ip{v_m, u_m}
+\]
+for all $(v_1, \ldots, v_m)$ and $(u_1, \ldots, u_m)$ in $V\1_1 \times \cdots \times V\1_m$.
+\exercisecomment{Note that the equation above implies that
+\[
+\norm{ v_1 \tensor \cdots \tensor v_m } = \norm{v_1} \cdots \norm{v_m}
+\]
+for all\/ $(v_1, \ldots, v_m) \in V\1_1 \times \cdots \times V\1_m$.}
+
+\begin{Solution}
+Suppose $e_1^{\,k}, \ldots, e_{n_k}^{\,k}$ is an orthonormal basis of $V_k$ for $k = 1, \ldots, m$.
+Define an inner product on $V\1_1 \tensor \cdots \tensor V\1_m$ by
+\begin{align*}
+\ip[\Bigg]{ \sum_{j_1=1}^{n_1} \cdots \sum_{j_m=1}^{n_m} b_{j_1 ,\ldots, j_m} &\,e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m, \sum_{j_1=1}^{n_1} \cdots \sum_{j_m=1}^{n_m} c_{j_1 ,\ldots, j_m} \,e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m } \\[5bp]
+&= \sum_{j_1=1}^{n_1} \cdots \sum_{j_m=1}^{n_m} b_{j_1 ,\ldots, j_m} \overline{ c_{j_1 ,\ldots, j_m} }.
+\end{align*}
+
+The verification that the equation above defines an inner product on the vector space $V\1_1 \tensor \cdots \tensor V\1_m$ is straightforward (use \ref{9basismten}).
+
+To prove that
+\[
+\ip{ v_1 \tensor \cdots \tensor v_m, u_1 \tensor \cdots \tensor u_m } =
+\ip{ v_1, u_1} \cdots \ip{v_m, u_m}
+\]
+for all $(v_1, \ldots, v_m)$ and $(u_1, \ldots, u_m)$ in $V\1_1 \times \cdots \times V\1_m$, imitate the proof of \ref{9innerten}.
+
+There is at most one inner product on $V\1_1 \tensor \cdots \tensor V\1_m$ satisfying the equation above because every element of
+$V\1_1 \tensor \cdots \tensor V\1_m$ can be written as a linear combination of elements of the form $ v_1 \tensor \cdots \tensor v_m$ (by \ref{9basismten}).
+\end{Solution}
+
+\exercise
+Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces and $V_1 \tensor \cdots \tensor V_m$ is made into an inner product space using the inner product from Exercise \ref{9tenmip}. Suppose $e_1^{\,k}, \ldots, e_{n_k}^{\,k}$ is an orthonormal basis of $V_k$ for $k = 1, \ldots, m$. Show that the list\label{9tenmip2}
+\[
+\br{e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+\]
+is an orthonormal basis of $V\1_1 \tensor \cdots \tensor V\1_m$.
+
+\begin{Solution}
+The list
+\[
+\br{e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+\]
+is a basis of $V\1_1 \tensor \cdots \tensor V\1_m$ by \ref{9basismten}. The verification that this basis is orthonormal is straightforward.
+\end{Solution}
+

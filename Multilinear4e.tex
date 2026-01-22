@@ -1,0 +1,2404 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\chapter{Multilinear Algebra and Determinants} \label{MultLATensors}
+
+We begin this chapter by investigating bilinear forms and quadratic forms on a vector space. Then we will move on to multilinear forms. We will show that the vector space of alternating $n$-linear forms has dimension one on a vector space of dimension $n$. This result will allow us to give a clean basis-free definition of the determinant of an operator.
+
+This approach to the determinant via alternating multilinear forms leads to straightforward proofs of key properties of determinants. For example, we will see that the determinant is multiplicative, meaning that $\det (ST) = (\det S)(\det T)$ for all operators $S$ and $T$ on the same vector space. We will also see that $T$ is invertible if and only if $\det T \ne 0$. Another important result states that the determinant of an operator on a complex vector space equals the product of the eigenvalues of the operator, with each eigenvalue included as many times as its multiplicity.
+
+The chapter concludes with an introduction to tensor products.
+
+\StandingBox{
+\item
+$\F{}$ denotes $\R{}$ or $\C{}$.
+\item
+$V$ and $W$ denote finite-dimensional nonzero vector spaces over $\F{}\3$.
+}
+
+\renewcommand{\FigureName}{\ifnum\sizepaper=1 Gottingen.jpg\else GottingenR.jpg \fi}
+\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.37\else 1\fi}
+
+\FigureHereCredit{artwork/\FigureName}{\FigureScale}%
+{The Mathematical Institute at the University of G\"ottingen. This building opened in 1930, when Emmy Noether \uppar{1882--1935} had already been a research mathematician and faculty member at the university for 15 years \uppar{the first eight years without salary}. Noether was fired by the Nazi government in 1933. By then Noether and her collaborators had created many of the foundations of modern algebra, including an abstract algebra viewpoint that contributed to the development of linear algebra.\index{Noether, Emmy}\index{University of G\"ottingen}}{.3in}{Daniel Schwen CC BY-SA}
+
+\section{Bilinear Forms and Quadratic Forms}
+
+\subsection{Bilinear Forms}
+
+A bilinear form on $V$ is a function from $V\1 \times V$ to $\F{}$ that is linear in each slot separately, meaning that if we hold either slot fixed then we have a linear function in the other slot. Here is the formal definition.
+
+\DefinitionBox[8biform]{bilinear form}
+{A \emph{bilinear form} on $V$ is a function $\fun \beta {V\1 \times V} \F{}$ such that\index{bilinear form}
+\[
+v \mapsto \beta(v, u) \andd v \mapsto \beta(u,v)
+\]
+are both linear functionals on $V$ for every $u \in V\1$.}
+
+\mar{Recall that the term \marbf{linear functional}, used in the definition above, means a linear function that maps into the scalar field\/ $\F{}\3$. Thus the term \marbf{bilinear functional} would be more consistent terminology than \marbf{bilinear form}, which unfortunately has become standard.}
+
+For example, if $V$ is a real inner product space, then the function that takes an ordered pair $(u, v) \in V\1 \times V$ to $\ip{u, v}$ is a bilinear form on $V\1$. If $V$ is a nonzero complex inner product space, then this function is not a bilinear form because the inner product is not linear in the second slot (complex scalars come out of the second slot as their complex conjugates).
+
+If $\F{} = \R{}$, then a bilinear form differs from an inner product in that an inner product requires symmetry \sbr{meaning  that $\beta(v,w) = \beta(w,v)$ for all $v, w \in V$} and positive definiteness \sbr{meaning that $\beta(v, v) > 0$ for all $v \in V \sm \br{0}$}, but these properties are not required for a bilinear form.
+
+\begin{example}[9BilinearExample]{bilinear forms}
+\begin{Itemize}
+\item
+The function $\fun \beta {\F3 \times \F3} {\F{}}$ defined by
+\[
+\beta\paren[\big]{ (x_1, x_2, x_3), (y_1, y_2, y_3) } = x_1 y_2 - 5 x_2 y_3 + 2 x_3 y_1
+\]
+is a bilinear form on $\F3$.
+
+\item
+Suppose $A$ is an \by{n}{n} matrix with $A_{j,k} \in \F{}$ in row $j$, column $k$. Define a bilinear form $\beta_A$ on $\F n$ by
+\[
+\beta_A\paren[\big]{ (x_1, \ldots, x_n), (y_1, \ldots, y_n) } = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j y_k.
+\]
+The first bullet point is a special case of this bullet point with $n = 3$ and
+\[
+A = \mat{ccc}{0 & 1 & 0\\
+0 & 0 & -5 \\
+2 & 0 & 0}.
+\]
+
+\item
+Suppose $V$ is a real inner product space and $T \in \L(V)$. Then the function $\fun \beta {V\1 \times V} {\R{}}$ defined by
+\[
+\beta(u, v) = \ip{u, Tv}
+\]
+is a bilinear form on $V\1$.
+
+\item
+If $n$ is a positive integer, then the function $\fun \beta { \P\1_n(\R{}) \times \P\1_n(\R{}) } {\R{}}$ defined by
+\[
+\beta(p,q) = p(2) \cdot q'(3)
+\]
+is a bilinear form on $\P\1_n(\R{})$.
+
+\item
+Suppose $\phi, \tau \in V'\!$. Then the function $\fun \beta {V\1 \times V} {\F{}}$ defined by
+\[
+\beta(u, v) = \phi(u) \cdot \tau(v)
+\]
+is a bilinear form on $V\1$.
+
+\item
+More generally, suppose that $\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'\!$. Then the function
+$\fun \beta {V\1 \times V} {\F{}}$ defined by
+\[
+\beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+\]
+is a bilinear form on $V\1$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+A bilinear form on $V$ is a function from $V\1 \times V$ to $\F{}\3$. Because $V\1 \times V$ is a vector space, this raises the question of whether a bilinear form can also be a linear map from $V\1 \times V$ to $\F{}\3$. Note that none of the bilinear forms in \ref{9BilinearExample} are linear maps except in some special cases in which the bilinear form is the zero map. Exercise~\ref{11zero} shows that a bilinear form $\beta$ on $V$ is a linear map on $V\1 \times V$ only if $\beta = 0$.
+
+\DefinitionBox{$V^{(2)}$}
+{The set of bilinear forms on $V$ is denoted by $V^{(2)}\!$.\sindex{V2@$V^{(2)}\3$}}
+
+With the usual operations of addition and scalar multiplication of functions, $V^{(2)}$ is a vector space.
+
+For $T$ an operator on an $n$-dimensional vector space $V$ and a basis $e_1, \ldots, e_n$ of $V\1$, we used an \by{n}{n} matrix to provide information about $T\3$. We now do the same thing for bilinear forms on $V\1$.
+
+\DefinitionBox{matrix of a bilinear form,\/ $\M(\beta)$}
+{Suppose $\beta$ is a bilinear form on $V$ and $e_1, \ldots, e_n$ is a basis of $V\1$. The \emph{matrix} of $\beta$ with respect to this basis is the \by n n matrix $\M(\beta)$ whose entry $\M(\beta)_{j,k}$ in row $j$, column $k$ is given by\sindex{Mbeta@$\M(\beta)$}\index{matrix!of bilinear form}
+\[
+\M(\beta)_{j,k} = \beta(e_j, e_k).
+\]
+If the basis $e_1, \ldots, e_n$ is not clear from the context, then the notation $\M\paren[\big]{ \beta, (e_1, \ldots, e_n) }$ is used.}
+
+Recall that $\F{n,n}$ denotes the vector space of \by{n}{n} matrices with entries in $\F{}$ and that $\dim \F{n,n} = n^2$ (see \ref{3mnmatrices} and \ref{dimFmn}).
+
+\ResultBox[9dimV2]{$\dim V^{(2)} = (\dim V)^2$}
+{Suppose $e_1, \ldots, e_n$ is a basis of $V\1$. Then the map $\beta \mapsto \M(\beta)$ is an isomorphism of $V^{(2)}$ onto $\FF{n,n}$.
+Furthermore, $\dim V^{(2)} = (\dim V)^2\1$.}
+
+\proof
+The map $\beta \mapsto \M(\beta)$ is clearly a linear map of $V^{(2)}$ into $\FF{n,n}$.
+For $A \in \FF{n,n}$, define a bilinear form $\beta_A$ on $V$ by
+\vspace{-.06in} %VisualFormatting for page break.
+\[
+\beta_A( x_1 e_1+ \cdots + x_n e_n, y_1 e_1 + \cdots + y_n e_n ) = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j y_k
+\vspace{-.06in} %VisualFormatting for page break.
+\]
+for $x_1, \ldots, x_n, y_1, \ldots, y_n \in \F{}$ \big(if $V = \F{n}$ and $e_1, \ldots, e_n$ is the standard basis of $\FF{n}$, this $\beta_A$ is the same as the bilinear form $\beta_A$ in the second bullet point of Example \ref{9BilinearExample}\big).\looseness=-1
+
+The linear map $\beta \mapsto \M(\beta)$ from $V^{(2)}$ to $\F{n,n}$ and the linear map $A \mapsto \beta_A$ from
+$\F{n,n}$ to $V^{(2)}$ are inverses of each other because $\beta_{\M(\beta)} = \beta$ for all $\beta \in V^{(2)}$ and
+$\M(\beta_A) = A$ for all $A \in \FF{n,n}$, as you should verify.
+
+Thus both maps are isomorphisms and the two spaces that they connect have the same dimension. Hence
+$\dim V^{(2)} = \dim \F{n,n} = n^2 = (\dim V)^2\1$.
+\qed
+
+Recall that $\tran{C}$ denotes the transpose of a matrix $C$. The matrix $\tran{C}$ is obtained by interchanging the rows and the columns of $C$.
+
+\ResultBox[11comp]{composition of a bilinear form and an operator}
+{Suppose $\beta$ is a bilinear form on $V$ and $T \in \L(V)$. Define bilinear forms $\al$ and $\rho$ on $V$ by
+\[
+\al(u,v) = \beta(u, Tv) \andd \rho(u,v) = \beta(Tu, v).
+\]
+Let $e_1, \ldots, e_n$ be a basis of $V\1$. Then
+\[
+\M(\al) = \M(\beta) \M(T) \andd \M(\rho) = \tran{\M(T)} \M(\beta).
+\]}
+
+\proof
+If $j, k \in \br{1, \ldots, n}$, then
+\begin{align*}
+\M(\al)_{j,k} &= \al(e_j, e_k) \\[1bp]
+&= \beta(e_j, Te_k) \\[1bp]
+&= \beta\paren[\Big]{ e_j, \sum_{m=1}^n \M(T)_{m,k} \, e_m } \\[1bp]
+&= \sum_{m=1}^n \beta(e_j, e_m) \M(T)_{m,k} \\[1bp]
+&= \paren[\big]{ \M(\beta) \M(T) }_{j, k}.
+\end{align*}
+Thus $\M(\al) = \M(\beta) \M(T)$. The proof that $\M(\rho) = \tran{\M(T)} \M(\beta)$ is similar.
+\qed
+
+\pagebreak[3]
+
+The result below shows how the matrix of a bilinear form changes if we change the basis. The formula in the result below should be compared to the change-of-basis formula for the matrix of an operator (see \ref{303}). The two formulas are similar, except that the transpose $\tran{C}$ appears in the formula below and the inverse $C^{-1}$ appears in the change-of-basis formula for the matrix of an operator.
+
+\ResultBox[11change]{change-of-basis formula}{%
+Suppose $\beta \in V^{(2)}\!$. Suppose $e_1, \ldots, e_n$
+and $f_1, \ldots, f_n$ are bases of $V\1$. Let\index{change-of-basis formula!for bilinear forms}
+\[
+A= \M\bigl(\beta, (e_1, \ldots, e_n)\bigr) \andd B = \M\bigl(\beta, (f_1, \ldots, f_n)\bigr)
+\]
+and $C = \M\bigl(I, (e_1, \ldots, e_n), (f_1, \ldots, f_n)\bigr)$. Then
+\[
+A = \tran{C} B C.
+\]
+}
+
+\proof
+The linear map lemma (\ref{3linearmap}) tells us that there exists an operator $T \in \L(V)$ such that $Tf_k = e_k$ for each
+$k = 1, \ldots, n$. The definition of the matrix of an operator with respect to a basis implies that
+\[
+\M\paren[\big]{ T, (f_1, \ldots, f_n) } = C.
+\]
+
+Define bilinear forms $\al, \rho$ on $V$ by
+\[
+\al(u, v) = \beta(u, Tv) \andd \rho(u,v) = \al(Tu, v) = \beta(Tu, Tv).
+\]
+Then $\beta(e_j, e_k) = \beta(Tf_j, Tf_k) = \rho(f_j, f_k)$ for all $j, k \in \br{1, \ldots, n}$. Thus
+\begin{align*}
+A &= \M\paren[\big]{ \rho, (f_1, \ldots, f_n) } \\
+&= \tran{C} \M\paren[\big]{ \al, (f_1, \ldots, f_n) } \\
+&= \tran{C} B C,
+\end{align*}
+where the second and third lines each follow from \ref{11comp}.
+\qed
+
+\begin{example}{the matrix of a bilinear form on\/ $\P\1_2(\R{})$}
+Define a bilinear form $\beta$ on $\P\1_2(\R{})$ by $\beta(p,q) = p(2) \cdot q'(3)$. Let
+\[
+A =  \M\paren[\big]{ \beta, (1, x-2, (x-3)^2 ) } \andd B = \M\paren[\big]{\beta, (1, x, x^2) }
+\]
+and $C = \M\paren[\big]{ I, (1, x-2, (x-3)^2 ), (1, x, x^2) }$. Then
+\[
+A = \mat{ccc}{
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 1 & 0}
+\1\andd\1
+B = \mat{ccc}{
+0 & 1 & 6 \\
+0 & 2 & 12 \\
+0 & 4 & 24}
+\1\andd\1
+C = \mat{ccc}{
+1 & -2 & 9 \\
+0 & 1 & -6 \\
+0 & 0 & 1}.
+\]
+Now the change-of-basis formula \ref{11change} asserts that $A = \tran{C} B C$, which you can verify with matrix multiplication using the matrices above.
+\end{example}
+
+\subsection{Symmetric Bilinear Forms}
+
+\DefinitionBox{symmetric bilinear form, $V^{(2)}_{\textup{sym}}$}
+{A bilinear form $\rho \in V^{(2)}$ is called \emph{symmetric} if\index{symmetric bilinear form}\sindex{V2sym@$V^{(2)}_{\text{sym}}$}
+\[
+\rho(u,w) = \rho(w, u)
+\]
+for all $u,w \in V\1$. The set of symmetric bilinear forms on $V$ is denoted by~$V^{(2)}_{\text{sym}}$.}
+
+\begin{example}{symmetric bilinear forms}
+\begin{Itemize}
+\item
+If $V$ is a real inner product space and $\rho \in V^{(2)}$ is defined by
+\[
+\rho(u, w) = \ip{u, w},
+\]
+then $\rho$ is a symmetric bilinear form on $V\1$.
+
+\item
+Suppose $V$ is a real inner product space and $T \in \L(V)$. Define $\rho \in V^{(2)}$ by
+\[
+\rho(u, w) = \ip{u, Tw}.
+\]
+Then $\rho$ is a symmetric bilinear form on $V$ if and only if $T$ is a self-adjoint operator (the previous bullet point is the special case $T = I$).
+
+\item
+Suppose $\fun \rho {\L(V) \times \L(V)} {\F{}}$ is defined by
+\[
+\rho(S,T) = \tr(ST).
+\]
+Then $\rho$ is a symmetric bilinear form on $\L(V)$ because trace is a linear functional on $\L(V)$ and $\tr(ST) = \tr(TS)$ for all
+$S, T \in \L(V)$; see \ref{372}.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\DefinitionBox{symmetric matrix}
+{A square matrix $A$ is called \textit{symmetric} if it equals its transpose.\index{symmetric matrix}}
+
+ An operator on $V$ may have a symmetric matrix with respect to some but not all bases of $V\1$. In contrast, the next result shows that a bilinear form on $V$  has a symmetric matrix with respect to either all bases of $V$ or with respect to no bases of $V\1$.\looseness=-1
+
+\ResultBox[9symdiag]{symmetric bilinear forms are diagonalizable}
+{Suppose $\rho \in V^{(2)}\!$. Then the following are equivalent.
+\begin{subtheorem}*
+\item
+$\rho$ is a symmetric bilinear form on $V\1$.
+\item
+$\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a symmetric matrix for every basis $e_1, \ldots, e_n$ of $V\1$.
+\item
+$\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a symmetric matrix for some basis $e_1, \ldots, e_n$ of $V\1$.
+\item
+$\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a diagonal matrix for some basis $e_1, \ldots, e_n$ of $V\1$.
+\end{subtheorem}}
+
+\pagebreak[3]
+
+\proof
+First suppose (a) holds, so $\rho$ is a symmetric bilinear form. Suppose $e_1, \ldots, e_n$ is a basis of $V\1$ and
+$j,k \in \br{1, \ldots, n}$. Then $\rho(e_j, e_k) = \rho(e_k, e_j)$ because $\rho$ is symmetric. Thus
+$\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a symmetric matrix, showing that (a) implies (b).
+
+Clearly (b) implies (c).
+
+Now suppose (c) holds and $e_1, \ldots, e_n$ is a basis of $V$ such that $\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a symmetric matrix. Suppose $u, w \in V\1$. There exist $a_1, \ldots, a_n, b_1, \ldots, b_n \in \F{}$ such that
+$u = a_1 e_1 + \cdots + a_n e_n$ and $w = b_1 e_1 + \cdots + b_n e_n$. Now
+\begin{align*}
+\rho(u, w) &= \rho\paren[\Big]{ \sum_{\js}^n a_j e_j, \sum_{k=1}^n b_k e_k } \\[4bp]
+&= \sum_{\js}^n \sum_{k=1}^n a_j b_k \rho(e_j, e_k) \\[4bp]
+&= \sum_{\js}^n \sum_{k=1}^n a_j b_k \rho(e_k, e_j) \\[4bp]
+&= \rho\paren[\Big]{ \sum_{k=1}^n b_k e_k, \sum_{\js}^n a_j e_j } \\[4bp]
+&= \rho(w,u),
+\end{align*}
+where the third line holds because $\M(\rho)$ is a symmetric matrix. The equation above shows that $\rho$ is a symmetric bilinear form, proving that (c) implies (a).
+
+At this point, we have proved that (a), (b), (c) are equivalent. Because every diagonal matrix is symmetric, (d) implies (c). To complete the proof, we will show that (a) implies (d) by induction on $n = \dim V\1$.
+
+If $n = 1$, then (a) implies (d) because every \by{1}{1} matrix is diagonal. Now suppose $n > 1$ and the implication (a) $\implies$ (d) holds for one less dimension. Suppose (a) holds, so $\rho$ is a symmetric bilinear form. If $\rho = 0$, then the matrix of $\rho$ with respect to every basis of $V$ is the zero matrix, which is a diagonal matrix. Hence we can assume that $\rho \ne 0$, which means there exist $u, w \in V$ such that $\rho(u, w) \ne 0$. Now
+\[
+2 \rho(u, w) = \rho(u + w, u+w) - \rho(u, u) - \rho(w,w).
+\]
+Because the left side of the equation above is nonzero, the three terms on the right cannot all equal $0$. Hence there exists $v \in V$ such that $\rho(v,v) \ne 0$.
+
+Let $U = \br{u \in V : \rho(u,v) = 0}$. Thus $U$ is the null space of the linear functional $u \mapsto \rho(u, v)$ on $V\1$. This linear functional is not the zero linear functional because $v \notin U$. Thus $\dim U = n-1$. By our induction hypothesis, there is a basis
+$e_1, \ldots, e_{n-1}$ of $U$ such that the symmetric bilinear form $\rho|_{U \times U}$ has a diagonal matrix with respect to this basis.
+
+Because $v \notin U$, the list $e_1, \ldots, e_{n-1}, v$ is a basis of $V\1$. Suppose $k \in \br{1, \ldots, n-1}$. Then $\rho(e_k, v) = 0$ by the construction of $U$. Because $\rho$ is symmetric, we also have $\rho(v, e_k) = 0$. Thus the matrix of $\rho$ with respect to
+$e_1, \ldots, e_{n-1}, v$ is a diagonal matrix, completing the proof that (a) implies (d).
+\qed
+
+The previous result states that every symmetric bilinear form has a diagonal matrix with respect to some basis. If our vector space happens to be a real inner product space, then the next result shows that every symmetric bilinear form has a diagonal matrix with respect to some \emph{orthonormal} basis. Note that the inner product here is unrelated to the bilinear form.
+
+\ResultBox[9diagortho]{diagonalization of a symmetric bilinear form by an orthonormal basis}
+{Suppose $V$ is a real inner product space and $\rho$ is a symmetric bilinear form on $V\1$. Then $\rho$ has a diagonal matrix with respect to some orthonormal basis of $V\1$.}
+
+\proof
+Let $f_1, \ldots, f_n$ be an orthonormal basis of $V\1$. Let $B = \M\paren[\big]{\rho, (f_1, \ldots, f_n) }$. Then $B$ is a symmetric matrix (by \ref{9symdiag}). Let $T \in \L(V)$ be the operator such that $\M\paren[\big]{T, (f_1, \ldots, f_n) } = B$. Thus $T$ is self-adjoint.
+
+The real spectral theorem (\ref{86}) states that $T$ has a diagonal matrix with respect to some  orthonormal basis $e_1, \ldots, e_n$ of
+$V\1$. Let $C = \M\bigl(I, (e_1, \ldots, e_n), (f_1, \ldots, f_n)\bigr)$. Thus $C^{-1} B C$ is the matrix of $T$ with respect to the basis
+$e_1, \ldots, e_n$ (by \ref{303}). Hence $C^{-1} B C$ is a diagonal matrix. Now
+\[
+\\M\paren[\big]{ \rho, (e_1, \ldots, e_n) } = \tran{C} B C = C^{-1} B C,
+\]
+where the first equality holds by \ref{11change} and the second equality holds because $C$ is a unitary matrix with real entries \big(which implies that $C^{-1} = \tran{C}$; see \ref{7unitarymat}\big).
+\qed
+
+Now we turn our attention to alternating bilinear forms. Alternating multilinear forms will play a major role in our approach to determinants later in this chapter.
+
+\DefinitionBox{alternating bilinear form, $V^{(2)}_{\textup{alt}}$}
+{A bilinear form $\al \in V^{(2)}$ is called \emph{alternating} if\index{alternating bilinear form}\sindex{V2alt@$V^{(2)}_{\textup{alt}}$}
+\[
+\al(v,v) = 0
+\]
+for all $v \in V\1$. The set of alternating bilinear forms on $V$ is denoted by $V^{(2)}_{\text{alt}}$.}
+
+\begin{example}[9alt]{alternating bilinear forms}
+\begin{Itemize}
+\item
+Suppose $n \ge 3$ and $\fun \al {\F n \times \F n} {\F{}}$ is defined by
+\[
+\al\paren[\big]{ (x_1, \ldots, x_n), (y_1, \ldots, y_n) } = x_1 y_2 - x_2 y_1 + x_1 y_3 - x_3 y_1.
+\]
+Then $\al$ is an alternating bilinear form on $\FF n$.
+
+\item
+Suppose $\phi, \tau \in V'\!$. Then the bilinear form $\al$ on $V$ defined by
+\[
+\al(u, w) = \phi(u) \tau(w) - \phi(w) \tau(u)
+\]
+is alternating.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\pagebreak[3]
+
+The next result shows that a bilinear form is alternating if and only if switching the order of the two inputs multiplies the output by $-1$.
+
+\ResultBox[9skew]{characterization of alternating bilinear forms}
+{A bilinear form $\al$ on $V$ is alternating if and only if
+\[
+\al(u,w) = -\al(w,u)
+\]
+for all $u, w \in V\1$.}
+
+\proof
+First suppose that $\al$ is alternating. If $u, w \in V\1$, then
+\begin{align*}
+0 &= \al(u+w, u+w) \\[1bp]
+&= \al(u,u) + \al(u,w) + \al(w,u) + \al(w,w) \\[1bp]
+&= \al(u,w) + \al(w,u).
+\end{align*}
+Thus $\al(u,w) = -\al(w,u)$, as desired.
+
+To prove the implication in the other direction, suppose $\al(u,w) = -\al(w,u)$ for all $u, w \in V\1$. Then
+$\al(v,v) = -\al(v, v)$ for all $v \in V\1$, which implies that $\al(v,v) = 0$ for all $v \in V\1$. Thus $\al$ is alternating.
+\qed
+
+Now we show that the vector space of bilinear forms on $V$ is the direct sum of the symmetric bilinear forms on $V$ and the alternating bilinear forms on $V\1$.
+
+\ResultBox[9V2]{$V^{(2)} = V^{(2)}_{\textup{sym}} \oplus V^{(2)}_{\textup{alt}}$}
+{The sets $V^{(2)}_{\text{sym}}$ and $V^{(2)}_{\text{alt}}$ are subspaces of $V^{(2)}$. Furthermore,
+\[
+V^{(2)} = V^{(2)}_{\text{sym}} \oplus V^{(2)}_{\text{alt}}.
+\]}
+
+\proof
+The definition of symmetric bilinear form implies that the sum of any two symmetric bilinear forms on $V$ is a symmetric bilinear form on $V\1$, and every scalar multiple of any symmetric bilinear form on $V$ is a symmetric bilinear form on $V\1$. Also, the zero bilinear form is in $V^{(2)}_{\text{sym}}$. Thus $V^{(2)}_{\text{sym}}$ is a subspace of $V^{(2)}\!$. Similarly, the verification that $V^{(2)}_{\text{alt}}$ is a subspace of $V^{(2)}$ is straightforward.
+
+Next, we want to show that $V^{(2)} = V^{(2)}_{\text{sym}} + V^{(2)}_{\text{alt}}$. To do this, suppose $\beta \in V^{(2)}\!$. Define
+$\rho, \al \in V^{(2)}$ by
+\[
+\rho(u,w) = \frac{ \beta(u,w) + \beta(w,u) }{2} \andd \al(u,w) = \frac{ \beta(u,w) - \beta(w,u) }{2}.
+\]
+Then $\rho \in V^{(2)}_{\text{sym}}$ and $\al \in V^{(2)}_{\text{alt}}$, and $\beta = \rho + \al$. Thus
+$V^{(2)} = V^{(2)}_{\text{sym}} + V^{(2)}_{\text{alt}}$.
+
+Finally, to show that the intersection of the two subspaces under consideration equals $\br{0}$, suppose
+$\beta \in V^{(2)}_{\text{sym}} \cap V^{(2)}_{\text{alt}}$. If  $u, w \in V\1$, then \ref{9skew} implies that
+\[
+\beta(u,w) = -\beta(w, u) = -\beta(u,w)
+\]
+and hence $\beta(u, w) = 0$. Thus $\beta = 0$. Hence $V^{(2)} = V^{(2)}_{\text{sym}} \oplus V^{(2)}_{\text{alt}}$ (by \ref{219}).
+\qed
+
+\pagebreak[3]
+
+\subsection{Quadratic Forms}
+
+ \DefinitionBox{quadratic form associated with a bilinear form, $q_\beta$\sindex{qbeta@$q_\beta$}}
+ {For $\beta$ a bilinear form on $V\1$, define a function $\fun {q_\beta} V {\F{}}$ by
+$q_\beta(v) = \beta(v, v)$.
+A function $\fun q V {\F{}}$ is called a \emph{quadratic form} on $V$ if there exists a bilinear form $\beta$ on $V$ such that
+$q = q_\beta$.\index{quadratic form}}
+
+  Note that if $\beta$ is a bilinear form, then $q_\beta = 0$ if and only if $\beta$ is alternating.
+
+\begin{example}[9quad]{quadratic form}
+ Suppose $\beta$ is the bilinear form on $\R3$ defined by
+ \[
+ \beta\paren[\big]{(x_1, x_2,x_3), (y_1, y_2, y_3)} =  x_1 y_1 - 4x_1 y_2  + 8x_1 y_3 - 3x_3 y_3.
+ \]
+ Then $q_\beta$ is the quadratic form on $\R3$ given by the formula
+ \[
+ q_\beta(x_1, x_2, x_3) = {x_1}^{\2} - 4 x_1 x_2 +8 x_1 x_3 - 3{x_3}^{\2}\1.
+ \]
+ \exampledisplayend
+ \vspace{.02in} % VisualFormatting for LADR4e
+ \end{example}
+
+ The quadratic form in the example above is typical of quadratic forms on $\FF n$, as shown in the next result.
+
+ \ResultBox{quadratic forms on\/ $\F n$}
+ {Suppose $n$ is a positive integer and $q$ is a function from $\F n$ to $\F{}\3$. Then $q$ is a quadratic form on $\F n$ if and only if there exist numbers $A_{j,k} \in \F{}$ for $j, k \in \br{ 1, \ldots, n} $ such that
+ \vspace{-.1in} % VisualFormatting for 4e page break
+ \[
+ q(x_1, \ldots, x_n) = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j x_k
+ \]
+  for all $(x_1, \ldots, x_n) \in \FF n$.}
+
+ \proof
+ First suppose $q$ is a quadratic form on $\FF n$. Thus there exists a bilinear form $\beta$ on $\F n$ such that $q = q_\beta$. Let $A$ be the matrix of $\beta$ with respect to the standard basis of $\FF n$. Then for all $(x_1, \ldots, x_n) \in \FF n$, we have the desired equation
+\vspace{-.04in} % VisualFormatting for 4e page break
+ \[
+ q(x_1, \ldots, x_n) = \beta\paren[\big]{ (x_1, \ldots, x_n), (x_1, \ldots, x_n) }
+ = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j x_k.
+ \]
+
+ Conversely, suppose there exist numbers $A_{j,k} \in \F{}$ for $j, k \in \br{ 1, \ldots, n} $ such~that
+  %\vspace{-.1in} % VisualFormatting for 4e page break
+  \[
+ q(x_1, \ldots, x_n) = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j x_k
+ \]
+ for all $(x_1, \ldots, x_n) \in \FF n$. Define a bilinear form $\beta$ on $\F n$ by
+ %\vspace{-.04in} % VisualFormatting for 4e page break
+  \[
+  \beta\paren[\big]{ (x_1, \ldots, x_n), (y_1, \ldots, y_n) } = \sum_{k=1}^n \sum_{\js}^n A_{j,k} x_j y_k.
+  \]
+ \vspace{-0.1in}
+ Then $q = q_\beta$, as desired.
+ \qed
+
+ Although quadratic forms are defined in terms of an arbitrary bilinear form, the equivalence of (a) and (b) in the result below shows that a \textit{symmetric} bilinear form can always be used.
+
+\ResultBox[11charquad]{characterizations of quadratic forms}
+ {Suppose $\fun q V {\F{}}$ is a function. The following are equivalent.
+ \begin{subtheorem}*
+ \item
+ $q$ is a quadratic form.
+ \item
+ There exists a unique symmetric bilinear form $\rho$ on $V$ such that $q = q_\rho$.
+ \item
+ $q(\la v) = \la^2 q(v)$ for all $\la \in \F{}$ and all $v \in V\1$, and the function
+\vspace{-.02in} % VisualFormatting for 4e page break
+\[
+(u, w) \mapsto q(u+w) - q(u) - q(w)
+\]
+is a symmetric bilinear form on $V\1$.
+\item
+$q(2 v) = 4 q(v)$ for all $v \in V\1$, and the function
+\vspace{-.02in} % VisualFormatting for 4e page break
+\[
+(u, w) \mapsto q(u+w) - q(u) - q(w)
+\]
+is a symmetric bilinear form on $V\1$.
+\end{subtheorem}}
+
+\proof
+First suppose (a) holds, so $q$ is a quadratic form. Hence there exists a bilinear form $\beta$ such that $q = q_\beta$. By \ref{9V2}, there exist a symmetric bilinear form $\rho$ on $V$ and an alternating bilinear form $\al$ on $V$ such that $\beta = \rho + \al$. Now
+\[
+q = q_\beta = q_\rho + q_\al = q_\rho.
+\]
+If $\rho' \in V^{(2)}_{\text{sym}}$ also satisfies $q_{\rho'} = q$, then $q_{\rho' - \rho} = 0$; thus
+$\rho' - \rho \in V^{(2)}_{\text{sym}} \cap V^{(2)}_{\text{alt}}$,
+which implies that $\rho' = \rho$ (by \ref{9V2}). This completes the proof that (a) implies (b).
+
+Now suppose (b) holds, so there exists a symmetric bilinear form $\rho$ on $V$ such that $q = q_\rho$. If $\la \in \F{}$ and $v \in V$ then
+\[
+q(\la v) = \rho(\la v, \la v) = \la \rho(v, \la v) = \la^2 \rho(v, v) = \la^2 q(v),
+\]
+showing that the first part of (c) holds.
+
+If $u, w \in V\1$, then
+\[
+q(u+w) - q(u) - q(w) = \rho(u+w, u+ w) - \rho(u, u) - \rho(w, w) = 2 \rho(u, w).
+\]
+Thus the function $(u, w) \mapsto q(u+w) - q(u) - q(w)$ equals $2\rho$, which is a symmetric bilinear form on $V\1$, completing the proof that (b) implies (c).
+
+Clearly (c) implies (d).
+
+Now suppose (d) holds. Let $\rho$ be the symmetric bilinear form on $V$ defined by
+\[
+\rho(u, w) = \frac{ q(u+w) - q(u) - q(w) }{2}.
+\]
+If $v \in V\1$, then
+\vspace{-.09in} % VisualFormatting for 4e page break
+\[
+\rho(v,v) =  \frac{ q(2v) - q(v) - q(v) }{2} = \frac{4q(v) - 2q(v)}{2} = q(v).
+\]
+Thus $q = q_\rho$, completing the proof that (d) implies (a).
+\qed
+
+\pagebreak[3]
+
+\begin{example}{symmetric bilinear form associated with a quadratic form}
+Suppose $q$ is the quadratic form on $\R3$ given by the formula
+ \[
+ q(x_1, x_2, x_3) = {x_1}^{\2} - 4 x_1 x_2 +8 x_1 x_3 - 3{x_3}^{\2}\1.
+ \]
+ A bilinear form $\beta$ on $\R3$ such that $q = q_\beta$ is given by Example \ref{9quad}, but this bilinear form is not symmetric, as promised by \ref{11charquad}(b). However, the bilinear form $\rho$ on $\R3$ defined by
+ \[
+ \rho\paren[\big]{(x_1, x_2,x_3), (y_1, y_2, y_3)} =  x_1 y_1 - 2 x_1 y_2  - 2 x_2 y_1 + 4x_1 y_3 + 4x_3 y_1- 3x_3 y_3
+ \]
+ is symmetric and satisfies $q = q_\rho$.
+\end{example}
+
+The next result states that for each quadratic form we can choose a basis such that the quadratic form looks like a weighted sum of squares of the coordinates, meaning that there are no cross terms of the form $x_j x_k$ with $j \ne k$.
+
+\ResultBox{diagonalization of quadratic form}
+{Suppose $q$ is a quadratic form on $V\1$.
+\begin{subtheorem}
+\item
+There exist a basis $e_1, \ldots, e_n$ of $V$ and $\la_1, \ldots, \la_n \in \F{}$ such that
+\[
+q( x_1 e_1 + \cdots + x_n e_n ) = \la_1 {x_1}^{\2} + \cdots + \la_n {x_n}^{\2}
+\]
+for all $x_1, \ldots, x_n \in \F{}\3$.
+\item
+If $\F{} = \R{}$ and $V$ is an inner product space, then the basis in (a) can be chosen to be an orthonormal basis of $V\1$.
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}
+\item
+There exists a symmetric bilinear form $\rho$ on $V$ such that $q = q_\rho$ (by \ref{11charquad}). Now there exists a basis
+$e_1, \ldots, e_n$ of $V$ such that $\M\paren[\big]{ \rho, (e_1, \ldots, e_n) }$ is a diagonal matrix (by \ref{9symdiag}).
+Let $\la_1, \ldots, \la_n$ denote the entries on the diagonal of this matrix. Thus
+\[
+\rho(e_j, e_k) = \begin{cases}
+\la_j & \text{if } j = k,\\
+0 & \text{if } j \ne k
+\end{cases}
+\]
+for all $j, k \in \br{1, \ldots, n}$. If $x_1, \ldots, x_n \in \F{}\3$, then
+\begin{align*}
+q( x_1 e_1 + \cdots + x_n e_n ) &= \rho( x_1 e_1 + \cdots + x_n e_n, x_1 e_1 + \cdots + x_n e_n ) \\
+&= \sum_{k=1}^n \sum_{\js}^n x_j x_k \rho(e_j, e_k) \\
+&= \la_1 {x_1}^{\2} + \cdots + \la_n {x_n}^{\2}\1,
+\end{align*}
+as desired.
+
+\item
+Suppose $\F{} = \R{}$ and $V$ is an inner product space. Then \ref{9diagortho} tells us that the basis in (a) can be chosen to be an orthonormal basis of $V\1$.
+\qed
+\end{subtheorem}
+
+\pagebreak[3]
+
+\begin{comment}
+
+$S, T \mapsto \tr(ST)$ is bilinear on $\L(V)$.\\
+Possible exercise: Show that if $\dim V \ge 2$, then this is not an inner product.\\
+More generally, $T\3_1, \ldots, T\3_m \mapsto \tr(T\3_1 \cdots T\3_m)$ is multilinear on $\L(V)$.
+
+\end{comment}
+
+\begin{exercises}
+
+\exercise
+Prove that if $\beta$ is a bilinear form on $\F{}\3$, then there exists $c \in \F{}$ such that
+\[
+\beta(x,y) = c x y
+\]
+for all $x, y \in \F{}\3$.
+
+
+\exercise
+Let $n = \dim V\1$. Suppose $\beta$ is a bilinear form on $V\1$. Prove that there exist
+$\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'$ such that
+\[
+\beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise shows that if\/ $n = \dim V\1$, then every bilinear form on\/ $V$ is of the form given by the last bullet point of Example \ref{9BilinearExample}.}
+
+
+\exercise
+Suppose $\fun \beta {V\1 \times V} {\F{}}$ is a bilinear form on $V$ and also is a linear functional on $V\1 \times V\1$. Prove that
+$\beta = 0$.\label{11zero}
+
+
+\exercise
+Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V\1$. Show that there exists a unique operator $T \in \L(V)$ such that\label{9inn}
+\[
+\beta(u, v) = \ip{u,Tv}
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise states that if\/ $V$ is a real inner product space, then every bilinear form on\/ $V$ is of the form given by the third bullet point in \ref{9BilinearExample}.}
+
+
+\exercise
+Suppose $\beta$ is a bilinear form on a real inner product space $V\1$ and $T$ is the unique operator on $V$ such that $\beta(u,v) = \ip{u, Tv}$ for all $u, v \in V$ (see Exercise \ref{9inn}). Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V\1$.
+
+
+\exercise
+Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V\1$, then
+\[
+\br[\big]{v \in V: \rho(v, v) = 0}
+\]
+is a subspace of $V\1$.
+
+
+\exercise
+Explain why the proof of \ref{9diagortho} (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\F{} = \R{}$ is dropped.
+
+
+\exercise
+Find formulas for $\dim V^{(2)}_{\text{sym}}$ and $\dim V^{(2)}_{\text{alt}}$ in terms of $\dim V\1$.
+
+
+\exercise
+Suppose that $n$ is a positive integer and $V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) }$.
+Define $\fun \al {V\1 \times V} {\R{}}$ by
+\[
+\al(p,q) = \int_0^1 p q'\!.
+\]
+Show that $\al$ is an alternating bilinear form on $V\1$.
+
+
+\exercise
+Suppose that $n$ is a positive integer and
+\[
+V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) \text{ and } p'(0) = p'(1)}.
+\]
+Define $\fun \rho {V\1 \times V} {\R{}}$ by
+\[
+\rho(p,q) = \int_0^1 p q''\!.
+\]
+Show that $\rho$ is a symmetric bilinear form on $V\1$.
+
+
+\end{exercises}
+
+\CrCom
+
+\section{Alternating Multilinear Forms}
+
+\subsection{Multilinear Forms}
+
+\DefinitionBox{$V^m$}
+{For $m$ a positive integer, define $V^m$ by\sindex{Vm@$V^m\mskip -2mu$}
+\[
+V^m = \underbrace{V\1 \times \cdots \times V}_{m \text{\ times}}\!.
+\]}
+
+\begin{comment}
+Addition and scalar multiplication on $V^m$ are defined by
+\[
+(u_1, \ldots, u_m) + (v_1, \ldots, v_m) = (u_1 + v_1, \ldots, u_m + v_m)
+\]
+and
+\[
+\la(v_1, \ldots, v_m) = (\la v_1, \ldots, \la v_m).
+\]
+These operations make $V^m$ into a vector space, as you can verify.
+\end{comment}
+
+Now we can define $m$-linear forms as a generalization of the bilinear forms that we discussed in the previous section.
+
+\DefinitionBox[9multiform]{$m$-linear form, $V^{(m)}\!$, multilinear form}
+{\begin{Itemize}
+\item
+For $m$ a positive integer, an $m$-\emph{linear form} on $V$ is a function $\fun \beta {V^m\1} {\F{}}$ that is linear in each slot when the other slots are held fixed. This means that for each $k \in \br{1, \ldots, m}$ and all $u_1, \ldots, u_m \in V\1$, the function
+\index{multilinear form}\index{mlinearform@$m$-linear form}
+\[
+v \mapsto \beta(u_1, \ldots, u_{k-1}, v, u_{k+1}, \ldots, u_m)
+\]
+is a linear map from $V$ to $\F{}\3$.
+\item
+The set of $m$-linear forms on $V$ is denoted by $V^{(m)}\!$.\sindex{Vm@$V^{(m)}\1$}
+\item
+A function $\beta$ is called a \emph{multilinear form} on $V$ if it is an $m$-linear form on $V$ for some positive integer $m$.
+\end{Itemize}
+}
+
+In the definition above, the expression $\beta(u_1, \ldots, u_{k-1}, v, u_{k+1}, \ldots, u_m)$ means
+$\beta(v, u_2, \ldots, u_m)$ if $k = 1$ and means $\beta(u_1, \ldots, u_{m-1}, v)$ if $k = m$.
+
+A $1$-linear form on $V$ is a linear functional on $V\1$. A $2$-linear form on $V$ is a bilinear form on $V\1$. You can verify that with the usual addition and scalar multiplication of functions, $V^{(m)}$ is a vector space.
+
+\begin{example}{$m$-linear forms}
+\begin{Itemize}
+\item
+Suppose $\al, \rho \in V^{(2)}\!$. Define a function $\fun \beta {V^4} {\F{}}$ by
+\[
+\beta(v_1, v_2, v_3, v_4) = \al(v_1, v_2) \,\rho(v_3, v_4).
+\]
+Then $\beta \in V^{(4)}\!$.
+
+\item
+Define $\fun \beta { \paren[\big]{\L(V)}^m } {\F{}}$ by
+\[
+\beta(T_1, \ldots, T_m) = \tr(T_1 \cdots T_m).
+\]
+Then $\beta$ is an $m$-linear form on $\L(V)$.
+\end{Itemize}
+\exampleitemend
+\vspace{-2bp}
+\end{example}
+
+\pagebreak[3]
+
+Alternating multilinear forms, which we now define, play an important role as we head toward defining determinants.
+
+\DefinitionBox{alternating forms,\/ $V^{(m)}_{\textup{alt}}$}
+{Suppose $m$ is a positive integer.\index{alternatingn@alternating $m$-linear form}\sindex{Vnalt@$V^{(m)}_{\textup{alt}}$}
+\begin{Itemize}
+\item
+An $m$-linear form $\al$ on $V$ is called \emph{alternating} if $\al(v_1, \ldots, v_m) = 0$ whenever
+$v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_k$ for some two distinct values of $j$ and $k$ in
+$\br{1, \ldots, m}$.
+\item
+$V^{(m)}_{\text{alt}} = \br[\big]{ \al \in V^{(m)}: \al \text{ is an alternating $m$-linear form on } V }$.
+\end{Itemize}}
+
+You should verify that $V^{(m)}_{\text{alt}}$ is a subspace of $V^{(m)}\!$. See Example \ref{9alt} for examples of alternating $2$-linear forms. See Exercise \ref{9threelin} for an example of an alternating $3$-linear form.
+
+The next result tells us that if a linearly dependent list is input to an alternating multilinear form, then the output equals $0$.
+
+\ResultBox[11altdep]{alternating multilinear forms and linear dependence}
+{Suppose $m$ is a positive integer and $\al$ is an alternating $m$-linear form on $V\1$. If $v_1, \ldots, v_m$ is a linearly dependent list in $V\1$, then
+\[
+\al(v_1, \ldots, v_m) = 0.
+\]}
+
+\proof
+Suppose $v_1, \ldots, v_m$ is a linearly dependent list in $V\1$. By the linear dependence lemma (\ref{4}), some $v_k$ is a linear combination of $v_1, \ldots, v_{k-1}$. Thus there exist $b_1, \ldots, b_{k-1}$ such that
+$v_k = b_1 v_1 + \cdots + b_{k-1} v_{k-1}$. Now
+\begin{align*}
+\al(v_1, \ldots, v_m) &= \al\paren[\bigg]{ v_1, \ldots, v_{k-1}, \sum_{j=1}^{k-1} b_j v_j, v_{k+1}, \ldots, v_m } \\
+&= \sum_{j=1}^{k-1} b_j \, \al( v_1, \ldots, v_{k-1}, v_j, v_{k+1}, \ldots, v_m) \\[4bp]
+&= 0.
+\rlap{\hspace{2.77in}\text{\qedsymbol}}
+\end{align*}
+
+\addvspace{14bp}
+
+The next result states that if $m > \dim V\1$, then there are no alternating $m$-linear forms on $V$ other than the function on $V^m$ that is identically $0$.
+
+\ResultBox{no nonzero alternating\/ $m$-linear forms for\/ $m > \dim V$}
+{Suppose $m > \dim V\1$. Then $0$ is the only alternating $m$-linear form on $V\1$.}
+
+\proof
+Suppose that $\al$ is an alternating $m$-linear form on $V$ and $v_1, \ldots, v_m \in V\1$. Because $m > \dim V\1$, this list is not linearly independent (by \ref{7}). Thus \ref{11altdep} implies that $\al(v_1, \ldots, v_m) = 0$. Hence $\al$ is the zero function from $V^m$ to $\F{}\3$.
+\qed
+
+\subsection{Alternating Multilinear Forms and Permutations}
+
+\ResultBox[9swap]{swapping input vectors in an alternating multilinear form}
+{Suppose $m$ is a positive integer, $\al$ is an alternating $m$-linear form on $V\1$, and $v_1, \ldots, v_m$ is a list of vectors in $V\1$. Then swapping the vectors in any two slots of $\al(v_1, \ldots, v_m)$ changes the value of $\al$ by a factor of $-1$.}
+
+\proof
+Put $v_1 + v_2$ in both the first two slots, getting
+\[
+0 = \al(v_1 + v_2, v_1 + v_2, v_3, \ldots, v_m).
+\]
+Use the multilinear properties of $\al$ to expand the right side of the equation above (as in the proof of \ref{9skew}) to get
+\[
+\al(v_2, v_1, v_3, \ldots, v_m) = -\al(v_1, v_2, v_3, \ldots, v_m).
+\]
+
+Similarly, swapping the vectors in any two slots of $\al(v_1, \ldots, v_m)$ changes the value of $\al$ by a factor of $-1$.
+\qed
+
+To see what can happen with multiple swaps, suppose $\al$ is an alternating $3$-linear form on $V$ and
+$v_1, v_2, v_3 \in V\1$. To evaluate $\al(v_3, v_1, v_2)$ in terms of $\al(v_1, v_2, v_3)$, start with
+$\al(v_3, v_1, v_2)$ and swap the entries in the first and third slots, getting $\al(v_3, v_1, v_2) = -\al(v_2, v_1, v_3)$. Now in the last expression, swap the entries in the first and second slots, getting
+\[
+\al(v_3, v_1, v_2) = -\al(v_2, v_1, v_3) = \al(v_1, v_2, v_3).
+\]
+More generally, we see that if we do an odd number of swaps, then the value of $\al$ changes by a factor of $-1$, and if we do an even number of swaps, then the value of $\al$ does not change.
+
+To deal with arbitrary multiple swaps, we need a bit of information about permutations.
+
+\DefinitionBox{permutation, $\perm m$\sindex{perm}}
+{Suppose $m$ is a positive integer.
+\begin{Itemize}
+\item
+A \emph{permutation}\index{permutation} of
+$(1, \ldots, m)$ is a list $(j_1, \ldots, j_m)$ that contains each of the numbers $1, \ldots, m$ exactly once.
+\item
+The set of all permutations of $(1, \ldots, m)$ is denoted by $\perm m$.
+\end{Itemize}}
+
+For example, $(2, 3, 4, 5, 1) \in \perm 5$. You should think of an
+element of $\perm m$ as a rearrangement of the first $m$ positive integers.
+
+The number of swaps used to change a permutation $(j_1, \ldots, j_m)$ to the standard order $(1, \ldots, m)$ can depend on the specific swaps selected. The following definition has the advantage of assigning a well-defined sign to every permutation.
+
+\DefinitionBox{sign of a permutation}{
+The \emph{sign}\index{sign of a permutation}
+of a permutation $(j_1, \ldots, j_m)$ is defined by
+\[
+\sign(j_1, \ldots, j_m) = (-1)^N\1,
+\]
+where $N$ is the number of pairs of integers $(k,\ell)$ with $1 \le k < \ell \le m$ such that $k$ appears
+after $\ell$ in the list $(j_1, \ldots, j_m)$.}
+
+Hence the sign of a permutation equals $1$ if the natural order has been changed an even number of
+times and equals $-1$ if the natural order has been changed an odd number of times.
+
+\begin{example}{signs}
+\vspace{-.09in} % VisualFormatting for page break in LADR4e
+\begin{Itemize}
+\item
+The permutation $(1, \ldots, m)$ [no changes in the natural order] has sign $1$.
+\item
+The only pair of integers $(k, \ell)$ with $k < \ell$ such that $k$ appears after $\ell$ in the list $(2, 1, 3, 4)$ is $(1, 2)$. Thus the permutation $(2, 1, 3, 4)$ has sign~$-1$.
+\item
+In the permutation $(2, 3, \ldots, m, 1)$, the only pairs $(k, \ell)$ with $k < \ell$ that appear with changed order are
+$(1, 2), (1, 3), \ldots, (1,m)$. Because we have $m-1$ such pairs, the sign of this permutation equals $(-1)^{m-1}$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\ResultBox[432]{swapping two entries in a permutation}
+{Swapping two entries in a permutation multiplies the sign of the permutation by\/~$-1$.}
+
+\proof
+Suppose we have two permutations, where the second permutation is obtained from the first by swapping two entries.  The two swapped entries were in their natural order in the first permutation if and only if they are not in their natural order in the second permutation. Thus we have a net change (so far) of $1$ or $-1$ (both odd numbers) in the number of pairs not in their natural order.
+
+Consider each entry between the two swapped entries.  If an intermediate entry was originally in the natural order with respect to both swapped entries, then it is now in the natural order with respect to neither swapped entry.  Similarly, if an intermediate entry was originally in the natural order with respect to neither of the swapped entries, then it is now in the natural order with respect to both swapped entries. If an intermediate entry was originally in the natural order with respect to exactly one of the swapped entries, then that is still true. Thus the net change (for each pair containing an entry between the two swapped entries) in the number of pairs not in their natural order is $2$, $-2$, or $0$ (all even numbers).
+
+For all other pairs of entries, there is no change in whether or not they are in their natural order.  Thus the total net change in the number of pairs not in their natural order is an odd number. Hence the sign of the second permutation equals $-1$ times the sign of the first permutation.
+\qed
+
+\pagebreak[3]
+
+\ResultBox[11altsign]{permutations and alternating multilinear forms}
+{Suppose $m$ is a positive integer and $\al \in V_{\text{alt}}^{(m)}\1$. Then
+\[
+\al(v_{j_1}, \ldots, v_{j_m}) = \paren[\big]{ \sign(j_1, \ldots, j_m) } \al(v_1, \ldots, v_m)
+\]
+for every list $v_1, \ldots, v_m$ of vectors in $V$ and all $(j_1, \ldots, j_m) \in \perm m$.}
+
+\proof
+Suppose $v_1, \ldots, v_m \in V$ and $(j_1, \ldots, j_m) \in \perm m$. We can get from $(j_1, \ldots, j_m)$ to $(1, \ldots, m)$ by a series of swaps of entries in different slots. Each such swap changes the value of $\al$ by a factor of $-1$ (by \ref{9swap}) and also changes the sign of the remaining permutation by a factor of $-1$ (by \ref{432}). After an appropriate number of swaps, we reach the permutation
+$1, \ldots, m$, which has sign $1$.
+Thus the value of $\al$ changed signs an even number of times if $\sign(j_1, \ldots, j_m) = 1$ and an odd number of times if $\sign(j_1, \ldots, j_m) = -1$, which gives the desired result.
+\qed
+
+Our use of permutations now leads in a natural way to the following beautiful formula for alternating $n$-linear forms on an $n$-dimensional vector space.
+
+\ResultBox[11altform]{formula for $(\dim V)$-linear alternating forms on\/ $V$}
+{Let $n = \dim V\1$. Suppose $e_1, \ldots, e_n$ is a basis of $V$ and $v_1, \ldots, v_n \in V\1$.  For each $k \in \br{1, \ldots, n}$, let $b_{1, k}, \ldots, b_{n, k} \in \F{}$ be such that
+\[
+v_k = \sum_{j=1}^n b_{j,k} e_j.
+\]
+Then
+\[
+\al(v_1, \ldots, v_n) =
+\al( e_1, \ldots, e_n ) \sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\big]{ \sign(j_1, \ldots, j_n) } b_{j_1,1} \cdots b_{j_n,n}
+\]
+for every alternating $n$-linear form $\al$ on $V\1$.}
+
+\proof
+Suppose $\al$ is an alternating $n$-linear form $\al$ on $V\1$. Then
+\begin{align*}
+\al(v_1, \ldots, v_n) &= \al\paren[\bigg]{ \sum_{j_1=1}^n b_{j_1,1} e_{j_1}, \ldots, \sum_{j_n=1}^n b_{j_n,n} e_{j_n} } \\[6bp]
+&= \sum_{j_1=1}^n \cdots \sum_{j_n=1}^n b_{j_1,1} \cdots b_{j_n,n} \, \al( e_{j_1}, \ldots, e_{j_n} ) \\[6bp]
+&=  \sum_{(j_1, \ldots, j_n) \in \perm n} b_{j_1,1} \cdots b_{j_n,n} \, \al( e_{j_1}, \ldots, e_{j_n} ) \\[6bp]
+&= \al( e_1, \ldots, e_n ) \sum_{(j_1, \ldots, j_n) \in \perm n} \, \paren[\big]{ \sign(j_1, \ldots, j_n) } b_{j_1,1} \cdots b_{j_n,n},
+\end{align*}
+where the third line holds because $\al( e_{j_1}, \ldots, e_{j_n} ) = 0$ if $j_1, \ldots, j_n$ are not distinct integers, and the last line holds by \ref{11altsign}.
+\qed
+
+The following result will be the key to our definition of the determinant in the next section.
+
+\ResultBox[9dimone]{$\dim V^{(\dim V)}_{\textup{alt}} = 1$}
+{The vector space $V^{(\dim V)}_{\text{alt}}$ has dimension one.}
+
+\proof
+Let $n = \dim V\1$. Suppose $\al$ and $\al'$ are alternating $n$-linear forms on $V$ with $\al \ne 0$.
+Let $e_1, \ldots, e_n$ be such that $\al(e_1, \ldots, e_n) \ne 0$. There exists $c \in \F{}$ such that
+\[
+\al'(e_1, \ldots, e_n) = c \al(e_1, \ldots, e_n).
+\]
+Furthermore, \ref{11altdep} implies that $e_1, \ldots, e_n$ is linearly independent and thus is a basis of $V\1$.
+
+Suppose $v_1, \ldots, v_n \in V\1$. Let $b_{j,k}$ be as in \ref{11altform} for $j,k = 1, \ldots, n$. Then
+\begin{align*}
+\al'(v_1, \ldots, v_n)
+&= \al'( e_1, \ldots, e_n ) \sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\big]{ \sign(j_1, \ldots, j_n) } b_{j_1,1} \cdots b_{j_n,n} \\[6bp]
+&=  c \al( e_1, \ldots, e_n ) \sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\big]{ \sign(j_1, \ldots, j_n) } b_{j_1,1} \cdots b_{j_n,n} \\[6bp]
+&= c \al(v_1, \ldots, v_n),
+\end{align*}
+where the first and last lines above come from \ref{11altform}. The equation above implies that $\al' = c \al$. Thus $\al'\!, \al$ is not a linearly independent list, which implies that $\dim V^{(n)}_{\text{alt}} \le 1$.
+
+To complete the proof, we only need to show that there exists a nonzero alternating $n$-linear form $\al$ on $V$ \big(thus eliminating the possibility that $\dim V^{(n)}_{\text{alt}}$ equals~$0$\big). To do this, let $e_1, \ldots, e_n$ be any basis of $V\1$, and let $\phi_1, \ldots, \phi_n \in V'$ be the linear functionals on $V$ that allow us to express each element of $V$ as a linear combination of $e_1, \ldots, e_n$. In other words,
+\[
+v = \sum_{j=1}^n \phi_j(v) e_j
+\]
+for every $v \in V\1$ (see \ref{3dualbasis}). Now for $v_1, \ldots, v_n \in V\1$, define
+\begin{equation} \label{9alalt}
+\al(v_1, \ldots, v_n) =
+\sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\big]{ \sign(j_1, \ldots, j_n) } \phi_{j_1}(v_1) \cdots \phi_{j_n}(v_n).
+\end{equation}%
+The verification that $\al$ is an $n$-linear form on $V$ is straightforward.
+
+To see that $\al$ is alternating, suppose $v_1, \ldots, v_n \in V$ with $v_1 = v_2$.
+For each $(j_1, \ldots, j_n) \in \perm n$, the permutation $(j_2, j_1, j_3, \ldots, j_n)$ has the opposite sign.
+Because $v_1 = v_2$, the contributions from these two permutations to the sum in \ref{9alalt} cancel each other. Hence $\al(v_1, v_1, v_3, \ldots, v_n) = 0$. Similarly, $\al(v_1, \ldots, v_n) = 0$ if any two vectors in the list $v_1, \ldots, v_n$ are equal. Thus $\al$ is alternating.
+
+Finally, consider \ref{9alalt} with each $v_k = e_k$. Because $\phi_j(e_k)$ equals $0$ if $j \ne k$ and equals $1$ if $j = k$, only the permutation $(1, \ldots, n)$ makes a nonzero contribution to the right side of \ref{9alalt} in this case, giving the equation $\al(e_1, \ldots, e_n) =1$. Thus we have produced a nonzero alternating $n$-linear form $\al$ on $V\1$, as desired.
+\qed
+
+\pagebreak[3]
+
+\mar{The formula \ref{9alalt} used in the last proof to construct a nonzero alternating $n$-linear form came from the formula in \ref{11altform}, and that formula arose naturally from the properties of an alternating multilinear form.}
+
+Earlier we showed that the value of an alternating multilinear form applied to a linearly dependent list is $0$; see \ref{11altdep}. The next result provides a converse of \ref{11altdep} for $n$-linear multilinear forms when $n = \dim V\1$. In the following result, the statement that $\al$ is nonzero means (as usual for a function) that $\al$ is not the function on $V^n$ that is identically $0$.
+
+\ResultBox[9altli]{alternating\/ $(\dim V)$-linear forms and linear independence}
+{Let $n = \dim V\1$. Suppose $\al$ is a nonzero alternating $n$-linear form on $V$ and $e_1, \ldots, e_n$ is a list of vectors in $V\1$. Then
+\[
+\al(e_1, \ldots, e_n) \ne 0
+\]
+if and only if $e_1, \ldots, e_n$ is linearly independent.}
+
+\proof
+First suppose $\al(e_1, \ldots, e_n) \ne 0$. Then \ref{11altdep} implies that $e_1, \ldots, e_n$ is linearly independent.
+
+To prove the implication in the other direction, now suppose $e_1, \ldots, e_n$ is linearly independent. Because
+$n = \dim V\1$, this implies that $e_1, \ldots, e_n$ is a basis of $V\1$ (see \ref{75}).
+
+Because $\al$ is not the zero $n$-linear form, there exist $v_1, \ldots, v_n \in V$ such that
+$\al(v_1, \ldots, v_n) \ne 0$. Now \ref{11altform} implies that $\al( e_1, \ldots, e_n ) \ne 0$.
+\qed
+
+\begin{exercises}
+
+\exercise
+Suppose $m$ is a positive integer. Show that $\dim V^{(m)} = (\dim V)^m\!$.
+
+
+\exercise
+Suppose $n \ge 3$ and $\fun \al {\F n \times \F n \times \F n} {\F{}}$ is defined by
+\begin{align*}
+\al\paren[\big]{ (&x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n)} \\
+&= x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1
+-x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
+\end{align*}
+Show that $\al$ is an alternating $3$-linear form on $\FF n$.\label{9threelin}
+
+
+\exercise
+Suppose $m$ is a positive integer and $\al$ is an $m$-linear form on $V$ such that $\al(v_1, \ldots, v_m) = 0$ whenever
+$v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_{j+1}$ for some $j \in \br{1, \ldots, m-1}$. Prove that $\al$ is an alternating $m$-linear form on~$V\1$.
+
+
+\exercise
+Prove or give a counterexample: If $\al \in V_\text{alt}^{(4)}\1$, then
+\[
+\br[\big]{ (v_1, v_2, v_3, v_4) \in V^4 : \al(v_1, v_2, v_3, v_4) = 0 }
+\]
+is a subspace of $V^4\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \paren[\big]{ \sign(j_1, \ldots, j_m) } \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why $\al \in V_{\text{alt}}^{(m)}\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why
+\[
+\al( v_{k_1}, \ldots, v_{k_m} ) = \al(v_1, \ldots, v_m)
+\]
+for all $v_1, \ldots, v_m \in V$ and all $(k_1, \ldots, k_m) \in \perm m$.
+
+
+\exercise
+Give an example of a nonzero alternating $2$-linear form $\al$ on $\R3$ and a linearly independent list $v_1, v_2$ in $\R3$ such that
+$\al(v_1, v_2) = 0$.
+\exercisecomment{This exercise shows that \ref{9altli} can fail if the hypothesis that\/ $n = \dim V$ is deleted.}
+
+
+\end{exercises}
+
+\section{Determinants} \label{9det}
+\subsection{Defining the Determinant}
+
+The next definition will lead us to a clean, beautiful, basis-free definition of the determinant of an operator.
+
+\DefinitionBox{$\al_T$}
+{Suppose that $m$ is a positive integer and $T \in \L(V)$. For $\al \in V_{\text{alt}}^{(m)}\1$, define $\al_T \in V^{(m)}_{\text{alt}}$ by
+\sindex{alphaT@$\al_T$}
+\[
+\al_T(v_1, \ldots, v_m) = \al(Tv_1, \ldots, T v_m)
+\]
+for each list $v_1, \ldots, v_m$ of vectors in $V\1$.}
+
+Suppose $T \in \L(V)$. If $\al \in V^{(m)}_{\text{alt}}$ and $v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_k$ for some $j \ne k$, then $Tv_j = Tv_k$, which implies that $\al_T(v_1, \ldots, v_m) = \al(Tv_1, \ldots, T v_m) = 0$. Thus the function $\al \mapsto \al_T$ is a linear map of $V^{(m)}_{\text{alt}}$ to itself.
+
+We know that $\dim V^{(\dim V)}_{\text{alt}} = 1$ (see \ref{9dimone}). Every linear map from a one-dimensional vector space to itself is multiplication by some unique scalar. For the linear map $\al \mapsto \al_T$, we now define $\det T$ to be that scalar.
+
+\DefinitionBox{determinant of an operator,\/ $\det T$}
+{Suppose $T \in \L(V)$. The \emph{determinant} of $T\3$, denoted by $\det T\3$, is defined to be the unique number in $\F{}$ such that
+\[
+\al_T = (\det T) \, \al
+\]
+for all $\al \in V_{\text{alt}}^{(\dim V)}\1$.\index{determinant!of operator}\sindex{detT@$\det T$}}
+
+\begin{example}[9detops]{determinants of operators}
+Let $n = \dim V\1$.
+\begin{Itemize} \addtolength{\itemsep}{-.014in} %VisualFormatting for LADR4e page break
+\item
+If $I$ is the identity operator on $V\1$, then $\al_I = \al$ for all $\al \in V_{\text{alt}}^{(n)}\1$. Thus $\det I = 1$.
+
+\item
+More generally, if $\la \in \F{}\3$, then $\al_{\la I} = \la^n \al$ for all $\al \in V_{\text{alt}}^{(n)}\1$. Thus
+$\det (\la I )= \la^n\1$.
+
+\item
+Still more generally, if $T \in \L(V)$ and $\la \in \F{}\3$, then $\al_{\la T} = \la^n \al_T = \la^n (\det T) \al$ for all
+$\al \in V_{\text{alt}}^{(n)}\1$. Thus $\det (\la T) = \la^n \det T\3$.
+
+\item
+Suppose $T \in \L(V)$ and there is a basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T\3$, with corresponding eigenvalues $\la_1, \ldots, \la_n$. If $\al \in V_{\text{alt}}^{(n)}\1$, then% the multilinear property of $\al$ implies that
+\[
+\al_T(e_1, \ldots, e_n) = \al(\la_1 e_1, \ldots, \la_n e_n) = (\la_1 \cdots \la_n) \al(e_1, \ldots, e_n).
+\]
+If $\al \ne 0$, then \ref{9altli} implies $\al(e_1, \ldots, e_n) \ne 0$. Thus the equation above implies
+\[
+\det T = \la_1 \cdots \la_n.
+\]
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\pagebreak[3]
+
+Our next task is to define and give a formula for the determinant of a square matrix. To do this, we associate with each square matrix an operator and then define the determinant of the matrix to be the determinant of the associated operator.
+
+\DefinitionBox{determinant of a matrix,\/ $\det A$}
+{Suppose that $n$ is a positive integer and $A$ is an \by{n}{n} square matrix with entries in~$\F{}\3$. Let
+$T \in \L\paren[\big]{\F n}$ be the operator whose matrix with respect to the standard basis of $\F n$ equals $A$. The \emph{determinant} of $A$, denoted by $\det A$, is defined by $\det A = \det T\3$.\index{determinant!of matrix}\sindex{detA@$\det A$}}
+
+\begin{example}{determinants of matrices}
+\begin{Itemize}
+\item
+If $I$ is the \by{n}{n} identity matrix, then the corresponding operator on $\F n$ is the identity operator $I$ on $\FF n$. Thus the first bullet point of \ref{9detops} implies that the determinant of the identity matrix is $1$.
+
+\item
+Suppose $A$ is a diagonal matrix with $\la_1, \ldots, \la_n$ on the diagonal. Then the corresponding operator on $\F n$ has the standard basis of $\F n$ as eigenvectors, with eigenvalues $\la_1, \ldots, \la_n$. Thus the last bullet point of \ref{9detops} implies that $\det A = \la_1 \cdots \la_n$.
+\end{Itemize}
+\vspace{-10bp}
+\end{example}
+
+For the next result, think of each list $v_1, \ldots, v_n$ of $n$ vectors in $\F n$ as a list of \by{n}{1} column vectors. The notation
+$\mat{ccc}{ v_1 & \cdots & v_n }$ then denotes the \by{n}{n} square matrix whose $k^\nth$ column is $v_k$ for each $k = 1, \ldots, n$.
+
+\ResultBox[9detalt]{determinant is an alternating multilinear form}
+{Suppose that $n$ is a positive integer. The map that takes a list $v_1, \ldots, v_n$ of vectors in $\F n$ to $\det \mat{ccc}{ v_1 & \cdots & v_n }$ is an alternating $n$-linear form on $\FF n$.}
+
+\proof
+Let $e_1, \ldots, e_n$ be the standard basis of $\FF n$ and suppose $v_1, \ldots, v_n$ is a list of vectors in $\FF n$.
+Let $T \in \L\paren[\big]{ \F n }$ be the operator such that $Te_k = v_k$ for $k = 1, \ldots, n$. Thus $T$ is the operator whose matrix with respect to $e_1, \ldots, e_n$ is $\mat{ccc}{ v_1 & \cdots & v_n }$. Hence
+$\det \mat{ccc}{ v_1 & \cdots & v_n } = \det T\3$, by definition of the determinant of a matrix.
+
+Let $\al$ be an alternating $n$-linear form on $\F n$ such that $\al(e_1, \ldots, e_n) = 1$. Then
+\begin{align*}
+\det \mat{ccc}{ v_1 & \cdots & v_n } &= \det T \\
+&= (\det T) \, \al(e_1, \ldots, e_n) \\
+&=\al(Te_1, \ldots, Te_n) \\
+&= \al(v_1, \ldots, v_n),
+\end{align*}
+where the third line follows from the definition of the determinant of an operator. The equation above shows that the map that takes a list of vectors $v_1, \ldots, v_n$ in $\F n$ to $\det \mat{ccc}{ v_1 & \cdots & v_n }$ is the alternating $n$-linear form $\al$ on $\FF n$.
+\qed
+
+The previous result has several important consequences. For example, it immediately implies that a matrix with two identical columns has determinant~$0$. We will come back to other consequences later, but for now we want to give a formula for the determinant of a square matrix. Recall that if $A$ is a matrix, then $A_{j,k}$ denotes the entry in row $j$, column $k$ of $A$.
+
+\ResultBox[9detformula]{formula for determinant of a matrix}
+{Suppose that $n$ is a positive integer and $A$ is an \by{n}{n} square matrix. Then
+\[
+\det A = \sum_{(j_1, \ldots, j_n) \in \perm n} \paren[\big]{ \sign(j_1, \ldots, j_n) } A_{j_1,1} \cdots A_{j_n,n}.
+\]}
+
+\proof
+Apply \ref{11altform} with $V = \F n$ and $e_1, \ldots, e_n$ the standard basis of $\F n$ and $\al$ the alternating $n$-linear form on
+$\F n$ that takes $v_1, \ldots, v_n$ to $\det \mat{ccc}{ v_1 & \cdots & v_n }$ [see \ref{9detalt}]. If each $v_k$ is the $k^\nth$ column of $A$, then each $b_{j,k}$ in \ref{11altform} equals $A_{j,k}$. Finally,
+\[
+\al(e_1, \ldots, e_n) = \det \mat{ccc}{e_1 & \cdots & e_n} = \det I = 1.
+\]
+Thus the formula in \ref{11altform} becomes the formula stated in this result.
+\qed
+
+\begin{example}{explicit formula for determinant}
+\begin{Itemize}
+\item
+If $A$ is a \by{2}{2} matrix, then the formula in \ref{9detformula} becomes
+\[
+\det A = A_{1,1} A_{2,2} - A_{2,1} A_{1,2}.
+\]
+
+\item
+If $A$ is a \by{3}{3} matrix, then the formula in \ref{9detformula} becomes
+\begin{align*}
+\det A = &A_{1,1} A_{2,2} A_{3,3} - A_{2,1} A_{1,2} A_{3,3} - A_{3,1} A_{2,2} A_{1,3} \\[3bp]
+& {}- A_{1,1} A_{3,2} A_{2,3} + A_{3,1} A_{1,2} A_{2,3}
++ A_{2,1} A_{3,2} A_{1,3}.
+\end{align*}
+\end{Itemize}
+\vspace{-8bp}
+\end{example}
+
+The sum in the formula in \ref{9detformula} contains $n!$ terms. Because $n!$ grows rapidly as $n$ increases, the formula in \ref{9detformula} is not a viable method to evaluate determinants even for moderately sized $n$. For example, $10!$ is over three million, and $100!$ is approximately $10^{158}$, leading to a sum that the fastest computer cannot evaluate. We will soon see some results that lead to faster evaluations of determinants than direct use of the sum in \ref{9detformula}.
+
+\ResultBox[9detupper]{determinant of upper-triangular matrix}
+{Suppose that $A$ is an upper-triangular matrix with $\la_1, \ldots, \la_n$ on the diagonal. Then $\det A = \la_1 \cdots \la_n$.}
+
+\proof
+If $(j_1, \ldots, j_n) \in \perm n$ with
+$(j_1, \ldots, j_n) \ne (1, \ldots, n)$, then $j_k > k$ for some $k \in \br{1, \ldots, n}$, which implies that $A_{j_k, k} = 0$. Thus the only permutation that can make a nonzero contribution to the sum in \ref{9detformula} is the permutation $(1, \ldots, n)$. Because
+$A_{k, k} = \la_k$ for each $k = 1, \ldots, n$, this implies that $\det A = \la_1 \cdots \la_n$.
+\qed
+
+\subsection{Properties of Determinants}
+
+Our definition of the determinant leads to the following magical proof that the determinant is multiplicative.
+
+\ResultBox[9detmult]{determinant is multiplicative}
+{\begin{subtheorem}
+\item
+Suppose $S, T \in \L(V)$. Then
+$
+\det (ST) = (\det S)(\det T)$.
+\item
+Suppose $A$ and $B$ are square matrices of the same size. Then
+\[
+\det (AB) = (\det A)(\det B)
+\]
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}
+\item
+Let $n = \dim V\1$. Suppose $\al \in V^{(n)}_{\text{alt}}$ and $v_1, \ldots, v_n \in V\1$. Then
+\begin{align*}
+\al_{ST} (v_1, \ldots, v_n) &= \al( STv_1, \ldots, STv_n)\\
+&= (\det S) \al(Tv_1, \ldots, Tv_n)\\
+&= (\det S)(\det T) \al(v_1, \ldots, v_n),
+\end{align*}
+where the first equation follows from the definition of $\al_{ST}$, the second equation follows from the definition of $\det S$, and the third equation follows from the definition of $\det T\3$. The equation above implies that
+$\det (ST) = (\det S)(\det T)$.
+
+\item
+Let $S, T \in \L\paren[\big]{ \F n }$ be such that $\M(S) = A$ and $\M(T) = B$, where all matrices of operators in this proof are with respect to the standard basis of $\FF n$. Then $\M(ST) = \M(S) \M(T) = AB$ (see \ref{3matproduct}). Thus
+\[
+\det(AB) = \det(ST) = (\det S)(\det T) = (\det A)(\det B),
+\]
+where the second equality comes from the result in (a).
+\qed
+\end{subtheorem}
+
+The determinant of an operator determines whether the operator is invertible.
+
+\ResultBox[9nonzero]{invertible $\iff$ nonzero determinant}
+{An operator $T \in \L(V)$ is invertible if and only if $\det T \ne 0$. Furthermore, if $T$ is invertible, then
+$
+\det \paren[\big]{T^{-1}} = \frac{1}{\det T}$.}
+
+\proof
+First suppose $T$ is invertible. Thus $T T^{-1} = I$. Now \ref{9detmult} implies that
+\[
+1 = \det I = \det \paren[\big]{TT^{-1}} = (\det T) \paren[\Big]{ \det \paren[\big]{T^{-1}}}.
+\]
+Hence $\det T \ne 0$ and $\det \paren[\big]{T^{-1}}$ is the multiplicative inverse of $\det T\3$.
+
+To prove the other direction, now suppose $\det T \ne 0$. Suppose $v \in V$ and $v \ne 0$. Let $v, e_2, \ldots, e_n$ be a basis of $V$ and let $\al \in V^{(n)}_{\text{alt}}$ be such that $\al \ne 0$. Then $\al(v, e_2, \ldots, e_n) \ne 0$ (by \ref{9altli}). Now
+\[
+\al(Tv, Te_2, \ldots, Te_n) = (\det T) \al(v, e_2, \ldots, e_n) \ne 0.
+\]
+Thus $Tv \ne 0$. Hence $T$ is invertible.
+\qed
+
+\pagebreak[3]
+
+\begin{comment}
+To prove the other direction, now suppose $\det T \ne 0$. Let $e_1, \ldots, e_n$ be a basis of $V$ and let
+$\al \in V^{(n)}_{\text{alt}}$ be such that $\al \ne 0$. Then $\al(e_1, \ldots, e_n) \ne 0$ (by \ref{9altli}) and thus
+$\al(Te_1, \ldots, Te_n)$, which equals $(\det T) \al(e_1, \ldots, e_n)$, is nonzero. Now \ref{11altdep} implies that
+$Te_1, \ldots, Te_n$ is linearly independent, which implies that $T$ is invertible.
+\qed
+\end{comment}
+
+An \by{n}{n} matrix $A$ is invertible (see \ref{3invertm} for the definition of an invertible matrix) if and only if the operator on $\F n$ associated with $A$ \big(via the standard basis of $\F n$\big) is invertible. Thus the previous result shows that a square matrix $A$ is invertible if and only if $\det A \ne 0$.
+
+\ResultBox[9eigdet]{eigenvalues and determinants}
+{Suppose $T \in \L(V)$ and $\la \in \F{}\3$. Then $\la$ is an eigenvalue of $T$ if and only if $\det(\la I - T) = 0$.}
+
+\proof
+The number $\la$ is an eigenvalue of $T$ if and only if $T - \la I$ is not invertible (see \ref{eigenequiv}), which happens if and only if
+$\la I - T$ is not invertible, which happens if and only if $\det(\la I - T) = 0$ (by \ref{9nonzero}).
+\qed
+
+Suppose $T \in \L(V)$ and $\fun S W V$ is an invertible linear map. To prove that $\det\paren[\big]{ S^{-1} T S } = \det T$, we could try to use \ref{9detmult} and \ref{9nonzero}, writing
+\begin{align*}
+\det\paren[\big]{ S^{-1} T S }&= \paren[\big]{ \det S^{-1} } (\det T) (\det S) \\
+&= \det T\3.
+\end{align*}
+That proof works if $W = V\1$, but if $W \ne V$ then it makes no sense because the determinant is defined only for linear maps from a vector space to itself, and $S$ maps $W$ to $V\1$, making $\det S$ undefined. The proof given below works around this issue and is valid when $W \ne V\1$.
+
+\ResultBox[9sim]{determinant is a similarity invariant}
+{Suppose $T \in \L(V)$ and $\fun S W V$ is an invertible linear map. Then
+\[
+\det\paren[\big]{ S^{-1} T S } = \det T\3.
+\]}
+
+\proof
+Let $n = \dim W = \dim V\1$. Suppose $\tau \in W_{\text{alt}}^{(n)}\1$. Define $\al \in V^{(n)}_{\text{alt}}$ by
+\[
+\al(v_1, \ldots, v_n) = \tau\paren[\big]{S^{-1}v_1, \ldots, S^{-1}v_n}
+\]
+for $v_1, \ldots, v_n \in V\1$. Suppose $w_1, \ldots, w_n \in W\3$. Then
+\begin{align*}
+\tau_{S^{-1} T S}( w_1, \ldots, w_n) &= \tau\paren[\big]{ S^{-1}TS w_1, \ldots, S^{-1} T S w_n} \\[5bp]
+&= \al( TSw_1, \ldots, TSw_n) \\[5bp]
+&= \al_T( Sw_1, \ldots, Sw_n) \\[5bp]
+&= (\det T) \al(Sw_1, \ldots, Sw_n) \\[5bp]
+&= (\det T) \tau(w_1, \ldots, w_n).
+\end{align*}
+The equation above and the definition of the determinant of the operator $S^{-1} T S $ imply that
+$\det\paren[\big]{ S^{-1} T S } = \det T\3$.
+\qed
+
+For the special case in which $V = \F n$ and $e_1, \ldots, e_n$ is the standard basis of $\FF n$, the next result is true by the definition of the determinant of a matrix. The left side of the equation in the next result does not depend on a choice of basis, which means that the right side is independent of the choice of basis.
+
+\ResultBox[9detopmat]{determinant of operator equals determinant of its matrix}
+{Suppose $T \in \L(V)$ and $e_1, \ldots, e_n$ is a basis of $V\1$. Then
+\[
+\det T = \det \M\paren[\big]{T, (e_1, \ldots, e_n) }.
+\]}
+
+\proof
+Let $f_1, \ldots, f_n$ be the standard basis of $\FF{n}$. Let $\fun S {\F n} V$ be the linear map such that $Sf_k = e_k$ for each $k = 1, \ldots, n$. Thus $\M\paren[\big]{ S, (f_1, \ldots, f_n), (e_1, \ldots, e_n) }$ and
+$\M\paren[\big]{ S^{-1} , (e_1, \ldots, e_n), (f_1, \ldots, f_n) }$ both equal the \by{n}{n} identity matrix. Hence
+\begin{equation} \label{9matprod}
+\M\paren[\big]{ S^{-1} T S, (f_1, \ldots, f_n) } = \M\paren[\big]{ T, (e_1, \ldots, e_n) },
+\end{equation}%
+as follows from two applications of \ref{3matproduct}. Thus
+\begin{align*}
+\det T &= \det\paren[\big]{S^{-1} T S } \\[6bp]
+&= \det \M\paren[\big]{ S^{-1} T S, (f_1, \ldots, f_n) } \\[6bp]
+&= \det \M\paren[\big]{ T, (e_1, \ldots, e_n) },
+\end{align*}
+where the first line comes from \ref{9sim}, the second line comes from the definition of the determinant of a matrix, and the third line follows from \ref{9matprod}.
+\qed
+
+The next result gives a more intuitive way to think about determinants than the definition or the formula in \ref{9detformula}. We could make the characterization in the result below the definition of the determinant of an operator on a finite-dimensional complex vector space, with the current definition then becoming a consequence of that definition.
+
+\ResultBox[9prodeig]{if\/ $\F{} = \C{}$, then determinant equals product of eigenvalues}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Then $\det T$ equals the product of the eigenvalues of $T\3$, with each eigenvalue included as many times as its multiplicity.}
+
+\proof
+There is a basis of $V$ with respect to which $T$ has an upper-triangular matrix with the diagonal entries of the matrix consisting of the eigenvalues of $T\3$, with each eigenvalue included as many times as its multiplicity---see \ref{187}. Thus \ref{9detopmat} and \ref{9detupper} imply that $\det T$ equals the product of the eigenvalues of $T\3$, with each eigenvalue included as many times as its multiplicity.
+\qed
+
+As the next result shows, the determinant interacts nicely with the transpose of a square matrix, with the dual of an operator, and with the adjoint of an operator on an inner product space.
+
+\ResultBox[detTdual]{determinant of transpose, dual, or adjoint}
+{\begin{subtheorem}
+\item
+Suppose $A$ is a square matrix. Then $\det \tran{A} = \det A$.
+\item
+Suppose $T \in \L(V)$. Then $\det T' = \det T\3$.
+\item
+Suppose $V$ is an inner product space and $T \in \L(V)$. Then
+\[
+\det \paren[\big]{T^*} = \overline{\det T}\3.
+\]
+\end{subtheorem}}
+
+\proof
+\begin{subtheorem}
+\item
+Let $n$ be a positive integer. Define $\fun \al { \paren[\big]{\F n}^n} {\F{}}$ by
+\[
+\al \paren{ v_1, \ldots,  v_n} = \det \paren[\Big]{ \tran{\mat{ccc}{ v_1 & \cdots & v_n} } }
+\]
+for all $v_1, \ldots, v_n \in \FF n$. The formula in \ref{9detformula} for the determinant of a matrix shows that $\al$ is an $n$-linear form on $\FF n$.
+
+Suppose $v_1, \ldots, v_n \in \F n$ and $v_j = v_k$ for some $j \ne k$. If $B$ is an \by{n}{n} matrix, then
+$\tran{\mat{ccc}{ v_1 &\cdots &v_n}}B$ cannot equal the identity matrix because row $j$ and row $k$ of
+$\tran{\mat{ccc}{ v_1 &\cdots &v_n}} B$ are equal. Thus $\tran{\mat{ccc}{ v_1 &\cdots &v_n}}$ is not invertible, which implies that
+$\al \paren{ v_1, \ldots,  v_n} = 0$. Hence $\al$ is an alternating $n$-linear form on $\FF n$.
+
+Note that $\al$ applied to the standard basis of $\F n$ equals $1$. Because the vector space of alternating $n$-linear forms on $\F n$ has dimension one (by \ref{9dimone}), this implies that $\al$ is the determinant function. Thus (a) holds.
+
+\item
+The equation $\det T' = \det T\3$ follows from (a) and \ref{9detopmat} and \ref{3matrixTprime}.
+
+\item
+Pick an orthonormal basis of $V\1$. The matrix of $T^*$ with respect to that basis is the conjugate transpose of the matrix of $T$ with respect to that basis (by \ref{406}). Thus \ref{9detopmat}, \ref{9detformula}, and (a) imply that
+$\det \paren[\big]{T^*} = \overline{\det T}\3$.
+\qed
+\end{subtheorem}
+
+\ResultBox[9helpful]{helpful results in evaluating determinants}
+{\begin{subtheorem}
+\item
+If either two columns or two rows of a square matrix are equal, then the determinant of the matrix equals $0$.
+\item
+Suppose $A$ is a square matrix and $B$ is the matrix obtained from $A$ by
+swapping either two columns or two rows. Then
+$
+\det A = - \det B$.
+\item
+If one column or one row of a square matrix is multiplied by a scalar, then the value of the determinant is multiplied by the same scalar.
+\item
+If a scalar multiple of one column of a square matrix is added to another column, then the value of the determinant is unchanged.
+\item
+If a scalar multiple of one row of a square matrix is added to another row, then the value of the determinant is unchanged.
+\end{subtheorem}}
+
+\proof
+All the assertions in this result follow from the result that the maps $v_1, \ldots, v_n \mapsto \det \mat{ccc}{v_1 & \cdots & v_n}$ and
+$v_1, \ldots, v_n \mapsto \det \tran{\mat{ccc}{v_1 & \cdots & v_n}}$
+are both alternating $n$-linear forms on $\FF n$ \sbr{see \ref{9detalt} and \ref{detTdual}(a)}.
+
+For example, to prove (d) suppose $v_1, \ldots, v_n \in \F n$ and $c \in \F{}\3$. Then
+\begin{align*}
+\det &\mat{cccc}{ v_1 + cv_2 & v_2 & \cdots & v_n } \\[6bp]
+&=\det \mat{cccc}{ v_1 & v_2 & \cdots & v_n } + c\det \mat{ccccc}{ v_2 & v_2 & v_3 & \cdots & v_n } \\[6bp]
+&= \det \mat{cccc}{ v_1 & v_2 & \cdots & v_n },
+\end{align*}
+where the first equation follows from the multilinearity property and the second equation follows from the alternating property.
+The equation above shows that adding a multiple of the second column to the first column does not change the value of the determinant. The same conclusion holds for any two columns. Thus (d) holds.
+
+The proof of (e) follows from (d) and from \ref{detTdual}(a). The proofs of (a), (b), and (c) use similar tools and are left to the reader.
+\qed
+
+For matrices whose entries are concrete numbers, the result above leads to a much faster way to evaluate the determinant than direct application of the formula in \ref{9detformula}. \index{Gaussian elimination|(}Specifically, apply the Gaussian elimination procedure of swapping rows \sbr{by \ref{9helpful}(b), this changes the determinant by a factor of $-1$}, multiplying a row by a nonzero constant \sbr{by \ref{9helpful}(c), this changes the determinant by the same constant}, and adding a multiple of one row to another row \sbr{by \ref{9helpful}(e), this does not change the determinant} to produce an upper-triangular matrix, whose determinant is the product of the diagonal entries (by \ref{9detupper}). If your software keeps track of the number of row swaps and of the constants used when multiplying a row by a constant, then the determinant of the original matrix can be computed.
+
+Because a number $\la \in \F{}$ is an eigenvalue of an operator $T \in \L(V)$ if and only if $\det(\la I - T) = 0$ (by \ref{9eigdet}), you may be tempted to think that one way to find eigenvalues quickly is to choose a basis of $V\1$, let $A = \M(T)$, evaluate $\det(\la I - A)$, and then solve the equation $\det(\la I - A) = 0$ for $\la$. However, that procedure is rarely efficient, except when $\dim V = 2$ (or when $\dim V$ equals $3$ or $4$ if you are willing to use the cubic or quartic formulas). One problem is that the procedure described in the paragraph above for evaluating a determinant does not work when the matrix includes a symbol (such as the $\la$ in $\la I - A$). This problem arises because decisions need to be made in the Gaussian elimination procedure about whether certain quantities equal $0$, and those decisions become complicated in expressions involving a symbol $\la$.\index{Gaussian elimination|)}
+
+Recall that an operator on a finite-dimensional inner product space is unitary if it preserves norms (see \ref{7unitaryop} and the paragraph following it). Every eigenvalue of a unitary operator has absolute value $1$ (by \ref{EigUnitary}). Thus the product of the eigenvalues of a unitary operator has absolute value $1$. Hence (at least in the case $\F{} = \C{}$) the determinant of a unitary operator has absolute value $1$ (by \ref{9prodeig}). The next result gives a proof that works without the assumption that $\F{} = \C{}$.
+
+\ResultBox[326]{every unitary operator has determinant with absolute value\/ $1$}
+{Suppose\/ $V$ is an inner product space and $S \in \L(V)$ is a unitary operator. Then
+$\abs{\det S} = 1$.\index{determinant!of unitary operator}}
+
+\proof
+Because $S$ is unitary, $I = S^* S$ (see \ref{734u}). Thus
+\[
+1 = \det(S^* S) = (\det S^*) (\det S) = \overline{( \det S)} (\det S) = \abs{\det S}^2\1,
+\]
+where the second equality comes from \ref{9detmult}(a) and the third equality comes from \ref{detTdual}(c). The equation above implies that $\abs{\det S} = 1$.
+\qed
+
+The determinant of a positive operator on an inner product space meshes well with the analogy that such operators correspond to the nonnegative real numbers.
+
+\ResultBox[9posdet]{every positive operator has nonnegative determinant}
+{Suppose $V$ is an inner product space and $T \in \L(V)$ is a positive operator.
+Then $\det T \ge 0$.\index{determinant!of positive operator}}
+
+\proof
+By the spectral theorem (\ref{86} or \ref{85}), $V$ has an orthonormal basis consisting of eigenvectors of $T\3$. Thus by the last bullet point of \ref{9detops}, $\det T$ equals a product of the eigenvalues of $T\3$, possibly with repetitions. Each eigenvalue of $T$ is a nonnegative number (by \ref{197}). Thus we conclude that $\det T \ge 0$.
+\qed
+
+Suppose $V$ is an inner product space and $T \in \L(V)$. Recall that the list of nonnegative square roots of the eigenvalues of $T^* T$ (each included as many times as its multiplicity) is called the list of singular values of $T$ (see Section \ref{2SVD}).
+
+\ResultBox[324]{$\abs{\det T}  =$ product of singular values of\/ $T$}{%
+Suppose\/ $V$ is an inner product space and $T \in \L(V)$. Then\index{singular values}
+\[
+\abs{\det T} = \sqrt{\det\paren[\big]{T^*T}} = \text{product of singular values of } T\3.
+\]}
+
+\proof
+We have
+\[
+\abs{ \det T }^2 = \overline{(\det T)} (\det T) = \paren[\Big]{\det \paren[\big]{T^*}}(\det T) = \det\paren[\big]{T^* T},
+\]
+where the middle equality comes from \ref{detTdual}(c)  and the last equality comes from \ref{9detmult}(a). Taking square roots of both sides of the equation above shows that $\abs{\det T} = \sqrt{\det\paren[\big]{T^*T}}$.
+
+Let $s_1, \ldots, s_n$ denote the list of singular values of $T\3$. Thus ${s_1}^{\2}\1, \ldots, {s_n}^{\2}$ is the list of eigenvalues of $T^*T$ (with appropriate repetitions), corresponding to an orthonormal basis of $V$ consisting of eigenvectors of $T^*T\3$.  Hence the last bullet point of \ref{9detops} implies that
+\vspace{-.1in}
+\[
+\det \paren[\big]{ T^* T } = {s_1}^{\2} \cdots {s_n}^{\2}\1.
+\vspace{-.02in} %VisualFormatting for page break.
+\]
+Thus $\abs{\det T} = s_1 \cdots s_n$, as desired.
+\qed
+
+\pagebreak[3]
+
+An operator $T$ on a real inner product space changes volume by a factor of the product of the singular values (by \ref{7volchange}). Thus the next result follows immediately from \ref{7volchange} and \ref{324}. This result explains why the absolute value of a determinant appears in the change of variables formula in multivariable calculus.
+
+\ResultBox[9330]{$T$ changes volume by factor of\/ $\abs{\det T}$}{%
+Suppose $T \in \L\paren[\big]{\R{n}}$ and $\Omega \subset \RR{n}$. Then\index{volume}
+\[
+\vol T(\Omega) = \abs{\det T} (\vol \Omega).
+\]
+}
+
+For operators on finite-dimensional complex vector spaces, we now connect the determinant to a polynomial that we have previously seen.
+
+\ResultBox[9chareqdet]{if\/ $\F{} = \C{}$, then characteristic polynomial of\/ $T$ equals\/ $\det(z I - T)$}
+{Suppose $\F{} = \C{}$ and $T \in \L(V)$. Let $\la_1, \ldots, \la_m$ denote the distinct eigenvalues of~$T$, and let
+$d_1, \ldots, d_m$ denote their multiplicities.
+Then\index{characteristic polynomial}
+\[
+\det(zI - T) = (z - \la_1)^{d_1} \dotsm (z - \la_m)^{d_m}\!.
+\]}
+
+\proof
+ There exists a basis of $V$ with respect to which $T$ has an upper-triangular matrix with each $\la_k$ appearing on the diagonal exactly $d_k$ times (by \ref{187}). With respect to this basis, $zI - T$ has an upper-triangular matrix with $z - \la_k$ appearing on the diagonal exactly $d_k$ times for each $k$. Thus \ref{9detupper} gives the desired equation.
+\qed
+
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. The characteristic polynomial of $T$ was defined in \ref{7charpoly} as the polynomial on the right side of the equation in \ref{9chareqdet}. We did not previously define the characteristic polynomial of an operator on a finite-dimensional real vector space because such operators may have no eigenvalues, making a definition using the right side of the equation in \ref{9chareqdet} inappropriate.
+
+We now present a new definition of the characteristic polynomial, motivated by \ref{9chareqdet}. This new definition is valid for both real and complex vector spaces. The equation in \ref{9chareqdet} shows that this new definition is equivalent to our previous definition when $\F{} = \C{}$ (\ref{7charpoly}).
+
+\DefinitionBox{characteristic polynomial}
+{Suppose $T \in \L(V)$. The polynomial defined by
+\[
+z \mapsto \det(zI - T)
+\]
+is called the \emph{characteristic polynomial} of $T$.\index{characteristic polynomial}}
+
+The formula in \ref{9detformula} shows that the characteristic polynomial of an operator \mbox{$T \in \L(V)$} is a monic polynomial of degree
+$\dim V\1$. The zeros in $\F{}$ of the characteristic polynomial of $T$ are exactly the eigenvalues of $T$ (by \ref{9eigdet}).
+
+\begin{comment}
+\ResultBox{Cayley--Hamilton theorem}{\index{Cayley--Hamilton theorem}%
+Suppose $T \in \L(V)$. Let $q$ denote the characteristic  polynomial of~$T\3$.  Then $q(T) =0$.}
+\end{comment}
+
+Previously we proved the Cayley--Hamilton theorem (\ref{139}) in the complex case. Now we can extend that result to operators on real vector spaces.
+
+\ResultBox[9CH]{Cayley--Hamilton theorem}{\index{Cayley--Hamilton theorem}%
+Suppose $T \in \L(V)$ and $q$ is the characteristic  polynomial of~$T\3$.  Then $q(T) =0$.}
+
+\proof
+If $\F{} = \C{}$, then the equation $q(T) = 0$ follows from \ref{9chareqdet} and \ref{139}.
+
+Now suppose $\F{} = \R{}$. Fix a basis of $V\1$, and let $A$ be the matrix of $T$ with respect to this basis. Let $S$ be the operator on
+$\C {\dim V}$ such that the matrix of $S$ \big(with respect to the standard basis of $\C {\dim V}$\big) is $A$. For all $z \in \R{}$ we have
+\[
+q(z) = \det(zI - T) = \det(zI - A) = \det(zI - S).
+\]
+Thus $q$ is the characteristic polynomial of $S$. The case $\F{} = \C{}$ (first sentence of this proof) now implies that $0 = q(S) = q(A) = q(T)$.
+\qed
+
+%\mar{Some textbooks define the characteristic polynomial of\/ $T$ to be\/ $\det(T - z I)$, which equals\/ $(-1)^{\dim V}$ times the characteristic polynomial as defined here. The advantage of our definition is that the characteristic polynomial is then a monic polynomial.}
+
+The Cayley--Hamilton theorem (\ref{9CH}) implies that the characteristic polynomial of an operator $T \in \L(V)$ is a polynomial multiple of the minimal polynomial of $T$ (by \ref{140}). Thus if the degree of the minimal polynomial of $T$ equals $\dim V\1$, then the characteristic polynomial of $T$ equals the minimal polynomial of $T\3$. This happens for a very large percentage of operators, including over 99.999\% of \by{4}{4} matrices with integer entries in $[-100, 100]$ (see the paragraph following \ref{2simul}).
+
+The last sentence in our next result was previously proved in the complex case (see \ref{8tracechar}). Now we can give a proof that works on both real and complex vector spaces.
+
+\ResultBox[9dettr]{characteristic polynomial, trace, and determinant}
+{Suppose $T \in \L(V)$. Let $n = \dim V\1$. Then the characteristic polynomial of $T$ can be written as
+\[
+z^n - (\tr T) z^{n-1} + \dots + (-1)^n (\det T).
+\]}
+
+\proof
+The constant term of a polynomial function of $z$ is the value of the polynomial when $z = 0$. Thus the constant term of the characteristic polynomial of $T$ equals $\det(-T)$, which equals $(-1)^n \det T$ (by the third bullet point of \ref{9detops}).
+
+Fix a basis of $V\1$, and let $A$ be the matrix of $T$ with respect to this basis. The matrix of $zI - T$ with respect to this basis is $zI - A$. The term coming from the identity permutation $\br{1, \ldots, n}$ in the formula \ref{9detformula} for $\det(zI - A)$ is
+\[
+(z - A_{1,1}) \cdots (z - A_{n,n}).
+\]
+The coefficient of $z^{n-1}$ in the expression above is $-(A_{1,1} + \cdots + A_{n,n})$,
+ which equals $-\tr T$. The terms in the formula for $\det(zI - A)$ coming from other elements of $\perm n$ contain at most $n-2$ factors of the form $z - A_{k,k}$ and thus do not contribute to the coefficient of $z^{n-1}$ in the characteristic polynomial of $T\3$.
+\qed
+
+\pagebreak[3]
+
+\mar{The next result was proved by Jacques Hadamard \uppar{1865--1963} in 1893.}
+
+In the result below, think of the columns of the \by{n}{n} matrix $A$ as elements of $\FF{n}$. The norms appearing below then arise from the standard inner product on $\FF{n}$. Recall that the notation $R_{\cdot, k}$ in the proof below means the $k^\nth$ column of the matrix $R$ (as was defined in \ref{Ajk}).
+
+\ResultBox[Hadamard]{Hadamard's inequality}
+{Suppose $A$ is an \by{n}{n} matrix. Let $v_1, \ldots, v_n$ denote the columns of $A$. Then\index{Hadamard's inequality}
+\vspace{-.04in} %VisualFormatting for page break.
+\[
+\abs{ \det A } \le \prod_{k=1}^n \, \norm{ v_k }.
+\]}
+
+\proof
+If $A$ is not invertible, then $\det A = 0$ and hence the desired inequality holds in this case.
+
+Thus assume that $A$ is invertible. The QR factorization (\ref{7QR}) tells us that there exist a unitary matrix $Q$ and an upper-triangular matrix $R$ whose diagonal contains only positive numbers such that $A = QR$. We have\index{QR factorization}
+\begin{align*}
+\abs{ \det A} &= \abs{ \det Q } \, \abs{\det R} \\[3bp]
+&= \abs{ \det R } \\[3bp]
+&= \prod_{k=1}^n \,  R_{k,k} \\[3bp]
+&\le \prod_{k=1}^n \, \norm{ R_{\cdot, k} } \\[3bp]
+&= \prod_{k=1}^n \, \norm{ QR_{\cdot, k} } \\[3bp]
+&= \prod_{k=1}^n \, \norm{v_k},
+\end{align*}
+where the first line comes from \ref{9detmult}(b), the second line comes from \ref{326}, the third line comes from \ref{9detupper}, and the fifth line holds because $Q$ is an isometry.
+\qed
+
+To give a geometric interpretation to Hadamard's inequality, suppose \mbox{$\F{} = \R{}$}. Let $T \in \L\paren[\big]{\R n}$ be the operator such that $Te_k = v_k$ for each $k=1, \ldots, n$, where $e_1, \ldots, e_n$ is the standard basis of $\RR n$. Then $T$ maps the box $P(e_1, \ldots, e_n)$ onto the parallelepiped $P(v_1, \ldots, v_n)$ [see \ref{7parallel} and \ref{7box} for a review of this notation and terminology]. Because the box $P(e_1, \ldots, e_n)$ has volume~$1$, this implies (by \ref{9330}) that the parallelepiped $P(v_1, \ldots, v_n)$ has volume $\abs{\det T}$, which equals $\abs{\det A}$. Thus Hadamard's inequality above can be interpreted to say that among all parallelepipeds whose edges have lengths $\norm{v_1}, \ldots, \norm{v_n}$, the ones with largest volume have orthogonal edges \Big(and thus have volume $ \prod_{k=1}^n \, \norm{ v_k }$\Big).
+
+For a necessary and sufficient condition for Hadamard's inequality to be an equality, see Exercise \ref{7HadEq}.
+
+\pagebreak[3]
+
+The matrix in the next result is called the \emph{Vandermonde matrix}\index{Vandermonde matrix}. Vandermonde matrices have important applications in polynomial interpolation, the discrete Fourier transform, and other areas of mathematics.
+The proof of the next result is a nice illustration of the power of switching between matrices and linear maps.
+
+\ResultBox{determinant of Vandermonde matrix}
+{Suppose $n > 1$ and $\beta_1, \ldots, \beta_n \in \F{}\3$. Then
+\[
+\det \mat{ccccc}{
+1 & \beta_1 & {\beta_1}^{\2} & \cdots & {\beta_1}^{\2[n-1]} \\[5bp]
+1 & \beta_2 & {\beta_2}^{\2} & \cdots & {\beta_2}^{\2[n-1]} \\
+\\
+& & \ddots \\
+\\
+1 & \beta_n & {\beta_n}^{\2} & \cdots & {\beta_n}^{\2[n-1]} \\
+} = \prod_{1 \le j < k \le n} (\beta_k - \beta_j).
+\]}
+
+\proof
+Let $1, z, \ldots, z^{n-1}$ be the standard basis of $\P\1_{n-1}(\F{})$ and let $e_1, \ldots, e_n$ denote the standard basis of $\FF n$. Define a linear map $\fun S { \P\1_{n-1}(\F{}) } { \F n }$ by
+\[
+Sp = \paren[\big]{ p(\beta_1), \ldots, p(\beta_n) }.
+\]
+
+Let $A$ denote the Vandermonde matrix shown in the statement of this result. Note that
+\[
+A = \M \paren[\big]{ S, (1, z, \ldots, z^{n-1}), (e_1, \ldots, e_n) }.
+\]
+
+Let $\fun T {\P\1_{n-1}(\F{})} {\P\1_{n-1}(\F{})}$ be the operator on $\P\1_{n-1}(\F{})$ such that $T1 = 1$ and
+\[
+Tz^k = (z - \beta_1) (z - \beta_2) \cdots (z - \beta_k)
+\]
+for $k= 1, \ldots, n-1$.
+Let $B = \M\paren[\big]{T, (1, z, \ldots, z^{n-1}), (1, z, \ldots, z^{n-1})}$. Then $B$ is an upper-triangular matrix all of whose diagonal entries equal $1$. Thus $\det B = 1$ (by \ref{9detupper}).
+
+Let $C = \M\paren[\big]{ ST, (1, z, \ldots, z^{n-1} ), (e_1, \ldots, e_n) }$. Thus $C = AB$ (by \ref{298}), which implies that
+\[
+\det A= (\det A)(\det B) =\det C.
+\]
+The definitions of $C$, $S$, and $T$ show that $C$ equals
+{\overfullrule=0bp
+\[
+\mat{ccccc}{
+1  & 0 & 0 &\cdots & 0 \\[5bp]
+1 & \beta_2 - \beta_1  & 0&\cdots & 0 \\[5bp]
+1 & \beta_3 - \beta_1 & (\beta_3 - \beta_1)(\beta_3 - \beta_2)  & \cdots & 0 \\
+\\
+& & & \ddots \\
+\\
+1 & \beta_n - \beta _1 & (\beta_n - \beta_1)(\beta_n - \beta_2)  & \cdots & (\beta_n - \beta_1) (\beta_n - \beta_2) \cdots (\beta_n- \beta_{n-1} )
+}.
+\]}
+
+\smallskip
+\noindent
+Now $\displaystyle \det A = \det C = \prod_{1 \le j < k \le n} (\beta_k - \beta_j)$, where we have used \ref{detTdual}(a) and \ref{9detupper}.
+\qed
+
+\begin{exercises}
+
+\exercise
+Prove or give a counterexample: $S, T \in \L(V) \!\implies\! \det (S+T) = \det S + \det T\3$.
+
+
+\exercise
+Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$. Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$. Show that $\det A = A_{1,1} \det B$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $\det(I + T) = 1$.
+
+
+\exercise
+Suppose $S \in \L(V)$. Prove that $S$ is unitary if and only if $\abs{\det S} = \norm{S} = 1$.
+
+
+\exercise
+Suppose $A$ is a block upper-triangular matrix \label{blockdet}
+\[
+A = \mat{ccc}{A_1 & &* \\ &\ddots & \\ 0 & &A_m},
+\]
+where each $A_k$ along the diagonal is a square matrix.  Prove that
+\[
+\det A = (\det A_1) \dotsm (\det A_m).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A = \mat{ccc}{v_1 & \cdots & v_n}$ is an \by{n}{n} matrix, with $v_k$ denoting the $k^\nth$ column of $A$. Show that if
+$(m_1, \ldots, m_n) \in \perm n$, then
+\[
+\det \mat{ccc}{v_{m_1} &\cdots & v_{m_n}} = \paren[\big]{\sign(m_1, \ldots, m_n)} \det A.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Let $p$ denote the characteristic polynomial of $T$ and let $q$ denote the characteristic polynomial of $T^{-1}$. Prove that
+\[
+q(z) = \frac{1}{p(0)}\, z^{\dim V} \, p\paren[\bigg]{\frac{1}{z}}
+\]
+for all nonzero $z \in \F{}\3$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is an operator with no eigenvalues (which implies that $\F{} = \R{}$). Prove that $\det T > 0$.
+
+
+\exercise
+Suppose that $V$ is a real vector space of even dimension, $T \in \L(V)$, and $\det T < 0$. Prove that $T$ has at least two distinct eigenvalues.
+
+
+\exercise
+Suppose $V$ is a real vector space of odd dimension and $T \in \L(V)$. Without using the minimal polynomial, prove that $T$ has an eigenvalue.\label{9oddeigen}\index{eigenvalue!on odd-dimensional space}
+\exercisecomment{This result was previously proved without using determinants or the characteristic polynomial---see \ref{5odd}.}
+
+
+\exercise
+Prove or give a counterexample: If $\F{} = \R{}$, $T \in \L(V)$, and $\det T > 0$, then $T$ has a square root.
+\exercisecomment{If\/ $\F{} = \C{}$,\/ $T \in \L(V)$, and\/ $\det T \ne 0$, then\/ $T$ has a square root \uppar{see \ref{397}}.}
+
+
+\exercise
+Suppose $S, T \in \L(V)$ and $S$ is invertible. Define $\fun p {\F{}} {\F{}}$ by
+\[
+p(z) = \det(zS - T).
+\]
+Prove that $p$ is a polynomial of degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+
+
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, and $n = \dim V > 2$. Let $\la_1, \ldots, \la_n$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
+\begin{subtheorem}
+\item
+Find a formula for the coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\item
+Find a formula for the coefficient of $z$ in the characteristic polynomial of $T$ in terms of
+$\la_1, \ldots, \la_n$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is an inner product space and $T$ is a positive operator on $V\1$. Prove that\label{9detsq}
+\[
+\det \sqrt{T} = \sqrt{ \det T }.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Use the polar decomposition to give a proof that
+\[
+\abs{\det T} = \sqrt{\det\paren[\big]{T^*T}}
+\]
+that is different from the proof given earlier (see \ref{324}).
+
+
+\exercise
+Suppose $T \in \L(V)$. Define $\fun g {\F{}} {\F{}}$ by
+$
+g(x) = \det(I + xT)$.
+Show that $g’(0) = \tr T\3$.
+\exercisecomment{Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.}
+
+
+\begin{comment}
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma$ is a function from $\Omega$ to $\RR{n}$. Suppose
+$x \in \Omega$ and $\sigma$ is differentiable at $x$. Prove that there is a unique operator $T \in \L\paren[\big]{\R{n}}$ such that \label{uniquederiv}
+\[
+\lim_{y \rightarrow 0} \frac{\| \sigma(x + y) - \sigma(x) - Ty \|}{\| y \|} = 0.
+\]
+\exercisecomment{The uniqueness of\/ $T$ shows that the notation\/ $\sigma' \! (x)$ in \ref{derivative} is justified. The uniqueness follows immediately from the formula given in Exercise~\ref{DerivPartial}, but this exercise asks for a more elementary proof of uniqueness that does not involve partial derivatives.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R{n}}$ and $x \in \RR{n}$. Prove that $T$ is differentiable at $x$ and $T' \! (x) = T\3$.
+
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Suppose $x \in \Omega$. Prove that if $\sigma$ is differentiable at $x$, then the partial derivative $D_k\sigma_j(x)$ exists and \label{DerivPartial}
+\[
+\M\bigl(\sigma' \! (x)\bigr) = \mat{ccc}{
+D_1 \sigma_1(x) &\cdots &D_n \sigma_1(x) \\
+\vdots &   &\vdots \\
+D_1 \sigma_n(x) &\cdots &D_n \sigma_n(x) },
+\]
+where the matrix of $\sigma' \! (x)$ is with respect to the standard basis of $\RR n$.
+
+
+\exercise
+Suppose $\Omega$ is an open subset of $\R{n}$ and $\sigma = (\sigma_1, \ldots, \sigma_n)$ is a function from $\Omega$ to $\RR{n}$, where each $\sigma_j$ is a function from $\Omega$ to $\R{}$. Prove that if each partial derivative $D_k\sigma_j$ exists and is continuous everywhere on $\Omega$, then $\sigma$ is differentiable everywhere on $\Omega$. \label{DerivPartial2}
+
+\end{comment}
+
+\exercise
+Suppose $a, b, c$ are positive numbers.  Find the volume of the ellipsoid
+\[
+\br[\bigg]{ (x, y, z) \in \R{3}: \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} < 1 }
+\]
+by finding a set $\Omega \subset \R{3}$ whose volume you know and an operator
+$T$ on $\R{3}$ such that $T(\Omega)$ equals the ellipsoid above.
+
+
+\exercise
+Suppose that $A$ is an invertible square matrix. Prove that Hadamard's \mbox{inequality} (\ref{Hadamard}) is an equality if and only if each column of $A$ is orthogonal to the other columns.\label{7HadEq}
+
+
+\exercise
+Suppose $V$ is an inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$, and $T \in \L(V)$ is a positive operator.
+\begin{subtheorem}
+\item
+Prove that $\det T \le \prod_{k=1}^n \ip{Te_k, e_k}$.
+\item
+Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_k$ is an eigenvector of $T$ for each
+$k = 1, \ldots, n$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $A$ is an \by{n}{n} matrix, and suppose $c$ is such that $\abs{A_{j,k}} \le c$ for all $j, k \in \br{1, \ldots, n}$. Prove that \label{2Had}
+\[
+\abs{\det A} \le c^n n^{n/2}\!.
+\]
+\exercisedisplayend
+\exercisecomment{The formula for the determinant of a matrix \uppar{\ref{9detformula}} shows that\/ $\abs{\det A} \le c^n n!$. However, the estimate given by this exercise is much better. For example, if\/ $c = 1$ and\/ $n = 100$, then\/ $c^n n! \approx 10^{158}\!$, but the estimate given by this exercise is the much smaller number\/ $10^{100}\!$. If\/ $n$ is an integer power of\/ $2$, then the inequality above is sharp and cannot be improved.} % Because there exist Hadamard matrices of order 2^m.
+
+
+\exercise
+Suppose $n$ is a positive integer and $\fun \delta {\C{n,n}} {\C{}}$ is a function such that
+\[
+\delta(AB) = \delta(A) \cdot \delta(B)
+\]
+for all $A, B \in \C{n,n}$ and $\delta(A)$ equals the product of the diagonal entries of $A$ for each diagonal matrix $A \in \C{n,n}$. Prove that
+\[
+\delta(A) = \det A
+\]
+for all $A \in \C{n,n}$.
+\exercisecomment{Recall that\/ $\C{n,n}$ denotes the set of\/ \by{n}{n} matrices with entries in\/~$\C{}$. This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices. This result is analogous to Exercise \ref{9trChar} in Section \ref{7trace}, which shows that the trace is uniquely determined by its algebraic properties.}
+
+
+\end{exercises}
+
+\QuoteAuthor{I find that in my own elementary lectures, I have, for pedagogical reasons, pushed determinants more and more into the background. Too often I have had the experience that, while the students acquired facility with the formulas, which are so useful in abbreviating long expressions, they often failed to gain familiarity with their \textit{meaning}, and skill in manipulation prevented the student from going into all the details of the subject and so gaining a mastery.}
+{\textit{Elementary Mathematics from an Advanced Standpoint\textup{:} Geometry}, Felix Klein}
+
+\section{Tensor Products} \label{9TensorSect}
+
+\subsection{Tensor Product of Two Vector Spaces}
+
+The motivation for our next topic comes from wanting to form the product of a vector $v \in V$ and a vector $w \in W\3$. This product will be denoted by $v \tensor w$, pronounced ``$v$ tensor $w$''\!, and will be an element of some new vector space called
+$V\1 \tensor W\3$ (also pronounced ``$V$ tensor $W\,$'').
+
+We already have a vector space $V\1 \times W$ (see Section \ref{pq}), called the product of $V$ and $W\3$. However, $V\1 \times W$ will not serve our purposes here because it does not provide a natural way to multiply an element of $V$ by an element of $W\3$. We would like our tensor product to satisfy some of the usual properties of multiplication. For example, we would like the distributive property to be satisfied, meaning that if $v_1, v_2, v \in V$ and $w_1, w_2, w \in W\3$, then
+\[
+(v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w \andd v \tensor (w_1 + w_2) = v \tensor w_1 + v \tensor w_2.
+\]
+
+\mar{To produce $\tensor$ in \TeX, type \textup{\texttt{\backslash otimes}}.}
+
+We would also like scalar multiplication to interact well with this new multiplication, meaning that
+\[
+\la (v \tensor w) = (\la v) \tensor w = v \tensor (\la w)
+\]
+for all $\la \in \F{}\3$, $v \in V\1$, and $w \in W\3$.
+
+Furthermore, it would be nice if each basis of $V$ when combined with each basis of $W$ produced a basis of $V\1 \tensor W\3$. Specifically, if $e_1, \ldots, e_m$ is a basis of $V$ and $f_1, \ldots, f_n$ is a basis of $W\3$, then we would like a list (in any order) consisting of $e_j \tensor f_k$, as $j$ ranges from $1$ to $m$ and $k$ ranges from $1$ to $n$, to be a basis of
+$V\1 \tensor W\3$. This implies that $\dim (V\1 \tensor W)$ should equal $(\dim V)(\dim W)$. Recall that
+$\dim(V\1 \times W) = \dim V + \dim W$ (see \ref{3dimproduct}), which shows that the product $V\1 \times W$ will not serve our purposes here.
+
+To produce a vector space whose dimension is $(\dim V)(\dim W)$ in a natural fashion from $V$ and $W$, we look at the vector space of bilinear functionals, as defined below.
+
+\DefinitionBox[9bifunctional]{bilinear functional on\/ $V\1 \times W\3$, the vector space $\B(V\1,W)$}
+{\begin{Itemize}
+\item
+A \emph{bilinear functional} on $V\1 \times W$ is a function $\fun \beta {V\1 \times W} {\F{}}$ such that $v \mapsto \beta(v, w)$
+is a linear functional on $V$ for each $w\in W$ and
+$w \mapsto \beta(v, w)$ is a linear functional on $W$ for each $v \in V\1$.
+\item
+The vector space of bilinear functionals on $V\1 \times W$ is denoted by $\B(V\1,W)$.\index{bilinear functional}\sindex{BVW@$\B(V\1,W)$}
+\end{Itemize}}
+
+If $W = V$, then a bilinear functional on $V \times W$ is a bilinear form; see \ref{8biform}.
+
+The operations of addition and scalar multiplication on $\B(V\1, W)$ are defined to be the usual operations of addition and scalar multiplication of functions. As you can verify, these operations make $\B(V\1,W)$ into a vector space whose additive identity is the zero function from $V \times W$ to $\F{}\3$.
+
+\begin{example}{bilinear functionals}
+\begin{Itemize}
+\item
+Suppose $\phi \in V'$ and $\tau \in W'\!$. Define $\fun \beta {V\1 \times W} {\F{}}$ by $\beta(v, w) = \phi(v) \tau(w)$. Then $\beta$ is a bilinear functional on $V\1 \times W\3$.
+
+\item
+Suppose $v \in V$ and $w \in W\3$. Define $\fun \beta {V'\! \times W'} {\F{}}$ by $\beta(\phi, \tau) = \phi(v) \tau(w)$. Then $\beta$ is a bilinear functional on $V'\! \times W'\!$.
+
+\item
+Define $\fun \beta {V\1 \times V'} {\F{}}$ by $\beta(v, \phi) = \phi(v)$. Then $\beta$ is a bilinear functional on $V\1 \times V'\!$.
+
+\item
+Suppose $\phi \in V'\!$. Define $\fun \beta {V\1 \times \L(V)} {\F{}}$ by $\beta(v, T) = \phi(Tv)$. Then $\beta$ is a bilinear functional on
+$V\1 \times \L(V)$.
+
+\item
+Suppose $m$ and $n$ are positive integers. Define $\fun \beta { \F{m, n} \times \F{n,m} } {\F{}}$ by
+$\beta(A, B) = \tr(AB)$. Then $\beta$ is a bilinear functional on $\F{m, n} \times \F{n,m}\!$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\ResultBox[9dimbi]{dimension of the vector space of bilinear functionals}
+{$\dim \B(V\1,W) = (\dim V)(\dim W)$.}
+
+\proof
+Let $e_1, \ldots, e_m$ be a basis of $V$ and $f_1, \ldots, f_n$ be a basis of $W\3$. For a bilinear functional $\beta \in \B(V\1,W)$, let $\M(\beta)$ be the \by{m}{n} matrix whose entry in row $j$, column $k$ is $\beta(e_j, f_k)$.
+The map $\beta \mapsto \M(\beta)$ is a linear map of $\B(V\1,W)$ into $\FF{m,n}$.
+
+For a matrix $C \in \FF{m,n}$, define a bilinear functional $\beta_C$ on $V\1 \times W$ by
+\[
+\beta_C( a_1 e_1+ \cdots + a_m e_m, b_1 f_1 + \cdots + b_n f_n ) = \sum_{k=1}^n \sum_{\js}^m C_{j,k} a_j b_k
+\]
+for $a_1, \ldots, a_m, b_1, \ldots, b_n \in \F{}\3$.
+
+The linear map $\beta \mapsto \M(\beta)$ from $\B(V\1, W)$ to $\F{m,n}$ and the linear map $C \mapsto \beta_C$ from
+$\F{m,n}$ to $\B(V\1,W)$ are inverses of each other because $\beta_{\M(\beta)} = \beta$ for all $\beta \in \B(V\1, W)$ and
+$\M(\beta_C) = C$ for all $C \in \FF{m,n}$, as you should verify.
+
+Thus both maps are isomorphisms and the two spaces that they connect have the same dimension. Hence
+$\dim \B(V\1,W)= \dim \F{m,n} = mn = (\dim V)(\dim W)$.
+\qed
+
+Several different definitions of $V\1 \tensor W$ appear in the mathematical literature. These definitions are equivalent to each other, at least in the finite-dimensional context, because any two vector spaces of the same dimension are isomorphic.
+
+The result above states that $\B(V\1, W)$ has the dimension that we seek, as do $\L(V\1, W)$ and $\FF{\dim V\1, \dim W}$. Thus it may be tempting to define $V\1 \tensor W$ to be $\B(V\1, W)$ or $\L(V\1, W)$ or $\FF{\dim V\1, \dim W}$. However, none of those definitions would lead to a basis-free definition of $v \tensor w$ for $v \in V$ and $w \in W\3$.
+
+The following definition, while it may seem a bit strange and abstract at first, has the huge advantage that it defines $v \tensor w$ in a basis-free fashion. We define $V\1 \tensor W$ to be the vector space of bilinear functionals on $V'\! \times W'$ instead of the more tempting choice of the vector space of bilinear functionals on $V\1 \times W\3$.
+
+\DefinitionBox[9ten]{tensor product,\/ $V\1 \tensor W\3$,\/ $v \tensor w$}
+{\vspace{-2.3bp}
+\begin{Itemize}\addtolength{\itemsep}{-.01in}
+\item
+The \emph{tensor product} $V\1 \tensor W$ is defined to be $\B\paren[\big]{V', W'}$.
+\item
+For $v \in V$ and $w \in W\3$, the \emph{tensor product} $v \tensor w$ is the element of $V\1 \tensor W$ defined by
+\[
+(v \tensor w)(\phi, \tau) = \phi(v) \tau(w)
+\]
+for all $(\phi, \tau) \in V'\! \times W'\!$.\index{tensor product}\sindex{VotimesW@$V\1 \tensor W\3$}\sindex{votimesw@$v \tensor w$}
+\end{Itemize}}
+
+We can quickly prove that the definition of $V\1 \tensor W$ gives it the desired dimension.
+
+\ResultBox[9dimten]{dimension of the tensor product of two vector spaces}
+{$\dim (V\1 \tensor W) = (\dim V)(\dim W)$.}
+
+\proof
+ Because a vector space and its dual have the same dimension (by \ref{3dimdual}), we have $\dim V' = \dim V$ and $\dim W' = \dim W\3$. Thus \ref{9dimbi} tells us that the dimension of $\B\paren[\big]{V', W'}$ equals $(\dim V)(\dim W)$.
+\qed
+
+To understand the definition of the tensor product $v \tensor w$ of two vectors $v \in V$ and $w \in W\3$, focus on the kind of object it is. An element of $V\1 \tensor W$ is a bilinear functional on $V'\! \times W'\!$, and in particular it is a function from $V'\! \times W'$ to $\F{}\3$. Thus for each element of $V'\! \times W'\!$, it should produce an element of $\F{}\3$. The definition above has this behavior, because $v \tensor w$ applied to a typical element $(\phi, \tau)$ of $V'\! \times W'$ produces the number $\phi(v) \tau(w)$.
+
+The somewhat abstract nature of $v \tensor w$ should not matter. The important point is the behavior of these objects. The next result shows that tensor products of vectors have the desired bilinearity properties.
+
+\ResultBox[9bi]{bilinearity of tensor product}
+{Suppose $v, v_1, v_2 \in V$ and $w, w_1, w_2 \in W$ and $\la \in \F{}\3$. Then
+\[
+(v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w
+\andd
+v \tensor (w_1 + w_2) = v \tensor w_1 + v \tensor w_2
+\]
+and
+\[
+\la(v \tensor w) = (\la v) \tensor w = v \tensor (\la w).
+\]}
+
+\proof
+Suppose $(\phi, \tau) \in V'\! \times W'\!$. Then
+\begin{align*}
+\paren[\big]{ (v_1 + v_2) \tensor w }(\phi, \tau) &= \phi( v_1 + v_2) \tau(w)\\
+&= \phi(v_1) \tau(w) + \phi(v_2) \tau(w) \\
+&= (v_1 \tensor w)(\phi, \tau) + (v_2 \tensor w)(\phi, \tau)\\
+&= (v_1 \tensor w + v_2 \tensor w)(\phi, \tau).
+\end{align*}
+Thus $(v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w$.
+
+The other two equalities are proved similarly.
+\qed
+
+\pagebreak[3]
+
+Lists are, by definition, ordered. The order matters when, for example, we form the matrix of an operator with respect to a basis. For lists in this section with two indices, such as $\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ in the next result,  the ordering does not matter and we do not specify it---just choose any convenient ordering.
+
+The linear independence of elements of $V\1 \tensor W$ in (a) of the result below captures the idea that there are no relationships among vectors in $V\1 \tensor W$ other than the relationships that come from bilinearity of the tensor product (see \ref{9bi}) and the relationships that may be present due to linear dependence of a list of vectors in $V$ or a list of vectors in $W\3$.
+
+\ResultBox[9basisVtenW]{basis of\/ $V\1 \tensor W$}
+{Suppose $e_1, \ldots, e_m$ is a list of vectors in $V$ and $f_1, \ldots, f_n$ is a list of vectors in~$W\3$.
+\begin{subtheorem}
+\item
+If $e_1, \ldots, e_m$ and $f_1, \ldots, f_n$ are both linearly independent lists, then
+\[
+\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}
+\]
+is a linearly independent list in $V\1 \tensor W\3$.
+\item
+If $e_1, \ldots, e_m$ is a basis of $V$ and $f_1, \ldots, f_n$ is a basis of $W\3$, then the list
+$
+\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$
+is a basis of $V\1 \tensor W\3$.
+\end{subtheorem}}
+
+\proof
+To prove (a), suppose $e_1, \ldots, e_m$ and $f_1, \ldots, f_n$ are both linearly independent lists. This linear independence and the linear map lemma (\ref{3linearmap}) imply that there exist $\phi_1, \ldots, \phi_m \in V'$ and $\tau_1, \ldots, \tau_n \in W'$ such that
+\vspace{-.02in} %VisualFormatting for page break.
+\[
+\phi_j(e_k) = \begin{cases}
+1 & \text{if } j = k,\\
+0 & \text{if } j \ne k
+\end{cases}
+\andd
+\tau_j(f_k) = \begin{cases}
+1 & \text{if } j = k,\\
+0 & \text{if } j \ne k,
+\end{cases}
+\vspace{-.02in} %VisualFormatting for page break.
+\]
+where $j, k \in \br{1, \ldots, m}$ in the first equation and $j, k \in \br{1, \ldots, n}$ in the second equation.
+
+Suppose $\br{a_{j,k}}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is a list of scalars such that
+\vspace{-.04in} %VisualFormatting for page break.
+\begin{equation} \label{9basis}
+\sum_{k=1}^n \sum_{\js}^m a_{j,k} (e_j \tensor f_k) = 0.
+\vspace{-.04in} %VisualFormatting for page break.
+\end{equation}%
+Note that $(e_j \tensor f_k)(\phi_M, \tau_N)$ equals $1$ if $j=M$ and $k = N$, and equals $0$ otherwise. Thus applying both sides of \ref{9basis} to $(\phi_M, \tau_N)$ shows that $a_{M,N} = 0$, proving that
+$\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is linearly independent.
+
+Now (b) follows from (a), the equation $\dim V\1 \tensor W = (\dim V)(\dim W)$ [see \ref{9dimten}], and the result that a linearly independent list of the right length is a basis (see \ref{75}).
+\qed
+
+Every element of $V\1 \tensor W$ is a finite sum of elements of the form
+$v \tensor w$, where $v \in V$ and $w \in W\3$, as implied by (b) in the result above. However, if $\dim V > 1$ and $\dim W > 1$, then Exercise \ref{9VtenW} shows that
+\vspace{-.03in} %VisualFormatting for page break.
+\[
+\br[\big]{ v \tensor w : (v, w) \in V\1 \times W } \ne V\1 \tensor W\3.
+\]
+
+\pagebreak[3]
+
+\begin{example}[9FmFn]{tensor product of element of\/ $\F m$ with element of\/ $\F n$ }
+Suppose $m$ and $n$ are positive integers. Let $e_1, \ldots, e_m$ denote the standard basis of $\F m$ and let $f_1, \ldots, f_n$ denote the standard basis of $\FF n$. Suppose
+\[
+v = (v_1, \ldots, v_m) \in \F m \andd w = (w_1, \ldots, w_n) \in \F n.
+\]
+Then
+\begin{align*}
+v \tensor w &= \paren[\bigg]{ \sum_{\js}^m v_j e_j } \tensor \paren[\bigg]{ \sum_{k=1}^n w_k f_k } \\[4bp]
+&= \sum_{k=1}^n \sum_{\js}^m (v_j w_k) ( e_j \tensor f_k ).
+\end{align*}
+Thus with respect to the basis $\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ of $\F m \tensor \F n$ provided by \ref{9basisVtenW}(b), the coefficients of $v \tensor w$ are the numbers $\br{v_j w_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$. If instead of writing these numbers in a list, we write them in an \by{m}{n} matrix with $v_j w_k$ in row $j$, column $k$, then we can identify $v \tensor w$ with the \by{m}{n} matrix
+\[
+\mat{ccc}{
+v_1 w_1 & \cdots &v_1 w_n \\[6bp]
+& \ddots & \\[6bp]
+v_m w_1 &\cdots & v_m w_n}.
+\]
+\end{example}
+
+See Exercises \ref{9rank1} and \ref{9rank2} for practice in using the identification from the example above.
+
+We now define bilinear maps, which differ from bilinear functionals in that the target space can be an arbitrary vector space rather than just the scalar field.
+
+\DefinitionBox[9bimap]{bilinear map}
+{A \emph{bilinear map} from $V\1 \times W$ to a vector space $U$ is a function $\fun \Gamma {V\1 \times W} U$ such that
+$v \mapsto \Gamma(v, w)$ is a linear map from $V$ to $U$ for each $w\in W$ and
+$w \mapsto \Gamma(v, w)$ is a linear map from $W$ to $U$ for each $v \in V\1$.\index{bilinear map}}
+
+\begin{example}{bilinear maps}
+\begin{Itemize}
+\item
+Every bilinear functional on $V\1 \times W$ is a bilinear map from $V\1 \times W$ to $\F{}\3$.
+
+\item
+The function $\fun \Gamma {V\1 \times W} {V\1 \tensor W}$ defined by $\Gamma(v, w) = v \tensor w$ is a bilinear map from
+$V\1 \times W$ to $V\1 \tensor W$ (by \ref{9bi}).
+
+\item
+The function $\fun \Gamma {\L(V) \times \L(V)} {\L(V)}$ defined by $\Gamma(S, T) = ST$ is a bilinear map from $\L(V) \times \L(V)$ to $\L(V)$.
+
+\item
+The function $\fun \Gamma {V\1 \times \L(V\1, W)} W$ defined by $\Gamma(v, T) = Tv$ is a bilinear map from $V\1 \times \L(V\1, W)$ to $W\3$.
+\end{Itemize}
+\exampleitemend
+\end{example}
+
+\pagebreak[3]
+
+Tensor products allow us to convert bilinear maps on $V\1 \times W$ into linear maps on $V\1 \tensor W$ (and vice versa), as shown by the next result. In the mathematical literature, (a) of the result below is called the ``universal property'' of tensor products.
+
+\ResultBox[9bi2linear]{converting bilinear maps to linear maps}
+{Suppose $U$ is a vector space.
+\begin{subtheorem}
+\item
+Suppose $\fun \Gamma {V\1 \times W} U$ is a bilinear map. Then there exists a unique linear map
+$\fun {\hat[8]{\Gamma}} {V\1 \tensor W} U$ such that\sindex{betahat@$\hat[8]{\Gamma}$}
+\[
+\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)
+\]
+for all $(v, w) \in V\1 \times W\3$.
+\item
+Conversely, suppose $\fun T {V\1 \tensor W} U$ is a linear map. Then there exists a unique bilinear map
+$\fun {\pound{T}} {V\1 \times W} U$ such that
+\[
+\pound{T}(v, w) = T(v \tensor w)
+\]
+for all $(v, w) \in V\1 \times W\3$.\sindex{Tpound@$\pound{T}\1$}
+\end{subtheorem}}
+
+\proof
+Let $e_1, \ldots, e_m$ be a basis of $V$ and let $f_1, \ldots, f_n$ be a basis of $W\3$. By the linear map lemma (\ref{3linearmap}) and \ref{9basisVtenW}(b), there exists a unique linear map $\fun {\hat[8]{\Gamma}} {V\1 \tensor W} U$ such that
+\[
+\hat[8]{\Gamma}(e_j \tensor f_k) = \Gamma(e_j, f_k)
+\]
+for all $j \in \br{1, \ldots, m}$ and $k \in \br{1, \ldots, n}$.
+
+Now suppose $(v, w) \in V\1 \times W\3$. There exist $a_1, \ldots, a_m, b_1, \ldots, b_n \in \F{}$ such that
+$
+v = a_1 e_1 + \cdots + a_m e_m$ and $w = b_1 f_1 + \cdots + b_n f_n$.
+Thus
+\begin{align*}
+\hat[8]{\Gamma}(v \tensor w) &= \hat[8]{\Gamma} \paren[\bigg]{ \sum_{k=1}^n \sum_{\js}^m  (a_j b_k) (e_j \tensor f_k) } \\[6bp]
+&= \sum_{k=1}^n \sum_{\js}^m a_j b_k \hat[8]{\Gamma}(e_j \tensor f_k) \\[6bp]
+&= \sum_{k=1}^n \sum_{\js}^m a_j b_k \Gamma(e_j , f_k) \\[6bp]
+&= \Gamma(v, w),
+\end{align*}
+as desired, where the second line holds because $\hat[8]{\Gamma}$ is linear, the third line holds by the definition of $\hat[8]{\Gamma}$, and the fourth line holds because $\Gamma$ is bilinear.
+
+The uniqueness of the linear map $\hat[8]{\Gamma}$ satisfying $\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)$ follows from \ref{9basisVtenW}(b), completing the proof of (a).
+
+To prove (b), define a function $\fun {\pound{T}} {V\1 \times W} U$ by $\pound{T}(v, w) = T(v \tensor w)$ for all $(v, w) \in V\1 \times W\3$. The bilinearity of the tensor product (see \ref{9bi}) and the linearity of $T$ imply that $\pound{T}$ is bilinear.
+
+Clearly the choice of $\pound{T}$ that satisfies the conditions is unique.
+\qed
+
+To prove \ref{9bi2linear}(a), we could not just define $\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)$ for all $v \in V$ and $w \in W$ \big(and then extend $\hat[8]{\Gamma}$ linearly to all of $V\1 \tensor W$\big) because elements of $V\1 \tensor W$ do not have unique representations as finite sums of elements of the form $v \tensor w$. Our proof used a basis of $V$ and a basis of $W$ to get around this problem.
+
+Although our construction of $\hat[8]{\Gamma}$ in the proof of \ref{9bi2linear}(a) depended on a basis of $V$ and a basis of $W\3$, the equation $\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)$ that holds for all $v \in V$ and $w \in W\3$ shows that $\hat[8]{\Gamma}$ does not depend on the choice of bases for $V$ and $W\3$.
+
+\begin{comment}
+\begin{example}{converting bilinear maps to linear maps}
+\begin{Itemize}
+\item
+If $U = V\1 \tensor W$ and $\fun \Gamma {V\1 \times W} {V\1 \tensor W}$ is the bilinear map $\Gamma(v, w) = v \tensor w$, then
+the linear map $\fun {\hat[8]{\Gamma}} {V\1 \tensor W} {V\1 \tensor W}$ promised by \ref{9bi2linear}(a) is the identity operator.
+\item
+If $U = \L(V)$ and $\fun \Gamma {\L(V) \times \L(V)} {\L(V)}$ is the bilinear map $\Gamma(S, T) = ST$, then the linear map
+$\fun {\hat[8]{\Gamma}} {\L(V) \tensor \L(V)} {\L(V)}$ promised by \ref{9bi2linear}(a) is
+\end{Itemize}
+\end{example}
+\end{comment}
+
+\subsection{Tensor Product of Inner Product Spaces}
+
+The result below features three inner products---one on $V\1 \tensor W\3$, one on $V\1$, and one on $W\3$, although we use the same symbol $\ip{ \cdot, \cdot }$ for all three inner products.
+
+\ResultBox[9innerten]{inner product on tensor product of two inner product spaces}
+{Suppose $V$ and $W$ are inner product spaces. Then there is a unique inner product on $V\1 \tensor W$ such that
+\[
+\ip{ v \tensor w, u \tensor x } = \ip{v, u} \ip{w, x}
+\]
+for all $v, u \in V$ and $w, x \in W\3$.}
+
+\proof
+Suppose $e_1, \ldots, e_m$ is an orthonormal basis of $V$ and $f_1, \ldots, f_n$ is an orthonormal basis of $W\3$.
+Define an inner product on $V\1 \tensor W$ by
+\vspace{-.03in} %VisualFormatting for page break.
+\begin{equation} \label{9ip}
+\ip[\Bigg]{ \sum_{k=1}^n \sum_{\js}^m b_{j,k} \, e_j \tensor f_k, \sum_{k=1}^n \sum_{\js}^m c_{j,k} \, e_j \tensor f_k}
+= \sum_{k=1}^n \sum_{\js}^m b_{j,k} \overline{ c_{j,k} }.
+\vspace{-.03in} %VisualFormatting for page break.
+\end{equation}%
+
+The straightforward verification that \ref{9ip} defines an inner product on $V\1 \tensor W$ is left to the reader \sbr{use \ref{9basisVtenW}(b)}.
+
+Suppose that $v, u \in V$ and $w, x \in W\3$. Let $v_1, \ldots, v_m \in \F{}$ be such that
+\mbox{$v = v_1 e_1 + \cdots + v_m e_m$}, with similar expressions for $u$, $w$, and $x$. Then
+\begin{align*}
+\ip{ v \tensor w, u \tensor x }
+&= \ip[\Bigg]{\sum_{\js}^m v_j e_j \tensor \sum_{k=1}^n w_k f_k , \sum_{\js}^m u_j e_j \tensor \sum_{k=1}^n x_k f_k} \\[1bp]
+&= \ip[\Bigg]{\sum_{k=1}^n \sum_{\js}^m v_j w_k \, e_j \tensor f_k , \sum_{k=1}^n \sum_{\js}^m u_j x_k \, e_j \tensor f_k} \\[1bp]
+&= \sum_{k=1}^n \sum_{\js}^m v_j\overline{u_j} w_k \overline{x_k} \\[1bp]
+&= \paren[\Bigg]{ \sum_{\js}^m v_j \overline{u_j} } \paren[\Bigg]{ \sum_{k=1}^n w_k \overline{x_k} } \\[1bp]
+&= \ip{v, u} \ip{w, x}.
+\end{align*}
+
+There is only one inner product on $V\1 \tensor W$ such that $\ip{ v \tensor w, u \tensor x } = \ip{v, u} \ip{w, x}$ for all $v, u \in V$ and $w, x \in W$ because every element of $V\1 \tensor W$ can be written as a linear combination of elements of the form $v \tensor w$
+\sbr{by \ref{9basisVtenW}(b)}.
+\qed
+
+\pagebreak[3]
+
+The definition below of a natural inner product on $V\1 \tensor W$ is now justified by \ref{9innerten}. We could not have simply defined
+$\ip{ v \tensor w, u \tensor x }$ to be $\ip{v, u} \ip{w, x}$ (and then used additivity in each slot separately to extend the definition to
+$V\1 \tensor W$) without some proof because elements of $V\1 \tensor W$ do not have unique representations as finite sums of elements of the form $v \tensor w$.
+
+\DefinitionBox{inner product on tensor product of two inner product spaces}
+{Suppose $V$ and $W$ are inner product spaces. The inner product on $V\1 \tensor W$ is the unique function $\ip{\cdot, \cdot}$ from $(V\1 \tensor W) \times (V\1 \tensor W)$ to $\F{}$ such that
+\[
+\ip{ v \tensor w, u \tensor x } = \ip{v, u} \ip{w, x}
+\]
+for all $v, u \in V$ and $w, x \in W\3$.}
+
+Take $u = v$ and $x = w$ in the equation above and then take square roots to show that
+\[
+\norm{v \tensor w} = \norm{v} \, \norm{w}
+\]
+for all $v \in V$ and all $w \in W\3$.
+
+The construction of the inner product in the proof of \ref{9innerten} depended on an orthonormal basis
+$e_1, \ldots, e_m$ of $V$ and an orthonormal basis $f_1, \ldots, f_n$ of $W\3$. Formula \ref{9ip} implies that $\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is a doubly indexed orthonormal list in $V\1 \tensor W$ and hence is an orthonormal basis of $V\1 \tensor W$ \sbr{by \ref{9basisVtenW}(b)}. The importance of the next result arises because the orthonormal bases used there can be different from the orthonormal bases used to define the inner product in  \ref{9innerten}. Although the notation for the bases is the same in the proof of \ref{9innerten} and in the result below, think of them as two different sets of orthonormal bases.
+
+\ResultBox{orthonormal basis of\/ $V\1 \tensor W$}
+{Suppose $V$ and $W$ are inner product spaces, and $e_1, \ldots, e_m$ is an orthonormal basis of $V$ and $f_1, \ldots, f_n$ is an orthonormal basis of $W\3$. Then
+\[
+\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}
+\]
+is an orthonormal basis of $V\1 \tensor W\3$.}
+
+\proof
+We know that $\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is a basis of $V\1 \tensor W$ \sbr{by \ref{9basisVtenW}(b)}. Thus we only need to verify orthonormality. To do this, suppose $j, M \in \br{1, \ldots, m}$ and $k, N \in \br{1, \ldots, n}$. Then
+\vspace{-.1in}
+\[
+\ip{ e_j \tensor f_k, e_M \tensor f_N } = \ip{e_j, e_M} \ip{f_k, f_N}
+= \begin{cases}
+1 & \text{if } j = M \text{ and } k = N, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+\vspace{-.05in}
+\noindent
+Hence the doubly indexed list $\br{e_j \tensor f_k}_{j = 1, \ldots, m; k = 1, \ldots, n}$ is indeed an orthonormal basis of
+$V\1 \tensor W\3$.
+\qed
+
+See Exercise \ref{9STstar} for an example of how the inner product structure on $V\1 \tensor W$ interacts with operators on $V$ and $W\3$.
+
+\subsection{Tensor Product of Multiple Vector Spaces}
+
+We have been discussing properties of the tensor product of two finite-dimensional vector spaces. Now we turn our attention to the tensor product of multiple finite-dimensional vector spaces. This generalization requires no new ideas, only some slightly more complicated notation. Readers with a good understanding of the tensor product of two vector spaces should be able to make the extension to the tensor product of more than two vector spaces.
+
+Thus in this subsection, no proofs will be provided. The definitions and the statements of results that will be provided should be enough information to enable readers to fill in the details, using what has already been learned about the tensor product of two vector spaces.
+
+We begin with the following notational assumption.
+
+\NotationBox{$V\1_1, \ldots, V\1_m$}
+{For the rest of this subsection, $m$ denotes an integer greater than $1$ and $V\1_1, \ldots, V\1_m$ denote finite-dimensional vector spaces.}
+
+The notion of an $m$-linear functional, which we are about to define, generalizes the notion of a bilinear functional (see \ref{9bifunctional}).
+Recall that the use of the word ``functional'' indicates that we are mapping into the scalar field $\F{}\3$. Recall also that the terminology ``$m$-linear form'' is used in the special case $V\1_1 = \cdots = V\1_m$ (see \ref{9multiform}). The notation $\B(V\1_1, \ldots, V\1_m)$ generalizes our previous notation $\B(V\1, W)$.
+
+\DefinitionBox{$m$-linear functional, the vector space $\B(V\1_1, \ldots, V\1_m)$}
+{\begin{Itemize}
+\item
+An $m$-\emph{linear functional} on $V\1_1 \times \cdots \times V\1_m$ is a function
+$\fun \beta {V\1_1 \times \cdots \times V\1_m} {\F{}}$ that is a linear functional in each slot when the other slots are held fixed.
+\item
+The vector space of $m$-linear functionals on $V\1_1 \times \cdots \times V\1_m$ is denoted by
+$\B(V\1_1, \ldots, V\1_m)$.\index{mlinearfunctional@$m$-linear functional}\sindex{BV1Vn@$\B(V\1_1, \ldots, V\1_m)$}
+\end{Itemize}}
+
+\begin{example}{$m$-linear functional}
+Suppose $\phi_k \in {V\1_k}'$ for each $k \in \br{1, \ldots, m}$. Define $\fun \beta {V\1_1 \times \cdots \times V\1_m} {\F{}}$ by
+\[
+\beta(v_1, \ldots, v_m) = \phi_1(v_1) \times \cdots \times \phi_m(v_m).
+\]
+Then $\beta$ is an $m$-linear functional on $V\1_1 \times \cdots \times V\1_m$.
+\end{example}
+
+The next result can be proved by imitating the proof of \ref{9dimbi}.
+
+\ResultBox{dimension of the vector space of $m$-linear functionals}
+{$\dim \B(V\1_1, \ldots, V\1_m) = (\dim V\1_1) \times \cdots \times (\dim V\1_m)$.}
+
+Now we can define the tensor product of multiple vector spaces and the tensor product of elements of those vector spaces. The following definition is completely analogous to our previous definition (\ref{9ten}) in the case $m = 2$.
+
+\DefinitionBox{tensor product,\/ $V\1_1 \tensor \cdots \tensor V\1_m$,\/ $v_1 \tensor \cdots \tensor v_m$}
+{\begin{Itemize}
+\item
+The \emph{tensor product} $V\1_1 \tensor \cdots \tensor V\1_m$ is defined to be $\B\paren[\big]{V\1_1\!', \ldots, V\1_m\!'}$.
+\item
+For $v_1 \in V\1_1, \ldots, v_m \in V\1_m$, the \emph{tensor product} $v_1 \tensor \cdots \tensor v_m$ is the element of $V\1_1 \tensor \cdots \tensor V\1_m$ defined by
+\vspace{-5bp}
+\[
+(v_1 \tensor \cdots \tensor v_m)(\phi_1, \ldots, \phi_m) = \phi_1(v_1) \cdots \phi_m(v_m)
+\vspace{-5bp}
+\]
+for all $(\phi_1, \ldots, \phi_m) \in V\1_1\!' \times \cdots \times V\1_m\!'$.
+\index{tensor product}\sindex{V1otimesVn@$V\1_1 \tensor \cdots \tensor V\1_m$}\sindex{v1otimesvn@$v_1 \tensor \cdots \tensor v_m$}
+\end{Itemize}}
+
+The next result can be proved by following the pattern of the proof of the analogous result when $m = 2$ (see \ref{9dimten}).
+
+\ResultBox[9dimtenp]{dimension of the tensor product}
+{$\dim (V\1_1 \tensor \cdots \tensor V\1_m) = (\dim V\1_1) \cdots (\dim V\1_m)$.}
+
+Our next result generalizes \ref{9basisVtenW}.
+
+\ResultBox[9basismten]{basis of\/ $V\1_1 \tensor \cdots \tensor V\1_m$}
+{Suppose $\dim V\1_k = n_k$ and $e_1^{\,k}, \ldots, e_{n_k}^{\,k}$ is a basis of $V\1_k$ for $k = 1, \ldots, m$. Then
+\vspace{-.04in} %VisualFormatting for page break.
+\[
+\br{e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+\vspace{-.04in} %VisualFormatting for page break.
+\]
+is a basis of $V\1_1 \tensor \cdots \tensor V\1_m$.
+}
+
+Suppose $m = 2$ and $e_1^1, \ldots, e_{n_1}^1$ is a basis of $V\1_1$ and $e_1^2, \ldots, e_{n_2}^2$ is a basis of $V\1_2$. Then with respect to the basis $\br{e_{j_1}^1 \tensor e_{j_2}^2}_{j_1 = 1, \ldots, n_1; j_2 = 1, \ldots, n_2}$ in the result above, the coefficients of an element of $V\1_1 \tensor V\1_2$ can be represented by an \by{n_1}{n_2} matrix that contains the coefficient of $e_{j_1}^1 \tensor e_{j_2}^2$ in row $j_1$, column $j_2$. Thus we need a matrix, which is an array specified by two indices, to represent an element of $V\1_1 \tensor V\1_2$.\looseness=-1
+
+If $m > 2$, then the result above shows that we need an array specified by $m$ indices to represent an arbitrary element of $V\1_1 \tensor \cdots \tensor V\1_m$. Thus tensor products may appear when we deal with objects specified by arrays with multiple indices.
+
+The next definition generalizes the notion of a bilinear map (see \ref{9bimap}). As with bilinear maps, the target space can be an arbitrary vector space.
+
+\DefinitionBox{$m$-linear map}
+{An $m$-\emph{linear map} from $V\1_1 \times \cdots \times V\1_m$ to a vector space $U$ is a function
+$\fun \Gamma {V\1_1 \times \cdots \times V\1_m} U$ that is a linear map in each slot when the other slots are held fixed.
+\index{mlinearmap@$m$-linear map}}
+
+\pagebreak[3]
+
+The next result can be proved by following the pattern of the proof of \ref{9bi2linear}.
+
+\ResultBox{converting $m$-linear maps to linear maps}
+{Suppose $U$ is a vector space.
+\begin{subtheorem}
+\item
+Suppose that $\fun \Gamma {V\1_1 \times \cdots \times V\1_m} U$ is an $m$-linear map. Then there exists a unique linear map
+$\fun {\hat[8]{\Gamma}} {V\1_1 \tensor \cdots \tensor V\1_m} U$ such that\sindex{betahat@$\hat[8]{\Gamma}$}
+\[
+\hat[8]{\Gamma}(v_1 \tensor \cdots \tensor v_m) = \Gamma(v_1, \ldots, v_m)
+\]
+for all $(v_1, \ldots, v_m) \in V\1_1 \times \cdots \times V\1_m$.
+\item
+Conversely, suppose $\fun T {V\1_1 \tensor \cdots \tensor V\1_m} U$ is a linear map. Then there exists a unique $m$-linear map
+$\fun {\pound{T}} {V\1_1 \times \cdots \times V\1_m} U$ such that
+\[
+\pound{T}(v_1, \ldots, v_m) = T(v_1 \tensor \cdots \tensor v_m)
+\]
+for all $(v_1, \ldots, v_m) \in V\1_1 \times \cdots \times V\1_m$.\sindex{Tpound@$\pound{T}\1$}
+\end{subtheorem}}
+
+See Exercises \ref{9tenmip} and \ref{9tenmip2} for tensor products of multiple inner product spaces.
+
+\begin{exercises}
+
+\exercise
+Suppose $v \in V$ and $w \in W\3$. Prove that $v \tensor w = 0$ if and only if $v = 0$ or $w = 0$.\label{9zeroten}
+
+
+\exercise
+Give an example of six distinct vectors $v_1, v_2, v_3, w_1, w_2, w_3$ in $\R3$ such that
+\[
+v_1 \tensor w_1 + v_2 \tensor w_2 + v_3 \tensor w_3 = 0
+\]
+but none of $v_1 \tensor w_1$, $v_2 \tensor w_2$, $v_3 \tensor w_3$ is a scalar multiple of another element of this list.
+
+
+\exercise
+Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V\1$. Suppose also that $w_1, \ldots, w_m$ is a list in $W$ such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Prove that $w_1 = \cdots = w_m = 0$.
+
+
+\exercise
+Suppose $\dim V > 1$ and $\dim W > 1$. Prove that\label{9VtenW}
+\[
+\br[\big]{ v \tensor w : (v, w) \in V\1 \times W }
+\]
+is not a subspace of $V\1 \tensor W\3$.
+\exercisecomment{This exercise implies that if\/ $\dim V > 1$ and\/ $\dim W > 1$,\/ then
+\vspace{-3bp}
+\[
+\br[\big]{ v \tensor w : (v, w) \in V\1 \times W } \ne V\1 \tensor W\3.
+\]}
+\vspace{-10bp}
+
+
+\exercise
+Suppose $m$ and $n$ are positive integers. For $v \in \F m$ and $w \in \FF{n}$, identify $v \tensor w$ with an \by{m}{n} matrix as in Example \ref{9FmFn}. With that identification, show that the set\label{9rank1}
+\[
+\br[\big]{ v \tensor w : v \in \F m \text{ and } w \in \F n }
+\]
+is the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most one.
+
+
+\exercise
+Suppose $m$ and $n$ are positive integers. Give a description, analogous to Exercise \ref{9rank1}, of the set of \by{m}{n} matrices (with entries in $\F{}$) that have rank at most two.\label{9rank2}
+
+
+\exercise
+Suppose $\dim V > 2$ and $\dim W > 2$. Prove that
+\[
+\br{ v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W } \ne V\1 \tensor W\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $v_1, \ldots, v_m \in V$ and $w_1, \ldots,w_m \in W$ are such that
+\[
+v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0.
+\]
+Suppose that $U$ is a vector space and $\fun \Gamma {V\1 \times W} U$ is a bilinear map.
+Show that
+\[
+\Gamma(v_1, w_1) + \cdots + \Gamma(v_m, w_m) = 0.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that there exists a unique operator on $V\1 \tensor W$ that takes
+$v \tensor w$ to $Sv \tensor Tw$ for all $v \in V$ and $w \in W\3$.
+\exercisecomment{In an abuse of notation, the operator on\/ $V\1 \tensor W$ given by this exercise is often called\/ $S \tensor T\3$.}\label{9LVtenLW}\sindex{Stensor@$S \tensor T\3$}
+
+
+\exercise
+Suppose $S \in \L(V)$ and $T \in \L(W)$. Prove that $S \tensor T$ is an invertible operator on $V\1 \tensor W$ if and only if both $S$ and $T$ are invertible operators. Also, prove that  if both $S$ and $T$ are invertible operators, then
+$(S \tensor T)^{-1} = S^{-1} \tensor T^{-1}$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.
+
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces. Prove that if $S \in \L(V)$ and $T \in \L(W)$, then $(S \tensor T)^* = S^* \tensor T^*\1$, where we are using the notation from the comment after Exercise \ref{9LVtenLW}.\label{9STstar}
+
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are finite-dimensional inner product spaces. Prove that there is a unique inner product on
+$V\1_1 \tensor \cdots \tensor V\1_m$ such that\label{9tenmip}
+\[
+\ip{ v_1 \tensor \cdots \tensor v_m, u_1 \tensor \cdots \tensor u_m } =
+\ip{ v_1, u_1} \cdots \ip{v_m, u_m}
+\]
+for all $(v_1, \ldots, v_m)$ and $(u_1, \ldots, u_m)$ in $V\1_1 \times \cdots \times V\1_m$.
+\exercisecomment{Note that the equation above implies that
+\[
+\norm{ v_1 \tensor \cdots \tensor v_m } = \norm{v_1} \times \cdots \times \norm{v_m}
+\]
+for all\/ $(v_1, \ldots, v_m) \in V\1_1 \times \cdots \times V\1_m$.}
+
+
+\exercise
+Suppose that $V\1_1, \ldots, V\1_m$ are finite-dimensional inner product spaces and $V\1_1 \tensor \cdots \tensor V\1_m$ is made into an inner product space using the inner product from Exercise \ref{9tenmip}. Suppose $e_1^{\,k}, \ldots, e_{n_k}^{\,k}$ is an orthonormal basis of $V\1_k$ for each $k = 1, \ldots, m$. Show that the list\label{9tenmip2}
+\[
+\br{e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+\]
+is an orthonormal basis of $V\1_1 \tensor \cdots \tensor V\1_m$.
+
+
+\end{exercises}
+
+\endinput 

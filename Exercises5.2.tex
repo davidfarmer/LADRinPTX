@@ -1,0 +1,238 @@
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that $9$ is an
+eigenvalue of~$T^2$ if and only if $3$ or $-3$ is an eigenvalue of $T\3$.
+
+
+\exercise
+Suppose $V$ is a complex vector space and $T \in \L(V)$ has no eigenvalues. Prove
+that every subspace of $V$ invariant under $T$ is either $\{0\}$ or infinite-dimensional.
+
+
+\exercise
+Suppose $n$ is an integer with $n>1$ and $T \in \L\paren[\big]{\F{n}}$ is defined by
+\[
+T(x_1, \dots, x_n) = (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n).
+\]
+\begin{subtheorem}*
+\item
+Find all eigenvalues and eigenvectors of~$T\3$.
+\item
+Find the minimal polynomial of $T\3$.
+\end{subtheorem}
+\exercisecomment{The matrix of\/ $T$ with respect to the standard basis of\/ $\F n$ consists of all\/ $1$'s.}
+
+
+\exercise
+Suppose $\F{} = \C{}$, $T \in \L(V)$, $p \in \P(\C{})$ is a nonconstant polynomial,
+and $\al \in \C{}$.  Prove that $\al$ is an eigenvalue of $p(T)$ if and only if
+$\al = p(\la)$ for some eigenvalue $\la$ of~$T\3$.\label{5peig}
+
+
+\exercise
+Give an example of an operator on $\R2$ that shows the result in Exercise \ref{5peig} does not hold if $\C{}$ is replaced with~$\R{}$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F2}$ is defined by $T(w, z) = (-z, w)$. Find the minimal polynomial of $T\3$.
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of $S, T \in \L\paren[\big]{\F2}$ such that the minimal polynomial of $ST$ does not equal the minimal polynomial of $TS\3$.
+\item
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$. Prove that if at least one of $S, T$  is invertible, then the minimal polynomial of $ST$ equals the minimal polynomial of $TS$.
+\end{SUBtheorem}
+\hint{Show that if\/ $S$ is invertible and\/ $p \in \P(\F{})$, then\/ $p(TS) = S^{-1} p(ST) S$.}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\R2}$ is the operator of counterclockwise rotation by $1^\circ$. Find the minimal polynomial of $T\3$.
+\exercisecomment{Because\/ $\dim \R2 = 2$, the degree of the minimal polynomial of\/ $T$ is at most\/ $2$. Thus the minimal polynomial of\/ $T$ is not the tempting polynomial\/ $x^{180} + 1$, even though\/ $T^{180} = -I$.}
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that with respect to some basis of $V\1$, all entries of the matrix of $T$ are rational numbers. Explain why all coefficients of the minimal polynomial of $T$ are rational numbers.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $v \in V\1$. Prove that
+\[
+\Span\paren[\big]{ v, Tv, \ldots, T^m v} = \Span\paren[\big]{v, Tv, \ldots, T^{\dim V - 1}v}
+\]
+for all integers $m \ge \dim V - 1$.
+
+
+\exercise
+Suppose $V$ is a two-dimensional vector space, $T \in \L(V)$, and the matrix of $T$ with respect to some basis of $V$ is
+$
+\mat{cc}{a & c \\ b & d}$.\label{5minpoly}
+\begin{subtheorem}
+\item
+Show that $T^2 - (a+d)T + (ad - bc)I = 0$.
+\item
+Show that the minimal polynomial of $T$ equals
+\[
+\begin{cases}
+z-a &\text{if } b = c = 0 \text{ and } a = d, \\
+z^2 - (a+d)z + (ad-bc) &\text{otherwise}.
+\end{cases}
+\]
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Define $T \in \L\paren[\big]{\F{n}}$ by
+$
+T(x_1, x_2, x_3, \dots, x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)$.
+Find the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p \in \P(\F{})$. Prove that there exists a unique $r \in \P(\F{})$ such that $p(T) = r(T)$ and $\deg r$ is less than the degree of the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$ has minimal polynomial $4 + 5z - 6z^2 - 7z^3 + 2 z^4 + z^5\1$. Find the minimal polynomial of $T^{-1}\1$.
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space with $\dim V > 0$ and $T \in \L(V)$. Define $f \colon \C{} \to \R{}$ by
+\[
+f(\la) = \dim \ran (T - \la I).
+\]
+Prove that $f$ is not a continuous function.
+
+
+\exercise
+Suppose $a_0, \dots, a_{n-1} \in \F{}\3$. Let $T$ be the operator on $\F n$ whose matrix (with respect to the standard basis) is
+\label{8FTAneeded}
+\[
+\mat{cccccc}{
+0 & & & & & -a_0 \\
+1 & 0  & & & & -a_1 \\
+& 1 & \ddots & & & -a_2 \\
+& & \ddots & & & \vdots \\
+& & & & 0 & -a_{n-2} \\
+& & & & 1 & -a_{n-1} }.
+\]
+Here all entries of the matrix are $0$ except for all $1$'s on the line under the diagonal and the entries in the last column (some of which might also be $0$). Show that the minimal polynomial of $T$ is the polynomial\index{companion matrix}\index{minimal polynomial!of companion matrix}
+\[
+a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n\1.
+\]
+\exercisecomment{The matrix above is called the \emph{companion matrix} of the polynomial above. This exercise shows that  every monic polynomial is the minimal polynomial of some operator. Hence a formula or an algorithm that could produce exact eigenvalues for each operator on each\/ $\F n$ could then produce exact zeros for each polynomial \sbr{by \ref{136}\uppar{a}}. Thus there is no such formula or algorithm. However, efficient numeric methods exist for obtaining very good approximations for the eigenvalues of an operator.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Suppose $\la \in \F{}\3$.
+Show that the minimal polynomial of $T - \la I$ is the polynomial $q$ defined by $q(z) = p(z+\la)$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $p$ is the minimal polynomial of $T\3$. Suppose
+$\la \in \F{} \sm \br{0}$. Show that the minimal polynomial of $\la T$ is the polynomial $q$ defined by
+$q(z) = \la^{\deg p} \, p\paren[\bigg]{\dfrac{z}{\la}}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $\E$ be the subspace of $\L(V)$ defined by
+\[
+\E = \br[\big]{ q(T): q \in \P(\F{}) }.
+\]
+Prove that $\dim \E$ equals the degree of the minimal polynomial of $T\3$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\F{4}}$ is such that the eigenvalues of $T$ are $3, 5, 8$. Prove that
+$
+(T - 3I)^2 (T - 5I)^2 (T - 8 I)^2 = 0$.
+%\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the minimal polynomial of $T$ has degree at most $1 + \dim \ran T\3$.
+\exercisecomment{If\/ $\dim \ran T < \dim V - 1$, then this exercise gives a better upper bound than \ref{3minpoly} for the degree of the minimal polynomial of\/ $T\3$.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ is invertible if and only if
+$I \in \Span\paren[\big]{T, T^2\1, \ldots, T^{\dim V}}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Let $n = \dim V\1$. Prove that if $v \in V\1$, then
+$
+\Span\paren[\big]{v, Tv, \ldots, T^{n-1}v}
+$
+is invariant under $T\3$.
+
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space.  Suppose $T \in \L(V)$ is such that $5$
+and $6$ are eigenvalues of $T$ and that $T$ has no other eigenvalues.  Prove
+that
+$
+(T - 5I)^{\dim V-1} (T - 6I)^{\dim V-1} = 0$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ that is invariant under $T\3$.\index{quotient!operator}\index{minimal polynomial!of quotient operator}\label{8minq}
+\begin{subtheorem}
+\item
+Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T\3/U$.
+\item
+Prove that
+\[
+\text{(minimal polynomial of $T|_U$) $\times$ (minimal polynomial of $T\3/U$)}
+\]
+is a polynomial multiple of the minimal polynomial of $T\3$.
+\end{subtheorem}
+\vspace{-0.03in}
+\exercisecomment{The quotient operator\/ $T\3/U$ was defined in Exercise \ref{5quotient} in Section \ref{5invar}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of $V$ that is invariant under $T\3$. Prove that the set of eigenvalues of $T$ equals the union of the set of eigenvalues of $T|_U$ and the set of eigenvalues of $T\3/U$.\index{quotient!operator}
+
+
+\begin{comment}
+\item
+Show that each eigenvalue of $T\3/U$ is an eigenvalue of~$T\3$.
+
+\item
+Suppose $\la \in \F{}$ is an eigenvalue of $T\3/U$. Then there exists $w \in V$ such that
+$w \notin U$ (which is equivalent to the condition $w + U \ne 0 + U$) and
+\[
+(T\3/U)(w+U) = \la(w +U).
+\]
+The equation above could be rewritten as $Tw + U = \la w + U$. This implies that
+$(T - \la I)w \in U$.
+
+Define $S \colon U + \Span(w) \to V$ by
+\[
+Sv = (T - \la I)v
+\]
+for each $v \in U + \Span(w)$. Clearly $S$ is a linear map.
+
+If $u \in U$ and $c \in \F{}\3$, then $S(u + cw) = Tu - \la u + c(T - \la I)w\in U$, where the inclusion holds because $U$ is invariant under $T\3$. Thus $\ran S \subset U$.
+
+Because $w \notin U$, we know that $\dim \bigl( U + \Span(w) \bigr) > \dim U$. The fundamental theorem of linear maps (\ref{3ab11}) applied to $S$ now implies that $\dim \ker S > 0$. Thus there exists $v \in  U + \Span(w)$ such that $v \ne 0$ and $Sv = 0$. Thus $\la$ is an eigenvalue of $T$, as desired.
+\end{comment}
+
+\exercise
+Suppose $\F{} = \R{}$, $V$ is finite-dimensional, and $T \in \L(V)$. Prove that the minimal polynomial of $T\3_{\C{}}$ equals the minimal polynomial of $T\3$.\index{complexification!minimal polynomial of}\index{minimal polynomial!of complexification}
+\exercisecomment{The complexification\/ $T\3_{\C{}}$ was defined in Exercise \ref{3complexMap} of Section \ref{3nullspace}.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the minimal polynomial of $T' \in \L\paren[\big]{V'}$ equals the minimal polynomial of $T\3$.\index{dual!of a linear map}\index{minimal polynomial!of dual map}\label{5dualmin}
+\exercisecomment{The dual map $T'$ was defined in Section \ref{duals}.}
+
+
+\exercise
+Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.\label{5inv2}
+\exercisecomment{Exercise \ref{457} in Section \ref{4utm} will give an improvement of this result when\/ $\F{} = \C{}$.}
+
+

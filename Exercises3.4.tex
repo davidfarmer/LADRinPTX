@@ -1,0 +1,224 @@
+
+\exercise
+Suppose $T \in \L(V\1, W)$ is invertible. Show that $T^{-1}$ is invertible and
+\[
+\paren[\big]{ T^{-1} }^{-1} = T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(U, V)$ and $S \in \L(V\1,W)$ are both invertible linear maps. Prove that $ST \in \L(U, W)$ is invertible and that $(ST)^{-1} = T^{-1} S^{-1}\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is invertible.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for every basis $v_1, \ldots, v_n$ of $V\1$.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V\1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $\dim V > 1$. Prove that the set of
+noninvertible linear maps from $V$ to itself is  not a subspace of~$\L(V)$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $U$ is a subspace of $V\1$, and $S \in \L(U, V)$. Prove that there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$ if and only if $S$ is injective.\label{3inv}
+
+
+\exercise
+Suppose that $W$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ker S = \ker T$
+if and only if there exists an invertible \mbox{$E \in \L(W)$} such that $S = ET\3$. \label{1020}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ran S = \ran T
+$
+if and only if there exists an invertible $E \in \L(V)$ such that $S = T E$.
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $S, T\in \L(V\1, W)$. Prove that there exist invertible
+$E_1 \in \L(V)$ and $E_2\in \L(W)$ such that $S = E_2 T E_1$ if and only if $\dim \ker S = \dim \ker T\3$.
+
+
+\begin{comment} % A more general exercise has replaced this one.
+\exercise
+Suppose $V$ and $W$ are finite-dimensional. Let $v \in V\1$. Let
+\[
+E = \br[\big]{T \in \L(V\1, W): Tv = 0}.
+\]
+\begin{subtheorem}
+\item
+Show that $E$ is a subspace of $\L(V\1, W)$.
+\item
+Suppose $v \ne 0$. What is $\dim E$?
+\end{subtheorem}
+
+\end{comment}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \colon V \to W$ is a surjective linear map of $V$ onto $W\3$.  Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W\3$.
+\exercisecomment{Here\/ $T|_U$ means the function\/ $T$ restricted to\/ $U$. Thus\/ $T|_U$ is the function whose domain is\/ $U$, with\/ $T|_U$ defined by\/ $T|_U(u) = Tu$ for every\/ $u \in U$.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V\1$. Let
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\E = \br[\big]{ T \in \L(V\1, W): U \subset \ker T}.
+\]
+\begin{subtheorem}
+\item
+Show that $\E$ is a subspace of $\L(V\1, W)$.
+\item
+Find a formula for $\dim \E$ in terms of $\dim V\1$, $\dim W\3$, and $\dim U$.
+\end{subtheorem}
+\hint{Define\/ $\fun \Phi {\L(V\1, W)} {\L(U,W)}$ by\/ $\Phi(T) = T|_U$. What is\/ $\ker \Phi$? What is\/ $\ran \Phi$?}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$.  Prove that \label{379}
+\[
+ST \text{ is invertible} \iff S \text{ and } T \text{ are invertible}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T, U \in \L(V)$ and
+$
+STU = I$.
+Show that $T$ is invertible and that $T^{-1} = US$.\label{3STU}
+
+
+\exercise
+Show that the result in Exercise \ref{3STU} can fail without the hypothesis that $V$ is finite-dimensional.
+
+
+\exercise
+Prove or give a counterexample: If $V$ is a finite-dimensional vector space and $R, S, T \in
+\L(V)$ are such that $RST$ is surjective, then $S$ is  injective.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_m$ is a list in $V$ such that $Tv_1, \dots, Tv_m$ spans~$V\1$. Prove that
+$v_1, \dots, v_m$ spans $V\1$.
+
+
+\begin{comment}
+
+\exercise
+Suppose $w_1, \dots, w_m$ is a basis of $W\3$.  Prove that the map
+$w \mapsto \M(w)$ is an isomorphism of $W$ onto $\F{m,1}$; here $\M(w)$ is
+the matrix of $w \in W$ with respect to the basis $w_1, \dots, w_m$.
+
+
+\end{comment}
+
+\exercise
+Prove that every linear map from $\F{n,1}$ to $\F{m,1}$ is given by a matrix multiplication.  In other words, prove that if
+$T \in \L\paren[\big]{\FF{n,1}, \F{m,1}}$, then there exists an \by{m}{n} matrix $A$ such that $Tx = Ax$ for every $x \in \FF{n,1}$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $S \in \L(V)$. Define $\A \in \L\paren[\big]{\L(V)}$ by
+\[
+\A(T) = ST
+\vspace{-6bp}
+\]
+for $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Show that $\dim \ker \A  = (\dim V)(\dim \ker S)$.
+\item
+Show that $\dim \ran \A  = (\dim V)(\dim \ran S)$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Show that $V$ and $\L(\F{}, V)$ are isomorphic vector spaces.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has the same matrix with respect to every basis of~$V$ if and only if $T$ is a scalar multiple of the identity operator.
+
+
+\exercise
+Suppose $q \in \P(\R{})$. Prove that there exists a polynomial $p \in \P(\R{})$ such that
+\[
+q(x) = \paren[\big]{x^2 + x} p'' \! (x) +2x p' \! (x) + p(3)
+\]
+for all $x \in \R{}$.
+
+
+\exercise
+Suppose $n$ is a positive integer and $A_{j,k} \in \F{}$ for all $j,k = 1, \dots, n$.
+Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of  variables).\index{homogeneous system of linear equations}\index{linear equations}
+\begin{subtheorem}*
+\item
+The trivial solution $x_1 = \dots = x_n = 0$ is the only solution to the
+homogeneous system of equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= 0 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= 0.
+\end{align*}
+
+\item
+For every $c_1, \dots, c_n \in \F{}\3$, there exists a solution to the system of
+equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= c_1 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= c_n.
+\end{align*}
+\end{subtheorem}
+
+
+\begin{comment}
+\exercise
+Suppose $T \in \L\bigl( \P(\F{}) \bigr)$ is such that $T$ is injective and $\deg Tp \le \deg p$ for every nonzero polynomial $p \in \P(\F{})$.
+\begin{subtheorem}
+\item
+Prove that $T$ is surjective.
+\item
+Prove that $\deg Tp = \deg p$ for every nonzero $p \in \P(\F{})$.
+\end{subtheorem}
+
+\end{comment}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V\1$.  Prove that
+\[
+\M\bigl(T, (v_1, \dots, v_n) \bigr) \text{ is invertible} \iff T \text{ is invertible}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose that $u_1, \dots, u_n$ and $v_1, \dots, v_n$ are bases of~$V\1$.  Let
+$T \in \L(V)$ be such that $Tv_k = u_k$ for each
+$k = 1, \dots, n$.  Prove that
+\[
+\M\bigl( T, (v_1, \dots, v_n) \bigr) =
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr).
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $A$ and $B$ are square matrices of the same size and $AB = I$. Prove that $BA = I$.
+
+

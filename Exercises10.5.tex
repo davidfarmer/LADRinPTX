@@ -1,0 +1,262 @@
+
+\exercise
+Give an example of two commuting operators $S, T$ on $\F4$ such that there is a subspace of $\F4$ that is invariant under $S$ but not under $T$ and there is a subspace of $\F4$ that is invariant under $T$ but not under $S$.
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{\F4}$ by
+\[
+S(z_1, z_2, z_3, z_4) = (0, z_1, z_3, z_4) \andd T(z_1, z_2, z_3, z_4) = (z_1, z_2, 0, z_3).
+\]
+Then
+\[
+(ST)(z_1, z_2, z_3, z_4) = (0, z_1, 0, z_3)
+\]
+and
+\[
+(TS)(z_1, z_2, z_3, z_4) = (0, z_1, 0, z_3).
+\]
+Thus $S$ and $T$ commute.
+
+Let $e_1, e_2, e_3, e_4$ denote the standard basis of $\F4$. Then $\Span(e_3)$ is invariant under $S$ but not under $T$ and $\Span(e_1)$ is invariant under $T$ but not under $S$.
+\end{Solution}
+
+\exercise
+Suppose $\E$ is a subset of $\L(V)$ and every element of $\E$ is diagonalizable. Prove there exists a basis of $V$ with respect to which every element of $\E$ has a diagonal matrix if and only if every pair of elements of $\E$ commutes.%
+ \label{3Diag}\index{commuting operators|(}
+\exercisecomment{This exercise extends \ref{8SimDiag}, which considers the case where\/ $\E$ contains only two elements. For this exercise,\/ $\E$ may contain any number of elements, and\/ $\E$ may even be an infinite set.}
+
+\begin{Solution}
+First suppose there is a basis $v_1, \ldots, v_n$ of $V$ with respect to which every element of $\E$ has a diagonal matrix. Thus if $S, T \in \E$, then there exist
+$\al_1, \ldots, \al_n, \beta_1, \ldots, \beta_n \in \F{}$ such that
+\[
+Sv_k = \al v_k \andd Tv_k = \beta_k v_k
+\]
+for each $k = 1, \ldots, n$. Now
+\[
+(ST)v_k = S(Tv_k) = S(\beta_k v_k) = \beta_k Sv_k = \al_k \beta_k v_k
+\]
+for each $k = 1, \ldots, n$. Similarly, $(TS)v_k = \al_k \beta_k v_k$ for each $k$. Because the operators $ST$ and $TS$ agree on a basis of $V\1$, we conclude that $ST = TS$. In other words, $S$ and $T$ commute, completing the proof that every pair of elements of $\E$ commute.
+
+To prove the implication in the other direction, now suppose every pair of elements of $\E$ commutes. Let $n = \dim V\1$. We want to prove that there is a basis of $V$ with respect to which every element of $\E$ has a diagonal matrix. We will do this by induction on $n$. Clearly the desired result holds if $n = 1$.
+
+Suppose now that $n > 1$ and the desired result holds for all smaller dimensions. Let $S \in \E$ be such that $S$ is not a scalar multiple of the identity operator (if every element of $\E$ is a scalar multiple of the identity operator, then every element of $\E$ has a diagonal matrix with respect to every basis of $V$). Let $\la_1, \ldots, \la_m$ denote the distinct eigenvalues of $S$. Because $S$ is diagonalizable, part~(c) of \ref{427} shows that
+\[ \tag{$(*)$}
+V = E(\la_1, S) \oplus \cdots \oplus E(\la_m, S).
+\]
+Because $S$ is not a scalar multiple of the identity operator, we have $m > 1$ and $\dim E(\la_k, S) < n$ for each $k = 1, \ldots, m$.
+
+For each $k = 1, \ldots, m$, the subspace  $E(\la_k, S)$ is invariant under every $T \in \E$ (by \ref{2ComInv}). Also, \ref{5RestrictDi} implies that $T|_{E(\la_k, S)}$ is diagonalizable for each $T \in \E$ and each $k$. Hence by our induction hypotheses, for each $k = 1, \ldots, m$ there is a basis of $E(\la_k, S)$ such that every element of this basis is an eigenvector of every $T \in \E$. Because of $(*)$, putting these bases together gives a basis of $V\1$, with each vector in this basis being an eigenvector of every $T \in \E$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V)$ are such that $ST = TS$.
+\begin{subtheorem}
+\item
+Prove that $\ker S$ is invariant under $T\3$.
+\item
+Prove that $\ran S$ is invariant under $T\3$.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $v \in \ker S$. Then
+\[
+S(Tv) = (ST)v = (TS)(v) = T(Sv) = T(0) = 0,
+\]
+and hence $Tv \in \ker S$. Thus $\ker S$ is invariant under $T\3$.
+
+\item
+Suppose $v \in \ran S$. Hence there exists $u \in V$ such that $v = Su$. Now
+\[
+Tv = T(Su) = (TS)(u) = (ST)(u) = S(Tu),
+\]
+and hence $Tv \in \ran S$. Thus $\ran S$ is invariant under $T\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $A$ is a diagonal matrix and $B$ is an upper-triangular matrix of the same size as $A$, then $A$ and $B$ commute.
+
+\begin{Solution}
+Counterexample: Take
+\[
+A = \mat{cc}{
+1 & 2 \\
+0 & 3}
+\andd
+B = \mat{cc}{
+4 & 0 \\
+0 & 5}.
+\]
+Then $A$ is a diagonal matrix and $B$ is an upper-triangular matrix. We have
+\[
+A \cdot B = \mat{cc}{
+4 & 10 \\
+0 & 15}
+\andd
+B \cdot A = \mat{cc}{
+4 & 8 \\
+0 & 15}.
+\]
+Thus $A \cdot B \ne B \cdot A$. Hence $A$ and $B$ do not commute.
+
+Note however, that $A \cdot B$ and $B \cdot A$ have the same diagonal entries.
+\end{Solution}
+
+\exercise
+Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
+\exercisecomment{See \ref{DualMap} for the definition of the dual of an operator.}\label{5dualcom}
+
+\begin{Solution}
+Suppose $S, T \in \L(V)$.
+
+First suppose $S$ and $T$ commute. Then
+\[
+S' T' = (TS)' = (ST)' = T' S',
+\]
+where the first and last equalities above hold by \ref{3dualmaps}(c). The equation above shows that $S'$ and $T'$ commute, as desired.
+
+To prove the implication in the other direction, now suppose that $S'$ and $T'$ commute. Then
+\[
+(ST - TS)' = (ST)' - (TS)' = T'S' - S'T' = 0,
+\]
+where the first equality follows from \ref{3dualmaps}(a) and the second equality follows from \ref{3dualmaps}(c). The equation above, along with Exercise \ref{Tprime} in Section \ref{duals}, implies that $ST - TS = 0$. Thus $S$ and $T$ commute, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a finite-dimensional complex vector space and $S, T \in \L(V)$ commute. Prove that there exist $\al, \la \in \C{}$ such that
+\[
+\ran (S - \al I) + \ran (T - \la I) \ne V\1.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+By Exercise \ref{5dualcom}, the operators $S'$ and $T'$ on $V'$ commute. Thus by \ref{2common}, $S'$ and $T'$ have a common eigenvector. Letting $\al, \beta \in \C{}$ be the corresponding eigenvalues for this common eigenvector, we have
+\begin{align*}
+\br{0} &\ne \ker(S' - \al I) \cap \ker(T' - \la I) \\[3bp]
+&= \paren[\Big]{\ran(S - \al I)}^0 \cap \paren[\Big]{\ran(T - \la I)}^0 \\[3bp]
+&= \paren[\Big]{ \ran(S - \al I) + \ran(T - \la I)}^0,
+\end{align*}
+where the second line follows from \ref{nullTprime}(a) and the third line follows from Exercise~\ref{2222}(a) in Section~\ref{duals}. Now the equation above and \ref{2annih}(a) show that
+\[
+\ran (S - \al I) + \ran (T - \la I) \ne V\1.
+\]
+\end{Solution}
+
+\exercise
+Suppose $V$ is a complex vector space, $S \in \L(V)$ is diagonalizable, and $T \in \L(V)$ commutes with $S$. Prove that there is a basis of $V$ such that $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
+
+\begin{Solution}
+Let $\la_1, \ldots, \la_m$ be the distinct eigenvalues of $S$. If $k \in \br{1, \dots, m}$, then $E(\la_k, S)$ is invariant under $T$ (by \ref{2ComInv}).
+
+Thus by \ref{a226}(a), there is a basis of $E(\la_k, S)$ such that the matrix of $T|_{E(\la_k, S)}$ is upper triangular with respect to this basis (and of course the matrix of $S|_{E(\la_k, S)}$ with respect to this basis will be a diagonal matrix with each diagonal entry equal to $\la_k$). Put together these bases of $E(\la_1,S),  \ldots, E_(\la_m, S)$ to obtain a basis of $V$ (using \ref{427}). Then $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
+\end{Solution}
+
+\exercise
+Suppose $m = 3$ in Example \ref{PD} and $D_x, D_y$ are the commuting partial differentiation operators on $\P\!_3\3(\R2)$ from that example. Find a basis of $\P\!_3\3(\R2)$ with respect to which both $D_x$ and $D_y$ have an upper-triangular matrix.
+
+\begin{Solution}
+A basis of $\P\!_3\3(\R2)$ with respect to which both $D_x$ and $D_y$ have upper-triangular matrices is
+\[
+1, x, y, x^2, xy, y^2, x^3, x^2 y, x y^2, y^3\1.
+\]
+
+Because $D_x$ and $D_y$ both decrease degrees, arranging the basis monomials in nondecreasing order of degree guarantees the desired behavior.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a finite-dimensional nonzero complex vector space. Suppose that $\E \subset \L(V)$ is such that $S$ and $T$ commute for all $S, T \in \E$. \label{4ManyOps}
+\begin{subtheorem}
+\item
+Prove that there is a vector in $V$ that is an eigenvector for every element of $\E$.
+\item
+Prove that there is a basis of $V$ with respect to which every element of $\E$ has an upper-triangular matrix.
+\end{subtheorem}
+\exercisecomment{This exercise extends \ref{2common} and \ref{2commute}, which consider the case where\/ $\E$ contains only two elements. For this exercise,\/ $\E$ may contain any number of elements, and\/ $\E$ may even be an infinite set.}%
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Let $n = \dim V\1$. We will prove the desired result by induction on $n$. To get started, if $n=1$ then the desired result is true because in that case every vector in $V$ is an eigenvector for every operator on $V\1$.
+
+Now suppose that the result is true for all vector spaces with dimension less than $n$. Let $S \in \E$ be such that $S$ is not a scalar multiple of the identity operator (if every element of $\E$ is a scalar multiple of the identity operator, then every vector in $V$ is an eigenvector for every element of $\E$ and hence our desired result holds). Let $\la$ be an eigenvalue of $S$. Thus
+\[
+0 < \dim E(\la, S) < n.
+\]
+The subspace $E(\la, S)$ is invariant under each $T \in \E$ (by \ref{2ComInv}).
+
+Thus
+\[
+\br{ T|_{E(\la, S)}: T \in \E}
+\]
+is a commutative set of operators on $E(\la, S)$. By our induction hypothesis, there is a vector in
+$E(\la, S)$ that is an eigenvector for every element of $\br{ T|_{E(\la, S)}: T \in \E}$. This vector is thus an eigenvector for every element of $\E$, completing our proof by induction.
+
+\item
+Let $n = \dim V\1$. We will use induction on $n$. The desired result holds if $n = 1$ because all \by{1}{1} matrices are upper triangular.
+
+Suppose now that $n > 1$ and the desired result holds for all complex vector spaces whose dimension is $n-1$.
+
+By (a), there exists a common eigenvector $v_1$ of the operators in $\E$. We have
+\[
+Tv_1 \in \Span(v_1)
+\]
+for all $T \in \E$.
+
+Let $W$ be a subspace of $V$ such that
+\[
+V = \Span(v_1) \oplus W\3,
+\]
+where the existence of a subspace $W$ with this property is guaranteed by \ref{a220}. Define a linear map $\fun P V W$ by
+\[
+P(a v_1 + w) = w
+\]
+for all $a \in \C{}$ and all $w \in W\3$. For each $T\in \E$, define $\hat T \in \L(W)$ by
+\[
+\hat T w = P(Tw)
+\]
+for all $w \in W\3$.
+
+To apply our induction hypothesis to the subset $\br{ \hat T : T \in \E}$ of $\L(W)$, we must first show that $\hat S$ and $\hat T$ commute for all $S, T \in \E$. To do this, suppose $w \in W\3$. Then there exists $a \in \C{}$ such that
+\[
+(\hat S \hat T)w = \hat S \paren[\big]{ P(Tw) } = \hat S (Tw - av_1) = P \paren[\big]{ S(Tw - a v_1) }
+= P \paren[\big]{ (ST) w },
+\]
+where the last equality holds because $v_1$ is an eigenvector of $S$ and $Pv_1 = 0$. Similarly,
+\[
+(\hat T \hat S)w = P \paren[\big]{ (TS) w }.
+\]
+Because $S$ and $T$ commute, the last two displayed equations show that $(\hat S \hat T)w = (\hat T \hat S)w$. Hence $\hat S$ and $\hat T$ commute.
+
+Thus we can use our induction hypothesis to state that there exists a basis $v_2, \ldots, v_n$ of $W$ such that $\hat T$ has an upper-triangular matrix with respect to this basis. The list $v_1, \ldots, v_n$ is a basis of $V\1$.
+
+If $k \in \br{2, \ldots, n}$ and $T \in \E$, then there exists $a_{k,T} \in \C{}$ such that
+\[
+Tv_k = a_{k,T} v_1 + P(Tv_k) = a_{k,T} v_1 + \hat T v_k.
+\]
+Because $\hat T$ has an upper-triangular matrices with respect to $v_2, \ldots, v_n$ for every $T \in \E$, we know that
+$\hat T v_k \in \Span(v_2, \ldots, v_k)$ for every $T \in \E$. Hence the equation above implies that
+\[
+Tv_k \in \Span(v_1, \ldots, v_k)
+\]
+for every $T \in \E$. Thus each $T \in \E$ has an upper-triangular matrix with respect to the basis $v_1, \ldots, v_n$, as desired.%
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Give an example of two commuting operators $S, T$ on a finite-dimensional real vector space such that $S+T$ has a eigenvalue that does not equal an eigenvalue of $S$ plus an eigenvalue of $T$ and $ST$ has a eigenvalue that does not equal an eigenvalue of $S$ times an eigenvalue of $T\3$.\index{commuting operators|)}
+\exercisecomment{This exercise shows that \ref{2EigenSum} does not hold on real vector spaces.}
+
+\begin{Solution}
+Define $S, T \in \L\paren[\big]{\R2}$ by
+\[
+S(x, y) = (-y, x) \andd T(x, y) = (y, -x).
+\]
+Then $S$ is a counterclockwise rotation by a right angle, and $T$ is a clockwise rotation by a right angle. Thus neither $S$ nor $T$ has any eigenvalues. The operators $S$ and $T$ commute because $T = -S$.
+
+The operator $S + T$ is the zero operator, which has $0$ as an eigenvalue, which does not  equal an eigenvalue of $S$ plus an eigenvalue of $T\3$.
+
+The operator $S T$ equals $I$, which has $1$ as an eigenvalue, which does not  equal an eigenvalue of $S$ plus an eigenvalue of $T\3$.
+\end{Solution}
+

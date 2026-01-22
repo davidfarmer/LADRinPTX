@@ -1,0 +1,769 @@
+
+\exercise
+Suppose $T \in \L(V\1, W)$ is invertible. Show that $T^{-1}$ is invertible and
+\[
+\paren[\big]{ T^{-1} }^{-1} = T\3.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+The desired result follows from the equations
+\[
+TT^{-1} = I \andd T^{-1}T = I,
+\]
+which show that $T$ is an inverse of $T^{-1}$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(U, V)$ and $S \in \L(V\1,W)$ are both invertible linear maps. Prove that $ST \in \L(U, W)$ is invertible and that $(ST)^{-1} = T^{-1} S^{-1}\!$.
+
+\begin{Solution}
+Note that
+\[
+(ST)\paren[\big]{T^{-1} S^{-1}} = S\paren[\big]{ T T^{-1}} S^{-1} = S I S^{-1} = S S^{-1} = I
+\]
+and
+\[
+\paren[\big]{T^{-1} S^{-1}}(ST) = T^{-1} \paren[\big]{S^{-1} S}T = T^{-1} I T = T^{-1} T = I.
+\]
+Thus $ST$ is invertible and $(ST)^{-1} = T^{-1} S^{-1}$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$T$ is invertible.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for every basis $v_1, \ldots, v_n$ of $V\1$.
+\item
+$Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V\1$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+First suppose (a) holds, so $T$ is invertible. Suppose $v_1, \ldots, v_n$ is a basis of $V\1$. To show that $Tv_1, \ldots, Tv_n$ is linearly independent, suppose $c_1, \ldots, c_n \in \F{}$ are such that
+\[
+c_1 Tv_1 + \cdots + c_n Tv_n = 0.
+\]
+Then
+\[
+T(c_1 v_1 + \cdots + c_n v_n) = 0.
+\]
+Because $T$ is invertible, the equation above implies that
+\[
+c_1  v_1 +  \cdots + c_n v_n = 0.
+\]
+Because $v_1, \ldots, v_n$ is a basis of $V\1$, the equation above implies that $c_1 = \cdots = c_n = 0$. Thus the list
+$Tv_1, \ldots, Tv_n$ is linearly independent and hence is a basis of $V\1$, completing the proof that (a) implies (b).
+
+Clearly (b) implies (c).
+
+Now suppose (c) holds. Thus there exists a basis $v_1, \ldots, v_n$ of $V$ such that $Tv_1, \ldots, Tv_n$ is a basis of $V\1$. Suppose $v \in V$ is such that $Tv = 0$. There exist $c_1, \ldots, c_n \in \F{}$ such that
+\[
+v = c_1v_1 +  \cdots + c_n v_n.
+\]
+Because $Tv = 0$, the equation above implies that
+\[
+0 = c_1 Tv_1 + \cdots + c_n Tv_n.
+\]
+Because $Tv_1, \ldots, Tv_n$ is a basis of $V\1$, the equation above implies that $c_1 = \cdots = c_n = 0$. Hence $v = 0$. This shows that $T$ is injective and thus is invertible, completing the proof that (c) implies (a).
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $\dim V > 1$. Prove that the set of
+noninvertible linear maps from $V$ to itself is  not a subspace of~$\L(V)$.
+
+\begin{Solution}
+Let $n = \dim V$ and let
+$v_1, \dots, v_n$ be a basis of~$V\1$.  Define $S, T \in \L(V)$ by
+\[
+S(a_1 v_1 + \dots + a_n v_n) = a_1 v_1
+\]
+and
+\[
+T(a_1 v_1 + \dots + a_n v_n) = a_2 v_2 + \dots + a_n v_n.
+\]
+Then $S$ is not injective because $Sv_2 = 0$ (this is where we use the hypothesis
+that $\dim V > 1$), and $T$ is not injective because $Tv_1 = 0$.  Thus both $S$ and
+$T$ are not invertible.  However, $S + T$ equals~$I$, which is invertible.  Thus
+the set of noninvertible linear maps from $V$ to itself is  not closed under addition, and hence
+it is not a subspace of~$\L(V)$.
+
+\Comment
+If $\dim V \le 1$, then the set of noninvertible linear maps from $V$ to itself equals $\{0\}$,
+which is a subspace of~$\L(V)$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional, $U$ is a subspace of $V\1$, and $S \in \L(U, V)$. Prove that there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$ if and only if $S$ is injective.\label{3inv}
+
+\begin{Solution}
+First suppose there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$. Because $T$ is injective, it is clear that $S$ is injective.
+
+Conversely, now suppose $S$ is injective. Let $u_1, \dots, u_m$ be a basis of $U$. Extend $u_1, \dots, u_m$ to a basis $u_1, \dots, u_m, v_1, \dots, v_n$ of $V\1$.
+
+By Exercise \ref{3001} in Section \ref{3nullspace}, the list $Su_1, \dots, Su_m$ is linearly independent. Thus we can extend to a basis $Su_1, \dots, Su_m, w_1, \dots, w_n$ of $V\1$.
+
+Use the linear map lemma (\ref{3linearmap}) to define $T \in \L(V)$ by
+\[
+Tu_k = Su_k \text{ for } k = 1, \dots, m \andd Tv_k = w_k \text{ for } k = 1, \dots, n.
+\]
+Then $Tu = Su$ for every $u \in U$ (because $T$ and $S$ agree on a basis of $U$) and $T$ is invertible (because the range of $T$ includes $Su_1, \dots, Su_m, w_1, \dots, w_n$, we see that $T$ is surjective and hence invertible).
+\end{Solution}
+
+\exercise
+Suppose that $W$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ker S = \ker T$
+if and only if there exists an invertible \mbox{$E \in \L(W)$} such that $S = ET\3$. \label{1020}
+
+\begin{Solution}
+First suppose that there exists an invertible $E \in \L(W)$ such that $S = ET\3$. Let $v \in V\1$. Then
+\begin{align*}
+v \in \ker S &\iff S v = 0 \\
+&\iff E(Tv) = 0 \\
+&\iff T v = 0 \\
+&\iff v \in \ker T,
+\end{align*}
+where the second equivalence holds because $E$ is invertible (and hence injective). Thus $\ker S = \ker T$, as desired.
+
+Now suppose that $\ker S = \ker T\3$. Define $E_1 \colon \ran T \to W$ by
+\[
+E_1(T v) = S v
+\]
+for each $v \in V\1$. To show that this definition makes sense, we must show that if $u, v \in V$ and $T u = T v$, then $S u = S v$. But this is true, because if $Tu = Tv$ then $u - v \in \ker T= \ker S$ and hence $Su = S v$.
+
+Now that $E_1$ is well defined, it is easy to verify that $E_1$ is a linear map from $\ran T$ to $W\3$. Suppose $w \in \ran T$ and $E_1 w = 0$. There exists $v \in V$ such that $w = Tv$. Now
+\[
+0 = E_1 w = E_1(Tv) = S v,
+\]
+and thus $v \in \ker S = \ker T\3$. Hence $w = Tv = 0$. Thus $E_1$ is injective.
+
+By Exercise \ref{3inv}, we can extend $E_1$ to an invertible linear map $E$ from $W$ to itself.
+
+The definition of $E_1$ shows that $S = ET\3$.
+\end{Solution}
+
+\exercise
+Suppose that $V$ is finite-dimensional and $S, T \in \L(V\1, W)$. Prove that
+$
+\ran S = \ran T
+$
+if and only if there exists an invertible $E \in \L(V)$ such that $S = T E$.
+
+\begin{Solution}
+First suppose there exists an invertible $E \in \L(V)$ such that $S = T E$. If $w \in \ran S$, then there exists $v \in V$ such that $w = Sv$. Thus
+\[
+w = S v = (TE)(v) = T(Ev),\]
+and hence $w \in \ran T\3$. Thus $\ran S \subset \ran T\3$.
+
+We have $T = S E^{-1}$. Thus by the same reasoning as in the paragraph above, we conclude that $\ran T \subset \ran S$.
+
+Combining the conclusions of the two paragraphs above shows that
+\[
+\ran S = \ran T,
+\]
+as desired.
+
+To prove the other direction, now suppose that $\ran S = \ran T\3$. The fundamental theorem of linear maps (\ref{3ab11}) implies that
+\[
+\dim \ker S = \dim \ker T\3.
+\]
+Let $v_1, \dots, v_m$ be a basis of $\ker S$ and let $u_1, \dots, u_m$ be a basis of $\ker T\3$.
+
+Extend $v_1, \dots, v_m$ to a basis $v_1, \dots, v_m, \dots v_n$ of $V\1$. For $m < k \le n$, we have $S v_k \in \ran S = \ran T$, and thus there exists $u_k \in V$ such that $Sv_k = T u_k$.
+
+Note that if $1 \le k \le m$, then we also have $Sv_k = T u_k$ because both sides equal $0$.
+
+Now use the linear map lemma (\ref{3linearmap}) to define a linear map $E$ from $V$ to $V$ such  that $Ev_k = u_k$ for each $k = 1, \dots, n$. If $1 \le k \le n$, then
+\[
+S v_k = T u_k = T(Ev_k) = (TE)(v_k).
+\]
+Thus $S = T E$ because these two linear maps agree on a basis.
+
+\pagebreak[2]
+
+To prove that $E$ is invertible, suppose $v \in V$ and $Ev = 0$. Then $S v = T Ev = 0$, and hence $v \in \ker S$.
+Thus $v \in \Span(v_1, \dots, v_m)$, and we can write
+\[
+v = a_1 v_1 + \dots + a_m v_m
+\]
+for some $a_1, \dots, a_m \in \F{}\3$. Applying $E$ to both sides of the equation above gives
+\[
+0 =  a_1 u_1 + \dots + a_m u_m.
+\]
+Because $u_1, \dots, u_m$ is linearly independent, this implies $a_1 = \dots = a_m = 0$. Hence $v = 0$. Thus $E$ is injective.
+
+Now \ref{a112} implies that $E$ is invertible, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $S, T\in \L(V\1, W)$. Prove that there exist invertible
+$E_1 \in \L(V)$ and $E_2\in \L(W)$ such that $S = E_2 T E_1$ if and only if $\dim \ker S = \dim \ker T\3$.
+
+\begin{Solution}
+First suppose that there exist invertible $E_2 \in \L(W)$ and $E_1 \in \L(V)$ such that $S = E_2 T E_1$. Suppose $v \in V\1$. Then
+\begin{align*}
+v \in \ker S &\iff S v = 0\\
+&\iff E_2TE_1v = 0 \\
+&\iff TE_1v = 0\\
+&\iff E_1v \in \ker T\\
+&\iff v \in \ran \bigl( {E_1}^{\2[-1]}|_{\ker T} \bigr)
+\end{align*}
+Thus $\ker S = \ran \bigl( {E_1}^{\2[-1]}|_{\ker T} \bigr)$. Hence
+\[
+\dim \ker S = \dim \ran \bigl( {E_1}^{\2[-1]}|_{\ker T} \bigr) = \dim \ker T,
+\]
+where the last equality follows from the fundamental theorem of linear maps (\ref{3ab11}). Thus
+$\dim \ker S = \dim \ker T$, as desired.
+
+To prove the other direction, now suppose $\dim \ker S = \dim \ker T\3$. Let $v_1, \dots, v_m$ be a basis of $\ker S$, and let $u_1, \dots, u_m$ be a basis of $\ker S$.
+
+Extend $v_1, \dots, v_m$ to a basis $v_1, \dots, v_m, \dots, v_n$ of $V\1$, and extend
+$u_1, \dots, u_m$ to a basis $u_1, \dots, u_m, \dots, u_n$ of $V\1$. Use the linear map lemma (\ref{3linearmap}) to define $E_1 \in \L(V)$ such  that $E_1v_k = u_k$ for all $k = 1, \dots, n$. Because $v_1, \dots, v_n$ and $u_1, \dots, u_n$ are both bases of $V\1$, it is easy to see that $E_1$ is invertible an invertible linear map from $V$ to $V\1$.
+
+Suppose $v \in V\1$. Then
+\begin{align*}
+v \in \ker S &\iff E_1v \in \ker T \\
+&\iff T(E_1v) = 0 \\
+&\iff v \in \ker TE_1.
+\end{align*}
+Thus $\ker S = \ker T E_1$. Applying Exercise \ref{1020} to the linear maps $S$ and $T E_1$, we conclude that there exists an invertible $E_2 \in \L(W)$ such that $S = E_2 T E_1$.
+\end{Solution}
+
+\begin{comment} % A more general exercise has replaced this one.
+\exercise
+Suppose $V$ and $W$ are finite-dimensional. Let $v \in V\1$. Let
+\[
+E = \br[\big]{T \in \L(V\1, W): Tv = 0}.
+\]
+\begin{subtheorem}
+\item
+Show that $E$ is a subspace of $\L(V\1, W)$.
+\item
+Suppose $v \ne 0$. What is $\dim E$?
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+It is easy to verify that $0 \in E$, that $E$ is closed under addition, and that $E$ is closed under scalar multiplication. Thus $E$ is a subspace of $\L(V\1, W)$.
+\item
+Define $F \colon \L(V\1, W) \to W$ by
+\[
+F(T) = Tv.
+\]
+It is easy to verify that $F$ is a linear map. Note that $E = \ker F$. Note also that $F$ is surjective, as follows from the linear map lemma (\ref{3linearmap}). Now
+\begin{align*}
+\dim E &= \dim \ker F \\
+&= \dim \L(V\1, W) - \dim \ran F \\
+&= (\dim V)(\dim W) - \dim W\3,
+\end{align*}
+when the second equality follows from the fundamental theorem of linear maps (\ref{3ab11}) and the last equality follows from \ref{247}. Thus
+\[
+\dim E = (\dim V)(\dim W) - \dim W\3.
+\]
+\end{subtheorem}
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \colon V \to W$ is a surjective linear map of $V$ onto $W\3$.  Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W\3$.
+\exercisecomment{Here\/ $T|_U$ means the function\/ $T$ restricted to\/ $U$. Thus\/ $T|_U$ is the function whose domain is\/ $U$, with\/ $T|_U$ defined by\/ $T|_U(u) = Tu$ for every\/ $u \in U$.}
+
+\begin{Solution}
+Let $w_1, \dots, w_m$ be a basis of $W\3$. Because $T$ is surjective, for each $k = 1, \dots, m$, there exists $v_k \in V$ such that $Tv_k = w_k$.
+
+Let $U = \Span(v_1, \dots, v_m)$. Thus $\dim U \le m$.
+
+Now $\ran T|_U = W$ (because $w_k \in \ran T|_U$ for each $k = 1, \dots, m$). The fundamental theorem of linear maps (\ref{3ab11}) thus tells us that
+\[
+m \ge \dim U = \dim \ker T|_U + m,
+\]
+which implies that $\dim \ker T|_U = 0$, which implies that $T|_U$ is injective. Thus $T|_U$ is an isomorphism of $U$ onto $W\3$.
+\end{Solution}
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V\1$. Let
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\E = \br[\big]{ T \in \L(V\1, W): U \subset \ker T}.
+\]
+\begin{subtheorem}
+\item
+Show that $\E$ is a subspace of $\L(V\1, W)$.
+\item
+Find a formula for $\dim \E$ in terms of $\dim V\1$, $\dim W\3$, and $\dim U$.
+\end{subtheorem}
+\hint{Define\/ $\fun \Phi {\L(V\1, W)} {\L(U,W)}$ by\/ $\Phi(T) = T|_U$. What is\/ $\ker \Phi$? What is\/ $\ran \Phi$?}
+
+\begin{Solution}
+Define $\fun \Phi {\L(V\1, W)} {\L(U,W)}$ by $\Phi(T) = T|_U$.
+\begin{subtheorem}
+\item
+Because $\Phi$ is a linear map and $\ker \Phi = \E$, we can conclude that $\E$ is a subspace of $\L(V\1, W)$.
+\item
+Exercise \ref{384} in Section \ref{vslinear} implies that $\ran \Phi = \L(U, W)$. Thus the fundamental theorem of linear maps shows that
+\begin{align*}
+(\dim V)(\dim W) &= \dim(V\1, W) \\[3bp]
+&= \dim \ker \Phi + \dim \ran \Phi \\[3bp]
+&= \dim \E + \dim \L(U, W) \\[3bp]
+&= \dim \E+ (\dim U)(\dim W).
+\end{align*}
+Thus
+\[
+\dim \E = (\dim V - \dim U)(\dim W).
+\]
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T \in \L(V)$.  Prove that \label{379}
+\[
+ST \text{ is invertible} \iff S \text{ and } T \text{ are invertible}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First suppose $ST$ is invertible.  Thus there exists $R \in \L(V)$ such that
+$R(ST) = (ST)R = I$.  If $v \in V$ is such that $Tv = 0$,  then
+\begin{align*}
+v &= Iv \\
+&= R(ST)v \\
+&= 0.
+\end{align*}
+Because $v$ was an arbitrary vector in $\ker T$, this shows that $\ker T = \{0\}$.
+Thus $T$ is injective (by~\ref{12}). Hence
+$T$ is invertible (by~\ref{18}), as desired.
+
+If $u \in V\1$, then
+\begin{align*}
+u &= Iu \\
+&= (ST)Ru \\
+&= S(TRu),
+\end{align*}
+which shows that $u \in \ran S$.  Because $u$ was an arbitrary vector in $V\1$,
+this implies that $\ran S = V\1$.  Thus $S$ is surjective. Hence $S$ is
+invertible (by~\ref{18}), as desired.
+
+To prove the implication in the other direction, now suppose both $S$ and $T$
+are invertible.  Then
+\begin{align*}
+(ST)\paren[\big]{T^{-1} S^{-1}} &= S\paren[\big]{TT^{-1}}S^{-1} \\
+&= SS^{-1} \\
+&= I
+\end{align*}
+and
+\begin{align*}
+\paren[\big]{T^{-1} S^{-1}}(ST) &= T^{-1}\paren[\big]{S^{-1}S}T \\
+&= T^{-1}T \\
+&= I.
+\end{align*}
+Thus $T^{-1} S^{-1}$ satisfies the properties required for an inverse of $ST\3$.
+Thus $ST$ is invertible and $(ST)^{-1} = T^{-1} S^{-1}$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $S, T, U \in \L(V)$ and
+$
+STU = I$.
+Show that $T$ is invertible and that $T^{-1} = US$.\label{3STU}
+
+\begin{Solution}
+The equation $(ST)U = I$ implies (by \ref{203}) that $U(ST) = I$, which we can write as
+\[
+(US)T =I.
+\]
+Now \ref{203} implies that
+\[
+T(US) = I.
+\]
+The two displayed equations above imply that $T$ is invertible and $T^{-1} = US$.
+\end{Solution}
+
+\exercise
+Show that the result in Exercise \ref{3STU} can fail without the hypothesis that $V$ is finite-dimensional.
+
+\begin{Solution}
+Let $V = \F{\infty}$ and let $S$ be the identity operator on $\FF{\infty}$.
+
+Let $T$ be the backward shift on $\F{\infty}$:
+\[
+T(x_1, x_2, x_3, \dotsc) = (x_2, x_3, \dotsc),
+\]
+and let $U$ be the forward shift on $\F{\infty}$:
+\[
+U(x_1, x_2, x_3, \dotsc) = (0, x_1, x_2, \dotsc).
+\]
+Then $STU = I$, but $T$ is not invertible.
+\end{Solution}
+
+\exercise
+Suppose $V$ is a finite-dimensional vector space and $R, S, T \in
+\L(V)$ are such that $RST$ is surjective.  Prove
+that $S$ is  injective.
+
+\begin{Solution}
+Because $RST$ is surjective, $R(ST)$ is invertible (by \ref{18}). Exercise \ref{379} now implies that $ST$ is invertible. Another use of Exercise \ref{379} implies that $S$ is invertible. Thus $S$ is injective.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_m$ is a list in $V$ such that $Tv_1, \dots, Tv_m$ spans~$V\1$. Prove that
+$v_1, \dots, v_m$ spans $V\1$.
+
+\begin{Solution}
+Because the list $Tv_1, \dots, Tv_m$ spans~$V\1$, the vector space $V$ is finite-dimensional and the linear map $T$ is surjective. Thus $T$ is injective (by \ref{18}).
+
+Suppose $v \in V\1$. Because $Tv \in V$ and $Tv_1, \dots, Tv_m$ spans~$V\1$, there exist $a_1, \ldots, a_m \in \F{}$ such that
+\begin{align*}
+Tv &= a_1 Tv_1 + \cdots + a_m Tv_m \\[3bp]
+&= T( a_1 v_1 + \cdots + a_m v_m ).
+\end{align*}
+Because $T$ is injective, the equation above implies that
+\[
+v = a_1 v_1 + \cdots + a_m v_m.
+\]
+Thus $v_1, \dots, v_m$ spans $V\1$.
+\end{Solution}
+
+\begin{comment}
+
+\exercise
+Suppose $w_1, \dots, w_m$ is a basis of $W\3$.  Prove that the map
+$w \mapsto \M(w)$ is an isomorphism of $W$ onto $\F{m,1}$; here $\M(w)$ is
+the matrix of $w \in W$ with respect to the basis $w_1, \dots, w_m$.
+
+\begin{Solution}
+For purposes of this solution, we will denote the map $w \mapsto \M(w)$ from $W$ to $\F{m,1}$ by $\M$.
+
+Suppose $u, w \in W\3$.  We can write
+\[
+u = a_1 w_1 + \dots + a_m w_m \andd w = c_1 w_1 + \dots + c_m w_m
+\]
+for some $a_1, \dots, a_m, c_1, \dots, c_n \in \F{}\3$.  Thus
+\[
+u + w = (a_1 + c_1) w_1 + \dots + (a_m + c_m) w_m.
+\]
+Hence
+\begin{align*}
+\M(u + w) &= \mat{c}{a_1 + c_1 \\ \vdots \\ a_m + c_m} \\[6bp]
+&= \mat{c}{a_1 \\ \vdots \\ a_m} + \mat{c}{c_1 \\ \vdots \\ c_m} \\[6bp]
+&= \M(u) + \M(w) ,
+\end{align*}
+which shows that $\M$ satisfies the additivity property required for linearity.
+
+If $\al \in \F{}\3$, then
+\[
+\al u = \al a_1 w_1 + \dots + \al a_m w_m.
+\]
+Hence
+\pagebreak[1]
+\begin{align*}
+\M(\al u) &= \mat{c}{\al a_1 \\ \vdots \\ \al a_m} \\[6bp]
+&= \al  \mat{c}{a_1 \\ \vdots \\ a_m} \\[6bp]
+&= \al  \M(u),
+\end{align*}
+which shows that $\M$ satisfies the homogeneity property required for linearity.  Thus
+$\M$ is linear.
+
+If $\M(u) = 0$, then $a_1 = \dots = a_m = 0$, which implies that $u = 0$.  Thus $\M$ is
+injective.
+
+If $d_1, \dots, d_m \in \F{}\3$, then
+\[
+\M(d_1 w_1 + \dots + d_n w_m) =
+\mat{c}{d_1 \\ \vdots \\ d_m},
+\]
+which implies that $\M$ is surjective.
+
+Because the linear map $\M$ is injective and surjective, it is invertible
+(see \ref{a112}).
+\end{Solution}
+
+\end{comment}
+
+\exercise
+Prove that every linear map from $\F{n,1}$ to $\F{m,1}$ is given by a matrix multiplication.  In other words, prove that if
+$T \in \L\paren[\big]{\FF{n,1}, \F{m,1}}$, then there exists an \by{m}{n} matrix $A$ such that $Tx = Ax$ for every $x \in \FF{n,1}$.
+
+\begin{Solution}
+The vector spaces $\F{n,1}$ and $\F{m,1}$ have standard bases
+(consisting of matrices that have $0$ in all entries except for a $1$ in one entry).
+Let $A$ be the matrix of $T$ with respect to these bases.  Note that if $x \in
+\FF{n,1}$, then $\M(x) = x$ and
+$\M(Tx) = Tx$.  Thus
+\begin{align*}
+Tx &= \M(Tx) \\
+&= \M(T) \M(x) \\
+&= A x,
+\end{align*}
+where the second equality comes from \ref{438}.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $S \in \L(V)$. Define $\A \in \L\paren[\big]{\L(V)}$ by
+\[
+\A(T) = ST
+\vspace{-6bp}
+\]
+for $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Show that $\dim \ker \A  = (\dim V)(\dim \ker S)$.
+\item
+Show that $\dim \ran \A  = (\dim V)(\dim \ran S)$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Note that
+\[
+\ker \A = \br{T \in \L(V): \ran T \subset \ker S}.
+\]
+In other words, $\ker \A$ is the vector space of linear maps from $V$ to $\ker S$. By \ref{247}, the dimension of this vector space is
+$(\dim V)(\dim \ker S)$. Thus $\dim \ker \A  = (\dim V)(\dim \ker S)$.
+
+\item
+We have
+\begin{align*}
+\dim \ran \A &= \dim \L(V) - \dim \ker \A \\[4bp]
+&= (\dim V)^2 - (\dim V)(\dim \ker S) \\[4bp]
+&= (\dim V) (\dim V - \dim \ker S) \\[4bp]
+&= (\dim V)(\dim \ran S),
+\end{align*}
+where the first and last equalities come from the fundamental theorem of linear maps and the second equality comes from \ref{247} and (a).
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Show that $V$ and $\L(\F{}, V)$ are isomorphic vector spaces.
+
+\begin{Solution}
+Define $T \colon V \to \L(\F{}, V)$ by
+\[
+(Tv)(\la) = \la v
+\]
+for each $v \in V$ and each $\la \in \F{}\3$. The easy verifications that $Tv$ is a linear map from $\F{}$ to $V$ and that $T$ is a linear map from $V$ to $\L(\F{}, V)$ follow from the definition of a vector space.
+
+Suppose $v \in V$ and $Tv = 0$. Thus $0 = (Tv)(1) = v$. Hence $T$ is injective by \ref{12}.
+
+To show that $T$ is surjective, suppose $S \in \L(\F{}, V)$. Let $v = S(1)$. If $\la \in \F{}\3$, then
+\begin{align*}
+(Tv)(\la) &= \la v \\
+&= \la S(1) \\
+&= S(\la).
+\end{align*}
+Thus $S = Tv$. Hence $T$ is surjective.
+
+Because $T$ is injective and surjective, we conclude that $V$ and $\L(\F{}, V)$ are isomorphic vector spaces, as desired.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$. Prove that $T$ has the same matrix with respect to every basis of~$V$ if and only if $T$ is a scalar multiple of the identity operator.
+
+\begin{Solution}
+First suppose $T$ has the same matrix with respect to every basis of~$V\1$.
+We begin by proving that $v,Tv$ is linearly dependent for every
+$v \in V\1$.  To do this, fix $v \in V\1$, and suppose $v, Tv$ is linearly
+independent.  Then $v, Tv$ can be extended to a basis $v, Tv, u_1, \dots, u_n$
+of~$V\1$.  The first column of the matrix of $T$ with respect to this basis is
+\[
+\mat{c}{0 \\ 1 \\ 0 \\ \vdots \\ 0}.
+\]
+Clearly $2v, Tv, u_1, \dots, u_n$ is also a basis of $V\1$.
+The first column of the matrix of $T$ with respect to this basis is
+\[
+\mat{c}{0 \\ 2 \\ 0 \\ \vdots \\ 0}.
+\]
+Thus $T$ has different matrices with respect to the two bases we have considered.
+This contradiction shows that $v,Tv$ is linearly dependent for every $v \in V\1$.
+This implies that for every nonzero vector in $V$ is an eigenvector of~$T\3$.  This implies
+that $T$ is a scalar multiple of the identity operator (by Exercise~\ref{388} in
+Chapter~\ref{182}).
+
+To prove the implication in the other direction, note that if $\la \in \F{}$ and $T = \la I$, then the matrix of $T$ with respect to every basis of $V$ is the diagonal matrix with only $\la$ on the diagonal.
+\end{Solution}
+
+\exercise
+Suppose $q \in \P(\R{})$. Prove that there exists a polynomial $p \in \P(\R{})$ such that
+\[
+q(x) = \paren[\big]{x^2 + x} p'' \! (x) +2x p' \! (x) + p(3)
+\]
+for all $x \in \R{}$.
+
+\begin{Solution}
+Let $m = \deg q$. Define $T \in \L\paren[\big]{ \P\1_m(\R{}) }$ by
+\[
+Tp = (x^2 + x) p'' \! (x) + 2 x p' \! (x) + p(3)
+\]
+for all $x \in \R{}$. The linear map $T$ indeed maps $\P\1_m(\R{})$ to itself because
+\[
+\deg (x^2 + x) p'' \! (x) + 2 x p' \! (x) + p(3) = \deg p
+\]
+for every polynomial $p \in \P(\R{})$.
+
+ The equation above also implies that if $Tp = 0$ then $p = 0$. Thus $T$ is injective. Hence $T$ is surjective (by \ref{18}). Thus there exists $p \in \P\1_m(\R{})$ such that $Tp = q$.
+\end{Solution}
+
+\exercise
+Suppose $n$ is a positive integer and $A_{j,k} \in \F{}$ for all $j,k = 1, \dots, n$.
+Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of  variables).\index{homogeneous system of linear equations}\index{linear equations}
+\begin{subtheorem}*
+\item
+The trivial solution $x_1 = \dots = x_n = 0$ is the only solution to the
+homogeneous system of equations
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= 0 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= 0.
+\end{align*}
+
+\item
+For every $c_1, \dots, c_n \in \F{}\3$, there exists a solution to the system of
+equations\index{inhomogeneous system of linear equations}
+\begin{align*}
+\sum_{k=1}^n A_{1,k} \, x_k &= c_1 \\
+& \vdots \\
+\sum_{k=1}^n A_{n,k} \, x_k &= c_n.
+\end{align*}
+\end{subtheorem}
+
+\begin{Solution}
+Define $T \in \L\paren[\big]{\F{n}}$ by
+\[
+T(x_1, \dots, x_n) =
+\bigl(\sum_{k=1}^n A_{1,k}x_k, \dots, \sum_{k=1}^n A_{n,k}x_k\bigr).
+\]
+Then (a) above is the assertion that $T$ is injective, and (b) above is the
+assertion that $T$ is surjective.  By \ref{18}, these two assertions are equivalent.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $T \in \L\bigl( \P(\F{}) \bigr)$ is such that $T$ is injective and $\deg Tp \le \deg p$ for every nonzero polynomial $p \in \P(\F{})$.
+\begin{subtheorem}
+\item
+Prove that $T$ is surjective.
+\item
+Prove that $\deg Tp = \deg p$ for every nonzero $p \in \P(\F{})$.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+For each nonnegative integer $m$, define $T\3_m \in \L\bigl(\P\1_m(\F{})\bigr)$ by
+\[
+T\3_m p = T p.
+\]
+In other words, $T\3_m$ equals $T$ restricted to $\P\1_m(\F{})$. The linear map $T\3_m$ maps $\P\1_m(\F{})$ into $\P\1_m(\F{})$ because of the hypothesis that $\deg Tp \le \deg p$ for every nonzero $p \in \P(\F{})$.
+
+Because $T$ is injective, each $T\3_m$ is also injective. Because $\P\1_m(\F{})$ is finite-dimensional, we conclude that $T\3_m$ is surjective (by \ref{18}). Because each $p \in \P(\F{})$ is in some $\P\1_m(\F{})$, this implies that $T$ is surjective, as desired.
+
+\item
+Suppose $p \in \P(\F{})$ is nonzero. Let $m = \deg Tp$. By (a), there exists $q \in \P\1_m(\F{})$ such that $Tp = Tq$. Because $T$ is injective, we have $q = p$. Thus
+\[
+\deg p \le m = \deg Tp \le \deg p.
+\]
+Hence $\deg Tp = \deg p$, as desired.
+\end{subtheorem}
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $T \in \L(V)$ and $v_1, \dots, v_n$ is a basis of~$V\1$.  Prove that
+\[
+\M\bigl(T, (v_1, \dots, v_n) \bigr) \text{ is invertible} \iff T \text{ is invertible}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First suppose $\M(T)$ is an invertible matrix (because the only basis is
+sight is $v_1, \dots, v_n$, we can leave the basis out of the notation).  Thus
+there exists an \by{n}{n} matrix $B$ such that
+\[
+\M(T) B = B \M(T) = I.
+\]
+There exists an operator $S \in \L(V)$ such that $\M(S) = B$ (see~\ref{103}).
+Thus the equation above becomes
+\[
+\M(T) \M(S) = \M(S) \M(T) = I,
+\]
+which we can rewrite as
+\[
+\M(TS) = \M(ST) = \M(I),
+\]
+which implies that
+\[
+TS = ST = I.
+\]
+Thus $T$ is invertible, as desired, with inverse $S$.
+
+To prove the implication in the other direction, suppose now that $T$ is
+invertible.  Thus there exists $S \in \L(V)$ such that
+\[
+TS = ST = I.
+\]
+This implies that
+\[
+\M(TS) = \M(ST) = \M(I),
+\]
+which implies that
+\[
+\M(T) \M(S) = \M(S) \M(T) = I.
+\]
+Thus $\M(T)$ is invertible, as desired, with inverse $\M(S)$.
+\end{Solution}
+
+\exercise
+Suppose that $u_1, \dots, u_n$ and $v_1, \dots, v_n$ are bases of~$V\1$.  Let
+$T \in \L(V)$ be such that $Tv_k = u_k$ for each
+$k = 1, \dots, n$.  Prove that
+\[
+\M\bigl( T, (v_1, \dots, v_n) \bigr) =
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr).
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Fix $k$.  Write
+\[
+u_k = A_1 v_1 + \dots + A_n v_n,
+\]
+where $A_1, \dots, A_n \in \F{}\3$.
+
+Because $Tv_k = u_k$, the $k^\nth$ column of
+the matrix $\M\bigl( T, (v_1, \dots, v_n) \bigr)$ consists of the numbers
+$A_1, \dots, A_n$.  Because $Iu_k = u_k$, the $k^\nth$ column of
+\[
+\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr)
+\]
+also consists of the numbers $A_1, \dots, A_n$.
+
+Because $\M\bigl( T, (v_1, \dots, v_n) \bigr)$ and
+$\M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr)$ have the same columns,
+these two matrices are equal.
+\end{Solution}
+
+\exercise
+Suppose $A$ and $B$ are square matrices of the same size and $AB = I$. Prove that $BA = I$.
+
+\begin{Solution}
+Suppose $A$ and $B$ are \by{n}{n} matrices and $AB = I$. There exist
+$S, T \in \L\paren[\big]{\F{n}}$ such that
+\[
+\M(S) = A \andd \M(T) = B;
+\]
+here we are using the standard basis of $\F{n}$ (the existence of
+$S, T \in \L\paren[\big]{\F{n}}$ satisfying the equations above follows from~\ref{103}).
+Because $AB = I$, we have $\M(S) \M(T) = I$, which implies that $\M(ST) = \M(I)$,
+which implies that $ST = I$, which implies that $TS = I$ (by \ref{203}).  Thus
+\begin{align*}
+BA &= \M(T) \M(S) \\
+&= \M(TS) \\
+&= \M(I) \\
+&= I.
+\end{align*}
+\end{Solution}
+

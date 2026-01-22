@@ -1,0 +1,112 @@
+
+\exercise
+Suppose $V$ is an inner product space and $v, w \in V\1$.  Define an operator
+$T \in \L(V)$ by $Tu = \ip{u, v} w$.  Find a formula for~$\tr T\3$.
+
+
+\exercise
+Suppose $P \in \L(V)$ satisfies $P^2 = P\1$. Prove that
+\[
+\tr P = \dim \ran P\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $T^5 = T\3$. Prove that the real and imaginary parts of $\tr T$ are both integers.
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$. Prove that \label{393}
+\[
+\tr T^* = \overline{\tr T}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is an inner product space.  Suppose $T \in \L(V)$ is a positive
+operator and $\tr T = 0$. Prove that $T = 0$. \label{391}
+
+
+\exercise
+Suppose $V$ is an inner product space and $P\1, Q \in \L(V)$ are orthogonal projections. Prove that $\tr(PQ) \ge 0$.
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{3}}$ is the operator whose matrix is
+\[
+\mat{ccc}{
+51 &-12 &-21 \\
+60 &-40 &-28 \\
+57 &-68 &1}.
+\]
+Someone tells you (accurately) that $-48$ and $24$ are eigenvalues of~$T\3$.
+Without using a computer or writing anything down, find the third eigenvalue
+of~$T\3$.
+
+
+\exercise
+Prove or give a counterexample: If $S, T \in \L(V)$, then
+$
+\tr (ST) = (\tr S) (\tr T)$.
+%\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\tr(ST) = 0$ for all $S \in \L(V)$. Prove that $T = 0$.
+
+
+\exercise
+Prove that the trace is the only linear functional $\fun \tau {\L(V)} {\F{}}$ such that\label{9trChar}
+\[
+\tau(ST) = \tau(TS)\]
+for all $S, T \in \L(V)$ and $\tau(I) = \dim V\1$.
+\hint{Suppose that\/ $v_1, \ldots, v_n$ is a basis of\/ $V\1$. For\/ $j, k \in \br{1, \ldots, n}$, define\/ $P_{j,k} \in \L(V)$ by
+$
+P_{j,k}(a_1 v_1 + \cdots + a_n v_n) = a_k v_j$.
+Prove that
+\vspace{-7bp}
+\[
+\tau(P_{j,k}) = \begin{cases}
+1 & \text{if } j = k, \\
+0 &\text{if } j \ne k.
+\end{cases}
+\vspace{-6bp}
+\]
+Then for\/ $T \in \L(V)$, use the equation\/ $T = \sum_{k=1}^n \sum_{\js}^n \M(T)_{j,k} P_{j,k}$ to show that\/ $\tau(T) = \tr T$.}
+
+
+\exercise
+Suppose $V$ and $W$ are inner product spaces and $T \in \L(V\1,W)$.
+Prove that if $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$, then\label{390}
+\[
+\tr\paren[\big]{T^*T} = \sum_{k=1}^n \sum_{\js}^m \abs{ \ip{Te_k, f_j} }^2\1.
+\]
+\exercisecomment{The numbers\/ $\ip{Te_k, f_j}$ are the entries of the matrix of\/ $T$ with respect to the orthonormal bases\/
+$e_1, \dots, e_n$ and\/ $f_1, \ldots, f_m$. These numbers depend on the bases, but\/ $\tr (T^*T)$ does not depend on a choice of bases. Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional inner product spaces.
+\begin{subtheorem}
+\item
+Prove that
+$
+\ip{S, T} = \tr \paren[\big]{T^*S}
+$
+defines an inner product on $\L(V\1, W)$.
+\item
+Suppose $e_1, \dots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W\3$. Show that the inner product on $\L(V\1, W)$ from (a) is the same as the standard inner product on $\FF{mn}$, where we
+identify each element of $\L(V\1, W)$ with its matrix (with respect to the bases just mentioned) and then with an element of
+$\FF {mn}$.\index{Frobenius norm}\index{Hilbert--Schmidt norm}
+\end{subtheorem}
+\exercisecomment{Caution: The norm of a linear map\/ $T \in \L(V\1, W)$ as defined by \ref{7norm} is not the same as the norm that comes from the inner product in \uppar{a} above. Unless explicitly stated otherwise, always assume that\/ $\norm{T}$ refers to the norm as defined by \ref{7norm}.  The norm that comes from the inner product in \uppar{a} is called the \emph{Frobenius norm} or the \emph{Hilbert--Schmidt norm}.}
+
+
+\exercise
+Find $S, T \in \L\paren[\big]{ \P(\F{}) }$ such that $ST - TS = I$.\label{9commutator}
+\hint{Make an appropriate modification of the operators in Example \ref{3noncom}.}
+\exercisecomment{This exercise shows that additional hypotheses are needed on $S$ and $T$ to extend \ref{10ST} to the setting of infinite-dimensional vector spaces.}
+
+

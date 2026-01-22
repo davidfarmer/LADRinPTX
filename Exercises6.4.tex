@@ -1,0 +1,720 @@
+
+\exercise
+Suppose $\dim V \ge 2$ and $S\in \L(V\1, W)$. Prove that $S$ is an isometry if and only if $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V\1$.\label{2iso}
+
+\begin{Solution}
+First suppose $S$ is an isometry. Then by the equivalence of (a) and (c) in \ref{234}, $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V\1$.
+
+To prove the implication in the other direction, now suppose $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list
+$e_1, e_2$ of length two in $V\1$. Suppose $v \in V\1$. We want to show that $\norm{Sv} = \norm{v}$. If $v = 0$, then $Sv = 0$ and we have $\norm{Sv} = 0 = \norm{v}$. Thus assume $v \ne 0$.
+
+Let
+\[ \tag{$(*)$}
+e_1 = \frac{v}{\norm{v}}.
+\]
+Then $\norm{e_1} = 1$. Extend $e_1$ to an orthonormal list $e_1, e_2$ in $V$ (this is where we use the hypothesis that
+$\dim V \ge 2$). Thus $Se_1, Se_2$ in an orthonormal list in $W\3$.
+
+Let $U = \Span(e_1, e_2)$. Then $e_1, e_2$ is an orthonormal basis of $U$. By the equivalence of (a) and (d) in \ref{234} (as applied to $T|_U$), we see that $T|_U$ is an isometry on $U$. In particular, this implies that $\norm{Te_1} = 1$.
+
+Applying $T$ to both sides of $(*)$ shows that $Tv = \norm{v} Te_1$. Thus we see that $\norm{Tv} = \norm{v}$. Hence $T$ is an isometry, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V, W)$. Prove that $T$ is a scalar multiple of an isometry if and only if $T$ preserves orthogonality.
+\exercisecomment{The phrase ``$T$ preserves orthogonality'' means that\/ $\ip{Tu, Tv} = 0$ for all\/ $u, v \in V$ such
+that\/ $\ip{u,v} = 0$.}
+
+\begin{Solution}
+First suppose $T$ is a scalar multiple of an isometry. Then the equivalence of (a) and (c) in \ref{234} shows that $T$ preserves isometries.
+
+To prove the implication in the other direction, now suppose $T$ preserves orthogonality. Let $u, v \in V$. Then
+\[
+\ip[\big]{ \norm{v}^2 u - \ip{u, v} v, v} = 0,
+\]
+which implies that
+\begin{align*}
+0 &= \ip[\big]{ \norm{v}^2 Tu - \ip{u, v} Tv, Tv} \\
+&= \norm{v}^2 \ip{Tu, Tv} - \ip{u, v} \norm{Tv}^2\1.
+\end{align*}
+Hence
+\[
+\frac{ \norm{Tv}^2 }{\norm{v}^2 } = \frac{ \ip{Tu, Tv} }{\ip{u,v}}
+\]
+provided that $\ip{u, v} \ne 0$.
+
+Now interchange the roles of $u$ and $v$ in the equation above, and then take complex conjugates of both sides, getting
+\[
+\frac{ \norm{Tu}^2 }{\norm{u}^2 } = \frac{ \ip{Tu, Tv} }{\ip{u,v}}
+\]
+provided that $\ip{u, v} \ne 0$. Comparing the last two displayed equations, we conclude that
+\[
+\frac{ \norm{Tv}^2 }{\norm{v}^2 } = \frac{ \norm{Tu}^2 }{\norm{u}^2 }
+\]
+provided that $\ip{u, v} \ne 0$.
+
+Fix $u \in V$ with $u \ne 0$, and let $c = \norm{Tu}/\norm{u}$. Thus
+\[
+\norm{Tv} = c \norm{v}
+\]
+for all $v \in V$ such that $\ip{u,v} \ne 0$. To prove that the equation above also holds if $\ip{u, v} = 0$, let $v\in V$ be such that $\ip{u,v} = 0$. Then $\ip{u+v, u} = \norm{u}^2 \ne 0$, which implies that
+\[
+\norm[\big]{T(u+v)}^2 = c^2 \norm{u+v}^2 = c^2 \norm{u}^2 + c^2 \norm{v}^2\1.
+\]
+Because $T$ preserves orthogonality, we have $\ip{Tu, Tv} = 0$, which implies that
+\[
+\norm[\big]{T(u + v)}^2 = \norm{Tu + Tv}^2 = \norm{Tu}^2 + \norm{Tv}^2 = c^2 \norm{u}^2 + \norm{Tv}^2\1.
+\]
+Comparing the last two displayed equations, we have now shown that
+\[
+\norm{Tv} = c \norm{v}
+\]
+for all $v \in V\1$. Thus $T/c$ is an isometry, and thus $T$ is a scalar multiple of the isometry $T/c$.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $S \in \L(V\1, W)$ preserves orthogonality, meaning that $u, v \in V$ and $\ip{u, v} = 0$ implies $\ip{Su, Sv} = 0$. Suppose also that there exists $e \in V$ such that $e \ne 0$ and $\norm{Se} = \norm{e}$. Prove that $S$ is an isometry.
+
+\begin{Solution}
+Replacing $e$ with $e/ \norm{e}$, we can assume that $\norm{Se} = \norm{e} = 1$.
+
+Suppose $v \in V$ and $\norm{v} = 1$. Let $\al \in \F{}$ be such that $\abs{\al} = 1$ and
+\[
+\im \al \ip{v, e} = 0;
+\]
+for example, we can take $\al = 1$ if $\im \ip{v, e} = 0$ (as happens if $\F{} = \R{}$) and we can take $\al = \abs{ \ip{v, e} } / \ip{v, e}$ if
+$\im \ip{v, e} \ne 0$. Now
+\begin{align*}
+\ip{e + \al v, e - \al v} &= \norm{e}^2 - \norm{\al v}^2 + \al \ip{v, e} - \overline{\al} \ip{e, v} \\
+&= 1 - 1 + \al \ip{v, e} - \overline{\al \ip{v, e} }\\
+&= 2i \im \al \ip{v,e} \\
+&= 0.
+\end{align*}
+Because $S$ preserves orthogonality, the equation above implies that
+\begin{align*}
+0 &= \ip{ T(e + \al v), T(e - \al v) } \\
+&= \norm{Te}^2 - \norm{ T(\al v) } ^2 + \al \ip{Tv, Te} - \overline{\al} \ip{Te, Tv} \\
+&= 1 - \norm{Tv}^2 +  \al \ip{Tv, Te} - \overline{ \al \ip{Tv, Te} } \\
+&= 1 - \norm{Tv}^2 + 2i \im \al \ip{Tv, Te}.
+\end{align*}
+Taking the real part of both sides of the equation above shows that $0 = 1 - \norm{Tv}^2\1$. Hence $\norm{Tv} = 1$.
+
+Now suppose $u \in V$ with $u \ne 0$. Applying the result of the previous paragraph to $u / \norm{u}$ (which is a vector with norm $1$) shows that
+\[
+\norm[\bigg]{ T\paren[\bigg]{ \frac{u}{\norm{u}} } }= 1.
+\]
+Thus $\norm{Tu} = \norm{u}$. Hence $T$ is an isometry, as desired.
+\end{Solution}
+\end{comment}
+
+\exercise
+\begin{SUBtheorem}
+\item
+Show that the product of two unitary operators on $V$ is a unitary operator.
+\item
+Show that the inverse of a unitary operator on $V$ is a unitary operator.
+\end{SUBtheorem}
+\exercisecomment{This exercise shows that the set of unitary operators on $V$ is a group, where the group operation is the usual product of two operators.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $S, T \in \L(V)$ are unitary operators. If $v \in V$, then
+\[
+\norm[\big]{(ST)(v)} = \norm[\big]{ S(Tv) } = \norm{Tv} = \norm{v}.
+\]
+Thus $ST$ is an isometry and hence is unitary.
+
+\item
+Suppose $S \in \L(V)$ is unitary. Then the equivalence of (a) and (b) in \ref{734u} shows that $S^{-1} = S^*\1$. Now the equivalence of (a) and (f) in \ref{734u} shows that $S^{-1}$ is a unitary operator.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $A, B \in \L(V)$ are self-adjoint. Show that $A + iB$ is unitary if and only if $AB = BA$ and
+$A^2 + B^2 = I$.
+
+\begin{Solution}
+Note that
+\begin{align*}
+(A + iB)^* (A + iB) &= (A - iB)(A + iB) \\
+&= A^2 + B^2 + i(AB - BA)
+\end{align*}
+and
+\begin{align*}
+(A + iB) (A + iB)^* &= (A + iB)(A - iB) \\
+&= A^2 + B^2 + i(BA - AB).
+\end{align*}
+The equations above show that $A + iB$ is a normal operator if and only if $AB - BA = BA - AB$, which happens if and only if
+$AB = BA$.
+
+Now suppose $A + iB$ is unitary. Then $A + iB$ is normal, and the remark above shows that $AB = BA$. Also, because $A + iB$ is unitary, we have $(A + iB)^* (A + iB) = I$, which by the equations above implies that $A^2 + B^2 = I$.
+
+To prove the implication in the other direction, now suppose $AB = BA$ and $A^2 + B^2 = I$. Then the equations above show that
+$(A + iB)^* (A + iB) = I$. Thus $A + iB$ is unitary.
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$. Prove that the following are equivalent.
+\begin{subtheorem}*
+\item
+$S$ is a self-adjoint unitary operator.
+\item
+$S = 2P - I$ for some orthogonal projection $P$ on $V\1$.
+\item
+There exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^\perp\!$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+First suppose (a) tolds, so $S$ is a self-adjoint unitary operator. Then
+\[
+S^2 = S^* S = I
+\]
+because $S$ is self-adjoint and unitary.
+Let
+\[
+P = \frac{S + I}{2}.
+\]
+Then $S = 2P - I$. Furthermore, $P$ is self-adjoint and
+\[
+P^2 = \frac{S^2 + 2S + I}{4} = \frac{2S + 2I}{4} = \frac{S + I}{2} = P.
+\]
+Thus $P$ is an orthogonal projection, by the equivalence of (a) and (c) in Exercise \ref{7proj} in Section \ref{7001}, completing the proof that (a) implies (b).
+
+Now suppose (b) holds, so $S = 2P - I$ for some orthogonal projection $P$ on $V\1$. Let $U$ be the subspace of $V$ such that
+$P = P_{\!U}$. If $u \in U$, then
+\[
+Su = 2Pu - u = 2u - u = u.
+\]
+If $w \in U^\perp\!$, then
+\[
+Sw = 2Pw - w = 0 - w = -w,
+\]
+completing the proof that (b) implies (c).
+
+Now suppose (c) holds, so there exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^\perp\!$. If $v \in V\1$, then there exist $u \in U$ and $w \in U^\perp$ such that $v = u+ w$. Thus
+\[
+\norm{Sv}^2 = \norm{Su + Sw}^2 = \norm{u - w}^2 = \norm{u}^2 + \norm{w}^2 = \norm{v}^2\1,
+\]
+which shows that $S$ is a unitary operator. If we also have $v' = u' + w'$ with $u' \in U$ and $w' \in U^\perp\!$, then
+\[
+\ip{Sv, v'} = \ip{u - w, u' + w'} = \ip{u + w, u' - w'} = \ip{v, Sv'},
+\]
+which shows that $S$ is self-adjoint, completing the proof that (c) implies (a).
+\end{Solution}
+
+\exercise
+Suppose $T\3_1, T\3_2$ are both normal operators on $\F{3}$ with $2, 5, 7$ as eigenvalues. Prove that there exists a unitary operator $S\in \L\paren[\big]{\F{3}}$ such that
+$
+T\3_1 = S^* T\3_2 S$.
+
+\begin{Solution}
+The hypothesis on the operators $T\3_1, T\3_2$ implies there exist eigenvectors \mbox{$e_1, e_2, e_3 \in \F3$} for $T\3_1$ such that
+\[
+T\3_1e_1= 2 e_1, \quad T\3_1e_2 = 3 e_2, \quad T\3_1e_3 = 7e_3
+\]
+and there exist eigenvectors $f_1, f_2, f_3 \in \F3$ such that
+\[
+T\3_2f_1= 2 f_1, \quad T\3_2f_2 = 3 f_2, \quad T\3_2f_3 = 7f_3.
+\]
+By dividing each eigenvector by its norm, we can assume that
+\[
+\|e_1\| = \|e_2\| = \|e_3\| = \|f_1\| = \|f_2\| = \|f_3\| = 1.
+\]
+
+From \ref{411}, we can conclude that $e_1, e_2, e_3$ is an orthonormal list, as is $f_1, f_2, f_3$. Each of these lists has length three, which is the dimension of $\FF3$, and thus each of these lists is an orthonormal basis of $\FF3$.
+
+The linear map lemma (\ref{3linearmap}) implies that there exists $S \in \L(V)$ such that
+\[
+Se_1 = f_1, \quad Se_2 = f_2, \quad Se_3=f_3.
+\]
+From the equivalence of (a) and (d) of \ref{734u}, $S$ is a unitary operator. From \ref{734u}(c), we know that $S^* = S^{-1}$. Thus
+ \[
+ S^* \! f_1 = e_1, \quad S^* \! f_2 = e_2, \quad S^* \! f_3=e_3.
+ \]
+ Now
+ \pagebreak[0]
+ \begin{align*}
+( S^*T\3_2S) e_1 &= (S^*T\3_2)(Se_1)\\
+& = (S^*T\3_2)f_1 \\
+&= S^* (T\3_2 f_1) \\
+&= S^*(2f_1) \\
+&= 2 S^* \! f_1 \\
+&= 2 e_1\\
+&= T\3_1e_1.
+\end{align*}
+Similarly, $( S^*T\3_2S) e_2 = T\3_1 e_2$ and $( S^*T\3_2S) e_3 = T\3_1 e_3$. Thus $ S^*T\3_2S= T\3_1$.
+\end{Solution}
+
+\exercise
+Give an example of two self-adjoint operators $T\3_1, T\3_2 \in \L\paren[\big]{\F{4}}$ such that the eigenvalues of both operators are $2, 5, 7$ but there does not exist a unitary operator $S\in \L\paren[\big]{\F{4}}$ such that
+$T\3_1 = S^* T\3_2 S$.
+Be sure to explain why there is no unitary operator with the required property.
+
+\begin{Solution}
+Define $T\3_1, T\3_2 \in \L\paren[\big]{\F4}$ by
+\[
+T\3_1(w, x, y, z) = (2w, 5x, 5y, 7z)
+\]
+and
+\[
+T\3_2(w,x,y,z) = (2w, 2x, 5y, 7z).
+\]
+It is easy to verify that $T\3_1$ and $T\3_2$ are both self-adjoint and that the eigenvalues of both operators are $2, 5, 7$.
+
+Note that $\dim \ker (T\3_1- 2I) = 1$ and $\dim \ker (T\3_2- 2I) = 2$. Thus there exists an orthonormal basis $e_1, e_2$ of $\ker (T\3_2 - 2I)$.
+
+Suppose $S \in \L\paren[\big]{\F4}$ is a unitary operator such that
+\[
+T\3_1 = S^* T\3_2 S.
+\]
+Thus $S^* e_1, S^* e_2$ is an orthonormal list in $\ker (T _1 - 2I)$, which is a contradiction to the equation $\dim \ker (T\3_1- 2I) = 1$. Hence there does not exist a unitary operator $S\in \L\paren[\big]{\F{4}}$ such that
+$T\3_1 = S^* T\3_2 S$.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $S \in \L(V)$ and there exists an orthonormal basis $e_1, \dots, e_n$ of~$V$ such that $\|Se_k\| = 1$ for each~$e_k$, then $S$ is a unitary operator.
+
+\begin{Solution}
+Define $S \in \L\paren[\big]{\F{2}}$ by
+\[
+S(w,z) = (w + z, 0).
+\]
+With the usual inner product on $\FF{2}$, the standard basis
+$(1,0), (0,1)$ is an orthonormal basis of~$\FF{2}$.  Note that
+$\|S(1,0)\| = \|S(0,1)\| = 1$.  However, $S$ is not an isometry because
+$\|S(1,-1)\| = 0$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Suppose every eigenvalue of $T$ has absolute value 1 and
+$\|Tv\| \le \|v\|$ for every $v \in V\1$. Prove that $T$ is a unitary operator.
+
+\begin{Solution}
+By Schur's theorem (\ref{214}), there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix. Let $\la_1, \ldots, \la_n$ denote the entries on the diagonal of this matrix. By \ref{a221}, each $\la_k$ is an eigenvalue of $T\3$. Thus $\abs{\la_k} = 1$ for each $k = 1, \ldots, n$.
+
+Suppose $k \in \br{2, \ldots, n}$. Then there exist $a_1, \ldots, a_{k-1} \in \C{}$ such that
+\[
+Te_k = a_1 e_1 + \cdots + a_{k-1} e_{k-1} + \la_k e_k.
+\]
+Thus
+\begin{align*}
+1 &= \norm{e_k}^2 \\[4bp]
+&\ge \norm{Te_k}^2 \\[4bp]
+&= \abs{a_1}^2 + \cdots + \abs{a_{k-1}}^2 + \abs{\la_k}^2 \\[4bp]
+&= \abs{a_1}^2 + \cdots + \abs{a_{k-1}}^2 + 1.
+\end{align*}
+Hence
+\[
+a_1 = \cdots = a_{k-1} = 0.
+\]
+Thus the matrix of $T$ with respect to the basis $e_1, \ldots, e_n$ is actually a diagonal matrix, and all entries on the diagonal have absolute value $1$. Hence $T$ is a unitary operator.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is a self-adjoint operator such that $\norm{Tv} \le \norm{v}$ for all $v \in V\1$.
+\begin{subtheorem}
+\item
+Show that $I - T^2$ is a positive operator.
+\item
+Show that $T + i \sqrt{I - T^2}$ is a unitary operator.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Clearly $I - T^2$ is a self-adjoint operator. If $v \in V$ then
+\[
+\ip[\big]{ (I - T^2) v, v } = \norm{v}^2 - \ip[\big]{T^2 v, v} = \norm{v}^2 - \ip{Tv, Tv} = \norm{v}^2 - \norm{Tv}^2 \ge 0.
+\]
+Thus $I - T^2$ is a positive operator.
+\item
+By (a) and \ref{329}, $\sqrt{I - T^2}$ is a well-defined positive operator. Now
+\[
+\paren[\Big]{T + i \sqrt{I - T^2}}^* = T - i \sqrt{I - T^2}.
+\]
+Thus
+\begin{align*}
+\paren[\Big]{T + i \sqrt{I - T^2}}^* \paren[\Big]{T + i \sqrt{I - T^2}} &= \paren[\Big]{T - i \sqrt{I - T^2}} \paren[\Big]{T + i \sqrt{I - T^2}} \\
+&= T^2 + (I - T^2) \\
+&\quad {}+ i\paren[\Big]{ T \sqrt{I - T^2} - \sqrt{I - T^2} T } \\
+&= I,
+\end{align*}
+where $T$ commutes with $\sqrt{I - T^2}$ by thinking about the representation of these operators with respect to an orthonormal basis of eigenvectors of $T\3$.
+
+The equation above shows that $T + i \sqrt{I - T^2}$ is a unitary operator.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$. Prove that $S$ is a unitary operator if and only if \label{IsoBall}
+\[
+\br[\big]{ Sv : v \in V \text{ and } \norm{v} \le 1} = \br[\big]{ v \in V: \norm{v} \le 1}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Let $B$ denote the closed unit ball in $V$ defined by
+\[
+B = \br{ w \in V: \norm{w} \le 1}.
+\]
+
+First suppose $S$ is a unitary operator. If $v \in V$ and $\norm{v} \le 1$, then
+\[
+\norm{Sv} = \norm{v} \le 1,
+\]
+which implies that $Sv \in B$. Thus
+\[
+\br{ Sv : v \in V \text{ and } \norm{v} \le 1} \subset B.
+\]
+
+To prove the inclusion in the other direction, suppose $w \in B$, which means that $\norm{w} \le 1$. Because $S$ is a unitary operator, $S$ is injective and surjective. Thus there exists $u \in V$ such that $w = Su$. Because $S$ is an isometry, we have
+\[
+\norm{u} = \norm{Su} = \norm{w} \le 1.
+\]
+Thus $w \in \br{ Sv : v \in V \text{ and } \norm{v} \le 1}$, which completes the proof that
+\[ \tag{$(*)$}
+\br{ Sv : v \in V \text{ and } \norm{v} \le 1} = B.
+\]
+
+To prove the implication in the other direction, now suppose $(*)$ holds. We want to show that $S$ is a unitary operator. To do this, first suppose $v \in V \sm \br{0}$. Then
+\[
+\norm[\bigg]{ \frac{v}{\norm{v} } } = 1.
+\]
+Thus $(*)$ implies that
+\[
+\norm[\bigg]{ S\paren[\bigg]{ \frac{v}{\norm{v}} } } \le 1,
+\]
+which implies that
+\[ \tag{$(**)$}
+\norm{Sv} \le \norm{v}.
+\]
+
+\pagebreak[3]
+
+To prove an inequality in the other direction, first note that $(*)$ implies that every $w \in B$ is in $\ran S$. Thus by appropriate scaling, we see that $S$ is surjective. Hence $S$ is also injective.
+
+Suppose $w \in V \sm \br{0}$. Then
+\[
+\frac{Sw}{\norm{Sw}} \in B.
+\]
+Thus by $(*)$, there exists $v \in V$ such that $\norm{v} \le 1$ and
+\[
+Sv = \frac{Sw}{\norm{Sw}} = S\paren[\bigg]{ \frac{w}{\norm{Sw} } }.
+\]
+Because $S$ is injective, the equation above implies that
+\[
+v = \frac{w}{\norm{Sw}}.
+\]
+Because $\norm{v} \le 1$, the equation above implies that $\norm{w} \le \norm{Sw}$. Along with $(**)$, this implies that $S$ is an isometry, as desired.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $S \in \L(V)$ is invertible and \mbox{$\norm[\big]{S^{-1} v} =  \norm{S v}$} for every $v \in V\1$, then $S$ is unitary.
+
+\begin{Solution}
+For a counterexample to the statement above, take $V = \F2$ and define $S \in \L(V)$ by
+\[
+S(x,y) = (x+2y, -y).
+\]
+Then $S^2 = I$, which means that $S$ is invertible with $S^{-1} = S$. Thus $\norm[\big]{S^{-1} v} =  \norm{S v}$ for every $v \in V\1$. However, $S$ is not unitary because
+\[
+S(0, 1) = (2,-1) \butt \norm{(0,1)} = 1 \andd \norm{(2,-1)} = \sqrt{5}.
+\]
+\end{Solution}
+
+\pagebreak[3]
+
+\exercise
+Explain why the columns of a square matrix of complex numbers form an orthonormal list in $\C{n}$ if and only if the rows of the matrix form an orthonormal list in $\C{n}$.
+
+\begin{Solution}
+Suppose $A$ is an \by{n}{n} matrix of complex numbers. Let $S \in \L\paren[\big]{\C n}$ be the operator whose matrix (with respect to the standard basis of $\C n)$ equals $A$. Then $S$ is a unitary operator if and only if the $n$ columns of $A$ form an orthonormal list in $\C{n}$ (by \ref{234}). Also, by \ref{734u}, $S$ is a unitary operator if and only if the $n$ rows of $A$ form an orthonormal list in $\C{n}$ (equivalent to forming on orthonormal basis of $\C n$ because the length of the list equals the dimension of $\C n$). Thus the columns of $A$ form an orthonormal list in $\C{n}$ if and only if the rows of $A$ form an orthonormal list in $\C{n}$.
+\end{Solution}
+
+\exercise
+Suppose $v \in V$ with $\|v\| = 1$ and $b \in \F{}\3$. Also suppose $\dim V \ge 2$. Prove that there exists a unitary operator $S \in \L(V)$ such that $\ip{Sv, v} = b$ if and only if $|b| \le 1$.
+
+\begin{Solution}
+First suppose that there exists a unitary operator $S \in \L(V)$ such that $\ip{Sv, v} = b$. Then
+\[
+\abs b =\abs{ \ip{Sv, v} } \le \norm{Sv} \, \norm{v} = \norm{v}^2 = 1.
+\]
+Hence $\abs b \le 1$, as desired.
+
+To prove the implication in the other direction, now suppose $\abs b \le 1$. Let $e_1 = v$ and extend (using \ref{49}) to an orthonormal basis $e_1, e_2, \ldots, e_n$ of $V\1$. Define $S \L(V)$ to be such that
+\[
+Se_k = \begin{cases}
+be_1 + \sqrt{1 - \abs{b}^2} e_2 & \text{if } k = 1, \\[4bp]
+\sqrt{1 - \abs{b}^2} e_1 - b e_2 & \text{if } k = 2, \\[4bp]
+e_k & \text{if } 2 \le k \le n.
+\end{cases}
+\]
+
+To show that $S$ is an isometry, suppose $a_1, \ldots, a_n \in \F{}\3$. Then
+\begin{align*}
+&\hspace*{-.3in}\norm{ S(a_1 e_1 + \cdots a_n e_n) }^2 \\[4bp]
+&\hspace*{-.3in}= \norm[\Big]{ \paren[\Big]{a_1b + a_2 \sqrt{1 - \abs{b}^2}} e_1 + \paren[\Big]{a_1 \sqrt{ 1 - \abs{b}^2} - a_2 b} e_2 + a_3 e_3 + \cdots + a_n e_n }^2 \\[4bp]
+&\hspace*{-.3in}= \abs[\Big]{a_1b + a_2 \sqrt{1 - \abs{b}^2}}^2 + \abs[\Big]{a_1 \sqrt{ 1 - \abs{b}^2} - a_2 b}^2 + \abs{a_3}^2 + \cdots + \abs{a_n}^2 \\[4bp]
+&\hspace*{-.3in}= \abs{a_1}^2 + \abs{a_2}^2 + \abs{a_3}^2 + \cdots + \abs{a_n}^2 \\[4bp]
+&\hspace*{-.3in}= \norm{a_1 e_1 + \cdots + a_n e_n}^2\1.
+\end{align*}
+Thus $S$ is an isometry.
+
+Also,
+\[
+\ip{Sv, v} = \ip{ Se_1, e_1} = \ip[\Big]{ be_1 + \sqrt{1 - \abs{b}^2} e_2, e_1} = b,
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $T$ is a unitary operator on $V$ such that $T - I$ is invertible.\index{unit circle in $\C{}$} \label{4UnitCircle}
+\begin{subtheorem}
+\item
+Prove that $(T + I)(T - I)^{-1}$ is a skew operator (meaning that it equals the negative of its adjoint).\index{skew operator}
+\item
+Prove that if $\F{} = \C{}$, then $i (T + I)(T - I)^{-1}$ is a self-adjoint operator.
+\end{subtheorem}
+\exercisecomment{The function\/ $z \mapsto i(z+1)(z-1)^{-1}$ maps the unit circle in\/ $\C{}$ \uppar{except for the point\/ $1$} to\/ $\R{}$. Thus \uppar{b} illustrates the analogy between the unitary operators and the unit circle in\/ $\C{}$, along with the analogy between the self-adjoint operators and\/ $\R{}$.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+We have
+\begin{align*}
+\paren[\big]{(T + I)(T - I)^{-1}}^* &= (T^* - I)^{-1} (T^* + I) \\
+&= ( T^* - T^* T)^{-1} (T^* + T^* T) \\
+&= (I - T)^{-1} (T^*)^{-1} T^* (I + T) \\
+&= (I - T)^{-1} (I + T) \\
+&= -(T + I)(T - I)^{-1}.
+\end{align*}
+Thus $(T + I)(T - I)^{-1}$ is a skew operator.
+
+\item
+Suppose $\F{} = \C{}$. Then
+\begin{align*}
+\paren[\big]{ i (T + I)(T - I)^{-1} }^* &= -i \paren[\big]{ (T + I)(T - I)^{-1} }^* \\
+&=  i (T + I)(T - I)^{-1},
+\end{align*}
+where the last line comes from (a). The equation above shows that
+\[
+i (T + I)(T - I)^{-1}
+\]
+is a self-adjoint operator.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is self-adjoint. Prove that $(T + iI)(T - iI)^{-1}$ is a unitary operator and $1$ is not an eigenvalue of this operator.
+
+\begin{Solution}
+Because $T$ is self-adjoint, all eigenvalues of $T$ are real. In particular, $i$ is not an eigenvalue of $T$. Thus $T - iI$ is invertible. Hence $(T - iI)^{-1}$ makes sense.
+
+We have
+\begin{align*}
+\paren[\big]{(T &+ iI)(T - iI)^{-1} }^* \paren[\big]{(T + iI)(T - iI)^{-1}} \\[4bp]
+&= \paren[\big]{(T - iI)^{-1}}^* (T - iI) (T+iI) (T - iI)^{-1} \\[4bp]
+&= \paren[\big]{(T - iI)^*}^{-1} (T - iI) (T+iI) (T - iI)^{-1} \\[4bp]
+&= (T + iI)^{-1} (T - iI) (T+iI) (T - iI)^{-1} \\[4bp]
+&= (T - iI) (T + iI)^{-1} (T+iI) (T - iI)^{-1} \\[4bp]
+&= I,
+\end{align*}
+where the second-to-last line holds because $(T + iI)^{-1}$ commutes with $T + iI$ and hence commutes with $(T + iI) - 2iI$.
+The equation above shows that $(T + iI)(T - iI)^{-1}$ is unitary.
+
+To show that $1$ is not an eigenvalue of $(T + iI)(T - iI)^{-1}$, suppose $v \in V$ and
+$(T + iI)(T - iI)^{-1}v = v$. Then
+\[
+v = (T + iI)(T - iI)^{-1}v = (T - iI)^{-1}(T + iI)v.
+\]
+Apply $T - \la I$ to both sides of the equation above, getting $(T - i I)v = (T + iI) v$, which implies that $v = 0$. This $1$ is not an eigenvalue of $(T + iI)(T - iI)^{-1}$.
+\end{Solution}
+
+\exercise
+Explain why the characterization of unitary matrices given by \ref{7unitarymat} holds.
+
+\begin{Solution}
+Suppose $Q$ is an \by{n}{n} matrix. We want to explain why the following are equivalent.
+\begin{subtheorem}*
+\item
+$Q$ is a unitary matrix.
+\item
+The rows of $Q$ form an orthonormal list in $\FF{n}$.
+\item
+$\norm{Q v} = \norm{v}$ for every $v \in \FF{n}$.
+\item
+$Q^*Q = QQ^*= I$, the \by{n}{n} matrix with $1$'s on the diagonal and $0$'s elsewhere.
+\end{subtheorem}
+
+Let $S \in \L\paren[\big]{\F n}$ be such that the matrix of $S$ with respect to the standard basis of $\F n$ is $Q$.
+
+First suppose (a) holds, so $Q$ is a unitary matrix. By the equivalence of (a) and (d) in \ref{734u}, $S$ is unitary. By the equivalence of (a) and (e) in \ref{734u}, the rows of $Q$ form an orthonormal list in $\F{n}$, proving that (a) implies (b).
+
+Now suppose (b) holds, so the rows of $Q$ form an orthonormal list in $\F{n}$. By the equivalence of (a) and (e) in \ref{734u}, $S$ is unitary, and in particular $S$ is an isometry. Thus $\norm{Q v} = \norm{v}$ for every $v \in \F{n}$, proving that (b) implies (c).
+
+Now suppose (c) holds, so $\norm{Q v} = \norm{v}$ for every $v \in \F{n}$. Thus $S$ is an isometry and hence is unitary. By the equivalence of (a) and (b) in \ref{734u}, $Q^*Q = QQ^*= I$, proving that (c) implies (d).
+
+Now suppose (d) holds, so $Q^*Q = QQ^*= I$. By the equivalence of (b) and (d) in \ref{734u}, $Q$ is a unitary matrix, proving that (d) implies (a).
+\end{Solution}
+
+\exercise
+A square matrix $A$ is called \textit{symmetric} if it equals its transpose. Prove that if $A$ is a symmetric matrix with real entries, then there exists a unitary matrix $Q$ with real entries such that $Q^* A Q$ is a diagonal matrix.\index{symmetric matrix}
+
+\begin{Solution}
+Suppose $A$ is an \by{n}{n} symmetric matrix with real entries. Let $T$ be the operator on $\R n$ such that the matrix of $T$ with respect to the standard basis $e_1, \ldots, e_n$ of $\R n$ equals $A$. Thus $T$ is self-adjoint (using the standard inner product on $\R n$).
+
+The real spectral theorem states that there is an orthonormal basis $f_1, \ldots, f_n$ of $\R n$ consisting of eigenvectors of $T\3$ with corresponding eigenvalues $\la_1, \ldots, \la_n$. Let $S \in \L\paren[\big]{\R n}$ be the unitary operator such that  $Se_k = f_k$ for
+$k = 1, \ldots, n$. Thus $S^* f_k = S^{-1} f_k = e_k$ for $k = 1, \ldots, n$. Hence
+\[
+(S^* T S)e_k = (S^*T)(Se_k) = (S^*T)(f_k) = \la_k S^* f_k = \la_k e_k.
+\]
+Thus $S^* T S$ has a diagonal matrix with respect to the standard basis of $\RR n$. Letting $Q$ equal the matrix of $S$ with respect to the standard basis of $\RR n$, we see that $Q$ is a unitary matrix such that $Q^* A Q$ is a diagonal matrix.
+\end{Solution}
+
+\exercise
+Suppose $n$ is a positive integer. For this exercise, we adopt the notation that a typical element $z$ of $\C n$ is denoted by
+$z = (z_0, z_1, \ldots, z_{n-1})$. Define linear functionals $\omega_0, \omega_1, \ldots, \omega_{n-1}$ on $\C n$ by
+\[
+\omega_j(z_0, z_1, \ldots, z_{n-1}) = \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} z_m \,e^{-2\pi i j m/n}.
+\]
+The \emph{discrete Fourier transform} is the operator $\fun \CF {\C n} {\C n}$ defined by\index{discrete Fourier transform}
+\[
+\CF z = \paren[\big]{ \omega_0(z), \omega_1(z), \ldots, \omega_{n-1}(z) }.
+\]
+\begin{subtheorem}*
+\item
+Show that $\CF$ is a unitary operator on $\CC n$.
+\item
+Show that if $(z_0, \ldots, z_{n-1}) \in \C n$ and $z_n$ is defined to equal $z_0$, then
+\[
+\CF^{-1}(z_0, z_1, \ldots, z_{n-1}) = \CF(z_n, z_{n-1}, \ldots, z_1).
+\]
+\item
+Show that $\CF^4 = I$.
+%\item
+%Show that if $n = 2$, then the eigenvalues of $\CF$ are $1, -1$.
+%\item
+%Show that if $n = 3$ or $n = 4$, then the eigenvalues of $\CF$ are $1, -1, -i$.
+%\item
+%Show that if $n \ge 5$, then the eigenvalues of $\CF$ are $1, -1, i, -i$.
+\end{subtheorem}
+\exercisecomment{The discrete Fourier transform has many important applications in data analysis. The usual Fourier transform involves expressions of the form\/ $\int_{-\infty}^{\infty} f(x) e^{-2\pi i t x} dx$ for complex-valued integrable functions\/ $f$ defined on\/ $\R{}$.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Each $\omega_j$ is a linear map from $\C n$ to $\C{}$. Thus $\CF$ is an operator from $\C n$ to $\C n$.
+
+To prove that $\CF$ is unitary, consider the standard basis of $\C n$, which we now label as $e_0, \ldots, e_{n-1}$. Thus
+\[
+\omega_j(e_k) = \frac{1}{\sqrt{n}} \, e^{-2\pi i j k/n}
+\]
+for each $j, k \in \br{0, \ldots, n-1}$. Hence if $k, m \in \br{0, \ldots, n-1}$, then
+\begin{align*}
+\ip{ \CF e_k, \CF e_m } &= \frac{1}{n} \, \sum_{j=0}^{n-1}  e^{-2\pi i j k/n}  \, e^{2\pi i j m/n} \\[6bp]
+&= \frac{1}{n} \, \sum_{j=0}^{n-1}  e^{2\pi i j (m-k)/n}.
+\end{align*}
+The sum above is a geometric series with $n$ terms, initial term $1$, and ratio $e^{2\pi i (m-k)/n}$. The formula for the sum of a geometric series now shows that
+\[
+\ip{ \CF e_k, \CF e_m } = \begin{cases}
+1 & \text{if } k = m,\\
+0 & \text{if } k \ne m.
+\end{cases}
+\]
+Thus $\CF e_0, \ldots,, \CF e_{n-1}$ is an orthonormal basis of $\CC n$. Now the equivalence of (a) and (d) in \ref{734u} shows that $\CF$ is a unitary operator, as desired.
+
+\item
+Because $\CF$ is unitary, we have $\CF^{-1} = \CF^*$ \sbr{by \ref{734u}(b)}. If $(y_0, \ldots, y_{n-1})$ and
+$(z_0, \ldots, z_{n-1})$ are in $\C n$, then
+\begin{align*}
+\ip{ \CF(y_0, y_1, \ldots, y_{n-1})&, (z_0, z_1, \ldots, z_{n-1}) } \\
+&= \frac{1}{\sqrt{n}} \, \sum_{j=0}^{n-1} \sum_{m=0}^{n-1} y_m \,  e^{-2\pi i j m/n} \, \overline{z_j} \\[4bp]
+&= \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} y_m \, \overline{ \sum_{j=0}^{n-1} z_j \, e^{2\pi i jm/n} } \\[4bp]
+&= \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} y_m \, \overline{ \sum_{j=1}^n z_j \, e^{2\pi i jm/n} } \\[4bp]
+&= \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} y_m \, \overline{ \sum_{k=0}^{n-1} z_{n-k} \, e^{2\pi i (n-k)m/n} } \\[4bp]
+&= \frac{1}{\sqrt{n}} \, \sum_{m=0}^{n-1} y_m \, \overline{ \sum_{k=0}^{n-1} z_{n-k} \, e^{-2\pi i k m/n} } \\[4bp]
+&= \ip{ (y_0, y_1, \ldots, y_{n-1}), \CF(z_n, z_{n-1}, \ldots, z_1) }
+\end{align*}
+where the third equation holds because the term $ z_j \, e^{2\pi i jm/n}$ has equal values when $j = 0$ and when $j=n$ and the fourth equation follows from the third equation by setting the summation index $j$ equal to $n - k$.
+
+The equation above shows that
+\[
+\CF^{-1}(z_0, z_1, \ldots, z_{n-1}) = \CF^*(z_0, z_1, \ldots, z_{n-1}) = \CF(z_n, z_{n-1}, \ldots, z_1),
+\]
+as desired.
+
+\item
+Applying $\CF$ to both sides of the equation in (b), we have
+\[
+\CF^2(z_n, z_{n-1}, \ldots, z_1) = (z_0, z_1, \ldots, z_{n-1}),
+\]
+where again $z_n = z_0$. Applying $\CF^2$ to both sides of the equation above then gives the equation $\CF^4 = I$.
+
+\begin{comment}
+\item
+Suppose $n = 2$. With respect to the standard basis of $\C2$, the matrix of $\CF$ is
+\[
+\mat{cc}{
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\[10bp]
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
+}.
+\]
+The eigenvalues of the operator with this matrix are $1$ and $-1$.
+
+\item
+Suppose $n = 3$. With respect to the standard basis of $\C3$, the matrix of $\CF$ is
+\[
+\mat{ccc}{
+ \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}\\[10bp]
+ \frac{1}{\sqrt{3}} & \frac{1}{6}\paren[\big]{-\sqrt{3} - 3i} & \frac{1}{6}\paren[\big]{-\sqrt{3} + 3i}\\[10bp]
+ \frac{1}{\sqrt{3}} &\frac{1}{6}\paren[\big]{-\sqrt{3} + 3i} & \frac{1}{6}\paren[\big]{-\sqrt{3} - 3i}
+}.
+\]
+The eigenvalues of the operator with this matrix are $1$, $-1$, and $i$.
+
+\end{comment}
+
+\end{subtheorem}
+
+\end{Solution}
+
+\exercise
+Suppose $A$ is a square matrix with linearly independent columns. Prove that there exist unique matrices $R$ and $Q$ such that $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.\label{7Cholt}
+
+\begin{Solution}
+The transpose $\tran{A}$ also has linearly independent columns (because the row rank equals the column rank, by \ref{3colrow}). Applying the QR factorization to $\tran{A}\3$, we conclude that there exist unique matrices such that one of them is unitary, the other is upper triangular with only positive numbers on its diagonal, and $\tran{A}$ equals the first matrix times the second matrix. Now taking the transpose of everything in sight produces the desired result (because the transpose of a unitary matrix is a unitary matrix).
+\end{Solution}
+
+\begin{comment}\exercise
+Suppose $B$ is a positive definite matrix. Prove that there exists a unique upper-triangular matrix $R$ with only positive numbers on its diagonal such that $B = R R^*\1$.
+
+\begin{Solution}
+Because $B$ is positive definite, there exists an invertible square matrix $A$ of the same size as $B$ such that $B = A A^*$ \sbr{by the equivalence of (a) and (f) in \ref{197}}.
+
+Let $A = RQ$ be the factorization of $A$ from Exercise \ref{7Cholt}, where $Q$ is unitary and $R$ is lower triangular with only positive numbers on its diagonal. Then $A^* = Q^* R^*\1$.
+
+Thus
+\[
+B = A A^* = R Q  Q^* R^* = R R^*\1,
+\]
+as desired.
+
+To prove the uniqueness part of this result, suppose $S$ is an upper-triangular matrix with only positive numbers on its diagonal and $B = S^*S$. The matrix $S$ is invertible because $B$ is invertible (see Exercise \ref{379} in Section \ref{invertible}). Multiplying both sides of the equation $B = S^*S$ by $S^{-1}$ on the left gives the equation $BS^{-1} = S^*\1$.
+
+Let $A$ be the matrix from the first paragraph of this proof. Then
+\begin{align*}
+\paren[\big]{AS^{-1}}^* \paren[\big]{AS^{-1}} &= \paren{S^*}^{-1} A^* A S^{-1} \\
+&= \paren{S^*}^{-1} B S^{-1} \\
+&= \paren{S^*}^{-1} S^* \\
+&= I.
+\end{align*}
+Thus $AS^{-1}$ is unitary.
+
+Hence $A = \paren[\big]{AS^{-1}} S$ is a factorization of $A$ as the product of a unitary matrix and an upper-triangular matrix with only positive numbers on its diagonal. The uniqueness of the QR factorization, as stated in \ref{7QR}, now implies that $S = R$.
+\end{Solution}
+\end{comment}
+

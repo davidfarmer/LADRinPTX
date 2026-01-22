@@ -1,0 +1,56 @@
+
+\exercise
+Suppose $m$ is a positive integer. Show that $\dim V^{(m)} = (\dim V)^m\!$.
+
+
+\exercise
+Suppose $n \ge 3$ and $\fun \al {\F n \times \F n \times \F n} {\F{}}$ is defined by
+\begin{align*}
+\al\paren[\big]{ (&x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n)} \\
+&= x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1
+-x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
+\end{align*}
+Show that $\al$ is an alternating $3$-linear form on $\FF n$.\label{9threelin}
+
+
+\exercise
+Suppose $m$ is a positive integer and $\al$ is an $m$-linear form on $V$ such that $\al(v_1, \ldots, v_m) = 0$ whenever
+$v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_{j+1}$ for some $j \in \br{1, \ldots, m-1}$. Prove that $\al$ is an alternating $m$-linear form on~$V\1$.
+
+
+\exercise
+Prove or give a counterexample: If $\al \in V_\text{alt}^{(4)}\1$, then
+\[
+\br[\big]{ (v_1, v_2, v_3, v_4) \in V^4 : \al(v_1, v_2, v_3, v_4) = 0 }
+\]
+is a subspace of $V^4\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \paren[\big]{ \sign(j_1, \ldots, j_m) } \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why $\al \in V_{\text{alt}}^{(m)}\1$.
+
+
+\exercise
+Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V\1$. Define an $m$-linear form $\al$ on $V$ by
+\[
+\al(v_1, \ldots, v_m) =
+\sum_{(j_1, \ldots, j_m) \in \perm m} \beta( v_{j_1}, \ldots, v_{j_m} )
+\]
+for $v_1, \ldots, v_m \in V\1$. Explain why
+\[
+\al( v_{k_1}, \ldots, v_{k_m} ) = \al(v_1, \ldots, v_m)
+\]
+for all $v_1, \ldots, v_m \in V$ and all $(k_1, \ldots, k_m) \in \perm m$.
+
+
+\exercise
+Give an example of a nonzero alternating $2$-linear form $\al$ on $\R3$ and a linearly independent list $v_1, v_2$ in $\R3$ such that
+$\al(v_1, v_2) = 0$.
+\exercisecomment{This exercise shows that \ref{9altli} can fail if the hypothesis that\/ $n = \dim V$ is deleted.}
+
+

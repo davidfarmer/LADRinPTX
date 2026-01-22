@@ -1,0 +1,783 @@
+
+\exercise
+Suppose $T$ is a function from $V$ to $W\3$. The \emph{graph} of $T$\index{graph of a linear map} is the subset of
+$V\1 \times W$ defined by
+\[
+\text{graph of}\ T = \br[\big]{ (v, Tv) \in V\1 \times W: v \in V }.
+\]
+Prove that $T$ is a linear map if and only if the graph of $T$
+is a subspace of $V\1 \times W\3$.
+\exercisecomment{Formally, a function\/ $T$ from\/ $V$ to\/ $W$ is a subset\/ $T$ of\/ $V\1 \times W$ such that for each\/ $v \in V\1$, there exists exactly one element\/ $(v, w) \in T\3$. In other words, formally a function is what is called above its graph. We do not usually think of functions in this formal manner. However, if we do become formal, then this exercise could be rephrased as follows: Prove that a function\/ $T$ from\/ $V$ to\/ $W$ is a linear map if and only if\/ $T$ is a subspace of\/ $V\1 \times W\3$.}
+
+\begin{Solution}
+First suppose that $T$ is a linear map. Then $(0, 0)$ is in the graph of $T$ because $T0 = 0$.
+
+Suppose $u, v \in V\1$. Thus $(u, Tu)$ and $(v, Tv)$ are typical elements of the graph of $T\3$. Now
+\[
+(u, Tu) + (v, Tv) = (u + v, Tu + Tv) = \bigl( u+v, T(u+v) \bigr).
+\]
+Thus the graph of $T$ is closed under addition.
+
+Suppose $\la \in \F{}$ and $v \in V\1$. Then
+\[
+\la(v, Tv) = (\la v, \la Tv) = \bigl( \la v, T(\la v) \bigr).
+\]
+Thus the graph of $T$ is closed under scalar multiplication.
+
+Now \ref{subspace} implies that the graph of $T$ is a subspace of $V\1 \times W\3$, as desired.
+
+To prove the other direction, now suppose that the graph of $T$ is a subspace of $V\1 \times W\3$. Suppose $u, v \in V\1$. Thus $(u, Tu)$ and $(v, Tv)$ are in the graph of $T$\!. Hence $(u, Tu) + (v, Tv)$, which equals $(u+v, Tu + Tv)$, is in the graph of $T$\!. This implies that $T(u+v) = Tu + Tv$.
+
+Suppose $\la \in \F{}$ and $v \in V\1$. Thus $(v, Tv)$ is in the graph of $T$\!. Thus $\la(v, Tv)$, which equals
+$(\la v, \la Tv)$, is in the graph of $T\3$. This implies that $T(\la v) = \la Tv$.
+
+Hence $T$ is linear, as desired.
+\end{Solution}
+
+\exercise
+Suppose that $V\1_1, \dots, V\1_m$ are vector spaces such that $V\1_1 \times \dots \times V\1_m$ is finite-dimensional. Prove that $V\1_k$ is finite-dimensional for each $k = 1, \dots, m$.
+
+\begin{Solution}
+Fix $k \in \{1, \dots, m\}$.
+
+Define $T \in \L(V\1_1 \times \dots \times V\1_m, V\1_k)$ by
+\[
+T(v_1, \dots, v_m) = v_k.
+\]
+Clearly $\ran T = V\1_k$. Now \ref{3ab11} implies that $V\1_k$ is finite-dimensional, as desired.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Give an example of a vector space $V$ and subspaces $V\1_1, V\1_2$ of $V$ such that $V\1_1 \times V\1_2$ is isomorphic to $V\1_1 + V\1_2$ but $V\1_1 + V\1_2$ is not a direct sum.
+\hint{The vector space $V$ must be infinite-dimensional.}
+
+\begin{Solution}
+Let $V = \FF{\infty}$. Also, let $V\1_1 = V\1_2 = \FF{\infty}$. Thus $V\1_1 + V\1_2 = \FF{\infty}$. Define $T \colon
+V\1_1 \times V\1_2 \to V\1_1 + V\1_2$ by
+\[
+T\bigl( (x_1, x_2, \dots), (y_1, y_2, \dots) \bigr) = (x_1, y_1, x_2, y_2, \dots ).
+\]
+Then $T$ is an isomorphism from $V\1_1 \times V\1_2$ onto $V\1_1 + V\1_2$ (which equals $\F{\infty}$). Hence
+$V\1_1 \times V\1_2$ is isomorphic to $V\1_1 + V\1_2$.
+
+However, $V\1_1 + V\1_2$ is not a direct sum because $V\1_1 \cap V\1_2 \ne \{0\}$.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $V\1_1, \dots, V\1_m$ are vector spaces. Prove that $\L(V\1_1 \times \dots \times V\1_m, W)$ and $\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ are isomorphic vector spaces.
+
+\begin{Solution}
+For $T \in \L(V\1_1 \times \dots \times V\1_m, W)$ and $1 \le k \le m$, define a linear map $\phi_k(T) \in \L(V\1_k, W)$ by
+\[
+\bigl(\phi_k(T)\bigr) v = T(0, \dots, 0, v, 0, \dots, 0),
+\]
+for each $v \in V\1_k$, where the $v$ on the right side of the equation above appears in the $k^\nth$ slot.
+
+Define $\Gamma \colon \L(V\1_1 \times \dots \times V\1_m, W)\to \L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ by
+\[
+\Gamma(T) = \bigl(\phi_1(T), \dots, \phi_m(T) \bigr).
+\]
+
+To prove that $\Gamma$ is an isomorphism from the vector space $\L(V\1_1 \times \dots \times V\1_m, W)$ onto
+$\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$, first suppose that $T \in \L(V\1_1 \times \dots \times V\1_m, W)$ and $\Gamma(T) = 0$. Thus $0 = \phi_1(T) = \dots = \phi_m(T)$. If $(v_1, \dots, v_m) \in V\1_1 \times \dots \times V\1_m$, then
+\begin{align*}
+T(v_1, \dots, v_m) &= T(v_1, 0, \dots, 0) + \dots + T(0, \dots, 0, v_m) \\
+&= \bigl( \phi_1(T) \bigr)(v_1) + \dots + \bigl( \phi_m(T) \bigr)(v_m) \\
+& = 0.
+\end{align*}
+Thus $T = 0$ and hence $\Gamma$ is injective.
+
+To show that $\Gamma$ is surjective, suppose
+\[
+(T\3_1, \dots, T\3_m) \in \L(V\1_1, W) \times \dots \times \L(V\1_m, W).
+\]
+Define $T \in \L(V\1_1 \times \dots \times V\1_m, W)$ by
+\[
+T(v_1, \dots, v_m) = T\3_1(v_1) + \dots + T\3_m(v_m).
+\]
+Then $\Gamma(T) = (T\3_1, \dots, T\3_m)$. Thus $T$ is surjective.
+
+Hence $\L(V\1_1 \times \dots \times V\1_m, W)$ and $\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ are isomorphic vector spaces, as desired.
+\end{Solution}
+
+\exercise
+Suppose $W\3_1, \dots, W\3_m$ are vector spaces. Prove that $\L(V\1, W\3_1 \times \dots \times W\3_m)$ and
+$\L(V\1, W\3_1) \times \dots \times \L(V\1, W\3_m)$ are isomorphic vector spaces.
+
+\begin{Solution}
+Define $\Gamma \colon \L(V\1, W\3_1) \times \dots \times \L(V\1, W\3_m) \to \L(V\1, W\3_1 \times \dots \times W\3_m)$ by
+\[
+\bigl( \Gamma(T\3_1, \dots, T\3_m) \bigr)(v) = (T\3_1v, \dots, T\3_mv)
+\]
+for each $v \in V\1$. Clearly $\Gamma$ is a linear map.
+
+If $(T\3_1, \dots, T\3_m) \in \L(V\1, W\3_1) \times \dots \times \L(V\1, W\3_m)$ and $\Gamma(T\3_1, \dots, T\3_m) = 0$, then $T\3_k = 0$ for each $k = 1, \dots, m$. Thus $\Gamma$ is injective.
+
+To show that $\Gamma$ is surjective, suppose that $T \in \L(V\1, W\3_1 \times \dots \times W\3_m)$. For $k = 1, \dots, m$, define $T\3_k \in \L(V\1, W\3_k)$ by
+\[
+Tv = (T\3_1v, \dots, T\3_mv)
+\]
+for each $v \in V\1$. Then $\Gamma(T\3_1, \dots, T\3_m) = T\3$. Thus $T$ is surjective.
+
+Hence $\L(V\1, W\3_1 \times \dots \times W\3_m)$ and $\L(V\1_1, W) \times \dots \times \L(V\1_m, W)$ are isomorphic vector spaces, as desired.
+\end{Solution}
+
+\exercise
+For $m$ a positive integer, define $V^m$ by\sindex{Vm@$V^m\mskip -2mu$}
+\[
+V^m = \underbrace{V\1 \times \dots \times V}_{m \text{\ times}}\!.
+\]
+Prove that $V^m$ and $\L\paren[\big]{\FF{m}, V}$ are isomorphic vector spaces.
+
+\begin{Solution}
+Define $\Gamma \colon V^m \to \L\paren[\big]{\FF{m}, V}$ by
+\[
+\bigl( \Gamma(v_1, \dots, v_m) \bigr)(\la_1, \dots, \la_m) = \la_1 v_1 + \dots + \la_m v_m
+\]
+for each $(v_1, \dots, v_m) \in V^m$ and each $(\la_1, \dots, \la_m) \in \FF{m}$.
+Clearly $\Gamma$ is a linear map.
+
+If $(v_1, \dots, v_m) \in V^m$ and $\Gamma(v_1, \dots, v_m) = 0$, then each $v_k = 0$, as can be seen by applying $\Gamma(v_1, \dots, v_m)$ to the vector $e_k$ in $\F{m}$ that equals $1$ in the $k^\nth$-coordinate and $0$ elsewhere. Thus $\Gamma$ is injective.
+
+To show that $\Gamma$ is surjective, suppose $T \in \L\paren[\big]{\FF{m}, V}$. For $k = 1, \dots, m$, let $v_k = Te_k$. Then $T = \Gamma(v_1, \dots, v_m)$. Thus $T$ is surjective.
+
+Thus $V^m$ and $\L\paren[\big]{\FF{m}, V}$ are isomorphic, as desired.
+\end{Solution}
+
+\exercise
+Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W\3$. Prove that $U = W\3$.
+
+\begin{Solution}
+Because $0 \in U$, we have $v = v + 0 \in v + U$. Thus $v \in x + W\3$. Thus $v - x \in W$ and hence
+\[
+x - v \in W\3.
+\]
+
+Suppose $u \in U$. Then $v + u \in v + U$. Hence $v + u \in x + W\3$. Thus
+\[
+(v - x) + u \in W\3.
+\]
+
+Because $W$ is closed under addition, the two displayed inclusions imply that $u \in W\3$. Thus $U \subset W\3$.
+
+Similarly, $W \subset U$. Thus $U = W\3$, as desired.
+\end{Solution}
+
+\exercise
+Let $U = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= 0}$. Suppose $A \subset \RR3$. Prove that $A$ is a translate of $U$ if and only if there exists $c \in \R{}$ such that\label{3translates}
+\[
+A = \br[\big]{ (x, y, z) \in \R3: 2x + 3y + 5z= c}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First suppose $A$ is a translate of $U$. Thus there exists $(\al, \beta, \gamma) \in \R3$ such that
+\[
+A = (\al, \beta, \gamma) + U.
+\]
+Let $c = 2 \al + 3\beta + 5 \gamma$. If $(x, y, z) \in A$, then the equation above implies that $(x-\al, y - \beta, z - \gamma) \in U$, which implies that
+\[ \tag{$(*)$}
+\2(x- \al) + 3(y-\beta) + 5 (z - \gamma) = 0,
+\]
+which implies $2x + 3y + 5z = c$. Thus $A \subset  \br{ (x, y, z) \in \R3: 2x + 3y + 5z= c}$.
+
+To prove the inclusion in the other direction, if $(x, y, z) \in \R3$ and
+\[
+2x + 3y + 5z= c,
+\]
+then $(*)$ holds, which implies that
+$(x - \al, y - \beta, z - \gamma) \in U$, which implies that $(x,y,z) \in (\al, \beta, \gamma) + U = A$. Hence
+\[
+A \supset  \br{ (x, y, z) \in \R3: 2x + 3y + 5z= c},
+\]
+completing the proof that $A = \br{ (x, y, z) \in \R3: 2x + 3y + 5z= c}$.
+
+To prove the implication in the other direction, now suppose that there exists $c \in \R{}$ such that
+\[
+A = \br{ (x, y, z) \in \R3: 2x + 3y + 5z= c}.
+\]
+Then
+\[
+A = (-c, c, 0) + U,
+\]
+which shows that $A$ is a translate of $U$.
+\end{Solution}
+
+\exercise
+\begin{SUBtheorem}
+\item
+Suppose $T \in \L(V, W)$ and $c \in W\3$. Prove that $\br{x \in V : Tx = c}$ is either the empty set or is a translate of
+$\ker T\3$.
+
+\item
+Explain why the set of solutions to a system of linear equations such as \ref{3inhomeq} is either the empty set or is a translate of some subspace of $\FF n$.
+\end{SUBtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Let
+\[
+A = \br{x \in V : Tx = c}.
+\]
+If $A$ is the empty set, then we are done. So suppose $A \ne \emptyset$. Let $y \in V$ be such that $Ty = c$. We will show that $A = y + \ker T\3$.
+
+First, suppose $x \in A$. Thus $Tx = c$. Hence
+\[
+T(x - y) = Tx - Ty = c - c = 0,
+\]
+which implies that $x - y \in \ker T\3$. Thus $x \in y + \ker T$, proving that $A \subset y + \ker T\3$.
+
+To prove the implication in the opposite direction, now suppose that $x \in y + \ker T\3$. Then there exists $v \in \ker T$ such that $x = y + v$. Hence
+\[
+Tx = Ty + Tv = c + 0 = c,
+\]
+which implies that $x \in A$. Thus $y + \ker T \subset A$, completing the proof that $A = y + \ker T\3$.
+
+\item
+Define $\fun T {\F n} {\F m}$ as in \ref{3sim}. Then the set of solutions to \ref{3inhomeq} is
+\[
+\br{ x \in \F n: Tx = c }.
+\]
+By (a) of this exercise, this set is a translate of $\ker T\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\la v + (1-\la)w \in A$ for all $v, w \in A$ and all $\la \in \F{}\3$. \label{affine}
+
+\begin{Solution}
+First suppose that $A$ is a translate of some subspace of $V$. Thus there exist $x \in V$ and a subspace $U$ of $V$ such that
+\[
+A = x + U.
+\]
+Now suppose $v, w \in A$ and $\la \in \F{}\3$. Thus there exist $u_1, u_2 \in U$ such that
+\[
+v = x + u_1 \andd w = x + u_2.
+\]
+Hence
+\[
+\la v + (1-\la)w = x + \bigl(\la u_1 + (1-\la)u_2 \bigr),
+\]
+and thus $\la v + (1-\la)w \in x + U = A$, completing the proof in one direction.
+
+To prove the other direction, now suppose that $A$ is a nonempty subset of $V$ such that $\la v + (1-\la)w \in A$ for all $v, w \in A$ and all $\la \in \F{}\3$. Let $x \in A$. Let
+\[
+U = \{a - x : a \in A\}.
+\]
+Clearly $A = x + U$. Thus to prove that $A$ is a translate of some subspace of $V\1$, we only need to show that $U$ is a subspace of $V\1$.
+
+Because $x \in A$, we conclude that $0 \in U$.
+
+Suppose $u_1, u_2 \in U$. Thus there exist $a_1, a_2 \in A$ such that
+\[
+u_1 = a_1 - x \andd u_2 = a_2 - x.
+\]
+Taking $\la = 2$ in our hypothesis and applying it to $u_1, x \in A$ and $u_2, x \in A$, we have
+\[
+2a_1 - x \in A \andd 2a_2 - x \in A.
+\]
+Taking $\la = \frac{1}{2}$ in our hypothesis and applying it to the two vectors above, we have
+\[
+a_1 + a_2 - x \in A.
+\]
+Now
+\begin{align*}
+u_1 + u_2 &= a_1 + a_2 - 2x \\
+&= (a_1 + a_2 -x) - x.
+\end{align*}
+Thus $u_1 + u_2 \in U$. Hence $U$ is closed under addition.
+
+Now suppose $u \in U$ and $\la \in \F{}\3$. Thus there exists $a \in A$ such that $u = a-x$. We have
+\begin{align*}
+\la u &= \la a - \la x \\
+&= \bigl( \la a + (1 - \la) x \bigr) - x.
+\end{align*}
+Thus $\la u \in U$. Hence $U$ is closed under scalar multiplication.
+
+Thus $U$ is a subspace of $V\1$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V\1$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+
+\begin{Solution}
+Suppose $v, w \in A_1 \cap A_2$ and $\la \in \F{}\3$. Then $v, w \in A_1$ and $v, w \in A_2$. Thus
+\[
+\la v + (1 - \la) w \in A_1 \andd \la v + (1 - \la) w \in A_2,
+\]
+where we have used Exercise \ref{affine}. Hence
+\[
+\la v + (1 - \la) w \in A_1 \cap A_2.
+\]
+
+Thus by Exercise \ref{affine}, $A_1 \cap A_2$ is either a translate of some subspace of $V$ or the empty set.
+\end{Solution}
+
+\exercise
+Suppose $U = \br[\big]{(x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{for only finitely many}\ k}$.
+\begin{subtheorem}
+\item
+Show that $U$ is a subspace of $\FF{\infty}$.
+\item
+Prove that $\FF{\infty}/U$ is infinite-dimensional.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Clearly $U$ contains the additive identity of $\FF{\infty}$, $U$ is closed under addition, and $U$ is closed under scalar multiplication. Thus by \ref{subspace}, $U$ is a subspace of $\FF{\infty}$.
+\item
+For each prime number $p$, let $\al(p) = (\al(p)_1, \al(p)_2, \dots )$ be the element of $\F{\infty}$ defined by
+\[
+\al(p)_k =
+\begin{cases}
+1 &\text{if $k = p^n$ for some positive integer $n$,}\\
+0 &\text{otherwise.}
+\end{cases}
+\]
+Note that if $p$ is a prime number and $k$ is a positive integer such that $\al(p)_k = 1$, then $\al(q)_k = 0$ for all primes $q \ne p$.
+
+Let $M$ be a positive integer, and let $p_1, \dots, p_M$ be the first $M$ prime numbers. We want to show that
+\[
+\al(p_1) + U, \dots, \al(p_M) + U
+\]
+is a linearly independent list in the vector space $\FF{\infty}/U$. Thus suppose $c_1, \dots, c_M \in \F{}$ are such that
+\[
+c_1\bigl(\al(p_1) + U\bigr) +  \dots + c_M \bigl( \al(p_M) + U\bigr) = 0 + U.
+\]
+The equation above implies that
+\[
+c_1 \al(p_1)_k + \dots + c_M \al(p_M)_k
+\]
+is nonzero for only finitely many $k$. A moment's thought shows that this implies that
+$c_1 = \dots = c_M = 0$. Thus
+\[
+\al(p_1) + U, \dots, \al(p_M) + U
+\]
+is a linearly independent list in the vector space $\FF{\infty}/U$.
+
+Because $\FF{\infty}/U$ contains a linearly independent list of length $M$ for every positive integer $M$, no (finite) list can span $\FF{\infty}/U$ (by \ref{7}). Thus $\FF{\infty}/U$ is infinite-dimensional, as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_m \in V\1$. Let
+\[
+A = \{ \la_1 v_1 + \dots + \la_m v_m : \la_1, \dots, \la_m \in \F{}\ \text{and}\ \la_1 + \dots + \la_m = 1 \}.
+\]
+\begin{subtheorem}*
+\item
+Prove that $A$ is a translate of some subspace of $V\1$.
+\item
+Prove that if $B$ is a translate of some subspace of $V$ and $\br{v_1, \dots, v_m} \subset B$, then $A \subset B$.
+\item
+Prove that $A$ is a translate of some subspace of $V$ of dimension less than~$m$.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose that $v, w \in A$ and $\la \in \F{}\3$. There exist $\al_1, \dots, \al_m \in \F{}$ and $\beta_1, \dots, \beta_m \in \F{}$ such that
+\[
+v = \al_1 v_1 + \dots + \al_m v_m \andd w = \beta_1 v_1 + \dots + \beta_m v_m
+\]
+and
+\[
+\al_1 + \dots + \al_m = 1 \andd \beta_1 + \dots + \beta_m = 1.
+\]
+Now
+\[
+\la v + (1-\la)w = \bigl(\la \al_1 + (1-\la)\beta_1 \bigr) v_1 + \dots +
+ \bigl(\la \al_m + (1-\la)\beta_m \bigr) v_m
+\]
+and
+\begin{align*}
+ \bigl(\la \al_1 &+ (1-\la)\beta_1 \bigr) + \dots +
+ \bigl(\la \al_m + (1-\la)\beta_m \bigr) \\
+ &= \la(\al_1 + \dots + \al_m) + (1-\la)(\beta_1 + \dots + \beta_m) \\
+& = 1.
+ \end{align*}
+Hence $\la v + (1 - \la) w \in A$. Thus Exercise~\ref{affine} implies that $A$ is a translate of some subspace of $V\1$, as desired.
+
+\item
+Suppose $B$ is a translate of some subspace of $V$ and $\br{v_1, \dots, v_m} \subset B$.
+
+We will use induction on $m$. If $m = 1$, then $A = \{v_1\}$ and thus $A \subset B$, as desired.
+
+If $m = 2$, then $A = \{\la v_1 + (1 - \la) v_2 : \la \in \F{}\}$. Exercise~\ref{affine} now implies that $A \subset B$. Thus the desired result holds if $m = 1$ or $m = 2$.
+
+Now suppose $m > 2$ and that the desired result is true for smaller values of $m$. Suppose
+\[
+ \la_1, \dots, \la_m \in \F{}\ \text{and}\ \la_1 + \dots + \la_m = 1.
+ \]
+ At least one of $ \la_1, \dots, \la_m$ is not equal to $1$. For simplicity, we assume that $\la_1 \ne 1$. Then
+ \begin{align}
+ \la_1 v_1 &+ \dots + \la_m v_m \notag\\
+ &=\la_1 v_1 + (1-\la_1)\Bigl( \frac{\la_2}{1-\la_1} v_2 + \dots + \frac{\la_m}{1-\la_1}v_m \Bigr).
+ \tag{$(*)$}
+ \end{align}
+Note that
+\begin{align*}
+\frac{\la_2}{1-\la_1} + \dots + \frac{\la_m}{1-\la_1}
+&= \frac{1}{1-\la_1}(\la_2 + \dots + \la_m)\\
+&= \frac{1}{1-\la_1}(1 -  \la_1)\\
+&= 1.
+\end{align*}
+Thus our induction hypothesis implies that
+\[
+ \frac{\la_2}{1-\la_1} v_2 + \dots + \frac{\la_m}{1-\la_1}v_m \in B.
+ \]
+Now Exercise~\ref{affine} and $(*)$ imply that $ \la_1 v_1 + \dots + \la_m v_m \in B$. Thus $A \subset B$, as desired.
+
+\item
+By (a), $A$ is a translate of some subspace of $V\1$. Thus there exist $v \in V$ and a subspace $U$ of $V$ such that
+\[
+A = v + U.
+\]
+Because $0 \in U$, we see that $v \in A$. Thus there exist $\al_1, \dots, \al_m \in \F{}$ such that
+\[
+v = \al_1 v_1 + \dots + \al_m v_m \andd \al_1 + \dots + \al_m = 1.
+\]
+Now
+\begin{align*}
+U &= -v + A \\
+&= \{(\la_1 - \al_1) v_1 + \dots + (\la_m - \al_m) v_m : \la_1, \dots, \la_m \in \F{} \\
+&\quad \quad \text{\ and\ } \la_1 + \dots + \la_m = 1\} \\
+&= \{ \beta_1 v_1 + \dots + \beta_m v_m : \beta_1, \dots, \beta_m \in \F{}  \\
+&\quad \quad\text{\ and\ } \beta_1 + \dots + \beta_m = 0\}\\
+& \subset \Span(v_1, \dots, v_m).
+\end{align*}
+\end{subtheorem}
+The inclusion above shows that $\dim U \le m$.
+
+Consider the case where $v_1 \in U$. Then there exist $\beta_1, \dots, \beta_m \in \F{}$ such that
+\[
+v_1 = \beta_1 v_1 + \dots + \beta_m v_m \andd \beta_1 + \dots + \beta_m = 0.
+\]
+Thus
+\[
+(\beta_1 - 1) v_1 + \dots + \beta_m v_m = 0.
+\]
+The equation above shows that $v_1, \dots, v_m$ is not a linearly independent list (the coefficients in the expression above are not all $0$ because they add up to $-1$). Thus $\dim \Span(v_1, \dots, v_m) < m$, as desired.
+
+Now consider the case where $v_1 \notin U$. Thus $U \ne \Span(v_1, \dots, v_m)$. Hence
+$\dim U < m$.
+
+Because $\dim U < m$ in the case where $v_1 \in U$ and in the case where $v_1 \notin U$, we conclude that
+$\dim U < m$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional. Prove that $V$ is isomorphic to
+$U \times (V\1/U)$.
+
+\begin{Solution}
+If we knew that $V$ were finite-dimensional, then we could easily show that
+$\dim V = \dim \bigr( U \times (V\1/U) \bigl)$, which would give the desired result. However, there is no hypothesis implying that $V$ is finite-dimensional, and thus the proof is a bit more involved.
+
+Let $v_1 + U, \dots, v_n + U$ be a basis of $V\1/U$. Define $P \in \L(V)$ as follows: For each $v \in V\1$, there exists a unique choice of scalars $a_1, \dots, a_n \in \F{}$ such that
+\[
+v + U = a_1(v_1 + U) + \dots + a_n (v_n + U);
+\]
+let
+\[
+Pv = a_1 v_1 + \dots + a_n v_n.
+\]
+It is easy to verify that $P$ is indeed a linear map from $V$ to $V\1$. Also, the definition of $P$ implies that
+\[
+v - Pv \in U
+\]
+for every $v \in V\1$. Also, note that if $v \in U$, then $Pv = 0$.
+
+Define $\Gamma \in \L\bigl(V\1,  U \times (V\1/U) \bigr)$ by
+\[
+\Gamma v = (v - Pv, v + U).
+\]
+
+Clearly $\Gamma$ is a linear map from $V$ to $ U \times (V\1/U)$. To show that $\Gamma$ is an isomorphism of $V$ onto $ U \times (V\1/U)$, first suppose that $v \in V$ and $\Gamma v = 0$. Thus $v = Pv$ and $v \in U$. Because $v \in U$, we have $Pv = 0$. Thus $v = 0$. Hence $\Gamma$ is injective.
+
+To show that $\Gamma$ is surjective, suppose $u \in U$ and $w \in V\1$. To verify that $\Gamma$ is surjective, we need to find $v \in V$ such that $\Gamma v = (u, w + U)$. The vector $v \in V$ that works is $v = u + Pw$. To see this, first note that
+\begin{align*}
+(u + Pw) - P(u + Pw) &= u + Pw - Pu -P(Pw) \\
+&= u + Pw -0 - Pw \\
+&= u.
+\end{align*}
+Second, note that
+\begin{align*}
+u + Pw + U &= Pw + U \\
+&= w - (w - Pw) + U \\
+&= w + U,
+\end{align*}
+where the first equality holds because $u \in U$ and the last equality holds because $w - Pw \in U$.
+
+Hence we see that $\Gamma(u + Pw) = (u, w + U)$. Thus $\Gamma$ is surjective. Hence $V$ is isomorphic to $U \times (V\1/U)$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W\3$. Suppose $w_1, \ldots, w_m$ is a basis of $W\3$. Prove that
+$w_1 + U, \ldots, w_m + U$ is a basis of $V\1/U$.
+
+\begin{Solution}
+To prove that $w_1 + U, \ldots, w_m + U$ is a linearly independent list in $V\1/U$, suppose $a_1, \ldots, a_m \in \F{}$ and
+\[
+a_1(w_1 + U) + \cdots + a_m(w_m + U) = 0 + U.
+\]
+The equation above implies that
+\[
+a_1 w_1 + \cdots + a_m w_m \in U.
+\]
+Thus $a_1 w_1 + \cdots + a_m w_m \in U \cap W$, which implies that
+\[
+a_1 w_1 + \cdots + a_m w_m = 0.
+\]
+Because the list $w_1, \ldots, w_m$ is linearly independent, the equation above implies that $a_1 = \cdots = a_m = 0$, proving that
+$w_1 + U, \ldots, w_m + U$ is a linearly independent list in $V\1/U$.
+
+To prove that $w_1 + U, \ldots, w_m + U$ spans $V\1/U$, suppose $v \in V\3$. Because $V = U \oplus W$, there exist $u \in U$ and
+$w \in W$ such that $v= u + w$. Because $w_1, \ldots, w_m$ is a basis of $W\3$, there exist $c_1, \ldots, c_m \in \F{}$ such that
+\[
+w = c_1 w_1 + \cdots + c_m w_m.
+\]
+Now
+\begin{align*}
+v + U &= (u + w) + U \\
+&= w + U \\
+&= c_1(w_1 + U) + \cdots + c_m(w_m + U).
+\end{align*}
+Thus the list $w_1 + U, \ldots, w_m + U$ spans $V\1/U$, completing the proof that
+\[
+w_1 + U, \ldots, w_m + U
+\]
+is a basis of $V\1/U$.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a subspace of $V$ and $v_1 + U, \dots, v_m + U$ is a basis of $V\1/U$ and $u_1, \dots, u_n$ is a basis of $U$. Prove that $v_1, \dots, v_m, u_1, \dots, u_n$ is a basis of $V\1$. \label{basisUVmodU}
+
+\begin{Solution}
+First suppose that $a_1, \dots, a_m, b_1, \dots, b_n \in \F{}$ are scalars such that
+\[ \tag{$(*)$}
+a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_n u_n = 0.
+\]
+Thus $a_1 v_1 + \dots + a_m v_m \in U$, which implies that
+\[
+a_1(v_1 + U) + \dots + a_m (v_m + U) = 0 + U.
+\]
+Because $v_1 + U, \dots, v_m + U$ is a linearly independent list of vectors in $V\1/U$, this implies that $a_1 = \dots = a_m = 0$. Hence $(*)$ implies that
+\[
+b_1 u_1 + \dots + b_n u_n = 0.
+\]
+Because $u_1, \dots, u_n$ is a linearly independent list of vectors in $U$, this implies that
+$b_1 = \dots = b_n = 0$. Thus $a_1 = \dots = a_m = b_1 = \dots = b_n = 0$, which implies that
+$v_1, \dots, v_m, u_1, \dots, u_n$ is a linearly independent list in $V\1$.
+
+Now suppose $v \in V\1$. Because the list $v_1 + U, \dots, v_m + U$ spans $V\1/U$, there exist
+$a_1, \dots, a_m \in \F{}$ such that
+\[
+v + U = a_1(v_1 + U) + \dots + a_m(v_m + U).
+\]
+Thus
+\[
+v - (a_1 v_1 + \dots + a_m v_m) \in U.
+\]
+Because the list $u_1, \dots, u_n$ spans $U$, there exist scalars $b_1, \dots, b_n \in \F{}$ such that
+\[
+v - (a_1 v_1 + \dots + a_m v_m) = b_1 u_1 + \dots + b_n u_n.
+\]
+Hence
+\[
+v = a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_n u_n.
+\]
+Thus the list $v_1, \dots, v_m, u_1, \dots, u_n$ spans $V$ and hence is a basis of $V\1$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $\phi \in \L(V\1, \F{})$ and $\phi \ne 0$. Prove that $\dim V \!/\! (\ker \phi) = 1$.
+
+\begin{Solution}
+If $V$ is finite-dimensional, the desired result follows easily from the fundamental theorem of linear maps (\ref{3ab11}). However, we are not assuming that $V$ is finite-dimensional, so we give a proof that works in both the finite-dimensional and the infinite-dimensional cases.
+
+Let $w \in V$ be such that $\phi(w) \ne 0$. Thus $w \in \ker \phi$, and hence $w + \ker \phi \ne 0 + \ker \phi$.
+
+Suppose $v \in V\1$. Then
+\[
+\phi\Bigl( v - \frac{\phi(v)}{\phi(w)} w \Bigr) = 0.
+\]
+Hence $v - \frac{\phi(v)}{\phi(w)} w  \in \ker \phi$, which implies that
+\[
+v + \ker \phi = \frac{\phi(v)}{\phi(w)} \Bigl( w + \ker \phi \Bigr).
+\]
+Thus the list $w + \ker \phi$ of length one spans $V \!/\! (\ker \phi)$ and hence is a basis of $V \!/\! (\ker \phi)$. Thus $\dim V \!/\! (\ker \phi) = 1$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a subspace of $V$ such that $\dim V\1/U = 1$. Prove that there exists $\phi \in \L(V\1, \F{})$ such that $\ker \phi = U$.
+
+\begin{Solution}
+Let $w \in V$ be such that $w + U$ is a basis of $V\1/U$.
+
+Define $\phi \colon V \to \F{}$ as follows: For $v \in V\1$, then there exists a unique scalar that we will call $\phi(v) \in \F{}$ such that
+\[
+v + U = \phi(v)(w + U).
+\]
+It is easy to see that $\phi$ is linear and that $\ker \phi = U$.
+\end{Solution}
+
+\exercise
+Suppose that $U$ is a subspace of $V$ such that $V\1/U$ is finite-dimensional.
+\begin{subtheorem}
+\item
+Show that if $W$ is a finite-dimensional subspace of $V$ and \mbox{$V = U + W$}, then $\dim W \ge \dim V\1/U$.
+\item
+Prove that there exists a finite-dimensional subspace $W$ of $V$ such that \mbox{$\dim W = \dim V\1/U$} and \mbox{$V = U \oplus W$}.
+\end{subtheorem}
+\exercisesubtheoremend
+
+\begin{Solution}
+Note that there is no assumption in this exercise that $V$ is finite-dimensional.
+
+\begin{subtheorem}
+\item
+Suppose $W$ is a finite-dimensional subspace of $V$ and \mbox{$V = U + W$}. Let $w_1, \ldots, w_m$ be a basis of $W\3$.
+
+Suppose $v \in V\1$. Then there exist $u \in U$ and $w \in W$ such that $v = u + w$. There exist $a_1, \ldots, a_m \in \F{}$ such that
+\[
+w = a_1 w_1 + \cdots + a_n w_m.
+\]
+Now
+\begin{align*}
+v + U &= u + w + U \\
+&= w + U \\
+&= a_1 w_1 + \cdots + a_m w_m + U\\
+&= a_1(w_1 + U) + \cdots + a_m(w_m + U).
+\end{align*}
+Hence the list $w_1 + U, \ldots, w_m + U$ spans $V\1/U$. Thus
+\[
+\dim W = m \ge \dim V\1/U,
+\]
+as desired.
+
+\item
+Let $v_1 + U, \dots, v_n + U$ be a basis of $V\1/U$. Let $W = \Span(v_1, \dots, v_n)$. To show that
+$\dim W = \dim V\1/U$, we will show that $v_1, \dots, v_n$ is linearly independent. To do this,
+suppose $c_1, \dots, c_n \in \F{}$ and
+\[
+c_1 v_1 + \dots c_n v_n = 0.
+\]
+Thus
+\[
+c_1 (v_1 + U) + \dots + c_n(v_n + U) = 0 + U.
+\]
+Because $v_1 + U, \dots, v_n + U$ is linearly independent, the equation above implies that
+$c_1 = \dots = c_n = 0$. Hence $v_1, \dots, v_n$ is linearly independent and hence $\dim W = \dim V\1/U$.
+
+To show that $U + W$ is a direct sum, suppose $v \in U \cap W\3$. Thus there exist $c_1, \dots, c_n \in \F{}$ such that
+\[
+c_1 v_1 + \dots + c_n v_n = v.
+\]
+Thus
+\begin{align*}
+c_1 (v_1 + U) + \dots + c_n(v_n + U) &= v + U \\
+&= 0 + U,
+\end{align*}
+where the last equality holds because $v \in U$. Because $v_1 + U, \dots, v_n + U$ is linearly independent, the equation above implies that
+$c_1 = \dots = c_n = 0$. Hence $v = 0$. Thus $U + W$ is a direct sum (by \ref{219}).
+
+To show that $V = U \oplus W\3$, suppose $v \in V\1$. Because $v_1 + U, \dots, v_n + U$ spans $V\1/U$, there exist $c_1, \dots, c_n \in \F{}$ such that
+\[
+c_1 (v_1 + U) + \dots + c_n(v_n + U) = v + U.
+\]
+Now
+\[
+v = (v - c_1 v_1 - \dots - c_n v_n) + (c_1 v_1 + \dots + c_n v_n),
+\]
+where the first term in parentheses above is in $U$ and the second term in parentheses above is in $W\3$. Thus $v \in U+ W\3$. Hence $V = U \oplus W\3$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $U$ is a subspace of $V\1$. Let $\pi$ denote the quotient map from $V$ onto $V\1/U$. Prove that there exists $S \in \L(V\1/U, W)$ such that $T = S \circ \pi$ if and only if $U \subset \ker T\3$. \label{1715}
+
+\begin{Solution}
+First suppose there exists $S \in \L(V\1/U, W)$ such that $T = S \circ \pi$. Suppose $u \in U$. Then
+\[
+Tu = S\bigl( \pi(u) \bigr) = S(0) = 0.
+\]
+Thus $u \in \ker T\3$. Hence $U \subset \ker T\3$.
+
+To prove the other direction, now suppose $U \subset \ker T\3$. Define $S \colon V\1/W \to W$ by
+\[
+S(v+U) = Tv
+\]
+for each $v \in V\1$. To show that the definition of $S$ makes sense, suppose $v_1, v_2 \in V$ and $v_1 + U = v_2 + U$. Then $v_1 - v_2 \in U$ and hence $v_1 - v_2 \in \ker T\3$. Thus $T(v_1 - v_2) = 0$, which implies that $Tv_1 = Tv_2$, which shows that $S$ is well defined.
+
+Clearly $S$ is linear and $T = S \circ \pi$, as desired.
+\end{Solution}
+
+\begin{comment} %This exercise deleted from LADR4e because it is too similar to Exercise 18 in Section 3.E of LADR3e.
+\exercise
+Suppose $U$ is a subspace of $V\1$. Define $\Gamma \colon \L(V\1/U, W) \to \L(V\1, W)$ by
+\[ \addtolength{\belowdisplayskip}{-3bp}
+\Gamma(S) = S \circ \pi.
+\]
+\begin{subtheorem}
+\item
+Show that $\Gamma$ is a linear map.
+\item
+Show that $\Gamma$ is injective.
+\item
+Show that
+\mbox{$\ran \Gamma = \{ T \in \L(V\1, W): Tu = 0 \text{\ for every\ } u \in U\}$}.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+A straightforward application of the definition shows that $\Gamma$ is a linear map from $\L(V\1/U, W)$ to $\L(V\1, W)$.
+
+\item
+Suppose $S \in \L(V\1/U, W)$ and $\Gamma(S) = 0$. Thus $S(v + U) = 0$ for every $v \in V\1$. Hence $S= 0$. Thus $S$ is injective.
+
+\item
+First suppose $T \in \ran \Gamma$. Thus there exists $S \in \L(V\1/U, W)$ such that $T = \Gamma(S)$. If $u \in U$, then $Tu = S\bigl(\pi(u)\bigr) = S(0) = 0$. Thus
+\[
+\ran \Gamma \subset \{ T \in \L(V\1, W): Tu = 0 \text{\ for every\ } u \in U\}.
+\]
+
+To prove the inclusion in the other direction, suppose that $T \in \L(V\1, W)$ and $Tu = 0$ for every $u \in U$. Exercise~\ref{1715} implies that there exists \mbox{$S \in \L(V\1/U, W)$} such that $T = \Gamma(S)$. Thus
+\[
+\ran \Gamma \supset \{ T \in \L(V\1, W): Tu = 0 \text{\ for every\ } u \in U\},
+\]
+as desired.
+\end{subtheorem}
+\end{Solution}
+\end{comment}
+
+\begin{comment} % Exercise deleted because T^2 has not yet been defined.
+\exercise
+Suppose $T \in \L(V)$ and $\pi$ is the quotient map of $V$ onto $V\1/(\ker T)$. Prove that
+\[
+\ker \pi \circ \tilde T = \br{v + \ker T : v \in V \text{ and } T^2 v = 0}.
+\]
+\exercisecomment{The exercise above implies that\/ $\pi \circ \tilde T$ is the zero map from\/ $V\1/(\ker T)$ to itself if and only if\/ $T^2$ is the zero map from\/ $V\1$ to itself.}
+
+\begin{Solution}
+\overfullrule = 0bp
+Suppose $v \in V\1$. Then
+\begin{align*}
+u + \ker T \in \ker \pi \circ \tilde T &\iff \pi\paren[\Big]{ \tilde T(u + \ker T) } = 0 + \ker T \\[6bp]
+&\iff \pi(Tu) = 0 + \ker T \\[6bp]
+&\iff Tu \in \ker T \\[6bp]
+&\iff T^2u = 0 \\[6bp]
+&\iff u + \ker T \in \br{v + \ker T : v \in V \text{ and } T^2 v = 0},
+\end{align*}
+as desired.
+\end{Solution}
+
+\end{comment}
+

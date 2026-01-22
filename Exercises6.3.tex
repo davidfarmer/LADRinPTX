@@ -1,0 +1,205 @@
+
+\exercise
+Suppose $v_1, \dots, v_m \in V\1$. Prove that
+\[
+\{v_1, \dots, v_m\}^\perp = \bigl( \Span(v_1, \dots, v_m) \bigr)^\perp\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $U$ is a subspace of $V$ with basis $u_1, \dots, u_m$ and\label{6onbasis}
+\[
+u_1, \dots, u_m, v_1, \dots, v_n
+\]
+is a basis of $V\1$. Prove that if the Gram--Schmidt procedure is applied to the basis of $V$ above, producing a list $e_1, \dots, e_m, f_1, \dots, f_n$, then $e_1, \dots, e_m$ is an orthonormal basis of $U$ and $f_1, \dots, f_n$ is an orthonormal basis of $U^\perp\1$.
+
+
+\exercise
+Suppose $U$ is the subspace of $\R4$ defined by
+\[
+U = \Span\bigl( (1,2,3,-4), (-5,4, 3, 2) \bigr).
+\]
+Find an orthonormal basis of $U$ and an orthonormal basis of $U^\perp\1$.
+
+
+\exercise
+Suppose $e_1, \ldots, e_n$ is a list of vectors in $V$ with $\norm{e_k} = 1$ for each $k=1, \ldots, n$ and \label{190converse}
+\[
+\|v\|^2 = \abs[\big]{ \ip{v, e_1} }^2  + \dots + \abs[\big]{ \ip{v, e_n} }^2
+\]
+for all $v \in V\1$. Prove that $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$.
+\exercisecomment{This exercise provides a converse to \ref{190}\uppar{b}.}
+
+
+\exercise
+Suppose that $V$ is finite-dimensional and $U$ is a subspace of $V\1$. Show that
+$P_{\!U^\perp} = I - P_{\!U}$, where $I$ is the identity operator on $V\1$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Show that
+\[
+T = TP_{\!(\ker T)^\perp}= P_{\!\ran T} T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose that $X$ and $Y$ are finite-dimensional subspaces of $V\1$. Prove that $P_{\!X} P_{\!Y} = 0$ if and only if $\ip{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
+
+
+\exercise
+Suppose $U$ is a finite-dimensional subspace of $V$ and $v \in V\1$. Define a linear functional $\fun \phi U \F{}$ by
+\[
+\phi(u) = \ip{u, v}
+\]
+for all $u \in U$. By the Riesz representation theorem (\ref{50}) as applied to the inner product space $U$, there exists a unique vector
+$w \in U$ such that\index{Riesz representation theorem}
+\[
+\phi(u) = \ip{u, w}
+\]
+for all $u \in U$. Show that $w = P_{\!U} v$.
+
+
+\exercise
+Suppose $V$ is finite-dimensional. Suppose $P \in \L(V)$ is such that $P^2 = P$ and every vector in
+$\ker P$ is orthogonal to every vector in $\ran P\1$. Prove that there exists a subspace $U$ of $V$ such that $P = P_{\!U}$.\label{6orth}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $P \in \L(V)$ is such that $P^2 = P$ and
+\[
+\|Pv\| \le \|v\|
+\]
+for every $v \in V\1$.  Prove that there exists a subspace $U$ of $V$ such that $P = P_{\!U}$.
+
+
+\exercise
+Suppose $T \in \L(V)$ and $U$ is a finite-dimensional subspace of~$V\1$.  Prove that\label{6invP}
+\[
+U \text{ is invariant under } T \iff P_{\!U} T P_{\!U} = T P_{\!U}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $V$ is finite-dimensional, $T \in \L(V)$, and $U$ is a subspace of~$V\1$.  Prove that
+\[
+U \text{ and } U^\perp \text{ are both invariant under } T \iff P_{\!U} T = T P_{\!U}.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $\F{} = \R{}$ and $V$ is finite-dimensional. For each $v \in V\1$, let $\phi_v$ denote the linear functional on $V$ defined by \label{VVpiso}\index{Riesz representation theorem}
+\[
+\phi_v(u) = \ip{u, v}
+\]
+for all $u \in V\1$.
+\begin{subtheorem}
+\item
+Show that $v \mapsto \phi_v$ is an injective linear map from $V$ to~$V'\!$.
+\item
+Use (a) and a dimension-counting argument to show that $v \mapsto \phi_v$ is an isomorphism from $V$ onto~$V'\!$.
+\end{subtheorem}
+\exercisecomment{The purpose of this exercise is to give an alternative proof of the Riesz representation theorem \uppar{\ref{50} and \ref{3RRT}} when $\F{} = \R{}$. Thus you should not use the Riesz representation theorem as a tool in your solution.}
+
+
+\exercise
+Suppose that $e_1, \ldots, e_n$ is an orthonormal basis of $V\1$. Explain why the dual basis (see \ref{DualBasis}) of
+$e_1, \ldots, e_n$ is $e_1, \ldots, e_n$ under the identification of $V'$ with $V$ provided by the Riesz representation theorem (\ref{3RRT}).
+
+
+\exercise
+In $\R{4}$, let
+\[
+U = \Span \bigl( (1, 1, 0, 0), (1, 1, 1, 2) \bigr).
+\]
+Find $u \in U$ such that $\| u - (1,2,3,4) \|$ is as small as possible.
+
+
+\exercise
+Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1 ,1]$ with inner product given by \label{dense}
+\[
+\ip{f, g} = \int_{-1}^1 fg
+\]
+for all $f, g \in C[-1, 1]$. Let $U$ be the subspace of $C[-1, 1]$ defined by
+\[ %\addtolength{\belowdisplayskip}{-3bp}
+U = \br[\big]{ f \in C[-1, 1]: f(0) = 0 }.
+\]
+\begin{subtheorem}*
+\item
+Show that $U^\perp = \{0\}$.
+\item
+Show that \ref{191} and \ref{376} do not hold without the finite-dimensional hypothesis.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Find $p \in \P\1_3(\R{})$ such that $p(0) = 0$, $p' \! (0) = 0$, and
+$ \displaystyle
+\int_0^1 \, \abs[\big]{2 + 3x - p(x)}^2 \,dx
+$
+is as small as possible.
+
+
+\exercise
+Find $p \in \P\1_5(\R{})$ that makes
+$ \displaystyle
+\int_{-\pi}^{\pi} \, \abs[\big]{\sin x - p(x)}^2\,dx
+$
+as small as possible.
+\exercisecomment{The polynomial \ref{420} is an excellent
+approximation to the answer to this exercise, but here you are asked
+to find the exact solution, which involves powers of\/ $\pi$.  A
+computer that can perform symbolic integration should help.}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $P \in \L(V)$ is an orthogonal projection of $V$ onto some subspace of $V\1$. Prove that $P^\dagger = P\1$.\label{3dagger}
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Show that \label{5NullRanTd}
+\[
+\ker T^\dagger = (\ran T)^\perp \andd \ran T^\dagger = (\ker T)^\perp\1.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{ \F3, \F2 }$ is defined by
+\[
+T(a, b, c) = (a + b + c, 2b + 3c).
+\]
+\begin{subtheorem}*
+\item
+For $(x, y) \in \FF2$, find a formula for $T^\dagger(x,y)$.
+\item
+Verify that the equation $TT^\dagger = P_{\!\ran T}$ from \ref{6propps}(b) holds with the formula for $T^\dagger$ obtained in (a).
+\item
+Verify that the equation $T^\dagger T = P_{\!(\ker T)^\perp}$ from \ref{6propps}(c) holds with the formula for $T^\dagger$ obtained in (a).
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V\1, W)$. Prove that
+\[
+TT^\dagger T = T \andd T^\dagger T T^\dagger = T^\dagger\1.
+\]
+\exercisedisplayend
+\exercisecomment{Both formulas above clearly hold if\/ $T$ is invertible because in that case we can replace\/ $T^\dagger$ with\/ $T^{-1}\1$.}
+
+
+\exercise
+Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V\1, W)$. Prove that\label{2dag}
+\[
+\paren[\big]{T^\dagger}^\dagger = T\3.
+\]
+\exercisedisplayend
+\exercisecomment{The equation above is analogous to the equation\/ $\paren[\big]{T^{-1}}^{-1} = T$ that holds if\/ $T$ is invertible.}
+
+

@@ -1,0 +1,182 @@
+
+\exercise
+Suppose $T \in \L(V)$. Prove that if $\dim \ker T^4 = 8$ and $\dim \ker T^6 = 9$, then $\dim \ker T^m = 9$ for all integers $m \ge 5$.
+
+
+\exercise
+Suppose $T \in \L(V)$, $m$ is a positive integer, $v \in V$, and $T^{m-1} v \ne 0$ but $T^m v = 0$. Prove that
+$
+v, Tv, T^2 v, \dots, T^{m-1} v
+$
+is linearly independent.\label{8linind}
+\exercisecomment{The result in this exercise is used in the proof of \ref{452}.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that
+\[
+V = \ker T \oplus \ran T \iff \ker T^2 = \ker T\3.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$, $\la \in \F{}\3$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of
+$(z - \la)^m\!$. Prove that
+\[
+\dim \ker(T - \la I)^m \ge m.
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a positive integer. Prove that
+\[
+\dim \ker T^m \le m \dim \ker T.
+\]
+\exercisedisplayend
+\hint{Exercise \ref{3diminv} in Section \ref{3nullspace} may be useful.}
+
+
+\exercise
+Suppose $T \in \L(V)$. Show that\index{range!of powers of an operator} \label{range1}
+\[
+V = \ran T^0 \supset \ran T^1 \supset \cdots
+\supset \ran T^k \supset \ran T^{k+1} \supset \dotsb .
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer such that \label{range2}
+\[
+\ran T^m = \ran T^{m+1}\!.
+\]
+Prove that $\ran T^k = \ran T^m$ for all $k > m$.
+
+
+\exercise
+Suppose $T \in \L(V)$. Prove that\label{range3}
+\[
+\ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb .
+\]
+\exercisedisplayend
+
+
+\exercise
+Suppose $T \in \L(V)$ and $m$ is a nonnegative integer. Prove that\label{kerran}
+\[
+\ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}\!.
+\]
+\exercisedisplayend
+
+
+\begin{comment}
+\exercise
+Find a vector space $W$ and $T \in \L(W)$ such that $\ker T^k \subsetneq \ker T^{k+1}$ and $\ran T^k \supsetneq \ran T^{k+1}$ for every positive integer~$k$.
+
+
+\end{comment}
+
+\exercise
+Define $T \in \L\paren[\big]{\C{2}}$ by
+$
+T(w,z) = (z,0)$.
+Find all generalized eigenvectors of~$T\3$.
+
+
+\exercise
+Suppose that $T \in \L(V)$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z-\la_1) \cdots (z-\la_m)$ for some
+$\la_1, \ldots, \la_m \in \F{}\3$.\label{8geneigb}\index{minimal polynomial!and basis of generalized eigenvectors}
+\exercisecomment{Assume $\F{} = \R{}$ because the case\/ $\F{} = \C{}$ follows from \ref{136}\uppar{b} and \ref{28}.\\[3bp]
+This exercise states that the condition for there to be a basis of\/ $V$ consisting of generalized eigenvectors of\/ $T$ is the same as the condition for there to be a basis with respect to which\/ $T$ has an upper-triangular matrix \uppar{see \ref{5necsuf}}.\\[3bp]
+\textbf{Caution:} If\/ $T$ has an upper-triangular matrix with respect to a basis\/ $v_1, \ldots, v_n$ of\/ $V\1$, then\/ $v_1$ is an eigenvector of\/ $T$ but it is not necessarily true that\/ $v_2, \ldots, v_n$ are generalized eigenvectors of\/ $T\3$.}
+
+\pagebreak[1]
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that every nonzero vector in $V$ is a generalized eigenvector of $T\3$. Prove that there exists $\la \in \F{}$ such that
+$T - \la I$ is nilpotent.
+
+
+\exercise
+Suppose $S, T \in \L(V)$ and $ST$ is nilpotent. Prove that $TS$ is nilpotent.
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $T \ne 0$. Prove $T$ is not diagonalizable.\index{diagonalizable}
+
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that $T$ is diagonalizable if and only if every generalized eigenvector of~$T$ is an eigenvector of~$T\3$.\label{425} \index{diagonalizable}
+\exercisecomment{For $\F{} = \C{}$, this exercise adds another
+equivalence to the list of conditions for diagonalizability in \ref{427}.}
+
+
+\exercise
+\begin{SUBtheorem}
+\item
+Give an example of nilpotent operators $S, T$ on the same vector space such that neither $S+T$ nor $ST$ is nilpotent.
+\item
+Suppose $S, T \in \L(V)$ are nilpotent and $ST = TS$. Prove that $S + T$ and $ST$ are nilpotent.
+\end{SUBtheorem}
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent and $m$ is a positive integer such that $T^m = 0$.
+\begin{subtheorem}
+\item
+Prove that $I-T$ is invertible and that
+$
+(I - T)^{-1} = I + T + \dots + T^{m-1}\!$.
+\item
+Explain how you would guess the formula above.
+\end{subtheorem}
+\exercisesubtheoremend
+
+
+\exercise
+Suppose $T \in \L(V)$ is nilpotent. Prove that $T^{1 + \dim \ran T} = 0$.\label{nilrange}
+\exercisecomment{If\/ $\dim \ran T < \dim V - 1$, then this exercise improves \ref{181}.}
+
+
+\exercise
+Suppose $T\in \L(V)$ is not nilpotent. Show that\label{8notnil}
+\[
+V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}\!.
+\]
+\exercisedisplayend
+\exercisecomment{For operators that are not nilpotent, this exercise improves \ref{8nulloplusran}.}
+
+
+\exercise
+Suppose $V$ is an inner product space and $T \in \L(V)$ is normal and nilpotent. Prove that $T = 0$.
+
+
+\exercise
+Suppose $T \in \L(V)$ is such that $\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!$.  Prove that $T$ is nilpotent and that
+$
+\dim \ker T^k = k$
+for every integer $k$ with $0 \le k \le \dim V\1$.\label{8nullTk}
+
+
+\exercise
+Suppose $T \in \L\paren[\big]{\C{5}}$ is such that $\ran T^4 \ne \ran T^5\1$.  Prove that $T$ is
+nilpotent.
+
+
+\exercise
+Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent. \label{Nil1}
+\exercisecomment{This exercise shows that the implication \uppar{b} $\implies$ \uppar{a} in \ref{8eignil} does not hold without the hypothesis that
+$\F{} = \C{}$.}
+
+
+\exercise
+For each item in Example \ref{8nil}, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by \ref{a33}(c).
+
+
+\exercise
+Suppose that $V$ is an inner product space and $T \in \L(V)$ is nilpotent. Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by \ref{a33}(c).
+
+

@@ -1,0 +1,559 @@
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \R3 \to \R2$ by
+\[
+T(x, y, z) = (2x -4y + 3z + b, 6x + c xyz).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+\begin{Solution}
+First suppose $b = c = 0$. Then
+\[
+T(x, y, z) = (2x -4y + 3z, 6x),
+\]
+which easily implies that $T$ is linear.
+
+Conversely, now suppose that $T$ is linear. Note that
+\[
+T(0,0, 0) = (b ,0).
+\]
+Now \ref{zerotozero} implies that $b = 0$.
+
+Note that
+\[
+T(1, 1, 1) = (1, 6 + c) \andd T(2, 2, 2) = (2, 12 + 8c).
+\]
+The equation $T(2, 2, 2) = 2T(1,1,1)$ implies that $12 + 8c = 12 + 2c$, which implies that $c = 0$.
+\end{Solution}
+
+\exercise
+Suppose $b, c \in \R{}$. Define $T \colon \P(\R{}) \to \R2$ by
+\[
+Tp = \Bigl(3p(4) + 5p' \! (6) + b p(1) p(2), \int_{-1}^2 x^3 p(x)\, dx + c \sin p(0)\Bigr).
+\]
+Show that $T$ is linear if and only if $b = c = 0$.
+
+\begin{Solution}
+First suppose $b = c = 0$. Then
+\[
+Tp = \Bigl(3p(4) + 5p' \! (6), \int_{-1}^2 x^3 p(x)\, dx \Bigr),
+\]
+which easily implies that $T$ is linear.
+
+Conversely, now suppose that $T$ is linear. Note that
+\[
+T1 = \bigl(3 + b, \tfrac{15}{4} + c \sin 1\bigr) \andd T2 = \bigl(6 + 4b, \tfrac{15}{2} + c \sin 2\bigr)
+\]
+The equation $T2 = 2T1$ implies that $6 + 4b = 6 + 2b$ and $\frac{15}{2} + c \sin 2 = \frac{15}{2} + 2 c \sin 1$, which implies that $b = 0$ and $c = 0$.
+
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L\paren[\big]{\FF{n}, \F{m}}$.  Show that there exist scalars $A_{j, k} \in \F{}$ for $j = 1, \dots, m$ and $k = 1, \dots, n$ such that
+\[
+T(x_1, \dots, x_n) =
+(A_{1,1}x_1 + \dots + A_{1,n}\,x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n}\,x_n)
+\]
+for every $(x_1, \dots, x_n) \in \FF{n}$.
+\exercisecomment{This exercise shows that the linear map $T$ has the form promised in the second to last item of Example~\ref{2a111}.}
+
+\begin{Solution}
+Let $e_1, \dots, e_n$ denote the standard basis of $\FF{n}$. Furthermore, let $f_1, \dots, f_m$ denote the standard basis of $\FF{m}$. Then for $k = 1, \dots, n$, there are numbers $A_{j, k}$ such that
+\[
+Te_k = \sum_{j=1}^m A_{j, k} f_j.
+\]
+Thus
+\begin{align*}
+T(x_1, \dots, x_n) &= x_1 Te_1 + \dots + x_n Te_n \\
+&= x_1 \sum_{j=1}^m A_{j, 1} f_j + \dots + x_n \sum_{j=1}^m A_{j, n} f_j \\
+&= \sum_{j=1}^m (A_{j,1} x_1 + \dots + A_{j, n}x_n ) f_j.
+\end{align*}
+Thus the $j^\nth$-coordinate of $T(x_1, \dots, x_n)$ is $A_{j,1} x_1 + \dots + A_{j, n}x_n$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $v_1, \dots, v_m$ is a list of vectors in $V$ such that
+$Tv_1, \dots, Tv_m$ is a linearly independent list in $W\3$. Prove that $v_1, \dots, v_m$ is linearly independent.
+
+\begin{Solution}
+Suppose $c_1, \dots, c_n \in \F{}$ are such that
+\[
+c_1 v_1 + \dots + c_n v_ n = 0.
+\]
+Applying $T$ to both sides of the equation above, we have
+\[
+c_1 Tv_1 + \dots + c_n Tv_n = 0.
+\]
+Because $Tv_1, \dots, Tv_m$ is linearly independent, this implies that
+\[
+c_1 = \dots = c_n = 0.
+\]
+Thus $v_1, \dots, v_m$ is linearly independent.
+\end{Solution}
+
+\exercise
+Prove that $\L(V\1,W)$ is a vector space, as was asserted in \ref{LVW}.
+
+\begin{Solution}
+Suppose $S, T \in \L(V\1, W)$. Then
+\[
+(S+T)(v) = Sv + Tv = Tv + Sv = (T + S)v
+\]
+for every $v \in V\1$. Thus $S + T = T + S$. In other words, addition is commutative on $\L(V\1, W)$.
+
+Suppose $R, S, T \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( (R + S) + T \bigr)(v) &= (R + S)v + T v \\
+&= (Rv + Sv) + Tv \\
+&= Rv + (Sv + Tv) \\
+&= Rv + (S+T)v \\
+&= \bigl( R + (S+T) \bigr)(v)
+\end{align*}
+for every $v \in V\1$. Thus $(R + S) + T = R + (S + T)$. In other words, addition is associative on $\L(V\1, W)$.
+
+Suppose $a, b \in \F{}$ and $T \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( (ab)T \bigr) (v) &= (ab)(Tv) \\
+&= a(bTv) \\
+&= \bigl( a(bT) \bigr) (v)
+\end{align*}
+for every $v \in V\1$. Thus $(ab)T = a(bT)$.
+
+The linear map $0 \in \L(V\1, W)$ defined by $0v = 0$ (where the $0$ on the right is the additive identity for $W$) is clearly an additive identity for $\L(V\1, W)$.
+
+For $T \in \L(V\1, W)$, define $-T \in \L(V\1,W)$ by
+\[
+(-T)(v) = -(Tv)
+\]
+for all $v \in V\1$. It is easy to verify that $-T$ is an additive inverse of $T\3$.
+
+Suppose $T \in \L(V\1, W)$. Then
+\[
+(1T)(v) = 1(Tv) = Tv
+\]
+for every $v \in V\1$. Thus $1T = T\3$.
+
+Suppose $a \in \F{}$ and $S, T \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( a(S + T) \bigr)(v) &= a \bigl( (S + T)(v) \bigr) \\
+&= a(Sv + Tv) \\
+&= a (Sv) + a (Tv) \\
+&= (aS)(v) + (aT)(v) \\
+&= (aS + aT)(v)
+\end{align*}
+for every $v \in V\1$. Thus $a(S + T) = aS + aT\3$.
+
+Suppose $a, b \in \F{}$ and $T \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( (a + b)T \bigr)(v) &= (a + b)(Tv) \\
+&= a(Tv) + b(Tv) \\
+&= (aT)(v) + (bT)(v) \\
+&= (aT + bT)(v)
+\end{align*}
+for every $v \in V\1$. Thus $(a+b)T = aT + bT\3$.
+
+We have now verified that $\L(V\1, W)$ is a vector space with the operations of addition and scalar multiplication that were defined on $\L(V\1, W)$.
+\end{Solution}
+
+\exercise
+Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in \ref{algprod}.
+
+\begin{Solution}
+Suppose $U, V\1, W\3, X$ are vector spaces over $\F{}$ and
+\[
+T\3_3 \in \L(U, V), \quad T\3_2 \in \L(V\1, W),\quad T\3_1 \in \L(W\3, X).
+\]
+Thus $(T\3_1 T\3_2) T\3_3$ and $T\3_1(T\3_2 T\3_3)$ are both elements of $\L(U, X)$.
+
+Now
+\begin{align*}
+\bigl( (T\3_1 T\3_2) T\3_3 \bigr)(u) &= (T\3_1 T\3_2)(T\3_3 u) \\
+&= T\3_1 \bigl( T\3_2(T\3_3) u \bigr) \\
+&= T\3_1 \bigl( (T\3_2 T\3_3)(u) \bigr)\\
+&= \bigl( T\3_1(T\3_2 T\3_3) \bigr)(u)
+\end{align*}
+for every $u \in U$. Thus $(T\3_1 T\3_2) T\3_3 = T\3_1(T\3_2 T\3_3)$.
+
+Suppose $T \in \L(V\1, W)$. Then
+\[
+(TI)v = T(Iv) = Tv
+\]
+for every $v \in V\1$. Thus $TI = T\3$. Similarly,
+\[
+(IT)(v) = I(Tv) = Tv
+\]
+for every $v \in V\1$. Thus $IT = T\3$. Hence $TI = IT = T\3$.
+
+Suppose $U, V\1, W$ are vector spaces over $\F{}\3$. Suppose also that $T \in \L(U, V)$ and $S_1, S_2 \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( (S_1 + S_2)T  \bigr)(u) &= (S_1 + S_2)(Tu) \\
+&= S_1(Tu) + S_2(Tu) \\
+&= (S_1 T)(u) + (S_2 T)(u) \\
+&= (S_1 T + S_2 T)(u)
+\end{align*}
+for every $u \in U$. Thus $(S_1 + S_2)T = S_1 T + S_2 T\3$.
+
+Suppose $U, V\1, W$ are vector spaces over $\F{}\3$. Suppose also that $T\3_1, T\3_2 \in \L(U, V)$ and $S \in \L(V\1, W)$. Then
+\begin{align*}
+\bigl( S(T\3_1 + T\3_2) \bigr)(u) &= S\bigl((T\3_1 + T\3_2)u\bigr) \\
+&= S(T\3_1u + T\3_2 u) \\
+&= S(T\3_1 u) + S(T\3_2u)\\
+&= (S T\3_1)(u) + (S T\3_2)(u) \\
+&= (ST\3_1 + ST\3_2)(u)
+\end{align*}
+for every $u \in U$. Thus $S(T\3_1 + T\3_2) = ST\3_1 + ST\3_2$.
+\end{Solution}
+
+\exercise
+Show that every linear map from a one-dimensional vector space to
+itself is multiplication by some scalar.  More precisely, prove that
+if $\dim V = 1$ and $T \in \L(V)$, then there exists $\la \in \F{}$ such
+that $Tv = \la v$ for all $v \in V\1$. \label{dualone}
+
+\begin{Solution}
+Suppose $\dim V = 1$ and $T \in \L(V)$.  Let $u$ be a nonzero vector in $V\1$.
+Then every vector in $V$ is a scalar multiple of~$u$.  In particular, $Tu = \la u$ for
+some $\la \in \F{}\3$.
+
+Now consider a typical vector $v \in V\1$.  There exists $b \in \F{}$ such that
+$v = bu$.  Thus
+\begin{align*}
+Tv &= T(bu) \\
+&= bT(u) \\
+&= b(\la u) \\
+&= \la (bu) \\
+&= \la v.
+\end{align*}
+\end{Solution}
+
+\exercise
+Give an example of a function $\phi\colon \R{2} \to \R{}$ such that \label{403}
+\[
+\phi(av) = a \phi(v)
+\]
+for all $a \in \R{}$ and all $v \in \R{2}$ but $\phi$ is not linear.
+\exercisecomment{This exercise and the next exercise show that neither homogeneity nor additivity alone is
+enough to imply that a function is a linear map.}
+
+\begin{Solution}
+Define $\phi \colon \R{2} \to \R{}$ by
+\[
+\phi(x,y) = (x^3 + y^3)^{1/3}.
+\]
+Then $\phi(av) = a \phi(v)$ for all $a \in \R{}$ and all $v \in \RR{2}$.  However, $\phi$
+is not linear, because $\phi(1,0) = 1$ and $\phi(0,1) = 1$ but
+\begin{align*}
+\phi\bigl((1,0) + (0,1)\bigr) &= \phi(1,1) \\
+&= 2^{1/3} \\
+&\ne \phi(1,0) + \phi(0,1).
+\end{align*}
+
+Of course there are also many other examples.
+
+\Comment
+This exercise shows that homogeneity alone is not
+enough to imply that a function is a linear map.  Additivity alone is also not
+enough to imply that a function is a linear map, although the proof of this involves
+advanced tools that are beyond the scope of this book.
+\end{Solution}
+
+\exercise
+Give an example of a function $\phi \colon \C{} \to \C{}$ such that
+\[
+\phi(w + z) = \phi(w) + \phi(z)
+\]
+for all $w, z \in \C{}$ but $\phi$ is not linear. (Here $\C{}$ is thought of as a complex vector space.)
+\exercisecomment{There also exists a function\/ $\phi \colon \R{} \to \R{}$ such that\/ $\phi$ satisfies the additivity condition above but\/ $\phi$ is not linear. However, showing the existence of such a function involves considerably more advanced tools.}
+
+\pagebreak[3]
+
+\begin{Solution}
+Define $\phi \colon \C{} \to \C{}$ by
+\[
+\phi(x + yi) = x - iy
+\]
+for all $x, y \in \R{}$. Then $\phi$ is additive by $\phi$ is not homogeneous with respect to complex scalars. For example,
+\[
+\phi(i i) = \phi(-1) = -1 \ne 1 = i(-i) = i \phi(i)
+\]
+and thus $\phi(ii) \ne i \phi(i)$.
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $q \in \P(\R{})$ and $\fun T {\P(\R{})} {\P(\R{})}$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
+\exercisecomment{The function $T$ defined here differs from the function $T$ defined in the last bullet point of \ref{2a111} by the order of the functions in the compositions.}
+
+\begin{Solution}
+To construct a counterexample, take $q(x) = x^2\1$, $p_1(x) = 1$, and $p_2(x) = x$. Then
+\[
+(Tp_1)(x) = 1 \andd (Tp_2)(x) = x^2
+\]
+for all $x \in \R{}$ but
+\[
+\paren[\big]{ T(p_1+ p_2) }(x) = (1 + x)^2 = 1 + 2x + x^2\1.
+\]
+Thus $T(p_1 + p_2) \ne Tp_1 + Tp_2$, which implies that $T$ is not linear.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional and $T \in \L(V)$.  Prove that $T$ is a
+scalar multiple of the identity if and  only if $ST = TS$ for every $S \in \L(V)$.
+
+\begin{Solution}
+First suppose $T = aI$ for some $a \in \F{}\3$.  Let $S \in \L(V)$.  Then
+\begin{align*}
+ST &= S(aI) \\
+&= aS \\
+&= (aI)S \\
+&= TS.
+\end{align*}
+
+To prove the implication in the other direction, suppose now that $ST = TS$ for all
+$S \in \L(V)$.  We begin by proving that $v,Tv$ is linearly dependent for every
+$v \in V\1$.  To do this, fix $v \in V\1$, and suppose $v, Tv$ is linearly
+independent.  Then $v, Tv$ can be extended to a basis $v, Tv, u_1, \dots, u_n$
+of~$V\1$.  Define $S \in \L(V)$ by
+\[
+S(av + bTv + c_1 u_1 + \dots + c_n u_n) = bv.
+\]
+Thus $S(Tv) = v$ and $Sv = 0$.  Thus the equation $S(Tv) = T(Sv)$ becomes the
+equation $v = 0$, a contradiction because $v, Tv$ was assumed to be linearly
+independent.  This contradiction shows that $v,Tv$ is linearly dependent for
+every $v \in V\1$.  This implies that for each $v \in V \sm \{0\}$, there
+exists $a_v \in \F{}$ such that
+\[
+Tv = a_v v.
+\]
+
+To show that $T$ is a scalar multiple of the identity, we must show that $a_v$ is
+independent of~$v$.  To do this, suppose $v, w \in V \sm \{0\}$.  We
+want to show that $a_v = a_w$.  First consider the case where $v, w$ is
+linearly dependent.  Then there exists $b \in \F{}$ such that $w = bv$.  We have
+\begin{align*}
+a_w w &= Tw\\
+&= T(bv) \\
+&= bTv \\
+&= b(a_v v) \\
+&= a_v w,
+\end{align*}
+which shows that $a_v = a_w$, as desired.
+
+Finally, consider the case where $v, w$ is linearly independent.  We have
+\begin{align*}
+a_{v+w} (v + w) &= T(v + w) \\
+&= Tv + Tw \\
+&= a_v v + a_w w,
+\end{align*}
+which implies that
+\[
+(a_{v+w} - a_v) v + (a_{v+w} - a_w) w = 0.
+\]
+Because $v, w$ is linearly independent, this implies that $a_{v+w} = a_v$ and
+$a_{v+w} = a_w$, so again we have $a_v = a_w$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $U$ is a subspace of $V$ with $U \ne V\1$. Suppose $S \in \L(U, W)$ and $S \ne 0$ (which means that $Su \ne 0$ for some $u \in U$). Define $T \colon V \to W$ by
+\[
+Tv =
+\begin{cases}
+Sv & \text{if } v \in U,\\
+0 & \text{if } v \in V \text{\ and \ }v \notin U.
+\end{cases}
+\]
+Prove that $T$ is not a linear map on $V\1$.
+
+\begin{Solution}
+Let $u \in U$ be such that $Su \ne 0$. Let $w \in V$ be such that $w \notin U$.  Then $u + w \notin U$ [because $u + w \in U$ would imply that $(u + w) + (-u)$, which equals $w$, is in $U$]. Thus
+\[
+T(u + w) = 0.
+\]
+However,
+\[
+Tu + Tw = Tu + 0 = Tu = Su \ne 0.
+\]
+Thus $T(u + w) \ne Tu + Tw$. Hence $T$ is not linear.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional.  Prove that every linear map on a
+subspace of $V$ can be extended to a linear map on $V\1$.  In other words, show
+that if $U$ is a subspace of $V$ and $S \in \L(U, W)$, then there exists
+$T \in \L(V\1, W)$ such that $Tu = Su$ for all $u \in U$.\label{384}
+\exercisecomment{The result in this exercise is used in the proof of \ref{dimannih}.}
+
+\begin{Solution}
+Suppose $U$ is a subspace of $V$ and $S \in \L(U, W)$.  Choose a basis
+$u_1, \dots, u_m$ of~$U$.  Then $u_1, \dots, u_m$ is a linearly
+independent list of vectors in $V\1$, and so can be extended to a basis
+$u_1, \dots, u_m, v_1, \dots, v_n$ of~$V$ (by~\ref{9}).  Define $T \in \L(V\1, W)$
+by
+\[
+T(a_1 u_1 + \dots a_m u_m + b_1 v_1 + \dots + b_n v_n) =
+a_1 Su_1 + \dots + a_m Su_m.
+\]
+Then $Tu = Su$ for all $u \in U$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\L(V\1,W)$ is infinite-dimensional.
+
+\begin{Solution}
+Suppose $W$ is infinite-dimensional. Let $v_1, \dots, v_m$ be a basis of $V\1$.
+
+Because $W$ is infinite-dimensional, there exists a sequence $w_1, w_2, \dots$ such that $w_1, \dots, w_n$ is linearly independent for each positive integer $n$.
+
+For each positive integer $n$, use the linear map lemma (\ref{3linearmap}) to define a linear map $T\3_n \in \L(V\1, W)$ such that
+\[
+T\3_n(v_k) = w_n
+\]
+for all $k = 1, \dots, v_m$.
+
+Suppose $n$ is a positive integer and $c_1, \dots, c_n \in \F{}$ are such that
+\[
+c_1 T\3_1 + \dots + c_n T\3_n = 0.
+\]
+Applying both sides of the equation above to the vector $v_1$ gives
+\[
+c_1 w_1 + \dots + c_n w_n = 0.
+\]
+Because $w_1, \dots, w_n$ is linearly independent, the equation above implies that $c_1 = \dots = c_n = 0$. Thus
+$T\3_1, \dots, T\3_n$ is a linearly independent list in $\L(V\1,W)$.
+
+Because $\L(V\1,W)$ has a linearly independent list of length $n$ for every positive integer $n$, we conclude that $\L(V\1,W)$ is infinite-dimensional.
+\end{Solution}
+
+\exercise
+Suppose $v_1, \dots, v_m$ is a linearly dependent list of vectors in $V\1$. Suppose also that $W \ne \{0\}$. Prove that there exist $w_1, \dots, w_m \in W$ such that no $T \in \L(V\1, W)$ satisfies $Tv_k = w_k$ for each $k = 1, \dots, m$.
+
+\begin{Solution}
+If $v_1 = 0$, let $w_1$ be a nonzero vector in $W\3$. Then there does not exist a linear map $T \in \L(V\1, W)$ such that $Tv_1 = w_1$ (by \ref{zerotozero}).
+
+If $v_1 \ne 0$, then by the linear dependence lemma (\ref{4}) there exists $j \in \{2, \dots, m\}$  and $c_1, \dots , c_{j-1} \in \F{}$ such that
+\[
+v_j = c_1 v_1 + \dots + c_{j-1} v_{j-1}.
+\]
+Let $w_k = 0$ for all $k = 1, \dots, j-1$ and let $w_j$ equal any nonzero vector in $W\3$. Then the equation above and \ref{zerotozero} imply that there does not exist a linear map $T \in \L(V\1, W)$ such that $Tv_k = w_k$ for all $k = 1, \dots, j$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \L(V)$ such that $ST \ne TS$. \label{noncomm}
+
+\begin{Solution}
+Let $v_1, \dots, v_n$ be a basis of $V\1$. Use the linear map lemma (\ref{3linearmap}) to define $S, T \in \L(V)$ such that
+\[
+Sv_k =
+\begin{cases}
+v_2 & \text{if } k = 1,\\[9bp]
+0 & \text{if } k \ne 1,
+\end{cases}
+\andd
+Tv_k =
+\begin{cases}
+v_1 & \text{if } k = 2,\\[9bp]
+0 & \text{if } k \ne 2.
+\end{cases}
+\]
+Then
+\[
+(ST)(v_1) = S(Tv_1) = S0 = 0
+\]
+but
+\[
+(TS)(v_1) = T(Sv_1) = Tv_2 = v_1.
+\]
+Thus $ST \ne TS$.
+\end{Solution}
+
+\exercise
+Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\L(V)$ are $\br{0}$ and $\L(V)$.
+\index{two-sided ideal}\label{ideals}
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{two-sided ideal} of\/ $\L(V)$ if\/ $TE \in \E$ and\/ $ET \in \E$ for all\/ $E \in \E$ and all\/ $T \in \L(V)$.}
+
+\begin{Solution}
+Suppose $\E$ is a two-sided ideal of $\L(V)$ and $\E \ne \{0\}$. We will prove that $\E = \L(V)$.
+
+Let $T \in \E$ be such that $T \ne 0$. Let $w \in V$ be such that $Tw \ne 0$. Let $v_1, \dots, v_n$ be a basis of $V$ (thus $n = \dim V$).
+
+For $1 \le k \le n$, let $S_k \in \L(V)$ be the linear map (whose existence is guaranteed by the linear map lemma \ref{3linearmap}) such that
+\[
+S_kv_j = \begin{cases}
+w & \text{if } j = k,\\
+0 & \text{if } j \ne k.
+\end{cases}
+\]
+Because $Tw \ne 0$, the list $Tw$ of length one can be extended to a basis of $V\1$. Thus for each $1 \le k \le n$, there exists $R_k \in \L(V)$ such that
+\[
+R_k(Tw) = v_k,
+\]
+where again we have used the linear map lemma (\ref{3linearmap}).
+
+Now for each $1 \le k \le n$, we have
+\[
+R_k T S_kv_j = \begin{cases}
+v_j & \text{if } j = k,\\
+0 & \text{if } j \ne k.
+\end{cases}
+\]
+Hence
+\[
+\paren[\Big]{\sum_{k=1}^n R_kTS_k} v_j = v_j.
+\]
+for every $j = 1, \ldots, n$. This implies that
+\[
+\sum_{k=1}^n R_kTS_k = I,
+\]
+where $I$ is the identity operator on $V\1$.
+
+Because $\E$ is a two-sided ideal of $\L(V)$, each $R_kTS_k \in \E$. Thus the equation above implies that $I \in \E$.
+
+If $T \in \L(V)$ then $TI = T$ and hence $T \in \L(V)$ [because $I \in \E$ and $\E$ is a two-sided ideal of $\L(V)$]. Hence we conclude that $\E = \L(V)$, as desired.
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a left ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{left ideal}
+\[
+\E = \br{E \in \L(V): U \subset \ker E}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{left ideal} of $\L(V)$ if\/ $TE \in \E$ for all\/ $E \in \E$ and all\/
+$T \in \L(V)$.}
+
+\begin{Solution}
+First suppose $\E$ is a left ideal of $\L(V)$. Let
+\[
+U = \br{u \in V : Eu = 0 \text{ for every } E \in \E}.
+\]
+Clearly $U$ is a subspace of $V\1$. If $E \in \E$ and $u \in U$, then $Eu = 0$ (by the definition of $U$), and thus $U \subset \ker E$. Hence
+ \[
+\E \subset \br{E \in \L(V): U \subset \ker E}.
+\]
+
+To prove the inclusion in the other direction, now suppose $E \in \L(V)$ and $U \subset \ker E$. Let $u_1, \ldots, u_m$ be a basis of $U$. Extend to a basis
+\[
+u_1, \ldots, u_m, v_1, \ldots, v_n
+\]
+of $V\3$ (which is possible by \ref{9}). Suppose $k \in \br{1, \ldots, n}$. Because $v_k \notin U$, there exists $E_k \in \E$ such that
+\[
+E_k v_k \ne 0.
+\]
+
+
+%To prove the implication in the other direction, now suppose there exists a subspace $U$ of $V$ such that
+%\[
+%\E = \br{E \in \L(V): U \subset \ker E}.
+%\]
+\end{Solution}
+
+\exercise
+Suppose that $V$ is finite-dimensional and $\E \subset \L(V)$.
+Prove that $\E$ is a right ideal of $\L(V)$ if and only if there exists a subspace $U$ of $V$ such that\index{right ideal}
+\[
+\E = \br{E \in \L(V): \ran E \subset U}.
+\]
+\exercisecomment{A subspace\/ $\E$ of\/ $\L(V)$ is called a \emph{right ideal} of $\L(V)$ if\/ $ET \in \E$ for all\/ $E \in \E$ and
+all\/ $T \in \L(V)$.}
+
+\end{comment}
+

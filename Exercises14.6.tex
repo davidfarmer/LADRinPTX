@@ -1,0 +1,887 @@
+
+\exercise
+Prove that if $S, T \in \L(V\1, W)$, then $\abs[\Big]{\, \norm{S} - \norm{T} \,} \le \norm{S-T}$. \label{5reverse}
+\exercisecomment{The inequality above is called the \emph{reverse triangle inequality}.\index{reverse triangle inequality}}
+
+\begin{Solution}
+Suppose $S, T \in \L(V\1, W)$. Then
+\[
+\norm{S} = \norm{(S-T) + T} \le \norm{S-T} + \norm{T}.
+\]
+Thus
+\[ \tag{$(*)$}
+\norm{S} - \norm{T} \le \norm{S-T}.
+\]
+Interchanging the roles of $S$ and $T$, the inequality above becomes
+\[ \tag{$(**)$}
+\norm{T} - \norm{S} \le \norm{T-S} = \norm{S-T}.
+\]
+Now $(*)$ and $(**)$ imply that
+\[
+\abs[\Big]{\, \norm{S} - \norm{T} \,} \le \norm{S-T}.
+\]
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L(V)$ is self-adjoint or that $\F{}= \C{}$ and $T \in \L(V)$ is normal. Prove that
+\[
+\norm{T} = \max \br{ \abs{\la} : \la \text{ is an eigenvalue of } T}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+The desired result follows from \ref{3altNorm}(a) and Exercise \ref{7singsp} in Section \ref{2SVD}.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$ and $v \in V$. Prove that\label{7eq}
+\[
+\norm{Tv} = \norm{T} \, \norm{v} \iff T^*T v = \norm{T}^2 v.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+First suppose $\norm{Tv} = \norm{T} \, \norm{v}$. If $v = 0$, then clearly $T^*T v = \norm{T}^2 v$, as desired. Hence we can assume
+$v \ne 0$. Now
+\begin{align*}
+\norm{Tv}^2 &= \ip{Tv, Tv} \\
+&= \ip{ T^* T v, v} \\
+&\le \norm{T^*Tv} \, \norm{v} \tag{$(*)$} \\
+&\le \norm{T^*} \, \norm{Tv} \, \norm{v}\\
+&\le \norm{T}^2 \norm{v}^2.
+\end{align*}
+Because the first and last terms above are equal (by hypothesis), we must have equality throughout. In particular, the equality in $(*)$ implies that
+\[
+T^* T v = \la v
+\]
+for some $\la \ge 0$ (by the condition for equality in the Cauchy--Schwarz inequality). Thus $(*)$ becomes the equation $\norm{Tv}^2 = \la \norm{v}^2$, which when combined with the equation $\norm{Tv} = \norm{T} \, \norm{v}$ implies that $\la = \norm{T}^2$. Hence
+$T^*T v = \norm{T}^2 v$, as desired.
+
+To prove the implication in the other direction, now suppose that $T^*T v = \norm{T}^2 v$. Then
+\[
+\norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^* Tv, v} = \ip{\norm{T}^2 v, v} = \norm{T}^2 \norm{v}^2.
+\]
+Thus $\norm{Tv} = \norm{T} \, \norm{v}$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$, $v \in V\1$, and $\norm{Tv} = \norm{T} \, \norm{v}$. Prove that if $u \in V$ and $\ip{u, v} = 0$, then
+$\ip{Tu, Tv} = 0$.
+
+\begin{Solution}
+Suppose $u \in V$ and $\ip{u, v} = 0$. Then
+\begin{align*}
+\ip{Tu, Tv} &= \ip{u, T^* T v} \\[4bp]
+&= \ip[\big]{ u, \norm{T}^2 v } \\[4bp]
+&= \norm{T}^2 \ip{u, v} \\[4bp]
+&= 0,
+\end{align*}
+where the second equality comes from Exercise \ref{7eq}.
+\end{Solution}
+
+\exercise
+Suppose $U$ is an inner product space, $T \in \L(V\1, U)$ and $S \in \L(U, W)$. Prove that \label{2prod}
+\[
+\norm{ST} \le \norm{S} \, \norm{T}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+If $v \in V\1$, then
+\[
+\norm{(ST)v} = \norm{S(Tv)} \le \norm{S} \, \norm{Tv} \le \norm{S} \, \norm{T} \, \norm{v}.
+\]
+The inequality above implies that $\norm{ST} \le \norm{S} \, \norm {T}$ [by \ref{3altNorm}(c)].
+\end{Solution}
+
+\exercise
+Prove or give a counterexample: If $S, T \in \L(V)$, then $\norm{ST} = \norm{TS}$.
+
+\begin{Solution}
+To produce a counterexample, we will work on $\F 2$ with the usual Euclidean inner product.
+
+Define $S, T \in \L\paren[\big]{\F 2}$ by
+\[
+S(x, y) = (x, 0) \andd T(x,y) = (0, x).
+\]
+Then
+\[
+(ST)(x,y) = S(0,x) = (0, 0).
+\]
+Thus $ST = 0$ and hence $\norm{ST} = 0$.
+
+Also,
+\[
+(TS)(x,y) = T(x,0) = (0,x).
+\]
+Hence $TS \ne 0$ and hence $\norm{TS} \ne 0$ (in fact, it is easy to see that $\norm{TS} = 1$). Thus for these operators we have $\norm{ST} \ne \norm{TS}$.
+\end{Solution}
+
+\exercise
+Show that defining $d(S, T) = \norm{S-T}$ for $S, T \in \L(V\1, W)$ makes $d$ a metric on $\L(V\1, W)$.\label{7met}
+\exercisecomment{This exercise is intended for readers who are familiar with metric spaces.}
+
+\begin{Solution}
+Suppose $S, T, R \in \L(V)$. Then
+\[
+d(S, T) = \norm{S-T} \ge 0,
+\]
+with $d(S, T) = 0$ if and only if $\norm{S-T} = 0$, which happens if and only if $S-T = 0$, which happens if and only if $S = T$.
+
+Also,
+\[
+d(S,T) = \norm{S-T} = \norm{T-S} = d(T, S).
+\]
+
+Finally,
+\[
+d(S, R) = \norm{S-R} = \norm{(S-T) +(T - R)} \le norm{S-T} + \norm{T-R} = d(S, T) + d(T, R).
+\]
+
+Thus $d$ satisfies the properties required to be a metric space.
+\end{Solution}
+
+\exercise
+\begin{subtheorem}
+\item
+Prove that if $T \in \L(V)$ and $\norm{I - T} < 1$, then $T$ is invertible.
+\item
+Suppose that $S \in \L(V)$ is invertible. Prove that if $T \in \L(V)$ and $\norm{S - T} < 1/\norm[\big]{S^{-1}}$, then $T$ is invertible.
+\end{subtheorem}
+\exercisecomment{This exercise shows that the set of invertible operators in $\L(V)$ is an open subset of $\L(V)$, using the metric defined in Exercise \ref{7met}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Suppose $T \in \L(V)$ is not invertible. Thus there exists $v \in V$ such that $v \ne 0$ and $Tv = 0$. Hence
+\[
+\norm{(I - T) v} = \norm{Iv} = \norm{v},
+\]
+which implies that $\norm{I - T} \ge 1$. Thus we have proved the contrapositive of (a).
+
+\item
+Suppose $T \in \L(V)$ and $\norm{S - T} < 1/\norm[\big]{S^{-1}}$. Then
+\[
+\norm[\big]{ I - S^{-1} T } = \norm[\big]{ S^{-1} S - S^{-1} T } \le \norm[\big]{ S^{-1} } \, \norm{S - T} < 1,
+\]
+where the first inequality above uses Exercise \ref{2prod}.
+
+The inequality above and (a) imply that $S^{-1} T$ is injective. Thus $T$ is injective, which implies that $T$ is invertible.
+\end{subtheorem}
+\end{Solution}
+
+\begin{comment}
+\exercise
+Suppose $S \in \L(V)$ is invertible. Prove that there exists $\delta > 0$ such that $T$ is invertible for every $T \in \L(V)$ with
+$\norm{S-T} < \delta$.
+
+\begin{Solution}
+Let $\delta$ denote the smallest singular value of $S$. Because $S$ is invertible, we have $\delta > 0$. Also,
+\[
+\delta \norm{v} \le \norm{Sv}
+\]
+for every $v \in V$ (by Exercise \ref{3smallSV} in Section \ref{2SVD}).
+
+Suppose $T \in \L(V)$ with $\norm{S-T} < \delta$. If $v \in V$ then
+\begin{align*}
+\norm{Tv} &= \norm[\big]{ Sv - (S-T)v } \\[6bp]
+&\ge \norm{Sv} - \norm{(S-T)v} \\[6bp]
+&\ge \delta \norm{v} - \norm{S-T} \,\norm{v} \\[6bp]
+&= \paren[\big]{ \delta - \norm{S-T} } \norm{v},
+\end{align*}
+where the second line comes from the reverse triangle inequality (Exercise \ref{6reverse} in Section \ref{6ipn}). The inequality above shows that $Tv \ne 0$ if $v \ne 0$. Thus $T$ is invertible.
+\end{Solution}
+\end{comment}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that for every $\epsilon > 0$, there exists an invertible operator $S \in \L(V)$ such that $0 < \norm{T - S} < \epsilon$. \label{7invert}
+
+\begin{Solution}
+Suppose $\epsilon > 0$. Because $T$ has only finitely many eigenvalues, there exists $\la \in (0, \epsilon)$ such that $\la$ is not an eigenvalue of $T\3$. Let
+$S = T - \la I$. Then $S$ is invertible and $T - S = \la I$, with
+\[
+\norm{T - S} = \norm{\la I} = \la \in (0, \epsilon).
+\]
+\end{Solution}
+
+\exercise
+Suppose $\dim V > 1$ and $T \in \L(V)$ is not invertible. Prove that for every $\epsilon > 0$, there exists
+$S \in \L(V)$ such that $0 < \norm{T - S} < \epsilon$ and $S$ is not invertible.
+
+\begin{Solution}
+Suppose $\epsilon > 0$. Because $T$ is not invertible, there exists $e_1 \in V$ such that $\norm{e_1} = 1$ and $Te_1 = 0$. Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $V\1$. Because $\dim V \ge 1$, we have $n \ge 2$.
+
+By the linear map lemma (\ref{3linearmap}, there exists $S \in \L(V)$ such that
+\[
+Se_k = \begin{cases}
+Te_2 + \frac{\epsilon}{2}e_2 & \text{if } k = 2 \\[3bp]
+Te_k & \text{otherwise}.
+\end{cases}
+\]
+Then $S$ is not invertible because $Se_1 = Te_1 = 0$. Also,
+\[
+(T-S)e_k = \begin{cases}
+\frac{\epsilon}{2}e_2 & \text{if } k = 2 \\[3bp]
+0 & \text{otherwise},
+\end{cases}
+\]
+and thus $\norm{T-S} = \frac{\epsilon}{2}$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$. Prove that for every $\epsilon > 0$ there exists a diagonalizable operator $S \in \L(V)$ such that $0 < \norm{T - S} < \epsilon$.\index{diagonalizable}
+
+\begin{Solution}
+Suppose $\epsilon > 0$. Let $n = \dim V\1$. By Schur's theorem (\ref{214}), there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $T$ has an upper-triangular matrix with respect to this basis. The eigenvalues of $T$ are the diagonal entries of this matrix (by \ref{a221}). In other words, the eigenvalues of $T$ are
+\[
+\ip{Te_1, e_1}, \ldots, \ip{Te_n,e_n}.
+\]
+Let $\epsilon_1, \ldots, \epsilon_n \in (0, \epsilon)$ be such that
+\begin{equation*} \tag{$(*)$}
+\ip{Te_1, e_1} + \epsilon_1, \ldots, \ip{Te_n,e_n} + \epsilon_n
+\end{equation*}%
+are distinct numbers. By the linear map lemma (\ref{3linearmap}), there exists $S \in \L(V)$ such that
+\[
+Se_k = Te_k + \epsilon_k e_k
+\]
+for each $k = 1, \ldots, n$. Then $S$ has an upper-triangular matrix whose diagonal entries (and thus whose eigenvalues) are $(*)$. Because $S$ has $n$ distinct eigenvalues, $S$ is diagonalizable (see \ref{453}). Also,
+\[
+(T-S)e_k = \epsilon_k e_k
+\]
+for each $k= 1, \ldots, n$, which implies that $0 < \norm{T - S} < \epsilon$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is a positive operator. Show that $\norm[\Big]{\sqrt{T}\,} = \sqrt{\norm{T}}$.
+
+\begin{Solution}
+There exists an orthonormal basis of $V$ consisting of eigenvectors of $T$ with corresponding nonnegative eigenvalues
+$\la_1, \ldots, \la_n$. The same basis vectors are eigenvectors of $\sqrt{T}$ with corresponding eigenvalues
+$\sqrt{\la_1}, \ldots, \sqrt{\la_n}$.
+
+By the third bullet point in Example \ref{5exnorms}, we have
+\[
+\norm{T} = \max \br{ \la_1, \ldots, \la_n }
+\]
+and
+\[
+\norm[\Big]{\sqrt{T}} = \max \br[\Big]{ \sqrt{\la_1}, \ldots, \sqrt{\la_n} }.
+\]
+Thus $\norm[\Big]{\sqrt{T}\,} = \sqrt{\norm{T}}$.
+\end{Solution}
+
+\exercise
+Suppose $S, T \in \L(V)$ are positive. Show that \mbox{$\norm{S+T} \ge \max\br{ \norm{S}, \norm{T} }$}.
+
+\begin{Solution}
+Let $\la$ denote the largest eigenvalue of $S$ and let $e \in V$ be a corresponding eigenvector with $\norm{e} = 1$. The third bullet point of \ref{5exnorms} implies that $\norm{S} = \la$.
+
+Now
+\begin{align*}
+\norm{S+T} &\ge \norm{(S+T)e} \\
+&\ge \ip{ (S+T)e, e} \\
+&= \ip{Se,e} + \ip{Te, e} \\
+&= \ip{\la e, e} + \ip{Te, e}\\
+&\ge  \la \\
+&= \norm{S},
+\end{align*}
+where the second line follows from the Cauchy--Schwarz inequality.
+
+Similarly, we have $\norm{S+T} \ge \norm{T}$. Thus $\norm{S+T} \ge \max\br{ \norm{S}, \norm{T} }$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $S \in \L(V)$ is a positive invertible operator. Prove that there exists $\delta > 0$ such that $T$ is a positive operator for every self-adjoint operator $T \in \L(V)$ with $\norm{S-T} < \delta$.
+
+\begin{Solution}
+By the spectral theorem, there exists an orthonormal basis of $V$ consisting of eigenvectors of $S$, each of which corresponds to a positive eigenvalue of $S$ (because $S$ is positive and invertible). In other words, there exists an orthonormal basis
+$e_1, \ldots, e_n$ of $V$ and positive numbers $\la_1, \ldots, \la_n$ such that
+\[
+Sv = \la_1 \ip{v, e_1}e_1 + \cdots + \la_n \ip{v, e_n} e_n
+\]
+for all $v \in V\1$.
+
+Let $\delta$ denote the smallest eigenvalue of $S$. Then
+\begin{align*}
+\ip{Sv, v} &= \la_1 \abs{ \ip{v, e_1} }^2 + \cdots + \la_n \abs{ \ip{v, e_n} }^2 \\[6bp]
+&\ge \delta \norm{v}^2
+\end{align*}
+for all $v \in V\1$.
+
+Suppose $T \in \L(V)$ is a positive operator with $\norm{S-T} < \delta$. If $v \in V\1$, then
+\begin{align*}
+\delta \norm{v}^2 - \ip{Tv, v} &\le \ip{Sv, v} - \ip{Tv,v}\\[6bp]
+&= \ip{ (S-T)v, v} \\[6bp]
+&\le \norm{S-T} \, \norm{v}^2 \\[6bp]
+&\le \delta \norm{v}^2.
+\end{align*}
+The inequality above implies that $\ip{Tv,v} \ge 0$. Thus $T$ is a positive operator.
+\end{Solution}
+
+\exercise
+Prove that if $u \in V$ and $\phi_u$ is the linear functional on $V$ defined by the equation $\phi_u(v) = \ip{v, u}$, then
+$\norm{\phi_u} = \norm{u}$.
+\exercisecomment{Here we are thinking of the scalar field\/ $\F{}$ as an inner product space with\/ $\ip{\al,\beta} = \al \overline{\beta}$ for all\/ $\al, \beta \in \F{}$. Thus\/ $\norm{\phi_u}$ means the norm of\/ $\phi_u$ as a linear map from\/ $V$ to\/ $\F{}$.}
+
+\begin{Solution}
+Thinking of $\F{}$ as an inner product space, we have $\norm{\al} = \abs{\al}$ for all $\al \in \F{}$.
+
+If $v \in V\1$, then the Cauchy--Schwarz inequality shows that
+\[
+\abs{ \phi_u(v) } = \abs{ \ip{v, u} } \le \norm{u} \, \norm{v}.
+\]
+The inequality above and \ref{3altNorm}(c) imply that $\norm{\phi_u} \le \norm{u}$.
+
+The equation $\abs{ \phi_u(u) } = \norm{u}^2$ implies that $\norm{\phi_u} \ge \norm{u}$. Thus $\norm{\phi_u} = \norm{u}$.
+\end{Solution}
+
+\exercise
+Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $T \in \L(V\1,W)$.
+\begin{subtheorem}*
+\item
+Prove that
+$\max\br{ \norm{Te_1}, \ldots, \norm{Te_n} } \le \norm{T} \le \paren[\Big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}$.
+\item
+Prove that $\norm{T} = \paren[\Big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}$ if and only if $\dim \ran T \le 1$.
+\end{subtheorem}
+\exercisecomment{Here\/ $e_1, \ldots, e_n$ is an arbitrary orthonormal basis of\/ $V\1$, not necessarily connected with a singular value decomposition of\/ $T\3$. If\/ $s_1, \ldots, s_n$ is the list of singular values of\/ $T$, then the right side of the inequality above equals\/
+$\paren[\big]{{s_1}^{\2} + \cdots + {s_n}^{\2}}^{1/2}$, as was shown in Exercise \ref{4sums2} in Section \ref{2SVD}.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+Using the definition of the norm, we have
+\[
+\max\br{ \norm{Te_1}, \ldots, \norm{Te_n} } \le \max\br{\norm{Tv}: v \in V \text{ and } \norm{v} \le 1} \le \norm{T},
+\]
+giving the first desired inequality.
+
+To prove the second desired inequality, suppose $v \in V\1$. Then
+\[
+v = \ip{v,e_1} e_1 + \cdots + \ip{v, e_n} e_n.
+\]
+Applying $T$ to both sides of the equation above gives
+\[
+Tv = \ip{v,e_1} Te_1 + \cdots + \ip{v, e_n} Te_n.
+\]
+Thus
+\begin{align*}
+\norm{Tv} &= \norm{ \ip{v,e_1} Te_1 + \cdots + \ip{v, e_n} Te_n } \\[6bp]
+&\le \abs{\ip{v, e_1}} \, \norm{Te_1} + \cdots + \abs{\ip{v, e_n}} \, \norm{Te_n} \\[6bp]
+&\le \paren[\Big]{ \abs{\ip{v, e_1}}^2 + \cdots + \abs{\ip{v, e_n}}^2}^{1/2}
+      \paren[\Big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}\\[6bp]
+&= \norm{v} \paren[\Big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}.
+\end{align*}
+Thus $\norm{T} \le \paren[\Big]{ \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 }^{1/2}$, as desired.
+
+Alternative proof of the second desired inequality:
+
+Let $s_1, \ldots, s_n$ denote the singular values of $T\3$. Exercise \ref{4sums2} in Section \ref{2SVD} shows that
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = {s_1}^{\2} + \cdots + {s_n}^{\2}.
+\]
+Thus
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = \norm{T}^2 +{s_2}^{\2} + \cdots + {s_n}^{\2} \ge \norm{T}^2,
+\]
+as desired.
+
+\item
+Let $s_1, \ldots, s_n$ denote the singular values of $T\3$. Exercise \ref{4sums2} in Section \ref{2SVD} shows that
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = {s_1}^{\2} + \cdots + {s_n}^{\2}.
+\]
+Thus
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = \norm{T}^2 +{s_2}^{\2} + \cdots + {s_n}^{\2}.
+\]
+Thus
+\[
+\norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = \norm{T}^2
+\]
+if and only if $s_2 = \cdots = s_n = 0$, which happens if and only if $\dim \ran T \le 1$.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Prove that if $T \in \L(V\1, W)$, then  $\norm[\big]{T^*T} = \norm{T}^2$.\index{C*@$C^*$-algebras}\label{8Cstar}
+\exercisecomment{This formula for\/ $\norm[\big]{T^*T}$ leads to the important subject of\/ $C^*$-algebras.}
+
+\begin{Solution}
+Using Exercise \ref{2prod}, we have
+\[
+\norm{T^*T} \le \norm{T^*} \, \norm{T} = \norm{T}^2.
+\]
+
+To prove the inequality in the other direction, note that
+\[
+\norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^*Tv, v} \le \norm{T^*Tv} \, \norm{v} \le \norm{T^*T} \, \norm{v}^2
+\]
+for all $v \in V\1$. The inequality above implies that $\norm{T}^2 \le \norm{T^*T}$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is normal. Prove that $\norm[\big]{T^k} = \norm{T}^k$ for every positive integer $k$.\label{7normTk}
+
+\begin{Solution}
+Exercise \ref{2prod} implies (using induction on $k$ and without using the hypothesis that $T$ is normal) that
+\[ \tag{$(*)$}
+\norm[\big]{T^k} \le \norm{T}^k
+\]
+for every positive integer $k$.
+
+Now
+\begin{align*}
+\norm[\big]{T^2}^2 &= \norm[\Big]{ \paren[\big]{T^2}^* T^2 } \\
+&= \norm[\big]{ (T^* T)^* (T^*T)}\\
+&= \norm{T^*T}^2 \\
+&= \norm{T}^4,
+\end{align*}
+where the first, third, and fourth lines above follow from Exercise \ref{8Cstar} and the second line holds because $T$ is normal and hence commutes with its adjoint.
+
+The equation above implies that $\norm[\big]{T^2} = \norm{T}^2$. Applying this result to the normal operator $T^2$ shows that
+$\norm[\big]{T^4} = \norm[\big]{T^2}^2 = \norm{T}^4$. Iterating this procedure, we see that
+\[
+\norm[\Big]{ T^{2^n} } = \norm{T}^{2^n}
+\]
+for every positive integer $n$.
+
+Now suppose $k$ is a positive integer. Let $n$ be a positive integer such that $k < 2^n\1$. Then
+\begin{align*}
+\norm[\Big]{T^{2^n} } &= \norm[\Big]{ T^k T^{2^n - k} }\\
+&\le \norm[\big]{T^k} \,\norm[\Big]{T^{2^n - k}} \\
+&\le \norm{T}^k \norm{T}^{2^n - k} \\
+&= \norm{T}^{2^n},
+\end{align*}
+where the third line follows from $(*)$. Because the first and last quantities above are equal, we must have equality throughout. Equality in the third line implies that $\norm[\big]{T^k} = \norm{T}^k\!$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $\dim V > 1$ and $\dim W > 1$. Prove that the norm on $\L(V\1, W)$ does not come from an inner product. In other words, prove that there does not exist an inner product on $\L(V\1, W)$ such that \label{6notinner}
+\[
+\max \br{ \norm{Tv} : v \in V \text{ and } \norm{v} \le 1} = \sqrt{\ip{T, T}}
+\]
+for all $T \in \L(V\1, W)$.
+
+\begin{Solution}
+Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ and let $f_1, \ldots, f_m$ be an orthonormal basis of $W\3$. Thus $n \ge 2$ and $m \ge 2$.
+
+Define $S, T \in \L(V\1, W)$ by
+\[
+Sv = \ip{v, e_1} f_1 \andd Tv = \ip{v,e_1} f_1 + \ip{v, e_2} f_2.
+\]
+Then
+\[
+(S+T)v = 2\ip{v,e_1} f_1 + \ip{v, e_2} f_2.
+\]
+
+We have $\norm{S} = \norm{T} = 1$ and $\norm{S+T} = 2$. Hence $\norm{S+T} = \norm{S} + \norm{T}$, and thus we have an equality in the triangle inequality. The condition for equality in the triangle inequality for a norm coming from an inner product (see \ref{3triangle}) is that one of the vectors must be a nonnegative multiple of the other. However, $S$ is not a nonnegative multiple of $T$ and $T$ is not a nonnegative multiple of $S$. Hence the norm on $\L(V\1,W)$ does not come from an inner product.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Let $n = \dim V$ and let $s_1 \ge \cdots \ge s_n$ denote the singular values of $T\3$. Prove that if $1 \le k \le n$, then \label{7approx}
+\[
+\min \br{ \norm{T|_U} : U \text { is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1}.
+\]
+\exercisedisplayend
+
+\begin{Solution}
+Suppose $U$ is a subspace of $V$ with $\dim U = k$. Then we see that
+$\dim U^\perp = n-k$ and hence (see Exercise \ref{5dimST} in Section \ref{nullspace})
+\[ \tag{$(*)$}
+\dim \ran TP_{\!U^\perp} \le n-k.
+\]
+Now
+\begin{align*}
+\norm{T|_U } &=\norm{TP_{\!U}} \\
+&= \norm{ T (I - P_{\!U^\perp})}\\
+&= \norm{ T - TP_{\!U^\perp} }\\
+&\ge s_{n-k+1},
+\end{align*}
+where the last line follows from $(*)$ and  \ref{9bestapp}.
+
+To prove an inequality in the other direction, suppose $T$ has singular value decomposition
+\[
+Tv = \sum_{j=1}^m s_j \ip{v, e_j} f_j
+\]
+for all $v \in V\1$, where $e_1, \ldots, e_m$ is an orthonormal list in $V$ and $f_1, \ldots, f_m$ is an orthonormal list in $W$ and $m$ is the number of nonzero singular values of $T$ (thus $m = \dim \ran T$). Extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V\1$.
+
+Let
+\[
+E = \Span \br{e_{n-k+1}, \ldots, e_n}.
+\]
+Then $\dim E = k$. If $v \in E$, then
+\begin{align*}
+\norm{Tv}^2 &= \norm[\bigg]{ \sum_{j=n-k+1}^m s_j \ip{v, e_j} f_j}^2 \\[1bp]
+&= \sum_{j=n-k+1}^m {s_j}^{\2} \abs{\ip{v, e_j}}^2 \\[1bp]
+&\le {s_{n-k+1}}^{\2} \norm{v}^2.
+\end{align*}
+Thus $\norm{T|_E} \le s_{n-k+1}$.
+
+Hence we have shown that
+\[
+\min \br{ \norm{T|_U} : U \text { is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1},
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V\1, W)$. Show that $T$ is uniformly continuous with respect to the metrics on $V$ and $W$ that arise from the norms on those spaces (see Exercise \ref{4metric} in Section \ref{orthobases}).
+
+\begin{Solution}
+If $T = 0$ then $T$ is uniformly continuous. Thus we can assume that $\norm{T} > 0$.
+
+Let $\epsilon > 0$. Suppose $u, v \in V$ are such that
+\[
+\|u - v \| < \tfrac{\epsilon}{\norm{T}}.
+\]
+Then
+\begin{align*}
+\|Tu - Tv\| &= \|T(u - v) \| \\
+&\le \norm{T} \, \|u- v\| \\
+&<  \epsilon.
+\end{align*}
+The inequality above shows that $T$ is uniformly continuous.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$ is invertible. Prove that
+\[
+\norm[\big]{ T^{-1} } = \norm{T}^{-1} \iff \frac{T}{\norm{T}} \text{ is a unitary operator}.
+\]
+\vspace{-16bp}
+
+\begin{Solution}
+First suppose $\displaystyle \norm[\big]{ T^{-1} } = \norm{T}^{-1}$. If $v\in V$ then
+\[
+\norm{v} = \norm[\big]{ T^{-1}(Tv) } \le \norm[\big]{ T^{-1} } \, \norm{Tv} = \norm[\bigg]{ \frac{T}{\norm{T}}  v }.
+\]
+Also, $\norm{Tv} \le \norm{T} \, \norm{v}$ and thus
+\[
+\norm[\bigg]{ \frac{T}{\norm{T}}  v } \le \norm{v}.
+\]
+The inequalities above show that $\displaystyle \norm[\bigg]{ \frac{T}{\norm{T}}  v } = \norm{v}$. Thus $\displaystyle \frac{T}{\norm{T}}$ is a unitary operator.
+
+To prove the implication in the other direction, now suppose $\displaystyle \frac{T}{\norm{T}}$ is a unitary operator. Then
+\[
+1 = \norm[\bigg]{ \paren[\bigg]{ \frac{T}{\norm{T}} }^{-1} } = \norm[\Big]{\, \norm{T} T^{-1}\, }= \norm{T} \, \norm[\big]{ T^{-1} }.
+\]
+Thus $\norm[\big]{ T^{-1} } = \norm{T}^{-1}$.
+\end{Solution}
+
+\exercise
+Fix $u, x \in V$ with $u \ne 0$. Define $T \in \L(V)$ by
+$
+Tv = \ip{v, u}x
+$
+for every $v \in V\1$.  Prove that
+\[
+\sqrt{T^* T}v = \frac{ \|x\| }{ \|u\| } \ip{v,u} u
+\]
+for every $v \in V\1$.
+
+\begin{Solution}
+We know (from \ref{Tstar}) that
+\[
+T^* w = \ip{w, x}u
+\]
+for every $w \in V\1$.  Thus
+\[
+T^*Tv = \|x\|^2 \ip{v, u} u
+\]
+for every $v \in V\1$.
+
+Let $S \in \L(V)$ be defined by
+\[
+Sv = \frac{ \|x\| }{ \|u\| } \ip{v,u} u
+\]
+for every $v \in V\1$. Then
+\[
+S^2 v = \|x\|^2 \ip{v, u} u
+\]
+for every $v \in V\1$. Hence $S^2 = T^*T\3$.
+
+The formula given by \ref{Tstar} shows that $S$ is self-adjoint. Also,
+\[
+\ip{Sv, v} = \frac{ \|x\| }{ \|u\| } |\ip{v,u}|^2 \ge 0
+\]
+for every $v \in V\1$.
+
+Thus $S$ is a positive operator whose square equals $T^* T\3$. Hence $S = \sqrt{T^* T}$, as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$.  Prove that $T$ is invertible if and only if there exists a
+unique unitary operator $S \in \L(V)$ such that $T = S \sqrt{T^* T}$.
+
+\begin{Solution}
+First suppose $T$ is invertible.  The polar decomposition (\ref{244}) states
+that there exists a unitary operator $S \in \L(V)$ such that
+\[
+T = S \sqrt{T^* T}.
+\]
+Because $T$ is invertible, this implies that $\sqrt{T^* T}$ is invertible (see
+Exercise~\ref{379} in Section~\ref{invertible}).  Thus the equation above implies that
+$S = T {(\sqrt{T^* T})}^{-1}$.  Because $S$ is given by this formula, we see
+that there is a unique operator $S \in \L(V)$ such that $T = S \sqrt{T^* T}$, as
+desired.
+
+Now suppose there exists a unique unitary operator $S \in \L(V)$ such that
+$T = S \sqrt{T^* T}$.  This means that the linear map $S_2$ in the proof of the
+polar decomposition (\ref{244}) is $0$ because otherwise we could
+replace $S_2$ with $-S_2$ and get another choice for~$S$.  But $\ran S_2$ equals
+$(\ran T)^\perp$. Hence $(\ran T)^\perp = \{0\}$.  This implies that
+$\ran T = V\1$, which implies that $T$ is invertible (by \ref{18}), as desired.
+\end{Solution}
+
+\pagebreak[3]
+
+\exercise
+Suppose $T \in \L(V)$ and $s_1, \ldots, s_n$ are the singular values of $T\3$. Let $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$ be orthonormal bases of $V$ such that \label{7unitary}
+\[
+Tv = s_1\ip{v, e_1} f_1 + \cdots + s_n \ip{v, e_n} f_n
+\]
+for all $v \in V\1$. Define $S \in \L(V)$ by
+\[
+Sv = \ip{v, e_1} f_1 + \cdots + \ip{v, e_n} f_n.
+\]
+\begin{subtheorem}*
+\item
+Show that $S$ is unitary and $\norm{T-S} = \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} }$.
+\item
+Show that if $E \in \L(V)$ is unitary, then $\norm{T-E} \ge \norm{T-S}$.
+\end{subtheorem}
+\exercisecomment{This exercise finds a unitary operator $S$ that is as close as possible \uppar{among the unitary operators} to a given operator $T\3$.}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+If $v \in V\1$, then
+\[
+\norm{Sv} = \paren[\big]{\abs{v, e_1}^2 + \cdots + \abs{v, e_n}^2 }^{1/2} = \norm{v}.
+\]
+Thus $S$ is a unitary operator on $V\1$.
+
+Also, if $v \in V$ then
+\begin{align*}
+\norm{(T-S)v}^2 &= \norm{ (s_1 -1) \ip{v, e_1} f_1 + \cdots + (s_n -1) \ip{v, e_n} f_n }^2 \\[3bp]
+&= \abs{s_1 -1}^2 \abs{\ip{v, e_1}}^2 + \cdots + \abs{s_n -1}^2 \abs{\ip{v, e_n}}^2 \\[3bp]
+&\le \norm{v}^2 \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} }^2,
+\end{align*}
+which shows that
+\[
+\norm{T-S} \le \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} }.
+\]
+
+The equation $\norm{(T-S)e_k} = \abs{s_k - 1}$ for all $k = 1, \ldots, n$ shows that
+\[
+\norm{T-S} \le \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} },
+\]
+as desired.
+
+\item
+Suppose $E \in \L(V)$ is unitary. If $k \in \br{1, \ldots, n}$, then
+\begin{align*}
+\norm{(T-E)e_k}^2 & = \norm{s_k f_k - Se_k}^2 \\[4bp]
+&= \abs{s_k}^2 + 1 - 2 s_k \re \ip{f_k, Se_k} \\[4bp]
+&\le \abs{s_k}^2 + 1 - 2 s_k \\[4bp]
+&= \abs{s_k -1}^2.
+\end{align*}
+Thus $\norm{T-E} \ge \abs{s_k - 1}$ for each $k = 1, \ldots, n$. Hence
+\begin{align*}
+\norm{T-E} &\ge \max \br{ \abs{s_1 -1}, \ldots, \abs{s_n - 1} } \\[4bp]
+&= \norm{T-S},
+\end{align*}
+as desired.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$. Prove that there exists a unitary operator $S \in \L(V)$ such that
+$
+T = \sqrt{TT^*}\, S$.
+
+\begin{Solution}
+The polar decomposition (\ref{244}) as applied to $T^*$ states that there exists a unitary operator $R \in \L(V)$ such that
+\[
+T^* = R \sqrt{TT^*}.
+\]
+Let $S = R^*\1$. By the equivalence of \ref{734u}(a) and \ref{734u}(f), $S$ is a unitary operator. Take adjoints of both sides of the equation above, getting
+\[
+T = \sqrt{TT^*}\, S,
+\]
+as desired.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$.
+\begin{subtheorem}
+\item
+Use the polar decomposition to show that there exists a unitary operator $S \in \L(V)$ such that
+$TT^* = ST^*TS^*\1$.
+\item
+Show how (a) implies that $T$ and $T^*$ have the same singular values.
+\end{subtheorem}
+
+\begin{Solution}
+\begin{subtheorem}
+\item
+By the polar decomposition, there exists a unitary operator $S \in \L(V)$ such that
+\[
+T = S \sqrt{T^*T}.
+\]
+Because $\sqrt{T^*T}$ is self-adjoint, taking adjoints of both sides of the equation above shows that
+\[
+T^* = \sqrt{T^*T} \,S^*\1.
+\]
+Multiplying together the two equations above shows that
+\begin{align*}
+TT^* &= S \sqrt{T^*T} \sqrt{T^*T} \, S^* \\
+&= S T^* T S^*\1.
+\end{align*}
+
+\item
+Multiplying both sides of the equation in (a) on the right by $S$ shows that
+\[
+TT^* S = ST^*T\3.
+\]
+If $\la \in \F{}$ and $v \in E(\la, T^*T)$, then the equation above implies that
+\[
+(TT^*)(Sv) = S(T^*T)v = \la Sv,
+\]
+which shows that $Sv \in E(\la,TT^*)$.
+
+Similarly, if $w \in E(\la, TT^*)$, then
+\[
+(T^*T)(S^{-1}w) = S^{-1} (TT^*)w = \la S^{-1}w,
+\]
+which shows that $S^{-1}v \in E(\la,T^*T)$.
+
+Thus the unitary operator $S$ maps $E(\la, T^*T)$ onto $E(\la, TT^*)$. This implies that $T^*T$ and $TT^*$ have the same eigenvalues with the same dimensions for their eigenspaces. In other words, $T$ and $T^*$ have the same singular values.
+\end{subtheorem}
+\end{Solution}
+
+\exercise
+Define $T \in \L\paren[\big]{\F{3}}$ by
+\[
+T(z_1, z_2, z_3) = (z_3, 2z_1, 3z_2).
+\]
+Find (explicitly) a unitary operator $S \in \L\paren[\big]{\F{3}}$ such that $T = S \sqrt{T^*T}$.
+
+\begin{Solution}
+With respect to the standard basis of $\FF{3}$, we have
+\[
+\M(T) = \mat{ccc}{
+0 & 0 & 1 \\
+2 & 0 & 0 \\
+0 & 3 & 0}.
+\]
+Thus
+\[
+\M(T^*) = \mat{ccc}{
+0 & 2 & 0 \\
+0 & 0 & 3 \\
+1 & 0 & 0}.
+\]
+Computing the product $\M(T^*) \M(T)$, which equals $\M(T^* T)$, we get
+\[
+\M(T^* T) = \mat{ccc}{
+4 & 0 & 0 \\
+0 & 9 & 0 \\
+0 & 0 & 1}.
+\]
+{}From the matrix above, we see that $(T^*T)(z_1, z_2, z_3) = (4z_1, 9z_2, z_3)$.
+Thus $\sqrt{T^*T}(z_1, z_2, z_3) = (2z_1, 3z_2, z_3)$.  Hence if we define
+$S \in \L\paren[\big]{\F{3}}$ by
+\[
+S(z_1, z_2, z_3) = (z_3, z_1, z_2),
+\]
+then $S$ is an isometry and $T = S \sqrt{T^*T}$.
+\end{Solution}
+
+\exercise
+Suppose $T \in \L(V)$, $S \in \L(V)$ is a unitary operator,
+and $R \in \L(V)$ is a  positive operator such that $T = SR$.  Prove that
+$R = \sqrt{T^* T}$.
+\exercisecomment{This exercise shows that if we write\/ $T$ as the product of a unitary operator and a positive operator
+\uppar{as in the polar decomposition \ref{244}}, then the positive operator equals\/
+$\sqrt{T^*T}$.}
+
+\begin{Solution}
+Taking adjoints of both sides of the equation $T = SR$, we have
+\begin{align*}
+T^* &= R^* S^* \\
+&= RS^*\1,
+\end{align*}
+where the last equation holds because $R$ is positive (and hence self-adjoint).
+Multiplying together our formulas for $T^*$ and $T$, we get
+\begin{align*}
+T^* T &= RS^* S R \\
+& = R^2,
+\end{align*}
+where the last equation holds because $S$ is an isometry (and hence $S^* S = I$
+by \ref{234}).  The equation above asserts that $R$ is a square root of $T^*T$;
+because $R$ is positive, this implies that $R = \sqrt{T^*T}$.
+\end{Solution}
+
+\exercise
+Suppose $\F{} = \C{}$ and $T \in \L(V)$ is normal. Prove that there exists a unitary operator $S \in \L(V)$ such that $T = S \sqrt{T^*T}$ and such that $S$ and $\sqrt{T^*T}$ both have diagonal matrices with respect to the same orthonormal basis of $V\1$. \label{8PolarNor}
+
+\begin{Solution}
+By the complex spectral theorem, there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T\3$. Let
+$\la_1, \ldots, \la_n$ denote the corresponding eigenvectors. Then $e_1, \ldots, e_n$ are also eigenvectors of $\sqrt{T^* T}$ with corresponding eigenvalues $\abs{\la_1}, \ldots, \abs{\la_n}$. (Thinking of all these operators as having diagonal matrices with respect to the orthonormal basis $e_1, \ldots, e_n$ may make this solution clearer.)
+
+For each $k \in \br{1, \ldots, n}$, define $\al_k \in \C{}$ by
+\[
+\al_k = \begin{cases}
+\frac{ \la_k }{ \abs{\la_k} } & \text{if } \la_k \ne 0, \\[6bp]
+1 & \text{if } \la_k = 0.
+\end{cases}
+\]
+The $\abs{\al_k} = 1$ and $\al_k \abs{\la_k} = \la_k$ for all $k \in \br{1, \ldots, n}$.
+
+Let $S \in \L(V)$ be the operator on $V$ whose matrix with respect to $e_1, \ldots, e_n$ is the diagonal matrix with
+$\al_1, \ldots, \al_n$ on the diagonal. Then $S$ is a unitary operator and $T = S \sqrt{T^*T}$. Note that $S$ and $\sqrt{T^*T}$ both have diagonal matrices with respect to the same orthonormal basis $e_1, \ldots, e_n$ of $V\1$.
+\end{Solution}
+
+\exercise
+Suppose that $T \in \L(V\1,W)$ and $T \ne 0$. Let $s_1, \ldots, s_m$ denote the positive singular values of $T\3$. Show that there exists an orthonormal basis $e_1, \ldots, e_m$ of $(\ker T)^\perp$ such that
+\[
+T\paren[\bigg]{ E\paren[\Big]{ \frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m} } }
+\]
+equals the ball in $\ran T$ centered at $0$ with radius $1$.
+
+\begin{Solution}
+Let $B$ denote the ball in $\ran T$ centered at $0$ with radius $1$.
+
+Suppose
+\[  \tag{$(*)$}
+Tv = s_1 \ip{v, e_1} f_1 + \cdots + s_m \ip{v, e_m} f_m
+\]
+is a singular value decomposition of $T$, where $e_1, \ldots, e_m$ is an orthonormal basis of $(\ker T)^\perp$ and $f_1, \ldots, f_m$ is an orthonormal basis of $\ran T$ and the equation above holds for all $v \in V\1$. Let
+\[
+E = E\paren[\Big]{ \frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m} }.
+\]
+
+First suppose $v \in E$. Using $(*)$ and the definition of the ellipsoid $E$, we have
+\[
+\norm{Tv}^2 = {s_1}^{\2} \abs{\ip{v, e_1}}^2 + \cdots + {s_m}^{\2} \abs{\ip{v, e_m}}^2 < 1.
+\]
+Thus $Tv \in B$, which shows that $T(E) \subset B$.
+
+To prove the inclusion in the other direction, now suppose $w \in B$. Thus
+\[
+w = \ip{w, f_1}f_1 + \cdots + \ip{w, f_m}f_m \andd \abs{\ip{w, f_1}}^2 + \cdots + \abs{\ip{w, f_m}}^2 < 1.
+\]
+Let
+\[
+v = \frac{\ip{w,f_1}}{s_1} e_1  + \cdots +  \frac{\ip{w,f_m}}{s_m} e_m.
+\]
+Then
+\[
+{s_1}^{\2} \abs{\ip{v, e_1}}^2 + \cdots + {s_m}^{\2} \abs{\ip{v, e_m}}^2
+= \abs{\ip{w, f_1}}^2 + \cdots + \abs{\ip{w, f_m}}^2 <1.
+\]
+Thus $v \in E$. Because $Tv = w$, this implies that $w \in T(E)$, which shows that $T(E) \supset B$, as desired.
+\end{Solution}
+

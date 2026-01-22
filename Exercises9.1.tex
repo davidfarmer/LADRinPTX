@@ -1,0 +1,74 @@
+
+\exercise
+Prove that if $\beta$ is a bilinear form on $\F{}\3$, then there exists $c \in \F{}$ such that
+\[
+\beta(x,y) = c x y
+\]
+for all $x, y \in \F{}\3$.
+
+
+\exercise
+Let $n = \dim V\1$. Suppose $\beta$ is a bilinear form on $V\1$. Prove that there exist
+$\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'$ such that
+\[
+\beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise shows that if\/ $n = \dim V\1$, then every bilinear form on\/ $V$ is of the form given by the last bullet point of Example \ref{9BilinearExample}.}
+
+
+\exercise
+Suppose $\fun \beta {V\1 \times V} {\F{}}$ is a bilinear form on $V$ and also is a linear functional on $V\1 \times V\1$. Prove that
+$\beta = 0$.\label{11zero}
+
+
+\exercise
+Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V\1$. Show that there exists a unique operator $T \in \L(V)$ such that\label{9inn}
+\[
+\beta(u, v) = \ip{u,Tv}
+\]
+for all $u, v \in V\1$.
+\exercisecomment{This exercise states that if\/ $V$ is a real inner product space, then every bilinear form on\/ $V$ is of the form given by the third bullet point in \ref{9BilinearExample}.}
+
+
+\exercise
+Suppose $\beta$ is a bilinear form on a real inner product space $V\1$ and $T$ is the unique operator on $V$ such that $\beta(u,v) = \ip{u, Tv}$ for all $u, v \in V$ (see Exercise \ref{9inn}). Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V\1$.
+
+
+\exercise
+Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V\1$, then
+\[
+\br[\big]{v \in V: \rho(v, v) = 0}
+\]
+is a subspace of $V\1$.
+
+
+\exercise
+Explain why the proof of \ref{9diagortho} (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\F{} = \R{}$ is dropped.
+
+
+\exercise
+Find formulas for $\dim V^{(2)}_{\text{sym}}$ and $\dim V^{(2)}_{\text{alt}}$ in terms of $\dim V\1$.
+
+
+\exercise
+Suppose that $n$ is a positive integer and $V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) }$.
+Define $\fun \al {V\1 \times V} {\R{}}$ by
+\[
+\al(p,q) = \int_0^1 p q'\!.
+\]
+Show that $\al$ is an alternating bilinear form on $V\1$.
+
+
+\exercise
+Suppose that $n$ is a positive integer and
+\[
+V = \br[\big]{ p \in \P\1_n(\R{}): p(0) = p(1) \text{ and } p'(0) = p'(1)}.
+\]
+Define $\fun \rho {V\1 \times V} {\R{}}$ by
+\[
+\rho(p,q) = \int_0^1 p q''\!.
+\]
+Show that $\rho$ is a symmetric bilinear form on $V\1$.
+
+
