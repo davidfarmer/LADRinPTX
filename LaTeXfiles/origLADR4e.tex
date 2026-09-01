@@ -1,0 +1,350 @@
+%%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
+
+\documentclass[leqno,10pt]{book}
+\usepackage{amsmath,amstext} % This needs to appear before fontspec and unicode are loaded.
+\usepackage[mathic=true]{mathtools}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmathfont{TeX Gyre Pagella Math}[Scale=0.95]
+
+\setmathfont{latinmodern-math.otf}[range={8727-8996},Scale=1.2]  % This line & next line mysteriously needed to get latinmodern asterisk.
+\setmathfont{[TeX Gyre Pagella Math}[range={8728-8995},Scale=0.95]
+
+%\setmathfont{TeX Gyre Termes Math}
+%\setmathfont{asana-math.otf}
+%\setmathfont{STIX Two Math}
+
+\setmathfont{latinmodern-math.otf}[range=cal,Scale=MatchUppercase]
+
+\usepackage[fontsize=10.5pt]{fontsize}
+\usepackage{graphicx}
+\usepackage{color} %Perhaps switch to the newer xcolor package.
+\usepackage{multicol}
+\usepackage{makeidx}
+\usepackage{index}
+\usepackage{verbatim}
+\usepackage{varioref}
+\usepackage{fancyvrb}  % This package is required for VerbatimOut.
+\usepackage[rightlabels]{titletoc}
+\usepackage[noindentafter]{titlesec}
+\usepackage{tikz}
+\usepackage[usestackEOL]{stackengine}% Needed for redefining \overline.
+\usepackage{scalerel}% Needed for redefining \overline.
+%\usepackage[legacy-script,legacy-scriptscript]{innerscript} % For extra space in subscripts and superscripts.
+\usepackage{tcolorbox}
+    % See http://tex.stackexchange.com/questions/156386/restricting-the-background-color-to-an-ovalbox
+%\usepackage{lua-widow-control}
+\usepackage{ifthen} % Needed to use \ifthenelse
+\usepackage{microtype}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+
+%\usepackage[luatex,colorlinks]{hyperref} % Change hidelinks to colorlinks to get links in the pdf file.
+
+%%%%%%%%%%%%%%%%% Start switches
+
+% CHECK \CrCom DEFINITION
+
+% 0 for papersize 6.125in-by-9.25in, crop marks, bleed; MAY NEED TO REMOVE aux, toc, ind files when switching
+% 1 for papersize 6.125in-by-9.25in; MAY NEED TO REMOVE aux, toc, ind files when switching.
+% 2 for papersize electronic; redo indices if previously using \sizepaper=1, may need to REMOVE all aux files
+% 3 for Instructor's Solutions Manual; consider using the answers package.
+
+
+%\includeonly{FrontMatter4e}
+%\includeonly{VectorSpaces4e}
+%\includeonly{FiniteDimVectorSpaces4e}
+%\includeonly{LinearMaps4e}
+%\includeonly{Polynomials4e}
+%\includeonly{Eigenvalues4e}
+%\includeonly{InnerProduct4e}
+%\includeonly{OpsInner4e}
+%\includeonly{OpsComplex4e}
+%\includeonly{Multilinear4e}
+%\includeonly{BackMatter4e}
+
+
+%%%%%%%%%%%%%%%%% End switches
+
+% The four lines below improve spacing of math mode f in Pagella.
+
+\newcommand{\tensor}{\otimes}
+
+\definecolor{definitionbox}{cmyk}{0,0,.3,0}
+\definecolor{definitiontext}{cmyk}{0, .7, 1, .2}
+\definecolor{axlerteal}{cmyk}{1, 0, .3, .1}
+\definecolor{axlerblue}{cmyk}{1, 0.5, 0, 0}
+\definecolor{resultbox}{cmyk}{0.15, 0.06, 0, 0}
+\definecolor{resultboxtitle}{cmyk}{0.35, 0.15, 0, 0}
+\definecolor{axlerlightteal}{cmyk}{0.1, 0, 0.05, 0}
+\definecolor{endexample}{cmyk}{0,0,0,0.3}
+\definecolor{cmykblack}{cmyk}{0,0,0,1}
+\definecolor{sectionbox}{cmyk}{0,0,.1,.05}
+\definecolor{exerciselinecolor}{cmyk}{0,1,.6,.25}
+\definecolor{draft}{cmyk}{0, 0, 0, .6}
+\definecolor{lightgray}{cmyk}{0,0,0,0.075}
+\definecolor{definitionboxtitle}{cmyk}{0,0,.5,0}
+\definecolor{proofcolor}{cmyk}{0.7, 0.3, 0, 0}
+
+
+\NewDocumentCommand\Exercises{mm}
+{\setcounter{chapter}{#1}
+\setcounter{section}{#2}
+\begin{list}{\hfill\makebox[0in][r]{\textbf{\arabic{exercisesc}}}}{\usecounter{exercisesc}
+\setlength{\topsep}{12bp plus 3bp minus 3bp}
+\setlength{\partopsep}{0bp}
+\setlength{\labelwidth}{10bp}
+\setlength{\labelsep}{12bp}
+\setlength{\leftmargin}{22bp}
+\setlength{\itemindent}{0in}
+\setlength{\listparindent}{22bp}
+}\newpage\hypertarget{C#1.#2}{}%
+\ifnum #2 > 0 \bookmark[level=1, dest=C#1.#2]{Section #1\Alph{section}}
+\else
+\bookmark[level=1, dest=C#1.0]{Chapter #1}\fi
+\input{Exercises#1.#2}
+\newpage%
+\end{list}}
+
+\NewDocumentCommand\ExercisesLoop{mm}
+{\setcounter{section}{1}%
+\loop \Exercises{#1}{\arabic{section}} \ifnum \arabic{section}<#2 \addtocounter{section}{1} \repeat}
+
+\definecolor{beginexample}{cmyk}{0,0,0,0.3}
+
+\definecolor{objectivescolor}{cmyk}{0,1,.6,.25}
+
+
+\newcommand{\Cdot}{\mskip2mu \cdot \mskip2mu} % for use instead of \norm{ \cdot }
+
+%\NewDocumentCommand\2{O{2}}
+%{\!\!#1}
+
+%\NewDocumentCommand\Label{m}%
+%{{\addtocounter{equation}{-1}\refstepcounter{equation}\label{#1}}}
+
+%\NewDocumentCommand{\uppar}{O{}m}{\/\textup{#1(}#2\/\textup{#1)}}
+
+%\NewDocumentCommand{\sbr}{O{\big}m}{\textup{#1[}#2\textup{#1]}}
+
+%\NewDocumentCommand\pc{m}
+%{\item page \pageref{#1}:}
+
+\newcommand{\F}[1]{\symbf{F}^{#1}}
+\newcommand{\andd}{\quad \text{and} \quad}
+\newcommand{\orr}{\quad \text{or} \quad}
+\newcommand{\butt}{\quad \text{but} \quad}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %Requires mathtools
+\DeclarePairedDelimiter\norm{\lVert}{\rVert} %Requires mathtools
+\DeclarePairedDelimiter\ip{\langle}{\rangle} %Requires mathtools
+
+\XXnewcommand{\norm}[1]{\lVert #1 \rVert}
+\XXnewcommand{\abs}[1]{\lvert #1 \rvert}
+\XXnewcommand{\ip}[1]{\langle #1 \rangle}
+\XXnewcommand{\paren}[1]{( #1 )}
+\XXnewcommand{\br}[1]{\{ #1 \}}
+
+\DeclarePairedDelimiter\paren{(}{)} %Requires mathtools
+\DeclarePairedDelimiter\br{\{}{\}} %Requires mathtools
+
+\newcommand{\fun}[3]{#1 \colon #2 \to #3}
+%\NewDocumentCommand\fun{mmm}
+%{#1 \colon #2 \to #3}
+
+\hyphenation{Gaussian}
+\hyphenation{or-tho-nor-mal}
+
+
+\definecolor{ShadowColor}{cmyk}{0, 0, 0, 0.5}
+
+\NewDocumentCommand\marbox{+m}{\marginbox{\parbox{\marlen}{\marsize#1}}}
+
+\NewDocumentCommand\mar{O{}+m}{\begin{wrapfigure}[#1]{r}{\marnotewidth}\marbox{#2}\end{wrapfigure}}
+
+\NewDocumentCommand\marF{O{}m+m}{\settowidth{\assumeWidth}{#2}%\addtolength{\assumeWidth}{.225in}%
+\begin{wrapfigure}[#1]{r}{\assumeWidth}%
+#2\\%\addtolength{\assumeWidth}{-.225in}%
+\parbox[t]{\assumeWidth}{\centering\marsize#3}\end{wrapfigure}}
+
+\NewDocumentCommand\marbf{+m}{\textit{\textbf{#1}}}
+
+\NewDocumentCommand\rounded{m}
+{\begin{tikzpicture}
+\sbox0{#1}%
+\path[clip,draw,rounded corners=12bp] (0,0) rectangle (\wd0,\ht0);
+\path (0.5\wd0,0.5\ht0) node[inner sep=0bp]{\usebox0};
+\end{tikzpicture}
+}
+
+\XXnewcommand{\nth}{{\text{\textmd{th}}}}
+\newcommand{\nth}{{\text{{th}}}}
+
+\newcounter{exercisesc}
+
+\NewDocumentCommand\C{m}{\symbf{C}^{#1}}
+\NewDocumentCommand\F{m}{\symbf{F}^{#1}}
+\newcommand{\C}[1]{\symbf{C}^{#1}}
+\newcommand{\F}[1]{\symbf{F}^{#1}}
+\newcommand{\R}[1]{\symbf{R}^{#1}}
+\newcommand{\CC}[1]{\symbf{C}^{#1}}
+\newcommand{\FF}[1]{\symbf{F}^{#1}}
+\newcommand{\RR}[1]{\symbf{R}^{#1}}
+\NewDocumentCommand\R{m}{\symbf{R}^{#1}}
+\NewDocumentCommand\CC{m}{\symbf{C}^{#1}\!}
+\NewDocumentCommand\FF{m}{\symbf{F}^{#1}\!}
+\NewDocumentCommand\RR{m}{\symbf{R}^{#1}\!}
+
+\newcommand{\A}{\symcal{A}}
+\newcommand{\B}{\symcal{B}}
+\newcommand{\E}{\symcal{E}}
+\newcommand{\CF}{\symcal{F}}
+
+\newcommand{\L}{\symcal{L}}
+
+\newcommand{\M}{\symcal{M}}
+\newcommand{\P}{\symcal{P}}
+
+\XXnewcommand{\la}{\kern.8bp\lambda}
+\XXnewcommand{\al}{\alpha}
+
+\NewDocumentCommand\js{O{=1}}
+{{\raisebox{-1.3bp}{\scriptsize$j#1$}}} % Used to make j=1 properly align vertically as a subscript to \sum
+
+\newcommand{\sm}{\backslash}
+
+\RenewDocumentCommand\tilde{O{8.3}m}{\widetilde{\rule{0bp}{#1bp}{#2}}} % Optional arguement gives extra vertical space.
+\NewDocumentCommand\pound{m}{{#1}^{\#}}
+\RenewDocumentCommand\hat{O{8.3}m}{\widehat{\rule{0bp}{#1bp}{#2}}} % Optional arguement gives extra vertical space.
+\NewDocumentCommand\by{mm}{\mbox{$#1$-by-$#2$}}
+
+\newcommand{\Space}{\hspace{8bp}}
+
+\NewDocumentCommand\hint{+m}{\exercisecomment{Hint:\ #1}}
+
+\DeclareMathOperator{\ran}{range}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\perm}{perm}
+\DeclareMathOperator{\vol}{volume}
+\def\ker{\qopname\relax o{null}}
+
+\NewDocumentCommand\tran{m}{#1^{\ifthenelse {\equal{#1}{C}} {\hspace{.07em}} {}\text{\rmfamily\mdseries\upshape t}}}
+
+
+\RenewDocumentCommand\bar{m}{\overline{#1}}
+
+% The next three commands define the fraction bars to be a bit less thick than they would otherwise be.
+\RenewDocumentCommand\frac{mm}{\genfrac{}{}{0.55bp}{}{#1}{#2}}
+\RenewDocumentCommand\dfrac{mm}{\genfrac{}{}{0.55bp}{0}{#1}{#2}}
+\RenewDocumentCommand\tfrac{mm}{\genfrac{}{}{0.55bp}{1}{#1}{#2}}
+
+
+\textbf{Open Access}\ \ This \BookOrChapter{} is licensed under the terms of the Creative Commons Attribution-NonCommercial 4.0 International License (\url{https://creativecommons.org/licenses/by-nc/4.0}), which permits any \mbox{noncommercial} use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give \mbox{appropriate} credit to original author and source, provide a link to the Creative Commons license, and indicate if changes were made.
+\begin{wrapfigure}{l}{.9in}{\includegraphics[scale=0.5]{artwork/by-nc.pdf}}\end{wrapfigure}
+\noindent The images or other third party material in this \BookOrChapter{} are included in the
+\BookOrChapter's Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the \BookOrChapter's Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder.\par
+
+\begin{document}
+
+\include{FrontMatter4e}
+
+
+\include{VectorSpaces4e}
+\include{FiniteDimVectorSpaces4e}
+\include{LinearMaps4e}
+\include{Polynomials4e}
+\include{Eigenvalues4e}
+\include{InnerProduct4e}
+\include{OpsInner4e}
+\include{OpsComplex4e}
+\include{Multilinear4e}
+
+\include{BackMatter4e}
+
+
+\begin{center}
+{{\huge
+\color{blue}Linear Algebra Done Right\par}
+
+\bigskip
+
+fourth edition
+
+\bigskip
+
+{\Large Instructor's Solutions Manual \\[8bp]for \instructor}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+{
+{\huge \color{blue}Sheldon Axler
+}
+
+\vfill
+28 November 2025\\
+\copyright 2023\\
+Sheldon Axler
+}
+\end{center}
+
+\newpage
+
+\thispagestyle{empty}
+
+{\raggedright \parskip=2ex
+This Instructor's Solutions Manual provides solutions for all exercises in my book \textit{Linear Algebra Done Right}, fourth edition. It is distributed (without charge) only to instructors who are using \textit{Linear Algebra Done Right} as a textbook.
+
+This Instructor's Solutions Manual is copyrighted by me. Please do not redistribute this electronic file to anyone else without my permission, and please do not post this electronic file on a web site.
+
+\ignore
+An instructor using \textit{Linear Algebra Done Right} as a textbook has permission to distribute to students in the class paper copies of whatever solutions the instructor chooses (if students are charged for copies, the price may not exceed the cost of materials and reproduction).
+
+\ignore Some instructors may not want to distribute any of these solutions to students;
+other instructors may want to save class time by distributing to students solutions to some of the exercises.  Obviously students
+should not see the solution to an exercise until they have attempted the
+exercise themselves.  \textit{\textbf{Please do not distribute solutions needlessly, especially if there is a danger that solutions will get passed down to next year's class at your university.}}  Neither I nor Springer will distribute this Instructor's Solutions Manual to students, so if neither you
+nor colleagues in your department make copies for students, you can be
+reasonably confident that your students are working the exercises without benefit
+of these solutions.
+
+I would be grateful for suggestions for improvements and for corrections concerning either \textit{Linear Algebra Done Right} or this Instructor's Solutions Manual.
+Please check the website listed below for errata and other information about
+\textit{Linear Algebra Done Right}.
+
+\smallskip
+
+{
+\setlength{\parindent}{0bp}
+Sheldon Axler \hfill \textsl{e-mail: }\texttt{linear@axler.net}\\
+San Francisco State University \hfill \textsl{website: }\texttt{linear.axler.net}
+}
+}
+
+\ExercisesLoop{1}{3}
+\ExercisesLoop{2}{3}
+\ExercisesLoop{3}{6}
+\Exercises{4}{0}
+\ExercisesLoop{5}{5}
+\ExercisesLoop{6}{3}
+\ExercisesLoop{7}{6}
+\ExercisesLoop{8}{4}
+\ExercisesLoop{9}{4}
+\fi
+
+\end{document}
+
+\endinput
+
