@@ -1,13 +1,9 @@
 %%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
 
-{
-\ifnum\sizepaper<2 \setcounter{page}{0} \renewcommand{\CLEARDOUBLEPAGE}{\cleardoublepage} \fi
 
-\chapter{Vector Spaces} \label{129}
+\chapter{Vector Spaces} \label{VectorSpaces} %\label{129}
 
-\pagenumbering{arabic}
 
-}
 
 Linear algebra is the study of linear maps on finite-dimensional vector spaces.  Eventually we will learn what all these terms mean.  In this chapter we will define vector spaces and discuss their elementary properties.
 
@@ -35,17 +31,16 @@ sums and direct sums of subspaces
 }
 \end{comment}
 
-\renewcommand{\FigureName}{Descartes2.jpg}
-\renewcommand{\FigureScale}{0.44}
 
 \FigureHereCredit{artwork/\FigureName}{\FigureScale}%
 {Ren\'e Descartes\index{Descartes, Ren\'e} explaining his work to Queen Christina of Sweden\index{Christina, Queen of Sweden}.\\Vector spaces are a generalization of the description of a plane\\using two coordinates, as published by Descartes in 1637.}{0.8in}{Pierre Louis Dumesnil, Nils Forsberg}
 
-\ifnum\sizepaper=2
-    \section{\texorpdfstring{$\R n$ and $\C n$}{R\unichar{"005E}n and C\unichar{"005E}n}} % To get correct pdf bookmarks.
-    \else
+%%\ifnum\sizepaper=2
+%%    \section{\texorpdfstring{$\R n$ and $\C n$}{R\unichar{"005E}n and C\unichar{"005E}n}} % To get correct pdf bookmarks.
+%%    \else
     \section{$\R n$ and $\C n$}
-    \fi
+\label{Rn_and_Cn}
+%%    \fi
 
 %\section{$\R{n}$ and $\C{n}$}
 
@@ -57,7 +52,7 @@ can take square roots of negative numbers.  The
 idea is to assume we have  a square root of $-1$,
 denoted by $i$, that obeys the usual rules of arithmetic. Here are the formal definitions.
 
-\DefinitionBox{complex numbers, $\C{}$}{%
+\DefinitionBox{complex numbers, $\symbf{C}{}$}{%
 \begin{Itemize}%
 \item
 A \emph{complex number}\index{complex number} is an ordered pair
@@ -128,7 +123,7 @@ $\la(\al + \beta) = \la \al + \la \beta$ for all $\la, \al, \beta \in \C{}$.\ind
 
 The properties above are proved using the familiar properties of real numbers and the definitions of complex addition and multiplication. The next example shows how commutativity of complex multiplication is proved. Proofs of the other properties above are left as exercises.
 
-\begin{example}{commutativity of complex multiplication\index{commutativity}}
+\begin{example}{commutativity of complex multiplication}\index{commutativity}
 To show that $\al \beta = \beta \al$ for all $\al, \beta \in \C{}$,
 suppose
 \[
@@ -180,8 +175,10 @@ For $\al \ne 0$, \emph{division} by $\al$ is defined by\index{division of comple
 
 So that we can conveniently make definitions and prove theorems that apply to both real and complex numbers, we adopt the following notation.
 
-\NotationBox{$\F{}$}{Throughout this book,
-$\F{}$\sindex{F@$\F{}$} stands for either $\R{}$ or $\C{}$.}
+%\NotationBox{$\F{}$}{Throughout this book,
+\NotationBox{}{Throughout this book,
+$\F{}$ stands for either $\R{}$ or $\C{}$.}
+\sindex{F@$\F{}$}
 
 \mar[4]{The letter\/ $\F{}$ is used because\/
 $\R{}$ and\/ $\C{}$ are examples of what  are called\/ \marbf{fields}.}
@@ -273,11 +270,7 @@ equal the set $\{4\}$.
 \vspace{2bp}
 \end{example}
 
-\ifnum\sizepaper=2
-    \subsection{\texorpdfstring{$\F n$}{F\unichar{"005E}n}} % To get correct pdf bookmarks.
-    \else
     \subsection{$\F n$}
-    \fi
 
 To define the higher-dimensional analogues of $\R{2}$ and $\RR{3}$, we
 will simply replace $\R{}$ with $\F{}$ (which equals $\R{}$ or $\C{}$) and replace the $2$ or
@@ -367,7 +360,7 @@ number~$0$.
 
 \pagebreak[3]
 
-\marF[9]{\includegraphics{Mathematica/Axes.pdf}}{Elements of\/ $\R{2}$ can be thought of\\as points or as vectors.}
+\marF[9]{Mathematica/Axes.pdf}{Elements of\/ $\R{2}$ can be thought of\\as points or as vectors.}
 
 A picture can aid our intuition.  We will draw pictures in~$\R{2}$
 because we can sketch this space on two-dimensional surfaces

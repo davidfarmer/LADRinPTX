@@ -1,6 +1,6 @@
 %%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
 
-\chapter{Finite-Dimensional Vector~Spaces} \label{16}
+\chapter{Finite-Dimensional Vector~Spaces} \label{fin-dimVS}  %\label{16}
 
 In the last chapter we learned about vector spaces.  Linear algebra focuses not on arbitrary vector spaces, but on finite-dimensional vector spaces, which we introduce in this chapter.
 
@@ -30,12 +30,12 @@ dimension
 }
 \end{comment}
 
-\renewcommand{\FigureName}{\ifnum\sizepaper=1 FuldHall.jpg\else FuldHallR.jpg \fi}
-\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.163\else 1\fi}
 
 \FigureHere{artwork/\FigureName}{\FigureScale}%
 {The main building of the Institute for Advanced Study, in Princeton, New Jersey.\\Paul Halmos \uppar{1916--2006} wrote the first modern linear algebra book in this building.\\Halmos's linear algebra book was published in 1942 \uppar{second edition published in 1958}.\\The title of Halmos's book was the same as the title of this
-chapter.\index{Halmos, Paul}\index{Institute for Advanced Study}}
+chapter.}
+
+\index{Halmos, Paul}\index{Institute for Advanced Study}
 
 \section{Span and Linear Independence} \label{2spli}
 
@@ -607,14 +607,14 @@ independent in $\P\1_m(\F{})$.
 
 \CrCom
 
-\section{Bases}
+\section{Bases} \label{bases}
 
 In the previous section, we discussed linearly independent lists and we also discussed spanning lists. Now we bring these concepts together by considering lists that have both properties.
 
 \DefinitionBox{basis}{A \emph{basis}\index{basis} of $V$ is a list of vectors in $V$ that is linearly
 independent and  spans~$V\1$.}
 
-\begin{example}[bases]{bases}
+\begin{example}[ex_bases]{bases}
 \begin{subtheorem}*
 \item
 The list $
@@ -815,7 +815,7 @@ Find all vector spaces that have exactly one basis.
 
 
 \exercise
-Verify all assertions in Example \ref{bases}.
+Verify all assertions in Example \ref{ex_bases}.
 
 
 \exercise

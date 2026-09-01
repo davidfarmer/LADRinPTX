@@ -1,6 +1,6 @@
 %%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
 
-\chapter{Polynomials} \label{173}
+\chapter{Polynomials} \label{polynomials}  %\label{173}
 
 This chapter contains material on polynomials that we will use to investigate linear maps from a vector space to itself.  Many results in this chapter will already be familiar to you from other courses; they are included here for completeness.
 
@@ -27,13 +27,13 @@ factorization of polynomials over $\R{}$
 }
 \end{comment}
 
-\renewcommand{\FigureName}{\ifnum\sizepaper=1 Khayam.jpg\else KhayamR.jpg \fi}
-\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.44\else 1\fi}
 
 \FigureHereCredit{artwork/\FigureName}{\FigureScale}%
-{Statue of mathematician and poet Omar Khayyam \uppar{1048--1131},\index{Khayyam, Omar} whose algebra\\%
+{Statue of mathematician and poet Omar Khayyam \uppar{1048--1131}, whose algebra
 book written in 1070 contained the first serious study of cubic \mbox{polynomials}.}%
 {1.1in}{Alireza Javaheri CC BY}
+
+\index{Khayyam, Omar}
 
 \newpage
 
@@ -272,11 +272,11 @@ $
 satisfying \ref{4unique}.
 \qed
 
-\ifnum\sizepaper=2
-    \subsection{\texorpdfstring{Factorization of Polynomials over $\C{}$}{Factorization of Polynomials over C}} % To get correct pdf bookmarks.
-    \else
+%%\ifnum\sizepaper=2
+%%    \subsection{\texorpdfstring{Factorization of Polynomials over $\C{}$}{Factorization of Polynomials over C}} % To get correct pdf bookmarks.
+%%    \else
     \subsection{Factorization of Polynomials over $\C{}$}
-    \fi
+%%    \fi
 
 \mar{The fundamental theorem of algebra is an existence theorem. Its proof does not lead to a method for finding zeros.  The quadratic formula gives the zeros explicitly for polynomials of degree\/~$2$.  Similar but more complicated formulas exist for polynomials of degree\/ $3$ and\/ $4$.  No such formulas exist for polynomials of degree\/ $5$ and above.}
 
@@ -383,13 +383,13 @@ for all $z \in \C{}$, then because the left side of the equation above equals $0
 for all $z \in \C{}$ except possibly $z = \la_1$.  Actually the equation above holds for all $z \in \C{}$, because otherwise by subtracting the right side from the left side we would get a nonzero polynomial that has infinitely many zeros.  The equation above and our induction hypothesis imply that except for the order, the $\la$'s are the same as the $\tau$'s, completing the proof of uniqueness.
 \qed
 
-\pagebreak[3]
-
-\ifnum\sizepaper=2
-    \subsection{\texorpdfstring{Factorization of Polynomials over $\R{}$}{Factorization of Polynomials over R}} % To get correct pdf bookmarks.
-    \else
+%%\pagebreak[3]
+%%
+%%\ifnum\sizepaper=2
+%%    \subsection{\texorpdfstring{Factorization of Polynomials over $\R{}$}{Factorization of Polynomials over R}} % To get correct pdf bookmarks.
+%%    \else
     \subsection{Factorization of Polynomials over $\R{}$}
-    \fi
+%%    \fi
 
 \mar{The failure of  the fundamental theorem of algebra for\/ $\R{}$ accounts for the differences between linear algebra on
 real and complex vector spaces, as we will see in later chapters.}

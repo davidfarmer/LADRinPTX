@@ -48,13 +48,11 @@
 
 % CHECK \CrCom DEFINITION
 
-\newcommand{\sizepaper}{2}
 % 0 for papersize 6.125in-by-9.25in, crop marks, bleed; MAY NEED TO REMOVE aux, toc, ind files when switching
 % 1 for papersize 6.125in-by-9.25in; MAY NEED TO REMOVE aux, toc, ind files when switching.
 % 2 for papersize electronic; redo indices if previously using \sizepaper=1, may need to REMOVE all aux files
 % 3 for Instructor's Solutions Manual; consider using the answers package.
 
-\ifnum\sizepaper=3 \includeonly{EmptyFile}\fi
 
 %\includeonly{FrontMatter4e}
 %\includeonly{VectorSpaces4e}
@@ -68,146 +66,12 @@
 %\includeonly{Multilinear4e}
 %\includeonly{BackMatter4e}
 
-\newcommand{\footswitch}{1}    % 0 for no footer, 1 for footer for my electronic version and ISM.
-\ifnum\sizepaper=1 \renewcommand{\footswitch}{0}\fi
-
-\newcommand{\instructor}{instructor name}
-
-\newcommand{\FOOTER}{\footnotesize\hfill{\color{draft}\textit{Linear Algebra Done Right}, fourth edition, by Sheldon Axler}\hfill}
-
-\ifnum\sizepaper=3 \renewcommand{\FOOTER}{\footnotesize\hfill{\color{draft}\instructor}\hfill}\fi
 
 %%%%%%%%%%%%%%%%% End switches
 
 % The four lines below improve spacing of math mode f in Pagella.
-\begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
-\mathcode`f="8000
-\AtBeginDocument{\let\MITF=\mitf} % AtBeginDocument needed because of when unicode-math sets its definitions.
-\AtBeginDocument{\renewcommand{\mitf}{\kern1.7bp\MITF}} % adding some space before math mode f
-
-% The three lines below change math mode j to be from the latinmodern-math.otf font.
-%\begingroup\lccode`~=`j \lowercase{\endgroup\def~}{\mitj}
-%\mathcode`j="8000
-%\setmathfont{latinmodern-math.otf}[range=\mitj,Scale=MatchLowercase] % Warning: may cause too thick overlines and sums if it is the last \setmathfont; also \big is too big
-
-%\setmathfont{Asana Math}[range=\setminus,Scale=MatchLowercase] % \setminus is missing from TeX Gyre Pagella Math.
-\setmathfont{texgyretermes-math.otf}[range={0043,0044,0059}]     %Changes font for plus sign, which was vertically aligned too low
-            % math mode comma & semi-colon changed to Tex Gyre Termes Math
-%\setmathfont{texgyretermes-math.otf}[range=up/{num},Scale=0.95] % use Tex Gyre Termes Math math mode numerals to prevent print anomalies
-\setmathfont{latinmodern-math.otf}[range=\sqrt,Scale=0.8]
-\setmathfont{STIXTwoMath-Regular.otf}[range=\dagger,Scale=1.1]
-\setmathfont{latinmodern-math.otf}[range=\underbrace,Scale=1.1]
-
-\setmathfont{TeX Gyre Pagella Math}[range={\sum,\int},Scale=0.85]
-%\setmathfont{TeX Gyre Pagella Math}[range=it/{greek,Greek},Scale=0.95] % Fixes Greek letters, particularly \pi but also \alpha
-% pagella has best \sum
-% pagella has best \int; use STIX Two Math for a larger \int
-
-%\setmathfont{TeX Gyre Pagella Math}[range=bfup/{Latin},Scale=0.95] % To get slightly thinner \F, \C, \R
-%\setmathfont{TeX Gyre Pagella Math}[range=it/{latin,Latin},Scale=0.95]
-
-\setmathfont{TeX Gyre Pagella Math}[range={}] % Keep this last to use various settings from TeX Gyre Termes Math (latinmodern last leads to problems with inline square roots)
-
-\newcommand{\marsize}{\renewcommand{\baselinestretch}{1.045}\small\itshape}
-
-\ifnum\sizepaper=3 \renewcommand{\footswitch}{1}%
-%\renewcommand{\FOOTER}{\small\hfill\color{draft}\textit{\instructor}\hfill}% %May need to uncomment this line.
-\fi
-
-\newlength{\hbleed}
-\setlength{\hbleed}{9bp}
-
-\newlength{\vbleed}
-\setlength{\vbleed}{9bp}
-
-\newlength{\PAPERwidth}
-\setlength{\PAPERwidth}{441bp}
-
-\newlength{\PAPERheight}
-\setlength{\PAPERheight}{666bp}
-
-\ifnum\sizepaper<2\usepackage[paperwidth=\PAPERwidth, paperheight=\PAPERheight]{geometry}
-\NewDocumentCommand\url{m}{#1}\fi
-\ifnum\sizepaper=2\usepackage[paperwidth=375bp, paperheight=636bp]{geometry}\fi %paperheight was 622bp before adding 14bp for first page of chapter tag lines.
-\ifnum\sizepaper=3\usepackage[paperwidth=375bp, paperheight=508bp]{geometry}\fi  % paperheight was 468bp
-
-\ifnum\sizepaper=0\usepackage[letter,pdflatex,center,cam]{crop}\fi
-% \CROP@@info redefined later
-
-\ifnum\sizepaper=0\addtolength{\PAPERwidth}{2\hbleed}\fi
-
-\ifnum\sizepaper=2
-\usepackage[luatex,colorlinks=true,linkcolor=blue,urlcolor=blue,bookmarksdepth=subsection,pdfauthor={Sheldon Axler},pdftitle={Linear Algebra Done Right}]{hyperref} % Change hidelinks to colorlinks to get links in the pdf file. This should be the last package loaded.
-\usepackage{bookmark} % Needed to get bookmarks correct in chapters with subsections but no sections
-\newcommand{\HYPERPAGE}{|hyperpage}
-\urlstyle{rm}% To display url's in roman font
-\else
-\NewDocumentCommand\hyperref{O{}}{}
-\newcommand{\HYPERPAGE}{}
-\newcommand{\hyperpage}{}
-%\usepackage[luatex,hidelinks]{hyperref} % Change hidelinks to colorlinks to get links in the pdf file. This should be the last package loaded.
-\fi
-
-\ifnum\sizepaper=3%
-\usepackage[luatex,hidelinks]{hyperref} % Change hidelinks to colorlinks to get links in the pdf file.
-\usepackage{bookmark} % Uncomment this line and the line above to get bookmarks.
-\fi
-
-\renewcommand{\labelitemi}{$\bullet$}
-
-\setlength{\textheight}{560bp} % 560bp for LADR 4e, was 546bp in LADR3e, 566bp in MIRA
-\setlength{\textwidth}{333bp}
-\ifnum\sizepaper<2\setlength{\topmargin}{-36bp}\fi
-\ifnum\sizepaper=2\setlength{\topmargin}{-50bp}\fi
-\ifnum\sizepaper=3\setlength{\topmargin}{-50bp}\fi
-\ifnum\sizepaper<2\setlength{\oddsidemargin}{-6bp}\fi
-\ifnum\sizepaper<2\setlength{\evensidemargin}{-30bp}\fi
-\ifnum\sizepaper=2\setlength{\oddsidemargin}{-51bp}\fi
-\ifnum\sizepaper=2\setlength{\evensidemargin}{-51bp}\fi
-\ifnum\sizepaper=3\setlength{\oddsidemargin}{-51bp}\fi
-\ifnum\sizepaper=3\setlength{\evensidemargin}{-51bp}\fi
-
-\ifnum\sizepaper=3\addtolength{\textheight}{-132bp}\fi % was \setlength{\textheigh}{392bp}
-
-% check that even and odd pages printing at same place
-
-\setlength{\headheight}{6bp}
-\setlength{\headsep}{18bp}
-
-\newlength{\marnotewidth}
-\setlength{\marnotewidth}{2.225in}
-\addtolength{\marnotewidth}{-4.5bp}
-
-\raggedbottom
-
-\setlength{\intextsep}{0bp} % Vertical spacing around wrapfigure.
-
-%\renewcommand{\baselinestretch}{1.1}     % For Lucida only.
-
-\numberwithin{equation}{chapter}
-
-\newcommand{\Comment}{\addvspace{9bp plus 2bp minus 1 bp}\noindent{\color{objectivescolor}\textsc{comment}}\quad}
-
-\overfullrule=.2in
-
-\clubpenalty=10000
-\widowpenalty=10000
-\brokenpenalty=10000 % prevents a page break after a hyphenation
-\relpenalty=8000
-\binoppenalty=10000
-\predisplaypenalty=0
-\postdisplaypenalty=0
-
-\renewcommand{\emph}{\textit}
 
 \newcommand{\tensor}{\otimes}
-
-\newcommand{\FigureName}{ }
-\newcommand{\FigureScale}{1}
-
-\newlength{\definitionboxlen}
-\setlength{\definitionboxlen}{\textwidth}
-\addtolength{\definitionboxlen}{-16bp}
 
 \definecolor{definitionbox}{cmyk}{0,0,.3,0}
 \definecolor{definitiontext}{cmyk}{0, .7, 1, .2}
@@ -225,71 +89,6 @@
 \definecolor{definitionboxtitle}{cmyk}{0,0,.5,0}
 \definecolor{proofcolor}{cmyk}{0.7, 0.3, 0, 0}
 
-\newtcbox{\defovalbox}{colback=definitionbox,boxrule=0.75bp,arc=10bp,%
-  boxsep=0bp,left=6bp,right=6bp,top=6bp,bottom=6bp,toptitle=6bp,bottomtitle=6bp,colbacktitle=definitionboxtitle,%
-  title=\textcolor{cmykblack}{\textsf{{\footnotesize\BoxNumber\quad {definition:}}}} \color{cmykblack}{\textit{\deftitle}}}
-
-  \newtcbox{\standingovalbox}{colback=definitionbox,boxrule=0.75bp,arc=10bp,
-  boxsep=0bp,left=6bp,right=6bp,top=6bp,bottom=6bp,toptitle=6bp,bottomtitle=6bp,colbacktitle=definitionboxtitle,%
-  title=\textcolor{cmykblack}\quad\color{cmykblack}{\textit{\deftitle}}}
-
-\newtcbox{\specialovalbox}{colback=white,boxrule=0.75bp,arc=10bp,
-  boxsep=0bp,left=6bp,right=6bp,top=6bp,bottom=6bp,toptitle=6bp,bottomtitle=6bp,colbacktitle=black,title=\quad{\textit{\deftitle}}}
-
-\newtcbox{\notationovalbox}{colback=definitionbox,boxrule=0.75bp,arc=10bp,
-  boxsep=0bp,left=6bp,right=6bp,top=6bp,bottom=6bp,toptitle=6bp,bottomtitle=6bp,colbacktitle=definitionboxtitle,%
-  title=\textcolor{cmykblack}{\textsf{{\footnotesize\BoxNumber\quad {notation:}}}} \color{cmykblack}{\textit{\deftitle}}}
-
-\newtcbox{\resultovalbox}{colback=resultbox,boxrule=0.75bp,arc=10bp,     % Requires tcolorbox package
-boxsep=0bp,left=6bp,right=6bp,top=6bp,bottom=6bp,toptitle=6bp,bottomtitle=6bp,colbacktitle=resultboxtitle,%
-title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
-\quad\color{cmykblack}{\textit{\deftitle}}}
-
-\NewDocumentCommand\boxtitle{m}{\global\def\deftitle{#1}}
-
-\NewDocumentCommand\DefinitionBox{om+m}%
-{\pagebreak[1]\addvspace{6bp}\addtocounter{equation}{1}% \pagebreak[1] is needed to get pdf links to the correct page.
-\edef\BoxNumber{\theequation}% BoxNumber is needed to prevent numbering errors when the box contains numbered equations.
-{\boxtitle{#2}}%
-\defovalbox{\begin{minipage}{318bp}%
-\IfNoValueF{#1}{\Label{#1}}%
-{#3}\end{minipage}}}
-
-\NewDocumentCommand\StandingBox{O{standing assumptions for this chapter}+m}
-{\pagebreak[1]\addvspace{6bp}% \pagebreak[1] is needed to get pdf links to the correct page.
-\boxtitle{#1}%
-\standingovalbox{\begin{minipage}{318bp}%
-\begin{Itemize}\raggedright%
-\addtolength{\itemsep}{-5bp}#2\end{Itemize}\end{minipage}}}
-
-\NewDocumentCommand\NotationBox{om+m}
-{\pagebreak[1]\addvspace{6bp}\addtocounter{equation}{1}% \pagebreak[1] is needed to get pdf links to the correct page.
-\edef\BoxNumber{\theequation}% BoxNumber is needed to prevent numbering errors when the box contains numbered equations.
-\boxtitle{#2}%
-\notationovalbox{\begin{minipage}{318bp}%
-\IfNoValueF{#1}{\Label{#1}}%
-{#3}\end{minipage}}}
-
-\NewDocumentCommand\ResultBox{om+m}
-{\pagebreak[1]\addvspace{6bp}\addtocounter{equation}{1}% \pagebreak[1] is needed to get pdf links to the correct page.
-\edef\BoxNumber{\theequation}% BoxNumber is needed to prevent numbering errors when the box contains numbered equations.
-{\boxtitle{#2}}%
-\resultovalbox{\begin{minipage}{318bp}%
-\IfNoValueF{#1}{\Label{#1}}%
-{#3}\end{minipage}}}
-
-\NewDocumentCommand\SpecialBox{m+m}
-{\pagebreak[1]% \pagebreak[1] is needed to get pdf links to the correct page.
-\boxtitle{#1}%
-\specialovalbox{\begin{minipage}{318bp}%
-{#2}\end{minipage}}}
-
-\NewDocumentCommand\QuoteAuthor{+m+m}
-{\vfill\par\noindent#1\\[-3bp]
-\ \\
-{\small---#2}}
-
-\setlength{\leftmargini}{14bp}  % for itemize-like environments
 
 \NewDocumentCommand\Exercises{mm}
 {\setcounter{chapter}{#1}
@@ -316,112 +115,52 @@ title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
 
 \definecolor{beginexample}{cmyk}{0,0,0,0.3}
 
-\newlength{\examplerule}
-\setlength{\examplerule}{\textwidth}
-\addtolength{\examplerule}{-1.5bp} % To accomodate vertical bars at both ends
-
-\newlength{\Examplerule}
-\setlength{\Examplerule}{\textwidth}
-\addtolength{\Examplerule}{-2\parindent}
-
-\newlength{\assumeWidth}
-
-\NewDocumentCommand\Assume{+m}
-{\settowidth{\assumeWidth}%
-{\begin{minipage}{\textwidth}\begin{tabbing}%
-#1\end{tabbing}\end{minipage}}}
-
-\NewDocumentEnvironment{example}{om}
-{\pagebreak[1]\addtocounter{equation}{1}
-\IfNoValueF{#1}{\Label{#1}}%
-\par\noindent\raisebox{-14.25bp}{\rule{0.75bp}{15bp}}\rule{\examplerule}{0.75bp}\raisebox{-14.25bp}{\rule{0.75bp}{15bp}}\\[-9bp]
-\noindent\hspace*{4.75bp}\textsf{{{\footnotesize\theequation\quad{example:}}}} {{\textit{#2\ \ }}}%
-\par\addvspace{6bp}
-%\addtolength{\abovedisplayskip}{-2bp} \addtolength{\belowdisplayskip}{-2bp}
-}%
-%{\par\vspace*{-6bp}\noindent\rule{.75bp}{12bp}\rule{\examplerule}{.75bp}\noindent\rule{.75bp}{12bp}\\[-9bp]\pagebreak[1]}
-{\par\addvspace{-6bp}\rule{\Examplerule}{0.75bp}\par\addvspace{3bp}\pagebreak[1]}
-% Line above was: {\par\vspace*{-6bp}\rule{\Examplerule}{.75bp}\\[-9bp]\pagebreak[1]}
-% \pagebreak[1] at the beginning of example prevents a link from going to the previous page when the example appears at the top of a page.
-% \pagebreak[1] at end of example is to prevent some extra space at the top of the following page when the example ends at the bottom of a page. It might be better to find some other way to do this so that a few more lines might fit on the bottom of the page.
-
 \definecolor{objectivescolor}{cmyk}{0,1,.6,.25}
 
-\newcommand{\1}{\mskip-2mu}
-\newcommand{\3}{\mskip-1mu}
 
 \newcommand{\Cdot}{\mskip2mu \cdot \mskip2mu} % for use instead of \norm{ \cdot }
 
-\NewDocumentCommand\2{O{2}}
-{\!\!#1}
+%\NewDocumentCommand\2{O{2}}
+%{\!\!#1}
 
-\NewDocumentCommand\Label{m}%
-{{\addtocounter{equation}{-1}\refstepcounter{equation}\label{#1}}}
+%\NewDocumentCommand\Label{m}%
+%{{\addtocounter{equation}{-1}\refstepcounter{equation}\label{#1}}}
 
-\NewDocumentCommand{\uppar}{O{}m}{\/\textup{#1(}#2\/\textup{#1)}}
+%\NewDocumentCommand{\uppar}{O{}m}{\/\textup{#1(}#2\/\textup{#1)}}
 
-\NewDocumentCommand{\sbr}{O{\big}m}{\textup{#1[}#2\textup{#1]}}
+%\NewDocumentCommand{\sbr}{O{\big}m}{\textup{#1[}#2\textup{#1]}}
 
-\NewDocumentCommand\pc{m}
-{\item page \pageref{#1}:}
+%\NewDocumentCommand\pc{m}
+%{\item page \pageref{#1}:}
 
+\newcommand{\F}[1]{\symbf{F}^{#1}}
 \newcommand{\andd}{\quad \text{and} \quad}
 \newcommand{\orr}{\quad \text{or} \quad}
 \newcommand{\butt}{\quad \text{but} \quad}
 
-\DeclarePairedDelimiter\abs{\lvert}{\rvert} %Requires mathtools
-\DeclarePairedDelimiter\norm{\lVert}{\rVert} %Requires mathtools
-\DeclarePairedDelimiter\ip{\langle}{\rangle} %Requires mathtools
+\DeclarePairedDelimiter\abs{\lvert}{\rvert } %Requires mathtools
+\DeclarePairedDelimiter\norm{\lVert}{\rVert } %Requires mathtools
+\DeclarePairedDelimiter\ip{\langle }{\rangle } %Requires mathtools
+
+\XXnewcommand{\norm}[1]{\lVert #1 \rVert }
+\XXnewcommand{\abs}[1]{\lvert #1 \rvert }
+\XXnewcommand{\ip}[1]{\langle #1 \rangle }
+\XXnewcommand{\paren}[1]{( #1 )}
+\XXnewcommand{\br}[1]{\{ #1 \}}
+
 \DeclarePairedDelimiter\paren{(}{)} %Requires mathtools
 \DeclarePairedDelimiter\br{\{}{\}} %Requires mathtools
 
-\NewDocumentCommand\fun{mmm}
-{#1 \colon #2 \to #3}
-
-\newcounter{tempcounter}
-
-\labelformat{section}{\protect\secref#1}
-
-\def\secref#1.#2{\setcounter{tempcounter}{#2}#1\Alph{tempcounter}}
+\newcommand{\fun}[3]{#1 \colon #2 \to #3}
+%\NewDocumentCommand\fun{mmm}
+%{#1 \colon #2 \to #3}
 
 \hyphenation{Gaussian}
 \hyphenation{or-tho-nor-mal}
 
-\newcommand{\Thecontentspage}{\thecontentspage} % \thecontentspage for page numbers in Contents
-                                % Empty for no page numbers in Contents.
-
-\titlecontents{subsection}[.7in]{\addvspace{2bp}}{}%
-{}{\makebox[0in][l]{\quad\Thecontentspage}}
-
-\titlecontents{section}[.5in]{\addvspace{6bp}}
-{\normalsizerr\contentslabel[\expandafter\secref\thecontentslabel\ \ ]{.5in}}{\normalsizerr\quad}%
-{\makebox[0in][l]{\normalsize\quad\Thecontentspage}}
-
-\titlecontents{chapter}[0bp]{\addvspace{12bp}}
-{{\small\sffamily Chapter\ {\thecontentslabel}}\\\normalsizerrr\bfseries\itshape}%
-{\normalsizerrr\bfseries\itshape}%
-{\normalsize\quad\textbf{\Thecontentspage}}
-
-\newlength{\Parindent}
-\setlength{\Parindent}{.4in}
-
-\newlength{\rulelength}
-\setlength{\rulelength}{\textwidth}
-
-\setlength{\parindent}{.2in}
-%\parfillskip=\parindent plus1fil %prevents last line of paragraph being full
-
-\newcommand{\exampleitemend}{\vspace{-9bp}}
-\newcommand{\exampledisplayend}{\vspace{-19bp}}
-\newcommand{\exercisedisplayend}{\vspace{-20bp}}
-\newcommand{\exercisesubtheoremend}{\vspace{-3bp}}
 
 \definecolor{ShadowColor}{cmyk}{0, 0, 0, 0.5}
 
-\newtcbox{\marginbox}{colback=lightgray,boxrule=0bp,arc=10bp,boxsep=0bp,left=5bp,right=5bp,top=4bp,bottom=4bp}
-
-\newlength{\marlen}
-\setlength{\marlen}{2in}
 \NewDocumentCommand\marbox{+m}{\marginbox{\parbox{\marlen}{\marsize#1}}}
 
 \NewDocumentCommand\mar{O{}+m}{\begin{wrapfigure}[#1]{r}{\marnotewidth}\marbox{#2}\end{wrapfigure}}
@@ -441,12 +180,19 @@ title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
 \end{tikzpicture}
 }
 
-\newcommand{\nth}{{\text{\textmd{th}}}}
+\XXnewcommand{\nth}{{\text{\textmd{th}}}}
+\newcommand{\nth}{{\text{{th}}}}
 
 \newcounter{exercisesc}
 
 \NewDocumentCommand\C{m}{\symbf{C}^{#1}}
 \NewDocumentCommand\F{m}{\symbf{F}^{#1}}
+\newcommand{\C}[1]{\symbf{C}^{#1}}
+\newcommand{\F}[1]{\symbf{F}^{#1}}
+\newcommand{\R}[1]{\symbf{R}^{#1}}
+\newcommand{\CC}[1]{\symbf{C}^{#1}}
+\newcommand{\FF}[1]{\symbf{F}^{#1}}
+\newcommand{\RR}[1]{\symbf{R}^{#1}}
 \NewDocumentCommand\R{m}{\symbf{R}^{#1}}
 \NewDocumentCommand\CC{m}{\symbf{C}^{#1}\!}
 \NewDocumentCommand\FF{m}{\symbf{F}^{#1}\!}
@@ -456,19 +202,20 @@ title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
 \newcommand{\B}{\symcal{B}}
 \newcommand{\E}{\symcal{E}}
 \newcommand{\CF}{\symcal{F}}
-\renewcommand{\L}{\symcal{L}}
-\newcommand{\M}{\symcal{M}}
-\renewcommand{\P}{\symcal{P}}
 
-\newcommand{\la}{\kern.8bp\lambda}
-\newcommand{\al}{\alpha}
+% \newcommand{\L}{\symcal{L}}
+\newcommand{\Lc}{\symcal{L}}
+
+\newcommand{\M}{\symcal{M}}
+\newcommand{\P}{\symcal{P}}
+
+\XXnewcommand{\la}{\kern.8bp\lambda}
+\XXnewcommand{\al}{\alpha}
 
 \NewDocumentCommand\js{O{=1}}
 {{\raisebox{-1.3bp}{\scriptsize$j#1$}}} % Used to make j=1 properly align vertically as a subscript to \sum
 
 \newcommand{\sm}{\backslash}
-
-\AtBeginDocument{\renewcommand{\phi}{\varphi}} % AtBeginDocument needed because of when unicode-math sets its definitions.
 
 \RenewDocumentCommand\tilde{O{8.3}m}{\widetilde{\rule{0bp}{#1bp}{#2}}} % Optional arguement gives extra vertical space.
 \NewDocumentCommand\pound{m}{{#1}^{\#}}
@@ -476,13 +223,6 @@ title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
 \NewDocumentCommand\by{mm}{\mbox{$#1$-by-$#2$}}
 
 \newcommand{\Space}{\hspace{8bp}}
-
-\newcommand{\exercise}{\ifnum\sizepaper=3 \newpage
-\addtocounter{exercisesc}{1}
-\hypertarget{C\thesection E\arabic{exercisesc}}{}%
-\bookmark[level=2, dest=C\thesection E\arabic{exercisesc}]{Exercise \arabic{exercisesc}}
-\addtocounter{exercisesc}{-1}\fi
-\pagebreak[0]\item}
 
 \NewDocumentCommand\hint{+m}{\exercisecomment{Hint:\ #1}}
 
@@ -494,385 +234,11 @@ title=\color{cmykblack}{\textsf{{\footnotesize\BoxNumber}}}%
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\perm}{perm}
 \DeclareMathOperator{\vol}{volume}
-\def\ker{\qopname\relax o{null}}
+\DeclareMathOperator{\ker}{null}
 
-\NewDocumentCommand\tran{m}{#1^{\ifthenelse {\equal{#1}{C}} {\hspace{.07em}} {}\text{\rmfamily\mdseries\upshape t}}}
+# \NewDocumentCommand\tran{m}{#1^{\ifthenelse {\equal{#1}{C}} {\hspace{.07em}} {}\text{\rmfamily\mdseries\upshape t}}}
+\newcommand{\tran}[1]{#1^{\text{t}}}
 
-%\DeclareSymbolFont{calligSheldon}{T1}{ptm}{m}{it} % This line and the next two redefine v and w in mathmode.
-%\DeclareMathSymbol{v}{\mathalpha}{calligSheldon}{"76}
-%\DeclareMathSymbol{w}{\mathalpha}{calligSheldon}{"77}
-% Change ptm above to whatever is appropriate if not using Nimbus Roman.
-
-\newcommand{\copysize}{\scriptsize\sffamily\upshape}
-
-\NewDocumentCommand\FigureHere{mm+m}
-{\par\addvspace{1.5ex}\noindent\begin{minipage}{\linewidth}%
-\begin{center}\rounded{\includegraphics[scale=#2]{#1}}\credit\\%
-\marsize#3\end{center}%
-\end{minipage}\par\addvspace{3ex}}
-
-\newcommand{\credit}{}
-
-\NewDocumentCommand\FigureHereCredit{mm+mmm}
-{{\renewcommand{\credit}{\raisebox{#4}{\rotatebox[origin=r]{-90}{\copysize #5}}}%
-\FigureHere{#1}{#2}{#3}}}
-
-\NewDocumentCommand\FigureHereUnround{mm+m}
-{\par\addvspace{1.5ex}\noindent\begin{minipage}{\linewidth}
-\begin{center}\includegraphics[scale=#2]{#1}\\
-\marsize#3\end{center}
-\end{minipage}\par\addvspace{3ex}}
-
-\NewDocumentCommand\FigureHereNoCaption{mm}
-{\begin{center}\includegraphics[scale=#2]{#1}%
-\end{center}}
-
-%\renewcommand{\numberline}[1]{{\small \bfseries  % These four lines were used in formatting Contents, but seem not to be used now.
-%\ifnum 11 = \catcode`#1  \textsc{Appendix} \else
-%\textsc{Chapter} \fi #1}\\
-%\hspace*{-\leftskip}}
-
-\newcommand{\chaptertitle}{}
-
-\newlength{\chapterspace}
-\setlength{\chapterspace}{-1in}
-\ifnum\sizepaper=0\addtolength{\chapterspace}{-\vbleed}\fi
-\newlength{\chapterspaceC}
-\setlength{\chapterspaceC}{1.665in}
-\ifnum\sizepaper=0\addtolength{\chapterspaceC}{\vbleed}\fi
-
-\makeatletter
-
-\ifnum\sizepaper=0
-\renewcommand*\CROP@@info{{%
-    \global\advance\CROP@index\@ne
-    \def\x{\discretionary{}{}{\hbox{\kern.5em---\kern.5em}}}%
-    \advance\paperwidth-20\p@
-    \dimen@4pt
-    \ifx\CROP@pagecolor\@empty
-    \else
-        \advance\dimen@\CROP@overlap
-    \fi
-    \hb@xt@\z@{%
-        \hss
-        \vbox to\z@{%
-            \centering
-            \hsize\paperwidth
-            \vss
-            \normalfont
-            \normalsize
-            \expandafter\csname\CROP@font\endcsname{%
-                ``\jobname''\x
-                \the\year/\the\month/\the\day\x
-                \CROP@time\x
-                page\kern.5em\thepage\x
-                \#\the\CROP@index
-                \strut \raisebox{0in}[.2in][.2in]{}
-            }%
-            \vskip\dimen@
-        }%
-        \hss
-    }%
-}}
-\fi
-
-\renewcommand{\@seccntformat}[1]{{%
-{\upshape\larger\itshape{\thechapter\Alph{section}}\ }\hspace{.5em}}}
-% The command above does formatting for section numbers.
-
-\newcommand\Cshadowbox{\VerbBox\@Cshadowbox}
-\def\@Cshadowbox#1{%
-  \setbox\@fancybox\hbox{\fbox{#1}}%
-  \leavevmode\vbox{%
-    \offinterlineskip
-    \dimen@=\shadowsize
-    \advance\dimen@ .5\fboxrule
-    \hbox{\copy\@fancybox\kern.5\fboxrule\lower\shadowsize\hbox{%
-      \color{ShadowColor}\vrule \@height\ht\@fancybox \@depth\dp\@fancybox \@width\dimen@}}%
-    \vskip\dimexpr-\dimen@+0.5\fboxrule\relax
-    \moveright\shadowsize\vbox{%
-      \color{ShadowColor}\hrule \@width\wd\@fancybox \@height\dimen@}}}
-
-\NewDocumentCommand\pagecute{m}{$#1$}
-
-\newcommand{\Thepage}{%
-\ifnum \c@secnumdepth < 0 \thepage \else
-\ifnum \thepage= 22 \pagecute{\approx 7 \pi}\else
-\ifnum \thepage= 141 \pagecute{\approx 100 \raisebox{0bp}[0bp][0bp]{$\sqrt{2}$}}\else
-\ifnum \thepage= 272 \pagecute{\approx 100\,e}\else
-\ifnum \thepage= 314 \pagecute{\approx 100 \pi}\else
-%\ifnum \thepage= 355 \pagecute{\approx 113 \pi}\else
-\thepage
-\fi\fi\fi\fi\fi}
-
-\renewcommand{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
-    \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-
-\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
- \fi%
- \@starttoc{toc}\if@restonecol\twocolumn\fi}
-
-\def\@pnumwidth{1.83em}
-
-\newlength{\SolutionSkip}
-\setlength{\SolutionSkip}{-22bp}
-
-\renewcommand{\tagform@}[1]%
-{\maketag@@@{\ignorespaces\footnotesize\sffamily#1\unskip}}
-
-\renewcommand{\chaptermark}[1]{{\markboth {{\small\sffamily\ifnum \c@secnumdepth >\m@ne
-Chapter \thechapter\quad\ \fi
-#1}}{}}} %Format for heading on even-numbered pages
-
-\newcommand{\HeadingSection}{\textrm{\small%
-\textsf{Section \thechapter\Alph{section}}}\quad\ }
-\newcommand{\headingsection}{\HeadingSection}
-
-\renewcommand{\sectionmark}[1]{{\markright {{\ifnum \c@secnumdepth >-1
-\headingsection\fi \small\textsf{#1}}}}}
-
-\renewcommand{\@evenhead}{\hspace*{-\rulelength}\hspace*{\textwidth}%
-\normalfont{\small\textbf{\Thepage}}\quad\quad%
-\leftmark\hfil}
-
-\renewcommand{\@oddhead}{%
-\makebox[0bp][l]{\normalfont%
-\makebox[\rulelength][r]{\ifnum \c@secnumdepth > -1\ifnum\arabic{section}>0\rightmark\else\leftmark\fi\else\leftmark\fi%
-\quad\quad{\small\textbf{\Thepage}}}%
-}\hfill}
-
-\ifnum\footswitch=1\renewcommand{\@oddfoot}{\FOOTER}
-\renewcommand{\@evenfoot}{\FOOTER}\fi
-
-\renewcommand{\ps@plain}{\let\@mkboth\@gobbletwo
- \def\@oddhead{}\def\@oddfoot{\ifnum\footswitch=1\FOOTER\fi%\normalfont\small\hfil\textbf{\Thepage}%\hfil %Uncomment all to have page number centered
- {\ifnum \arabic{page}>0 \hfil\llap{\raisebox{16bp}{\textbf{\Thepage}}}\fi}}\def\@evenhead{}\let\@evenfoot\@oddfoot}
-
-\newcommand{\makesindex}{\if@filesw \newwrite\@sindexfile
-  \immediate\openout\@sindexfile=LADRs4e.idx
-  \def\sindex{\@bsphack\begingroup
-             \def\protect####1{\string####1\space}\@sanitize
-             \@wrsindex}\typeout
-  {Writing index file LADRs4s.idx }\fi}
-
-\newcommand{\@wrsindex}[1]{\let\thepage\relax
-   \xdef\@gtempa{\write\@sindexfile{\string
-      \indexentry{#1\ifnum\sizepaper=2\HYPERPAGE\fi}{\thepage}}}\endgroup\@gtempa
-   \if@nobreak \ifvmode\nobreak\fi\fi\@esphack}
-
-\newcommand{\sindex}{\@bsphack\begingroup \@sanitize\@index}
-
-\renewcommand{\@startsection}[6]{\if@noskipsec \leavevmode
-\fi
-   \par \@tempskipa #4\relax
-   \@afterindentfalse
-   \ifdim \@tempskipa <\z@ \@tempskipa -\@tempskipa \@afterindentfalse\fi
-   \if@nobreak \everypar{}\else
-     \addpenalty{\@secpenalty}\addvspace{\@tempskipa}\fi \@ifstar
-     {\@ssect{#3}{#4}{#5}{#6}}{\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
-
-\newcommand{\CLEARDOUBLEPAGE}{\clearpage}
-
-\renewcommand{\chapter}{\CLEARDOUBLEPAGE
-   \thispagestyle{plain}
-   \global\@topnum\z@
-  \@afterindentfalse
-   \secdef\@chapter\@schapter}
-
-\renewcommand{\section}{%
-\newpage\@startsection {section}{1}{\z@}%
-{-4.6ex plus -1.2ex minus -.2ex}{2.3ex}{\raggedright%
-\setcounter{exercisesc}{0}%
-\largerr\itshape%
-}}
-
-\newcommand{\chapternumber}{\ifnum \c@secnumdepth >\m@ne\par%
-{\vspace{-1in}{\ifodd\arabic{page}\hspace*{-4.71in}\else\hspace*{1.82in}\fi\begin{minipage}{\textwidth}\centering%
-\large{{{\sffamily\color{cmykblack}Chapter \thechapter}\\[6bp]\huge\textit{\chaptertitle}}%
-}\par\vspace{19bp}\end{minipage}}}\else%
-{\ifodd\arabic{page}%
-\par\vspace*{-63bp}{\hspace*{-4.71in}\begin{minipage}{\textwidth}\centering\huge\textit{\chaptertitle}\end{minipage}}%
-\else%
-\par\vspace*{-63bp}{\hspace*{1.82in}\begin{minipage}{\textwidth}\centering\huge\textit{\chaptertitle}\end{minipage}}%
-\fi}%
-\fi} %Format for chapter opening page
-
-\newlength{\chapterspaceB}
-\ifnum\sizepaper=0 \setlength{\chapterspaceB}{-0.125in} \fi
-\ifnum\sizepaper=1 \setlength{\chapterspaceB}{0in} \fi
-\ifnum\sizepaper=2 \setlength{\chapterspaceB}{0in} \fi
-\ifnum\sizepaper=3 \setlength{\chapterspaceB}{-0.125in} \fi
-
-\newlength{\Paperwidth}
-\newlength{\OddOffset}
-\ifnum\sizepaper=1\setlength{\Paperwidth}{6.125in}\setlength{\OddOffset}{5.725in}\fi
-\ifnum\sizepaper=2\setlength{\Paperwidth}{6.125in}\setlength{\OddOffset}{6.25in}\fi
-\ifnum\sizepaper=0\setlength{\Paperwidth}{6.25in}\setlength{\OddOffset}{6.25in}\fi
-
-\renewcommand{\@makechapterhead}[1]{\renewcommand{\chaptertitle}{#1}%
-\marginpar[{\vspace*{\chapterspace}\color{definitionbox}\hspace{0bp}\hspace{48bp}\ifnum\sizepaper=1\ifodd\arabic{page}\else\hspace*{42bp}\fi\fi%
-\makebox[0in][l]{{\rule{\Paperwidth}{\chapterspaceC}}}\\[-12bp]%
-\color{axlerblue}\hspace{48bp}\hspace{\chapterspaceB}\ifnum\sizepaper=1\ifodd\arabic{page}\else\hspace*{42bp}\fi\fi%
-\makebox[0in][l]{{\rule{\Paperwidth}{3bp}}}%
-\overfullrule=0in\chapternumber}]%
-{\vspace*{\chapterspace}%
-\color{definitionbox}\hspace{-\OddOffset}\hspace{-\oddsidemargin}%
-\makebox[0in][l]{{\rule{\Paperwidth}{\chapterspaceC}}}\\[-12bp]%
-\color{axlerblue}\hspace{-\OddOffset}\hspace{-\oddsidemargin}%
-\makebox[0in][l]{{\rule{\Paperwidth}{3bp}}}%
-\chapternumber}\par\vspace{.8in}\hfill\raisebox{0in}[0in][0in]{\parbox[t]{1.6in}{\raggedright}}\\[-1.3in]%
-\noindent\Chapterart\bigskip\bigskip%
-{ \parindent 0bp \raggedright
-\par
-\ifnum \c@secnumdepth >\m@ne\else\vspace*{.5in}\fi
-\nobreak
-\vspace{25bp}
- } }
-
-\makeatother
-
-\NewDocumentCommand\exercisecomment{+m}
-{{\renewcommand{\emph}{\textbf}\setlength{\parskip}{2.75bp}\par%
-{\addtolength{\leftskip}{.2in}\addtolength{\rightskip}{.2in}\marsize\noindent#1\par}}}
-
-\titleformat{\subsection}{\large\itshape}{}{}{}
-
-\newcommand{\exerciseline}{\vspace{-.2in}{\color{exerciselinecolor}%
-\noindent\makebox[0in][l]{\rule{\textwidth}{.75bp}}}}
-
-\newenvironment{keeptogether}{\pagebreak[0]\samepage}{}
-
-\newenvironment{exercises}{\VerbatimEnvironment\begin{VerbatimOut}{Exercises\thesection.tex}}%
-{\end{VerbatimOut}\begin{keeptogether}\predisplaypenalty=10000
-\pagebreak[3]\subsection[Exercises\ \thechapter\ifnum \arabic{section} > 0 \Alph{section}\fi]%
-{\large\itshape{Exercises}\ \thechapter\ifnum \arabic{section} > 0 \Alph{section}\fi}
-\exerciseline\vspace{-2bp}
-\begin{list}{\hfill\makebox[0in][r]{\textbf{\arabic{exercisesc}}}}{\usecounter{exercisesc}
-\setlength{\topsep}{12bp plus 3bp minus 3bp}
-\setlength{\partopsep}{0bp}
-\setlength{\labelwidth}{10bp}
-\setlength{\labelsep}{12bp}
-\setlength{\leftmargin}{22bp}
-\setlength{\itemindent}{0in}
-\setlength{\listparindent}{22bp}
-}\input{Exercises\thesection.tex}%
-\end{list}\end{keeptogether}
-}
-
-\ifnum\sizepaper=3\renewenvironment{keeptogether}{}{}\fi
-
-\newenvironment{Solution}{\renewcommand{\write}[2]{}
-\renewcommand{\openout}[1]{}
-\renewcommand{\closeout}[1]{}
-\VerbatimEnvironment\begin{VerbatimOut}{}}%
-{\end{VerbatimOut}}
-
-\ifnum\sizepaper=3 \renewenvironment{Solution}[1][]{%
-\leftskip=-22bp \setlength{\subtheoremleftmargin}{0bp}
-\addvspace{9bp plus 2bp minus 1bp} \noindent{\color{objectivescolor}\textsc{solution} #1}\quad}{\par}\fi
-
-%\renewenvironment{Solution}{\textit{Solution:\ }}{}
-% To display solutions in the text, uncomment the line above.
-
-\interlinepenalty=50
-
-\newenvironment{Itemize}{\begin{itemize}\setlength{\itemsep}{1.2bp}}{\end{itemize}}
-% Use Itemize consistently instead of itemize to get less space between items.
-
-%%% CHECK COMMANDS BELOW CAREFULLY
-
-\newcounter{subtheoremc}
-
-\newlength{\subtheoremleftmargin}
-\setlength{\subtheoremleftmargin}{18bp}
-
-\NewDocumentEnvironment{subtheorem}{s}
-{\IfBooleanT#1 {\par\vspace{-4bp}}
-\par\vspace{-4bp}\begin{list}{{\normalfont   % Instead could use \usepackage{enumitem}  and then \begin{enumerate}[label=(\alph*)]
-% Use subtheorem* for less space above beginning of the subtheorem
-(\alph{subtheoremc})}\hfill}{\usecounter{subtheoremc}
-\setlength{\labelwidth}{18bp}
-\setlength{\labelsep}{0bp}
-\addtolength{\itemsep}{-3bp}
-\setlength{\leftmargin}{\subtheoremleftmargin}
-}\ifnum\sizepaper=3\setlength{\SolutionSkip}{0bp}\fi%
-}
-{\end{list}}
-
-\NewDocumentEnvironment{SUBtheorem}{s} %For use immediately following \exercise, to get space above correct
-{\begin{list}{{\normalfont   % Instead could use \usepackage{enumitem}  and then \begin{enumerate}[label=(\alph*)]
-% Use subtheorem* for less space above beginning of the subtheorem
-(\alph{subtheoremc})}\hfill}{\usecounter{subtheoremc}
-\setlength{\labelwidth}{18bp}
-\setlength{\labelsep}{0bp}
-\addtolength{\itemsep}{-3bp}
-\setlength{\leftmargin}{\subtheoremleftmargin}
-}\ifnum\sizepaper=3\setlength{\SolutionSkip}{0bp}\fi%
-}
-{\end{list}}
-
-\newenvironment{Subtheorem}{\par\vspace{-4bp}\begin{list}{{\normalfont}}{ %For special labels
-\setlength{\labelwidth}{.6in}
-\setlength{\labelsep}{0bp}
-\addtolength{\itemsep}{-3.2bp}
-\setlength{\leftmargin}{.8in}
-}\ifnum\sizepaper=3\setlength{\SolutionSkip}{0bp}\fi%
-}{\end{list}}
-
-\newlength{\proofspace}
-\setlength{\proofspace}{.4em minus .2em}
-
-\newlength{\listsep}
-\setlength{\listsep}{12bp plus 3bp minus 3bp}
-
-\newcommand{\proof}{\noindent{\color{proofcolor}{\small \textsf{Proof}}}\quad}
-
-\NewDocumentCommand\proofnum{m}
-{\noindent{\color{proofcolor}{\small \textsf{Proof} \small#1}}\quad}
-
-\newcommand{\qedspace}{\vspace{\listsep}}
-
-\newcommand{\qedsymbol}{{\color{resultboxtitle}$\rule{1ex}{1.4ex}$}}
-\newcommand{\qedsymbolMath}{{\color{resultboxtitle}\rule{1ex}{1.4ex}}}
-
-\newcommand{\qed}{\nolinebreak\hfill\qedsymbol\pagebreak[1]\par\addvspace{\listsep}}
-
-\NewDocumentCommand\mat{mm}
-{\left(\begin{array}{#1}#2\end{array}\right)}
-
-\newcommand{\ISMhead}{\ifnum \arabic{section} > 0 Section \thechapter\Alph{section}%
-\else Chapter \thechapter
-\fi}
-
-\makeatletter
-
-\newcommand{\ismrighthead}{Exercise \arabic{exercisesc}}
-
-\ifnum\sizepaper=3
-\renewcommand{\@evenhead}{\hspace*{-\rulelength}\hspace*{\textwidth}%
-\makebox[0bp][l]{\rule[-3bp]{\rulelength}{.5bp}}%
-\normalfont\textcolor{axlerblue}{\sffamily\small\makebox[0bp][l]{Instructor's Solutions Manual, \ISMhead}%
-\makebox[\rulelength][r]{\ismrighthead}}}
-\fi
-
-\ifnum\sizepaper=3
-\renewcommand{\@oddhead}{\makebox[0bp][l]{\rule[-3bp]{\rulelength}{.5bp}}%
-\makebox[0bp][l]{\normalfont\textcolor{axlerblue}{\sffamily\small%
-\makebox[\textwidth][l]{Instructor's Solutions Manual, \ISMhead}%
-\hspace*{-\textwidth}\hspace*{\rulelength}%
-\makebox[0bp][r]{\ismrighthead}}}\hfill}
-\fi
-
-\makeatother
-
-\makeindex
-\makesindex
-
-\RenewDocumentCommand\overline{m}
-{\ThisStyle{% \overline was too thick without this.
-  \setbox0=\hbox{$\SavedStyle#1$}%
-  \stackengine{1.4\LMpt}{$\SavedStyle#1$}{\rule{\wd0}{0.5\LMpt}}{O}{c}{F}{F}{S}% 1.4 vertical offset, 0.5 rule thickness
-}}
 
 \RenewDocumentCommand\bar{m}{\overline{#1}}
 
@@ -881,34 +247,16 @@ Chapter \thechapter\quad\ \fi
 \RenewDocumentCommand\dfrac{mm}{\genfrac{}{}{0.55bp}{0}{#1}{#2}}
 \RenewDocumentCommand\tfrac{mm}{\genfrac{}{}{0.55bp}{1}{#1}{#2}}
 
-\let\Subsection=\subsection
-\renewcommand{\subsection}{\pagebreak[2]\Subsection}
 
-\NewDocumentCommand\PClink{m}{{\ifnum\sizepaper=2\color{blue}\fi#1}}
-
-\newcommand{\BookOrChapter}{\ifnum\sizepaper=2 book\else chapter\fi}
-
-\newcommand{\CrCom}{\ifnum\sizepaper<3{\vfill\noindent\scriptsizer%
 \textbf{Open Access}\ \ This \BookOrChapter{} is licensed under the terms of the Creative Commons Attribution-NonCommercial 4.0 International License (\url{https://creativecommons.org/licenses/by-nc/4.0}), which permits any \mbox{noncommercial} use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give \mbox{appropriate} credit to original author and source, provide a link to the Creative Commons license, and indicate if changes were made.
 \begin{wrapfigure}{l}{.9in}{\includegraphics[scale=0.5]{artwork/by-nc.pdf}}\end{wrapfigure}
 \noindent The images or other third party material in this \BookOrChapter{} are included in the
 \BookOrChapter's Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the \BookOrChapter's Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder.\par
-}\else{}\fi}
 
 \begin{document}
 
-\renewcommand{\supset}{\supseteq} % needs to come after \begin{document}
-\renewcommand{\subset}{\subseteq} % needs to come after \begin{document}
+%\include{FrontMatter4e}
 
-\setlength{\abovedisplayskip}{8.5bp minus 4bp} \setlength{\belowdisplayskip}{8.5bp minus 4bp}
-%\setlength{\abovedisplayshortskip}{-2.1bp minus 1bp} %\setlength{\belowdisplayshortskip}{4.2bp minus 1 bp}
-
-\newcommand{\Chapterart}{\vspace*{12bp}} % Vertical space added before text of chapter-opening page.
-
-\include{FrontMatter4e}
-
-\newpage\setcounter{secnumdepth}{1}
-\renewcommand{\Chapterart}{\vspace*{46bp}} % Vertical space added before text of chapter-opening page.
 
 \include{VectorSpaces4e}
 \include{FiniteDimVectorSpaces4e}
@@ -920,26 +268,8 @@ Chapter \thechapter\quad\ \fi
 \include{OpsComplex4e}
 \include{Multilinear4e}
 
-\renewcommand{\Chapterart}{\vspace*{12bp}} % Vertical space added before text of chapter-opening page.
-\include{BackMatter4e}
+%\include{BackMatter4e}
 
-\ifnum\sizepaper=3
-
-\def\ignore #1 \par{}
-
-\let\refism=\ref
-
-\renewcommand{\ref}[1]{\refism*{#1}\null}
-
-\ifnum\footswitch=1\makeatletter
-\renewcommand{\@oddfoot}{\FOOTER}
-\renewcommand{\@evenfoot}{\FOOTER}
-\makeatother
-\fi
-
-\thispagestyle{empty}
-
-\vspace*{.25in}
 
 \begin{center}
 {{\huge

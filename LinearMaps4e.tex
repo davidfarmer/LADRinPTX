@@ -1,6 +1,6 @@
 %%% Copyright Sheldon Axler, 2024. This file may be used only with the permission of Sheldon Axler.
 
-\chapter{Linear Maps} \label{166}
+\chapter{Linear Maps} \label{LinearMaps} % \label{166}
 
 So far our attention has focused on vector spaces.  No one gets excited about vector spaces.  The interesting part of linear algebra is the subject to which we now turn---linear maps.
 
@@ -36,12 +36,11 @@ the dual space of a vector space and the dual of a linear map
 }
 \end{comment}
 
-\renewcommand{\FigureName}{\ifnum\sizepaper=1 Brunswick.jpg\else BrunswickR.jpg \fi}
-\renewcommand{\FigureScale}{\ifnum\sizepaper=1 0.163\else 1\fi}
 
 \FigureHereCredit{artwork/\FigureName}{\FigureScale}%
-{The twelfth-century Dankwarderode Castle in Brunswick \uppar{Braunschweig}, where Carl Friedrich Gauss \uppar{1777--1855} was born and grew up. In 1809 Gauss published a method for solving systems of linear equations. This method, now called Gaussian elimination, was used in a Chinese book written over 1600 years earlier.
- \index{Gaussian elimination}\index{Gauss, Carl Friedrich}}{.5in}{Stefan Schäfer CC BY-SA}
+{The twelfth-century Dankwarderode Castle in Brunswick \uppar{Braunschweig}, where Carl Friedrich Gauss \uppar{1777--1855} was born and grew up. In 1809 Gauss published a method for solving systems of linear equations. This method, now called Gaussian elimination, was used in a Chinese book written over 1600 years earlier.}{.5in}{Stefan Schäfer CC BY-SA}
+
+\index{Gaussian elimination}\index{Gauss, Carl Friedrich}
 
 \section{Vector Space of Linear Maps} \label{vslinear}
 
@@ -204,13 +203,13 @@ T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n.
 Thus $T$ is uniquely determined on $\Span(v_1, \dots, v_n)$ by the equation above. Because $v_1, \dots, v_n$ is a basis of $V\1$, this implies that $T$ is uniquely determined on~$V\1$, as desired.
 \qed
 
-\pagebreak[3]
-
-\ifnum\sizepaper=2
-    \subsection{\texorpdfstring{Algebraic Operations on $\L(V\1, W)$}{Algebraic Operations on L(V, W)}} % To get correct pdf bookmarks.
-    \else
+%%\pagebreak[3]
+%%
+%%\ifnum\sizepaper=2
+%%    \subsection{\texorpdfstring{Algebraic Operations on $\L(V\1, W)$}{Algebraic Operations on L(V, W)}} % To get correct pdf bookmarks.
+%%    \else
     \subsection{Algebraic Operations on $\L(V\1, W)$}
-    \fi
+%%    \fi
 
 We begin by defining addition and scalar multiplication on $\L(V\1,W)$.
 
@@ -741,7 +740,7 @@ vector space can be surjective, where ``bigger'' is measured by dimension.
 
 \ResultBox[14]{linear map to a higher-dimensional space is not surjective}{%
 Suppose\/ $V$ and\/ $W$ are finite-dimensional vector spaces such that\/
-\mbox{$\dim V < \dim W\3$.} Then no linear map from\/ $V$ to\/ $W$ is surjective.
+\mbox{$\dim V \lt \dim W\3$.} Then no linear map from\/ $V$ to\/ $W$ is surjective.
 }
 
 \proof
@@ -749,10 +748,10 @@ Let $T \in \L(V\1,W)$.  Then
 \begin{align*}
 \dim \ran T &= \dim V - \dim \ker T \\[4bp]
 &\le \dim V \\[4bp]
-&< \dim W\3,
+&\lt \dim W\3,
 \end{align*}
 where the equality above comes from the fundamental theorem of linear maps (\ref{3ab11}). The inequality above states that
-\mbox{$\dim \ran T < \dim W\3$.}  This means that $\ran T$ cannot equal $W\3$.  Thus $T$ is not
+\mbox{$\dim \ran T \lt \dim W\3$.}  This means that $\ran T$ cannot equal $W\3$.  Thus $T$ is not
 surjective.
 \qed
 
@@ -815,7 +814,7 @@ Thus we want to know if $\ran T \ne \FF{m}$. Hence  we can rephrase our question
 {A system of linear equations with more equations than variables has no solution for some choice of the constant terms.}
 
 \proof
-Use the notation from the discussion above. Thus $T$ is a linear map from $\F{n}$ to $\FF{m}$, and we have a system of $m$ equations with $n$ variables $x_1, \dots, x_n$; see \ref{3inhomeq}. If $n < m$, then \ref{14} implies that $T$ is not surjective. As discussed above, this shows that if we have more equations than variables in a system of linear equations, then there is no solution for some choice of the constant terms.
+Use the notation from the discussion above. Thus $T$ is a linear map from $\F{n}$ to $\FF{m}$, and we have a system of $m$ equations with $n$ variables $x_1, \dots, x_n$; see \ref{3inhomeq}. If $n \lt m$, then \ref{14} implies that $T$ is not surjective. As discussed above, this shows that if we have more equations than variables in a system of linear equations, then there is no solution for some choice of the constant terms.
 \qed
 
 Example of the result above: a system of five linear equations with four variables has no solution for some choice of the constant terms.\index{linear equations|)}
@@ -1855,7 +1854,7 @@ The backward shift linear map from $\F{\infty}$ to $\F{\infty}$ (see \ref{2a111}
 
 In view of the example above, the next result is remarkable---it states that for a linear map from a finite-dimensional vector space to a vector space of the same dimension, either injectivity or surjectivity alone implies the other condition. Note that the hypothesis below that $\dim V = \dim W$ is automatically satisfied in the important special case where $V$ is finite-dimensional and $W = V\1$.
 
-\ResultBox[18]{injectivity is equivalent to surjectivity \uppar{if\/ $\dim V = \dim W <\infty$}}{%
+\ResultBox[18]{injectivity is equivalent to surjectivity \uppar{if\/ $\dim V = \dim W \lt \infty$}}{%
 Suppose that $V$ and $W$ are finite-dimensional vector spaces, $\dim V = \dim W\3$, and $T \in \L(V\1, W)$. Then
 \[
 T \mbox{ is invertible }
