@@ -1,0 +1,1443 @@
+<section xml:id="duals">
+  <title>Duality</title>
+  <subsection>
+    <title>Dual Space and Dual Map</title>
+    <p>
+      Linear maps into the scalar field <m>\F{}</m> play a special role in linear algebra,
+      and thus they get a special name.
+    </p>
+    <definition>
+      <title>linear functional</title>
+      <statement>
+        <p>
+          A <term>linear functional</term>
+              <idx><h>linear functional</h></idx>
+          on <m>V</m> is a linear map from <m>V</m> to <m>\F{}{}</m>.
+          In other words,
+          a linear functional is an element of <m>\Lc(V{}, \F{})</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>linear functionals</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Define <m>\phi \colon \R3 \to \R{}</m> by <m>\phi(x, y, z) = 4x - 5y + 2z</m>.
+              Then <m>\phi</m> is a linear functional on <m>\RR3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Fix <m>(c_1, \dots, c_n) \in \FF{n}</m>.
+              Define <m>\phi \colon \F{n} \to \F{}</m> by <m>\phi(x_1, \dots,
+              x_n) = c_1 x_1 + \dots + c_n x_n</m>.
+              Then <m>\phi</m> is a linear functional on <m>\FF{n}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Define <m>\phi \colon \P(\R{}) \to \R{}</m> by
+              <me>
+                \phi(p) = 3 p'' \! (5) + 7 p(4)
+              </me>.
+              Then <m>\phi</m> is a linear functional on<nbsp/><m>\P(\R{})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Define <m>\fun \phi {\P(\R{})} {\R{}}</m> by
+              <me>
+                \phi(p) =\int_0^1 p
+              </me>
+              for each <m>p \in \P(\R{})</m>.
+              Then <m>\phi</m> is a linear functional on<nbsp/><m>\P(\R{})</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      The vector space <m>\Lc(V{}, \F{})</m> also gets a special name and special notation.
+    </p>
+    <definition xml:id="DualSpace">
+      <title>dual space, <m>V'</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="V'"><m>V'{}</m></h></idx>
+          The <term>dual space</term><idx><h>dual</h><h>of a vector space</h></idx> of <m>V{}</m>,
+          denoted by <m>V'\!</m>,
+          is the vector space of all linear functionals on <m>V{}</m>.
+          In other words, <m>V' = \Lc(V{}, \F{})</m>.
+        </p>
+      </statement>
+    </definition>
+    <theorem xml:id="x3dimdual">
+      <title><m>\dim V' = \dim V</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional.
+          Then <m>V'</m> is also finite-dimensional and
+          <me>
+            \dim V' = \dim V{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        <xref ref="x247">By</xref> we have
+        <me>
+          \dim V' = \dim \Lc(V{}, \F{}) = (\dim V)(\dim \F{}) = \dim V{}
+        </me>,
+        as desired.
+      </p>
+    </proof>
+    <p>
+      In the following definition,
+      the linear map lemma <xref ref="x3linearmap"/> implies that each <m>\phi_j</m> is well defined.
+    </p>
+    <definition xml:id="DualBasis">
+      <title>dual basis</title>
+      <statement>
+        <p>
+          If <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>,
+          then the <term>dual basis</term>
+              <idx><h>dual</h><h>of a basis</h></idx>
+          of <m>v_1, \dots, v_n</m> is the list
+          <m>\phi_1, \dots, \phi_n</m> of elements of <m>V'\!</m>,
+          where each <m>\phi_j</m> is the linear functional on <m>V</m> such that
+          <me>
+            \phi_j(v_k) = \begin{cases}1 \amp  \text{ if }  k = j,\\ 0 \amp  \text{ if }  k \ne j. \end{cases}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="dualstandard">
+      <title>the dual basis of the standard basis of  <m>\F{n}</m></title>
+      <statement>
+        <p>
+          Suppose <m>n</m> is a positive integer.
+          For <m>1 \le j \le n</m>,
+          define <m>\phi_j</m> to be the linear functional on <m>\F{n}</m> that selects the <m>j^\nth</m> coordinate of a vector in <m>\FF{n}</m>.
+          Thus
+          <me>
+            \phi_j(x_1, \dots, x_n) = x_j
+          </me>
+          for each <m>(x_1, \dots, x_n) \in \FF{n}</m>.
+        </p>
+        <p>
+          Let <m>e_1, \dots, e_n</m> be the standard basis of <m>\FF{n}</m>.
+          Then
+          <me>
+            \phi_j(e_k) = \begin{cases}1 \amp  \text{ if }  k = j,\\ 0 \amp  \text{ if }  k \ne j. \end{cases}
+          </me>
+        </p>
+        <p>
+          Thus <m>\phi_1, \dots, \phi_n</m> is the dual basis of the standard basis <m>e_1, \dots,
+          e_n</m> of <m>\FF{n}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result shows that the dual basis of a basis of <m>V</m> consists of the linear functionals on <m>V</m> that give the coefficients for expressing a vector in <m>V</m> as a linear combination of the basis vectors.
+    </p>
+    <theorem xml:id="x3dualbasis">
+      <title>dual basis gives coefficients for linear combination</title>
+      <statement>
+        <p>
+          Suppose <m>v_1, \ldots,
+          v_n</m> is a basis of <m>V</m> and <m>\phi_1, \ldots, \phi_n</m> is the dual basis.
+          Then
+          <me>
+            v = \phi_1(v) v_1 + \cdots + \phi_n(v) v_n
+          </me>
+          for each <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>v \in V{}</m>.
+        Then there exist <m>c_1, \ldots,
+        c_n \in \F{}</m> such that
+        <men xml:id="x2dualb">
+          v = c_1 v_1 + \cdots + c_n v_n
+        </men>.
+      </p>
+      <p>
+        If <m>j \in \{ 1, \ldots, n \}</m>,
+        then applying <m>\phi_j</m> to both sides of the equation above gives
+        <me>
+          \phi_j(v) = c_j
+        </me>.
+      </p>
+      <p>
+        Substituting the values for
+        <m>c_1, \ldots,
+        c_n</m> given by the equation above <xref ref="x2dualb">into</xref>
+        shows that <m>v = \phi_1(v) v_1 + \cdots + \phi_n(v) v_n</m>.
+      </p>
+    </proof>
+    <p>
+      The next result shows that the dual basis is indeed a basis of the dual space.
+      Thus the terminology
+      <q>dual basis</q>
+      is justified.
+    </p>
+    <theorem xml:id="dualbasis">
+      <title>dual basis is a basis of the dual space</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional.
+          Then the dual basis of a basis of <m>V</m> is a basis of <m>V'\!</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>.
+        Let <m>\phi_1, \dots, \phi_n</m> denote the dual basis.
+      </p>
+      <p>
+        To show that <m>\phi_1, \dots, \phi_n</m> is a linearly independent list of elements of <m>V'\!</m>,
+        suppose <m>a_1, \dots, a_n \in \F{}</m> are such that
+        <men xml:id="x3dualb">
+          a_1 \phi_1 + \dots + a_n \phi_n = 0
+        </men>.
+      </p>
+      <p>
+        Now
+        <me>
+          (a_1 \phi_1 + \dots + a_n \phi_n)(v_k) = a_k
+        </me>
+        for each <m>k = 1, \dots, n</m>.
+        <xref ref="x3dualb">Thus</xref> shows that <m>a_1 = \dots = a_n = 0</m>.
+        Hence <m>\phi_1, \dots, \phi_n</m> is linearly independent.
+      </p>
+      <p>
+        Because <m>\phi_1, \dots, \phi_n</m> is a linearly independent list in <m>V'\!</m> whose length equals <m>\dim V'</m>
+        (by <xref ref="x3dimdual"></xref>),
+        we can conclude that <m>\phi_1, \dots, \phi_n</m> is a basis of <m>V'\!</m>
+        (<xref ref="x75">see</xref>).
+      </p>
+    </proof>
+    <p>
+      In the definition below,
+      note that if <m>T</m> is a linear map from <m>V</m> to <m>W</m> then <m>T'</m> is a linear map from <m>W'</m> to <m>V'\!</m>.
+    </p>
+    <definition xml:id="DualMap">
+      <title>dual map, <m>T'</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="T'"><m>T'{}</m></h></idx>
+          Suppose <m>T \in \Lc(V{},W)</m>.
+          The <term>dual map</term><idx><h>dual</h><h>of a linear map</h></idx> of <m>T</m> is the linear map
+          <m>T' \in \Lc( W'\!, V' )</m> defined for each <m>\phi \in W'\!</m> by
+          <me>
+            T' \! (\phi) = \phi \circ T
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If <m>T \in \Lc(V{},W)</m> and <m>\phi \in W'\!</m>,
+      then <m>T' \! (\phi)</m> is defined above to be the composition of the linear maps <m>\phi</m> and <m>T{}</m>.
+      Thus <m>T' \! (\phi)</m> is indeed a linear map from <m>V</m> to <m>\F{}</m>;
+      in other words, <m>T' \! (\phi) \in V'\!</m>.
+    </p>
+    <p>
+      The following two bullet points show that <m>T'</m> is a linear map from <m>W'</m> to <m>V'\!</m>.
+      <ol>
+        <li>
+          <p>
+            If <m>\phi, \psi \in W'\!</m>, then
+            <me>
+              T' \! (\phi + \psi) = (\phi + \psi) \circ T = \phi \circ T + \psi \circ T = T' \! (\phi) + T' \! (\psi)
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>\lambda \in \F{}</m> and <m>\phi \in W'\!</m>, then
+            <me>
+              T' \! (\lambda \phi) = (\lambda \phi) \circ T = \lambda(\phi \circ T) = \lambda T' \! (\phi)
+            </me>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      The prime notation appears with two unrelated meanings in the next example:
+      <m>D'</m> denotes the dual of the linear map <m>D</m>,
+      and <m>p'</m> denotes the derivative of a polynomial<nbsp/><m>p</m>.
+    </p>
+    <example>
+      <title>dual map of the differentiation linear map</title>
+      <statement>
+        <p>
+          Define <m>D \colon \P(\R{}) \to \P(\R{})</m> by <m>Dp = p'\!</m>.
+          <ol>
+            <li>
+              <p>
+                Suppose <m>\phi</m> is the linear functional on
+                <m>\P(\R{})</m> defined by <m>\phi(p) = p(3)</m>.
+                Then <m>D' \! (\phi)</m> is the linear functional on <m>\P(\R{})</m> given by
+                <me>
+                  \bigl(D' \! (\phi)\bigr)(p) = (\phi \circ D)(p) = \phi(Dp) = \phi( p' ) = p' \! (3)
+                </me>.
+                Thus <m>D' \! (\phi)</m> is the linear functional on
+                <m>\P(\R{})</m> taking <m>p</m> to <m>p' \! (3)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>\phi</m> is the linear functional on
+                <m>\P(\R{})</m> defined by <m>\phi(p) = \int_0^1 p</m>.
+                Then <m>D' \! (\phi)</m> is the linear functional on <m>\P(\R{})</m> given by
+                <md>
+                  <mrow>\bigl(D' \! (\phi)\bigr)(p) \amp = (\phi \circ D)(p)</mrow>
+                  <mrow>\amp = \phi(Dp)</mrow>
+                  <mrow>\amp = \phi( p' )</mrow>
+                  <mrow>\amp = \int_0^1 p'</mrow>
+                  <mrow>\amp = p(1) - p(0)</mrow>
+                </md>.
+                Thus <m>D' \! (\phi)</m> is the linear functional on
+                <m>\P(\R{})</m> taking <m>p</m> to <m>p(1) - p(0)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      In the next result, (a) and (b) imply that the function that takes <m>T</m> to <m>T'</m> is a linear map from
+      <m>\Lc(V{}, W)</m> to <m>\Lc( W'\!, V' )</m>.
+    </p>
+    <p>
+      In (c) below,
+      note the reversal of order from <m>ST</m> on the left to <m>T' S'</m> on the right.
+    </p>
+    <theorem xml:id="x3dualmaps">
+      <title>algebraic properties of dual maps</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V{},W)</m>.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>(S + T)' = S' + T'</m> for all <m>S \in \Lc(V{},W)</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\lambda T)' = \lambda T'</m> for all <m>\lambda \in \F{}</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(ST)' = T'S'</m> for all <m>S \in \Lc(W{}, U)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The proofs of (a) and (b) are left to the reader.
+      </p>
+      <p>
+        To prove (c), suppose <m>\phi \in U'\!</m>.
+        Then
+        <me>
+          (ST)' \! (\phi) = \phi \circ (ST) = (\phi \circ S) \circ T = T' \! (\phi \circ S) = T'\bigl(S' \! (\phi)\bigr) = ( T'S' )(\phi)
+        </me>,
+      </p>
+      <aside>
+        <p>
+          Some books use the notation <m>V^*</m> and <m>T^*</m> for duality instead of <m>V'</m> and <m>T'\!</m>.
+          However, here we reserve the notation <m>T^*</m> for the adjoint,
+          which will be introduced when we study linear maps on inner product spaces in <xref ref="x183">Chapter</xref>.
+        </p>
+      </aside>
+      <p>
+        where the first, third,
+        and fourth equalities above hold because of the definition of the dual map,
+        the second equality holds because composition of functions is associative,
+        and the last equality follows from the definition of composition.
+      </p>
+      <p>
+        The equation above shows that
+        <m>(ST)' \! (\phi) = ( T'S' )(\phi)</m> for all <m>\phi \in U'\!</m>.
+        Thus <m>(ST)' = T'S'\!</m>.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Null Space and Range of Dual of Linear Map</title>
+    <p>
+      Our goal in this subsection is to describe <m>\ker T'</m> and <m>\ran T'</m> in terms of <m>\ran T</m> and <m>\ker T{}</m>.
+      To do this, we will need the next definition.
+    </p>
+    <definition xml:id="annihilator">
+      <title>annihilator, <m>U^0</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="U0"><m>U^0</m></h></idx>
+          For <m>U \subset V{}</m>, the <term>annihilator</term>
+              <idx><h>annihilator</h></idx>
+          of <m>U</m>, denoted by <m>U^0{}</m>, is defined by
+          <me>
+            U^0 = \{ \phi \in V': \phi(u) = 0 \textit{ for all\ } u \in U \}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>element of an annihilator</title>
+      <statement>
+        <p>
+          Suppose <m>U</m> is the subspace of
+          <m>\P(\R{})</m> consisting of polynomial multiples of<nbsp/><m>x^2{}</m>.
+          If <m>\phi</m> is the linear functional on
+          <m>\P(\R{})</m> defined by <m>\phi(p) = p' \! (0)</m>,
+          then <m>\phi \in U^0{}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      For <m>U \subset V{}</m>,
+      the annihilator <m>U^0</m> is a subset of the dual space <m>V'\!</m>.
+      Thus <m>U^0</m> depends on the vector space containing <m>U</m>,
+      so a notation such as <m>U^0_V</m> would be more precise.
+      However, the containing vector space will always be clear from the context,
+      so we will use the simpler notation<nbsp/><m>U^0{}</m>.
+    </p>
+    <example xml:id="annih">
+      <title>the annihilator of a two-dimensional subspace of  <m>\R5</m></title>
+      <statement>
+        <p>
+          Let <m>e_1, e_2, e_3, e_4, e_5</m> denote the standard basis of <m>\R5</m>;
+          let <m>\phi_1, \phi_2, \phi_3, \phi_4,\phi_5 \in {( \R5 )}'\!</m> denote the dual basis of <m>e_1, e_2, e_3, e_4, e_5</m>.
+          Suppose
+          <me>
+            U = \Span(e_1, e_2) = \{ (x_1, x_2, 0, 0, 0) \in \R5: x_1, x_2 \in \R{} \}
+          </me>.
+        </p>
+        <p>
+          We want to show that <m>U^0 = \Span(\phi_3, \phi_4, \phi_5)</m>.
+        </p>
+        <p>
+          Recall (<xref ref="dualstandard">see</xref>) that <m>\phi_j</m> is the linear functional on <m>\R5</m> that selects the <m>j^\nth</m> coordinate:
+          <m>\phi_j(x_1, x_2, x_3, x_4, x_5) = x_j</m>.
+        </p>
+        <p>
+          First suppose <m>\phi \in \Span(\phi_3, \phi_4, \phi_5)</m>.
+          Then there exist <m>c_3, c_4, c_5 \in \R{}</m> such that <m>\phi = c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5</m>.
+          If <m>(x_1, x_2, 0, 0, 0) \in U</m>, then
+          <me>
+            \phi(x_1, x_2, 0, 0, 0) = (c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5)(x_1, x_2, 0, 0, 0) = 0
+          </me>.
+        </p>
+        <p>
+          Thus <m>\phi \in U^0{}</m>.
+          Hence we have shown that <m>\Span(\phi_3, \phi_4, \phi_5) \subset U^0{}</m>.
+        </p>
+        <p>
+          To show the inclusion in the other direction,
+          suppose that <m>\phi \in U^0{}</m>.
+          Because the dual basis is a basis of <m>{( \R5 )}'\!</m>,
+          there exist <m>c_1, c_2, c_3, c_4, c_5 \in \R{}</m> such that <m>\phi = c_1 \phi_1 + c_2 \phi_2 + c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5</m>.
+          Because <m>e_1 \in U</m> and <m>\phi \in U^0{}</m>, we have
+          <me>
+            0 = \phi(e_1) = (c_1 \phi_1 + c_2 \phi_2 + c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5)(e_1) = c_1
+          </me>.
+        </p>
+        <p>
+          Similarly, <m>e_2 \in U</m> and thus <m>c_2 = 0</m>.
+          Hence <m>\phi = c_3 \phi_3 + c_4 \phi_4 + c_5 \phi_5</m>.
+          Thus <m>\phi \in \Span(\phi_3, \phi_4, \phi_5)</m>,
+          which shows that <m>U^0 \subset \Span(\phi_3, \phi_4, \phi_5)</m>.
+        </p>
+        <p>
+          Thus <m>U^0 = \Span(\phi_3, \phi_4, \phi_5)</m>.
+        </p>
+      </statement>
+    </example>
+    <theorem>
+      <title>the annihilator is a subspace</title>
+      <statement>
+        <p>
+          Suppose <m>U \subset V{}</m>.
+          Then <m>U^0</m> is a subspace of <m>V'\!</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Note that <m>0 \in U^0</m>
+        (here <m>0</m> is the zero linear functional on <m>V</m>)
+        because the zero linear functional applied to every vector in <m>U</m> equals <m>0 \in \F{}</m>.
+      </p>
+      <p>
+        Suppose <m>\phi, \psi \in U^0{}</m>.
+        Thus <m>\phi, \psi \in V'</m> and
+        <m>\phi(u) = \psi(u) = 0</m> for every <m>u \in U</m>.
+        If <m>u \in U</m>, then
+        <me>
+          (\phi + \psi)(u) = \phi(u) + \psi(u) = 0 + 0 = 0
+        </me>.
+      </p>
+      <p>
+        Thus <m>\phi + \psi \in U^0{}</m>.
+      </p>
+      <p>
+        Similarly, <m>U^0</m> is closed under scalar multiplication.
+        <xref ref="subspace">Thus</xref> implies that <m>U^0</m> is a subspace of <m>V'\!</m>.
+      </p>
+    </proof>
+    <p>
+      The next result shows that
+      <m>\dim U^0</m> is the difference of <m>\dim V</m> and <m>\dim U</m>.
+      For example,
+      this shows that if <m>U</m> is a two-dimensional subspace of <m>\RR5</m>,
+      then <m>U^0</m> is a three-dimensional subspace of <m>{( \R{5} )}'\!</m>,
+      as in <xref ref="annih">Example</xref>.
+    </p>
+    <p>
+      The next result can be proved following the pattern of <xref ref="annih">Example</xref>:
+      choose a basis <m>u_1, \dots, u_m</m> of <m>U</m>,
+      extend to a basis <m>u_1, \dots,
+      u_m, \dots, u_n</m> of <m>V{}</m>,
+      let <m>\phi_1, \dots, \phi_m, \dots, \phi_n</m> be the dual basis of <m>V'\!</m>,
+      and then show that <m>\phi_{m+1}, \dots, \phi_n</m> is a basis of <m>U^0{}</m>,
+      which implies the desired result.
+      You should construct the proof just outlined,
+      even though a slicker proof is presented here.
+    </p>
+    <theorem xml:id="dimannih">
+      <title>dimension of the annihilator</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
+          Then
+          <me>
+            \dim U^0 = \dim V - \dim U
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>i \in \Lc(U, V)</m> be the inclusion map defined by
+        <m>i(u) = u</m> for each <m>u \in U</m>.
+        Thus <m>i'</m> is a linear map from <m>V'</m> to <m>U'\!</m>.
+        The fundamental theorem of linear maps <xref ref="x3ab11"/> applied to <m>i'</m> shows that
+        <me>
+          \dim \ran i' + \dim \ker i' = \dim V'\!
+        </me>.
+      </p>
+      <p>
+        However, <m>\ker i' = U^0</m>
+        (as can be seen by thinking about the definitions)
+        and <m>\dim V' = \dim V</m>
+        (by <xref ref="x3dimdual"></xref>),
+        so we can rewrite the equation above as
+        <men xml:id="ranip">
+          \dim \ran i' + \dim U^0 = \dim V{}
+        </men>.
+      </p>
+      <p>
+        If <m>\phi \in U'\!</m>,
+        then <m>\phi</m> can be extended to a linear functional <m>\psi</m> on <m>V</m>
+        (see, for example, <xref ref="x384">Exercise</xref>
+        in <xref ref="vslinear">Section</xref>).
+        The definition of <m>i'</m> shows that <m>i' \! (\psi) = \phi</m>.
+        Thus <m>\phi \in \ran i'\!</m>,
+        which implies that <m>\ran i' = U'\!</m>.
+        Hence
+        <me>
+          \dim \ran i' = \dim U' = \dim U
+        </me>,
+        and <xref ref="ranip">then</xref>
+        becomes the equation <m>\dim U + \dim U^0 = \dim V{}</m>,
+        as desired.
+      </p>
+    </proof>
+    <p>
+      The next result can be a useful tool to show that a subspace is as big as possible<mdash/>see (a)<mdash/>or to show that a subspace is as small as possible<mdash/>see (b).
+    </p>
+    <theorem xml:id="x2annih">
+      <title>condition for the annihilator to equal  <m>\{ 0 \}</m> or the whole space</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>U^0 = \{0\} \iff U = V</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>U^0 = V' \iff U = \{ 0 \}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        To prove (a), we have
+        <md>
+          <mrow>U^0 = \{ 0 \} \amp \iff \dim U^0 = 0</mrow>
+          <mrow>\amp \iff \dim U = \dim V</mrow>
+          <mrow>\amp \iff U = V{}</mrow>
+        </md>,
+        where the second equivalence follows from <xref ref="dimannih"></xref>
+        and the third equivalence follows from <xref ref="x2subfull"></xref>.
+      </p>
+      <p>
+        Similarly, to prove (b) we have
+        <md>
+          <mrow>U^0 = V' \amp \iff \dim U^0 = \dim V'</mrow>
+          <mrow>\amp \iff \dim U^0 = \dim V</mrow>
+          <mrow>\amp \iff \dim U = 0</mrow>
+          <mrow>\amp \iff U = \{ 0 \}</mrow>
+        </md>,
+        where one direction of the first equivalence follows from <xref ref="x2subfull"></xref>,
+        the second equivalence follows from <xref ref="x3dimdual"></xref>,
+        and the third equivalence follows from <xref ref="dimannih"></xref>.
+      </p>
+    </proof>
+    <p>
+      The proof of (a) in the next result does not use the hypothesis that <m>V</m> and <m>W</m> are finite-dimensional.
+    </p>
+    <theorem xml:id="nullTprime">
+      <title>the null space of <m>T'</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+          Then<idx><h>null space</h><h sortby="of T">of <m>T'{}</m></h></idx>
+          <ol>
+            <li>
+              <p>
+                <m>\ker T' = (\ran T)^0</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dim \ker T' = \dim \ker T + \dim W - \dim V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            First suppose <m>\phi \in \ker T'\!</m>.
+            Thus <m>0 = T' \! (\phi) = \phi \circ T{}</m>.
+            Hence
+            <me>
+              0 = (\phi \circ T)(v) = \phi(Tv)  \text{ for every\ }  v \in V{}
+            </me>.
+            Thus <m>\phi \in (\ran T)^0{}</m>.
+            This implies that <m>\ker T' \subset (\ran T)^0{}</m>.
+            To prove the inclusion in the opposite direction,
+            now suppose <m>\phi \in (\ran T)^0{}</m>.
+            Thus <m>\phi(Tv) = 0</m> for every vector <m>v \in V{}</m>.
+            Hence <m>0 = \phi \circ T = T' \! (\phi)</m>.
+            In other words, <m>\phi \in \ker T'\!</m>,
+            which shows that <m>(\ran T)^0 \subset \ker T'\!</m>,
+            completing the proof of (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            We have
+            <md>
+              <mrow>\dim \ker T' \amp = \dim (\ran T)^0</mrow>
+              <mrow>\amp = \dim W - \dim \ran T</mrow>
+              <mrow>\amp = \dim W - (\dim V - \dim \ker T)</mrow>
+              <mrow>\amp = \dim \ker T + \dim W - \dim V{}</mrow>
+            </md>,
+            where the first equality comes from (a),
+            the second equality comes from <xref ref="dimannih"></xref>,
+            and the third equality comes from the fundamental theorem of linear maps <xref ref="x3ab11"/>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      The next result can be useful because sometimes it is easier to verify that <m>T'</m> is injective than to show directly that <m>T</m> is surjective.
+    </p>
+    <theorem xml:id="TsurTprimeinj">
+      <title><m>T</m> surjective is equivalent to <m>T'</m> injective</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+          Then
+          <me>
+            T \text{ is surjective }  \iff T' \text{ is injective }
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <md>
+          <mrow>T \in \Lc(V{},W) \text{ is surjective }  \amp \iff \ran T = W</mrow>
+          <mrow>\amp \iff (\ran T)^0 = \{0\}</mrow>
+          <mrow>\amp \iff \ker T' = \{0\}</mrow>
+          <mrow>\amp \iff T' \text{ is injective } </mrow>
+        </md>,
+        where the second equivalence comes from <xref ref="x2annih"></xref>(a) and the third equivalence comes from <xref ref="nullTprime"></xref>(a).
+      </p>
+    </proof>
+    <theorem xml:id="rangeTprime">
+      <title>the range of <m>T'</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+          Then<idx><h>range</h><h sortby="of T">of <m>T'{}</m></h></idx>
+          <ol>
+            <li>
+              <p>
+                <m>\dim \ran T' = \dim \ran T</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ran T' = (\ker T)^0{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            We have
+            <md>
+              <mrow>\dim \ran T' \amp = \dim W' - \dim \ker T'</mrow>
+              <mrow>\amp = \dim W - \dim (\ran T)^0</mrow>
+              <mrow>\amp = \dim \ran T</mrow>
+            </md>,
+            where the first equality comes from <xref ref="x3ab11"></xref>,
+            the second equality comes from <xref ref="x3dimdual"></xref>
+            and <xref ref="nullTprime"></xref>(a),
+            and the third equality comes from <xref ref="dimannih"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            First suppose <m>\phi \in \ran T'\!</m>.
+            Thus there exists <m>\psi \in W'</m> such that <m>\phi = T' \! (\psi)</m>.
+            If <m>v \in \ker T</m>, then
+            <me>
+              \phi(v) = \bigl(T' \! (\psi)\bigr) v = (\psi \circ T)(v) = \psi(Tv) = \psi(0) = 0
+            </me>.
+            Hence <m>\phi \in (\ker T)^0{}</m>.
+            This implies that <m>\ran T' \subset (\ker T)^0{}</m>.
+            We will complete the proof by showing that <m>\ran T'</m> and
+            <m>(\ker T)^0</m> have the same dimension.
+            To do this, note that
+            <md>
+              <mrow>\dim \ran T' \amp = \dim \ran T</mrow>
+              <mrow>\amp = \dim V - \dim \ker T</mrow>
+              <mrow>\amp = \dim (\ker T)^0{}</mrow>
+            </md>,
+            where the first equality comes from (a),
+            the second equality comes from <xref ref="x3ab11"></xref>,
+            and the third equality comes from <xref ref="dimannih"></xref>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      The next result should be compared to <xref ref="TsurTprimeinj"></xref>.
+    </p>
+    <theorem xml:id="TinjTprimesur">
+      <title><m>T</m> injective is equivalent to <m>T'</m> surjective</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+          Then
+          <me>
+            T \text{ is injective }  \iff T' \text{ is surjective }
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <md>
+          <mrow>T \text{ is injective }  \amp \iff \ker T = \{0\}</mrow>
+          <mrow>\amp \iff (\ker T)^0 = V'</mrow>
+          <mrow>\amp \iff \ran T' = V' \!</mrow>
+        </md>,
+        where the second equivalence follows from <xref ref="x2annih"></xref>(b) and the third equivalence follows from <xref ref="rangeTprime"></xref>(b).
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Matrix of Dual of Linear Map</title>
+    <p>
+      The setting for the next result is the assumption that we have a basis <m>v_1, \dots,
+      v_n</m> of <m>V{}</m>,
+      along with its dual basis <m>\phi_1, \dots, \phi_n</m> of <m>V'\!</m>.
+      We also have a basis <m>w_1, \dots, w_m</m> of <m>W{}</m>,
+      along with its dual basis <m>\psi_1, \dots, \psi_m</m> of <m>W'\!</m>.
+      Thus <m>\M(T)</m> is computed with respect to the bases just mentioned of <m>V</m> and<nbsp/><m>W{}</m>,
+      and <m>\M( T' )</m> is computed with respect to the dual bases just mentioned of <m>W'</m> and<nbsp/><m>V'\!</m>.
+      Using these bases gives the following pretty result.
+    </p>
+    <theorem xml:id="x3matrixTprime">
+      <title>matrix of  <m>T'</m> is transpose of matrix of  <m>T</m></title>
+      <statement>
+        <p>
+              <idx><h>matrix</h><h sortby="of T">of <m>T'</m></h></idx>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+          Then
+          <me>
+            \M( T' ) = \tran{\bigl(\M(T)\bigr)}{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>A = \M(T)</m> and <m>C = \M( T' )</m>.
+        Suppose <m>1 \le j \le m</m> and <m>1 \le k \le n</m>.
+      </p>
+      <p>
+        From the definition of <m>\M( T' )</m> we have
+        <me>
+          T' \! (\psi_j) = \sum_{r=1}^n C_{r,j} \phi_r
+        </me>.
+      </p>
+      <p>
+        The left side of the equation above equals <m>\psi_j \circ T{}</m>.
+        Thus applying both sides of the equation above to <m>v_k</m> gives
+        <md>
+          <mrow>(\psi_j \circ T)(v_k) \amp = \sum_{r=1}^n C_{r,j} \phi_r(v_k)</mrow>
+          <mrow>\amp = C_{k,j}</mrow>
+        </md>.
+      </p>
+      <p>
+        We also have
+        <md>
+          <mrow>(\psi_j \circ T)(v_k) \amp = \psi_j(Tv_k)</mrow>
+          <mrow>\amp = \psi_j(  \sum_{r=1}^m A_{r,k} w_r  )</mrow>
+          <mrow>\amp = \sum_{r=1}^m A_{r,k} \psi_j(w_r)</mrow>
+          <mrow>\amp = A_{j,k}</mrow>
+        </md>.
+      </p>
+      <p>
+        Comparing the last line of the last two sets of equations,
+        we have <m>C_{k,j} = A_{j,k}</m>.
+        Thus <m>C = \tran{A}{}</m>.
+        In other words,
+        <m>\M( T' ) = \tran{\bigl(\M(T)\bigr)}{}</m>, as desired.
+      </p>
+    </proof>
+    <p>
+      Now we use duality to give an alternative proof that the column rank of a matrix equals the row rank of the matrix.
+      This result was previously proved using different tools<mdash/><xref ref="x3colrow">see</xref>.
+          <idx><h>column rank of a matrix</h></idx>
+          <idx><h>row rank of a matrix</h></idx>
+          <idx><h>rank of a matrix</h></idx>
+    </p>
+    <theorem xml:id="x3rank">
+      <title>column rank equals row rank</title>
+      <statement>
+        <p>
+          Suppose <m>A \in \FF{m, n}</m>.
+          Then the column rank of <m>A</m> equals the row rank of <m>A</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Define <m>T \colon \F{n,1} \to \F{m,1}</m> by <m>Tx = Ax</m>.
+        Thus <m>\M(T) = A</m>,
+        where <m>\M(T)</m> is computed with respect to the standard bases of <m>\F{n,1}</m> and <m>\FF{m,1}</m>.
+        Now
+        <md>
+          <mrow>\text{ column rank of } \ A \amp = \text{ column rank of } \ \M(T)</mrow>
+          <mrow>\amp = \dim \ran T</mrow>
+          <mrow>\amp = \dim \ran T'</mrow>
+          <mrow>\amp = \text{ column rank of } \ \M( T' )</mrow>
+          <mrow>\amp = \text{ column rank of } \ \tran{A}</mrow>
+          <mrow>\amp = \text{ row rank of } \ A</mrow>
+        </md>,
+        where the second equality comes from <xref ref="x3rangecolrank"></xref>,
+        the third equality comes from <xref ref="rangeTprime"></xref>(a),
+        the fourth equality comes from <xref ref="x3rangecolrank"></xref>,
+        the fifth equality comes from <xref ref="x3matrixTprime"></xref>,
+        and the last equality follows from the definitions of row and column rank.
+      </p>
+    </proof>
+    <p>
+      See <xref ref="x7rank">Exercise</xref>
+      in <xref ref="selfadjoint_normal">Section</xref>
+      for another alternative proof of the result above.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Explain why each linear functional is surjective or is the zero map.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give three distinct examples of linear functionals on <m>\RR{[0,1]}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="HB1">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>v \in V</m> with <m>v \ne 0</m>.
+              Prove that there exists <m>\phi \in V'</m> such that <m>\phi(v) = 1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x4321">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V</m> such that <m>U \ne V{}</m>.
+              Prove that there exists <m>\phi \in V'</m> such that
+              <m>\phi(u) = 0</m> for every <m>u \in U</m> but<nbsp/><m>\phi \ne 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m> and
+              <m>w_1, \ldots,
+              w_m</m> is a basis of <m>\ran T{}</m>.
+              Hence for each <m>v \in V{}</m>,
+              there exist unique numbers <m>\phi_1(v), \ldots, \phi_m(v)</m> such that
+              <me>
+                Tv = \phi_1(v) w_1 + \cdots + \phi_m(v) w_m
+              </me>,
+              thus defining functions <m>\phi_1, \ldots, \phi_m</m> from <m>V</m> to <m>\F{}{}</m>.
+              Show that each of the functions
+              <m>\phi_1, \ldots, \phi_m</m> is a linear functional on <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7nullsub">
+          <statement>
+            <p>
+              Suppose <m>\phi, \beta \in V'\!</m>.
+              Prove that <m>\ker \phi \subset \ker \beta</m> if and only if there exists
+              <m>c \in \F{}</m> such that <m>\beta = c \phi</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>V{}_1, \ldots, V{}_m</m> are vector spaces.
+              Prove that <m>(V{}_1 \times \dots \times V{}_m)'</m> and
+              <m>{V{}_1}' \times \dots \times {V{}_m}'</m> are isomorphic vector spaces.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V</m> and
+              <m>\phi_1, \ldots, \phi_n</m> is the dual basis of <m>V'\!</m>.
+              Define <m>\fun \Gamma  V {\F n}</m> and <m>\fun \Lambda {\F n} V</m> by
+              <me>
+                \Gamma(v) = (  \phi_1(v), \ldots, \phi_n(v)  ) \andd \Lambda(a_1, \ldots, a_n) = a_1 v_1 + \cdots + a_n v_n
+              </me>.
+            </p>
+            <p>
+              Explain why <m>\Gamma</m> and <m>\Lambda</m> are inverses of each other.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>m</m> is a positive integer.
+              Show that the dual basis of the basis
+              <m>1, x, \dots,
+              x^m</m> of <m>\P{}_m(\R{})</m> is <m>\phi_0, \phi_1, \dots, \phi_m</m>, where
+              <me>
+                \phi_k(p) = \frac{p^{(k)}(0)}{k!}
+              </me>.
+            </p>
+            <p>
+              Note: Here <m>p^{(k)}</m> denotes the <m>k^\nth</m> derivative of <m>p</m>,
+              with the understanding that the <m>0^\nth</m> derivative of <m>p</m> is <m>p</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>m</m> is a positive integer.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>1, x-5, \dots, (x-5)^m</m> is a basis of <m>\P{}_m(\R{})</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    What is the dual basis of the basis in (a)?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \dots, v_n</m> is a basis of <m>V</m> and
+              <m>\phi_1, \dots, \phi_n</m> is the corresponding dual basis of <m>V'\!</m>.
+              Suppose <m>\psi \in V'\!</m>.
+              Prove that
+              <me>
+                \psi = \psi(v_1) \phi_1 + \dots + \psi(v_n) \phi_n
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S, T \in \Lc(V{}, W)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>(S + T)' = S' + T'\!</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that <m>(\lambda T)' = \lambda T'</m> for all <m>\lambda \in \F{}{}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: This exercise asks you to verify (a) and (b) in <xref ref="x3dualmaps"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that the dual map of the identity operator on <m>V</m> is the identity operator on<nbsp/><m>V'\!</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Define <m>T \colon \R{3} \to \R2</m> by
+              <me>
+                T(x, y, z) = (4x + 5y + 6z, 7x + 8y + 9z)
+              </me>.
+            </p>
+            <p>
+              Suppose <m>\phi_1, \phi_2</m> denotes the dual basis of the standard basis of <m>\R2</m> and
+              <m>\psi_1, \psi_2, \psi_3</m> denotes the dual basis of the standard basis of <m>\RR3</m>.
+              <ol>
+                <li>
+                  <p>
+                    Describe the linear functionals
+                    <m>T' \! (\phi_1)</m> and <m>T' \! (\phi_2)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Write <m>T' \! (\phi_1)</m> and
+                    <m>T' \! (\phi_2)</m> as linear combinations of <m>\psi_1, \psi_2, \psi_3</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Define <m>T \colon \P(\R{})\to \P(\R{})</m> by
+              <me>
+                (Tp)(x) = x^2 p(x) + p'' \! (x)
+              </me>
+              for each <m>x \in \R{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Suppose <m>\phi \in \P(\R{})'</m> is defined by <m>\phi(p) = p' \! (4)</m>.
+                    Describe the linear functional <m>T' \! (\phi)</m> on <m>\P(\R{})</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Suppose <m>\phi \in \P(\R{})'</m> is defined by <m>\phi(p) = \int_0^1 p</m>.
+                    Evaluate <m>\bigl(T' \! (\phi)\bigr)(x^3)</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="Tprime">
+          <statement>
+            <p>
+              Suppose <m>W</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+              Prove that
+              <me>
+                T' = 0 \iff T = 0
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+              Prove that <m>T</m> is invertible if and only if <m>T' \in \Lc( W'\!, V' )</m> is invertible.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> and <m>W</m> are finite-dimensional.
+              Prove that the map that takes
+              <m>T \in \Lc(V{},W)</m> to <m>T' \in \Lc( W'\!, V' )</m> is an isomorphism of
+              <m>\Lc(V{},W)</m> onto <m>\Lc( W'\!, V' )</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>U \subset V{}</m>.
+              Explain why
+              <me>
+                U^0 = \{ \phi \in V': U \subset \ker \phi \}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3Uan">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
+              Show that
+              <me>
+                U = \{ v \in V: \phi(v) = 0 \textit{ for every\ } \phi \in U^0 \}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>W^0 \subset U^0</m> if and only if <m>U \subset W{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that <m>W^0 = U^0</m> if and only if <m>U = W{}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x2222">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>(U + W)^0 = U^0 \cap W^0{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>(U \cap W)^0 = U^0 + W^0{}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3intersectnull">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>\phi_1, \ldots, \phi_m \in V'\!</m>.
+              Prove that the following three sets are equal to each other.
+              <ol>
+                <li>
+                  <p>
+                    <m>\Span(\phi_1, \dots, \phi_m)</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr)^0</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{ \phi \in V': (\ker \phi_1) \cap \dots \cap (\ker \phi_m) \subset \ker \phi \}</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>v_1, \dots,
+              v_m \in V{}</m>.
+              Define a linear map <m>\Gamma \colon V' \to \F{m}</m> by <m>\Gamma(\phi) = \bigl(\phi(v_1), \dots, \phi(v_m) \bigr)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>v_1, \dots,
+                    v_m</m> spans <m>V</m> if and only if <m>\Gamma</m> is injective.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that <m>v_1, \dots,
+                    v_m</m> is linearly independent if and only if <m>\Gamma</m> is surjective.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>\phi_1, \dots, \phi_m \in V'\!</m>.
+              Define a linear map <m>\Gamma \colon V \to \F{m}</m> by <m>\Gamma(v) = ( \phi_1(v), \dots, \phi_m(v) )</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>\phi_1, \dots, \phi_m</m> spans <m>V'</m> if and only if <m>\Gamma</m> is injective.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that <m>\phi_1, \dots, \phi_m</m> is linearly independent if and only if <m>\Gamma</m> is surjective.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>\Omega</m> is a subspace of <m>V'\!</m>.
+              Prove that
+              <me>
+                \Omega = \{ v \in V: \phi(v) = 0 \textit{ for every } \phi \in \Omega \}^0{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc\bigl( \P{}_5(\R{}) \bigr)</m> and <m>\ker T' = \Span(\phi)</m>,
+              where <m>\phi</m> is the linear functional on
+              <m>\P{}_5(\R{})</m> defined by <m>\phi(p) = p(8)</m>.
+              Prove that
+              <me>
+                \ran T = \{  p \in \P{}_5(\R{}): p(8) = 0  \}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="intker">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and
+              <m>\phi_1, \dots, \phi_m</m> is a linearly independent list in <m>V'\!</m>.
+              Prove that
+              <me>
+                \dim \bigl( (\ker \phi_1) \cap \dots \cap (\ker \phi_m)\bigr) = (\dim V) - m
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that if <m>\phi \in W'</m> and <m>\ker T' = \Span(\phi)</m>,
+                    then <m>\ran T = \ker \phi</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that if <m>\psi \in V'</m> and <m>\ran T' = \Span(\psi)</m>,
+                    then <m>\ker T = \ker \psi</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and
+              <m>\phi_1, \dots, \phi_n</m> is a basis of <m>V'\!</m>.
+              Show that there exists a basis of <m>V</m> whose dual basis is <m>\phi_1, \dots, \phi_n</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>U</m> is a subspace of <m>V{}</m>.
+              Let <m>i \colon U \to V</m> be the inclusion map defined by <m>i(u) = u</m>.
+              Thus <m>i' \in \Lc( V'\!, U' )</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\ker i' = U^0{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that if <m>V</m> is finite-dimensional,
+                    then <m>\ran i' = U'\!</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that if <m>V</m> is finite-dimensional,
+                    then <m>\tilde[7.3]{i'}</m> is an isomorphism from <m>V'\!/U^0</m> onto <m>U'\!</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: The isomorphism in (c) is natural in that it does not depend on a choice of basis in either vector space.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              The <term>double dual space</term>
+              of <m>V{}</m>, denoted by <m>V''\!</m>,
+              is defined to be the dual space of<nbsp/><m>V'\!</m>.
+              In other words, <m>V'' = {( V' )}'</m>.
+              Define <m>\Lambda \colon V \to V''</m> by
+          <idx><h>double dual space</h></idx>
+              <me>
+                (\Lambda v)(\phi) = \phi(v)
+              </me>
+              for each <m>v \in V</m> and each <m>\phi \in V'\!</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\Lambda</m> is a linear map from <m>V</m> to <m>V''\!</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>T \in \Lc(V)</m>,
+                    then <m>T'' \circ \Lambda = \Lambda \circ T</m>,
+                    where <m>T'' = {( T' )}'\!</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>V</m> is finite-dimensional,
+                    then <m>\Lambda</m> is an isomorphism from <m>V</m> onto <m>V''\!</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: Suppose <m>V</m> is finite-dimensional.
+              Then <m>V</m> and <m>V'</m> are isomorphic,
+              but finding an isomorphism from <m>V</m> onto <m>V'</m> generally requires choosing a basis of <m>V{}</m>.
+              In contrast,
+              the isomorphism <m>\Lambda</m> from <m>V</m> onto <m>V''</m> does not require a choice of basis and thus is considered more natural.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>U</m> is a subspace of <m>V{}</m>.
+              Let <m>\pi \colon V \to V{}/U</m> be the usual quotient map.
+              Thus <m>\pi' \in \Lc\bigl((V{}/U)'\!, V'\bigr)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\pi'</m> is injective.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>\ran \pi' = U^0{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Conclude that <m>\pi'</m> is an isomorphism from <m>(V{}/U)'</m> onto <m>U^0{}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: The isomorphism in (c) is natural in that it does not depend on a choice of basis in either vector space.
+              In fact, there is no assumption here that any of these vector spaces are finite-dimensional.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

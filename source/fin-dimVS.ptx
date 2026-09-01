@@ -1,0 +1,52 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="fin-dimVS">
+  <title>Finite-Dimensional Vector<nbsp/>Spaces</title>
+  <introduction>
+    <p>
+      In the last chapter we learned about vector spaces.
+      Linear algebra focuses not on arbitrary vector spaces,
+      but on finite-dimensional vector spaces,
+      which we introduce in this chapter.
+    </p>
+    <p>
+      We begin this chapter by considering linear combinations of lists of vectors.
+      This leads us to the crucial concept of linear independence.
+      The linear dependence lemma will become one of our most useful tools.
+    </p>
+    <p>
+      A list of vectors in a vector space that is small enough to be linearly independent and big enough so the linear combinations of the list fill up the vector space is called a basis of the vector space.
+      We will see that every basis of a vector space has the same length,
+      which will allow us to define the dimension of a vector space.
+    </p>
+    <p>
+      This chapter ends with a formula for the dimension of the sum of two subspaces.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> denotes a vector space over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <figure>
+        <caption>The main building of the Institute for Advanced Study, in Princeton, New Jersey. Paul Halmos (1916<ndash/>2006) wrote the first modern linear algebra book in this building. Halmos's linear algebra book was published in 1942 (second edition published in 1958) . The title of Halmos's book was the same as the title of this chapter.</caption>
+        <image source="artwork/\FigureName">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+          <idx><h>Halmos, Paul</h></idx>
+          <idx><h>Institute for Advanced Study</h></idx>
+    </p>
+  </introduction>
+  <xi:include  href="x2spli.ptx"/>
+  <xi:include  href="bases.ptx"/>
+  <xi:include  href="dimension.ptx"/>
+</chapter>

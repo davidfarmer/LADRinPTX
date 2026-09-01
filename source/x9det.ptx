@@ -1,0 +1,1470 @@
+<section xml:id="x9det">
+  <title>Determinants</title>
+  <subsection>
+    <title>Defining the Determinant</title>
+    <p>
+      The next definition will lead us to a clean, beautiful,
+      basis-free definition of the determinant of an operator.
+    </p>
+    <definition>
+      <title><m>\alpha_T</m></title>
+      <statement>
+        <p>
+          Suppose that <m>m</m> is a positive integer and <m>T \in \Lc(V)</m>.
+          For <m>\alpha  \in V_{\text{ alt } }^{(m)}{}</m>,
+          define <m>\alpha_T \in V^{(m)}_{\text{ alt } }</m> by <idx><h sortby="alphaT"><m>\alpha_T</m></h></idx>
+          <me>
+            \alpha_T(v_1, \ldots, v_m) = \alpha (Tv_1, \ldots, T v_m)
+          </me>
+          for each list <m>v_1, \ldots,
+          v_m</m> of vectors in <m>V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Suppose <m>T \in \Lc(V)</m>.
+      If <m>\alpha \in V^{(m)}_{\text{ alt } }</m> and
+      <m>v_1, \ldots,
+      v_m</m> is a list of vectors in <m>V</m> with
+      <m>v_j = v_k</m> for some <m>j \ne k</m>, then <m>Tv_j = Tv_k</m>,
+      which implies that <m>\alpha_T(v_1, \ldots,
+      v_m) = \alpha (Tv_1, \ldots, T v_m) = 0</m>.
+      Thus the function <m>\alpha \mapsto \alpha_T</m> is a linear map of <m>V^{(m)}_{\text{ alt } }</m> to itself.
+    </p>
+    <p>
+      We know that <m>\dim V^{(\dim V)}_{\text{ alt } } = 1</m>
+      (<xref ref="x9dimone">see</xref>).
+      Every linear map from a one-dimensional vector space to itself is multiplication by some unique scalar.
+      For the linear map <m>\alpha \mapsto \alpha_T</m>,
+      we now define <m>\det T</m> to be that scalar.
+    </p>
+    <definition>
+      <title>determinant of an operator,  <m>\det T</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          The <term>determinant</term> of <m>T{}</m>,
+          denoted by <m>\det T{}</m>,
+          is defined to be the unique number in <m>\F{}</m> such that
+          <me>
+            \alpha_T = (\det T)   \alpha
+          </me>
+          for all <m>\alpha  \in V_{\text{ alt } }^{(\dim V)}{}</m>.
+              <idx><h>determinant</h><h>of operator</h></idx>
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h sortby="detT"><m>\det T</m></h></idx>
+    </p>
+    <example xml:id="x9detops">
+      <title>determinants of operators</title>
+      <statement>
+        <p>
+          Let <m>n = \dim V{}</m>.
+          <ol>
+            <li>
+              <p>
+                If <m>I</m> is the identity operator on <m>V{}</m>,
+                then <m>\alpha_I = \alpha</m> for all <m>\alpha \in V_{\text{ alt } }^{(n)}{}</m>.
+                Thus <m>\det I = 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                More generally, if <m>\lambda \in \F{}{}</m>,
+                then <m>\alpha_{\lambda I} = \lambda^n \alpha</m> for all <m>\alpha \in V_{\text{ alt } }^{(n)}{}</m>.
+                Thus <m>\det (\lambda I )= \lambda^n{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Still more generally,
+                if <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>,
+                then <m>\alpha_{\lambda T} = \lambda^n \alpha_T = \lambda^n (\det T) \alpha</m> for all <m>\alpha \in V_{\text{ alt } }^{(n)}{}</m>.
+                Thus <m>\det (\lambda T) = \lambda^n \det T{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>T \in \Lc(V)</m> and there is a basis
+                <m>e_1, \ldots,
+                e_n</m> of <m>V</m> consisting of eigenvectors of <m>T{}</m>,
+                with corresponding eigenvalues <m>\lambda_1, \ldots, \lambda_n</m>.
+                If <m>\alpha  \in V_{\text{ alt } }^{(n)}{}</m>, then
+                <me>
+                  \alpha_T(e_1, \ldots, e_n) = \alpha (\lambda_1 e_1, \ldots, \lambda_n e_n) = (\lambda_1 \cdots \lambda_n) \alpha (e_1, \ldots, e_n)
+                </me>.
+                If <m>\alpha  \ne 0</m>,
+                <xref ref="x9altli">then</xref> implies <m>\alpha (e_1, \ldots,
+                e_n) \ne 0</m>.
+                Thus the equation above implies
+                <me>
+                  \det T = \lambda_1 \cdots \lambda_n
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Our next task is to define and give a formula for the determinant of a square matrix.
+      To do this, we associate with each square matrix an operator and then define the determinant of the matrix to be the determinant of the associated operator.
+    </p>
+    <definition>
+      <title>determinant of a matrix,  <m>\det A</m></title>
+      <statement>
+        <p>
+          Suppose that <m>n</m> is a positive integer and <m>A</m> is an \by{n}{n} square matrix with entries in<nbsp/><m>\F{}{}</m>.
+          Let <m>T \in \Lc( \F n )</m> be the operator whose matrix with respect to the standard basis of <m>\F n</m> equals <m>A</m>.
+          The <term>determinant</term> of <m>A</m>,
+          denoted by <m>\det A</m>, is defined by <m>\det A = \det T{}</m>.
+              <idx><h>determinant</h><h>of matrix</h></idx>
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h sortby="detA"><m>\det A</m></h></idx>
+    </p>
+    <example>
+      <title>determinants of matrices</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>I</m> is the \by{n}{n} identity matrix,
+              then the corresponding operator on <m>\F n</m> is the identity operator <m>I</m> on <m>\FF n</m>.
+              Thus the first bullet point of <xref ref="x9detops"></xref>
+              implies that the determinant of the identity matrix is <m>1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>A</m> is a diagonal matrix with <m>\lambda_1, \ldots, \lambda_n</m> on the diagonal.
+              Then the corresponding operator on <m>\F n</m> has the standard basis of <m>\F n</m> as eigenvectors,
+              with eigenvalues <m>\lambda_1, \ldots, \lambda_n</m>.
+              Thus the last bullet point of <xref ref="x9detops"></xref>
+              implies that <m>\det A = \lambda_1 \cdots \lambda_n</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      For the next result, think of each list
+      <m>v_1, \ldots,
+      v_n</m> of <m>n</m> vectors in <m>\F n</m> as a list of \by{n}{1} column vectors.
+      The notation <m>\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix}</m> then denotes the \by{n}{n} square matrix whose <m>k^\nth</m> column is <m>v_k</m> for each <m>k = 1, \ldots, n</m>.
+    </p>
+    <theorem xml:id="x9detalt">
+      <title>determinant is an alternating multilinear form</title>
+      <statement>
+        <p>
+          Suppose that <m>n</m> is a positive integer.
+          The map that takes a list <m>v_1, \ldots,
+          v_n</m> of vectors in <m>\F n</m> to
+          <m>\det \begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix}</m> is an alternating <m>n</m>-linear form on <m>\FF n</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>e_1, \ldots,
+        e_n</m> be the standard basis of <m>\FF n</m> and suppose
+        <m>v_1, \ldots,
+        v_n</m> is a list of vectors in <m>\FF n</m>.
+        Let <m>T \in \Lc( \F n )</m> be the operator such that
+        <m>Te_k = v_k</m> for <m>k = 1, \ldots, n</m>.
+        Thus <m>T</m> is the operator whose matrix with respect to
+        <m>e_1, \ldots,
+        e_n</m> is <m>\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix}</m>.
+        Hence <m>\det \begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix} = \det T{}</m>,
+        by definition of the determinant of a matrix.
+      </p>
+      <p>
+        Let <m>\alpha</m> be an alternating <m>n</m>-linear form on <m>\F n</m> such that <m>\alpha (e_1, \ldots,
+        e_n) = 1</m>.
+        Then
+        <md>
+          <mrow>\det \begin{pmatrix}v_1 \amp  \cdots \amp  v_n \end{pmatrix}  \amp = \det T</mrow>
+          <mrow>\amp = (\det T)   \alpha (e_1, \ldots, e_n)</mrow>
+          <mrow>\amp =\alpha (Te_1, \ldots, Te_n)</mrow>
+          <mrow>\amp = \alpha (v_1, \ldots, v_n)</mrow>
+        </md>,
+        where the third line follows from the definition of the determinant of an operator.
+        The equation above shows that the map that takes a list of vectors
+        <m>v_1, \ldots,
+        v_n</m> in <m>\F n</m> to <m>\det \begin{pmatrix}v_1 \amp  \cdots \amp  v_n \end{pmatrix}</m> is the alternating <m>n</m>-linear form <m>\alpha</m> on <m>\FF n</m>.
+      </p>
+    </proof>
+    <p>
+      The previous result has several important consequences.
+      For example,
+      it immediately implies that a matrix with two identical columns has determinant<nbsp/><m>0</m>.
+      We will come back to other consequences later,
+      but for now we want to give a formula for the determinant of a square matrix.
+      Recall that if <m>A</m> is a matrix,
+      then <m>A_{j,k}</m> denotes the entry in row <m>j</m>,
+      column <m>k</m> of <m>A</m>.
+    </p>
+    <theorem xml:id="x9detformula">
+      <title>formula for determinant of a matrix</title>
+      <statement>
+        <p>
+          Suppose that <m>n</m> is a positive integer and <m>A</m> is an \by{n}{n} square matrix.
+          Then
+          <me>
+            \det A = \sum_{(j_1, \ldots, j_n) \in \perm n} (  \sign(j_1, \ldots, j_n)  ) A_{j_1,1} \cdots A_{j_n,n}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        <xref ref="x11altform">Apply</xref>
+        with <m>V = \F n</m> and <m>e_1, \ldots,
+        e_n</m> the standard basis of <m>\F n</m> and <m>\alpha</m> the alternating <m>n</m>-linear form on <m>\F n</m> that takes
+        <m>v_1, \ldots,
+        v_n</m> to <m>\det \begin{pmatrix}v_1 \amp  \cdots \amp  v_n \end{pmatrix}</m> [<xref ref="x9detalt">see</xref>]. If each <m>v_k</m> is the <m>k^\nth</m> column of <m>A</m>,
+        then each <m>b_{j,k}</m> in <xref ref="x11altform"></xref> equals <m>A_{j,k}</m>.
+        Finally,
+        <me>
+          \alpha (e_1, \ldots, e_n) = \det \begin{pmatrix}e_1 \amp  \cdots \amp  e_n \end{pmatrix}  = \det I = 1
+        </me>.
+      </p>
+      <p>
+        Thus the formula in <xref ref="x11altform"></xref>
+        becomes the formula stated in this result.
+      </p>
+    </proof>
+    <example>
+      <title>explicit formula for determinant</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>A</m> is a \by{2}{2} matrix,
+              then the formula in <xref ref="x9detformula"></xref> becomes
+              <me>
+                \det A = A_{1,1} A_{2,2} - A_{2,1} A_{1,2}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is a \by{3}{3} matrix,
+              then the formula in <xref ref="x9detformula"></xref> becomes
+              <md>
+                <mrow>\det A = \amp A_{1,1} A_{2,2} A_{3,3} - A_{2,1} A_{1,2} A_{3,3} - A_{3,1} A_{2,2} A_{1,3}</mrow>
+                <mrow>\amp  {}- A_{1,1} A_{3,2} A_{2,3} + A_{3,1} A_{1,2} A_{2,3} + A_{2,1} A_{3,2} A_{1,3}</mrow>
+              </md>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      The sum in the formula in <xref ref="x9detformula"></xref> contains <m>n!</m> terms.
+      Because <m>n!</m> grows rapidly as <m>n</m> increases,
+      the formula in <xref ref="x9detformula"></xref>
+      is not a viable method to evaluate determinants even for moderately sized <m>n</m>.
+      For example, <m>10!</m> is over three million,
+      and <m>100!</m> is approximately <m>10^{158}</m>,
+      leading to a sum that the fastest computer cannot evaluate.
+      We will soon see some results that lead to faster evaluations of determinants than direct use of the sum in <xref ref="x9detformula"></xref>.
+    </p>
+    <theorem xml:id="x9detupper">
+      <title>determinant of upper-triangular matrix</title>
+      <statement>
+        <p>
+          Suppose that <m>A</m> is an upper-triangular matrix with <m>\lambda_1, \ldots, \lambda_n</m> on the diagonal.
+          Then <m>\det A = \lambda_1 \cdots \lambda_n</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>(j_1, \ldots, j_n) \in \perm n</m> with <m>(j_1, \ldots,
+        j_n) \ne (1, \ldots, n)</m>,
+        then <m>j_k > k</m> for some
+        <m>k \in \{ 1, \ldots,
+        n \}</m>, which implies that <m>A_{j_k, k} = 0</m>.
+        Thus the only permutation that can make a nonzero contribution to the sum in <xref ref="x9detformula"></xref>
+        is the permutation <m>(1, \ldots, n)</m>.
+        Because <m>A_{k, k} = \lambda_k</m> for each <m>k = 1, \ldots, n</m>,
+        this implies that <m>\det A = \lambda_1 \cdots \lambda_n</m>.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Properties of Determinants</title>
+    <p>
+      Our definition of the determinant leads to the following magical proof that the determinant is multiplicative.
+    </p>
+    <theorem xml:id="x9detmult">
+      <title>determinant is multiplicative</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>S, T \in \Lc(V)</m>.
+              Then <m>\det (ST) = (\det S)(\det T)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>A</m> and <m>B</m> are square matrices of the same size.
+              Then
+              <me>
+                \det (AB) = (\det A)(\det B)
+              </me>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            Let <m>n = \dim V{}</m>.
+            Suppose <m>\alpha  \in V^{(n)}_{\text{ alt } }</m> and <m>v_1, \ldots,
+            v_n \in V{}</m>.
+            Then
+            <md>
+              <mrow>\alpha_{ST} (v_1, \ldots, v_n) \amp = \alpha ( STv_1, \ldots, STv_n)</mrow>
+              <mrow>\amp = (\det S) \alpha (Tv_1, \ldots, Tv_n)</mrow>
+              <mrow>\amp = (\det S)(\det T) \alpha (v_1, \ldots, v_n)</mrow>
+            </md>,
+            where the first equation follows from the definition of <m>\alpha_{ST}</m>,
+            the second equation follows from the definition of <m>\det S</m>,
+            and the third equation follows from the definition of <m>\det T{}</m>.
+            The equation above implies that <m>\det (ST) = (\det S)(\det T)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>S, T \in \Lc(  \F n  )</m> be such that
+            <m>\M(S) = A</m> and <m>\M(T) = B</m>,
+            where all matrices of operators in this proof are with respect to the standard basis of <m>\FF n</m>.
+            Then <m>\M(ST) = \M(S) \M(T) = AB</m>
+            (<xref ref="x3matproduct">see</xref>).
+            Thus
+            <me>
+              \det(AB) = \det(ST) = (\det S)(\det T) = (\det A)(\det B)
+            </me>,
+            where the second equality comes from the result in (a).
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      The determinant of an operator determines whether the operator is invertible.
+    </p>
+    <theorem xml:id="x9nonzero">
+      <title>invertible <m>\iff</m> nonzero determinant</title>
+      <statement>
+        <p>
+          An operator <m>T \in \Lc(V)</m> is invertible if and only if <m>\det T \ne 0</m>.
+          Furthermore, if <m>T</m> is invertible,
+          then <m>\det ( T^{-1} ) = \frac{1}{\det T}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose <m>T</m> is invertible.
+        Thus <m>T T^{-1} = I</m>.
+        <xref ref="x9detmult">Now</xref> implies that
+        <me>
+          1 = \det I = \det ( TT^{-1} ) = (\det T) (  \det ( T^{-1} ) )
+        </me>.
+      </p>
+      <p>
+        Hence <m>\det T \ne 0</m> and
+        <m>\det ( T^{-1} )</m> is the multiplicative inverse of <m>\det T{}</m>.
+      </p>
+      <p>
+        To prove the other direction,
+        now suppose <m>\det T \ne 0</m>.
+        Suppose <m>v \in V</m> and <m>v \ne 0</m>.
+        Let <m>v, e_2, \ldots, e_n</m> be a basis of <m>V</m> and let
+        <m>\alpha  \in V^{(n)}_{\text{ alt } }</m> be such that <m>\alpha  \ne 0</m>.
+        Then <m>\alpha (v, e_2, \ldots, e_n) \ne 0</m>
+        (by <xref ref="x9altli"></xref>).
+        Now
+        <me>
+          \alpha (Tv, Te_2, \ldots, Te_n) = (\det T) \alpha (v, e_2, \ldots, e_n) \ne 0
+        </me>.
+      </p>
+      <p>
+        Thus <m>Tv \ne 0</m>.
+        Hence <m>T</m> is invertible.
+      </p>
+    </proof>
+    <p>
+      An \by{n}{n} matrix <m>A</m> is invertible
+      (<xref ref="x3invertm">see</xref>
+      for the definition of an invertible matrix)
+      if and only if the operator on <m>\F n</m> associated with <m>A</m> \big(via the standard basis of <m>\F n</m>\big) is invertible.
+      Thus the previous result shows that a square matrix <m>A</m> is invertible if and only if <m>\det A \ne 0</m>.
+    </p>
+    <theorem xml:id="x9eigdet">
+      <title>eigenvalues and determinants</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>.
+          Then <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>\det(\lambda I - T) = 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The number <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>T - \lambda I</m> is not invertible
+        (<xref ref="eigenequiv">see</xref>),
+        which happens if and only if <m>\lambda I - T</m> is not invertible,
+        which happens if and only if <m>\det(\lambda I - T) = 0</m>
+        (by <xref ref="x9nonzero"></xref>).
+      </p>
+    </proof>
+    <p>
+      Suppose <m>T \in \Lc(V)</m> and
+      <m>\fun S W V</m> is an invertible linear map.
+      To prove that <m>\det(  S^{-1} T S  ) = \det T</m>,
+      we could try to <xref ref="x9detmult">use</xref>
+      and <xref ref="x9nonzero"></xref>, writing
+      <md>
+        <mrow>\det(  S^{-1} T S  )\amp = (  \det S^{-1}  ) (\det T) (\det S)</mrow>
+        <mrow>\amp = \det T{}</mrow>
+      </md>.
+    </p>
+    <p>
+      That proof works if <m>W = V{}</m>,
+      but if <m>W \ne V</m> then it makes no sense because the determinant is defined only for linear maps from a vector space to itself,
+      and <m>S</m> maps <m>W</m> to <m>V{}</m>,
+      making <m>\det S</m> undefined.
+      The proof given below works around this issue and is valid when <m>W \ne V{}</m>.
+    </p>
+    <theorem xml:id="x9sim">
+      <title>determinant is a similarity invariant</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and
+          <m>\fun S W V</m> is an invertible linear map.
+          Then
+          <me>
+            \det(  S^{-1} T S  ) = \det T{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>n = \dim W = \dim V{}</m>.
+        Suppose <m>\tau \in W_{\text{ alt } }^{(n)}{}</m>.
+        Define <m>\alpha  \in V^{(n)}_{\text{ alt } }</m> by
+        <me>
+          \alpha (v_1, \ldots, v_n) = \tau( S^{-1}v_1, \ldots, S^{-1}v_n )
+        </me>
+        for <m>v_1, \ldots, v_n \in V{}</m>.
+        Suppose <m>w_1, \ldots, w_n \in W{}</m>.
+        Then
+        <md>
+          <mrow>\tau_{S^{-1} T S}( w_1, \ldots, w_n) \amp = \tau(  S^{-1}TS w_1, \ldots, S^{-1} T S w_n )</mrow>
+          <mrow>\amp = \alpha ( TSw_1, \ldots, TSw_n)</mrow>
+          <mrow>\amp = \alpha_T( Sw_1, \ldots, Sw_n)</mrow>
+          <mrow>\amp = (\det T) \alpha (Sw_1, \ldots, Sw_n)</mrow>
+          <mrow>\amp = (\det T) \tau(w_1, \ldots, w_n)</mrow>
+        </md>.
+      </p>
+      <p>
+        The equation above and the definition of the determinant of the operator
+        <m>S^{-1} T S</m> imply that <m>\det( S^{-1} T S ) = \det T{}</m>.
+      </p>
+    </proof>
+    <p>
+      For the special case in which <m>V = \F n</m> and
+      <m>e_1, \ldots,
+      e_n</m> is the standard basis of <m>\FF n</m>,
+      the next result is true by the definition of the determinant of a matrix.
+      The left side of the equation in the next result does not depend on a choice of basis,
+      which means that the right side is independent of the choice of basis.
+    </p>
+    <theorem xml:id="x9detopmat">
+      <title>determinant of operator equals determinant of its matrix</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and
+          <m>e_1, \ldots,
+          e_n</m> is a basis of <m>V{}</m>.
+          Then
+          <me>
+            \det T = \det \M( T, (e_1, \ldots, e_n)  )
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>f_1, \ldots, f_n</m> be the standard basis of <m>\FF{n}</m>.
+        Let <m>\fun S {\F n} V</m> be the linear map such that
+        <m>Sf_k = e_k</m> for each <m>k = 1, \ldots, n</m>.
+        Thus <m>\M(  S, (f_1, \ldots, f_n), (e_1, \ldots,
+        e_n)  )</m> and <m>\M(  S^{-1} , (e_1, \ldots, e_n), (f_1, \ldots,
+        f_n)  )</m> both equal the \by{n}{n} identity matrix.
+        Hence
+        <men xml:id="x9matprod">
+          \M(  S^{-1} T S, (f_1, \ldots, f_n)  ) = \M(  T, (e_1, \ldots, e_n)  )
+        </men>,
+        as follows from two applications of <xref ref="x3matproduct"></xref>.
+        Thus
+        <md>
+          <mrow>\det T \amp = \det( S^{-1} T S  )</mrow>
+          <mrow>\amp = \det \M(  S^{-1} T S, (f_1, \ldots, f_n)  )</mrow>
+          <mrow>\amp = \det \M(  T, (e_1, \ldots, e_n)  )</mrow>
+        </md>,
+        where the first line comes from <xref ref="x9sim"></xref>,
+        the second line comes from the definition of the determinant of a matrix,
+        and the third line follows from <xref ref="x9matprod"></xref>.
+      </p>
+    </proof>
+    <p>
+      The next result gives a more intuitive way to think about determinants than the definition or the formula in <xref ref="x9detformula"></xref>.
+      We could make the characterization in the result below the definition of the determinant of an operator on a finite-dimensional complex vector space,
+      with the current definition then becoming a consequence of that definition.
+    </p>
+    <theorem xml:id="x9prodeig">
+      <title>if  <m>\F = \C</m>, then determinant equals product of eigenvalues</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then <m>\det T</m> equals the product of the eigenvalues of <m>T{}</m>,
+          with each eigenvalue included as many times as its multiplicity.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        There is a basis of <m>V</m> with respect to which <m>T</m> has an upper-triangular matrix with the diagonal entries of the matrix consisting of the eigenvalues of <m>T{}</m>,
+        with each eigenvalue included as many times as its multiplicity<mdash/><xref ref="x187">see</xref>.
+        <xref ref="x9detopmat">Thus</xref>
+        and <xref ref="x9detupper"></xref>
+        imply that <m>\det T</m> equals the product of the eigenvalues of <m>T{}</m>,
+        with each eigenvalue included as many times as its multiplicity.
+      </p>
+    </proof>
+    <p>
+      As the next result shows,
+      the determinant interacts nicely with the transpose of a square matrix,
+      with the dual of an operator,
+      and with the adjoint of an operator on an inner product space.
+    </p>
+    <theorem xml:id="detTdual">
+      <title>determinant of transpose, dual, or adjoint</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>A</m> is a square matrix.
+              Then <m>\det \tran{A} = \det A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Then <m>\det T' = \det T{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
+              Then
+              <me>
+                \det ( T^* ) = \overline{\det T}{}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            Let <m>n</m> be a positive integer.
+            Define <m>\fun \alpha  { ( \F n )^n} {\F{}}</m> by
+            <me>
+              \alpha  (  v_1, \ldots,  v_n ) = \det (  \tran{\begin{pmatrix}v_1 \amp  \cdots \amp  v_n \end{pmatrix}  }  )
+            </me>
+            for all <m>v_1, \ldots, v_n \in \FF n</m>.
+            The formula in <xref ref="x9detformula"></xref>
+            for the determinant of a matrix shows that <m>\alpha</m> is an <m>n</m>-linear form on <m>\FF n</m>.
+            Suppose <m>v_1, \ldots, v_n \in \F n</m> and
+            <m>v_j = v_k</m> for some <m>j \ne k</m>.
+            If <m>B</m> is an \by{n}{n} matrix,
+            then <m>\tran{\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix} }B</m> cannot equal the identity matrix because row <m>j</m> and row <m>k</m> of <m>\tran{\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix} } B</m> are equal.
+            Thus <m>\tran{\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix} }</m> is not invertible,
+            which implies that <m>\alpha  (  v_1, \ldots,  v_n ) = 0</m>.
+            Hence <m>\alpha</m> is an alternating <m>n</m>-linear form on <m>\FF n</m>.
+            Note that <m>\alpha</m> applied to the standard basis of <m>\F n</m> equals <m>1</m>.
+            Because the vector space of alternating <m>n</m>-linear forms on <m>\F n</m> has dimension one
+            (by <xref ref="x9dimone"></xref>),
+            this implies that <m>\alpha</m> is the determinant function.
+            Thus (a) holds.
+          </p>
+        </li>
+        <li>
+          <p>
+            The equation <m>\det T' = \det T{}</m> follows from (a) and <xref ref="x9detopmat"></xref>
+            and <xref ref="x3matrixTprime"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Pick an orthonormal basis of <m>V{}</m>.
+            The matrix of <m>T^*</m> with respect to that basis is the conjugate transpose of the matrix of <m>T</m> with respect to that basis
+            (by <xref ref="x406"></xref>).
+            <xref ref="x9detopmat">Thus</xref>,
+            <xref ref="x9detformula"></xref>,
+            and (a) imply that <m>\det ( T^* ) = \overline{\det T}{}</m>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <theorem xml:id="x9helpful">
+      <title>helpful results in evaluating determinants</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If either two columns or two rows of a square matrix are equal,
+              then the determinant of the matrix equals <m>0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>A</m> is a square matrix and <m>B</m> is the matrix obtained from <m>A</m> by swapping either two columns or two rows.
+              Then <m>\det A = - \det B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If one column or one row of a square matrix is multiplied by a scalar,
+              then the value of the determinant is multiplied by the same scalar.
+            </p>
+          </li>
+          <li>
+            <p>
+              If a scalar multiple of one column of a square matrix is added to another column,
+              then the value of the determinant is unchanged.
+            </p>
+          </li>
+          <li>
+            <p>
+              If a scalar multiple of one row of a square matrix is added to another row,
+              then the value of the determinant is unchanged.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        All the assertions in this result follow from the result that the maps <m>v_1, \ldots,
+        v_n \mapsto \det \begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix}</m> and
+        <m>v_1, \ldots,
+        v_n \mapsto \det \tran{\begin{pmatrix}v_1 \amp \cdots \amp v_n \end{pmatrix} }</m> are both alternating <m>n</m>-linear forms on <m>\FF n</m> [<xref ref="x9detalt">see</xref>
+        and <xref ref="detTdual"></xref>(a)] .
+      </p>
+      <p>
+        For example, to prove (d) suppose
+        <m>v_1, \ldots,
+        v_n \in \F n</m> and <m>c \in \F{}{}</m>.
+        Then
+        <md>
+          <mrow>\det \amp \begin{pmatrix}v_1 + cv_2 \amp  v_2 \amp  \cdots \amp  v_n \end{pmatrix}</mrow>
+          <mrow>\amp =\det \begin{pmatrix}v_1 \amp  v_2 \amp  \cdots \amp  v_n \end{pmatrix}  + c\det \begin{pmatrix}v_2 \amp  v_2 \amp  v_3 \amp  \cdots \amp  v_n \end{pmatrix}</mrow>
+          <mrow>\amp = \det \begin{pmatrix}v_1 \amp  v_2 \amp  \cdots \amp  v_n \end{pmatrix} </mrow>
+        </md>,
+        where the first equation follows from the multilinearity property and the second equation follows from the alternating property.
+        The equation above shows that adding a multiple of the second column to the first column does not change the value of the determinant.
+        The same conclusion holds for any two columns.
+        Thus (d) holds.
+      </p>
+      <p>
+        The proof of (e) follows from (d) and from <xref ref="detTdual"></xref>(a).
+        The proofs of (a), (b),
+        and (c) use similar tools and are left to the reader.
+      </p>
+    </proof>
+    <p>
+      For matrices whose entries are concrete numbers,
+      the result above leads to a much faster way to evaluate the determinant than direct application of the formula in <xref ref="x9detformula"></xref>.
+          <idx><h>Gaussian elimination|(</h></idx>
+      Specifically,
+      apply the Gaussian elimination procedure of swapping rows [by <xref ref="x9helpful"></xref>(b),
+      this changes the determinant by a factor of <m>-1</m>] , multiplying a row by a nonzero constant [by <xref ref="x9helpful"></xref>(c),
+      this changes the determinant by the same constant] , and adding a multiple of one row to another row [by <xref ref="x9helpful"></xref>(e),
+      this does not change the determinant] to produce an upper-triangular matrix,
+      whose determinant is the product of the diagonal entries
+      (by <xref ref="x9detupper"></xref>).
+      If your software keeps track of the number of row swaps and of the constants used when multiplying a row by a constant,
+      then the determinant of the original matrix can be computed.
+    </p>
+    <p>
+      Because a number <m>\lambda \in \F{}</m> is an eigenvalue of an operator
+      <m>T \in \Lc(V)</m> if and only if <m>\det(\lambda I - T) = 0</m>
+      (by <xref ref="x9eigdet"></xref>),
+      you may be tempted to think that one way to find eigenvalues quickly is to choose a basis of <m>V{}</m>,
+      let <m>A = \M(T)</m>, evaluate <m>\det(\lambda I - A)</m>,
+      and then solve the equation <m>\det(\lambda I - A) = 0</m> for <m>\lambda</m>.
+      However, that procedure is rarely efficient,
+      except when <m>\dim V = 2</m>
+      (or when <m>\dim V</m> equals <m>3</m> or <m>4</m> if you are willing to use the cubic or quartic formulas).
+      One problem is that the procedure described in the paragraph above for evaluating a determinant does not work when the matrix includes a symbol
+      (such as the <m>\lambda</m> in <m>\lambda I - A</m>).
+      This problem arises because decisions need to be made in the Gaussian elimination procedure about whether certain quantities equal <m>0</m>,
+      and those decisions become complicated in expressions involving a symbol <m>\lambda</m>.
+          <idx><h>Gaussian elimination|)</h></idx>
+    </p>
+    <p>
+      Recall that an operator on a finite-dimensional inner product space is unitary if it preserves norms
+      (<xref ref="x7unitaryop">see</xref>
+      and the paragraph following it).
+      Every eigenvalue of a unitary operator has absolute value <m>1</m>
+      (by <xref ref="EigUnitary"></xref>).
+      Thus the product of the eigenvalues of a unitary operator has absolute value <m>1</m>.
+      Hence (at least in the case
+      <m>\F{} = \C{}</m>) the determinant of a unitary operator has absolute value <m>1</m>
+      (by <xref ref="x9prodeig"></xref>).
+      The next result gives a proof that works without the assumption that <m>\F{} = \C{}</m>.
+    </p>
+    <theorem xml:id="x326">
+      <title>every unitary operator has determinant with absolute value  <m>1</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and
+          <m>S \in \Lc(V)</m> is a unitary operator.
+          Then <m>\lvert \det S \rvert = 1</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>determinant</h><h>of unitary operator</h></idx>
+    </p>
+    <proof>
+      <p>
+        Because <m>S</m> is unitary, <m>I = S^* S</m>
+        (<xref ref="x734u">see</xref>).
+        Thus
+        <me>
+          1 = \det(S^* S) = (\det S^*) (\det S) = \overline{( \det S)} (\det S) = \lvert \det S \rvert ^2{}
+        </me>,
+        where the second equality comes from <xref ref="x9detmult"></xref>(a) and the third equality comes from <xref ref="detTdual"></xref>(c).
+        The equation above implies that <m>\lvert \det S \rvert  = 1</m>.
+      </p>
+    </proof>
+    <p>
+      The determinant of a positive operator on an inner product space meshes well with the analogy that such operators correspond to the nonnegative real numbers.
+    </p>
+    <theorem xml:id="x9posdet">
+      <title>every positive operator has nonnegative determinant</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and
+          <m>T \in \Lc(V)</m> is a positive operator.
+          Then <m>\det T \ge 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>determinant</h><h>of positive operator</h></idx>
+    </p>
+    <proof>
+      <p>
+        By the spectral theorem ( <xref ref="x86"></xref> <xref ref="x85">or</xref>),
+        <m>V</m> has an orthonormal basis consisting of eigenvectors of <m>T{}</m>.
+        Thus by the last bullet point of <xref ref="x9detops"></xref>,
+        <m>\det T</m> equals a product of the eigenvalues of <m>T{}</m>,
+        possibly with repetitions.
+        Each eigenvalue of <m>T</m> is a nonnegative number
+        (by <xref ref="x197"></xref>).
+        Thus we conclude that <m>\det T \ge 0</m>.
+      </p>
+    </proof>
+    <p>
+      Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
+      Recall that the list of nonnegative square roots of the eigenvalues of <m>T^* T</m>
+      (each included as many times as its multiplicity)
+      is called the list of singular values of <m>T</m>
+      (see <xref ref="x2SVD">Section</xref>).
+    </p>
+    <theorem xml:id="x324">
+      <title><m>\lvert \det T \rvert   =</m> product of singular values of  <m>T</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
+          Then
+              <idx><h>singular values</h></idx>
+          <me>
+            \lvert \det T \rvert  = \sqrt{\det( T^*T )} = \text{ product of singular values of }  T{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <me>
+          \lvert  \det T  \rvert ^2 = \overline{(\det T)} (\det T) = ( \det ( T^* ) )(\det T) = \det( T^* T )
+        </me>,
+        where the middle equality comes from <xref ref="detTdual"></xref>(c) and the last equality comes from <xref ref="x9detmult"></xref>(a).
+        Taking square roots of both sides of the equation above shows that <m>\lvert \det T \rvert  = \sqrt{\det( T^*T )}</m>.
+      </p>
+      <p>
+        Let <m>s_1, \ldots,
+        s_n</m> denote the list of singular values of <m>T{}</m>.
+        Thus <m>{s_1}^{2}{}, \ldots, {s_n}^{2}</m> is the list of eigenvalues of <m>T^*T</m>
+        (with appropriate repetitions),
+        corresponding to an orthonormal basis of <m>V</m> consisting of eigenvectors of <m>T^*T{}</m>.
+        Hence the last bullet point of <xref ref="x9detops"></xref> implies that
+        <me>
+          \det (  T^* T  ) = {s_1}^{2} \cdots {s_n}^{2}{}
+        </me>.
+      </p>
+      <p>
+        Thus <m>\lvert \det T \rvert = s_1 \cdots s_n</m>, as desired.
+      </p>
+    </proof>
+    <p>
+      An operator <m>T</m> on a real inner product space changes volume by a factor of the product of the singular values
+      (by <xref ref="x7volchange"></xref>).
+      Thus the next result follows immediately from <xref ref="x7volchange"></xref> and <xref ref="x324"></xref>.
+      This result explains why the absolute value of a determinant appears in the change of variables formula in multivariable calculus.
+    </p>
+    <theorem xml:id="x9330">
+      <title><m>T</m> changes volume by factor of  <m>\lvert \det T \rvert</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \R{n} )</m> and <m>\Omega \subset \RR{n}</m>.
+          Then
+              <idx><h>volume</h></idx>
+          <me>
+            \vol T(\Omega) = \lvert \det T \rvert  (\vol \Omega)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      For operators on finite-dimensional complex vector spaces,
+      we now connect the determinant to a polynomial that we have previously seen.
+    </p>
+    <theorem xml:id="x9chareqdet">
+      <title>if  <m>\F = \C</m>, then characteristic polynomial of  <m>T</m> equals  <m>\det(z I - T)</m></title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Let <m>\lambda_1, \ldots, \lambda_m</m> denote the distinct eigenvalues of<nbsp/><m>T</m>,
+          and let <m>d_1, \ldots, d_m</m> denote their multiplicities.
+          Then<idx><h>characteristic polynomial</h></idx>
+          <me>
+            \det(zI - T) = (z - \lambda_1)^{d_1} \dotsm (z - \lambda_m)^{d_m}\!
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        There exists a basis of <m>V</m> with respect to which <m>T</m> has an upper-triangular matrix with each
+        <m>\lambda_k</m> appearing on the diagonal exactly <m>d_k</m> times
+        (by <xref ref="x187"></xref>).
+        With respect to this basis,
+        <m>zI - T</m> has an upper-triangular matrix with
+        <m>z - \lambda_k</m> appearing on the diagonal exactly <m>d_k</m> times for each <m>k</m>.
+        <xref ref="x9detupper">Thus</xref> gives the desired equation.
+      </p>
+    </proof>
+    <p>
+      Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+      The characteristic polynomial of <m>T</m> was defined in <xref ref="x7charpoly"></xref>
+      as the polynomial on the right side of the equation in <xref ref="x9chareqdet"></xref>.
+      We did not previously define the characteristic polynomial of an operator on a finite-dimensional real vector space because such operators may have no eigenvalues,
+      making a definition using the right side of the equation in <xref ref="x9chareqdet"></xref> inappropriate.
+    </p>
+    <p>
+      We now present a new definition of the characteristic polynomial,
+      motivated by <xref ref="x9chareqdet"></xref>.
+      This new definition is valid for both real and complex vector spaces.
+      The equation in <xref ref="x9chareqdet"></xref>
+      shows that this new definition is equivalent to our previous definition when
+      <m>\F{} = \C{}</m> <xref ref="x7charpoly"/>.
+    </p>
+    <definition>
+      <title>characteristic polynomial</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          The polynomial defined by
+          <me>
+            z \mapsto \det(zI - T)
+          </me>
+          is called the <term>characteristic polynomial</term> of <m>T</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>characteristic polynomial</h></idx>
+    </p>
+    <p>
+      The formula in <xref ref="x9detformula"></xref>
+      shows that the characteristic polynomial of an operator
+      <m>T \in \Lc(V)</m> is a monic polynomial of degree <m>\dim V{}</m>.
+      The zeros in <m>\F{}</m> of the characteristic polynomial of <m>T</m> are exactly the eigenvalues of <m>T</m>
+      (by <xref ref="x9eigdet"></xref>).
+    </p>
+    <p>
+      Previously we proved the Cayley<ndash/>Hamilton theorem <xref ref="x139"/> in the complex case.
+      Now we can extend that result to operators on real vector spaces.
+    </p>
+    <theorem xml:id="x9CH">
+      <title>Cayley<ndash/>Hamilton theorem</title>
+      <statement>
+        <p>
+              <idx><h>Cayley<ndash/>Hamilton theorem</h></idx>
+          Suppose <m>T \in \Lc(V)</m> and <m>q</m> is the characteristic polynomial of<nbsp/><m>T{}</m>.
+          Then <m>q(T) =0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>\F{} = \C{}</m>, then the equation
+        <m>q(T) = 0</m> follows from <xref ref="x9chareqdet"></xref> and <xref ref="x139"></xref>.
+      </p>
+      <p>
+        Now suppose <m>\F{} = \R{}</m>.
+        Fix a basis of <m>V{}</m>,
+        and let <m>A</m> be the matrix of <m>T</m> with respect to this basis.
+        Let <m>S</m> be the operator on
+        <m>\C {\dim V}</m> such that the matrix of <m>S</m> \big(with respect to the standard basis of <m>\C {\dim V}</m>\big) is <m>A</m>.
+        For all <m>z \in \R{}</m> we have
+        <me>
+          q(z) = \det(zI - T) = \det(zI - A) = \det(zI - S)
+        </me>.
+      </p>
+      <p>
+        Thus <m>q</m> is the characteristic polynomial of <m>S</m>.
+        The case <m>\F{} = \C{}</m>
+        (first sentence of this proof)
+        now implies that <m>0 = q(S) = q(A) = q(T)</m>.
+      </p>
+    </proof>
+    <p>
+      Some textbooks define the characteristic polynomial of <m>T</m> to be <m>\det(T - z I)</m>,
+      which equals <m>(-1)^{\dim V}</m> times the characteristic polynomial as defined here.
+      The advantage of our definition is that the characteristic polynomial is then a monic polynomial. \end{aside}
+    </p>
+    <p>
+      The Cayley<ndash/>Hamilton theorem <xref ref="x9CH"/> implies that the characteristic polynomial of an operator
+      <m>T \in \Lc(V)</m> is a polynomial multiple of the minimal polynomial of <m>T</m>
+      (by <xref ref="x140"></xref>).
+      Thus if the degree of the minimal polynomial of <m>T</m> equals <m>\dim V{}</m>,
+      then the characteristic polynomial of <m>T</m> equals the minimal polynomial of <m>T{}</m>.
+      This happens for a very large percentage of operators,
+      including over 99.999% of \by{4}{4} matrices with integer entries in <m>[-100, 100]</m>
+      (see the paragraph <xref ref="x2simul">following</xref>).
+    </p>
+    <p>
+      The last sentence in our next result was previously proved in the complex case
+      (<xref ref="x8tracechar">see</xref>).
+      Now we can give a proof that works on both real and complex vector spaces.
+    </p>
+    <theorem xml:id="x9dettr">
+      <title>characteristic polynomial, trace, and determinant</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Let <m>n = \dim V{}</m>.
+          Then the characteristic polynomial of <m>T</m> can be written as
+          <me>
+            z^n - (\tr T) z^{n-1} + \dots + (-1)^n (\det T)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The constant term of a polynomial function of <m>z</m> is the value of the polynomial when <m>z = 0</m>.
+        Thus the constant term of the characteristic polynomial of <m>T</m> equals <m>\det(-T)</m>,
+        which equals <m>(-1)^n \det T</m>
+        (by the third bullet point of <xref ref="x9detops"></xref>).
+      </p>
+      <p>
+        Fix a basis of <m>V{}</m>,
+        and let <m>A</m> be the matrix of <m>T</m> with respect to this basis.
+        The matrix of <m>zI - T</m> with respect to this basis is <m>zI - A</m>.
+        The term coming from the identity permutation
+        <m>\{ 1, \ldots,
+        n \}</m> in the <xref ref="x9detformula">formula</xref> for <m>\det(zI - A)</m> is
+        <me>
+          (z - A_{1,1}) \cdots (z - A_{n,n})
+        </me>.
+      </p>
+      <p>
+        The coefficient of <m>z^{n-1}</m> in the expression above is <m>-(A_{1,1} + \cdots + A_{n,n})</m>,
+        which equals <m>-\tr T</m>.
+        The terms in the formula for
+        <m>\det(zI - A)</m> coming from other elements of <m>\perm n</m> contain at most <m>n-2</m> factors of the form
+        <m>z - A_{k,k}</m> and thus do not contribute to the coefficient of <m>z^{n-1}</m> in the characteristic polynomial of <m>T{}</m>.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        The next result was proved by Jacques Hadamard (1865<ndash/>1963) in 1893.
+      </p>
+    </aside>
+    <p>
+      In the result below,
+      think of the columns of the \by{n}{n} matrix <m>A</m> as elements of <m>\FF{n}</m>.
+      The norms appearing below then arise from the standard inner product on <m>\FF{n}</m>.
+      Recall that the notation <m>R_{\cdot,
+      k}</m> in the proof below means the <m>k^\nth</m> column of the matrix <m>R</m>
+      (as was defined in <xref ref="Ajk"></xref>).
+    </p>
+    <theorem xml:id="Hadamard">
+      <title>Hadamard's inequality</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an \by{n}{n} matrix.
+          Let <m>v_1, \ldots, v_n</m> denote the columns of <m>A</m>.
+          Then
+              <idx><h>Hadamard's inequality</h></idx>
+          <me>
+            \lvert  \det A  \rvert  \le \prod_{k=1}^n   \lVert  v_k  \rVert
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>A</m> is not invertible,
+        then <m>\det A = 0</m> and hence the desired inequality holds in this case.
+      </p>
+      <p>
+        Thus assume that <m>A</m> is invertible.
+        The QR factorization <xref ref="x7QR"/> tells us that there exist a unitary matrix <m>Q</m> and an upper-triangular matrix <m>R</m> whose diagonal contains only positive numbers such that <m>A = QR</m>.
+        We have
+            <idx><h>QR factorization</h></idx>
+        <md>
+          <mrow>\lvert  \det A \rvert  \amp = \lvert  \det Q  \rvert    \lvert \det R \rvert</mrow>
+          <mrow>\amp = \lvert  \det R  \rvert</mrow>
+          <mrow>\amp = \prod_{k=1}^n    R_{k,k}</mrow>
+          <mrow>\amp \le \prod_{k=1}^n   \lVert  R_{\cdot, k}  \rVert</mrow>
+          <mrow>\amp = \prod_{k=1}^n   \lVert  QR_{\cdot, k}  \rVert</mrow>
+          <mrow>\amp = \prod_{k=1}^n   \lVert v_k \rVert </mrow>
+        </md>,
+        where the first line comes from <xref ref="x9detmult"></xref>(b),
+        the second line comes from <xref ref="x326"></xref>,
+        the third line comes from <xref ref="x9detupper"></xref>,
+        and the fifth line holds because <m>Q</m> is an isometry.
+      </p>
+    </proof>
+    <p>
+      To give a geometric interpretation to Hadamard's inequality,
+      suppose <m>\F{} = \R{}</m>.
+      Let <m>T \in \Lc( \R n )</m> be the operator such that
+      <m>Te_k = v_k</m> for each <m>k=1, \ldots, n</m>,
+      where <m>e_1, \ldots, e_n</m> is the standard basis of <m>\RR n</m>.
+      Then <m>T</m> maps the box
+      <m>P(e_1, \ldots,
+      e_n)</m> onto the parallelepiped
+      <m>P(v_1, \ldots,
+      v_n)</m> [<xref ref="x7parallel">see</xref> and <xref ref="x7box"></xref>
+      for a review of this notation and terminology]. Because the box
+      <m>P(e_1, \ldots,
+      e_n)</m> has volume<nbsp/><m>1</m>, this implies
+      (by <xref ref="x9330"></xref>)
+      that the parallelepiped <m>P(v_1, \ldots,
+      v_n)</m> has volume <m>\lvert \det T \rvert</m>,
+      which equals <m>\lvert \det A \rvert</m>.
+      Thus Hadamard's inequality above can be interpreted to say that among all parallelepipeds whose edges have lengths <m>\lVert v_1 \rVert , \ldots, \lVert v_n \rVert</m>,
+      the ones with largest volume have orthogonal edges \Big(and thus have volume <m>\prod_{k=1}^n \lVert v_k \rVert</m>\Big).
+    </p>
+    <p>
+      For a necessary and sufficient condition for Hadamard's inequality to be an equality,
+      see <xref ref="x7HadEq">Exercise</xref>.
+    </p>
+    <p>
+      The matrix in the next result is called the
+      <term>Vandermonde matrix</term>.
+          <idx><h>Vandermonde matrix</h></idx>
+      Vandermonde matrices have important applications in polynomial interpolation,
+      the discrete Fourier transform,
+      and other areas of mathematics.
+      The proof of the next result is a nice illustration of the power of switching between matrices and linear maps.
+    </p>
+    <theorem>
+      <title>determinant of Vandermonde matrix</title>
+      <statement>
+        <p>
+          Suppose <m>n > 1</m> and <m>\beta_1, \ldots, \beta_n \in \F{}{}</m>.
+          Then
+          <me>
+            \det \begin{pmatrix}1 \amp  \beta_1 \amp  {\beta_1}^{2} \amp  \cdots \amp  {\beta_1}^{n-1} \\ 1 \amp  \beta_2 \amp  {\beta_2}^{2} \amp  \cdots \amp  {\beta_2}^{n-1} \\ \\ \amp  \amp  \ddots \\ \\ 1 \amp  \beta_n \amp  {\beta_n}^{2} \amp  \cdots \amp  {\beta_n}^{n-1} \\ \end{pmatrix}  = \prod_{1 \le j \lt  k \le n} (\beta_k - \beta_j)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>1, z, \ldots,
+        z^{n-1}</m> be the standard basis of <m>\P{}_{n-1}(\F{})</m> and let
+        <m>e_1, \ldots,
+        e_n</m> denote the standard basis of <m>\FF n</m>.
+        Define a linear map <m>\fun S { \P{}_{n-1}(\F{}) } { \F n }</m> by
+        <me>
+          Sp = (  p(\beta_1), \ldots, p(\beta_n)  )
+        </me>.
+      </p>
+      <p>
+        Let <m>A</m> denote the Vandermonde matrix shown in the statement of this result.
+        Note that
+        <me>
+          A = \M (  S, (1, z, \ldots, z^{n-1}), (e_1, \ldots, e_n)  )
+        </me>.
+      </p>
+      <p>
+        Let <m>\fun T {\P{}_{n-1}(\F{})} {\P{}_{n-1}(\F{})}</m> be the operator on
+        <m>\P{}_{n-1}(\F{})</m> such that <m>T1 = 1</m> and
+        <me>
+          Tz^k = (z - \beta_1) (z - \beta_2) \cdots (z - \beta_k)
+        </me>
+        for <m>k= 1, \ldots, n-1</m>.
+        Let <m>B = \M( T, (1, z, \ldots,
+        z^{n-1}), (1, z, \ldots, z^{n-1}) )</m>.
+        Then <m>B</m> is an upper-triangular matrix all of whose diagonal entries equal <m>1</m>.
+        Thus <m>\det B = 1</m>
+        (by <xref ref="x9detupper"></xref>).
+      </p>
+      <p>
+        Let <m>C = \M(  ST, (1, z, \ldots,
+        z^{n-1} ), (e_1, \ldots, e_n)  )</m>.
+        Thus <m>C = AB</m>
+        (by <xref ref="x298"></xref>),
+        which implies that
+        <me>
+          \det A= (\det A)(\det B) =\det C
+        </me>.
+      </p>
+      <p>
+        The definitions of <m>C</m>, <m>S</m>,
+        and <m>T</m> show that <m>C</m> equals {\overfullrule=0bp
+        <me>
+          \begin{pmatrix}1  \amp  0 \amp  0 \amp \cdots \amp  0 \\ 1 \amp  \beta_2 - \beta_1  \amp  0\amp \cdots \amp  0 \\ 1 \amp  \beta_3 - \beta_1 \amp  (\beta_3 - \beta_1)(\beta_3 - \beta_2)  \amp  \cdots \amp  0 \\ \\ \amp  \amp  \amp  \ddots \\ \\ 1 \amp  \beta_n - \beta _1 \amp  (\beta_n - \beta_1)(\beta_n - \beta_2)  \amp  \cdots \amp  (\beta_n - \beta_1) (\beta_n - \beta_2) \cdots (\beta_n- \beta_{n-1} ) \end{pmatrix}
+        </me>.
+      </p>
+      <p>
+        Now <m>\displaystyle \det A = \det C = \prod_{1 \le j \lt k \le n} (\beta_k - \beta_j)</m>,
+        where we have <xref ref="detTdual">used</xref>(a) and <xref ref="x9detupper"></xref>.
+      </p>
+    </proof>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample:
+              <m>S, T \in \Lc(V) \!\implies\! \det (S+T) = \det S + \det T{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose the first column of a square matrix <m>A</m> consists of all zeros except possibly the first entry <m>A_{1,1}</m>.
+              Let <m>B</m> be the matrix obtained from <m>A</m> by deleting the first row and the first column of <m>A</m>.
+              Show that <m>\det A = A_{1,1} \det B</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is nilpotent.
+              Prove that <m>\det(I + T) = 1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m>.
+              Prove that <m>S</m> is unitary if and only if <m>\lvert \det S \rvert = \lVert S \rVert = 1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="blockdet">
+          <statement>
+            <p>
+              Suppose <m>A</m> is a block upper-triangular matrix
+              <me>
+                A = \begin{pmatrix}A_1 \amp  \amp * \\ \amp \ddots \amp  \\ 0 \amp  \amp A_m \end{pmatrix}
+              </me>,
+              where each <m>A_k</m> along the diagonal is a square matrix.
+              Prove that
+              <me>
+                \det A = (\det A_1) \dotsm (\det A_m)
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>A = \begin{pmatrix}v_1 \amp  \cdots \amp  v_n \end{pmatrix}</m> is an \by{n}{n} matrix,
+              with <m>v_k</m> denoting the <m>k^\nth</m> column of <m>A</m>.
+              Show that if <m>(m_1, \ldots,
+              m_n) \in \perm n</m>, then
+              <me>
+                \det \begin{pmatrix}v_{m_1} \amp \cdots \amp  v_{m_n} \end{pmatrix}  = ( \sign(m_1, \ldots, m_n) ) \det A
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is invertible.
+              Let <m>p</m> denote the characteristic polynomial of <m>T</m> and let <m>q</m> denote the characteristic polynomial of <m>T^{-1}</m>.
+              Prove that
+              <me>
+                q(z) = \frac{1}{p(0)}  z^{\dim V}   p( \frac{1}{z} )
+              </me>
+              for all nonzero <m>z \in \F{}{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is an operator with no eigenvalues
+              (which implies that <m>\F{} = \R{}</m>).
+              Prove that <m>\det T > 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>V</m> is a real vector space of even dimension,
+              <m>T \in \Lc(V)</m>, and <m>\det T \lt 0</m>.
+              Prove that <m>T</m> has at least two distinct eigenvalues.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9oddeigen">
+          <statement>
+            <p>
+              Suppose <m>V</m> is a real vector space of odd dimension and <m>T \in \Lc(V)</m>.
+              Without using the minimal polynomial,
+              prove that <m>T</m> has an eigenvalue.
+          <idx><h>eigenvalue</h><h>on odd-dimensional space</h></idx>
+      Note: This result was previously proved without using determinants or the characteristic polynomial<mdash/><xref ref="x5odd">see</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
+              and <m>\det T > 0</m>, then <m>T</m> has a square root.
+              Note: If <m>\F{} = \C{}</m>,
+              <m>T \in \Lc(V)</m>, and <m>\det T \ne 0</m>,
+              then <m>T</m> has a square root
+              (<xref ref="x397">see</xref>)
+              .
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S, T \in \Lc(V)</m> and <m>S</m> is invertible.
+              Define <m>\fun p {\F{}} {\F{}}</m> by
+              <me>
+                p(z) = \det(zS - T)
+              </me>.
+            </p>
+            <p>
+              Prove that <m>p</m> is a polynomial of degree <m>\dim V</m> and that the coefficient of
+              <m>z^{\dim V}</m> in this polynomial is <m>\det S</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m>, <m>T \in \Lc(V)</m>,
+              and <m>n = \dim V > 2</m>.
+              Let <m>\lambda_1, \ldots, \lambda_n</m> denote the eigenvalues of <m>T</m>,
+              with each eigenvalue included as many times as its multiplicity.
+              <ol>
+                <li>
+                  <p>
+                    Find a formula for the coefficient of <m>z^{n-2}</m> in the characteristic polynomial of <m>T</m> in terms of <m>\lambda_1, \ldots, \lambda_n</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Find a formula for the coefficient of <m>z</m> in the characteristic polynomial of <m>T</m> in terms of <m>\lambda_1, \ldots, \lambda_n</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9detsq">
+          <statement>
+            <p>
+              Suppose <m>V</m> is an inner product space and <m>T</m> is a positive operator on <m>V{}</m>.
+              Prove that
+              <me>
+                \det \sqrt{T} = \sqrt{ \det T }
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
+              Use the polar decomposition to give a proof that
+              <me>
+                \lvert \det T \rvert  = \sqrt{\det( T^*T )}
+              </me>
+              that is different from the proof given earlier
+              (<xref ref="x324">see</xref>).
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Define <m>\fun g {\F{}} {\F{}}</m> by <m>g(x) = \det(I + xT)</m>.
+              Show that <m>g'(0) = \tr T{}</m>.
+              Note: Look for a clean solution to this exercise,
+              without using the explicit but complicated formula for the determinant of a matrix.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>a, b, c</m> are positive numbers.
+              Find the volume of the ellipsoid
+              <me>
+                \{  (x, y, z) \in \R{3}: \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} \lt  1  \}
+              </me>
+              by finding a set <m>\Omega \subset \R{3}</m> whose volume you know and an operator <m>T</m> on <m>\R{3}</m> such that
+              <m>T(\Omega)</m> equals the ellipsoid above.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7HadEq">
+          <statement>
+            <p>
+              Suppose that <m>A</m> is an invertible square matrix.
+              Prove that Hadamard's inequality <xref ref="Hadamard"/> is an equality if and only if each column of <m>A</m> is orthogonal to the other columns.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is an inner product space,
+              <m>e_1, \ldots,
+              e_n</m> is an orthonormal basis of <m>V{}</m>,
+              and <m>T \in \Lc(V)</m> is a positive operator.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>\det T \le \prod_{k=1}^n \langle Te_k, e_k \rangle</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that if <m>T</m> is invertible,
+                    then the inequality in (a) is an equality if and only if <m>e_k</m> is an eigenvector of <m>T</m> for each <m>k = 1, \ldots, n</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x2Had">
+          <statement>
+            <p>
+              Suppose <m>A</m> is an \by{n}{n} matrix,
+              and suppose <m>c</m> is such that <m>\lvert A_{j,k} \rvert  \le c</m> for all <m>j,
+              k \in \{ 1, \ldots, n \}</m>.
+              Prove that
+              <me>
+                \lvert \det A \rvert  \le c^n n^{n/2}\!
+              </me>.
+            </p>
+            <p>
+              Note: The formula for the determinant of a matrix <xref ref="x9detformula"/> shows that <m>\lvert \det A \rvert \le c^n n!</m>.
+              However, the estimate given by this exercise is much better.
+              For example, if <m>c = 1</m> and <m>n = 100</m>,
+              then <m>c^n n! \approx 10^{158}\!</m>,
+              but the estimate given by this exercise is the much smaller number <m>10^{100}\!</m>.
+              If <m>n</m> is an integer power of <m>2</m>,
+              then the inequality above is sharp and cannot be improved.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>n</m> is a positive integer and
+              <m>\fun \delta {\C{n,n}} {\C{}}</m> is a function such that
+              <me>
+                \delta(AB) = \delta(A) \cdot \delta(B)
+              </me>
+              for all <m>A, B \in \C{n,n}</m> and
+              <m>\delta(A)</m> equals the product of the diagonal entries of <m>A</m> for each diagonal matrix <m>A \in \C{n,n}</m>.
+              Prove that
+              <me>
+                \delta(A) = \det A
+              </me>
+              for all <m>A \in \C{n,n}</m>.
+              Note: Recall that <m>\C{n,n}</m> denotes the set of \by{n}{n} matrices with entries in <nbsp/><m>\C{}</m>.
+              This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices.
+              This result is analogous to <xref ref="x9trChar">Exercise</xref>
+              in <xref ref="x7trace">Section</xref>,
+              which shows that the trace is uniquely determined by its algebraic properties.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+    <p>
+      <blockquote>
+        <p>
+          I find that in my own elementary lectures, I have, for pedagogical reasons,
+          pushed determinants more and more into the background.
+          Too often I have had the experience that,
+          while the students acquired facility with the formulas,
+          which are so useful in abbreviating long expressions,
+          they often failed to gain familiarity with their <emph>meaning</emph>,
+          and skill in manipulation prevented the student from going into all the details of the subject and so gaining a mastery.
+        </p>
+        <attribution><em>{Elementary Mathematics from an Advanced Standpoint: Geometry}, Felix Klein</em></attribution>
+      </blockquote>
+    </p>
+  </subsection>
+</section>

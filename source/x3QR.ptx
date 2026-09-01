@@ -1,0 +1,1204 @@
+<section xml:id="x3QR">
+  <title>Isometries, Unitary Operators, and Matrix Factorization</title>
+  <subsection>
+    <title>Isometries</title>
+    <p>
+      Linear maps that preserve norms are sufficiently important to deserve a name.
+    </p>
+    <definition>
+      <title>isometry</title>
+      <statement>
+        <p>
+          A linear map <m>S \in \Lc(V{},W)</m> is called an <term>isometry</term>
+              <idx><h>isometry</h></idx>
+          if
+          <me>
+            \| Sv \| = \| v \|
+          </me>
+          for every <m>v \in V{}</m>.
+          In other words, a linear map is an isometry if it preserves norms.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        The Greek word <em>isos</em> means equal;
+        the Greek word <em>metron</em> means measure.
+        Thus <em>isometry</em> literally means equal measure.
+      </p>
+    </aside>
+    <p>
+      If <m>S \in \Lc(V{}, W)</m> is an isometry and <m>v \in V</m> is such that <m>Sv = 0</m>, then
+      <me>
+        \lVert v \rVert  = \lVert Sv \rVert  = \lVert 0 \rVert  = 0
+      </me>,
+      which implies that <m>v = 0</m>.
+      Thus every isometry is injective.
+    </p>
+    <example xml:id="isoex">
+      <title>orthonormal basis maps to orthonormal list  <m>\implies</m> isometry</title>
+      <statement>
+        <p>
+          Suppose <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V</m> and
+          <m>g_1, \ldots,
+          g_n</m> is an orthonormal list in <m>W{}</m>.
+          Let <m>S \in \Lc(V{},W)</m> be the linear map such that
+          <m>Se_k = g_k</m> for each <m>k= 1, \ldots, n</m>.
+          To show that <m>S</m> is an isometry, suppose <m>v \in V{}</m>.
+          Then
+          <men xml:id="x235">
+            v = \langle v, e_1 \rangle  e_1 + \dots + \langle v, e_n \rangle  e_n
+          </men>
+          and
+          <men xml:id="x236">
+            \|v\|^2 = \lvert \langle v, e_1 \rangle  \rvert ^2 + \dots + \lvert \langle v, e_n \rangle  \rvert ^2{}
+          </men>,
+          where we have <xref ref="x190">used</xref>(b).
+          Applying <m>S</m> to both sides of <xref ref="x235"></xref> gives
+          <me>
+            Sv = \langle v, e_1 \rangle  S e_1 + \dots + \langle v, e_n \rangle  S e_n =  \langle v, e_1 \rangle  g_1 + \dots +  \langle v, e_n \rangle  g_n
+          </me>.
+        </p>
+        <p>
+          Thus
+          <men xml:id="x237">
+            \|Sv\|^2 = \lvert \langle v, e_1 \rangle  \rvert ^2 + \dots + \lvert \langle v, e_n \rangle  \rvert ^2{}
+          </men>.
+        </p>
+        <p>
+          <xref ref="x236">Comparing</xref> and <xref ref="x237"></xref>
+          shows that <m>\|v\| = \|Sv\|</m>.
+          Thus <m>S</m> is an isometry.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result gives conditions equivalent to being an isometry.
+      The equivalence of (a) and (c) shows that a linear map is an isometry if and only if it preserves inner products.
+      The equivalence of (a) and (d) shows that a linear map is an isometry if and only if it maps some orthonormal basis to an orthonormal list.
+      Thus the isometries given by <xref ref="isoex">Example</xref> include all isometries.
+      Furthermore,
+      a linear map is an isometry if and only if it maps every orthonormal basis to an orthonormal list [because whether or not (a) holds does not depend on the basis <m>e_1, \ldots,
+      e_n</m>] .
+    </p>
+    <p>
+      The equivalence of (a) and (e) in the next result shows that a linear map is an isometry if and only if the columns of its matrix
+      (with respect to any orthonormal bases)
+      form an orthonormal list.
+      Here we are identifying the columns of an <m>m</m>-by-<m>n</m> matrix with elements of <m>\F{m}</m> and then using the Euclidean inner product on <m>\FF{m}</m>.
+    </p>
+    <theorem xml:id="x234">
+      <title>characterizations of isometries</title>
+      <statement>
+        <p>
+          Suppose <m>S \in \Lc(V{},W)</m>.
+          Suppose <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V</m> and
+          <m>f_1, \ldots,
+          f_m</m> is an orthonormal basis of <m>W{}</m>.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>S</m> is an isometry.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S^*S = I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\langle Su, Sv \rangle = \langle u, v \rangle</m> for all <m>u,
+                v \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>Se_1, \dots, Se_n</m> is an orthonormal list in <m>W{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The columns of <m>\M( S, (e_1, \ldots, e_n), (f_1, \ldots,
+                f_m) )</m> form an orthonormal list in <m>\F{m}</m> with respect to the Euclidean inner product.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose (a) holds, so <m>S</m> is an isometry.
+        If <m>v \in V</m> then
+        <me>
+          \langle  (I - S^*S)v, v  \rangle  = \langle  v, v  \rangle  - \langle S^*Sv, v \rangle  = \lVert v \rVert ^2 - \langle Sv, Sv \rangle  = \lVert v \rVert ^2 - \lVert Sv \rVert ^2 = 0
+        </me>.
+      </p>
+      <p>
+        Hence the self-adjoint operator <m>I - S^*S</m> equals <m>0</m>
+        (by <xref ref="x208"></xref>).
+        Thus <m>S^*S = I</m>, proving that (a) implies (b).
+      </p>
+      <p>
+        Now suppose (b) holds, so <m>S^*S = I</m>.
+        If <m>u, v \in V</m> then
+        <me>
+          \langle Su, Sv \rangle  = \langle S^*Su, v \rangle  = \langle Iu, v \rangle  = \langle u, v \rangle
+        </me>,
+        proving that (b) implies (c).
+      </p>
+      <p>
+        Now suppose that (c) holds,
+        so <m>\langle Su, Sv \rangle  = \langle u, v \rangle</m> for all <m>u,
+        v \in V{}</m>.
+        Thus if <m>{j, k} \in \{ 1, \ldots, n \}</m>, then
+        <me>
+          \langle Se_j, Se_k \rangle  = \langle e_j, e_k \rangle
+        </me>.
+      </p>
+      <p>
+        Hence <m>Se_1, \dots, Se_n</m> is an orthonormal list in <m>W{}</m>,
+        proving that (c) implies<nbsp/>(d).
+      </p>
+      <p>
+        Now suppose that (d) holds,
+        so <m>Se_1, \dots, Se_n</m> is an orthonormal list in <m>W{}</m>.
+        Let <m>A = \M( S, (e_1, \ldots,
+        e_n), (f_1, \ldots, f_m) )</m>.
+        If <m>k, r \in \{ 1, \dots, n \}</m>, then
+        <men xml:id="ColOrtho">
+          \sum_{j=1}^m A_{j,k} \overline{ A_{j,r} } = \langle  \sum_{j=1}^m A_{j,k} f_j, \sum_{j=1}^m A_{j,r} f_j  \rangle = \langle Se_k, Se_r \rangle  = \begin{cases} 1 \amp  \text{ if }  k = r,\\ 0 \amp  \text{ if }  k \ne r. \end{cases}
+        </men>
+      </p>
+      <p>
+        The left side of <xref ref="ColOrtho"></xref>
+        is the inner product in <m>\F m</m> of columns <m>k</m> and <m>r</m> of <m>A</m>.
+        Thus the columns of <m>A</m> form an orthonormal list in <m>\FF{m}</m>,
+        proving that (d) implies<nbsp/>(e).
+      </p>
+      <p>
+        Now suppose (e) holds,
+        so the columns of the matrix <m>A</m> defined in the paragraph above form an orthonormal list in <m>\FF{m}</m>.
+        <xref ref="ColOrtho">Then</xref> shows that
+        <m>Se_1, \dots, Se_n</m> is an orthonormal list in <m>W{}</m>.
+        Thus <xref ref="isoex">Example</xref>,
+        with <m>Se_1, \dots, Se_n</m> playing the role of <m>g_1, \ldots, g_n</m>,
+        shows that <m>S</m> is an isometry,
+        proving that (e) implies (a).
+      </p>
+    </proof>
+    <p>
+      See <xref ref="x2iso">Exercises</xref>
+      and <xref ref="IsoBall"></xref>
+      for additional conditions that are equivalent to being an isometry.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Unitary Operators</title>
+    <p>
+      In this subsection,
+      we confine our attention to linear maps from a vector space to itself.
+      In other words, we will be working with operators.
+    </p>
+    <definition xml:id="x7unitaryop">
+      <title>unitary operator</title>
+      <statement>
+        <p>
+          An operator <m>S \in \Lc(V)</m> is called <term>unitary</term>
+          if <m>S</m> is an invertible isometry.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>unitary operator</h></idx>
+    </p>
+    <aside>
+      <p>
+        Although the words
+        <q>unitary</q>
+        and
+        <q>isometry</q>
+        mean the same thing for operators on finite-dimensional inner product spaces,
+        remember that a unitary operator maps a vector space to itself,
+        while an isometry maps a vector space to another
+        (possibly different)
+        vector space.
+      </p>
+    </aside>
+    <p>
+      As previously noted, every isometry is injective.
+      Every injective operator on a finite-dimensional vector space is invertible
+      (<xref ref="x18">see</xref>).
+      A standing assumption for this chapter is that <m>V</m> is a finite-dimensional inner product space.
+      Thus we could delete the word
+      <q>invertible</q>
+      from the definition above without changing the meaning.
+      The unnecessary word
+      <q>invertible</q>
+      has been retained in the definition above for consistency with the definition readers may encounter when learning about inner product spaces that are not necessarily finite-dimensional.
+    </p>
+    <example>
+      <title>rotation of  <m>\R2</m></title>
+      <statement>
+        <p>
+          Suppose <m>\theta \in \R{}</m> and <m>S</m> is the operator on <m>\F{2}</m> whose matrix with respect to the standard basis of <m>\F{2}</m> is
+          <me>
+            \begin{pmatrix}\cos \theta \amp  - \sin \theta \\ \sin \theta \amp  \cos \theta \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          The two columns of this matrix form an orthonormal list in <m>\F{2}</m>;
+          hence <m>S</m> is an isometry [by the equivalence of (a) and (e) in <xref ref="x234"></xref>] . Thus <m>S</m> is a unitary operator.
+        </p>
+        <p>
+          If <m>\F{} = \R{}</m>,
+          then <m>S</m> is the operator of counterclockwise rotation by <m>\theta</m> radians around the origin of <m>\R{2}</m>.
+          This observation gives us another way to think about why <m>S</m> is an isometry,
+          because each rotation around the origin of <m>\R{2}</m> preserves norms.\looseness=-1
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result <xref ref="x734u"/> lists several conditions that are equivalent to being a unitary operator.
+      All the conditions equivalent to being an isometry in <xref ref="x234"></xref> should be added to this list.
+      The extra conditions in <xref ref="x734u"></xref>
+      arise because of limiting the context to linear maps from a vector space to itself.
+      For example, <xref ref="x234"></xref> shows that a linear map
+      <m>S\in\Lc(V{}, W)</m> is an isometry if and only if <m>S^* S = I</m>,
+      <xref ref="x734u">while</xref> shows that an operator
+      <m>S \in \Lc(V)</m> is a unitary operator if and only if <m>S^* S = SS^* = I</m>.
+    </p>
+    <p>
+      Another difference is that <xref ref="x234"></xref>(d) mentions an orthonormal list,
+      <xref ref="x734u">while</xref>(d) mentions an orthonormal basis.
+      Also, <xref ref="x234"></xref>(e) mentions the columns of <m>\M(T)</m>,
+      <xref ref="x734u">while</xref>(e) mentions the rows of <m>\M(T)</m>.
+      Furthermore,
+      <m>\M(T)</m> in <xref ref="x234"></xref>(e) is with respect to an orthonormal basis of <m>V</m> and an orthonormal basis of <m>W{}</m>,
+      while <m>\M(T)</m> in <xref ref="x734u"></xref>(e) is with respect to a single basis of <m>V</m> doing double duty.
+    </p>
+    <theorem xml:id="x734u">
+      <title>characterizations of unitary operators</title>
+      <statement>
+        <p>
+          Suppose <m>S \in \Lc(V)</m>.
+          Suppose <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>S</m> is a unitary operator.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S^*S = SS^* = I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S</m> is invertible and <m>S^{-1} = S^*{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>Se_1, \dots, Se_n</m> is an orthonormal basis of <m>V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The rows of <m>\M( S, (e_1, \ldots,
+                e_n) )</m> form an orthonormal basis of <m>\F{n}</m> with respect to the Euclidean inner product.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S^*</m> is a unitary operator.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose (a) holds, so <m>S</m> is a unitary operator.
+        Hence
+        <me>
+          S^*S = I
+        </me>
+        by the equivalence of (a) and (b) in <xref ref="x234"></xref>.
+        Multiply both sides of this equation by <m>S^{-1}</m> on the right,
+        getting <m>S^* = S^{-1}</m>.
+        Thus <m>SS^* = SS^{-1} = I</m>, as desired,
+        proving that (a) implies<nbsp/>(b).
+      </p>
+      <p>
+        The definitions of invertible and inverse show that (b) implies (c).
+      </p>
+      <p>
+        Now suppose (c) holds,
+        so <m>S</m> is invertible and <m>S^{-1} = S^*{}</m>.
+        Thus <m>S^*S = I</m>.
+        Hence <m>Se_1, \ldots, Se_n</m> is an orthonormal list in <m>V{}</m>,
+        by the equivalence of (b) and (d) in <xref ref="x234"></xref>.
+        The length of this list equals <m>\dim V{}</m>.
+        Thus <m>Se_1, \dots, Se_n</m> is an orthonormal basis of<nbsp/><m>V{}</m>,
+        proving that (c) implies (d).
+      </p>
+      <p>
+        Now suppose (d) holds,
+        so <m>Se_1, \dots, Se_n</m> is an orthonormal basis of <m>V{}</m>.
+        The equivalence of (a) and (d) in <xref ref="x234"></xref>
+        shows that <m>S</m> is a unitary operator.
+        Thus
+        <me>
+          ( S^* )^* S^* = SS^* = I
+        </me>,
+        where the last equation holds because we already showed that (a) implies (b) in this result.
+        The equation above and the equivalence of (a) and (b) in <xref ref="x234"></xref>
+        show that <m>S^*</m> is an isometry.
+        Thus the columns of <m>\M( S^*{}, (e_1, \ldots,
+        e_n) )</m> form an orthonormal basis of <m>\F{n}</m> [by the equivalence of (a) and (e) of <xref ref="x234"></xref>] . The rows of
+        <m>\M( S, (e_1, \ldots,
+        e_n) )</m> are the complex conjugates of the columns of <m>\M( S^*{}, (e_1, \ldots,
+        e_n) )</m>.
+        Thus the rows of <m>\M( S, (e_1, \ldots,
+        e_n) )</m> form an orthonormal basis of <m>\F{n}</m>,
+        proving that (d) implies<nbsp/>(e).
+      </p>
+      <p>
+        Now suppose (e) holds.
+        Thus the columns of <m>\M( S^*{}, (e_1, \ldots,
+        e_n) )</m> form an orthonormal basis of <m>\FF{n}</m>.
+        The equivalence of (a) and (e) in <xref ref="x234"></xref>
+        shows that <m>S^*</m> is an isometry,
+        proving that (e) implies (f).
+      </p>
+      <p>
+        Now suppose (f) holds, so <m>S^*</m> is a unitary operator.
+        The chain of implications we have already proved in this result shows that (a) implies (f).
+        Applying this result to <m>S^*</m> shows that
+        <m>( S^* )^*</m> is a unitary operator,
+        proving that (f) implies (a).
+      </p>
+      <p>
+        We have shown that (a) <m>\Rightarrow</m> (b)
+        <m>\Rightarrow</m> (c) <m>\Rightarrow</m> (d)
+        <m>\Rightarrow</m> (e) <m>\Rightarrow</m> (f)
+        <m>\Rightarrow</m> (a), completing the proof.
+      </p>
+    </proof>
+    <p>
+      Recall our analogy between <m>\C{}</m> and <m>\Lc(V)</m>.
+      Under this analogy,
+      a complex number <m>z</m> corresponds to an operator<nbsp/><m>S \in \Lc(V)</m>,
+      and <m>\bar{z}</m> corresponds to<nbsp/><m>S^*{}</m>.
+      The real numbers \big(<m>z = \bar{z}</m>\big) correspond to the self-adjoint operators \big(<m>S = S^*</m>\big),
+      and the nonnegative numbers correspond to the
+      (badly named)
+      positive operators.
+    </p>
+    <p>
+      Another distinguished subset of <m>\C{}</m> is the unit circle,
+      which consists of the complex numbers <m>z</m> such that <m>|z| = 1</m>.
+      The condition <m>|z| = 1</m> is equivalent to the condition <m>\bar{z} z = 1</m>.
+      Under our analogy,
+      this corresponds to the condition <m>S^* S = I</m>,
+      which is equivalent to<nbsp/><m>S</m> being a unitary operator.
+          <idx><h>unit circle in <m>\C{}</m></h></idx>
+      Hence the analogy shows that the unit circle in <m>\C{}</m> corresponds to the set of unitary operators.
+      In the next two results,
+      this analogy appears in the eigenvalues of unitary operators.
+      Also see <xref ref="x4UnitCircle">Exercise</xref>
+      for another example of this analogy.
+    </p>
+    <theorem xml:id="EigUnitary">
+      <title>eigenvalues of unitary operators have absolute value  <m>1</m></title>
+      <statement>
+        <p>
+          Suppose <m>\lambda</m> is an eigenvalue of a unitary operator.
+          Then <m>\lvert \lambda \rvert = 1</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>eigenvalue</h><h>of unitary operator</h></idx>
+    </p>
+    <proof>
+      <p>
+        Suppose <m>S \in \Lc(V)</m> is a unitary operator and <m>\lambda</m> is an eigenvalue of <m>S</m>.
+        Let <m>v \in V</m> be such that <m>v \ne 0</m> and <m>Sv = \lambda v</m>.
+        Then
+        <me>
+          \lvert \lambda \rvert    \lVert v \rVert  = \lVert \lambda v \rVert  = \lVert Sv \rVert  = \lVert v \rVert
+        </me>.
+      </p>
+      <p>
+        Thus <m>\lvert \lambda \rvert = 1</m>, as desired.
+      </p>
+    </proof>
+    <p>
+      The next result characterizes unitary operators on finite-dimensional complex inner product spaces,
+      using the complex spectral theorem as the main tool.
+    </p>
+    <theorem xml:id="x263">
+      <title>description of unitary operators on complex inner product spaces</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>S \in \Lc(V)</m>.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>S</m> is a unitary operator.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is an orthonormal basis of<nbsp/><m>V</m> consisting of eigenvectors of<nbsp/><m>S</m> whose corresponding eigenvalues all have absolute value <m>1</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose (a) holds, so <m>S</m> is a unitary operator.
+        The equivalence of (a) and (b) in <xref ref="x734u"></xref>
+        shows that <m>S</m> is normal.
+        Thus the complex spectral theorem <xref ref="x85"/> shows that there is an orthonormal basis
+        <m>e_1, \dots,
+        e_n</m> of<nbsp/><m>V</m> consisting of eigenvectors of<nbsp/><m>S</m>.
+        Every eigenvalue of <m>S</m> has absolute value <m>1</m>
+        (by <xref ref="EigUnitary"></xref>),
+        completing the proof that (a) implies (b).
+      </p>
+      <p>
+        Now suppose (b) holds.
+        Let <m>e_1, \ldots,
+        e_n</m> be an orthonormal basis of<nbsp/><m>V</m> consisting of eigenvectors of<nbsp/><m>S</m> whose corresponding eigenvalues
+        <m>\lambda_1, \ldots, \lambda_n</m> all have absolute value <m>1</m>.
+        Then <m>Se_1, \ldots, Se_n</m> is also an orthonormal basis of <m>V{}</m> because
+        <me>
+          \langle Se_j, Se_k \rangle  = \langle \lambda_j e_j, \lambda_k e_k \rangle  = \lambda_j \overline{\lambda_k} \langle e_j, e_k \rangle = \begin{cases}0 \amp  \text{ if }  j \ne k, \\ 1 \amp  \text{ if }  j = k \end{cases}
+        </me>
+        for all <m>j,k = 1, \ldots, n</m>.
+        Thus the equivalence of (a) and (d) in <xref ref="x734u"></xref>
+        shows that <m>S</m> is unitary,
+        proving that (b) implies (a).
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>QR Factorization</title>
+    <p>
+      In this subsection, we shift our attention from operators to matrices.
+      This switch should give you good practice in identifying an operator with a square matrix
+      (after picking a basis of the vector space on which the operator is defined).
+      You should also become more comfortable with translating concepts and results back and forth between the context of operators and the context of square matrices.
+    </p>
+    <p>
+      When starting with <m>n</m>-by-<m>n</m> matrices instead of operators,
+      unless otherwise specified assume that the associated operators live on <m>\F{n}</m>
+      (with the Euclidean inner product)
+      and that their matrices are computed with respect to the standard basis of <m>\FF{n}</m>.
+    </p>
+    <p>
+      We begin by making the following definition,
+      transferring the notion of a unitary operator to a unitary matrix.
+    </p>
+    <definition>
+      <title>unitary matrix</title>
+      <statement>
+        <p>
+          An <m>n</m>-by-<m>n</m> matrix is called <term>unitary</term>
+          if its columns form an orthonormal list in<nbsp/><m>\FF{n}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>unitary matrix</h></idx>
+    </p>
+    <p>
+      In the definition above, we could have replaced
+      <q>orthonormal list in <m>\F{n}</m></q>
+      with
+      <q>orthonormal basis of <m>\F{n}</m></q>
+      because every orthonormal list of length <m>n</m> in an <m>n</m>-dimensional inner product space is an orthonormal basis.
+      If <m>S \in \Lc(V)</m> and
+      <m>e_1, \ldots,
+      e_n</m> and <m>f_1, \ldots, f_n</m> are orthonormal bases of <m>V{}</m>,
+      then <m>S</m> is a unitary operator if and only if <m>\M( S, (e_1, \ldots,
+      e_n), (f_1, \ldots, f_n) )</m> is a unitary matrix,
+      as shown by the equivalence of (a) and (e) in <xref ref="x234"></xref>.
+      Also note that we could also have replaced
+      <q>columns</q>
+      in the definition above with
+      <q>rows</q>
+      by using the equivalence between conditions (a) and (e) in <xref ref="x734u"></xref>.
+    </p>
+    <p>
+      The next result,
+      whose proof will be left as an exercise for the reader,
+      gives some equivalent conditions for a square matrix to be unitary.
+      In (c), <m>Qv</m> denotes the matrix product of <m>Q</m> and <m>v</m>,
+      identifying elements of <m>\F{n}</m> with <m>n</m>-by-<m>1</m> matrices
+      (sometimes called column vectors).
+      The norm in (c) below is the usual Euclidean norm on <m>\F{n}</m> that comes from the Euclidean inner product.
+      In (d), <m>Q^*</m> denotes the conjugate transpose of the matrix <m>Q</m>,
+      which corresponds to the adjoint of the associated operator.
+    </p>
+    <theorem xml:id="x7unitarymat">
+      <title>characterizations of unitary matrices</title>
+      <statement>
+        <p>
+          Suppose <m>Q</m> is an <m>n</m>-by-<m>n</m> matrix.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>Q</m> is a unitary matrix.
+              </p>
+            </li>
+            <li>
+              <p>
+                The rows of <m>Q</m> form an orthonormal list in <m>\FF{n}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\lVert Q v \rVert = \lVert v \rVert</m> for every <m>v \in \FF{n}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>Q^*Q = QQ^*= I</m>,
+                the <m>n</m>-by-<m>n</m> matrix with <m>1</m>'s on the diagonal and <m>0</m>'s elsewhere.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The QR factorization stated and proved below is the main tool in the widely used QR algorithm
+      (not discussed here)
+      for finding good approximations to eigenvalues and eigenvectors of square matrices.
+      In the result below, if the matrix <m>A</m> is in <m>\F{n,n}\!</m>,
+      then the matrices <m>Q</m> and <m>R</m> are also in <m>\F{n,n}\!</m>.
+    </p>
+    <theorem xml:id="x7QR">
+      <title>QR factorization</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is a square matrix with linearly independent columns.
+          Then there exist unique matrices <m>Q</m> and <m>R</m> such that <m>Q</m> is unitary,
+          <m>R</m> is upper triangular with only positive numbers on its diagonal, and
+              <idx><h>QR factorization</h></idx>
+              <idx><h>upper-triangular matrix</h></idx>
+          <me>
+            A = QR
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>v_1, \ldots, v_n</m> denote the columns of <m>A</m>,
+        thought of as elements of <m>\FF{n}</m>.
+        Apply the Gram<ndash/>Schmidt procedure <xref ref="x186"/> to the list <m>v_1, \ldots, v_n</m>,
+        getting an orthonormal basis
+        <m>e_1, \ldots,
+        e_n</m> of <m>\F{n}</m> such that
+        <men xml:id="x7GS">
+          \Span(v_1, \ldots, v_k) = \Span(e_1, \ldots, e_k)
+        </men>
+        for each <m>k = 1, \ldots, n</m>.
+        Let <m>R</m> be the <m>n</m>-by-<m>n</m> matrix defined by
+        <me>
+          R_{j,k} = \langle v_k, e_j \rangle
+        </me>,
+        where <m>R_{j,k}</m> denotes the entry in row <m>j</m>,
+        column <m>k</m> of <m>R</m>.
+        If <m>j > k</m>, then <m>e_j</m> is orthogonal to
+        <m>\Span(e_1, \ldots,
+        e_k)</m> and hence <m>e_j</m> is orthogonal to <m>v_k</m>
+        (by <xref ref="x7GS"></xref>).
+        In other words,
+        if <m>j > k</m> then <m>\langle v_k, e_j \rangle  = 0</m>.
+        Thus <m>R</m> is an upper-triangular matrix.
+      </p>
+      <p>
+        Let <m>Q</m> be the unitary matrix whose columns are <m>e_1, \ldots, e_n</m>.
+        If <m>k \in \{ 1, \ldots, n \}</m>,
+        then the <m>k^\nth</m> column of <m>QR</m> equals a linear combination of the columns of <m>Q</m>,
+        with the coefficients for the linear combination coming from the <m>k^\nth</m> column of <m>R</m><mdash/><xref ref="x3mmcol">see</xref>(a).
+        Hence the <m>k^\nth</m> column of <m>QR</m> equals
+        <me>
+          \langle v_k, e_1 \rangle  e_1 + \cdots + \langle v_k, e_k \rangle  e_k
+        </me>,
+        which equals <m>v_k</m> [by <xref ref="x190"></xref>(a)] , the <m>k^\nth</m> column of <m>A</m>.
+        Thus <m>A = QR</m>, as desired.
+      </p>
+      <p>
+        The equations defining the Gram<ndash/>Schmidt procedure
+        (<xref ref="x186">see</xref>)
+        show that each <m>v_k</m> equals a positive multiple of <m>e_k</m> plus a linear combination of <m>e_1, \ldots,
+        e_{k-1}</m>.
+        Thus each <m>\langle v_k, e_k \rangle</m> is a positive number.
+        Hence all entries on the diagonal of <m>R</m> are positive numbers,
+        as desired.
+      </p>
+      <p>
+        Finally, to show that <m>Q</m> and <m>R</m> are unique,
+        suppose we also have <m>A = \hat{Q} \hat{R}</m>,
+        where <m>\hat{Q}</m> is unitary and <m>\hat{R}</m> is upper triangular with only positive numbers on its diagonal.
+        Let <m>q_1, \ldots, q_n</m> denote the columns of <m>\hat{Q}</m>.
+        Thinking of matrix multiplication as above,
+        we see that each <m>v_k</m> is a linear combination of <m>q_1, \ldots, q_k</m>,
+        with the coefficients coming from the <m>k^\nth</m> column of <m>\hat{R}</m>.
+        This implies that <m>\Span(v_1, \ldots,
+        v_k) = \Span(q_1, \ldots, q_k)</m> and <m>\langle v_k, q_k \rangle > 0</m>.
+        The uniqueness of the orthonormal lists satisfying these conditions
+        (see <xref ref="x8GSunique">Exercise</xref>
+        in <xref ref="orthobases">Section</xref>)
+        now shows that <m>q_k = e_k</m> for each <m>k = 1, \ldots, n</m>.
+        Hence <m>\hat{Q} = Q</m>,
+        which then implies that <m>\hat{R} = R</m>,
+        completing the proof of uniqueness.
+      </p>
+    </proof>
+    <p>
+      The proof of the QR factorization shows that the columns of the unitary matrix can be computed by applying the Gram<ndash/>Schmidt procedure to the columns of the matrix to be factored.
+      The next example illustrates the computation of the QR factorization based on the proof that we just completed.
+    </p>
+    <example>
+      <title>QR factorization of a $3$-by-$3$ matrix</title>
+      <statement>
+        <p>
+          To find the QR factorization of the matrix
+          <me>
+            A = \begin{pmatrix}1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -4 \\ 0 \amp 3 \amp 2 \end{pmatrix}
+          </me>,
+          follow the proof of <xref ref="x7QR"></xref>.
+          Thus set <m>v_1</m>, <m>v_2</m>,
+          <m>v_3</m> equal to the columns of <m>A</m>:
+          <me>
+            v_1 = (1, 0, 0),  v_2 = (2, 1, 3),  v_3 = (1, -4, 2)
+          </me>.
+        </p>
+        <p>
+          Apply the Gram<ndash/>Schmidt procedure to <m>v_1, v_2, v_3</m>,
+          producing the orthonormal list
+          <me>
+            e_1 = (1, 0, 0),  e_2 = (  0, \tfrac{1}{\sqrt{10}}, \tfrac{3}{\sqrt{10}}  ), e_3 = (  0, -\tfrac{3}{\sqrt{10}}, \tfrac{1}{\sqrt{10}}  )
+          </me>.
+        </p>
+        <p>
+          Still following the proof of <xref ref="x7QR"></xref>,
+          let <m>Q</m> be the unitary matrix whose columns are <m>e_1, e_2, e_3</m>:
+          <me>
+            Q = \begin{pmatrix}1 \amp 0 \amp  0 \\ 0 \amp \tfrac{1}{\sqrt{10}} \amp  -\tfrac{3}{\sqrt{10}} \\ 0 \amp \tfrac{3}{\sqrt{10}} \amp  \tfrac{1}{\sqrt{10}} \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          As in the proof of <xref ref="x7QR"></xref>,
+          let <m>R</m> be the <m>3</m>-by-<m>3</m> matrix whose entry in row <m>j</m>,
+          column <m>k</m> is <m>\langle v_k, e_j \rangle</m>, which gives
+          <me>
+            R = \begin{pmatrix}1 \amp  2 \amp  1 \\ 0 \amp  \sqrt{10} \amp  \tfrac{\sqrt{10}}{5}\\ 0 \amp  0 \amp  \tfrac{7 \sqrt{10}}{5} \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Note that <m>R</m> is indeed an upper-triangular matrix with only positive numbers on the diagonal,
+          as required by the QR factorization.
+        </p>
+        <p>
+          Now matrix multiplication can verify that <m>A = QR</m> is the desired factorization of <m>A</m>:
+          <me>
+            QR = \begin{pmatrix}1 \amp 0 \amp  0 \\ 0 \amp \tfrac{1}{\sqrt{10}} \amp  -\tfrac{3}{\sqrt{10}} \\ 0 \amp \tfrac{3}{\sqrt{10}} \amp  \tfrac{1}{\sqrt{10}} \end{pmatrix} \begin{pmatrix}1 \amp  2 \amp  1 \\ 0 \amp  \sqrt{10} \amp  \tfrac{\sqrt{10}}{5}\\ 0 \amp  0 \amp  \tfrac{7 \sqrt{10}}{5} \end{pmatrix} = \begin{pmatrix}1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -4 \\ 0 \amp 3 \amp 2 \end{pmatrix}  = A
+          </me>.
+        </p>
+        <p>
+          Thus <m>A = QR</m>, as expected.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The QR factorization will be the major tool used in the proof of the Cholesky factorization <xref ref="x7Chol"/> in the next subsection.
+      For another nice application of the QR factorization,
+      see the proof of Hadamard's inequality <xref ref="Hadamard"/>.
+    </p>
+    <p>
+      If a QR factorization is available,
+      then it can be used to solve a corresponding system of linear equations without using Gaussian elimination.
+      Specifically,
+      suppose <m>A</m> is an <m>n</m>-by-<m>n</m> square matrix with linearly independent columns.
+      Suppose that <m>b \in \F{n}</m> and we want to solve the equation <m>Ax = b</m> for <m>x = (x_1, \ldots,
+      x_n) \in \F{n}</m>
+      (as usual, we are identifying elements of <m>\F{n}</m> with
+      <me>
+        n$-by-$1
+      </me>
+      column vectors).
+    </p>
+    <p>
+      Suppose <m>A = QR</m>,
+      where <m>Q</m> is unitary and <m>R</m> is upper triangular with only positive numbers on its diagonal
+      (<m>Q</m> and <m>R</m> are computable from <m>A</m> using just the Gram<ndash/>Schmidt procedure,
+      as shown in the proof of <xref ref="x7QR"></xref>).
+      The equation <m>Ax= b</m> is equivalent to the equation <m>QRx = b</m>.
+      Multiplying both sides of this last equation by <m>Q^*</m> on the left and <xref ref="x7unitarymat">using</xref>(d) gives the equation
+      <me>
+        Rx = Q^*b
+      </me>.
+    </p>
+    <p>
+      The matrix <m>Q^*</m> is the conjugate transpose of the matrix <m>Q</m>.
+      Thus computing <m>Q^*b</m> is straightforward.
+      Because <m>R</m> is an upper-triangular matrix with positive numbers on its diagonal,
+      the system of linear equations represented by the equation above can quickly be solved by first solving for <m>x_n</m>,
+      then for <m>x_{n-1}</m>, and so on.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Cholesky Factorization</title>
+    <p>
+      We begin this subsection with a characterization of positive invertible operators in terms of inner products.
+    </p>
+    <theorem>
+      <title>positive invertible operator</title>
+      <statement>
+        <p>
+          A self-adjoint operator <m>T \in \Lc(V)</m> is a positive invertible operator if and only if
+          <m>\langle Tv, v \rangle > 0</m> for every nonzero <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose <m>T</m> is a positive invertible operator.
+        If <m>v \in V</m> and <m>v \ne 0</m>,
+        then because <m>T</m> is invertible we have <m>Tv \ne 0</m>.
+        This implies that <m>\langle Tv, v \rangle \ne 0</m>
+        (by <xref ref="x7TvvZero"></xref>).
+        Hence <m>\langle Tv, v \rangle > 0</m>.
+      </p>
+      <p>
+        To prove the implication in the other direction,
+        suppose now that <m>\langle Tv, v \rangle > 0</m> for every nonzero <m>v \in V{}</m>.
+        Thus <m>Tv \ne 0</m> for every nonzero <m>v \in V{}</m>.
+        Hence <m>T</m> is injective.
+        Thus <m>T</m> is invertible, as desired.
+      </p>
+    </proof>
+    <p>
+      The next definition transfers the result above to the language of matrices.
+      Here we are using the usual Euclidean inner product on <m>\F n</m> and identifying elements of <m>\F n</m> with <m>n</m>-by-<m>1</m> column vectors.
+    </p>
+    <definition>
+      <title>positive definite</title>
+      <statement>
+        <p>
+          A matrix <m>B \in \F{n, n}</m> is called
+          <term>positive definite</term> if <m>B^* = B</m> and
+          <me>
+            \langle Bx, x \rangle  > 0
+          </me>
+          for every nonzero <m>x \in \FF n</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>positive definite</h></idx>
+    </p>
+    <p>
+      A matrix is upper triangular if and only if its conjugate transpose is lower triangular
+      (meaning that all entries above the diagonal are <m>0</m>).
+      The factorization below,
+      which has important consequences in computational linear algebra,
+      writes a positive definite matrix as the product of a lower triangular matrix and its conjugate transpose.
+          <idx><h>lower-triangular matrix</h></idx>
+          <idx><h>upper-triangular matrix</h></idx>
+    </p>
+    <p>
+      Our next result is solely about matrices,
+      although the proof makes use of the identification of results about operators with results about square matrices.
+      In the result below, if the matrix <m>B</m> is in <m>\F{n,n}\!</m>,
+      then the matrix <m>R</m> is also in <m>\F{n,n}\!</m>.
+    </p>
+    <theorem xml:id="x7Chol">
+      <title>Cholesky factorization</title>
+      <statement>
+        <p>
+          Suppose <m>B</m> is a positive definite matrix.
+          Then there exists a unique upper-triangular matrix <m>R</m> with only positive numbers on its diagonal such that
+              <idx><h>Cholesky factorization</h></idx>
+          <me>
+            B = R^* R
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Because <m>B</m> is positive definite,
+        there exists an invertible square matrix <m>A</m> of the same size as <m>B</m> such that
+        <m>B = A^* A</m> [by the equivalence of (a) and (f) in <xref ref="x197"></xref>] .
+      </p>
+      <p>
+        Let <m>A = QR</m> be the QR factorization of <m>A</m>
+        (<xref ref="x7QR">see</xref>),
+        where <m>Q</m> is unitary and <m>R</m> is upper triangular with only positive numbers on its diagonal.
+        Then <m>A^* = R^*Q^*{}</m>.
+      </p>
+      <aside>
+        <p>
+          Andr&#xe9;-Louis Cholesky (1875<ndash/>1918) discovered this factorization,
+          which was published posthumously in 1924.
+        </p>
+      </aside>
+      <p>
+            <idx><h>Cholesky, Andr&#xe9;-Louis</h></idx>
+      </p>
+      <p>
+        Thus
+        <me>
+          B = A^* A = R^* Q^* Q R = R^* R
+        </me>,
+        as desired.
+      </p>
+      <p>
+        To prove the uniqueness part of this result,
+        suppose <m>S</m> is an upper-triangular matrix with only positive numbers on its diagonal and <m>B = S^*S</m>.
+        The matrix <m>S</m> is invertible because <m>B</m> is invertible
+        (see <xref ref="x379">Exercise</xref>
+        in <xref ref="invertible">Section</xref>).
+        Multiplying both sides of the equation
+        <m>B = S^*S</m> by <m>S^{-1}</m> on the right gives the equation <m>BS^{-1} = S^*{}</m>.
+      </p>
+      <p>
+        Let <m>A</m> be the matrix from the first paragraph of this proof.
+        Then
+        <md>
+          <mrow>( AS^{-1} )^* ( AS^{-1} ) \amp = ( S^* )^{-1} A^* A S^{-1}</mrow>
+          <mrow>\amp = ( S^* )^{-1} B S^{-1}</mrow>
+          <mrow>\amp = ( S^* )^{-1} S^*</mrow>
+          <mrow>\amp = I</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>AS^{-1}</m> is unitary.
+      </p>
+      <p>
+        Hence <m>A = ( AS^{-1} ) S</m> is a factorization of <m>A</m> as the product of a unitary matrix and an upper-triangular matrix with only positive numbers on its diagonal.
+        The uniqueness of the QR factorization,
+        as stated in <xref ref="x7QR"></xref>,
+        now implies that <m>S = R</m>.
+      </p>
+    </proof>
+    <p>
+      In the first paragraph of the proof above,
+      we could have chosen <m>A</m> to be the unique positive definite matrix that is a square root of <m>B</m>
+      (<xref ref="x329">see</xref>).
+      However, the proof was presented with the more general choice of <m>A</m> because for specific positive definite matrices <m>B</m>,
+      it may be easier to find a different choice of <m>A</m>.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise xml:id="x2iso">
+          <statement>
+            <p>
+              Suppose <m>\dim V \ge 2</m> and <m>S\in \Lc(V{}, W)</m>.
+              Prove that <m>S</m> is an isometry if and only if
+              <m>Se_1, Se_2</m> is an orthonormal list in <m>W</m> for every orthonormal list
+              <m>e_1, e_2</m> of length two in <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V, W)</m> and <m>T \ne 0</m>.
+              Prove that <m>T</m> is a scalar multiple of an isometry if and only if <m>T</m> preserves orthogonality.
+              Note: The phrase
+              <q><m>T</m> preserves orthogonality</q>
+              means that <m>\langle Tu, Tv \rangle = 0</m> for all
+              <m>u,
+              v \in V</m> such that <m>\langle u,v \rangle = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <ol>
+              <li>
+                <p>
+                  Show that the product of two unitary operators on <m>V</m> is a unitary operator.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the inverse of a unitary operator on <m>V</m> is a unitary operator.
+                </p>
+              </li>
+            </ol>
+            <p>
+              Note: This exercise shows that the set of unitary operators on <m>V</m> is a group,
+              where the group operation is the usual product of two operators.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>A, B \in \Lc(V)</m> are self-adjoint.
+              Show that <m>A + iB</m> is unitary if and only if <m>AB = BA</m> and <m>A^2 + B^2 = I</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m>.
+              Prove that the following are equivalent.
+              <ol>
+                <li>
+                  <p>
+                    <m>S</m> is a self-adjoint unitary operator.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>S = 2P - I</m> for some orthogonal projection <m>P</m> on <m>V{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    There exists a subspace <m>U</m> of <m>V</m> such that <m>Su = u</m> for every <m>u \in U</m> and <m>Sw = -w</m> for every <m>w \in U^\perp\!</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T{}_1, T{}_2</m> are both normal operators on <m>\F{3}</m> with <m>2, 5, 7</m> as eigenvalues.
+              Prove that there exists a unitary operator
+              <m>S\in \Lc( \F{3} )</m> such that <m>T{}_1 = S^* T{}_2 S</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of two self-adjoint operators
+              <m>T{}_1, T{}_2 \in \Lc( \F{4} )</m> such that the eigenvalues of both operators are <m>2, 5, 7</m> but there does not exist a unitary operator
+              <m>S\in \Lc( \F{4} )</m> such that <m>T{}_1 = S^* T{}_2 S</m>.
+              Be sure to explain why there is no unitary operator with the required property.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>S \in \Lc(V)</m> and there exists an orthonormal basis
+              <m>e_1, \dots,
+              e_n</m> of<nbsp/><m>V</m> such that
+              <m>\|Se_k\| = 1</m> for each<nbsp/><m>e_k</m>,
+              then <m>S</m> is a unitary operator.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+              Suppose every eigenvalue of <m>T</m> has absolute value 1 and
+              <m>\|Tv\| \le \|v\|</m> for every <m>v \in V{}</m>.
+              Prove that <m>T</m> is a unitary operator.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and
+              <m>T \in \Lc(V)</m> is a self-adjoint operator such that
+              <m>\lVert Tv \rVert \le \lVert v \rVert</m> for all <m>v \in V{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>I - T^2</m> is a positive operator.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>T + i \sqrt{I - T^2}</m> is a unitary operator.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="IsoBall">
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m>.
+              Prove that <m>S</m> is a unitary operator if and only if
+              <me>
+                \{  Sv : v \in V \text{ and }  \lVert v \rVert  \le 1 \} = \{  v \in V: \lVert v \rVert  \le 1 \}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>S \in \Lc(V)</m> is invertible and <m>\lVert S^{-1} v \rVert = \lVert S v \rVert</m> for every
+              <m>v \in V{}</m>, then <m>S</m> is unitary.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Explain why the columns of a square matrix of complex numbers form an orthonormal list in <m>\C{n}</m> if and only if the rows of the matrix form an orthonormal list in <m>\C{n}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v \in V</m> with
+              <m>\|v\| = 1</m> and <m>b \in \F{}{}</m>.
+              Also suppose <m>\dim V \ge 2</m>.
+              Prove that there exists a unitary operator <m>S \in \Lc(V)</m> such that
+              <m>\langle Sv, v \rangle = b</m> if and only if <m>|b| \le 1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x4UnitCircle">
+          <statement>
+            <p>
+              Suppose <m>T</m> is a unitary operator on <m>V</m> such that <m>T - I</m> is invertible.
+          <idx><h>unit circle in <m>\C{}</m></h></idx>
+      <ol>
+                <li>
+                  <p>
+                    Prove that <m>(T + I)(T - I)^{-1}</m> is a skew operator
+                    (meaning that it equals the negative of its adjoint).
+                      <idx><h>skew operator</h></idx>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that if <m>\F{} = \C{}</m>,
+                    then <m>i (T + I)(T - I)^{-1}</m> is a self-adjoint operator.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: The function <m>z \mapsto i(z+1)(z-1)^{-1}</m> maps the unit circle in <m>\C{}</m>
+              (except for the point <m>1</m>)
+              to <m>\R{}</m>.
+              Thus (b) illustrates the analogy between the unitary operators and the unit circle in <m>\C{}</m>,
+              along with the analogy between the self-adjoint operators and <m>\R{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is self-adjoint.
+              Prove that <m>(T + iI)(T - iI)^{-1}</m> is a unitary operator and <m>1</m> is not an eigenvalue of this operator.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Explain why the characterizations of unitary matrices given by <xref ref="x7unitarymat"></xref> hold.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              A square matrix <m>A</m> is called <emph>symmetric</emph> if it equals its transpose.
+              Prove that if <m>A</m> is a symmetric matrix with real entries,
+              then there exists a unitary matrix <m>Q</m> with real entries such that <m>Q^* A Q</m> is a diagonal matrix.
+          <idx><h>symmetric matrix</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>n</m> is a positive integer.
+              For this exercise,
+              we adopt the notation that a typical element <m>z</m> of <m>\C n</m> is denoted by <m>z = (z_0, z_1, \ldots,
+              z_{n-1})</m>.
+              Define linear functionals <m>\omega_0, \omega_1, \ldots, \omega_{n-1}</m> on <m>\C n</m> by
+              <me>
+                \omega_j(z_0, z_1, \ldots, z_{n-1}) = \frac{1}{\sqrt{n}}   \sum_{m=0}^{n-1} z_m  e^{-2\pi i j m/n}
+              </me>.
+            </p>
+            <p>
+              The <term>discrete Fourier transform</term>
+              is the operator <m>\fun \CF {\C n} {\C n}</m> defined by<idx><h>discrete Fourier transform</h></idx>
+              <me>
+                \CF z = (  \omega_0(z), \omega_1(z), \ldots, \omega_{n-1}(z)  )
+              </me>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\CF</m> is a unitary operator on <m>\CC n</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>(z_0, \ldots,
+                    z_{n-1}) \in \C n</m> and <m>z_n</m> is defined to equal <m>z_0</m>, then
+                    <me>
+                      \CF^{-1}(z_0, z_1, \ldots, z_{n-1}) = \CF(z_n, z_{n-1}, \ldots, z_1)
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>\CF^4 = I</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: The discrete Fourier transform has many important applications in data analysis.
+              The usual Fourier transform involves expressions of the form
+              <m>\int_{-\infty}^{\infty} f(x) e^{-2\pi i t x} dx</m> for complex-valued integrable functions <m>f</m> defined on <m>\R{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7Cholt">
+          <statement>
+            <p>
+              Suppose <m>A</m> is a square matrix with linearly independent columns.
+              Prove that there exist unique matrices <m>R</m> and <m>Q</m> such that <m>R</m> is lower triangular with only positive numbers on its diagonal,
+              <m>Q</m> is unitary, and <m>A = RQ</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

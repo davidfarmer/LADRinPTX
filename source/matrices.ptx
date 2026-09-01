@@ -1,0 +1,1141 @@
+<section xml:id="matrices">
+  <title>Matrices</title>
+  <subsection>
+    <title>Representing a Linear Map by a Matrix</title>
+    <p>
+      We know that if <m>v_1, \dots,
+      v_n</m> is a basis of <m>V</m> and <m>T \colon V \rightarrow W</m> is linear,
+      then the values of <m>Tv_1, \dots, Tv_n</m> determine the values of <m>T</m> on arbitrary vectors in<nbsp/><m>V</m><mdash/>see the linear map lemma <xref ref="x3linearmap"/>.
+      As we will soon see,
+      matrices provide an efficient method of recording the values of the <m>Tv_k</m>'s in terms of a basis of <m>W{}</m>.
+    </p>
+    <definition>
+      <title>matrix, <m>A_{j,k}</m>\index{Ajk@<m>A_{j,k}</m>}</title>
+      <statement>
+        <p>
+          Suppose <m>m</m> and <m>n</m> are nonnegative integers.
+          An <m>m</m>-by-<m>n</m> <term>matrix</term>
+              <idx><h>matrix</h></idx>
+          <m>A</m> is a rectangular array of elements of <m>\F{}</m> with <m>m</m> rows and <m>n</m> columns:
+          <me>
+            A = \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} \amp  \cdots \amp  A_{m,n} \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          The notation <m>A_{j,k}</m> denotes the entry in row <m>j</m>,
+          column <m>k</m> of <m>A</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title><m>A_{j,k}</m> equals entry in row  <m>j</m>, column  <m>k</m> of  <m>A</m></title>
+      <statement>
+        <aside>
+          <p>
+            When dealing with matrices, the first index refers to the row number;
+            the second index refers to the column number.
+          </p>
+        </aside>
+        <p>
+          Suppose <m>A = \begin{pmatrix}8 \amp 4 \amp 5-3i\\ 1 \amp 9 \amp 7 \end{pmatrix}</m>.
+          Thus <m>A_{2,3}</m> refers to the entry in the second row,
+          third column of <m>A</m>, which means that <m>A_{2,3} = 7</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now we come to the key definition in this section.
+    </p>
+    <definition>
+      <title>matrix of a linear map, <m>\M(T)</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="MT"><m>\M(T)</m></h></idx>
+          Suppose <m>T \in \Lc(V{},W)</m> and
+          <m>v_1, \dots,
+          v_n</m> is a basis of <m>V</m> and
+          <m>w_1, \dots,
+          w_m</m> is a basis of <m>W{}</m>.
+          The <term>matrix of</term><idx><h>matrix</h><h>of linear map</h></idx> <m>T</m> with respect to these bases is the <m>m</m>-by-<m>n</m> matrix <m>\M(T)</m> whose entries <m>A_{j,k}</m> are defined by
+          <me>
+            Tv_k = A_{1,k} w_1 + \dots + A_{m,k} w_m
+          </me>.
+        </p>
+        <p>
+          If the bases <m>v_1, \dots,
+          v_n</m> and <m>w_1, \dots, w_m</m> are not clear from the context,
+          then the notation <m>\M\bigl( T, (v_1, \dots,
+          v_n), (w_1, \dots, w_m) \bigr)</m> is used.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The matrix <m>\M(T)</m> of a linear map <m>T \in \Lc(V{},W)</m> depends on the basis
+      <m>v_1, \dots,
+      v_n</m> of <m>V</m> and the basis
+      <m>w_1, \dots,
+      w_m</m> of <m>W{}</m>, as well as on <m>T{}</m>.
+      However, the bases should be clear from the context,
+      and thus they are often not included in the notation.
+    </p>
+    <p>
+      To remember how <m>\M(T)</m> is constructed from <m>T</m>,
+      you might write across the top of the matrix the basis vectors
+      <m>v_1, \dots,
+      v_n</m> for the domain and along the left the basis vectors
+      <m>w_1, \dots,
+      w_m</m> for the vector space into which <m>T</m> maps,
+      as follows:
+      <md>
+        <mrow>*{19bp} v_1  \cdots  v_k  \cdots   v_n \begin{array}{c} w_1 \\ \makebox[0in][r]{\(\M(T) =\)\ }\vdots \\ w_m \end{array} \begin{pmatrix}\amp  \amp   \amp  \amp  A_{1,k} \amp  \amp  \amp  \amp \\ \amp  \amp   \amp  \amp  \vdots \amp  \amp   \amp  \amp \\ \amp  \amp   \amp  \amp  A_{m,k} \amp  \amp   \amp  \amp \end{pmatrix} </mrow>
+      </md>.
+    </p>
+    <aside>
+      <p>
+        The <m>k^\nth</m> column of <nbsp/><m>\M(T)</m> consists of the scalars needed to write <m>Tv_k</m> as a linear combination of <m>w_1, \dots, w_m</m>:
+        <me>
+          Tv_k = \sum_{j=1}^m A_{j,k} w_j
+        </me>.
+      </p>
+    </aside>
+    <p>
+      In the matrix above only the <m>k^\nth</m> column is shown.
+      Thus the second index of each displayed entry of the matrix above is <m>k</m>.
+      The picture above should remind you that <m>Tv_k</m> can be computed from <m>\M(T)</m> by multiplying each entry in the <m>k^\nth</m> column by the corresponding <m>w_j</m> from the left column,
+      and then adding up the resulting vectors.
+    </p>
+    <aside>
+      <p>
+        If <m>T</m> is a linear map from an <m>n</m>-dimensional vector space to an <m>m</m>-dimensional vector space,
+        then <m>\M(T)</m> is an <m>m</m>-by-<m>n</m> matrix.
+      </p>
+    </aside>
+    <p>
+      If <m>T</m> is a linear map from <m>\F{n}</m> to<nbsp/><m>\FF{m}</m>,
+      then unless stated otherwise,
+      assume the bases in question are the standard ones
+      (where the <m>k^\nth</m> basis vector is <m>1</m> in the <m>k^\nth</m> slot and <m>0</m> in all other slots).
+      If you think of elements of<nbsp/><m>\F{m}</m> as columns of <m>m</m> numbers,
+      then you can think of the <m>k^\nth</m> column of <m>\M(T)</m> as <m>T</m> applied to the <m>k^\nth</m> standard basis vector.
+    </p>
+    <example>
+      <title>the matrix of a linear map from  <m>\F2</m> to  <m>\F3</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \FF{2}, \F{3} )</m> is defined by
+          <me>
+            T(x, y) = (x + 3y, 2x + 5y, 7x + 9y)
+          </me>.
+        </p>
+        <p>
+          Because <m>T(1,0) = (1, 2, 7)</m> and <m>T(0,1) = (3, 5, 9)</m>,
+          the matrix of <m>T</m> with respect to the standard bases is the <m>3</m>-by-<m>2</m> matrix below:
+          <me>
+            \M(T) = \begin{pmatrix}1 \amp  3 \\ 2 \amp  5 \\ 7 \amp  9 \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      When working with <m>\P{}_m(\F{})</m>,
+      use the standard basis <m>1,
+      x, x^2{}, \dots, x^m</m> unless the context indicates otherwise.
+    </p>
+    <example xml:id="diffmatrix">
+      <title>matrix of the differentiation map from <m>\P_3(\R)</m> to <m>\P_2(\R)</m></title>
+      <statement>
+        <p>
+              <idx><h>differentiation linear map</h></idx>
+          Suppose <m>D \in \Lc\bigl(\P{}_3(\R{}), \P{}_2(\R{}) \bigr)</m> is the differentiation map defined by <m>Dp = p'\!</m>.
+          Because <m>{(x^n)}' = nx^{n-1}\!</m>,
+          the matrix of <m>D</m> with respect to the standard bases is the <m>3</m>-by-<m>4</m> matrix below:
+          <me>
+            \M(D) = \begin{pmatrix}0\amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  2 \amp  0 \\ 0 \amp  0 \amp  0 \amp  3 \\ \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Addition and Scalar Multiplication of Matrices</title>
+    <p>
+      For the rest of this section,
+      assume that <m>U</m>, <m>V</m>,
+      and <m>W</m> are finite-dimensional and that a basis has been chosen for each of these vector spaces.
+      Thus for each linear map from <m>V</m> to <m>W{}</m>,
+      we can talk about its matrix
+      (with respect to the chosen bases).
+    </p>
+    <p>
+      Is the matrix of the sum of two linear maps equal to the sum of the matrices of the two maps?
+      Right now this question does not yet make sense because although we have defined the sum of two linear maps,
+      we have not defined the sum of two matrices.
+      Fortunately,
+      the natural definition of the sum of two matrices has the right properties.
+      Specifically, we make the following definition.
+    </p>
+    <definition>
+      <title>matrix addition</title>
+      <statement>
+        <p>
+          The <term>sum of two matrices of the same size</term><idx><h>addition</h><h>of matrices</h></idx> is the matrix obtained by adding corresponding entries in the matrices:
+          <md>
+            \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} \amp  \cdots \amp  A_{m,n} \end{pmatrix}  + \begin{pmatrix}C_{1,1} \amp  \cdots \amp  C_{1,n} \\ \vdots \amp    \amp  \vdots \\ C_{m,1} \amp  \cdots \amp  C_{m,n} \end{pmatrix}  \\ = \begin{pmatrix}A_{1,1} + C_{1,1} \amp  \cdots \amp  A_{1,n} + C_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} + C_{m,1} \amp  \cdots \amp  A_{m,n} + C_{m,n} \end{pmatrix} .
+          </md>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      In the next result,
+      the assumption is that the same bases are used for all three linear maps <m>S+T</m>,
+      <m>S</m>,
+      and <m>T{}</m>.
+    </p>
+    <theorem xml:id="x101">
+      <title>matrix of the sum of linear maps</title>
+      <statement>
+        <p>
+          Suppose <m>S, T \in \Lc(V{}, W)</m>.
+          Then <m>\M(S + T) = \M(S) + \M(T)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The verification of the result above follows from the definitions and is left to the reader.
+    </p>
+    <p>
+      Still assuming that we have some bases in mind,
+      is the matrix of a scalar times a linear map equal to the scalar times the matrix of the linear map?
+      Again, the question does not yet make sense because we have not defined scalar multiplication on matrices.
+      Fortunately,
+      the natural definition again has the right properties.
+    </p>
+    <definition>
+      <title>scalar multiplication of a matrix</title>
+      <statement>
+        <p>
+          The product of a scalar and a matrix is the matrix obtained by multiplying each entry in the matrix by the scalar:<idx><h>scalar multiplication</h><h>of matrices</h></idx>
+          <me>
+            \lambda \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} \amp  \cdots \amp  A_{m,n} \end{pmatrix}  = \begin{pmatrix}\lambda A_{1,1} \amp  \cdots \amp  \lambda A_{1,n} \\ \vdots \amp    \amp  \vdots \\ \lambda A_{m,1} \amp  \cdots \amp  \lambda A_{m,n} \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>addition and scalar multiplication of matrices</title>
+      <statement>
+        <me>
+          2 \begin{pmatrix}3 \amp  1 \\
+          -1 \amp  5
+          \end{pmatrix}  +
+          \begin{pmatrix}4 \amp  2 \\
+          1 \amp  6
+          \end{pmatrix}
+          = \begin{pmatrix}6 \amp  2 \\
+          -2 \amp  10
+          \end{pmatrix}  +
+          \begin{pmatrix}4 \amp  2  \\
+          1 \amp  6
+          \end{pmatrix}
+          = \begin{pmatrix}10 \amp  4  \\
+          -1 \amp  16
+          \end{pmatrix}
+        </me>
+      </statement>
+    </example>
+    <p>
+      In the next result,
+      the assumption is that the same bases are used for both the linear maps <m>\lambda T</m> and <m>T{}</m>.
+    </p>
+    <theorem xml:id="x102">
+      <title>the matrix of a scalar times a linear map</title>
+      <statement>
+        <p>
+          Suppose <m>\lambda \in \F{}</m> and <m>T \in \Lc(V{}, W)</m>.
+          Then <m>\M(\lambda T) = \lambda \M(T)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The verification of the result above is also left to the reader.
+    </p>
+    <p>
+      Because addition and scalar multiplication have now been defined for matrices,
+      you should not be surprised that a vector space is about to appear.
+      First we introduce a bit of notation so that this new vector space has a name,
+      and then we find the dimension of this new vector space.
+    </p>
+    <principle>
+      <title><m>\F{m,n}</m></title>
+      <p>
+        For <m>m</m> and <m>n</m> positive integers,
+        the set of all <m>m</m>-by-<m>n</m> matrices with entries in <m>\F{}</m> is denoted by <m>\FF{m,n}</m>.
+            <idx><h sortby="Fmn"><m>\F{m,n}{}</m></h></idx>
+      </p>
+    </principle>
+    <theorem xml:id="dimFmn">
+      <title><m>\dim \F{m,n} = mn</m></title>
+      <statement>
+        <p>
+          Suppose <m>m</m> and <m>n</m> are positive integers.
+          With addition and scalar multiplication defined as above,
+          <m>\F{m,n}</m> is a vector space of dimension <m>mn</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The verification that <m>\F{m,n}</m> is a vector space is left to the reader.
+        Note that the additive identity of <m>\F{m,n}</m> is the <m>m</m>-by-<m>n</m> matrix all of whose entries equal<nbsp/><m>0</m>.
+      </p>
+      <p>
+        The reader should also verify that the list of distinct <m>m</m>-by-<m>n</m> matrices that have <m>0</m> in all entries except for a <m>1</m> in one entry is a basis of <m>\FF{m,n}</m>.
+        There are <m>mn</m> such matrices,
+        so the dimension of <m>\F{m,n}</m> equals <m>mn</m>.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Matrix Multiplication</title>
+    <p>
+      Suppose, as previously, that
+      <m>v_1, \dots,
+      v_n</m> is a basis of <m>V</m> and
+      <m>w_1, \dots,
+      w_m</m> is a basis of<nbsp/><m>W{}</m>.
+      Suppose also that <m>u_1, \dots,
+      u_p</m> is a basis of<nbsp/><m>U</m>.
+    </p>
+    <p>
+      Consider linear maps <m>T\colon U \rightarrow V</m> and <m>S\colon V \rightarrow W{}</m>.
+      The composition <m>ST</m> is a linear map from <m>U</m> to <m>W{}</m>.
+      Does <m>\M(ST)</m> equal <m>\M(S) \M(T)</m>?
+      This question does not yet make sense because we have not defined the product of two matrices.
+      We will choose a definition of matrix multiplication that forces this question to have a positive answer.
+      Let's see how to do this.
+    </p>
+    <p>
+      Suppose <m>\M(S) = A</m> and <m>\M(T) = B</m>.
+      For <m>1 \le k \le p</m>, we have
+      <md>
+        <mrow>(ST)u_k \amp = S(  \sum_{r=1}^n B_{r,k} v_r  )</mrow>
+        <mrow>\amp = \sum_{r=1}^n B_{r,k} Sv_r</mrow>
+        <mrow>\amp = \sum_{r=1}^n B_{r,k} \sum_{j=1}^m A_{j,r} w_j</mrow>
+        <mrow>\amp = \sum_{j=1}^m ( \sum_{r=1}^n A_{j,r} B_{r,k} )  w_j</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus <m>\M(ST)</m> is the <m>m</m>-by-<m>p</m> matrix whose entry in row <m>j</m>,
+      column <m>k</m>, equals
+      <me>
+        \sum_{r=1}^n A_{j,r} B_{r,k}
+      </me>.
+    </p>
+    <p>
+      Now we see how to define matrix multiplication so that the desired equation <m>\M(ST) = \M(S) \M(T)</m> holds.
+    </p>
+    <definition>
+      <title>matrix multiplication</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+          Then <m>AB</m><idx><h>product</h><h>of matrices</h></idx>
+              <idx><h>matrix</h><h>multiplication</h></idx>
+          is defined to be the <m>m</m>-by-<m>p</m> matrix whose entry in row <m>j</m>,
+          column <m>k</m>, is given by the equation
+          <me>
+            (AB)_{j,k} = \sum_{r=1}^n A_{j,r} B_{r,k}
+          </me>.
+        </p>
+        <p>
+          Thus the entry in row <m>j</m>, column <m>k</m>,
+          of <m>AB</m> is computed by taking row<nbsp/><m>j</m> of <m>A</m> and column<nbsp/><m>k</m> of <m>B</m>,
+          multiplying together corresponding entries, and then summing.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        You may have learned this definition of matrix multiplication in an earlier course,
+        although you may not have seen this motivation for it.
+      </p>
+    </aside>
+    <p>
+      Note that we define the product of two matrices only when the number of columns of the first matrix equals the number of rows of the second matrix.
+    </p>
+    <example xml:id="matprod">
+      <title>matrix multiplication</title>
+      <statement>
+        <p>
+          Here we multiply together a <m>3</m>-by-<m>2</m> matrix and a <m>2</m>-by-<m>4</m> matrix,
+          obtaining a <m>3</m>-by-<m>4</m> matrix:
+          <me>
+            \begin{pmatrix}1 \amp  2 \\ 3 \amp  4 \\ 5 \amp  6 \end{pmatrix} \begin{pmatrix}6 \amp  5 \amp  4 \amp  3 \\ 2 \amp  1 \amp  0 \amp  -1 \end{pmatrix}  = \begin{pmatrix}10 \amp  7 \amp  4 \amp  1 \\ 26 \amp  19 \amp  12 \amp  5 \\ 42 \amp  31 \amp  20 \amp  9 \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Matrix multiplication is not commutative
+          <idx><h>commutativity</h></idx>
+      <mdash/><m>AB</m> is not necessarily equal to <m>BA</m> even if both products are defined
+      (see <xref ref="noncommute">Exercise</xref>).
+      Matrix multiplication is distributive and associative<nbsp/>(see <xref ref="x3distrib">Exercises</xref>
+      and <xref ref="assoc"></xref>).
+    </p>
+    <p>
+      In the next result,
+      we assume that the same basis of <m>V</m> is used in considering
+      <m>T \in \Lc(U, V)</m> and <m>S \in \Lc(V{}, W)</m>,
+      the same basis of <m>W</m> is used in considering
+      <m>S \in \Lc(V{}, W)</m> and <m>ST \in \Lc(U,W)</m>,
+      and the same basis of <m>U</m> is used in considering
+      <m>T \in \Lc(U, V)</m> and <m>ST \in \Lc(U, W)</m>.
+    </p>
+    <theorem xml:id="x3matproduct">
+      <title>matrix of product of linear maps</title>
+      <statement>
+        <p>
+              <idx><h>matrix</h><h>of product of linear maps</h></idx>
+          If <m>T \in \Lc(U, V)</m> and <m>S \in \Lc(V{}, W)</m>,
+          then <m>\M(ST) = \M(S) \M(T)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The proof of the result above is the calculation that was done as motivation before the definition of matrix multiplication.
+    </p>
+    <p>
+      In the next piece of notation,
+      note that as usual the first index refers to a row and the second index refers to a column,
+      with a vertically centered dot used as a placeholder.
+    </p>
+    <principle>
+      <title><m>A_{j, \cdot}  </m>, <m>A_{\cdot, k}</m>\index{Aj@<m>A_{j, \cdot} </m>}\index{Ak@<m>A_{\cdot, k}</m>}</title>
+      <p>
+        Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix.
+        <ol>
+          <li>
+            <p>
+              If <m>1 \le j \le m</m>,
+              then <m>A_{j, \cdot}</m> denotes the <m>1</m>-by-<m>n</m> matrix consisting of row <m>j</m> of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>1 \le k \le n</m>, then
+              <m>A_{\cdot,
+              k}</m> denotes the <m>m</m>-by-<m>1</m> matrix consisting of column <m>k</m> of <m>A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </principle>
+    <example>
+      <title><m>A_{j,\cdot}</m> equals  <m>j^\nth</m> row of  <m>A</m> and <m>A_{\cdot, k}</m> equals  <m>k^\nth</m> column of  <m>A</m></title>
+      <statement>
+        <p>
+          The notation <m>A_{2,\cdot}</m> denotes the second row of <m>A</m> and
+          <m>A_{\cdot, 2}</m> denotes the second column of <m>A</m>.
+          Thus if <m>A = \begin{pmatrix}8 \amp  4 \amp  5\\ 1 \amp  9 \amp  7 \end{pmatrix}</m>, then
+          <me>
+            A_{2,\cdot} = \begin{pmatrix}1 \amp  9 \amp  7 \end{pmatrix}  \andd A_{\cdot, 2} = \begin{pmatrix}4 \\ 9 \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The product of a <m>1</m>-by-<m>n</m> matrix and an <m>n</m>-by-<m>1</m> matrix is a <m>1</m>-by-<m>1</m> matrix.
+      However, we will frequently identify a <m>1</m>-by-<m>1</m> matrix with its entry.
+      For example,
+      <me>
+        \begin{pmatrix}3 \amp  4 \end{pmatrix}  \begin{pmatrix}6 \\ 2 \end{pmatrix}  = \begin{pmatrix}26 \end{pmatrix}
+      </me>
+      because <m>3 \cdot 6 + 4 \cdot 2 = 26</m>.
+      However, we can identify <m>\begin{pmatrix}26 \end{pmatrix}</m> with <m>26</m>,
+      writing <m>\begin{pmatrix}3 \amp  4 \end{pmatrix}  \begin{pmatrix}6 \\ 2 \end{pmatrix}  = 26</m>.
+    </p>
+    <p>
+      The next result uses the convention discussed in the paragraph above to give another way to think of matrix multiplication.
+      For example,
+      the next result and the calculation in the paragraph above explain why the entry in row <m>2</m>,
+      column<nbsp/><m>1</m>,
+      of the product in <xref ref="matprod">Example</xref> equals <m>26</m>.
+    </p>
+    <theorem>
+      <title>entry of matrix product equals row times column</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+          Then
+          <me>
+            (AB)_{j,k} = A_{j,\cdot}   B_{\cdot, k}
+          </me>
+          if <m>1 \le j \le m</m> and <m>1 \le k \le p</m>.
+          In other words, the entry in row<nbsp/><m>j</m>,
+          column<nbsp/><m>k</m>, of <m>AB</m> equals
+          (row <m>j</m> of <m>A</m>)
+          times
+          (column <m>k</m> of<nbsp/><m>B</m>).
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>1 \le j \le m</m> and <m>1 \le k \le p</m>.
+        The definition of matrix multiplication states that
+        <men xml:id="x3ABjk">
+          (AB)_{j,k} = A_{j,1} B_{1,k} + \cdots + A_{j,n} B_{n,k}
+        </men>.
+      </p>
+      <p>
+        The definition of matrix multiplication also implies that the product of the <m>1</m>-by-<m>n</m> matrix
+        <m>A_{j, \cdot}</m> and the <m>n</m>-by-<m>1</m> matrix
+        <m>B_{\cdot,
+        k}</m> is the <m>1</m>-by-<m>1</m> matrix whose entry is the number on the right side of the equation above.
+        Thus the entry in row<nbsp/><m>j</m>,
+        column<nbsp/><m>k</m>, of <m>AB</m> equals
+        (row <m>j</m> of <m>A</m>)
+        times
+        (column <m>k</m> of<nbsp/><m>B</m>).
+      </p>
+    </proof>
+    <p>
+      The next result gives yet another way to think of matrix multiplication.
+      In the result below,
+      <m>(AB)_{\cdot,k}</m> is column <m>k</m> of the <m>m</m>-by-<m>p</m> matrix <m>AB</m>.
+      Thus <m>(AB)_{\cdot,k}</m> is an <m>m</m>-by-<m>1</m> matrix.
+      Also, <m>A B_{\cdot,
+      k}</m> is an <m>m</m>-by-<m>1</m> matrix because it is the product of an <m>m</m>-by-<m>n</m> matrix and an <m>n</m>-by-<m>1</m> matrix.
+      Thus the two sides of the equation in the result below have the same size,
+      making it reasonable that they might be equal.
+    </p>
+    <theorem xml:id="x3matrixcol">
+      <title>column of matrix product equals matrix times column</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+          Then
+          <me>
+            (AB)_{\cdot,k} = A B_{\cdot, k}
+          </me>
+          if <m>1 \le k \le p</m>.
+          In other words,
+          column <m>k</m> of <m>AB</m> equals <m>A</m> times column <m>k</m> of <m>B</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        As discussed above, <m>(AB)_{\cdot,k}</m> and
+        <m>A B_{\cdot,
+        k}</m> are both <m>m</m>-by-<m>1</m> matrices.
+        If <m>1 \le j \le m</m>,
+        then the entry in row <m>j</m> of
+        <m>(AB)_{\cdot,k}</m> is the left side of <xref ref="x3ABjk"></xref>
+        and the entry in row <m>j</m> of
+        <m>A B_{\cdot,
+        k}</m> is the right side of <xref ref="x3ABjk"></xref>.
+        Thus <m>(AB)_{\cdot,k} = A B_{\cdot, k}</m>.
+      </p>
+    </proof>
+    <p>
+      Our next result will give another way of thinking about the product of an <m>m</m>-by-<m>n</m> matrix and an <m>n</m>-by-<m>1</m> matrix,
+      motivated by the next example.
+    </p>
+    <example>
+      <title>product of a $3$-by-$2$ matrix and a $2$-by-$1$ matrix</title>
+      <statement>
+        <p>
+          Use our definitions and basic arithmetic to verify that
+          <me>
+            \begin{pmatrix}1 \amp  2 \\ 3 \amp  4 \\ 5 \amp  6 \end{pmatrix}  \begin{pmatrix}5 \\ 1 \end{pmatrix}  = \begin{pmatrix}7 \\ 19 \\ 31 \end{pmatrix} = 5 \begin{pmatrix}1\{}\\5 \end{pmatrix}  + 1 \begin{pmatrix}2\\4\\6 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Thus in this example,
+          the product of a <m>3</m>-by-<m>2</m> matrix and a <m>2</m>-by-<m>1</m> matrix is a linear combination of the columns of the <m>3</m>-by-<m>2</m> matrix,
+          with the scalars (<m>5</m> and <m>1</m>) that multiply the columns coming from the <m>2</m>-by-<m>1</m> matrix.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result generalizes the example above.
+    </p>
+    <theorem xml:id="x3combcol">
+      <title>linear combination of columns</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and
+          <m>b = \begin{pmatrix}b_1\\ \vdots \\ b_n \end{pmatrix}</m> is an <m>n</m>-by-<m>1</m> matrix.
+          Then
+          <me>
+            Ab = b_1 A_{\cdot, 1} + \dots + b_n   A_{\cdot, n}
+          </me>.
+        </p>
+        <p>
+          In other words,
+          <m>Ab</m> is a linear combination of the columns of <m>A</m>,
+          with the scalars that multiply the columns coming from <m>b</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>k \in \{ 1, \ldots, m \}</m>,
+        then the definition of matrix multiplication implies that the entry in row <m>k</m> of the <m>m</m>-by-<m>1</m> matrix <m>Ab</m> is
+        <me>
+          A_{k, 1} b_1 + \cdots + A_{k,n} b_n
+        </me>.
+      </p>
+      <p>
+        The entry in row <m>k</m> of
+        <m>b_1 A_{\cdot, 1} + \dots + b_n A_{\cdot,
+        n}</m> also equals the number displayed above.
+      </p>
+      <p>
+        Because <m>Ab</m> and <m>b_1 A_{\cdot, 1} + \dots + b_n A_{\cdot,
+        n}</m> have the same entry in row <m>k</m> for each <m>k \in \{ 1, \ldots,
+        m \}</m>,
+        we conclude that <m>Ab = b_1 A_{\cdot, 1} + \dots + b_n A_{\cdot, n}</m>.
+      </p>
+    </proof>
+    <p>
+      Our two previous results focus on the columns of a matrix.
+      Analogous results hold for the rows of a matrix.
+      Specifically, see <xref ref="x3think1">Exercises</xref>
+      and <xref ref="x3think2"></xref>,
+      which can be proved using appropriate modifications of the proofs of <xref ref="x3matrixcol"></xref>
+      and <xref ref="x3combcol"></xref>.
+    </p>
+    <p>
+      The next result is the main tool used in the next subsection to prove the column<ndash/>row factorization <xref ref="x3CR"/> and to prove that the column rank of a matrix equals the row rank <xref ref="x3colrow"/>.
+      To be consistent with the notation often used with the column<ndash/>row factorization,
+      including in the next subsection,
+      the matrices in the next result are called <m>C</m> and <m>R</m> instead of <m>A</m> and <m>B</m>.
+    </p>
+    <theorem xml:id="x3mmcol">
+      <title>matrix multiplication as linear combinations of columns or rows</title>
+      <statement>
+        <p>
+          Suppose <m>C</m> is an <m>m</m>-by-<m>c</m> matrix and <m>R</m> is a <m>c</m>-by-<m>n</m> matrix.
+          <ol>
+            <li>
+              <p>
+                If <m>k \in \{ 1, \ldots, n \}</m>,
+                then column <m>k</m> of <m>CR</m> is a linear combination of the columns of <m>C</m>,
+                with the coefficients of this linear combination coming from column <m>k</m> of <m>R</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>j \in \{ 1, \ldots, m \}</m>,
+                then row <m>j</m> of <m>CR</m> is a linear combination of the rows of <m>R</m>,
+                with the coefficients of this linear combination coming from row <m>j</m> of <m>C</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>k \in \{ 1, \ldots, n \}</m>.
+        Then column <m>k</m> of <m>CR</m> equals <m>CR_{\cdot, k}</m>
+        (by <xref ref="x3matrixcol"></xref>),
+        which equals the linear combination of the columns of <m>C</m> with coefficients coming from <m>R_{\cdot, k}</m>
+        (by <xref ref="x3combcol"></xref>).
+        Thus (a) holds.
+      </p>
+      <p>
+        To prove (b),
+        follow the pattern of the proof of (a) but use rows instead of columns and use <xref ref="x3think1">Exercises</xref>
+        and <xref ref="x3think2"></xref>
+        instead of <xref ref="x3matrixcol"></xref>
+        and <xref ref="x3combcol"></xref>.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Column<ndash/>Row Factorization and Rank of a Matrix</title>
+    <p>
+      We begin by defining two nonnegative integers associated with each matrix.
+    </p>
+    <definition xml:id="x7rcrank">
+      <title>column rank, row rank</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
+          <ol>
+            <li>
+              <p>
+                The <term>column rank</term>
+                  <idx><h>column rank of a matrix</h></idx>
+                of <m>A</m> is the dimension of the span of the columns of <m>A</m> in<nbsp/><m>\FF{m,1}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>row rank</term>
+                  <idx><h>row rank of a matrix</h></idx>
+                of <m>A</m> is the dimension of the span of the rows of <m>A</m> in <m>\FF{1, n}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If <m>A</m> is an <m>m</m>-by-<m>n</m> matrix,
+      then the column rank of <m>A</m> is at most <m>n</m>
+      (because <m>A</m> has <m>n</m> columns)
+      and the column rank of <m>A</m> is also at most <m>m</m>
+      (because <m>\dim \F{m,1} = m</m>).
+      Similarly, the row rank of <m>A</m> is also at most <m>\min \{ m,n \}</m>.
+    </p>
+    <example xml:id="rowcolrank">
+      <title>column rank and row rank of a  $2$-by-$4$ matrix</title>
+      <statement>
+        <p>
+          Suppose
+          <me>
+            A = \begin{pmatrix}4 \amp  7 \amp  1 \amp  8 \\ 3 \amp  5 \amp  2 \amp  9 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          The column rank of <m>A</m> is the dimension of
+          <me>
+            \Span \left( \rule{0bp}{18.5bp} \begin{pmatrix}4 \\ 3 \end{pmatrix} , \begin{pmatrix}7 \\ 5 \end{pmatrix} , \begin{pmatrix}1 \\ 2 \end{pmatrix} , \begin{pmatrix}8 \\9 \end{pmatrix}  \right)
+          </me>
+          in <m>\FF{2,1}</m>.
+          Neither of the first two vectors listed above in <m>\F{2,1}</m> is a scalar multiple of the other.
+          Thus the span of this list of length four has dimension at least two.
+          The span of this list of vectors in <m>\F{2,1}</m> cannot have dimension larger than two because <m>\dim \FF{2,1} = 2</m>.
+          Thus the span of this list has dimension two,
+          which means that the column rank of <m>A</m> is two.
+        </p>
+        <p>
+          The row rank of <m>A</m> is the dimension of
+          <me>
+            \Span \Bigl( \begin{pmatrix}4 \amp  7 \amp  1 \amp  8 \end{pmatrix} , \begin{pmatrix}3 \amp  5 \amp  2 \amp  9 \end{pmatrix}  \Bigr)
+          </me>
+          in <m>\FF{1, 4}</m>.
+          Neither of the two vectors listed above in
+          <m>\F{1, 4}</m> is a scalar multiple of the other.
+          Thus the span of this list of length two has dimension two,
+          which means that the row rank of <m>A</m> is two.
+        </p>
+      </statement>
+    </example>
+    <p>
+      We now define the transpose of a matrix.
+    </p>
+    <definition>
+      <title>transpose, <m>\tran{A}</m></title>
+      <statement>
+        <p>
+          The <term>transpose</term>
+              <idx><h>transpose of a matrix</h></idx>
+              <idx><h sortby="At"><m>\tran{A}</m></h></idx>
+          of a matrix <m>A</m>, denoted by <m>\tran{A}{}</m>,
+          is the matrix obtained from <m>A</m> by interchanging rows and columns.
+          Specifically, if <m>A</m> is an <m>m</m>-by-<m>n</m> matrix,
+          then <m>\tran{A}</m> is the <m>n</m>-by-<m>m</m> matrix whose entries are given by the equation
+          <me>
+            ( \tran{A} )_{k,j} = A_{j, k}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>transpose of a matrix</title>
+      <statement>
+        <p>
+          If <m>A = \begin{pmatrix}5 \amp -7\\ 3 \amp 8 \\ -4 \amp 2 \end{pmatrix}</m>,
+          then <m>\tran{A} = \begin{pmatrix}5 \amp 3 \amp -4 \\ -7 \amp 8 \amp 2 \end{pmatrix}</m>.
+        </p>
+        <p>
+          Note that here <m>A</m> is a <m>3</m>-by-<m>2</m> matrix and
+          <m>\tran{A}</m> is a <m>2</m>-by-<m>3</m> matrix.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The transpose has nice algebraic properties:
+      <m>\tran{(A+B)} = \tran{A} + \tran{B\hspace{.08em}}{}</m>,
+      <m>\tran{(\lambda A)} = \lambda \tran{A}{}</m>,
+      and <m>\tran{(AC)} = \tran{C} \tran{A}</m> for all <m>m</m>-by-<m>n</m> matrices <m>A, B</m>,
+      all <m>\lambda \in \F{}{}</m>,
+      and all <m>n</m>-by-<m>p</m> matrices <m>C</m>
+      (see <xref ref="x3translinear">Exercises</xref>
+      and <xref ref="x3tran"></xref>).
+    </p>
+    <p>
+      The next result will be the main tool used to prove that the column rank equals the row rank
+      (<xref ref="x3colrow">see</xref>).
+    </p>
+    <theorem xml:id="x3CR">
+      <title>column<ndash/>row factorization</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix with entries in <m>\F{}</m> and column rank <m>c \ge 1</m>.
+          Then there exist an <m>m</m>-by-<m>c</m> matrix <m>C</m> and a <m>c</m>-by-<m>n</m> matrix <m>R</m>,
+          both with entries in <m>\F{}{}</m>, such that <m>A = CR</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>column<ndash/>row factorization</h></idx>
+    </p>
+    <proof>
+      <p>
+        Each column of <m>A</m> is an <m>m</m>-by-<m>1</m> matrix.
+        The list <m>A_{\cdot, 1}, \ldots, A_{\cdot,
+        n}</m> of columns of <m>A</m> can be reduced to a basis of the span of the columns of <m>A</m>
+        (by <xref ref="x267"></xref>).
+        This basis has length <m>c</m>,
+        by the definition of the column rank.
+        The <m>c</m> columns in this basis can be put together to form an <m>m</m>-by-<m>c</m> matrix <m>C</m>.
+      </p>
+      <p>
+        If <m>k \in \{ 1, \ldots, n \}</m>,
+        then column <m>k</m> of <m>A</m> is a linear combination of the columns of <m>C</m>.
+        Make the coefficients of this linear combination into column <m>k</m> of a <m>c</m>-by-<m>n</m> matrix that we call <m>R</m>.
+        Then <m>A = CR</m>, as follows from <xref ref="x3mmcol"></xref>(a).
+      </p>
+    </proof>
+    <p>
+      In <xref ref="rowcolrank">Example</xref>,
+      the column rank and row rank turned out to equal each other.
+      The next result states that this happens for all matrices.
+    </p>
+    <theorem xml:id="x3colrow">
+      <title>column rank equals row rank</title>
+      <statement>
+        <p>
+          Suppose <m>A \in \FF{m, n}</m>.
+          Then the column rank of <m>A</m> equals the row rank of <m>A</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>c</m> denote the column rank of <m>A</m>.
+        If <m>c = 0</m>,
+        then <m>A = 0</m> and hence the row rank of <m>A</m> also equals <m>0</m>.
+        Thus we can assume that <m>c \ge 1</m>.
+      </p>
+      <p>
+        Let <m>A = CR</m> be the column<ndash/>row factorization of <m>A</m> given by <xref ref="x3CR"></xref>,
+        where <m>C</m> is an <m>m</m>-by-<m>c</m> matrix and <m>R</m> is a <m>c</m>-by-<m>n</m> matrix.
+        <xref ref="x3mmcol">Then</xref>(b) tells us that every row of <m>A</m> is a linear combination of the rows of <m>R</m>.
+        Because <m>R</m> has <m>c</m> rows,
+        this implies that the row rank of <m>A</m> is less than or equal to the column rank <m>c</m> of <m>A</m>.
+      </p>
+      <p>
+        To prove the inequality in the other direction,
+        apply the previous paragraph result to <m>\tran{A}{}</m>, getting
+        <md>
+          <mrow>\text{ column rank of }  A \amp = \text{ row rank of }  \tran{A}</mrow>
+          <mrow>\amp \le \text{ column rank of }  \tran{A}</mrow>
+          <mrow>\amp = \text{ row rank of }  A</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus the column rank of <m>A</m> equals the row rank of <m>A</m>.
+      </p>
+    </proof>
+    <p>
+      Because the column rank equals the row rank,
+      the last result allows us to dispense with the terms
+      <q>column rank</q>
+      and
+      <q>row rank</q>
+      and just use the simpler term
+      <q>rank</q>.
+    </p>
+    <definition>
+      <title>rank</title>
+      <statement>
+        <p>
+          The <term>rank</term> of a matrix <m>A \in \F{m,n}</m>
+              <idx><h>rank of a matrix</h></idx>
+          is the column rank of <m>A</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      <xref ref="x3rank">See</xref> and <xref ref="x7rank">Exercise</xref>
+      in <xref ref="selfadjoint_normal">Section</xref>
+      for alternative proofs that the column rank equals the row rank.
+    </p>
+    <p>
+      <exercises xml:id="x3think2">
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Show that with respect to each choice of bases of <m>V</m> and <m>W{}</m>,
+              the matrix of <m>T</m> has at least <m>\dim \ran T</m> nonzero entries.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m>,
+              where <m>V</m> and <m>W</m> are finite-dimensional and nonzero.
+              Prove that <m>\dim \ran T = 1</m> if and only if there exist a basis of <m>V</m> and a basis of <m>W</m> such that with respect to these bases,
+              all entries of <m>\M(T)</m> equal <m>1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V</m> and
+              <m>w_1, \ldots,
+              w_m</m> is a basis of <m>W{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that if <m>S, T \in \Lc(V{}, W)</m>,
+                    then <m>\M(S+T) = \M(S) + \M(T)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>\lambda \in \F{}</m> and <m>T \in \Lc(V{}, W)</m>,
+                    then <m>\M(\lambda T) = \lambda \M(T)</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: This exercise asks you to <xref ref="x101">verify</xref> and <xref ref="x102"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>D \in \Lc\bigl(\P{}_3(\R{}), \P{}_2(\R{}) \bigr)</m> is the differentiation map defined by <m>Dp = p'\!</m>.
+              Find a basis of <m>\P{}_3(\R{})</m> and a basis of
+              <m>\P{}_2(\R{})</m> such that the matrix of <m>D</m> with respect to these bases is<idx><h>differentiation linear map</h></idx>
+              <me>
+                \begin{pmatrix}1 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  0 \\ \end{pmatrix}
+              </me>.
+            </p>
+            <p>
+              Note: Compare with <xref ref="diffmatrix">Example</xref>.
+              The next exercise generalizes this exercise.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="zeroonematrix">
+          <statement>
+            <p>
+              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+              Prove that there exist a basis of <m>V</m> and a basis of <m>W</m> such that with respect to these bases,
+              all entries of <m>\M(T)</m> are <m>0</m> except that the entries in row <m>k</m>,
+              column<nbsp/><m>k</m>,
+              equal <m>1</m> if <m>1 \le k \le \dim \ran T{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \dots,
+              v_m</m> is a basis of <m>V</m> and <m>W</m> is finite-dimensional.
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Prove that there exists a basis
+              <m>w_1, \dots,
+              w_n</m> of <m>W</m> such that all entries in the first column of <m>\M(T)</m> [with respect to the bases <m>v_1, \dots,
+              v_m</m> and <m>w_1, \dots,
+              w_n</m>] are <m>0</m> except for possibly a <m>1</m> in the first row,
+              first column.
+              Note: In this exercise, unlike <xref ref="zeroonematrix">Exercise</xref>,
+              you are given the basis of <m>V</m> instead of being able to choose a basis of <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>w_1, \dots,
+              w_n</m> is a basis of <m>W</m> and <m>V</m> is finite-dimensional.
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Prove that there exists a basis
+              <m>v_1, \dots,
+              v_m</m> of <m>V</m> such that all entries in the first row of <m>\M(T)</m> [with respect to the bases <m>v_1, \dots,
+              v_m</m> and <m>w_1, \dots,
+              w_n</m>] are <m>0</m> except for possibly a <m>1</m> in the first row,
+              first column.
+              Note: In this exercise, unlike <xref ref="zeroonematrix">Exercise</xref>,
+              you are given the basis of <m>W</m> instead of being able to choose a basis of <m>W{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3think1">
+          <statement>
+            <p>
+              Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+              Prove that
+              <me>
+                (AB)_{j,\cdot} = A_{j,\cdot}   B
+              </me>
+              for each <m>1 \le j \le m</m>.
+              In other words,
+              show that row <m>j</m> of <m>AB</m> equals (row<nbsp/><m>j</m><nbsp/>of<nbsp/><m>A</m>) times <m>B</m>.
+              Note: This exercise gives the row version of <xref ref="x3matrixcol"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <p>
+          \begin{exercise} Suppose <m>a = \begin{pmatrix}a_1 \amp  \cdots \amp  a_n \end{pmatrix}</m> is a <m>1</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+          Prove that
+          <me>
+            aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}\
+          </me>.
+        </p>
+        <p>
+          In other words,
+          show that <m>aB</m> is a linear combination of the rows of <m>B</m>,
+          with the scalars that multiply the rows coming from <m>a</m>.
+          Note: This exercise gives the row version of <xref ref="x3combcol"></xref>.
+        </p>
+        <exercise xml:id="noncommute">
+          <statement>
+            <p>
+              Give an example of <m>2</m>-by-<m>2</m> matrices <m>A</m> and <m>B</m> such that <m>AB \ne BA</m>.
+          <idx><h>commutativity</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3distrib">
+          <statement>
+            <p>
+              Prove that the distributive property holds for matrix addition and matrix multiplication.
+              In other words, suppose <m>A</m>,
+              <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m>,
+              and <m>F</m> are matrices whose sizes are such that <m>A(B+C)</m> and <m>(D+E)F</m> make sense.
+              Explain why <m>AB + AC</m> and <m>DF + EF</m> both make sense and prove that
+          <idx><h>distributive property</h></idx>
+              <me>
+                A(B+C) = AB + AC \andd (D+E)F = DF + EF
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="assoc">
+          <statement>
+            <p>
+              Prove that matrix multiplication is associative.
+              In other words, suppose <m>A</m>, <m>B</m>,
+              and <m>C</m> are matrices whose sizes are such that <m>(AB)C</m> makes sense.
+              Explain why <m>A(BC)</m> makes sense and prove that
+              <me>
+                (AB)C = A(BC)
+              </me>.
+            </p>
+            <p>
+              Note: Try to find a clean proof that illustrates the following quote from Emil Artin:
+              <q>It is my experience that proofs involving matrices can be shortened by 50% if one throws the matrices out.</q>
+          <idx><h>Artin, Emil</h></idx>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>A</m> is an <m>n</m>-by-<m>n</m> matrix and <m>1 \le j, k \le n</m>.
+              Show that the entry in row<nbsp/><m>j</m>,
+              column<nbsp/><m>k</m>, of <m>A^3</m>
+              (which is defined to mean <m>AAA</m>)
+              is
+              <me>
+                \sum_{p=1}^n \sum_{r=1}^n A_{j, p}   A_{p, r}   A_{r, k}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3translinear">
+          <statement>
+            <p>
+              Suppose <m>m</m> and <m>n</m> are positive integers.
+              Prove that the function <m>A \mapsto \tran{A}</m> is a linear map from <m>\F{m, n}</m> to <m>\FF{n, m}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x3tran">
+          <statement>
+            <p>
+              Prove that if <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>C</m> is an <m>n</m>-by-<m>p</m> matrix, then
+              <me>
+                \tran{(AC)} = \tran{C} \tran{A}{}
+              </me>.
+            </p>
+            <p>
+              Note: This exercise shows that the transpose of the product of two matrices is the product of the transposes in the opposite order.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix with <m>A \ne 0</m>.
+              Prove that the rank of <m>A</m> is <m>1</m> if and only if there exist <m>(c_1, \dots,
+              c_m) \in \F{m}</m> and <m>(d_1, \dots,
+              d_n)\in \F{n}</m> such that <m>A_{j,k} = c_j d_k</m> for every
+              <m>j = 1, \dots,
+              m</m> and every <m>k = 1, \dots, n</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>, and
+              <m>u_1, \dots,
+              u_n</m> and <m>v_1, \dots, v_n</m> are bases of <m>V{}</m>.
+              Prove that the following are equivalent.
+              <ol>
+                <li>
+                  <p>
+                    <m>T</m> is injective.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The columns of <m>\M(T)</m> are linearly independent in <m>\FF{n,1}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The columns of <m>\M(T)</m> span <m>\FF{n,1}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The rows of <m>\M(T)</m> span <m>\FF{1,n}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The rows of <m>\M(T)</m> are linearly independent in <m>\FF{1,n}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Here <m>\M(T)</m> means <m>\M\bigl( T, (u_1, \dots,
+              u_n), (v_1, \dots, v_n) \bigr)</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,512 @@
+<section xml:id="bases">
+  <title>Bases</title>
+  <p>
+    In the previous section,
+    we discussed linearly independent lists and we also discussed spanning lists.
+    Now we bring these concepts together by considering lists that have both properties.
+  </p>
+  <definition>
+    <title>basis</title>
+    <statement>
+      <p>
+        A <term>basis</term>
+            <idx><h>basis</h></idx>
+        of <m>V</m> is a list of vectors in <m>V</m> that is linearly independent and spans<nbsp/><m>V{}</m>.
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="ex_bases">
+    <title>bases</title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            The list <m>(1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)</m> is a basis of<nbsp/><m>\FF{n}</m>,
+            called the <term>standard basis</term><idx><h>standard basis</h><h sortby="of Fn">of <m>\F{n}</m></h></idx> of<nbsp/><m>\FF{n}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>(1,2), (3,5)</m> is a basis of<nbsp/><m>\FF{2}</m>.
+            Note that this list has length two,
+            which is the same as the length of the standard basis of<nbsp/><m>\FF2</m>.
+            In the next section, we will see that this is not a coincidence.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>(1,2, -4), (7, -5, 6)</m> is linearly independent in <m>\F3</m> but is not a basis of <m>\F{3}</m> because it does not span<nbsp/><m>\FF{3}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>(1,2), (3,5), (4,13)</m> spans <m>\F{2}</m> but is not a basis of <m>\F{2}</m> because it is not linearly independent.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>(1, 1, 0), (0, 0, 1)</m> is a basis of <m>\{ (x, x, y) \in \F{3} \colon x, y \in \F{} \}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>(1, -1, 0), (1, 0, -1)</m> is a basis of
+            <me>
+              \{ (x, y, z) \in \F{3} \colon x + y + z = 0 \}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The list <m>1, z, \dots, z^m</m> is a basis of<nbsp/><m>\P{}_m(\F{})</m>,
+            called the <term>standard basis</term><idx><h>standard basis</h><h sortby="of PmF">of
+            <m>\P{}_m(\F{})</m></h></idx> of<nbsp/><m>\P{}_m(\F{})</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </example>
+  <p>
+    In addition to the standard basis,
+    <m>\F{n}</m> has many other bases.
+    For example,
+    <me>
+      (7, 5), (-4, 9) \andd (1,2), (3,5)
+    </me>
+    are both bases of <m>\FF{2}</m>.
+  </p>
+  <p>
+    The next result helps explain why bases are useful.
+    Recall that
+    <q>uniquely</q>
+    means
+    <q>in only one way</q>.
+  </p>
+  <theorem xml:id="x380">
+    <title>criterion for basis</title>
+    <statement>
+      <p>
+        A list <m>v_1, \dots,
+        v_n</m> of vectors in <m>V</m> is a basis of <m>V</m> if and only if every <m>v \in V</m> can be written uniquely in the form
+        <men xml:id="x66">
+          v = a_1 v_1 + \dots + a_n v_n
+        </men>,
+        where <m>a_1, \dots, a_n \in \F{}{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <aside>
+    <p>
+      This proof is essentially a repetition of the ideas that led us to the definition of linear independence.
+    </p>
+  </aside>
+  <proof>
+    <p>
+      First suppose that <m>v_1, \dots,
+      v_n</m> is a basis of <m>V{}</m>.
+      Let <m>v \in V{}</m>.
+      Because <m>v_1, \dots, v_n</m> spans <m>V{}</m>,
+      there exist <m>a_1, \dots,
+      a_n \in \F{}</m> such that <xref ref="x66"></xref> holds.
+      To show that the representation in <xref ref="x66"></xref> is unique,
+      suppose <m>c_1, \dots, c_n</m> are scalars such that we also have
+      <me>
+        v = c_1 v_1 + \dots + c_n v_n
+      </me>.
+    </p>
+    <p>
+      Subtracting the last equation from <xref ref="x66"></xref>, we get
+      <me>
+        0 = (a_1 - c_1) v_1 + \dots + (a_n - c_n) v_n
+      </me>.
+    </p>
+    <p>
+      This implies that each <m>a_k - c_k</m> equals <m>0</m>
+      (because <m>v_1, \dots, v_n</m> is linearly independent).
+      Hence <m>a_1 = c_1, \dots, a_n = c_n</m>.
+      We have the desired uniqueness,
+      completing the proof in one direction.
+    </p>
+    <p>
+      For the other direction,
+      suppose every <m>v \in V</m> can be written uniquely in the form given by <xref ref="x66"></xref>.
+      This implies that the list <m>v_1, \dots, v_n</m> spans <m>V{}</m>.
+      To show that <m>v_1, \dots, v_n</m> is linearly independent,
+      suppose <m>a_1, \dots, a_n \in \F{}</m> are such that
+      <me>
+        0 = a_1 v_1 + \dots + a_n v_n
+      </me>.
+    </p>
+    <p>
+      The uniqueness of the <xref ref="x66">representation</xref>
+      (taking <m>v = 0</m>)
+      now implies that <m>a_1 = \dots = a_n = 0</m>.
+      Thus <m>v_1, \dots,
+      v_n</m> is linearly independent and hence is a basis of<nbsp/><m>V{}</m>.
+    </p>
+  </proof>
+  <p>
+    A spanning list in a vector space may not be a basis because it is not linearly independent.
+    Our next result says that given any spanning list, some
+    (possibly none)
+    of the vectors in it can be discarded so that the remaining list is linearly independent and still spans the vector space.
+  </p>
+  <p>
+    As an example in the vector space <m>\FF{2}</m>,
+    if the procedure in the proof below is applied to the list <m>(1,2), (3, 6), (4, 7), (5, 9)</m>,
+    then the second and fourth vectors will be removed.
+    This leaves <m>(1,2), (4, 7)</m>,
+    which is a basis of <m>\FF{2}</m>.
+  </p>
+  <theorem xml:id="x267">
+    <title>every spanning list contains a basis</title>
+    <statement>
+      <p>
+        Every spanning list in a vector space can be reduced to a basis of the vector space.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>v_1, \dots, v_n</m> spans<nbsp/><m>V{}</m>.
+      We want to remove some of the vectors from
+      <m>v_1, \dots,
+      v_n</m> so that the remaining vectors form a basis of<nbsp/><m>V{}</m>.
+      We do this through the multistep process described below.
+    </p>
+    <p>
+      Start with <m>B</m> equal to the list <m>v_1, \dots, v_n</m>.
+      <ol>
+        <li>
+          <title>Step 1</title>
+          <p>
+            If <m>v_1 = 0</m>, then delete <m>v_1</m> from <m>B</m>.
+            If <m>v_1 \ne 0</m>, then leave <m>B</m> unchanged.
+          </p>
+        </li>
+        <li>
+          <title>Step <emph>k</emph></title>
+          <p>
+            If <m>v_k</m> is in <m>\Span(v_1, \dots,
+            v_{k-1})</m>, then delete <m>v_k</m> from the list <m>B</m>.
+            If <m>v_k</m> is not in <m>\Span(v_1, \dots,
+            v_{k-1})</m>, then leave <m>B</m> unchanged.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Stop the process after step <m>n</m>, getting a list <m>B</m>.
+      This list <m>B</m> spans<nbsp/><m>V</m> because our original list spanned <m>V</m> and we have discarded only vectors that were already in the span of the previous vectors.
+      The process ensures that no vector in <m>B</m> is in the span of the previous ones.
+      Thus <m>B</m> is linearly independent,
+      by the linear dependence lemma <xref ref="x4"/>.
+      Hence <m>B</m> is a basis of<nbsp/><m>V{}</m>.
+    </p>
+  </proof>
+  <p>
+    We now come to an important corollary of the previous result.
+  </p>
+  <theorem xml:id="x6">
+    <title>basis of finite-dimensional vector space</title>
+    <statement>
+      <p>
+        Every finite-dimensional vector space has a basis.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      By definition,
+      a finite-dimensional vector space has a spanning list.
+      The previous result tells us that each spanning list can be reduced to a basis.
+    </p>
+  </proof>
+  <p>
+    Our next result is in some sense a dual of <xref ref="x267"></xref>,
+    which said that every spanning list can be reduced to a basis.
+    Now we show that given any linearly independent list,
+    we can adjoin some additional vectors
+    (this includes the possibility of adjoining no additional vectors)
+    so that the extended list is still linearly independent but also spans the space.
+  </p>
+  <theorem xml:id="x9">
+    <title>every linearly independent list extends to a basis</title>
+    <statement>
+      <p>
+        Every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>u_1, \dots,
+      u_m</m> is linearly independent in a finite-dimensional vector space <m>V{}</m>.
+      Let <m>w_1, \dots,
+      w_n</m> be a list of vectors in <m>V</m> that spans <m>V{}</m>.
+      Thus the list
+      <me>
+        u_1, \dots, u_m, w_1, \dots, w_n
+      </me>
+      spans <m>V{}</m>.
+      Applying the procedure of the proof of <xref ref="x267"></xref>
+      to reduce this list to a basis of <m>V</m> produces a basis consisting of the vectors
+      <m>u_1, \dots,
+      u_m</m> and some of the <m>w</m>'s
+      (none of the <m>u</m>'s get deleted in this procedure because
+      <m>u_1, \dots,
+      u_m</m> is linearly independent).
+    </p>
+  </proof>
+  <p>
+    As an example in <m>\FF{3}</m>,
+    suppose we start with the linearly independent list <m>(2, 3, 4), (9, 6, 8)</m>.
+    If we take <m>w_1, w_2, w_3</m> to be the standard basis of <m>\FF{3}</m>,
+    then applying the procedure in the proof above produces the list
+    <me>
+      (2, 3, 4), (9, 6, 8), (0, 1, 0)
+    </me>,
+    which is a basis of <m>\FF{3}</m>.
+  </p>
+  <aside>
+    <p>
+      Using the same ideas but more advanced tools,
+      the next result can be proved without the hypothesis that <m>V</m> is finite-dimensional.
+    </p>
+  </aside>
+  <p>
+    As an application of the result above,
+    we now show that every subspace of a finite-dimensional vector space can be paired with another subspace to form a direct sum of the whole space.
+  </p>
+  <theorem xml:id="a220">
+    <title>every subspace of  <m>V</m> is part of a direct sum equal to  <m>V</m></title>
+    <statement>
+      <p>
+        Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
+        Then there is a subspace <m>W</m> of<nbsp/><m>V</m> such that <m>V = U \oplus W{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+        <idx><h>direct sum</h></idx>
+  </p>
+  <proof>
+    <p>
+      Because <m>V</m> is finite-dimensional, so is <m>U</m>
+      (<xref ref="x68">see</xref>).
+      Thus there is a basis <m>u_1, \dots, u_m</m> of<nbsp/><m>U</m>
+      (by <xref ref="x6"></xref>).
+      Of course <m>u_1, \dots,
+      u_m</m> is a linearly independent list of vectors in<nbsp/><m>V{}</m>.
+      Hence this list can be extended to a basis <m>u_1, \dots,
+      u_m, w_1, \dots, w_n</m> of<nbsp/><m>V</m>
+      (by <xref ref="x9"></xref>).
+      Let <m>W = \Span(w_1, \dots, w_n)</m>.
+    </p>
+    <p>
+      To prove that <m>V = U \oplus W{}</m>,
+      by <xref ref="x219"></xref> we only need to show that
+      <me>
+        V = U + W \andd U \cap W = \{0\}
+      </me>.
+    </p>
+    <p>
+      To prove the first equation above, suppose <m>v \in V{}</m>.
+      Then, because the list <m>u_1, \dots,
+      u_m, w_1, \dots, w_n</m> spans <m>V{}</m>,
+      there exist <m>a_1, \dots, a_m, b_1, \dots,
+      b_n \in \F{}</m> such that
+      <me>
+        v = \underbrace{a_1 u_1 + \dots + a_m u_m}_u + \underbrace{b_1 w_1 + \dots + b_n w_n}_w{}
+      </me>.
+    </p>
+    <p>
+      We have <m>v = u + w</m>,
+      where <m>u \in U</m> and <m>w \in W</m> are defined as above.
+      Thus <m>v \in U + W{}</m>, completing the proof that <m>V = U + W{}</m>.
+    </p>
+    <p>
+      To show that <m>U \cap W = \{0\}</m>,
+      suppose <m>v \in U \cap W{}</m>.
+      Then there exist scalars <m>a_1, \dots, a_m, b_1, \dots,
+      b_n \in \F{}</m> such that
+      <me>
+        v = a_1 u_1 + \dots + a_m u_m = b_1 w_1 + \dots + b_n w_n
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        a_1 u_1 + \dots + a_m u_m - b_1 w_1 - \dots - b_n w_n = 0
+      </me>.
+    </p>
+    <p>
+      Because <m>u_1, \dots, u_m, w_1, \dots,
+      w_n</m> is linearly independent, this implies that
+      <me>
+        a_1 = \dots = a_m = b_1 = \dots = b_n = 0
+      </me>.
+    </p>
+    <p>
+      Thus <m>v = 0</m>, completing the proof that <m>U \cap W = \{0\}</m>.
+    </p>
+  </proof>
+  <p>
+    <exercises>
+      <title></title>
+      <exercise>
+        <statement>
+          <p>
+            Find all vector spaces that have exactly one basis.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Verify all assertions in <xref ref="ex_bases">Example</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U</m> be the subspace of <m>\R{5}</m> defined by
+                <me>
+                  U = \{  (x_1, x_2, x_3, x_4, x_5) \in \R{5}: x_1 = 3 x_2 \ and\  x_3 = 7x_4 \}
+                </me>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\RR5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of <m>\R5</m> such that <m>\R5 = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U</m> be the subspace of <m>\C{5}</m> defined by
+                <me>
+                  U = \{  (z_1, z_2, z_3, z_4, z_5) \in \C{5}: 6 z_1 = z_2 \ and\  z_3 + 2z_4 + 3z_5 = 0 \}
+                </me>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\CC5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of <m>\C5</m> such that <m>\C5 = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>U, W</m> are subspaces of <m>V</m> such that <m>V = U + W{}</m>.
+            Prove that there exists a basis of <m>V</m> consisting of vectors in <m>U \cup W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>p_0, p_1, p_2, p_3</m> is a list in
+            <m>\P{}_3(\F{})</m> such that none of the polynomials
+            <m>p_0, p_1, p_2, p_3</m> has degree<nbsp/><m>2</m>,
+            then <m>p_0, p_1, p_2, p_3</m> is not a basis of <m>\P{}_3(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V{}</m>.
+            Prove that
+            <me>
+              v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4
+            </me>
+            is also a basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V</m> and <m>U</m> is a subspace of <m>V</m> such that <m>v_1, v_2 \in U</m> and
+            <m>v_3 \notin U</m> and <m>v_4 \notin U</m>,
+            then <m>v_1, v_2</m> is a basis of <m>U</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
+            For <m>k \in \{ 1, \ldots, m \}</m>, let
+            <me>
+              w_k = v_1 + \cdots + v_k
+            </me>.
+          </p>
+          <p>
+            Show that <m>v_1, \ldots,
+            v_m</m> is a basis of <m>V</m> if and only if
+            <m>w_1, \ldots,
+            w_m</m> is a basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> such that <m>V = U \oplus W{}</m>.
+            Suppose also that <m>u_1, \dots,
+            u_m</m> is a basis of <m>U</m> and
+            <m>w_1, \dots,
+            w_n</m> is a basis of <m>W{}</m>.
+            Prove that
+            <me>
+              u_1, \dots, u_m, w_1, \dots, w_n
+            </me>
+            is a basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a real vector space.
+            Show that if <m>v_1, \dots, v_n</m> is a basis of <m>V</m>
+            (as a real vector space),
+            then <m>v_1, \dots,
+            v_n</m> is also a basis of the complexification <m>V{}_{\C{}}</m>
+            (as a complex vector space).
+        <idx><h>complexification</h><h>of a vector space</h></idx>
+    Note: See <xref ref="x1VC">Exercise</xref>
+            in <xref ref="x1DefVS">Section</xref>
+            for the definition of the complexification <m>V{}_{\C{}}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
+  </p>
+</section>

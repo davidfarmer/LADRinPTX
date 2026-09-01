@@ -1,0 +1,67 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="opsinner">
+  <title>Operators on Inner Product Spaces</title>
+  <introduction>
+    <p>
+      The deepest results related to inner product spaces deal with the subject to which we now turn<mdash/>linear maps and operators on inner product spaces.
+      As we will see,
+      good theorems can be proved by exploiting properties of the adjoint.
+    </p>
+    <p>
+      The hugely important spectral theorem will provide a complete description of self-adjoint operators on real inner product spaces and of normal operators on complex inner product spaces.
+      We will then use the spectral theorem to help understand positive operators and unitary operators,
+      which will lead to unitary matrices and matrix factorizations.
+      The spectral theorem will also lead to the popular singular value decomposition,
+      which will lead to the polar decomposition.
+    </p>
+    <p>
+      The most important results in the rest of this book are valid only in finite dimensions.
+      Thus from now on we assume that <m>V</m> and <m>W</m> are finite-dimensional.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> and <m>W</m> are nonzero finite-dimensional inner product spaces over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          Petar Milosevic CC BY-SA
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>Market square in Lviv,
+          a city that has had several names and has been in several countries because of changing international borders.
+          From 1772 until 1918, the city was in Austria and was called Lemberg.
+          Between World War I and World War II, the city was in Poland and was called Lw&#xf3;w.
+          During this time,
+          mathematicians in Lw&#xf3;w, particularly Stefan Banach (1892<ndash/>1945) and his colleagues,
+          developed the basic results of modern functional analysis,
+          using tools of analysis to study infinite-dimensional vector spaces.
+          Since the end of World War<nbsp/>II, Lviv has been in Ukraine,
+          which was part of the Soviet<nbsp/>Union until Ukraine became an independent country in 1991.</em>
+        </p>
+      </blockquote>
+    </p>
+    <p>
+          <idx><h>Lviv</h></idx>
+          <idx><h>Lw&#xf3;w</h></idx>
+          <idx><h>Banach, Stefan</h></idx>
+    </p>
+  </introduction>
+  <xi:include  href="selfadjoint_normal.ptx"/>
+  <xi:include  href="SpectralTheorem.ptx"/>
+  <xi:include  href="POIUO.ptx"/>
+  <xi:include  href="x3QR.ptx"/>
+  <xi:include  href="x2SVD.ptx"/>
+  <xi:include  href="x9SVD.ptx"/>
+</chapter>

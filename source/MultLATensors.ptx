@@ -1,0 +1,63 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="MultLATensors">
+  <title>Multilinear Algebra and Determinants</title>
+  <introduction>
+    <p>
+      We begin this chapter by investigating bilinear forms and quadratic forms on a vector space.
+      Then we will move on to multilinear forms.
+      We will show that the vector space of alternating <m>n</m>-linear forms has dimension one on a vector space of dimension <m>n</m>.
+      This result will allow us to give a clean basis-free definition of the determinant of an operator.
+    </p>
+    <p>
+      This approach to the determinant via alternating multilinear forms leads to straightforward proofs of key properties of determinants.
+      For example,
+      we will see that the determinant is multiplicative,
+      meaning that <m>\det (ST) = (\det S)(\det T)</m> for all operators <m>S</m> and <m>T</m> on the same vector space.
+      We will also see that <m>T</m> is invertible if and only if <m>\det T \ne 0</m>.
+      Another important result states that the determinant of an operator on a complex vector space equals the product of the eigenvalues of the operator,
+      with each eigenvalue included as many times as its multiplicity.
+    </p>
+    <p>
+      The chapter concludes with an introduction to tensor products.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> and <m>W</m> denote finite-dimensional nonzero vector spaces over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          Daniel Schwen CC BY-SA
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>The Mathematical Institute at the University of G&#xf6;ttingen.
+          This building opened in 1930,
+          when Emmy Noether (1882<ndash/>1935) had already been a research mathematician and faculty member at the university for 15 years
+          (the first eight years without salary)
+          . Noether was fired by the Nazi government in 1933.
+          By then Noether and her collaborators had created many of the foundations of modern algebra,
+          including an abstract algebra viewpoint that contributed to the development of linear algebra.</em>
+        </p>
+      </blockquote>
+    </p>
+    <p>
+          <idx><h>Noether, Emmy</h></idx>
+          <idx><h>University of G&#xf6;ttingen</h></idx>
+    </p>
+  </introduction>
+  <xi:include  href="bilin_quad.ptx"/>
+  <xi:include  href="alt_multi.ptx"/>
+  <xi:include  href="x9det.ptx"/>
+  <xi:include  href="x9TensorSect.ptx"/>
+</chapter>

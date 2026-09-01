@@ -1,0 +1,648 @@
+<section xml:id="vslinear">
+  <title>Vector Space of Linear Maps</title>
+  <subsection>
+    <title>Definition and Examples of Linear Maps</title>
+    <p>
+      Now we are ready for one of the key definitions in linear algebra.
+    </p>
+    <definition>
+      <title>linear map</title>
+      <statement>
+        <p>
+          A <term>linear map</term>
+              <idx><h>linear map</h></idx>
+          from <m>V</m> to <m>W</m> is a function
+          <m>T\colon V \rightarrow W</m> with the following properties.
+              <idx><h>additivity</h></idx>
+              <idx><h>homogeneity</h></idx>
+          <ol>
+            <li>
+              <title>additivity</title>
+              <p>
+                <m>T(u + v) = Tu + Tv</m> for all <m>u, v \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <title>homogeneity</title>
+              <p>
+                <m>T(\lambda v) = \lambda(Tv)</m> for all
+                <m>\lambda \in \F{}</m> and all <m>v \in V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Some mathematicians use the phrase
+        <em>linear transformation</em>,
+            <idx><h>linear transformation</h></idx>
+        which means the same as linear map.
+      </p>
+    </aside>
+    <p>
+      Note that for linear maps we often use the notation <m>Tv</m> as well as the usual function notation <m>T(v)</m>.
+    </p>
+    <principle>
+      <title><m>\Lc(V,W)</m>, <m>\Lc(V)</m></title>
+      <ol>
+        <li>
+          <p>
+            The set of linear maps from <m>V</m> to <m>W</m> is denoted by <m>\Lc(V{},W)</m>.
+              <idx><h sortby="LVW"><m>\Lc(V{},W)</m></h></idx>
+          </p>
+        </li>
+        <li>
+          <p>
+            The set of linear maps from <m>V</m> to <m>V</m> is denoted by <m>\Lc(V)</m>.
+            In other words, <m>\Lc(V) = \Lc(V{},V)</m>.
+              <idx><h sortby="LV"><m>\Lc(V)</m></h></idx>
+          </p>
+        </li>
+      </ol>
+    </principle>
+    <p>
+      Let's look at some examples of linear maps.
+      Make sure you verify that each of the functions defined in the next example is indeed a linear map:
+    </p>
+    <example xml:id="x2a111">
+      <title>linear maps</title>
+      <statement>
+        <ol>
+          <li>
+            <title>zero</title>
+            <p>
+              In addition to its other uses,
+              we let the symbol <m>0</m> denote the linear map that takes every element of some vector space to the additive identity of another
+              (or possibly the same)
+              vector space.
+              To be specific, <m>0 \in \Lc(V{},W)</m> is defined by
+              <me>
+                0v = 0
+              </me>.
+              The <m>0</m> on the left side of the equation above is a function from <m>V</m> to <m>W{}</m>,
+              whereas the <m>0</m> on the right side is the additive identity in <m>W{}</m>.
+              As usual, the context should allow you to distinguish between the many uses of the symbol<nbsp/><m>0</m>.
+            </p>
+          </li>
+          <li>
+            <title>identity operator</title>
+            <p>
+              The <term>identity operator</term>,
+                <idx><h>identity operator</h></idx>
+              denoted by <m>I</m>, is the
+                <idx><h sortby="I"><m>I</m></h></idx>
+              linear map on some vector space that takes each element to itself.
+              To be specific, <m>I \in \Lc(V)</m> is defined by
+              <me>
+                Iv = v
+              </me>.
+            </p>
+          </li>
+          <li>
+            <title>differentiation</title>
+            <p>
+              Define <m>D\in \Lc\bigl(\P(\R{})\bigr)</m> by<idx><h>differentiation linear map</h></idx>
+              <me>
+                Dp = p'\!
+              </me>.
+              The assertion that this function is a linear map is another way of stating a basic result about differentiation:
+              <m>(f + g)' = f' + g'</m> and <m>(\lambda f)' = \lambda f'</m> whenever
+              <m>f,
+              g</m> are differentiable and <m>\lambda</m> is a constant.
+            </p>
+          </li>
+          <li>
+            <title>integration</title>
+            <p>
+              Define <m>T\in \Lc\bigl(\P(\R{}),\R{}\bigr)</m> by
+              <me>
+                Tp = \int_0^1 p
+              </me>.
+              The assertion that this function is linear is another way of stating a basic result about integration:
+              the integral of the sum of two functions equals the sum of the integrals,
+              and the integral of a constant times a function equals the constant times the integral of the function.
+            </p>
+          </li>
+          <li>
+            <title>multiplication by <m>x^2</m></title>
+            <p>
+              Define a linear map <m>T\in \Lc\bigl(\P(\R{})\bigr)</m> by
+              <me>
+                (Tp)(x) = x^2 p(x)
+              </me>
+              for each <m>x \in \R{}</m>.
+            </p>
+          </li>
+          <li>
+            <title>backward shift</title>
+            <p>
+              Recall that <m>\F{\infty}</m> denotes the vector space of all sequences of elements of <m>\F{}{}</m>.
+              Define a linear map <m>T\in \Lc( \F{\infty} )</m> by
+                <idx><h>backward shift</h></idx>
+              <me>
+                T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots)
+              </me>.
+            </p>
+          </li>
+          <li>
+            <title>from <m>\R3</m> to <m>\R2</m></title>
+            <p>
+              Define a linear map <m>T\in \Lc( \RR{3},\R{2} )</m> by
+              <me>
+                T(x,y,z) = (2x - y + 3z, 7x + 5y -6z)
+              </me>.
+            </p>
+          </li>
+          <li>
+            <title>from <m>\F{n}</m> to <m>\F{m}</m></title>
+            <p>
+              To generalize the previous example,
+              let <m>m</m> and <m>n</m> be positive integers,
+              let <m>A_{j,k} \in \F{}</m> for each
+              <m>j = 1, \dots,
+              m</m> and each <m>k = 1, \dots , n</m>,
+              and define a linear map <m>T\in \Lc( \FF{n},\F{m} )</m> by
+              <me>
+                T(x_1, \dots, x_n) = (A_{1,1}x_1 + \dots + A_{1,n}   x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n} x_n)
+              </me>.
+              Actually every linear map from <m>\F{n}</m> to <m>\F{m}</m> is of this form.
+            </p>
+          </li>
+          <li>
+            <title>composition</title>
+            <p>
+              Fix a polynomial <m>q \in \P(\R{})</m>.
+              Define a linear map <m>T \in \Lc( \P(\R{}) )</m> by
+              <me>
+                (Tp)(x) = p( q(x) )
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      The existence part of the next result means that we can find a linear map that takes on whatever values we wish on the vectors in a basis.
+      The uniqueness part of the next result means that a linear map is completely determined by its values on a basis.
+    </p>
+    <theorem xml:id="x3linearmap">
+      <title>linear map lemma</title>
+      <statement>
+        <p>
+          Suppose <m>v_1, \dots,
+          v_n</m> is a basis of <m>V</m> and <m>w_1, \dots, w_n \in W{}</m>.
+          Then there exists a unique linear map <m>T \colon V \to W</m> such that
+              <idx><h>linear map lemma</h></idx>
+          <me>
+            Tv_k = w_k
+          </me>
+          for each <m>k = 1, \dots, n</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First we show the existence of a linear map <m>T</m> with the desired property.
+        Define <m>T \colon V \to W</m> by
+        <me>
+          T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n
+        </me>,
+        where <m>c_1, \dots, c_n</m> are arbitrary elements of <m>\F{}{}</m>.
+        The list <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>.
+        Thus the equation above does indeed define a function <m>T</m> from <m>V</m> to<nbsp/><m>W</m>
+        (because each element of <m>V</m> can be uniquely written in the form <m>c_1 v_1 + \dots + c_n v_n</m>).
+      </p>
+      <p>
+        For each <m>k</m>,
+        taking <m>c_k = 1</m> and the other <m>c</m>'s equal to <m>0</m> in the equation above shows that <m>Tv_k = w_k</m>.
+      </p>
+      <p>
+        If <m>u, v \in V</m> with <m>u = a_1 v_1 + \dots + a_n v_n</m> and <m>v = c_1 v_1 + \dots + c_n v_n</m>, then
+        <md>
+          <mrow>T(u + v) \amp = T\bigl( (a_1 + c_1) v_1 + \dots + (a_n + c_n) v_n \bigr)</mrow>
+          <mrow>\amp = (a_1 + c_1) w_1 + \dots + (a_n + c_n) w_n</mrow>
+          <mrow>\amp = (a_1 w_1 + \dots + a_n w_n) + (c_1 w_1 + \dots + c_n w_n)</mrow>
+          <mrow>\amp = Tu + Tv</mrow>
+        </md>.
+      </p>
+      <p>
+        Similarly, if <m>\lambda \in \F{}</m> and <m>v = c_1 v_1 + \dots + c_n v_n</m>, then
+        <md>
+          <mrow>T(\lambda v) \amp = T( \lambda c_1 v_1 + \dots + \lambda c_n v_n)</mrow>
+          <mrow>\amp = \lambda c_1 w_1 + \dots + \lambda c_n w_n</mrow>
+          <mrow>\amp = \lambda (c_1 w_1 + \dots + c_n w_n)</mrow>
+          <mrow>\amp = \lambda Tv</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>T</m> is a linear map from <m>V</m> to <m>W{}</m>.
+      </p>
+      <p>
+        To prove uniqueness, now suppose that <m>T \in \Lc(V{},W)</m> and that
+        <m>Tv_k = w_k</m> for each <m>k = 1, \dots, n</m>.
+        Let <m>c_1, \dots, c_n \in \F{}{}</m>.
+        Then the homogeneity of <m>T</m> implies that
+        <m>T(c_k v_k) = c_k w_k</m> for each <m>k = 1, \dots, n</m>.
+        The additivity of <m>T</m> now implies that
+        <me>
+          T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n
+        </me>.
+      </p>
+      <p>
+        Thus <m>T</m> is uniquely determined on
+        <m>\Span(v_1, \dots,
+        v_n)</m> by the equation above.
+        Because <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>,
+        this implies that <m>T</m> is uniquely determined on<nbsp/><m>V{}</m>,
+        as desired.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Algebraic Operations on <m>\Lc(V, W)</m></title>
+    <p>
+      We begin by defining addition and scalar multiplication on <m>\Lc(V{},W)</m>.
+    </p>
+    <definition>
+      <title>addition and scalar multiplication on <m>\Lc(V,W)</m></title>
+      <statement>
+        <p>
+          Suppose <m>S, T \in \Lc(V{},W)</m> and <m>\lambda \in \F{}{}</m>.
+          The <term>sum</term> <m>S + T</m>
+              <idx><h>sum|see{addition}</h></idx>
+              <idx><h>addition</h><h>of linear maps</h></idx>
+          and the <term>product</term>
+          <m>\lambda T</m><idx><h>product</h><h>of scalar and linear map</h></idx>
+              <idx><h>multiplication|see {product}</h></idx>
+              <idx><h>scalar multiplication</h><h>of linear maps</h></idx>
+          are the linear maps from <m>V</m> to <m>W</m> defined by
+          <me>
+            (S+T)(v) = Sv + Tv \andd (\lambda T)(v) = \lambda (Tv)
+          </me>
+          for all <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Linear maps are pervasive throughout mathematics.
+        However, they are not as ubiquitous as imagined by people who seem to think <m>\cos</m> is a linear map from <m>\R{}</m> to <m>\R{}</m> when they incorrectly write that <m>\cos(x + y)</m> equals
+        <m>\cos x + \cos y</m> and that <m>\cos 2x</m> equals <m>2\cos x</m>.
+      </p>
+    </aside>
+    <p>
+      You should verify that <m>S+T</m> and
+      <m>\lambda T</m> as defined above are indeed linear maps.
+      In other words,
+      if <m>S, T \in \Lc(V{},W)</m> and <m>\lambda \in \F{}{}</m>,
+      then <m>S+T \in \Lc(V{}, W)</m> and <m>\lambda T \in \Lc(V{}, W)</m>.
+    </p>
+    <p>
+      Because we took the trouble to define addition and scalar multiplication on <m>\Lc(V{},W)</m>,
+      the next result should not be a surprise.
+    </p>
+    <theorem xml:id="LVW">
+      <title><m>\Lc(V,W)</m> is a vector space</title>
+      <statement>
+        <p>
+          With the operations of addition and scalar multiplication as defined above,
+          <m>\Lc(V{},W)</m> is a vector space.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The routine proof of the result above is left to the reader.
+      Note that the additive identity of
+      <m>\Lc(V{},W)</m> is the zero linear map defined in <xref ref="x2a111">Example</xref>.
+    </p>
+    <p>
+      Usually it makes no sense to multiply together two elements of a vector space,
+      but for some pairs of linear maps a useful product exists,
+      as in the next definition.
+    </p>
+    <definition xml:id="x3ST">
+      <title>product of linear maps</title>
+      <statement>
+        <p>
+          If <m>T \in \Lc(U,V)</m> and <m>S \in \Lc(V{},W)</m>,
+          then the <term>product</term>
+          <m>ST \in \Lc(U,W)</m> is defined by<idx><h>product</h><h>of linear maps</h></idx>
+          <me>
+            (ST)(u) = S(Tu)
+          </me>
+          for all <m>u \in U</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Thus <m>ST</m> is just the usual composition <m>S \circ T</m> of two functions,
+      but when both functions are linear,
+      we usually write <m>ST</m> instead of <m>S \circ T{}</m>.
+      The product notation <m>ST</m> helps make the distributive properties
+      (see next result)
+      seem natural.
+          <idx><h sortby="composition"><m>\circ</m></h></idx>
+    </p>
+    <p>
+      Note that <m>ST</m> is defined only when <m>T</m> maps into the domain of <m>S</m>.
+      You should verify that <m>ST</m> is indeed a linear map from <m>U</m> to <m>W</m> whenever
+      <m>T \in \Lc(U,V)</m> and <m>S \in \Lc(V{},W)</m>.
+    </p>
+    <theorem xml:id="algprod">
+      <title>algebraic properties of products of linear maps</title>
+      <statement>
+        <ol>
+          <li>
+            <title>associativity</title>
+            <p>
+              <m>(T{}_1T{}_2)T{}_3 = T{}_1(T{}_2T{}_3)</m> whenever <m>T{}_1</m>,
+              <m>T{}_2</m>,
+              and <m>T{}_3</m> are linear maps such that the products make sense
+              (meaning <m>T{}_3</m> maps into the domain of<nbsp/><m>T{}_2</m>,
+              and <m>T{}_2</m> maps into the domain of<nbsp/><m>T{}_1</m>).
+                <idx><h>associativity</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>identity</title>
+            <p>
+              <m>TI = IT = T</m> whenever <m>T \in \Lc(V{},W)</m>;
+              here the first <m>I</m> is the identity operator on<nbsp/><m>V{}</m>,
+              and the second <m>I</m> is the identity operator on<nbsp/><m>W</m>.
+                <idx><h>identity operator</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>distributive properties</title>
+            <p>
+              <m>(S_1 + S_2) T = S_1 T + S_2 T \andd S(T{}_1 + T{}_2) = ST{}_1 + ST{}_2</m> whenever
+              <m>T{},T{}_1,T{}_2 \in \Lc(U,V)</m> and <m>S, S_1, S_2 \in \Lc(V{},W)</m>.
+                <idx><h>distributive property</h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <p>
+      The routine proof of the result above is left to the reader.
+    </p>
+    <p>
+      Multiplication of linear maps is not commutative.
+          <idx><h>commutativity</h></idx>
+      In other words, it is not necessarily true that <m>ST = TS</m>,
+      even if both sides of the equation make sense.
+    </p>
+    <example xml:id="x3noncom">
+      <title>two noncommuting linear maps from  <m>\P(\R)</m> to  <m>\P(\R)</m></title>
+      <statement>
+        <p>
+          Suppose <m>D \in \Lc\bigl(\P(\R{})\bigr)</m> is the differentiation map<idx><h>differentiation linear map</h></idx> defined in <xref ref="x2a111">Example</xref>
+          and <m>T \in \Lc\bigl(\P(\R{})\bigr)</m> is the multiplication by <m>x^2</m> map defined earlier in this section.
+          Then
+          <me>
+            \bigl((TD)p\bigr)(x) = x^2 p' \! (x) \butt \bigl((DT)p\bigr)(x) = x^2 p' \! (x) + 2 x p(x)
+          </me>.
+        </p>
+        <p>
+          Thus <m>TD \ne DT{}</m><mdash/>differentiating and then multiplying by <m>x^2</m> is not the same as multiplying by <m>x^2</m> and then differentiating.
+        </p>
+      </statement>
+    </example>
+    <theorem xml:id="zerotozero">
+      <title>linear maps take <m>0</m> to <m>0</m></title>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a linear map from <m>V</m> to <m>W{}</m>.
+          Then <m>T(0) = 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        By additivity, we have
+        <me>
+          T(0) = T(0 + 0) = T(0) + T(0)
+        </me>.
+      </p>
+      <p>
+        Add the additive inverse of <m>T(0)</m> to each side of the equation above to conclude that <m>T(0) = 0</m>.
+      </p>
+    </proof>
+    <p>
+      Suppose <m>m, b \in \R{}</m>.
+      The function <m>\fun f {\R{}} {\R{}}</m> defined by
+      <me>
+        f(x) = mx + b
+      </me>
+      is a linear map if and only if <m>b = 0</m>
+      (<xref ref="zerotozero">use</xref>).
+      Thus the linear functions of high school algebra are not the same as linear maps in the context of linear algebra.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>b, c \in \R{}</m>.
+              Define <m>T \colon \R3 \to \R2</m> by
+              <me>
+                T(x, y, z) = (2x -4y + 3z + b, 6x + c xyz)
+              </me>.
+            </p>
+            <p>
+              Show that <m>T</m> is linear if and only if <m>b = c = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>b, c \in \R{}</m>.
+              Define <m>T \colon \P(\R{}) \to \R2</m> by
+              <me>
+                Tp = \Bigl(3p(4) + 5p' \! (6) + b p(1) p(2), \int_{-1}^2 x^3 p(x)  dx + c \sin p(0)\Bigr)
+              </me>.
+            </p>
+            <p>
+              Show that <m>T</m> is linear if and only if <m>b = c = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>T \in \Lc( \FF{n}, \F{m} )</m>.
+              Show that there exist scalars <m>A_{j, k} \in \F{}</m> for
+              <m>j = 1, \dots,
+              m</m> and <m>k = 1, \dots, n</m> such that
+              <me>
+                T(x_1, \dots, x_n) = (A_{1,1}x_1 + \dots + A_{1,n} x_n, \dots, A_{m,1}x_1 + \dots + A_{m,n} x_n)
+              </me>
+              for every <m>(x_1, \dots, x_n) \in \FF{n}</m>.
+              Note: This exercise shows that the linear map <m>T</m> has the form promised in the second to last item of <xref ref="x2a111">Example</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m> and
+              <m>v_1, \dots,
+              v_m</m> is a list of vectors in <m>V</m> such that
+              <m>Tv_1, \dots, Tv_m</m> is a linearly independent list in <m>W{}</m>.
+              Prove that <m>v_1, \dots, v_m</m> is linearly independent.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove that <m>\Lc(V{},W)</m> is a vector space,
+              as was asserted in <xref ref="LVW"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove that multiplication of linear maps has the associative,
+              identity,
+              and distributive properties asserted in <xref ref="algprod"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="dualone">
+          <statement>
+            <p>
+              Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar.
+              More precisely, prove that if
+              <m>\dim V = 1</m> and <m>T \in \Lc(V)</m>,
+              then there exists <m>\lambda \in \F{}</m> such that
+              <m>Tv = \lambda v</m> for all <m>v \in V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x403">
+          <statement>
+            <p>
+              Give an example of a function <m>\phi\colon \R{2} \to \R{}</m> such that
+              <me>
+                \phi(av) = a \phi(v)
+              </me>
+              for all <m>a \in \R{}</m> and all
+              <m>v \in \R{2}</m> but <m>\phi</m> is not linear.
+              Note: This exercise and the next exercise show that neither homogeneity nor additivity alone is enough to imply that a function is a linear map.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of a function <m>\phi \colon \C{} \to \C{}</m> such that
+              <me>
+                \phi(w + z) = \phi(w) + \phi(z)
+              </me>
+              for all <m>w, z \in \C{}</m> but <m>\phi</m> is not linear.
+              (Here <m>\C{}</m> is thought of as a complex vector space.)
+              Note: There also exists a function
+              <m>\phi \colon \R{} \to \R{}</m> such that <m>\phi</m> satisfies the additivity condition above but <m>\phi</m> is not linear.
+              However, showing the existence of such a function involves considerably more advanced tools.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If <m>q \in \P(\R{})</m> and
+              <m>\fun T {\P(\R{})} {\P(\R{})}</m> is defined by <m>Tp = q \circ p</m>,
+              then <m>T</m> is a linear map.
+              Note: The function <m>T</m> defined here differs from the function <m>T</m> defined in the last bullet point of <xref ref="x2a111"></xref>
+              by the order of the functions in the compositions.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+              Prove that <m>T</m> is a scalar multiple of the identity if and only if <m>ST = TS</m> for every <m>S \in \Lc(V)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>U</m> is a subspace of <m>V</m> with <m>U \ne V{}</m>.
+              Suppose <m>S \in \Lc(U, W)</m> and <m>S \ne 0</m>
+              (which means that <m>Su \ne 0</m> for some <m>u \in U</m>).
+              Define <m>T \colon V \to W</m> by
+              <me>
+                Tv = \begin{cases}Sv \amp  \text{ if }  v \in U,\\ 0 \amp  \text{ if }  v \in V \textit{ and \ }v \notin U. \end{cases}
+              </me>
+            </p>
+            <p>
+              Prove that <m>T</m> is not a linear map on <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x384">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional.
+              Prove that every linear map on a subspace of <m>V</m> can be extended to a linear map on <m>V{}</m>.
+              In other words,
+              show that if <m>U</m> is a subspace of <m>V</m> and <m>S \in \Lc(U, W)</m>,
+              then there exists <m>T \in \Lc(V{}, W)</m> such that <m>Tu = Su</m> for all <m>u \in U</m>.
+              Note: The result in this exercise is used in the proof of <xref ref="dimannih"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional with <m>\dim V > 0</m>,
+              and suppose <m>W</m> is infinite-dimensional.
+              Prove that <m>\Lc(V{},W)</m> is infinite-dimensional.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \dots,
+              v_m</m> is a linearly dependent list of vectors in <m>V{}</m>.
+              Suppose also that <m>W \ne \{0\}</m>.
+              Prove that there exist <m>w_1, \dots,
+              w_m \in W</m> such that no <m>T \in \Lc(V{}, W)</m> satisfies
+              <m>Tv_k = w_k</m> for each <m>k = 1, \dots, m</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="noncomm">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional with <m>\dim V > 1</m>.
+              Prove that there exist <m>S, T \in \Lc(V)</m> such that <m>ST \ne TS</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="ideals">
+          <statement>
+            <p>
+              Suppose <m>V</m> is finite-dimensional.
+              Show that the only two-sided ideals of <m>\Lc(V)</m> are <m>\{ 0 \}</m> and <m>\Lc(V)</m>.
+          <idx><h>two-sided ideal</h></idx>
+      Note: A subspace <m>\E</m> of <m>\Lc(V)</m> is called a
+              <term>two-sided ideal</term>
+              of <m>\Lc(V)</m> if <m>TE \in \E</m> and <m>ET \in \E</m> for all
+              <m>E \in \E</m> and all <m>T \in \Lc(V)</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

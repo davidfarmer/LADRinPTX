@@ -1,0 +1,826 @@
+<section xml:id="x1Subspaces">
+  <title>Subspaces</title>
+  <introduction>
+    <p>
+      By considering subspaces,
+      we can greatly expand our examples of vector spaces.
+    </p>
+    <definition>
+      <title>subspace</title>
+      <statement>
+        <p>
+          A subset <m>U</m> of <m>V</m> is called a <term>subspace</term>
+              <idx><h>subspace</h></idx>
+          of <m>V</m> if <m>U</m> is also a vector space with the same additive identity,
+          addition, and scalar multiplication as on<nbsp/><m>V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Some people use the terminology
+        <em>linear subspace</em>,
+            <idx><h>linear subspace</h></idx>
+        which means the same as subspace.
+      </p>
+    </aside>
+    <p>
+      The next result gives the easiest way to check whether a subset of a vector space is a subspace.
+    </p>
+    <theorem xml:id="subspace">
+      <title>conditions for a subspace</title>
+      <statement>
+        <p>
+          A subset <m>U</m> of <m>V</m> is a subspace of <m>V</m> if and only if <m>U</m> satisfies the following three conditions.
+          <ol>
+            <li>
+              <title>additive identity</title>
+              <p>
+                <m>0 \in U</m>.
+              </p>
+            </li>
+            <li>
+              <title>closed under addition</title>
+              <p>
+                  <idx><h>closed under addition</h></idx> <m>u, w \in U</m> implies <m>u + w \in U</m>.
+              </p>
+            </li>
+            <li>
+              <title>closed under scalar multiplication</title>
+              <p>
+                  <idx><h>closed under scalar multiplication</h></idx> <m>a \in \F{}</m> and <m>u \in U</m> implies <m>au \in U</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <aside>
+      <p>
+        The additive identity condition above could be replaced with the condition that <m>U</m> is nonempty
+        (because then taking <m>u \in U</m> and multiplying it by <m>0</m> would imply that <m>0 \in U</m>)
+        . However, if a subset <m>U</m> of <m>V</m> is indeed a subspace,
+        then usually the quickest way to show that <m>U</m> is nonempty is to show that <m>0 \in U</m>.
+      </p>
+    </aside>
+    <proof>
+      <p>
+        If <m>U</m> is a subspace of <m>V{}</m>,
+        then <m>U</m> satisfies the three conditions above by the definition of vector space.
+      </p>
+      <p>
+        Conversely, suppose <m>U</m> satisfies the three conditions above.
+        The first condition ensures that the additive identity of <m>V</m> is in<nbsp/><m>U</m>.
+        The second condition ensures that addition makes sense on<nbsp/><m>U</m>.
+        The third condition ensures that scalar multiplication makes sense on<nbsp/><m>U</m>.
+      </p>
+      <p>
+        If <m>u \in U</m>,
+        then <m>-u</m> [which equals <m>(-1)u</m> by <xref ref="x2"></xref>] is also in <m>U</m> by the third condition above.
+        Hence every element of <m>U</m> has an additive inverse in <m>U</m>.
+      </p>
+      <p>
+        The other parts of the definition of a vector space,
+        such as associativity and commutativity,
+        are automatically satisfied for <m>U</m> because they hold on the larger space<nbsp/><m>V{}</m>.
+        Thus <m>U</m> is a vector space and hence is a subspace of <m>V{}</m>.
+      </p>
+    </proof>
+    <p>
+      The three conditions in the result above usually enable us to determine quickly whether a given subset of<nbsp/><m>V</m> is a subspace of<nbsp/><m>V{}</m>.
+      You should verify all assertions in the next example.
+    </p>
+    <example xml:id="subspaces">
+      <title>subspaces</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>b \in \F{}{}</m>, then
+              <me>
+                \{ (x_1, x_2, x_3, x_4) \in \F{4} : x_3 = 5 x_4 + b  \}
+              </me>
+              is a subspace of <m>\F{4}</m> if and only if <m>b = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of continuous real-valued functions on the interval <m>[0, 1]</m> is a subspace of <m>\RR{[0, 1]}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of differentiable real-valued functions on <m>\R{}</m> is a subspace of<nbsp/><m>\RR{\R{}}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of differentiable real-valued functions <m>f</m> on the interval <m>(0, 3)</m> such that
+              <m>f'\!(2) = b</m> is a subspace of<nbsp/><m>\R{(0,3)}</m> if and only if <m>b = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of all sequences of complex numbers with limit <m>0</m> is a subspace of<nbsp/><m>\CC{\infty}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        The set <m>\{0\}</m> is the smallest subspace of <m>V{}</m>,
+        and <m>V</m> itself is the largest subspace of <m>V{}</m>.
+        The empty set is not a subspace of <m>V</m> because a subspace must be a vector space and hence must contain at least one element,
+        namely, an additive identity.
+      </p>
+    </aside>
+    <p>
+      Verifying some of the items above shows the linear structure underlying parts of calculus.
+      For example, (b) above requires the result that the sum of two continuous functions is continuous.
+      As another example, (d) above requires the result that for a constant <m>c</m>,
+      the derivative of <m>cf</m> equals <m>c</m> times the derivative of <m>f</m>.
+    </p>
+    <p>
+      The subspaces of <m>\R{2}</m> are precisely <m>\{0\}</m>,
+      all lines in <m>\R{2}</m> containing the origin, and <m>\RR{2}</m>.
+      The subspaces of <m>\R{3}</m> are precisely <m>\{0\}</m>,
+      all lines in <m>\R{3}</m> containing the origin,
+      all planes in <m>\R{3}</m> containing the origin, and <m>\RR{3}</m>.
+      To prove that all these objects are indeed subspaces is straightforward<mdash/>the hard part is to show that they are the only subspaces of <m>\R{2}</m> and <m>\RR{3}</m>.
+      That task will be easier after we introduce some additional tools in the next chapter.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Sums of Subspaces</title>
+    <aside>
+      <p>
+        The union of subspaces is rarely a subspace
+        (see <xref ref="x218">Exercise</xref>)
+        , which is why we usually work with sums rather than unions.
+      </p>
+    </aside>
+    <p>
+      When dealing with vector spaces,
+      we are usually interested only in subspaces,
+      as opposed to arbitrary subsets.
+      The notion of the sum of subspaces will be useful.
+    </p>
+    <definition>
+      <title>sum of subspaces</title>
+      <statement>
+        <p>
+          Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of<nbsp/><m>V{}</m>.
+          The <term>sum</term> of <m>V{}_1, \dots, V{}_m</m>,
+          denoted by <m>V{}_1 + \dots + V{}_m</m>,
+          is the set of all possible sums of elements of <m>V{}_1, \dots, V{}_m</m>.
+          More precisely,<idx><h>addition</h><h>of subspaces</h></idx>
+              <idx><h>sum of subspaces</h></idx>
+          <me>
+            V{}_1 + \dots + V{}_m = \{ v_1 + \dots + v_m: v_1 \in V{}_1, \dots, v_m \in V{}_m \}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at some examples of sums of subspaces.
+    </p>
+    <example>
+      <title>a sum of subspaces of  <m>\F{3}</m></title>
+      <statement>
+        <p>
+          Suppose <m>U</m> is the set of all elements of<nbsp/><m>\F{3}</m> whose second and third coordinates equal<nbsp/><m>0</m>,
+          and <m>W</m> is the set of all elements of<nbsp/><m>\F{3}</m> whose first and third coordinates equal<nbsp/><m>0</m>:
+          <me>
+            U = \{ (x, 0, 0) \in \F{3}: x \in \F{} \} \andd W = \{ (0, y, 0) \in \F{3}: y \in \F{} \}
+          </me>.
+        </p>
+        <p>
+          Then
+          <me>
+            U + W = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \}
+          </me>,
+          as you should verify.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>a sum of subspaces of  <m>\F{4}</m></title>
+      <statement>
+        <p>
+          Suppose
+          <me>
+            U = \{ (x, x, y, y)\in\F{4}: x, y \in \F{} \} \andd W = \{ (x, x, x, y) \in \F{4}: x, y \in \F{} \}
+          </me>.
+        </p>
+        <p>
+          Using words rather than symbols,
+          we could say that <m>U</m> is the set of elements of <m>\F4</m> whose first two coordinates equal each other and whose third and fourth coordinates equal each other.
+          Similarly, <m>W</m> is the set of elements of <m>\F4</m> whose first three coordinates equal each other.
+        </p>
+        <p>
+          To find a description of <m>U + W{}</m>,
+          consider a typical element
+          <m>(a, a, b, b)</m> of <m>U</m> and a typical element <m>(c,c, c, d)</m> of <m>W{}</m>,
+          where <m>a, b, c, d \in \F{}{}</m>.
+          We have
+          <me>
+            (a, a, b, b) + (c, c, c, d) = (a + c, a+c, b+c, b+d)
+          </me>,
+          which shows that every element of <m>U + W</m> has its first two coordinates equal to each other.
+          Thus
+          <men xml:id="UpW">
+            U + W \subset \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \}
+          </men>.
+        </p>
+        <p>
+          To prove the inclusion in the other direction,
+          suppose <m>x, y, z \in \F{}{}</m>.
+          Then
+          <me>
+            (x, x, y, z) = (x,x,y,y) + (0, 0, 0, z-y)
+          </me>,
+          where the first vector on the right is in <m>U</m> and the second vector on the right is in<nbsp/><m>W{}</m>.
+          Thus <m>(x, x, y, z) \in U + W{}</m>,
+          showing that the <xref ref="UpW">inclusion</xref>
+          also holds in the opposite direction.
+          Hence
+          <me>
+            U + W = \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \}
+          </me>,
+          which shows that <m>U + W</m> is the set of elements of <m>\F4</m> whose first two coordinates equal each other.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result states that the sum of subspaces is a subspace,
+      and is in fact the smallest subspace containing all the summands
+      (which means that every subspace containing all the summands also contains the sum).
+    </p>
+    <theorem>
+      <title>sum of subspaces is the smallest containing subspace</title>
+      <statement>
+        <p>
+          Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
+          Then <m>V{}_1 + \dots + V{}_m</m> is the smallest subspace of<nbsp/><m>V</m> containing <m>V{}_1, \dots, V{}_m</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The reader can verify that
+        <m>V{}_1 + \dots + V{}_m</m> contains the additive identity <m>0</m> and is closed under addition and scalar multiplication.
+        <xref ref="subspace">Thus</xref> implies that
+        <m>V{}_1 + \dots + V{}_m</m> is a subspace of <m>V{}</m>.
+      </p>
+      <aside>
+        <p>
+          Sums of subspaces in the theory of vector spaces are analogous to unions of subsets in set theory.
+          Given two subspaces of a vector space,
+          the smallest subspace containing them is their sum.
+          Analogously, given two subsets of a set,
+          the smallest subset containing them is their union.
+        </p>
+      </aside>
+      <p>
+        The subspaces <m>V{}_1, \dots, V{}_m</m> are all contained in <m>V{}_1 + \dots + V{}_m</m>
+        (to see this, consider sums
+        <m>v_1 + \dots + v_m</m> where all except one of the <m>v_k</m>'s are<nbsp/><m>0</m>).
+        Conversely, every subspace of <m>V</m> containing
+        <m>V{}_1, \dots, V{}_m</m> contains <m>V{}_1 + \dots + V{}_m</m>
+        (because subspaces must contain all finite sums of their elements).
+        Thus <m>V{}_1 + \dots + V{}_m</m> is the smallest subspace of<nbsp/><m>V</m> containing <m>V{}_1, \dots, V{}_m</m>.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Direct Sums</title>
+    <p>
+      Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
+      Every element of <m>V{}_1 + \dots + V{}_m</m> can be written in the form
+      <me>
+        v_1 + \dots + v_m
+      </me>,
+      where each <m>v_k \in V{}_k</m>.
+      Of special interest are cases in which each vector in
+      <m>V{}_1 + \dots + V{}_m</m> can be represented in the form above in only one way.
+      This situation is so important that it gets a special name
+      (direct sum)
+      and a special symbol
+      (<m>\oplus</m>).
+    </p>
+    <definition xml:id="directsum">
+      <title>direct sum,  <m>\oplus</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="directsum"><m>\oplus</m></h></idx>
+          Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
+          <ol>
+            <li>
+              <p>
+                The sum <m>V{}_1 + \dots + V{}_m</m> is called a <term>direct sum</term>
+                  <idx><h>direct sum</h></idx>
+                if each element of<nbsp/><m>V{}_1 + \dots + V{}_m</m> can be written in only one way as a sum <m>v_1 + \dots + v_m</m>,
+                where each <m>v_k \in V{}_k</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>V{}_1 + \dots + V{}_m</m> is a direct sum,
+                then <m>V{}_1 \oplus \dots \oplus V{}_m</m> denotes <m>V{}_1 + \dots + V{}_m</m>,
+                with the <m>\oplus</m> notation serving as an indication that this is a direct sum.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>a direct sum of two subspaces</title>
+      <statement>
+        <p>
+          Suppose <m>U</m> is the subspace of<nbsp/><m>\F{3}</m> of those vectors whose last coordinate equals<nbsp/><m>0</m>,
+          and <m>W</m> is the subspace of<nbsp/><m>\F{3}</m> of those vectors whose first two coordinates equal<nbsp/><m>0</m>:
+          <me>
+            U = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \} \andd W = \{ (0, 0, z) \in \F{3}: z \in \F{} \}
+          </me>.
+        </p>
+        <p>
+          Then <m>\F{3} = U \oplus W{}</m>, as you should verify.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>a direct sum of multiple subspaces</title>
+      <statement>
+        <aside>
+          <p>
+            To produce <m>\oplus</m> in \TeX, type <c>\backslash oplus</c>.
+          </p>
+        </aside>
+        <p>
+          Suppose <m>V{}_k</m> is the subspace of <m>\F{n}</m> of those vectors whose coordinates are all <m>0</m>,
+          except possibly in the <m>k^\nth</m> slot;
+          for example,
+          <m>V{}_2 = \{ (0, x, 0, \dots, 0) \in \F{n}: x \in \F{} \}</m>.
+          Then
+          <me>
+            \F{n} = V{}_1 \oplus \dots \oplus V{}_n
+          </me>,
+          as you should verify.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Sometimes nonexamples add to our understanding as much as examples.
+    </p>
+    <example xml:id="x3direct">
+      <title>a sum that is not a direct sum</title>
+      <statement>
+        <p>
+          Suppose
+          <md>
+            <mrow>V{}_1 \amp = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \},</mrow>
+            <mrow>V{}_2 \amp = \{ (0, 0, z) \in \F{3}: z \in \F{} \},</mrow>
+            <mrow>V{}_3 \amp = \{ (0, y, y) \in \F{3}: y \in \F{} \}</mrow>
+          </md>.
+        </p>
+        <p>
+          Then <m>\F{3} = V{}_1 + V{}_2 + V{}_3</m> because every vector <m>(x, y, z) \in \F{3}</m> can be written as
+          <me>
+            (x, y, z) = (x, y, 0) + (0, 0, z) + (0, 0, 0)
+          </me>,
+          where the first vector on the right side is in<nbsp/><m>V{}_1</m>,
+          the second vector is in<nbsp/><m>V{}_2</m>,
+          and the third vector is in<nbsp/><m>V{}_3</m>.
+        </p>
+        <p>
+          However, <m>\F{3}</m> does not equal the direct sum of <m>V{}_1, V{}_2 , V{}_3</m>,
+          because the vector <m>(0,0,0)</m> can be written in more than one way as a sum <m>v_1 + v_2 + v_3</m>,
+          with each <m>v_k \in V{}_k</m>.
+          Specifically, we have
+          <me>
+            (0,0,0) = (0,1,0) + (0,0,1) + (0,-1,-1)
+          </me>
+          and, of course,
+          <me>
+            (0,0,0) = (0,0,0) + (0,0,0) + (0,0,0)
+          </me>,
+          where the first vector on the right side of each equation above is in<nbsp/><m>V{}_1</m>,
+          the second vector is in<nbsp/><m>V{}_2</m>,
+          and the third vector is in<nbsp/><m>V{}_3</m>.
+          Thus the sum <m>V{}_1 + V{}_2 + V{}_3</m> is not a direct sum.
+        </p>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        The symbol <m>\oplus</m>, which is a plus sign inside a circle,
+        reminds us that we are dealing with a special type of sum of subspaces<mdash/>each element in the direct sum can be represented in only one way as a sum of elements from the specified subspaces.
+      </p>
+    </aside>
+    <p>
+      The definition of direct sum requires every vector in the sum to have a unique representation as an appropriate sum.
+      The next result shows that when deciding whether a sum of subspaces is a direct sum,
+      we only need to consider whether <m>0</m> can be uniquely written as an appropriate sum.
+    </p>
+    <theorem xml:id="x30">
+      <title>condition for a direct sum</title>
+      <statement>
+        <p>
+          Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
+          Then <m>V{}_1 + \dots + V{}_m</m> is a direct sum if and only if the only way to write <m>0</m> as a sum <m>v_1 + \dots + v_m</m>,
+          where each <m>v_k \in V{}_k</m>,
+          is by taking each <m>v_k</m> equal to <m>0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose <m>V{}_1 + \dots + V{}_m</m> is a direct sum.
+        Then the definition of direct sum implies that the only way to write <m>0</m> as a sum <m>v_1 + \dots + v_m</m>,
+        where each <m>v_k \in V{}_k</m>,
+        is by taking each <m>v_k</m> equal to <m>0</m>.
+      </p>
+      <p>
+        Now suppose that the only way to write <m>0</m> as a sum <m>v_1 + \dots + v_m</m>,
+        where each <m>v_k \in V{}_k</m>,
+        is by taking each <m>v_k</m> equal to <m>0</m>.
+        To show that <m>V{}_1 + \dots + V{}_m</m> is a direct sum,
+        let <m>v \in V{}_1 + \dots + V{}_m</m>.
+        We can write
+        <me>
+          v = v_1 + \dots + v_m
+        </me>
+        for some <m>v_1 \in V{}_1, \dots, v_m \in V{}_m</m>.
+        To show that this representation is unique, suppose we also have
+        <me>
+          v = u_1 + \dots + u_m
+        </me>,
+        where <m>u_1 \in V{}_1, \dots, u_m \in V{}_m</m>.
+        Subtracting these two equations, we have
+        <me>
+          0 = (v_1 - u_1) + \dots + (v_m - u_m)
+        </me>.
+      </p>
+      <p>
+        Because <m>v_1 - u_1 \in V{}_1, \dots, v_m - u_m \in V{}_m</m>,
+        the equation above implies that each <m>v_k - u_k</m> equals <m>0</m>.
+        Thus <m>v_1 = u_1, \dots, v_m = u_m</m>, as desired.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        The symbol <m>\iff</m><idx><h sortby="iff"><m>\iff</m></h></idx> used below means
+        <q>if and only if</q>; this symbol could also be read to mean
+        <q>is equivalent to</q>.
+      </p>
+    </aside>
+    <p>
+      The next result gives a simple condition for testing whether a sum of two subspaces is a direct sum.
+    </p>
+    <theorem xml:id="x219">
+      <title>direct sum of two subspaces</title>
+      <statement>
+        <p>
+          Suppose <m>U</m> and <m>W</m> are subspaces of<nbsp/><m>V{}</m>.
+          Then
+          <me>
+            U + W \text{ is a direct sum }  \iff U \cap W = \{0\}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose that <m>U + W</m> is a direct sum.
+        If <m>v \in U \cap W{}</m>,
+        then <m>0 = v + (-v)</m>, where <m>v \in U</m> and <m>-v \in W{}</m>.
+        By the unique representation of<nbsp/><m>0</m> as the sum of a vector in<nbsp/><m>U</m> and a vector in<nbsp/><m>W{}</m>,
+        we have <m>v = 0</m>.
+        Thus <m>U \cap W = \{0\}</m>,
+        completing the proof in one direction.
+      </p>
+      <p>
+        To prove the other direction,
+        now suppose <m>U \cap W = \{0\}</m>.
+        To prove that <m>U + W</m> is a direct sum,
+        suppose <m>u \in U</m>, <m>w \in W{}</m>, and
+        <me>
+          0 = u + w
+        </me>.
+      </p>
+      <p>
+        To complete the proof, we only need to show that <m>u = w = 0</m>
+        (by <xref ref="x30"></xref>).
+        The equation above implies that <m>u = -w \in W{}</m>.
+        Thus <m>u \in U \cap W{}</m>.
+        Hence <m>u = 0</m>,
+        which by the equation above implies that <m>w = 0</m>,
+        completing the proof.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        Sums of subspaces are analogous to unions of subsets.
+        Similarly, direct sums of subspaces are analogous to disjoint unions of subsets.
+        No two subspaces of a vector space can be disjoint,
+        because both contain <m>0</m>.
+        So disjointness is replaced, at least in the case of two subspaces,
+        with the requirement that the intersection equal <m>\{0\}</m>.
+      </p>
+    </aside>
+    <p>
+      The result above deals only with the case of two subspaces.
+      When asking about a possible direct sum with more than two subspaces,
+      it is not enough to test that each pair of the subspaces intersect only at<nbsp/><m>0</m>.
+      To see this, consider <xref ref="x3direct">Example</xref>.
+      In that nonexample of a direct sum,
+      we have <m>V{}_1 \cap V{}_2 = V{}_1 \cap V{}_3 = V{}_2 \cap V{}_3 = \{0\}</m>.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              For each of the following subsets of <m>\FF{3}</m>,
+              determine whether it is a subspace of <m>\F{3}</m>.
+              <ol>
+                <li>
+                  <p>
+                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 0 \}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 4 \}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 x_2 x_3 = 0 \}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 = 5 x_3 \}</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Verify all assertions about subspaces in <xref ref="subspaces">Example</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that the set of differentiable real-valued functions <m>f</m> on the interval <m>(-4, 4)</m> such that
+              <m>f'\!(-1) = 3f(2)</m> is a subspace of <m>\RR{(-4, 4)}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>b \in \R{}</m>.
+              Show that the set of continuous real-valued functions <m>f</m> on the interval <m>[0, 1]</m> such that <m>\int_0^1 f = b</m> is a subspace of
+              <m>\R{[0, 1]}</m> if and only if <m>b = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Is <m>\R{2}</m> a subspace of the complex vector space <m>\C{2}</m>?
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <ol>
+              <li>
+                <p>
+                  Is <m>\{ (a, b, c) \in \R{3}: a^3 =b^3 \}</m> a subspace of <m>\R{3}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{ (a, b, c) \in \C{3}: a^3 =b^3 \}</m> a subspace of <m>\C{3}</m>?
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If <m>U</m> is a nonempty subset of <m>\R{2}</m> such that <m>U</m> is closed under addition and under taking additive inverses
+              (meaning <m>-u \in U</m> whenever <m>u \in U</m>),
+              then <m>U</m> is a subspace of<nbsp/><m>\RR{2}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of a nonempty subset <m>U</m> of <m>\R{2}</m> such that <m>U</m> is closed under scalar multiplication,
+              but <m>U</m> is not a subspace of<nbsp/><m>\RR{2}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              A function <m>\fun f {\R{}} {\R{}}</m> is called <term>periodic</term>
+              if there exists a positive number <m>p</m> such that
+              <m>f(x) = f(x + p)</m> for all <m>x \in \R{}</m>.
+              Is the set of periodic functions from <m>\R{}</m> to <m>\R{}</m> a subspace of <m>\R{\R{}}</m>?
+              Explain.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V{}_1</m> and <m>V{}_2</m> are subspaces of <m>V{}</m>.
+              Prove that the intersection
+              <m>V{}_1 \cap V{}_2</m> is a subspace of <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove that the intersection of every collection of subspaces of <m>V</m> is a subspace of <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x218">
+          <statement>
+            <p>
+              Prove that the union of two subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces is contained in the other.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x1threesub">
+          <statement>
+            <p>
+              Prove that the union of three subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces contains the other two.
+              Note: This exercise is surprisingly harder than <xref ref="x218">Exercise</xref>,
+              possibly because this exercise is not true if we replace <m>\F{}</m> with a field containing only two elements.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose
+              <me>
+                U = \{  (x, -x, 2x) \in \F3 : x\in \F{} \} \andd W = \{  (x, x, 2x) \in \F3: x \in \F{} \}
+              </me>.
+            </p>
+            <p>
+              Describe <m>U+W</m> using symbols,
+              and also give a description of <m>U + W</m> that uses no symbols.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>U</m> is a subspace of <m>V{}</m>.
+              What is <m>U + U</m>?
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Is the operation of addition on the subspaces of <m>V</m> commutative?
+              In other words,
+              if <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>, is <m>U + W = W + U</m>?
+          <idx><h>commutativity</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Is the operation of addition on the subspaces of <m>V</m> associative?
+              In other words,
+              if <m>V{}_1,V{}_2, V{}_3</m> are subspaces of <m>V{}</m>, is
+              <me>
+                (V{}_1 + V{}_2) + V{}_3 = V{}_1 + (V{}_2 + V{}_3)?
+              </me>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Does the operation of addition on the subspaces of <m>V</m> have an additive identity?
+              Which subspaces have additive inverses?
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
+              <me>
+                V{}_1 + U = V{}_2 + U
+              </me>,
+              then <m>V{}_1 = V{}_2</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose
+              <me>
+                U = \{ (x, x, y, y) \in \F{4}: x, y \in \F{} \}
+              </me>.
+            </p>
+            <p>
+              Find a subspace <m>W</m> of <m>\F{4}</m> such that <m>\F{4} = U \oplus W{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose
+              <me>
+                U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}
+              </me>.
+            </p>
+            <p>
+              Find a subspace <m>W</m> of <m>\F{5}</m> such that <m>\F{5} = U \oplus W{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose
+              <me>
+                U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}
+              </me>.
+            </p>
+            <p>
+              Find three subspaces <m>W{}_1, W{}_2, W{}_3</m> of <m>\FF{5}</m>,
+              none of which equals <m>\{0\}</m>,
+              such that <m>\F{5} = U \oplus W{}_1 \oplus W{}_2 \oplus W{}_3</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
+              <me>
+                V = V{}_1 \oplus U \andd V = V{}_2 \oplus U
+              </me>,
+              then <m>V{}_1 = V{}_2</m>.
+              <hint>
+                <p>
+                  When trying to discover whether a conjecture in linear algebra is true or false,
+                  it is often useful to start by experimenting in <m>\FF2</m>.
+                </p>
+              </hint>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              A function <m>f\colon \R{} \to \R{}</m> is called <term>even</term> if
+              <me>
+                f(-x) = f(x)
+              </me>
+              for all <m>x \in \R{}</m>.
+              A function <m>f\colon \R{} \to \R{}</m> is called <term>odd</term> if
+              <me>
+                f(-x) = -f(x)
+              </me>
+              for all <m>x \in \R{}</m>.
+              Let <m>V{}_\text{e}</m> denote the set of real-valued even functions on <m>\R{}</m> and let
+              <m>V{}_\text{o}</m> denote the set of real-valued odd functions on <m>\R{}</m>.
+              Show that <m>\R{\R{}} = V{}_\text{e}  \oplus V{}_\text{o}</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

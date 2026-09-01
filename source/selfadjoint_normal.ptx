@@ -1,0 +1,1505 @@
+<section xml:id="selfadjoint_normal">
+  <title>Self-Adjoint and Normal Operators</title>
+  <subsection>
+    <title>Adjoints</title>
+    <definition>
+      <title>adjoint, <m>T^\ast</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V{}, W)</m>.
+          The <term>adjoint</term>
+              <idx><h>adjoint of a linear map</h></idx>
+          of <m>T</m> is the function
+          <m>T^* \colon W \to V</m> such that<idx><h sortby="T*"><m>T^*{}</m></h></idx>
+          <me>
+            \langle Tv, w \rangle  = \langle v, T^*w \rangle
+          </me>
+          for every <m>v \in V</m> and every <m>w \in W{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        The word <em>adjoint</em> has another meaning in linear algebra.
+        In case you encounter the second meaning elsewhere,
+        be warned that the two meanings for adjoint are unrelated to each other.
+      </p>
+    </aside>
+    <p>
+      To see why the definition above makes sense,
+      suppose <m>T \in \Lc(V{}, W)</m>.
+      Fix <m>w \in W{}</m>.
+      Consider the linear functional
+      <me>
+        v \mapsto \langle Tv,w \rangle
+      </me>
+      on <m>V</m> that maps <m>v \in V</m> to <m>\langle Tv, w \rangle</m>;
+      this linear functional depends on <m>T</m> and<nbsp/><m>w</m>.
+      By the Riesz representation theorem <xref ref="x50"/>,
+      there exists a unique vector in <m>V</m> such that this linear functional is given by taking the inner product with it.
+      We call this unique vector <m>T^*w</m>.
+      In other words,
+      <m>T^*w</m> is the unique vector in <m>V</m> such that
+      <me>
+        \langle Tv, w \rangle  = \langle v, T^*w \rangle
+      </me>
+      for every <m>v \in V{}</m>.
+    </p>
+    <p>
+      In the equation above,
+      the inner product on the left takes place in <m>W</m> and the inner product on the right takes place in <m>V</m>.
+      However, we use the same notation
+      <m>\langle \cdot, \cdot \rangle</m> for both inner products.
+    </p>
+    <example>
+      <title>adjoint of a linear map from  <m>\R3</m> to  <m>\R2</m></title>
+      <statement>
+        <p>
+          Define <m>T \colon \R{3} \rightarrow \R{2}</m> by
+          <me>
+            T(x_1, x_2, x_3) = (x_2 + 3x_3, 2x_1)
+          </me>.
+        </p>
+        <p>
+          To compute <m>T^*{}</m>,
+          suppose <m>(x_1, x_2, x_3) \in \R3</m> and {<m>(y_1, y_2) \in \RR{2}</m>}. Then
+          <md>
+            <mrow>\langle T(x_1, x_2, x_3), (y_1, y_2) \rangle  \amp = \langle  (x_2 + 3x_3, 2x_1), (y_1, y_2) \rangle</mrow>
+            <mrow>\amp = x_2 y_1 + 3x_3 y_1 + 2 x_1 y_2</mrow>
+            <mrow>\amp = \langle (x_1, x_2, x_3), (2y_2, y_1, 3y_1) \rangle </mrow>
+          </md>.
+        </p>
+        <p>
+          The equation above and the definition of the adjoint imply that
+          <me>
+            T^*(y_1, y_2) = (2y_2, y_1, 3y_1)
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="Tstar">
+      <title>adjoint of a linear map with range of dimension at most  <m>1</m></title>
+      <statement>
+        <p>
+          Fix <m>u \in V</m> and <m>x \in W{}</m>.
+          Define <m>T \in \Lc(V{}, W)</m> by
+          <me>
+            Tv = \langle v, u \rangle x
+          </me>
+          for each <m>v \in V{}</m>.
+          To compute <m>T^*{}</m>, suppose <m>v \in V</m> and <m>w \in W{}</m>.
+          Then
+          <md>
+            <mrow>\langle Tv, w \rangle  \amp = \bigl\langle \langle v, u \rangle x, w \bigr \rangle</mrow>
+            <mrow>\amp = \langle v, u \rangle  \langle x, w \rangle</mrow>
+            <mrow>\amp = \bigl\langle v, \langle w, x \rangle  u \bigr\rangle</mrow>
+          </md>.
+        </p>
+        <p>
+          Thus
+          <me>
+            T^*w = \langle w, x \rangle  u
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        The two examples above and the proof below use a common technique for computing <m>T^*</m>:
+        start with a formula for <m>\langle Tv,w \rangle</m> then manipulate it to get just <m>v</m> in the first slot;
+        the entry in the second slot will then be <m>T^*w</m>.
+      </p>
+    </aside>
+    <p>
+      In the two examples above,
+      <m>T^*</m> turned out to be not just a function from <m>W</m> to <m>V</m> but a linear map from <m>W</m> to <m>V{}</m>.
+      This behavior is true in general,
+      as shown by the next result.
+    </p>
+    <theorem>
+      <title>adjoint of a linear map is a linear map</title>
+      <statement>
+        <p>
+          If <m>T \in \Lc(V{},W)</m>, then <m>T^* \in \Lc(W{},V)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>T \in \Lc(V{},W)</m>.
+        If <m>v \in V</m> and <m>w_1, w_2 \in W{}</m>, then
+        <md>
+          <mrow>\langle Tv, w_1 + w_2 \rangle  \amp = \langle Tv, w_1 \rangle  + \langle Tv, w_2 \rangle</mrow>
+          <mrow>\amp = \langle v, T^*w_1 \rangle  + \langle v, T^*w_2 \rangle</mrow>
+          <mrow>\amp = \langle v, T^*w_1 + T^*w_2 \rangle </mrow>
+        </md>.
+      </p>
+      <p>
+        The equation above shows that
+        <me>
+          T^*(w_1 + w_2) = T^*w_1 + T^*w_2
+        </me>.
+      </p>
+      <p>
+        If <m>v \in V{}</m>,
+        <m>\lambda \in \F{}{}</m>, and <m>w \in W</m>, then
+        <md>
+          <mrow>\langle Tv, \lambda w \rangle  \amp = \bar{\lambda} \langle Tv, w \rangle</mrow>
+          <mrow>\amp = \bar{\lambda} \langle v, T^*w \rangle</mrow>
+          <mrow>\amp = \langle v, \lambda T^*w \rangle </mrow>
+        </md>.
+      </p>
+      <p>
+        The equation above shows that
+        <me>
+          T^*(\lambda w) = \lambda T^*w
+        </me>.
+      </p>
+      <p>
+        Thus <m>T^*</m> is a linear map, as desired.
+      </p>
+    </proof>
+    <theorem xml:id="x7propadjoint">
+      <title>properties of the adjoint</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V{}, W)</m>.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>(S + T)^* = S^* + T^*</m> for all <m>S\in \Lc(V{}, W)</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\lambda T)^* = \bar{\lambda} T^*</m> for all <m>\lambda \in \F{}</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>( T^* )^* = T</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(ST)^* = T^* S^*</m> for all
+                <m>S \in \Lc(W{}, U)</m> (here <m>U</m> is a finite-dimensional inner product space over <m>\F{}</m>);
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>I^* = I</m>,
+                where <m>I</m> is the identity operator on <m>V</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                if <m>T</m> is invertible,
+                then <m>T^*</m> is invertible and <m>( T^* )^{-1} = ( T^{-1} )^*{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>v \in V</m> and <m>w \in W{}</m>.
+        <ol>
+          <li>
+            <p>
+              If <m>S \in \Lc(V{}, W)</m>, then
+              <md>
+                <mrow>\langle (S+T)v, w \rangle  \amp = \langle Sv, w \rangle  + \langle Tv, w \rangle</mrow>
+                <mrow>\amp = \langle v, S^*w \rangle  + \langle v,T^*w \rangle</mrow>
+                <mrow>\amp = \langle v, S^*w + T^*w \rangle </mrow>
+              </md>.
+              Thus <m>(S+T)^*w = S^*w + T^*w</m>, as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\lambda \in \F{}{}</m>, then
+              <me>
+                \langle (\lambda T) v, w \rangle  = \lambda \langle Tv, w \rangle = \lambda \langle v, T^* w \rangle  = \langle v, \bar{\lambda} T^*w \rangle
+              </me>.
+              Thus <m>(\lambda T)^* w = \bar{\lambda} T^*w</m>, as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              We have
+              <me>
+                \langle T^*w,v \rangle  = \overline{ \langle v,T^*w \rangle  } = \overline{ \langle Tv,w  \rangle } = \langle w, Tv \rangle
+              </me>.
+              Thus <m>( T^* )^*v = Tv</m>, as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>S \in \Lc(W{},U)</m> and <m>u \in U</m>.
+              Then
+              <me>
+                \langle (ST) v, u \rangle  = \langle S(Tv), u \rangle  = \langle Tv, S^*u \rangle  = \langle v, T^*( S^*u ) \rangle
+              </me>.
+              Thus <m>(ST)^* u = T^*( S^*u )</m>, as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>u \in V{}</m>.
+              Then
+              <me>
+                \langle Iu, v \rangle  = \langle u, v \rangle
+              </me>.
+              Thus <m>I^*v = v</m>, as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>T</m> is invertible.
+              Take adjoints of both sides of the equation <m>T^{-1}T = I</m>,
+              then use (d) and (e) to show that <m>T^* ( T^{-1} )^* = I</m>.
+              Similarly, the equation <m>T T^{-1} = I</m> implies <m>( T^{-1} )^* T^* = I</m>.
+              Thus <m>( T^{-1} )^*</m> is the inverse of <m>T^*{}</m>,
+              as desired.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </proof>
+    <p>
+      If <m>\F{} = \R{}</m>, then the map
+      <m>T \mapsto T^*</m> is a linear map from <m>\Lc(V, W)</m> to <m>\Lc(W,V)</m>,
+      as follows from (a) and (b) of the result above.
+      However, if <m>\F{} = \C{}</m>,
+      then this map is not linear because of the complex conjugate that appears in (b).
+    </p>
+    <p>
+      The next result shows the relationship between the null space and the range of a linear map and its adjoint.
+    </p>
+    <theorem xml:id="x377">
+      <title>null space and range of  <m>T^*</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V{}, W)</m>.
+          Then<idx><h>null space</h><h sortby="of T">of <m>T^*{}</m></h></idx>
+              <idx><h>range</h><h sortby="of T">of <m>T^*{}</m></h></idx>
+          <ol>
+            <li>
+              <p>
+                <m>\ker T^* = (\ran T)^\perp</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ran T^* = (\ker T)^\perp</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ker T = ( \ran T^* )^\perp</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ran T = ( \ker T^* )^\perp</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We begin by proving (a).
+        Let <m>w \in W{}</m>.
+        Then
+        <md>
+          <mrow>w \in \ker T^* \amp \iff T^*w = 0</mrow>
+          <mrow>\amp \iff \langle v, T^*w \rangle  = 0  \textit{ for all\ } v \in V</mrow>
+          <mrow>\amp \iff \langle Tv, w \rangle  = 0  \textit{ for all\ } v \in V</mrow>
+          <mrow>\amp \iff w \in (\ran T)^\perp</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>\ker T^* = (\ran T)^\perp</m>, proving (a).
+      </p>
+      <p>
+        If we take the orthogonal complement of both sides of (a),
+        we get<nbsp/>(d), where we have <xref ref="x376">used</xref>.
+        Replacing <m>T</m> with <m>T^*</m> in (a) gives (c),
+        where we have <xref ref="x7propadjoint">used</xref>(c).
+        Finally, replacing <m>T</m> with <m>T^*</m> in (d) gives<nbsp/>(b).
+      </p>
+    </proof>
+    <p>
+      As we will soon see,
+      the next definition is intimately connected to the matrix of the adjoint of a linear map.
+    </p>
+    <definition>
+      <title>conjugate transpose, <m>A^*</m></title>
+      <statement>
+        <p>
+          The <term>conjugate transpose</term><idx><h>conjugate transpose of a matrix</h></idx>
+              <idx><h sortby="Astar"><m>A^*{}</m></h></idx>
+          of an <m>m</m>-by-<m>n</m> matrix <m>A</m> is the <m>n</m>-by-<m>m</m> matrix <m>A^*</m> obtained by interchanging the rows and columns and then taking the complex conjugate of each entry.
+          In other words, if <m>j \in \{ 1, \ldots,
+          n \}</m> and <m>k \in \{ 1, \ldots, m \}</m>, then
+          <me>
+            (A^*)_{j,k} = \overline{A_{k,j}}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>conjugate transpose of a  $2$-by-$3$ matrix</title>
+      <statement>
+        <aside>
+          <p>
+            If a matrix <m>A</m> has only real entries,
+            then <m>A^* = \tran{A}{}</m>,
+            where <m>\tran{A}</m> denotes the transpose of <m>A</m>
+            (the matrix obtained by interchanging the rows and the columns)
+            .
+          </p>
+        </aside>
+        <p>
+              <idx><h>transpose of a matrix</h></idx>
+        </p>
+        <p>
+          The conjugate transpose of the <m>2</m>-by-<m>3</m> matrix
+          <m>\begin{pmatrix}2 \amp  3 + 4i \amp  7 \\ 6 \amp  5 \amp  8i \end{pmatrix}</m> is the <m>3</m>-by-<m>2</m> matrix
+          <me>
+            \begin{pmatrix}2 \amp  6 \\ 3 - 4i \amp  5 \\ 7 \amp  -8i \end{pmatrix} .\\[0.05in]
+          </me>
+        </p>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        The adjoint of a linear map does not depend on a choice of basis.
+        Thus we frequently emphasize adjoints of linear maps instead of transposes or conjugate transposes of matrices.
+      </p>
+    </aside>
+    <p>
+      The next result shows how to compute the matrix of <m>T^*</m> from the matrix of<nbsp/><m>T{}</m>.
+      <em>Caution:</em> With respect to nonorthonormal bases,
+      the matrix of <m>T^*</m> does not necessarily equal the conjugate transpose of the matrix of<nbsp/><m>T{}</m>.
+    </p>
+    <theorem xml:id="x406">
+      <title>matrix of  <m>T^*</m> equals conjugate transpose of matrix of  <m>T</m></title>
+      <statement>
+        <p>
+              <idx><h>matrix</h><h sortby="of T">of <m>T^*{}</m></h></idx>
+          Let <m>T \in \Lc(V{}, W)</m>.
+          Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V</m> and
+          <m>f_1, \dots,
+          f_m</m> is an orthonormal basis of <nbsp/><m>W{}</m>.
+          Then <m>\M\bigl(T^*{}, (f_1, \dots, f_m), (e_1, \dots,
+          e_n)\bigr)</m> is the conjugate transpose of <m>\M\bigl(T, (e_1, \dots,
+          e_n), (f_1, \dots, f_m)\bigr)</m>.
+          In other words,
+          <me>
+            \M( T^* ) = (  \M(T)  )^*{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        In this proof, we will write <m>\M(T)</m> and
+        <m>\M( T^* )</m> instead of the longer expressions
+        <m>\M\bigl(T, (e_1, \dots, e_n), (f_1, \dots,
+        f_m)\bigr)</m> and <m>\M\bigl(T^*{}, (f_1, \dots,
+        f_m), (e_1, \dots, e_n)\bigr)</m>.
+      </p>
+      <p>
+        Recall that we obtain the <m>k^\nth</m> column of <m>\M(T)</m> by writing <m>Te_k</m> as a linear combination of the <m>f_j</m>'s;
+        the scalars used in this linear combination then become the <m>k^\nth</m> column of <m>\M(T)</m>.
+        Because <m>f_1, \dots, f_m</m> is an orthonormal basis of <m>W{}</m>,
+        we know how to write <m>Te_k</m> as a linear combination of the <m>f_j</m>'s [<xref ref="x190">see</xref>(a)] :
+        <me>
+          Te_k = \langle Te_k, f_1 \rangle  f_1 + \dots + \langle Te_k, f_m \rangle  f_m
+        </me>.
+      </p>
+      <p>
+        Thus
+        <me>
+          the entry in row~\(j\), column~\(k\), of \(\M(T)\) is \(\langle Te_k, f_j \rangle \)
+        </me>.
+      </p>
+      <p>
+        In the statement above, replace <m>T</m> with <m>T^*</m> and interchange
+        <m>e_1, \dots,
+        e_n</m> and <m>f_1, \dots, f_m</m>.
+        This shows that the entry in row<nbsp/><m>j</m>, column<nbsp/><m>k</m>,
+        of <m>\M( T^* )</m> is <m>\langle T^* \! f_k, e_j \rangle</m>,
+        which equals <m>\langle f_k, Te_j \rangle</m>,
+        which equals <m>\overline{\langle Te_j, f_k \rangle }</m>,
+        which equals the complex conjugate of the entry in row<nbsp/><m>k</m>,
+        column<nbsp/><m>j</m>, of<nbsp/><m>\M(T)</m>.
+        Thus <m>\M( T^* ) = ( \M(T) )^*{}</m>.
+      </p>
+    </proof>
+    <p>
+      The Riesz representation theorem as stated in <xref ref="x3RRT"></xref>
+      provides an identification of <m>V</m> with its dual space <m>V'</m> defined in <xref ref="DualSpace"></xref>.
+      Under this identification,
+      the orthogonal complement <m>U^\perp</m> of a subset
+      <m>U \subset V</m> corresponds to the annihilator <m>U^0</m> of <m>U</m>.
+      If <m>U</m> is a subspace of <m>V{}</m>,
+      then the formulas for the dimensions of <m>U^\perp</m> and <m>U^0</m> become identical under this identification<mdash/><xref ref="dimannih">see</xref> and <xref ref="x350"></xref>.
+    </p>
+    <aside>
+      <p>
+        Because orthogonal complements and adjoints are easier to deal with than annihilators and dual maps,
+        there is no need to work with annihilators and dual maps in the context of inner product spaces.
+      </p>
+    </aside>
+    <p>
+      Suppose <m>\fun T V W</m> is a linear map.
+      Under the identification of <m>V</m> with <m>V'</m> and the identification of <m>W</m> with <m>W'\!</m>,
+      the adjoint map <m>\fun {T^*} W V</m> corresponds to the dual map
+      <m>\fun {T'} {W'} {V'}</m> defined in <xref ref="DualMap"></xref>,
+      as <xref ref="IdentifyTstarTprime">Exercise</xref> asks you to verify.
+      Under this identification,
+      the formulas for <m>\ker T^*</m> and
+      <m>\ran T^*</m> [ <xref ref="x377"></xref>(a) and (b)] then become identical to the formulas for <m>\ker T'</m> and <m>\ran T'</m> [ <xref ref="nullTprime"></xref>(a) and <xref ref="rangeTprime"></xref>(b)] . Furthermore,
+      the theorem about the matrix of <m>T^*</m> <xref ref="x406"/> is analogous to the theorem about the matrix of <m>T'</m> <xref ref="x3matrixTprime"/>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Self-Adjoint Operators</title>
+    <p>
+      Now we switch our attention to operators on inner product spaces.
+      Instead of considering linear maps from <m>V</m> to <m>W{}</m>,
+      we will focus on linear maps from <m>V</m> to <m>V</m>;
+      recall that such linear maps are called operators.
+    </p>
+    <definition>
+      <title>self-adjoint</title>
+      <statement>
+        <p>
+          An operator <m>T \in \Lc(V)</m> is called <term>self-adjoint</term>
+              <idx><h>self-adjoint operator</h></idx>
+          if <m>T = T^*{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If <m>T \in \Lc(V)</m> and
+      <m>e_1, \ldots,
+      e_n</m> is an orthonormal basis of <m>V{}</m>,
+      then <m>T</m> is self-adjoint if and only if
+      <m>\M( T, (e_1, \ldots,
+      e_n) ) = \M( T, (e_1, \ldots,
+      e_n) )^*{}</m>, as follows from <xref ref="x406"></xref>.
+    </p>
+    <example>
+      <title>determining whether  <m>T</m> is self-adjoint from its matrix</title>
+      <statement>
+        <p>
+          Suppose <m>c \in \F{}</m> and <m>T</m> is the operator on <m>\F{2}</m> whose matrix
+          (with respect to the standard basis)
+          is
+          <me>
+            \M(T) = \begin{pmatrix}2 \amp  c\\ 3 \amp  7 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          The matrix of <m>T^*</m>
+          (with respect to the standard basis)
+          is
+          <me>
+            \M( T^* ) = \begin{pmatrix}2 \amp  3\\ \overline{c} \amp  7 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Thus <m>\M(T) = \M( T^* )</m> if and only if <m>c = 3</m>.
+          Hence the operator <m>T</m> is self-adjoint if and only if <m>c = 3</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Some mathematicians use the term <em>Hermitian</em>
+          <idx><h>Hermitian</h></idx>
+      instead of self-adjoint, honoring \end{aside}
+    </p>
+    <p>
+      A good analogy to keep in mind is that the adjoint on <m>\Lc(V)</m> plays a role similar to that of the complex conjugate on<nbsp/><m>\C{}</m>.
+      A complex number <m>z</m> is real if and only if <m>z = \bar{z}</m>;
+      thus a self-adjoint operator (<m>T = T^*</m>) is analogous to a real number.
+    </p>
+    <aside>
+      <p>
+        An operator <m>T \in \Lc(V)</m> is self-adjoint if and only if
+        <me>
+          \langle Tv, w \rangle  = \langle v, Tw \rangle
+        </me>
+        for all <m>v, w \in V{}</m>.
+      </p>
+    </aside>
+    <p>
+      We will see that the analogy discussed above is reflected in some important properties of self-adjoint operators,
+      beginning with eigenvalues in the next result.
+    </p>
+    <p>
+      If <m>\F{} = \R{}</m>, then by definition every eigenvalue is real,
+      so the next result is interesting only when <m>\F{} = \C{}</m>.
+    </p>
+    <theorem xml:id="x56">
+      <title>eigenvalues of self-adjoint operators</title>
+      <statement>
+        <p>
+          Every eigenvalue of a self-adjoint operator is real.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>eigenvalue</h><h>of self-adjoint operator</h></idx>
+    </p>
+    <proof>
+      <p>
+        Suppose <m>T</m> is a self-adjoint operator on <m>V{}</m>.
+        Let <m>\lambda</m> be an eigenvalue of <m>T</m>,
+        and let <m>v</m> be a nonzero vector in <m>V</m> such that <m>Tv = \lambda v</m>.
+        Then
+        <me>
+          \lambda \| v \|^2 = \langle \lambda v, v \rangle = \langle Tv, v \rangle = \langle v, Tv \rangle = \langle v, \lambda v \rangle = \bar{\lambda} \| v \|^2{}
+        </me>.
+      </p>
+      <p>
+        Thus <m>\lambda = \bar{\lambda}</m>,
+        which means that <m>\lambda</m> is real, as desired.
+      </p>
+    </proof>
+    <p>
+      The next result is false for real inner product spaces.
+      As an example, consider the operator
+      <m>T \in \Lc( \R{2} )</m> that is a counterclockwise rotation of <m>90^\circ</m> around the origin;
+      thus <m>T(x, y) = (-y, x)</m>.
+      Notice that <m>Tv</m> is orthogonal to <m>v</m> for every <m>v \in \RR{2}</m>,
+      even though <m>T \ne 0</m>.
+    </p>
+    <theorem xml:id="x51">
+      <title><m>Tv</m> is orthogonal to <m>v</m> for all <m>v \iff T =0</m>  (assuming  <m>\F = \C</m>)</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a complex inner product space and <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            \langle Tv, v \rangle  = 0 \text{ for every }  v \in V \iff T = 0
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>u, w \in V{}</m>, then
+        <md>
+          <mrow>\langle Tu, w \rangle  =\ \amp \frac{\langle T(u+w), u + w \rangle  - \langle T(u-w), u - w \rangle }{4}</mrow>
+          <mrow>\amp + \frac{\langle T(u+iw), u+iw \rangle - \langle T(u-iw), u - iw \rangle }{4}    i</mrow>
+        </md>,
+        as can be verified by computing the right side.
+        Note that each term on the right side is of the form
+        <m>\langle Tv, v \rangle</m> for appropriate <m>v \in V{}</m>.
+      </p>
+      <p>
+        Now suppose <m>\langle Tv, v \rangle = 0</m> for every <m>v \in V{}</m>.
+        Then the equation above implies that
+        <m>\langle Tu, w \rangle = 0</m> for all <m>u, w \in V{}</m>,
+        which then implies that <m>Tu = 0</m> for every <m>u \in V</m>
+        (take <m>w = Tu</m>).
+        Hence <m>T = 0</m>, as desired.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        The next result provides another good example of how self-adjoint operators behave like real numbers.
+      </p>
+    </aside>
+    <p>
+      The next result is false for real inner product spaces,
+      as shown by considering any operator on a real inner product space that is not self-adjoint.
+    </p>
+    <theorem xml:id="x58">
+      <title><m>\langle Tv, v \rangle</m> is real for all  <m>v \iff T</m> is self-adjoint  (assuming  <m>\F = \C</m>)</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a complex inner product space and <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            T \text{ is self-adjoint }  \iff \langle Tv, v \rangle  \in \R{} \text{ for every }  v \in V{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>v \in V{}</m>, then
+        <men xml:id="x8Tsa">
+          \langle T^*v, v \rangle  = \overline{\langle v, T^*v \rangle } = \overline{\langle Tv, v \rangle }
+        </men>.
+      </p>
+      <p>
+        Now
+        <md>
+          <mrow>T \text{ is self-adjoint }  \amp \iff T - T^* = 0</mrow>
+          <mrow>\amp \iff \langle  (T - T^*)v, v \rangle  = 0 \text{ for every }  v \in V</mrow>
+          <mrow>\amp \iff \langle Tv, v \rangle  - \overline{\langle Tv, v \rangle } = 0  \text{ for every }  v \in V</mrow>
+          <mrow>\amp \iff \langle Tv, v \rangle  \in \R{}  \text{ for every }  v \in V{}</mrow>
+        </md>,
+        where the second equivalence follows from <xref ref="x51"></xref>
+        as applied to <m>T - T^*</m> and the third equivalence follows from <xref ref="x8Tsa"></xref>.
+      </p>
+    </proof>
+    <p>
+      On a real inner product space <m>V{}</m>,
+      a nonzero operator <m>T</m> might satisfy
+      <m>\langle Tv, v \rangle = 0</m> for all <m>v \in V{}</m>.
+      However, the next result shows that this cannot happen for a self-adjoint operator.
+    </p>
+    <theorem xml:id="x208">
+      <title><m>T</m> self-adjoint and  <m>\langle Tv, v \rangle  = 0</m> for all  <m>v \iff T = 0</m></title>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a self-adjoint operator on <m>V{}</m>.
+          Then
+          <me>
+            \langle Tv, v \rangle  = 0 \text{ for every }  v \in V \iff T = 0
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have already proved this
+        (without the hypothesis that <m>T</m> is self-adjoint)
+        when <m>V</m> is a complex inner product space
+        (<xref ref="x51">see</xref>).
+        Thus we can assume that <m>V</m> is a real inner product space.
+        If <m>u, w \in V{}</m>, then
+        <men xml:id="x207">
+          \langle Tu, w \rangle  = \frac{ \langle T(u+w), u+w \rangle  -\langle T(u-w), u-w \rangle }{4}
+        </men>,
+        as can be proved by computing the right side using the equation
+        <me>
+          \langle Tw, u \rangle  = \langle w, Tu \rangle = \langle Tu, w \rangle
+        </me>,
+        where the first equality holds because <m>T</m> is self-adjoint and the second equality holds because we are working in a real inner product space.
+      </p>
+      <p>
+        Now suppose <m>\langle Tv, v \rangle = 0</m> for every <m>v \in V{}</m>.
+        Because each term on the right side of <xref ref="x207"></xref>
+        is of the form <m>\langle Tv, v \rangle</m> for appropriate<nbsp/><m>v</m>,
+        this implies that <m>\langle Tu, w \rangle = 0</m> for all <m>u,
+        w \in V{}</m>.
+        This implies that <m>Tu = 0</m> for every <m>u \in V</m>
+        (take <m>w = Tu</m>).
+        Hence <m>T = 0</m>, as desired.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Normal Operators</title>
+    <definition>
+      <title>normal</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              An operator on an inner product space is called <term>normal</term>
+                <idx><h>normal operator</h></idx>
+              if it commutes with its adjoint.
+                <idx><h>commuting operators</h></idx>
+            </p>
+          </li>
+          <li>
+            <p>
+              In other words,
+              <m>T \in \Lc(V)</m> is normal if <m>TT^* = T^*T{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      Every self-adjoint operator is normal,
+      because if <m>T</m> is self-adjoint then
+      <m>T^* = T{}</m> and hence <m>T</m> commutes with <m>T^*{}</m>.
+    </p>
+    <example xml:id="normalnotsa">
+      <title>an operator that is normal but not self-adjoint</title>
+      <statement>
+        <p>
+          {Let <m>T</m> be the operator on <m>\F{2}</m> whose matrix
+          (with respect to the standard basis)
+          is
+          <me>
+            \begin{pmatrix}2 \amp  -3 \\ 3 \amp  2 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Thus <m>T(w, z) = (2w-3z, 3w + 2z)</m>. }
+        </p>
+        <p>
+          This operator <m>T</m> is not self-adjoint because the entry in row<nbsp/>2, column<nbsp/>1
+          (which equals <m>3</m>)
+          does not equal the complex conjugate of the entry in row<nbsp/>1, column<nbsp/>2
+          (which equals <m>-3</m>).
+        </p>
+        <p>
+          The matrix of <m>TT^*</m> equals
+          <me>
+            \begin{pmatrix}2 \amp  -3 \\ 3 \amp  2 \end{pmatrix}  \begin{pmatrix}2 \amp  3 \\ -3 \amp  2 \end{pmatrix} , \textit{ which equals\ } \begin{pmatrix}13 \amp  0 \\ 0 \amp  13 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Similarly, the matrix of <m>T^*T</m> equals
+          <me>
+            \begin{pmatrix}2 \amp  3 \\ -3 \amp  2 \end{pmatrix} \begin{pmatrix}2 \amp  -3 \\ 3 \amp  2 \end{pmatrix} , \textit{ which equals\ } \begin{pmatrix}13 \amp  0 \\ 0 \amp  13 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Because <m>TT^*</m> and <m>T^*T</m> have the same matrix,
+          we see that <m>TT^* = T^*T{}</m>.
+          Thus <m>T</m> is normal.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In the next section we will see why normal operators are worthy of special attention.
+      The next result provides a useful characterization of normal operators.
+    </p>
+    <theorem xml:id="x206">
+      <title><m>T</m> is normal if and only if  <m>Tv</m> and  <m>T^*v</m> have the same norm</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            T \text{ is normal }  \iff \|Tv\| = \|T^*v\| \text{ for every }  v \in V{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <md>
+          <mrow>T \textit{ is normal}  \amp \iff T^*T - TT^* = 0</mrow>
+          <mrow>\amp \iff \langle (T^*T - TT^*)v, v \rangle  = 0 \text{ for every }  v \in V</mrow>
+          <mrow>\amp \iff \langle T^*T v, v \rangle  = \langle TT^* v, v \rangle  \text{ for every }  v \in V</mrow>
+          <mrow>\amp \iff \langle T v, Tv \rangle  = \langle T^* v, T^*v \rangle  \text{ for every }  v \in V</mrow>
+          <mrow>\amp \iff \|Tv\|^2 = \lVert T^*v \rVert ^2 \text{ for every }  v\in V</mrow>
+          <mrow>\amp \iff \|Tv\| = \lVert T^*v \rVert  \text{ for every }  v\in V{}</mrow>
+        </md>,
+        where we <xref ref="x208">used</xref>
+        to establish the second equivalence
+        (note that the operator <m>T^*T - TT^*</m> is self-adjoint).
+      </p>
+    </proof>
+    <p>
+      The next result presents several consequences of the result above.
+      Compare (e) of the next result to <xref ref="x259">Exercise</xref>.
+      That exercise states that the eigenvalues of the adjoint of each operator are equal
+      (as a set)
+      to the complex conjugates of the eigenvalues of the operator.
+      The exercise says nothing about eigenvectors,
+      because an operator and its adjoint may have different eigenvectors.
+      However, (e) of the next result implies that a normal operator and its adjoint have the same eigenvectors.
+    </p>
+    <theorem xml:id="x746">
+      <title>range, null space, and eigenvectors of a normal operator</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is normal.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>\ker T = \ker T^*</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ran T = \ran T^*</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>V = \ker T \oplus \ran T</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>T - \lambda I</m> is normal for every <m>\lambda \in \F{}</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                if <m>v \in V</m> and <m>\lambda \in \F{}</m>,
+                then <m>Tv = \lambda v</m> if and only if <m>T^*v = \bar{\lambda} v</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            Suppose <m>v \in V{}</m>.
+            Then
+            <me>
+              v \in \ker T \iff \lVert Tv \rVert  = 0 \iff \lVert T^*v \rVert  = 0 \iff v \in \ker T^*{}
+            </me>,
+            where the middle equivalence above follows from <xref ref="x206"></xref>.
+            Thus <m>\ker T = \ker T^*{}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            We have
+            <me>
+              \ran T = ( \ker T^* )^\perp = (\ker T)^\perp = \ran T^*{}
+            </me>,
+            where the first equality comes from <xref ref="x377"></xref>(d),
+            the second equality comes from (a) in this result,
+            and the third equality comes from <xref ref="x377"></xref>(b).
+          </p>
+        </li>
+        <li>
+          <p>
+            We have
+            <me>
+              V = (\ker T) \oplus (\ker T)^\perp = \ker T \oplus \ran T^* = \ker T \oplus \ran T
+            </me>,
+            where the first equality comes from <xref ref="x191"></xref>,
+            the second equality comes from <xref ref="x377"></xref>(b),
+            and the third equality comes from (b) in this result.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\lambda \in \F{}{}</m>.
+            Then
+            <md>
+              <mrow>(T - \lambda I)(T-\lambda I)^* \amp = (T - \lambda I)( T^* - \bar{\lambda}I )</mrow>
+              <mrow>\amp = TT^* - \bar{\lambda}T - \lambda T^* + \lvert \lambda \rvert ^2 I</mrow>
+              <mrow>\amp = T^*T - \bar{\lambda}T - \lambda T^* + \lvert \lambda \rvert ^2 I</mrow>
+              <mrow>\amp = ( T^* - \bar{\lambda}I )(T - \lambda I)</mrow>
+              <mrow>\amp = (T - \lambda I)^* (T-\lambda I)</mrow>
+            </md>.
+            Thus <m>T - \lambda I</m> commutes with its adjoint.
+            Hence <m>T - \lambda I</m> is normal.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>v \in V</m> and <m>\lambda \in \F{}{}</m>.
+            Then (d) and <xref ref="x206"></xref> imply that
+            <me>
+              \| (T - \lambda I) v \| = \lVert  (T - \lambda I)^* v  \rVert  = \lVert  ( T^* - \bar{\lambda}I ) v  \rVert
+            </me>.
+            Thus <m>\| (T - \lambda I) v \| = 0</m> if and only if  <m>\lVert  ( T^* - \bar{\lambda}I ) v  \rVert  = 0</m>.
+            Hence <m>Tv = \lambda v</m> if and only if <m>T^*v = \bar{\lambda} v</m>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      Because every self-adjoint operator is normal,
+      the next result applies in particular to self-adjoint operators.
+    </p>
+    <theorem xml:id="x411">
+      <title>orthogonal eigenvectors for normal operators</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is normal.
+          Then eigenvectors of <m>T</m> corresponding to distinct eigenvalues are orthogonal.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>\alpha , \beta</m> are distinct eigenvalues of<nbsp/><m>T</m>,
+        with corresponding eigenvectors <m>u, v</m>.
+        Thus <m>Tu = \alpha  u</m> and <m>Tv = \beta v</m>.
+        <xref ref="x746">From</xref>(e) we have <m>T^*v = \bar{\beta}v</m>.
+        Thus
+        <md>
+          <mrow>(\alpha  - \beta)\langle u,v \rangle  \amp = \langle \alpha  u, v \rangle  - \langle u, \bar{\beta} v \rangle</mrow>
+          <mrow>\amp = \langle Tu, v \rangle  - \langle u, T^*v \rangle</mrow>
+          <mrow>\amp = 0</mrow>
+        </md>.
+      </p>
+      <p>
+        Because <m>\alpha \ne \beta</m>,
+        the equation above implies that <m>\langle u,v \rangle = 0</m>.
+        Thus <m>u</m> and <m>v</m> are orthogonal, as desired.
+      </p>
+    </proof>
+    <p>
+      As stated here,
+      the next result makes sense only when <m>\F{} = \C{}</m>.
+      However, see <xref ref="skewadj">Exercise</xref>
+      for a version that makes sense when
+      <m>\F{} = \C{}</m> and when <m>\F{} = \R{}</m>.
+    </p>
+    <p>
+      Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+      Under the analogy between <m>\Lc(V)</m> and <m>\C{}</m>,
+      with the adjoint on <m>\Lc(V)</m> playing a similar role to that of the complex conjugate on <m>\C{}</m>,
+      the operators <m>A</m> and <m>B</m> as defined by <xref ref="x1normal"></xref>
+      correspond to the real and imaginary parts of <m>T{}</m>.
+      Thus the informal title of the result below should make sense.
+    </p>
+    <theorem xml:id="x7realim">
+      <title><m>T</m> is normal  <m>\iff</m> the real and imaginary parts of  <m>T</m> commute</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then <m>T</m> is normal if and only if there exist commuting self-adjoint operators <m>A</m> and <m>B</m> such that <m>T = A + iB</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose <m>T</m> is normal.
+        Let
+        <men xml:id="x1normal">
+          A = \frac{T + T^*}{2} \andd B = \frac{T - T^*}{2i}
+        </men>.
+      </p>
+      <p>
+        Then <m>A</m> and <m>B</m> are self-adjoint and <m>T = A + iB</m>.
+        A quick computation shows that
+        <men xml:id="x2normal">
+          AB - BA = \frac{T^*T - TT^*}{2i}
+        </men>.
+      </p>
+      <p>
+        Because <m>T</m> is normal,
+        the right side of the equation above equals <m>0</m>.
+        Thus the operators <m>A</m> and <m>B</m> commute, as desired.
+      </p>
+      <p>
+        To prove the implication in the other direction,
+        now suppose there exist commuting self-adjoint operators <m>A</m> and <m>B</m> such that <m>T = A + iB</m>.
+        Then <m>T^* = A - iB</m>.
+        Adding the last two equations and then dividing by <m>2</m> produces the equation for <m>A</m> in <xref ref="x1normal"></xref>.
+        Subtracting the last two equations and then dividing by <m>2i</m> produces the equation for <m>B</m> in <xref ref="x1normal"></xref>.
+        <xref ref="x1normal">Now</xref> <xref ref="x2normal">implies</xref>.
+        Because <m>B</m> and <m>A</m> commute,
+        <xref ref="x2normal"></xref> implies that <m>T</m> is normal,
+        as desired.
+      </p>
+    </proof>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>n</m> is a positive integer.
+              Define <m>T \in \Lc( \F{n} )</m> by
+              <me>
+                T(z_1, \dots, z_n) = (0, z_1, \dots, z_{n-1})
+              </me>.
+            </p>
+            <p>
+              Find a formula for <m>T^*(z_1, \dots, z_n)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Prove that
+              <me>
+                T = 0 \iff T^* = 0 \iff T^* T = 0 \iff T T^* = 0
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x259">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>.
+              Prove that <idx><h>eigenvalue</h><h>of adjoint</h></idx>
+              <me>
+                \lambda \text{ is an eigenvalue of }  T \iff \bar{\lambda} \text{ is an eigenvalue of }  T^*{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x348">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
+              Prove that
+              <me>
+                U \text{ is invariant under }  T \iff U^\perp \text{ is invariant under }  T^*{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x6sumT2">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Suppose <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V</m> and
+              <m>f_1, \ldots,
+              f_m</m> is an orthonormal basis of <m>W{}</m>.
+              Prove that
+              <me>
+                \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 = \lVert T^* \! f_1 \rVert ^2 + \cdots + \lVert T^* \! f_m \rVert ^2{}
+              </me>.
+            </p>
+            <p>
+              Note: The numbers <m>\lVert Te_1 \rVert ^2{}, \ldots, \lVert Te_n \rVert ^2</m> in the equation above depend on the orthonormal basis <m>e_1, \ldots, e_n</m>,
+              but the right side of the equation does not depend on <m>e_1, \ldots, e_n</m>.
+              Thus the equation above shows that the sum on the left side does not depend on which orthonormal basis <m>e_1, \ldots,
+              e_n</m> is used.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V{}, W)</m>.
+              Prove that
+              <ol>
+                <li>
+                  <p>
+                    <m>T</m> is injective <m>\iff</m> <m>T^*</m> is surjective;
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>T</m> is surjective <m>\iff</m> <m>T^*</m> is injective.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x395">
+          <statement>
+            <p>
+              Prove that if <m>T \in \Lc(V{}, W)</m>, then
+              <ol>
+                <li>
+                  <p>
+                    <m>\dim \ker T^* = \dim \ker T + \dim W - \dim V</m>;
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\dim \ran T^* = \dim \ran T{}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7rank">
+          <statement>
+            <p>
+              Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
+              Use (b) in <xref ref="x395">Exercise</xref>
+              to prove that the row rank of <m>A</m> equals the column rank of <m>A</m>.
+          <idx><h>column rank of a matrix</h></idx>
+          <idx><h>row rank of a matrix</h></idx>
+          <idx><h>rank of a matrix</h></idx>
+      Note: This exercise asks for yet another alternative proof of a result that was previously proved in <xref ref="x3colrow"></xref> and <xref ref="x3rank"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove that the product of two self-adjoint operators on <m>V</m> is self-adjoint if and only if the two operators commute.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+              Prove that <m>T</m> is self-adjoint if and only if
+              <me>
+                \langle Tv, v \rangle  = \langle T^*v, v \rangle
+              </me>
+              for all <m>v \in V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Define an operator <m>\fun S {\F 2} {\F 2}</m> by <m>S(w, z) = (-z, w)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Find a formula for <m>S^*{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>S</m> is normal but not self-adjoint.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Find all eigenvalues of <m>S</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: If <m>\F{} = \R{}</m>,
+              then <m>S</m> is the operator on <m>\R2</m> of counterclockwise rotation by <m>90^\circ</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="skewadj">
+          <statement>
+            <p>
+              An operator <m>B \in \Lc(V)</m> is called <m>\knownterminology{skew}</m> if
+              <me>
+                B^* = -B
+              </me>.
+            </p>
+            <p>
+              Suppose that <m>T \in \Lc(V)</m>.
+              Prove that <m>T</m> is normal if and only if there exist commuting operators <m>A</m> and <m>B</m> such that <m>A</m> is self-adjoint,
+              <m>B</m> is a skew operator, and <m>T = A + B</m>.
+          <idx><h>skew operator</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \R{}</m>.
+              Define <m>\A \in \Lc( \Lc(V) )</m> by
+              <m>\A T = T^*</m> for all <m>T \in \Lc(V)</m>.
+              <ol>
+                <li>
+                  <p>
+                    Find all eigenvalues of <m>\A</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Find the minimal polynomial of <m>\A</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Define an inner product on
+              <m>\P{}_2(\R{})</m> by <m>\langle p,q \rangle  = \int_0^1 pq</m>.
+              Define an operator <m>T \in \Lc\bigl(\P{}_2(\R{})\bigr)</m> by
+              <me>
+                T( a x^2 + bx + c ) = b x
+              </me>.
+              <ol>
+                <li>
+                  <p>
+                    Show that with this inner product,
+                    the operator <m>T</m> is not self-adjoint.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The matrix of <m>T</m> with respect to the basis <m>1, x, x^2</m> is
+                    <me>
+                      \begin{pmatrix}0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \end{pmatrix}
+                    </me>.
+                    This matrix equals its conjugate transpose,
+                    even though <m>T</m> is not self-adjoint.
+                    Explain why this is not a contradiction.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is invertible.
+              Prove that
+              <ol>
+                <li>
+                  <p>
+                    <m>T</m> is self-adjoint <m>\iff</m> <m>T^{-1}</m> is self-adjoint;
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>T</m> is normal <m>\iff</m> <m>T^{-1}</m> is normal.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \R{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that the set of self-adjoint operators on <m>V</m> is a subspace of<nbsp/><m>\Lc(V)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    What is the dimension of the subspace of <m>\Lc(V)</m> in (a) [in terms of <m>\dim V</m>]?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m>.
+              Show that the set of self-adjoint operators on <m>V</m> is not a subspace of <m>\Lc(V)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\dim V \ge 2</m>.
+              Show that the set of normal operators on <m>V</m> is not a subspace of <m>\Lc(V)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and
+              <m>\lVert T^*v \rVert \le \| Tv \|</m> for every <m>v \in V{}</m>.
+              Prove that <m>T</m> is normal.
+          <idx><h>hyponormal operator</h></idx>
+      Note: This exercise fails on infinite-dimensional inner product spaces,
+              leading to what are called hyponormal operators,
+              which have a well-developed theory.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7proj">
+          <statement>
+            <p>
+              Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P{}</m>.
+              Prove that the following are equivalent.
+              <ol>
+                <li>
+                  <p>
+                    <m>P</m> is self-adjoint.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>P</m> is normal.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    There is a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\fun D {\P{}_8(\R{})} {\P{}_8(\R{})}</m> is the differentiation operator defined by <m>Dp = p'\!</m>.
+              Prove that there does not exist an inner product on
+              <m>\P{}_8(\R{})</m> that makes <m>D</m> a normal operator.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of an operator
+              <m>T \in \Lc( \R{3} )</m> such that <m>T</m> is normal but not self-adjoint.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T</m> is a normal operator on <m>V{}</m>.
+              Suppose also that <m>v, w \in V</m> satisfy the equations
+              <me>
+                \|v\| = \|w \| = 2,  Tv = 3v,  Tw = 4w
+              </me>.
+            </p>
+            <p>
+              Show that <m>\|T(v + w)\| = 10</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x7minpoly">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and<idx><h>minimal polynomial</h><h>of adjoint</h></idx>
+              <me>
+                a_0 + a_1 z + a_2 z^2 + \dots + a_{m-1} z^{m-1} + z^m
+              </me>
+              is the minimal polynomial of <m>T{}</m>.
+              Prove that the minimal polynomial of <m>T^*</m> is
+              <me>
+                \overline{a_0} + \overline{a_1}  z + \overline{a_2}  z^2 + \dots + \overline{a_{m-1}}  z^{m-1} + z^m\!
+              </me>.
+            </p>
+            <p>
+              Note: This exercise shows that the minimal polynomial of <m>T^*</m> equals the minimal polynomial of <m>T</m> if <m>\F{} = \R{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Prove that <m>T</m> is diagonalizable if and only if <m>T^*</m> is diagonalizable.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Fix <m>u, x \in V{}</m>.
+              Define <m>T \in \Lc(V)</m> by
+              <m>Tv = \langle v, u \rangle x</m> for every <m>v \in V{}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that if <m>V</m> is a real vector space,
+                    then <m>T</m> is self-adjoint if and only if the list
+                    <m>u,
+                    x</m> is linearly dependent.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Prove that <m>T</m> is normal if and only if the list
+                    <m>u,
+                    x</m> is linearly dependent.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x399">
+          <statement>
+            <p>
+              Suppose <m>T\in \Lc(V)</m> is normal.
+              Prove that
+              <me>
+                \ker T^k = \ker T \andd \ran T^k = \ran T
+              </me>
+              for every positive integer <m>k</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is normal.
+              Prove that if <m>\lambda \in \F{}{}</m>,
+              then the minimal polynomial of<nbsp/><m>T</m> is not a polynomial multiple of <m>(x-\lambda)^2{}</m>.
+          <idx><h>minimal polynomial</h><h>of normal operator</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>T \in \Lc(V)</m> and there is an orthonormal basis
+              <m>e_1, \dots,
+              e_n</m> of <m>V</m> such that
+              <m>\|Te_k\| = \lVert T^* e_k \rVert</m> for each<nbsp/><m>k= 1, \ldots,
+              n</m>, then <m>T</m> is normal.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>T \in \Lc( \F{3} )</m> is normal and <m>T(1,1,1) = (2,2,2)</m>.
+              Suppose <m>(z_1, z_2, z_3) \in \ker T{}</m>.
+              Prove that <m>z_1 + z_2 + z_3 = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x1100">
+          <statement>
+            <p>
+              Fix a positive integer <m>n</m>.
+              In the inner product space of continuous real-valued functions on
+              <m>[-\pi,\pi]</m> with inner product <m>\langle f, g \rangle  = \int_{-\pi}^{\pi} fg</m>, let
+              <me>
+                V = \Span( 1, \cos x, \cos 2x, \dots, \cos nx, \sin x, \sin 2x, \dots, \sin nx)
+              </me>.
+              <ol>
+                <li>
+                  <p>
+                    Define <m>D \in \Lc(V)</m> by <m>Df = f'\!</m>.
+                    Show that <m>D^* = -D</m>.
+                    Conclude that <m>D</m> is normal but not self-adjoint.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Define <m>T \in \Lc(V)</m> by <m>Tf = f''\!</m>.
+                    Show that <m>T</m> is self-adjoint.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="IdentifyTstarTprime">
+          <statement>
+            <p>
+              Suppose <m>\fun T V W</m> is a linear map.
+              Show that under the standard identification of <m>V</m> with <m>V'</m>
+              (<xref ref="x3RRT">see</xref>)
+              and the corresponding identification of <m>W</m> with <m>W'\!</m>,
+              the adjoint map <m>\fun {T^*} W V</m> corresponds to the dual map <m>\fun {T'} {W'} {V'}</m>.
+              More precisely, show that
+              <me>
+                T' \! (\phi_w) = \phi_{T^* w}
+              </me>
+              for all <m>w \in W{}</m>,
+              where <m>\phi_w</m> and <m>\phi_{T^* w}</m> are defined as in <xref ref="x3RRT"></xref>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

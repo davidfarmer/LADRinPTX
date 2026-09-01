@@ -1,0 +1,1204 @@
+<section xml:id="x9TensorSect">
+  <title>Tensor Products</title>
+  <subsection>
+    <title>Tensor Product of Two Vector Spaces</title>
+    <p>
+      The motivation for our next topic comes from wanting to form the product of a vector <m>v \in V</m> and a vector <m>w \in W{}</m>.
+      This product will be denoted by <m>v \tensor w</m>, pronounced
+      <q><m>v</m> tensor <m>w</m></q>, and will be an element of some new vector space called <m>V{} \tensor W{}</m>
+      (also pronounced
+      <q><m>V</m> tensor <m>W</m></q>).
+    </p>
+    <p>
+      We already have a vector space <m>V{} \times W</m>
+      (see <xref ref="pq">Section</xref>),
+      called the product of <m>V</m> and <m>W{}</m>.
+      However, <m>V{} \times W</m> will not serve our purposes here because it does not provide a natural way to multiply an element of <m>V</m> by an element of <m>W{}</m>.
+      We would like our tensor product to satisfy some of the usual properties of multiplication.
+      For example,
+      we would like the distributive property to be satisfied,
+      meaning that if <m>v_1, v_2, v \in V</m> and <m>w_1, w_2, w \in W{}</m>, then
+      <me>
+        (v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w \andd v \tensor (w_1 + w_2) = v \tensor w_1 + v \tensor w_2
+      </me>.
+    </p>
+    <aside>
+      <p>
+        To produce <m>\tensor</m> in \TeX, type <c>\backslash otimes</c>.
+      </p>
+    </aside>
+    <p>
+      We would also like scalar multiplication to interact well with this new multiplication,
+      meaning that
+      <me>
+        \lambda (v \tensor w) = (\lambda v) \tensor w = v \tensor (\lambda w)
+      </me>
+      for all <m>\lambda \in \F{}{}</m>,
+      <m>v \in V{}</m>, and <m>w \in W{}</m>.
+    </p>
+    <p>
+      Furthermore,
+      it would be nice if each basis of <m>V</m> when combined with each basis of <m>W</m> produced a basis of <m>V{} \tensor W{}</m>.
+      Specifically, if <m>e_1, \ldots,
+      e_m</m> is a basis of <m>V</m> and
+      <m>f_1, \ldots,
+      f_n</m> is a basis of <m>W{}</m>, then we would like a list
+      (in any order)
+      consisting of <m>e_j \tensor f_k</m>,
+      as <m>j</m> ranges from <m>1</m> to <m>m</m> and <m>k</m> ranges from <m>1</m> to <m>n</m>,
+      to be a basis of <m>V{} \tensor W{}</m>.
+      This implies that <m>\dim (V{} \tensor W)</m> should equal <m>(\dim V)(\dim W)</m>.
+      Recall that <m>\dim(V{} \times W) = \dim V + \dim W</m>
+      (<xref ref="x3dimproduct">see</xref>),
+      which shows that the product
+      <m>V{} \times W</m> will not serve our purposes here.
+    </p>
+    <p>
+      To produce a vector space whose dimension is
+      <m>(\dim V)(\dim W)</m> in a natural fashion from <m>V</m> and <m>W</m>,
+      we look at the vector space of bilinear functionals, as defined below.
+    </p>
+    <definition xml:id="x9bifunctional">
+      <title>bilinear functional on  <m>V \times W</m>, the vector space <m>\B(V,W)</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              A <term>bilinear functional</term>
+              on <m>V{} \times W</m> is a function <m>\fun \beta {V{} \times W} {\F{}}</m> such that
+              <m>v \mapsto \beta(v, w)</m> is a linear functional on <m>V</m> for each <m>w\in W</m> and
+              <m>w \mapsto \beta(v, w)</m> is a linear functional on <m>W</m> for each <m>v \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The vector space of bilinear functionals on
+              <m>V{} \times W</m> is denoted by <m>\B(V{},W)</m>.
+                <idx><h>bilinear functional</h></idx>
+                <idx><h sortby="BVW"><m>\B(V{},W)</m></h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      If <m>W = V</m>,
+      then a bilinear functional on <m>V \times W</m> is a bilinear form;
+      <xref ref="x8biform">see</xref>.
+    </p>
+    <p>
+      The operations of addition and scalar multiplication on
+      <m>\B(V{}, W)</m> are defined to be the usual operations of addition and scalar multiplication of functions.
+      As you can verify, these operations make
+      <m>\B(V{},W)</m> into a vector space whose additive identity is the zero function from <m>V \times W</m> to <m>\F{}{}</m>.
+    </p>
+    <example>
+      <title>bilinear functionals</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>\phi \in V'</m> and <m>\tau \in W'\!</m>.
+              Define <m>\fun \beta {V{} \times W} {\F{}}</m> by <m>\beta(v, w) = \phi(v) \tau(w)</m>.
+              Then <m>\beta</m> is a bilinear functional on <m>V{} \times W{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>v \in V</m> and <m>w \in W{}</m>.
+              Define <m>\fun \beta {V'\! \times W'} {\F{}}</m> by <m>\beta(\phi, \tau) = \phi(v) \tau(w)</m>.
+              Then <m>\beta</m> is a bilinear functional on <m>V'\! \times W'\!</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Define <m>\fun \beta {V{} \times V'} {\F{}}</m> by <m>\beta(v, \phi) = \phi(v)</m>.
+              Then <m>\beta</m> is a bilinear functional on <m>V{} \times V'\!</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>\phi \in V'\!</m>.
+              Define <m>\fun \beta {V{} \times \Lc(V)} {\F{}}</m> by <m>\beta(v, T) = \phi(Tv)</m>.
+              Then <m>\beta</m> is a bilinear functional on <m>V{} \times \Lc(V)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>m</m> and <m>n</m> are positive integers.
+              Define <m>\fun \beta { \F{m, n} \times \F{n,m} } {\F{}}</m> by <m>\beta(A, B) = \tr(AB)</m>.
+              Then <m>\beta</m> is a bilinear functional on <m>\F{m, n} \times \F{n,m}\!</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <theorem xml:id="x9dimbi">
+      <title>dimension of the vector space of bilinear functionals</title>
+      <statement>
+        <p>
+          <m>\dim \B(V{},W) = (\dim V)(\dim W)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>e_1, \ldots, e_m</m> be a basis of <m>V</m> and
+        <m>f_1, \ldots,
+        f_n</m> be a basis of <m>W{}</m>.
+        For a bilinear functional <m>\beta \in \B(V{},W)</m>,
+        let <m>\M(\beta)</m> be the \by{m}{n} matrix whose entry in row <m>j</m>,
+        column <m>k</m> is <m>\beta(e_j, f_k)</m>.
+        The map <m>\beta \mapsto \M(\beta)</m> is a linear map of
+        <m>\B(V{},W)</m> into <m>\FF{m,n}</m>.
+      </p>
+      <p>
+        For a matrix <m>C \in \FF{m,n}</m>,
+        define a bilinear functional <m>\beta_C</m> on <m>V{} \times W</m> by
+        <me>
+          \beta_C( a_1 e_1+ \cdots + a_m e_m, b_1 f_1 + \cdots + b_n f_n ) = \sum_{k=1}^n \sum_{j=1}^m C_{j,k} a_j b_k
+        </me>
+        for <m>a_1, \ldots, a_m, b_1, \ldots, b_n \in \F{}{}</m>.
+      </p>
+      <p>
+        The linear map <m>\beta \mapsto \M(\beta)</m> from <m>\B(V{}, W)</m> to <m>\F{m,n}</m> and the linear map <m>C \mapsto \beta_C</m> from <m>\F{m,n}</m> to
+        <m>\B(V{},W)</m> are inverses of each other because <m>\beta_{\M(\beta)} = \beta</m> for all
+        <m>\beta \in \B(V{}, W)</m> and <m>\M(\beta_C) = C</m> for all
+        <m>C \in \FF{m,n}</m>, as you should verify.
+      </p>
+      <p>
+        Thus both maps are isomorphisms and the two spaces that they connect have the same dimension.
+        Hence <m>\dim \B(V{},W)= \dim \F{m,n} = mn = (\dim V)(\dim W)</m>.
+      </p>
+    </proof>
+    <p>
+      Several different definitions of
+      <m>V{} \tensor W</m> appear in the mathematical literature.
+      These definitions are equivalent to each other,
+      at least in the finite-dimensional context,
+      because any two vector spaces of the same dimension are isomorphic.
+    </p>
+    <p>
+      The result above states that
+      <m>\B(V{}, W)</m> has the dimension that we seek,
+      as do <m>\Lc(V{}, W)</m> and <m>\FF{\dim V{}, \dim W}</m>.
+      Thus it may be tempting to define
+      <m>V{} \tensor W</m> to be <m>\B(V{}, W)</m> or
+      <m>\Lc(V{}, W)</m> or <m>\FF{\dim V{}, \dim W}</m>.
+      However, none of those definitions would lead to a basis-free definition of
+      <m>v \tensor w</m> for <m>v \in V</m> and <m>w \in W{}</m>.
+    </p>
+    <p>
+      The following definition,
+      while it may seem a bit strange and abstract at first,
+      has the huge advantage that it defines
+      <m>v \tensor w</m> in a basis-free fashion.
+      We define <m>V{} \tensor W</m> to be the vector space of bilinear functionals on
+      <m>V'\! \times W'</m> instead of the more tempting choice of the vector space of bilinear functionals on <m>V{} \times W{}</m>.
+    </p>
+    <definition xml:id="x9ten">
+      <title>tensor product,  <m>V \tensor W</m>,  <m>v \tensor w</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The <term>tensor product</term>
+              <m>V{} \tensor W</m> is defined to be <m>\B( V', W' )</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <m>v \in V</m> and <m>w \in W{}</m>,
+              the <term>tensor product</term>
+              <m>v \tensor w</m> is the element of <m>V{} \tensor W</m> defined by
+              <me>
+                (v \tensor w)(\phi, \tau) = \phi(v) \tau(w)
+              </me>
+              for all <m>(\phi, \tau) \in V'\! \times W'\!</m>.
+                <idx><h>tensor product</h></idx>
+                <idx><h sortby="VotimesW"><m>V{} \tensor W{}</m></h></idx>
+                <idx><h sortby="votimesw"><m>v \tensor w</m></h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      We can quickly prove that the definition of
+      <m>V{} \tensor W</m> gives it the desired dimension.
+    </p>
+    <theorem xml:id="x9dimten">
+      <title>dimension of the tensor product of two vector spaces</title>
+      <statement>
+        <p>
+          <m>\dim (V{} \tensor W) = (\dim V)(\dim W)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Because a vector space and its dual have the same dimension
+        (by <xref ref="x3dimdual"></xref>),
+        we have <m>\dim V' = \dim V</m> and <m>\dim W' = \dim W{}</m>.
+        <xref ref="x9dimbi">Thus</xref> tells us that the dimension of
+        <m>\B( V', W' )</m> equals <m>(\dim V)(\dim W)</m>.
+      </p>
+    </proof>
+    <p>
+      To understand the definition of the tensor product
+      <m>v \tensor w</m> of two vectors <m>v \in V</m> and <m>w \in W{}</m>,
+      focus on the kind of object it is.
+      An element of <m>V{} \tensor W</m> is a bilinear functional on <m>V'\! \times W'\!</m>,
+      and in particular it is a function from <m>V'\! \times W'</m> to <m>\F{}{}</m>.
+      Thus for each element of <m>V'\! \times W'\!</m>,
+      it should produce an element of <m>\F{}{}</m>.
+      The definition above has this behavior,
+      because <m>v \tensor w</m> applied to a typical element <m>(\phi, \tau)</m> of
+      <m>V'\! \times W'</m> produces the number <m>\phi(v) \tau(w)</m>.
+    </p>
+    <p>
+      The somewhat abstract nature of <m>v \tensor w</m> should not matter.
+      The important point is the behavior of these objects.
+      The next result shows that tensor products of vectors have the desired bilinearity properties.
+    </p>
+    <theorem xml:id="x9bi">
+      <title>bilinearity of tensor product</title>
+      <statement>
+        <p>
+          Suppose <m>v, v_1, v_2 \in V</m> and
+          <m>w,
+          w_1, w_2 \in W</m> and <m>\lambda \in \F{}{}</m>.
+          Then
+          <me>
+            (v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w \andd v \tensor (w_1 + w_2) = v \tensor w_1 + v \tensor w_2
+          </me>
+          and
+          <me>
+            \lambda(v \tensor w) = (\lambda v) \tensor w = v \tensor (\lambda w)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>(\phi, \tau) \in V'\! \times W'\!</m>.
+        Then
+        <md>
+          <mrow>(  (v_1 + v_2) \tensor w  )(\phi, \tau) \amp = \phi( v_1 + v_2) \tau(w)</mrow>
+          <mrow>\amp = \phi(v_1) \tau(w) + \phi(v_2) \tau(w)</mrow>
+          <mrow>\amp = (v_1 \tensor w)(\phi, \tau) + (v_2 \tensor w)(\phi, \tau)</mrow>
+          <mrow>\amp = (v_1 \tensor w + v_2 \tensor w)(\phi, \tau)</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>(v_1 + v_2) \tensor w = v_1 \tensor w + v_2 \tensor w</m>.
+      </p>
+      <p>
+        The other two equalities are proved similarly.
+      </p>
+    </proof>
+    <p>
+      Lists are, by definition, ordered.
+      The order matters when, for example,
+      we form the matrix of an operator with respect to a basis.
+      For lists in this section with two indices,
+      such as <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+      k = 1, \ldots, n}</m> in the next result,
+      the ordering does not matter and we do not specify it<mdash/>just choose any convenient ordering.
+    </p>
+    <p>
+      The linear independence of elements of
+      <m>V{} \tensor W</m> in (a) of the result below captures the idea that there are no relationships among vectors in
+      <m>V{} \tensor W</m> other than the relationships that come from bilinearity of the tensor product
+      (<xref ref="x9bi">see</xref>)
+      and the relationships that may be present due to linear dependence of a list of vectors in <m>V</m> or a list of vectors in <m>W{}</m>.
+    </p>
+    <theorem xml:id="x9basisVtenW">
+      <title>basis of  <m>V \tensor W</m></title>
+      <statement>
+        <p>
+          Suppose <m>e_1, \ldots, e_m</m> is a list of vectors in <m>V</m> and
+          <m>f_1, \ldots,
+          f_n</m> is a list of vectors in<nbsp/><m>W{}</m>.
+          <ol>
+            <li>
+              <p>
+                If <m>e_1, \ldots, e_m</m> and
+                <m>f_1, \ldots,
+                f_n</m> are both linearly independent lists, then
+                <me>
+                  \{ e_j \tensor f_k \}_{j = 1, \ldots, m; k = 1, \ldots, n}
+                </me>
+                is a linearly independent list in <m>V{} \tensor W{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>e_1, \ldots, e_m</m> is a basis of <m>V</m> and
+                <m>f_1, \ldots,
+                f_n</m> is a basis of <m>W{}</m>,
+                then the list <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+                k = 1, \ldots, n}</m> is a basis of <m>V{} \tensor W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        To prove (a), suppose <m>e_1, \ldots,
+        e_m</m> and <m>f_1, \ldots, f_n</m> are both linearly independent lists.
+        This linear independence and the linear map lemma <xref ref="x3linearmap"/> imply that there exist
+        <m>\phi_1, \ldots, \phi_m \in V'</m> and <m>\tau_1, \ldots, \tau_n \in W'</m> such that
+        <me>
+          \phi_j(e_k) = \begin{cases}1 \amp  \text{ if }  j = k,\\ 0 \amp  \text{ if }  j \ne k \end{cases} \andd \tau_j(f_k) = \begin{cases}1 \amp  \text{ if }  j = k,\\ 0 \amp  \text{ if }  j \ne k, \end{cases}
+        </me>
+        where <m>j, k \in \{ 1, \ldots,
+        m \}</m> in the first equation and
+        <m>j,
+        k \in \{ 1, \ldots, n \}</m> in the second equation.
+      </p>
+      <p>
+        Suppose <m>\{ a_{j,k} \}_{j = 1, \ldots, m;
+        k = 1, \ldots, n}</m> is a list of scalars such that
+        <men xml:id="x9basis">
+          \sum_{k=1}^n \sum_{j=1}^m a_{j,k} (e_j \tensor f_k) = 0
+        </men>.
+      </p>
+      <p>
+        Note that <m>(e_j \tensor f_k)(\phi_M, \tau_N)</m> equals <m>1</m> if <m>j=M</m> and <m>k = N</m>,
+        and equals <m>0</m> otherwise.
+        Thus applying both sides of <xref ref="x9basis"></xref>
+        to <m>(\phi_M, \tau_N)</m> shows that <m>a_{M,N} = 0</m>,
+        proving that <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+        k = 1, \ldots, n}</m> is linearly independent.
+      </p>
+      <p>
+        Now (b) follows from (a),
+        the equation <m>\dim V{} \tensor W = (\dim V)(\dim W)</m> [<xref ref="x9dimten">see</xref>], and the result that a linearly independent list of the right length is a basis
+        (<xref ref="x75">see</xref>).
+      </p>
+    </proof>
+    <p>
+      Every element of <m>V{} \tensor W</m> is a finite sum of elements of the form <m>v \tensor w</m>,
+      where <m>v \in V</m> and <m>w \in W{}</m>,
+      as implied by (b) in the result above.
+      However, if <m>\dim V > 1</m> and <m>\dim W > 1</m>,
+      then <xref ref="x9VtenW">Exercise</xref> shows that
+      <me>
+        \{  v \tensor w : (v, w) \in V{} \times W  \} \ne V{} \tensor W{}
+      </me>.
+    </p>
+    <example xml:id="x9FmFn">
+      <title>tensor product of element of  <m>\F m</m> with element of  <m>\F n</m></title>
+      <statement>
+        <p>
+          Suppose <m>m</m> and <m>n</m> are positive integers.
+          Let <m>e_1, \ldots,
+          e_m</m> denote the standard basis of <m>\F m</m> and let
+          <m>f_1, \ldots,
+          f_n</m> denote the standard basis of <m>\FF n</m>.
+          Suppose
+          <me>
+            v = (v_1, \ldots, v_m) \in \F m \andd w = (w_1, \ldots, w_n) \in \F n
+          </me>.
+        </p>
+        <p>
+          Then
+          <md>
+            <mrow>v \tensor w \amp = (  \sum_{j=1}^m v_j e_j  ) \tensor (  \sum_{k=1}^n w_k f_k  )</mrow>
+            <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m (v_j w_k) ( e_j \tensor f_k )</mrow>
+          </md>.
+        </p>
+        <p>
+          Thus with respect to the basis
+          <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+          k = 1, \ldots,
+          n}</m> of <m>\F m \tensor \F n</m> provided by <xref ref="x9basisVtenW"></xref>(b),
+          the coefficients of <m>v \tensor w</m> are the numbers <m>\{ v_j w_k \}_{j = 1, \ldots, m;
+          k = 1, \ldots, n}</m>.
+          If instead of writing these numbers in a list,
+          we write them in an \by{m}{n} matrix with <m>v_j w_k</m> in row <m>j</m>,
+          column <m>k</m>,
+          then we can identify <m>v \tensor w</m> with the \by{m}{n} matrix
+          <me>
+            \begin{pmatrix}v_1 w_1 \amp  \cdots \amp v_1 w_n \\ \amp  \ddots \amp  \\ v_m w_1 \amp \cdots \amp  v_m w_n \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      See <xref ref="x9rank1">Exercises</xref>
+      and <xref ref="x9rank2"></xref>
+      for practice in using the identification from the example above.
+    </p>
+    <p>
+      We now define bilinear maps,
+      which differ from bilinear functionals in that the target space can be an arbitrary vector space rather than just the scalar field.
+    </p>
+    <definition xml:id="x9bimap">
+      <title>bilinear map</title>
+      <statement>
+        <p>
+          A <term>bilinear map</term> from
+          <m>V{} \times W</m> to a vector space <m>U</m> is a function <m>\fun \Gamma {V{} \times W} U</m> such that
+          <m>v \mapsto \Gamma(v, w)</m> is a linear map from <m>V</m> to <m>U</m> for each <m>w\in W</m> and
+          <m>w \mapsto \Gamma(v, w)</m> is a linear map from <m>W</m> to <m>U</m> for each <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>bilinear map</h></idx>
+    </p>
+    <example>
+      <title>bilinear maps</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Every bilinear functional on
+              <m>V{} \times W</m> is a bilinear map from <m>V{} \times W</m> to <m>\F{}{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fun \Gamma {V{} \times W} {V{} \tensor W}</m> defined by
+              <m>\Gamma(v, w) = v \tensor w</m> is a bilinear map from
+              <m>V{} \times W</m> to <m>V{} \tensor W</m>
+              (by <xref ref="x9bi"></xref>).
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fun \Gamma {\Lc(V) \times \Lc(V)} {\Lc(V)}</m> defined by
+              <m>\Gamma(S, T) = ST</m> is a bilinear map from <m>\Lc(V) \times \Lc(V)</m> to <m>\Lc(V)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fun \Gamma {V{} \times \Lc(V{}, W)} W</m> defined by
+              <m>\Gamma(v, T) = Tv</m> is a bilinear map from <m>V{} \times \Lc(V{}, W)</m> to <m>W{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      Tensor products allow us to convert bilinear maps on
+      <m>V{} \times W</m> into linear maps on <m>V{} \tensor W</m>
+      (and vice versa),
+      as shown by the next result.
+      In the mathematical literature, (a) of the result below is called the
+      <q>universal property</q>
+      of tensor products.
+    </p>
+    <theorem xml:id="x9bi2linear">
+      <title>converting bilinear maps to linear maps</title>
+      <statement>
+        <p>
+          Suppose <m>U</m> is a vector space.
+          <ol>
+            <li>
+              <p>
+                Suppose <m>\fun \Gamma {V{} \times W} U</m> is a bilinear map.
+                Then there exists a unique linear map
+                <m>\fun {\hat[8]{\Gamma}} {V{} \tensor W} U</m> such that<idx><h sortby="betahat"><m>\hat[8]{\Gamma}</m></h></idx>
+                <me>
+                  \hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)
+                </me>
+                for all <m>(v, w) \in V{} \times W{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Conversely, suppose <m>\fun T {V{} \tensor W} U</m> is a linear map.
+                Then there exists a unique bilinear map <m>\fun {\pound{T}} {V{} \times W} U</m> such that
+                <me>
+                  \pound{T}(v, w) = T(v \tensor w)
+                </me>
+                for all <m>(v, w) \in V{} \times W{}</m>.
+                  <idx><h sortby="Tpound"><m>\pound{T}{}</m></h></idx>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>e_1, \ldots, e_m</m> be a basis of <m>V</m> and let
+        <m>f_1, \ldots,
+        f_n</m> be a basis of <m>W{}</m>.
+        By the linear map lemma <xref ref="x3linearmap"/> and <xref ref="x9basisVtenW"></xref>(b),
+        there exists a unique linear map <m>\fun {\hat[8]{\Gamma}} {V{} \tensor W} U</m> such that
+        <me>
+          \hat[8]{\Gamma}(e_j \tensor f_k) = \Gamma(e_j, f_k)
+        </me>
+        for all <m>j \in \{ 1, \ldots,
+        m \}</m> and <m>k \in \{ 1, \ldots, n \}</m>.
+      </p>
+      <p>
+        Now suppose <m>(v, w) \in V{} \times W{}</m>.
+        There exist <m>a_1, \ldots, a_m, b_1, \ldots,
+        b_n \in \F{}</m> such that
+        <m>v = a_1 e_1 + \cdots + a_m e_m</m> and <m>w = b_1 f_1 + \cdots + b_n f_n</m>.
+        Thus
+        <md>
+          <mrow>\hat[8]{\Gamma}(v \tensor w) \amp = \hat[8]{\Gamma} (  \sum_{k=1}^n \sum_{j=1}^m  (a_j b_k) (e_j \tensor f_k)  )</mrow>
+          <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m a_j b_k \hat[8]{\Gamma}(e_j \tensor f_k)</mrow>
+          <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m a_j b_k \Gamma(e_j , f_k)</mrow>
+          <mrow>\amp = \Gamma(v, w)</mrow>
+        </md>,
+        as desired, where the second line holds because <m>\hat[8]{\Gamma}</m> is linear,
+        the third line holds by the definition of <m>\hat[8]{\Gamma}</m>,
+        and the fourth line holds because <m>\Gamma</m> is bilinear.
+      </p>
+      <p>
+        The uniqueness of the linear map <m>\hat[8]{\Gamma}</m> satisfying
+        <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> follows from <xref ref="x9basisVtenW"></xref>(b),
+        completing the proof of (a).
+      </p>
+      <p>
+        To prove (b),
+        define a function <m>\fun {\pound{T}} {V{} \times W} U</m> by
+        <m>\pound{T}(v, w) = T(v \tensor w)</m> for all <m>(v, w) \in V{} \times W{}</m>.
+        The bilinearity of the tensor product
+        (<xref ref="x9bi">see</xref>)
+        and the linearity of <m>T</m> imply that <m>\pound{T}</m> is bilinear.
+      </p>
+      <p>
+        Clearly the choice of <m>\pound{T}</m> that satisfies the conditions is unique.
+      </p>
+    </proof>
+    <p>
+      To <xref ref="x9bi2linear">prove</xref>(a),
+      we could not just define <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> for all <m>v \in V</m> and <m>w \in W</m> \big(and then extend <m>\hat[8]{\Gamma}</m> linearly to all of
+      <m>V{} \tensor W</m>\big) because elements of
+      <m>V{} \tensor W</m> do not have unique representations as finite sums of elements of the form <m>v \tensor w</m>.
+      Our proof used a basis of <m>V</m> and a basis of <m>W</m> to get around this problem.
+    </p>
+    <p>
+      Although our construction of
+      <m>\hat[8]{\Gamma}</m> in the proof of <xref ref="x9bi2linear"></xref>(a) depended on a basis of <m>V</m> and a basis of <m>W{}</m>,
+      the equation <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> that holds for all <m>v \in V</m> and <m>w \in W{}</m> shows that
+      <m>\hat[8]{\Gamma}</m> does not depend on the choice of bases for <m>V</m> and <m>W{}</m>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Tensor Product of Inner Product Spaces</title>
+    <p>
+      The result below features three inner products<mdash/>one on <m>V{} \tensor W{}</m>,
+      one on <m>V{}</m>, and one on <m>W{}</m>,
+      although we use the same symbol
+      <m>\langle  \cdot, \cdot  \rangle</m> for all three inner products.
+    </p>
+    <theorem xml:id="x9innerten">
+      <title>inner product on tensor product of two inner product spaces</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are inner product spaces.
+          Then there is a unique inner product on <m>V{} \tensor W</m> such that
+          <me>
+            \langle  v \tensor w, u \tensor x  \rangle  = \langle v, u \rangle  \langle w, x \rangle
+          </me>
+          for all <m>v, u \in V</m> and <m>w, x \in W{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>e_1, \ldots, e_m</m> is an orthonormal basis of <m>V</m> and
+        <m>f_1, \ldots,
+        f_n</m> is an orthonormal basis of <m>W{}</m>.
+        Define an inner product on <m>V{} \tensor W</m> by
+        <men xml:id="x9ip">
+          \langle  \sum_{k=1}^n \sum_{j=1}^m b_{j,k}   e_j \tensor f_k, \sum_{k=1}^n \sum_{j=1}^m c_{j,k}   e_j \tensor f_k \rangle = \sum_{k=1}^n \sum_{j=1}^m b_{j,k} \overline{ c_{j,k} }
+        </men>.
+      </p>
+      <p>
+        The straightforward verification that <xref ref="x9ip"></xref>
+        defines an inner product on
+        <m>V{} \tensor W</m> is left to the reader [<xref ref="x9basisVtenW">use</xref>(b)] .
+      </p>
+      <p>
+        Suppose that <m>v, u \in V</m> and <m>w, x \in W{}</m>.
+        Let <m>v_1, \ldots,
+        v_m \in \F{}</m> be such that <m>v = v_1 e_1 + \cdots + v_m e_m</m>,
+        with similar expressions for <m>u</m>, <m>w</m>, and <m>x</m>.
+        Then
+        <md>
+          <mrow>\langle  v \tensor w, u \tensor x  \rangle \amp = \langle \sum_{j=1}^m v_j e_j \tensor \sum_{k=1}^n w_k f_k , \sum_{j=1}^m u_j e_j \tensor \sum_{k=1}^n x_k f_k \rangle</mrow>
+          <mrow>\amp = \langle \sum_{k=1}^n \sum_{j=1}^m v_j w_k   e_j \tensor f_k , \sum_{k=1}^n \sum_{j=1}^m u_j x_k   e_j \tensor f_k \rangle</mrow>
+          <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m v_j\overline{u_j} w_k \overline{x_k}</mrow>
+          <mrow>\amp = (  \sum_{j=1}^m v_j \overline{u_j}  ) (  \sum_{k=1}^n w_k \overline{x_k}  )</mrow>
+          <mrow>\amp = \langle v, u \rangle  \langle w, x \rangle </mrow>
+        </md>.
+      </p>
+      <p>
+        There is only one inner product on <m>V{} \tensor W</m> such that
+        <m>\langle v \tensor w, u \tensor x \rangle = \langle v, u \rangle \langle w, x \rangle</m> for all <m>v,
+        u \in V</m> and
+        <m>w,
+        x \in W</m> because every element of
+        <m>V{} \tensor W</m> can be written as a linear combination of elements of the form
+        <m>v \tensor w</m> [by <xref ref="x9basisVtenW"></xref>(b)] .
+      </p>
+    </proof>
+    <p>
+      The definition below of a natural inner product on
+      <m>V{} \tensor W</m> is now justified by <xref ref="x9innerten"></xref>.
+      We could not have simply defined
+      <m>\langle v \tensor w, u \tensor x \rangle</m> to be <m>\langle v, u \rangle \langle w, x \rangle</m>
+      (and then used additivity in each slot separately to extend the definition to <m>V{} \tensor W</m>)
+      without some proof because elements of
+      <m>V{} \tensor W</m> do not have unique representations as finite sums of elements of the form <m>v \tensor w</m>.
+    </p>
+    <definition>
+      <title>inner product on tensor product of two inner product spaces</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are inner product spaces.
+          The inner product on <m>V{} \tensor W</m> is the unique function <m>\langle \cdot, \cdot \rangle</m> from
+          <m>(V{} \tensor W) \times (V{} \tensor W)</m> to <m>\F{}</m> such that
+          <me>
+            \langle  v \tensor w, u \tensor x  \rangle  = \langle v, u \rangle  \langle w, x \rangle
+          </me>
+          for all <m>v, u \in V</m> and <m>w, x \in W{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Take <m>u = v</m> and <m>x = w</m> in the equation above and then take square roots to show that
+      <me>
+        \lVert v \tensor w \rVert  = \lVert v \rVert    \lVert w \rVert
+      </me>
+      for all <m>v \in V</m> and all <m>w \in W{}</m>.
+    </p>
+    <p>
+      The construction of the inner product in the proof of <xref ref="x9innerten"></xref>
+      depended on an orthonormal basis
+      <m>e_1, \ldots,
+      e_m</m> of <m>V</m> and an orthonormal basis <m>f_1, \ldots,
+      f_n</m> of <m>W{}</m>.
+      <xref ref="x9ip">Formula</xref> implies that
+      <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+      k = 1, \ldots, n}</m> is a doubly indexed orthonormal list in
+      <m>V{} \tensor W</m> and hence is an orthonormal basis of
+      <m>V{} \tensor W</m> [by <xref ref="x9basisVtenW"></xref>(b)] . The importance of the next result arises because the orthonormal bases used there can be different from the orthonormal bases used to define the inner product in <xref ref="x9innerten"></xref>.
+      Although the notation for the bases is the same in the proof of <xref ref="x9innerten"></xref> and in the result below,
+      think of them as two different sets of orthonormal bases.
+    </p>
+    <theorem>
+      <title>orthonormal basis of  <m>V \tensor W</m></title>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are inner product spaces, and
+          <m>e_1, \ldots,
+          e_m</m> is an orthonormal basis of <m>V</m> and
+          <m>f_1, \ldots,
+          f_n</m> is an orthonormal basis of <m>W{}</m>.
+          Then
+          <me>
+            \{ e_j \tensor f_k \}_{j = 1, \ldots, m; k = 1, \ldots, n}
+          </me>
+          is an orthonormal basis of <m>V{} \tensor W{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We know that <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+        k = 1, \ldots, n}</m> is a basis of
+        <m>V{} \tensor W</m> [by <xref ref="x9basisVtenW"></xref>(b)] . Thus we only need to verify orthonormality.
+        To do this, suppose <m>j, M \in \{ 1, \ldots,
+        m \}</m> and <m>k, N \in \{ 1, \ldots, n \}</m>.
+        Then
+        <me>
+          \langle  e_j \tensor f_k, e_M \tensor f_N  \rangle  = \langle e_j, e_M \rangle  \langle f_k, f_N \rangle = \begin{cases}1 \amp  \text{ if }  j = M \text{ and }  k = N, \\ 0 \amp  \text{ otherwise } . \end{cases}
+        </me>
+      </p>
+      <p>
+        Hence the doubly indexed list
+        <m>\{ e_j \tensor f_k \}_{j = 1, \ldots, m;
+        k = 1, \ldots,
+        n}</m> is indeed an orthonormal basis of <m>V{} \tensor W{}</m>.
+      </p>
+    </proof>
+    <p>
+      See <xref ref="x9STstar">Exercise</xref>
+      for an example of how the inner product structure on
+      <m>V{} \tensor W</m> interacts with operators on <m>V</m> and <m>W{}</m>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Tensor Product of Multiple Vector Spaces</title>
+    <p>
+      We have been discussing properties of the tensor product of two finite-dimensional vector spaces.
+      Now we turn our attention to the tensor product of multiple finite-dimensional vector spaces.
+      This generalization requires no new ideas,
+      only some slightly more complicated notation.
+      Readers with a good understanding of the tensor product of two vector spaces should be able to make the extension to the tensor product of more than two vector spaces.
+    </p>
+    <p>
+      Thus in this subsection, no proofs will be provided.
+      The definitions and the statements of results that will be provided should be enough information to enable readers to fill in the details,
+      using what has already been learned about the tensor product of two vector spaces.
+    </p>
+    <p>
+      We begin with the following notational assumption.
+    </p>
+    <principle>
+      <title><m>V_1, \ldots, V_m</m></title>
+      <p>
+        For the rest of this subsection,
+        <m>m</m> denotes an integer greater than <m>1</m> and
+        <m>V{}_1, \ldots, V{}_m</m> denote finite-dimensional vector spaces.
+      </p>
+    </principle>
+    <p>
+      The notion of an <m>m</m>-linear functional,
+      which we are about to define,
+      generalizes the notion of a bilinear functional
+      (<xref ref="x9bifunctional">see</xref>).
+      Recall that the use of the word
+      <q>functional</q>
+      indicates that we are mapping into the scalar field <m>\F{}{}</m>.
+      Recall also that the terminology
+      <q><m>m</m>-linear form</q>
+      is used in the special case <m>V{}_1 = \cdots = V{}_m</m>
+      (<xref ref="x9multiform">see</xref>).
+      The notation <m>\B(V{}_1, \ldots, V{}_m)</m> generalizes our previous notation <m>\B(V{}, W)</m>.
+    </p>
+    <definition>
+      <title>$m$-linear functional, the vector space <m>\B(V_1, \ldots, V_m)</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              An <m>m</m>-<term>linear functional</term>
+              on <m>V{}_1 \times \cdots \times V{}_m</m> is a function
+              <m>\fun \beta {V{}_1 \times \cdots \times V{}_m} {\F{}}</m> that is a linear functional in each slot when the other slots are held fixed.
+            </p>
+          </li>
+          <li>
+            <p>
+              The vector space of <m>m</m>-linear functionals on
+              <m>V{}_1 \times \cdots \times V{}_m</m> is denoted by <m>\B(V{}_1, \ldots, V{}_m)</m>.
+                <idx><h sortby="mlinearfunctional"><m>m</m>-linear functional</h></idx>
+                <idx><h sortby="BV1Vn"><m>\B(V{}_1, \ldots, V{}_m)</m></h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <example>
+      <title>$m$-linear functional</title>
+      <statement>
+        <p>
+          Suppose <m>\phi_k \in {V{}_k}'</m> for each <m>k \in \{ 1, \ldots,
+          m \}</m>.
+          Define <m>\fun \beta {V{}_1 \times \cdots \times V{}_m} {\F{}}</m> by
+          <me>
+            \beta(v_1, \ldots, v_m) = \phi_1(v_1) \times \cdots \times \phi_m(v_m)
+          </me>.
+        </p>
+        <p>
+          Then <m>\beta</m> is an <m>m</m>-linear functional on <m>V{}_1 \times \cdots \times V{}_m</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result can be proved by imitating the proof of <xref ref="x9dimbi"></xref>.
+    </p>
+    <theorem>
+      <title>dimension of the vector space of $m$-linear functionals</title>
+      <statement>
+        <p>
+          <m>\dim \B(V{}_1, \ldots, V{}_m) = (\dim V{}_1) \times \cdots \times (\dim V{}_m)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Now we can define the tensor product of multiple vector spaces and the tensor product of elements of those vector spaces.
+      The following definition is completely analogous to our previous definition <xref ref="x9ten"/> in the case <m>m = 2</m>.
+    </p>
+    <definition>
+      <title>tensor product,  <m>V_1 \tensor \cdots \tensor V_m</m>,  <m>v_1 \tensor \cdots \tensor v_m</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The <term>tensor product</term>
+              <m>V{}_1 \tensor \cdots \tensor V{}_m</m> is defined to be <m>\B( V{}_1\!', \ldots, V{}_m\!' )</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <m>v_1 \in V{}_1, \ldots, v_m \in V{}_m</m>,
+              the <term>tensor product</term>
+              <m>v_1 \tensor \cdots \tensor v_m</m> is the element of <m>V{}_1 \tensor \cdots \tensor V{}_m</m> defined by
+              <me>
+                (v_1 \tensor \cdots \tensor v_m)(\phi_1, \ldots, \phi_m) = \phi_1(v_1) \cdots \phi_m(v_m)
+              </me>
+              for all <m>(\phi_1, \ldots, \phi_m) \in V{}_1\!' \times \cdots \times V{}_m\!'</m>.
+                <idx><h>tensor product</h></idx>
+                <idx><h sortby="V1otimesVn"><m>V{}_1 \tensor \cdots \tensor V{}_m</m></h></idx>
+                <idx><h sortby="v1otimesvn"><m>v_1 \tensor \cdots \tensor v_m</m></h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      The next result can be proved by following the pattern of the proof of the analogous result when <m>m = 2</m>
+      (<xref ref="x9dimten">see</xref>).
+    </p>
+    <theorem xml:id="x9dimtenp">
+      <title>dimension of the tensor product</title>
+      <statement>
+        <p>
+          <m>\dim (V{}_1 \tensor \cdots \tensor V{}_m) = (\dim V{}_1) \cdots (\dim V{}_m)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Our next result <xref ref="x9basisVtenW">generalizes</xref>.
+    </p>
+    <theorem xml:id="x9basismten">
+      <title>basis of  <m>V_1 \tensor \cdots \tensor V_m</m></title>
+      <statement>
+        <p>
+          Suppose <m>\dim V{}_k = n_k</m> and
+          <m>e_1^{ k}, \ldots,
+          e_{n_k}^{ k}</m> is a basis of <m>V{}_k</m> for <m>k = 1, \ldots, m</m>.
+          Then
+          <me>
+            \{ e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m \}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+          </me>
+          is a basis of <m>V{}_1 \tensor \cdots \tensor V{}_m</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Suppose <m>m = 2</m> and <m>e_1^1, \ldots,
+      e_{n_1}^1</m> is a basis of <m>V{}_1</m> and
+      <m>e_1^2, \ldots,
+      e_{n_2}^2</m> is a basis of <m>V{}_2</m>.
+      Then with respect to the basis <m>\{ e_{j_1}^1 \tensor e_{j_2}^2 \}_{j_1 = 1, \ldots, n_1;
+      j_2 = 1, \ldots, n_2}</m> in the result above,
+      the coefficients of an element of
+      <m>V{}_1 \tensor V{}_2</m> can be represented by an \by{n_1}{n_2} matrix that contains the coefficient of
+      <m>e_{j_1}^1 \tensor e_{j_2}^2</m> in row <m>j_1</m>, column <m>j_2</m>.
+      Thus we need a matrix, which is an array specified by two indices,
+      to represent an element of <m>V{}_1 \tensor V{}_2</m>.\looseness=-1
+    </p>
+    <p>
+      If <m>m > 2</m>,
+      then the result above shows that we need an array specified by <m>m</m> indices to represent an arbitrary element of <m>V{}_1 \tensor \cdots \tensor V{}_m</m>.
+      Thus tensor products may appear when we deal with objects specified by arrays with multiple indices.
+    </p>
+    <p>
+      The next definition generalizes the notion of a bilinear map
+      (<xref ref="x9bimap">see</xref>).
+      As with bilinear maps, the target space can be an arbitrary vector space.
+    </p>
+    <definition>
+      <title>$m$-linear map</title>
+      <statement>
+        <p>
+          An <m>m</m>-<term>linear map</term>
+          from <m>V{}_1 \times \cdots \times V{}_m</m> to a vector space <m>U</m> is a function
+          <m>\fun \Gamma {V{}_1 \times \cdots \times V{}_m} U</m> that is a linear map in each slot when the other slots are held fixed.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h sortby="mlinearmap"><m>m</m>-linear map</h></idx>
+    </p>
+    <p>
+      The next result can be proved by following the pattern of the proof of <xref ref="x9bi2linear"></xref>.
+    </p>
+    <theorem>
+      <title>converting $m$-linear maps to linear maps</title>
+      <statement>
+        <p>
+          Suppose <m>U</m> is a vector space.
+          <ol>
+            <li>
+              <p>
+                Suppose that <m>\fun \Gamma {V{}_1 \times \cdots \times V{}_m} U</m> is an <m>m</m>-linear map.
+                Then there exists a unique linear map
+                <m>\fun {\hat[8]{\Gamma}} {V{}_1 \tensor \cdots \tensor V{}_m} U</m> such that<idx><h sortby="betahat"><m>\hat[8]{\Gamma}</m></h></idx>
+                <me>
+                  \hat[8]{\Gamma}(v_1 \tensor \cdots \tensor v_m) = \Gamma(v_1, \ldots, v_m)
+                </me>
+                for all <m>(v_1, \ldots, v_m) \in V{}_1 \times \cdots \times V{}_m</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Conversely, suppose <m>\fun T {V{}_1 \tensor \cdots \tensor V{}_m} U</m> is a linear map.
+                Then there exists a unique <m>m</m>-linear map <m>\fun {\pound{T}} {V{}_1 \times \cdots \times V{}_m} U</m> such that
+                <me>
+                  \pound{T}(v_1, \ldots, v_m) = T(v_1 \tensor \cdots \tensor v_m)
+                </me>
+                for all <m>(v_1, \ldots, v_m) \in V{}_1 \times \cdots \times V{}_m</m>.
+                  <idx><h sortby="Tpound"><m>\pound{T}{}</m></h></idx>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      See <xref ref="x9tenmip">Exercises</xref>
+      and <xref ref="x9tenmip2"></xref>
+      for tensor products of multiple inner product spaces.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise xml:id="x9zeroten">
+          <statement>
+            <p>
+              Suppose <m>v \in V</m> and <m>w \in W{}</m>.
+              Prove that <m>v \tensor w = 0</m> if and only if <m>v = 0</m> or <m>w = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of six distinct vectors
+              <m>v_1, v_2, v_3, w_1, w_2, w_3</m> in <m>\R3</m> such that
+              <me>
+                v_1 \tensor w_1 + v_2 \tensor w_2 + v_3 \tensor w_3 = 0
+              </me>
+              but none of <m>v_1 \tensor w_1</m>, <m>v_2 \tensor w_2</m>,
+              <m>v_3 \tensor w_3</m> is a scalar multiple of another element of this list.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>v_1, \ldots,
+              v_m</m> is a linearly independent list in <m>V{}</m>.
+              Suppose also that <m>w_1, \ldots,
+              w_m</m> is a list in <m>W</m> such that
+              <me>
+                v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0
+              </me>.
+            </p>
+            <p>
+              Prove that <m>w_1 = \cdots = w_m = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9VtenW">
+          <statement>
+            <p>
+              Suppose <m>\dim V > 1</m> and <m>\dim W > 1</m>.
+              Prove that
+              <me>
+                \{  v \tensor w : (v, w) \in V{} \times W  \}
+              </me>
+              is not a subspace of <m>V{} \tensor W{}</m>.
+              Note: This exercise implies that if
+              <m>\dim V > 1</m> and <m>\dim W > 1</m>, then
+              <me>
+                \{  v \tensor w : (v, w) \in V{} \times W  \} \ne V{} \tensor W{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9rank1">
+          <statement>
+            <p>
+              Suppose <m>m</m> and <m>n</m> are positive integers.
+              For <m>v \in \F m</m> and <m>w \in \FF{n}</m>,
+              identify <m>v \tensor w</m> with an \by{m}{n} matrix as in <xref ref="x9FmFn">Example</xref>.
+              With that identification, show that the set
+              <me>
+                \{  v \tensor w : v \in \F m \text{ and }  w \in \F n  \}
+              </me>
+              is the set of \by{m}{n} matrices
+              (with entries in <m>\F{}</m>)
+              that have rank at most one.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9rank2">
+          <statement>
+            <p>
+              Suppose <m>m</m> and <m>n</m> are positive integers.
+              Give a description, analogous to <xref ref="x9rank1">Exercise</xref>,
+              of the set of \by{m}{n} matrices
+              (with entries in <m>\F{}</m>)
+              that have rank at most two.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\dim V > 2</m> and <m>\dim W > 2</m>.
+              Prove that
+              <me>
+                \{  v_1 \tensor w_1 + v_2 \tensor w_2 : v_1, v_2 \in V \text{ and }  w_1, w_2 \in W  \} \ne V{} \tensor W{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \ldots,
+              v_m \in V</m> and <m>w_1, \ldots,w_m \in W</m> are such that
+              <me>
+                v_1 \tensor w_1 + \cdots + v_m \tensor w_m = 0
+              </me>.
+            </p>
+            <p>
+              Suppose that <m>U</m> is a vector space and <m>\fun \Gamma {V{} \times W} U</m> is a bilinear map.
+              Show that
+              <me>
+                \Gamma(v_1, w_1) + \cdots + \Gamma(v_m, w_m) = 0
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9LVtenLW">
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m> and <m>T \in \Lc(W)</m>.
+              Prove that there exists a unique operator on
+              <m>V{} \tensor W</m> that takes <m>v \tensor w</m> to
+              <m>Sv \tensor Tw</m> for all <m>v \in V</m> and <m>w \in W{}</m>.
+              Note: In an abuse of notation,
+              the operator on <m>V{} \tensor W</m> given by this exercise is often called <m>S \tensor T{}</m>.
+          <idx><h sortby="Stensor"><m>S \tensor T{}</m></h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m> and <m>T \in \Lc(W)</m>.
+              Prove that <m>S \tensor T</m> is an invertible operator on
+              <m>V{} \tensor W</m> if and only if both <m>S</m> and <m>T</m> are invertible operators.
+              Also, prove that if both <m>S</m> and <m>T</m> are invertible operators,
+              then <m>(S \tensor T)^{-1} = S^{-1} \tensor T^{-1}</m>,
+              where we are using the notation from the comment after <xref ref="x9LVtenLW">Exercise</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9STstar">
+          <statement>
+            <p>
+              Suppose <m>V</m> and <m>W</m> are inner product spaces.
+              Prove that if <m>S \in \Lc(V)</m> and <m>T \in \Lc(W)</m>,
+              then <m>(S \tensor T)^* = S^* \tensor T^*{}</m>,
+              where we are using the notation from the comment after <xref ref="x9LVtenLW">Exercise</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9tenmip">
+          <statement>
+            <p>
+              Suppose that <m>V{}_1, \ldots, V{}_m</m> are finite-dimensional inner product spaces.
+              Prove that there is a unique inner product on <m>V{}_1 \tensor \cdots \tensor V{}_m</m> such that
+              <me>
+                \langle  v_1 \tensor \cdots \tensor v_m, u_1 \tensor \cdots \tensor u_m  \rangle  = \langle  v_1, u_1 \rangle  \cdots \langle v_m, u_m \rangle
+              </me>
+              for all <m>(v_1, \ldots, v_m)</m> and
+              <m>(u_1, \ldots,
+              u_m)</m> in <m>V{}_1 \times \cdots \times V{}_m</m>.
+              Note: Note that the equation above implies that
+              <me>
+                \lVert  v_1 \tensor \cdots \tensor v_m  \rVert  = \lVert v_1 \rVert  \times \cdots \times \lVert v_m \rVert
+              </me>
+              for all <m>(v_1, \ldots, v_m) \in V{}_1 \times \cdots \times V{}_m</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9tenmip2">
+          <statement>
+            <p>
+              Suppose that <m>V{}_1, \ldots, V{}_m</m> are finite-dimensional inner product spaces and
+              <m>V{}_1 \tensor \cdots \tensor V{}_m</m> is made into an inner product space using the inner product from <xref ref="x9tenmip">Exercise</xref>.
+              Suppose <m>e_1^{ k}, \ldots,
+              e_{n_k}^{ k}</m> is an orthonormal basis of <m>V{}_k</m> for each <m>k = 1, \ldots, m</m>.
+              Show that the list
+              <me>
+                \{ e_{j_1}^1 \tensor \cdots \tensor e_{j_m}^m \}_{j_1 = 1, \ldots, n_1; \cdots ; j_m = 1, \ldots, n_m}
+              </me>
+              is an orthonormal basis of <m>V{}_1 \tensor \cdots \tensor V{}_m</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+    <p>
+      {{ Linear Algebra Done Right
+    </p>
+    <p>
+      fourth edition
+    </p>
+    <p>
+      { Instructor's Solutions Manual for \instructor}}
+    </p>
+    <p>
+      { { Sheldon Axler}
+    </p>
+    <p>
+      28 November 2025
+    </p>
+    <p>
+      <copyright/> 2023
+    </p>
+    <p>
+      Sheldon Axler }
+    </p>
+    <p>
+      { This Instructor's Solutions Manual provides solutions for all exercises in my book <emph>Linear Algebra Done Right</emph>,
+      fourth edition.
+      It is distributed
+      (without charge)
+      only to instructors who are using <emph>Linear Algebra Done Right</emph> as a textbook.
+    </p>
+    <p>
+      This Instructor's Solutions Manual is copyrighted by me.
+      Please do not redistribute this electronic file to anyone else without my permission,
+      and please do not post this electronic file on a web site.
+    </p>
+    <p>
+      \ignore An instructor using <emph>Linear Algebra Done Right</emph> as a textbook has permission to distribute to students in the class paper copies of whatever solutions the instructor chooses
+      (if students are charged for copies,
+      the price may not exceed the cost of materials and reproduction).
+    </p>
+    <p>
+      \ignore Some instructors may not want to distribute any of these solutions to students;
+      other instructors may want to save class time by distributing to students solutions to some of the exercises.
+      Obviously students should not see the solution to an exercise until they have attempted the exercise themselves.
+      <emph><em>Please do not distribute solutions needlessly,
+      especially if there is a danger that solutions will get passed down to next year's class at your university.</em></emph> Neither I nor Springer will distribute this Instructor's Solutions Manual to students,
+      so if neither you nor colleagues in your department make copies for students,
+      you can be reasonably confident that your students are working the exercises without benefit of these solutions.
+    </p>
+    <p>
+      I would be grateful for suggestions for improvements and for corrections concerning either <emph>Linear Algebra Done Right</emph> or this Instructor's Solutions Manual.
+      Please check the website listed below for errata and other information about <emph>Linear Algebra Done Right</emph>.
+    </p>
+    <p>
+      { Sheldon Axler <em>e-mail:</em><c>linear@axler.net</c>
+    </p>
+    <p>
+      San Francisco State University <em>website:</em><c>linear.axler.net</c> } }
+    </p>
+    <p>
+      \ExercisesLoop{1}{3} \ExercisesLoop{2}{3} \ExercisesLoop{3}{6} \Exercises{4}{0} \ExercisesLoop{5}{5} \ExercisesLoop{6}{3} \ExercisesLoop{7}{6} \ExercisesLoop{8}{4} \ExercisesLoop{9}{4} \fi
+    </p>
+  </subsection>
+</section>

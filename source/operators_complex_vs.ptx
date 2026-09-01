@@ -1,0 +1,66 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="operators_complex_vs">
+  <title>Operators on Complex Vector Spaces</title>
+  <introduction>
+    <p>
+      In this chapter we delve deeper into the structure of operators,
+      with most of the attention on complex vector spaces.
+      Some of the results in this chapter apply to both real and complex vector spaces;
+      thus we do not make a standing assumption that <m>\F{} = \C{}</m>.
+      Also, an inner product does not help with this material,
+      so we return to the general setting of a finite-dimensional vector space.
+    </p>
+    <p>
+      Even on a finite-dimensional complex vector space,
+      an operator may not have enough eigenvectors to form a basis of the vector space.
+      Thus we will consider the closely related objects called generalized eigenvectors.
+      We will see that for each operator on a finite-dimensional complex vector space,
+      there is a basis of the vector space consisting of generalized eigenvectors of the operator.
+      The generalized eigenspace decomposition then provides a good description of arbitrary operators on a finite-dimensional complex vector space.
+    </p>
+    <p>
+      Nilpotent operators,
+      which are operators that when raised to some power equal<nbsp/><m>0</m>,
+      have an important role in these investigations.
+      Nilpotent operators provide a key tool in our proof that every invertible operator on a finite-dimensional complex vector space has a square root and in our approach to Jordan form.
+    </p>
+    <p>
+      This chapter concludes by defining the trace and proving its key properties.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> denotes a finite-dimensional nonzero vector space over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          David Iliff CC BY-SA
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>The Long Room of the Old Library at the University of Dublin,
+          where William Hamilton (1805<ndash/>1865) was a student and then a faculty member.
+          Hamilton proved a special case of what we now call the Cayley<ndash/>Hamilton theorem in 1853.</em>
+        </p>
+      </blockquote>
+    </p>
+    <p>
+          <idx><h>Hamilton, William</h></idx>
+          <idx><h>University of Dublin</h></idx>
+    </p>
+  </introduction>
+  <xi:include  href="geneig.ptx"/>
+  <xi:include  href="decompop.ptx"/>
+  <xi:include  href="x8geneigde.ptx"/>
+  <xi:include  href="x7trace.ptx"/>
+</chapter>

@@ -1,0 +1,60 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="eigs">
+  <title>Eigenvalues and Eigenvectors</title>
+  <introduction>
+    <p>
+      Linear maps from one vector space to another vector space were the objects of study in <xref ref="LinearMaps">Chapter</xref>.
+      Now we begin our investigation of operators,
+      which are linear maps from a vector space to itself.
+      Their study constitutes the most important part of linear algebra.
+    </p>
+    <p>
+      To learn about an operator, we might try restricting it to a smaller subspace.
+      Asking for that restriction to be an operator will lead us to the notion of invariant subspaces.
+      Each one-dimensional invariant subspace arises from a vector that the operator maps into a scalar multiple of the vector.
+      This path will lead us to eigenvectors and eigenvalues.
+    </p>
+    <p>
+      We will then prove one of the most important results in linear algebra:
+      every operator on a finite-dimensional nonzero complex vector space has an eigenvalue.
+      This result will allow us to show that for each operator on a finite-dimensional complex vector space,
+      there is a basis of the vector space with respect to which the matrix of the operator has at least almost half its entries equal to <m>0</m>.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> denotes a vector space over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          Hans-Peter Postel CC BY
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>Statue of Leonardo of Pisa (1170<ndash/>1250, approximate dates) ,
+    <idx><h>Leonardo of Pisa</h></idx>
+          also known as Fibonacci.
+    <idx><h>Fibonacci</h></idx>
+<xref ref="Fibonacci">Exercise</xref>
+          in <xref ref="diagmat">Section</xref>
+          shows how linear algebra can be used to find the explicit formula for the Fibonacci sequence shown on the front cover.</em>
+        </p>
+      </blockquote>
+    </p>
+  </introduction>
+  <xi:include  href="x5invar.ptx"/>
+  <xi:include  href="eigenuppertri.ptx"/>
+  <xi:include  href="x4utm.ptx"/>
+  <xi:include  href="diagmat.ptx"/>
+  <xi:include  href="x2diagmat.ptx"/>
+</chapter>

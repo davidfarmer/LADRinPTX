@@ -1,0 +1,1471 @@
+<section xml:id="x6ipn">
+  <title>Inner Products and Norms</title>
+  <subsection>
+    <title>Inner Products</title>
+    <p>
+      <figure>
+        <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
+        <image source="Mathematica/Axes.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      To motivate the concept of inner product,
+      think of vectors in<nbsp/><m>\R{2}</m> and<nbsp/><m>\R{3}</m> as arrows with initial point at the origin.
+      The length of a vector <m>v</m> in<nbsp/><m>\R{2}</m> or<nbsp/><m>\R{3}</m> is called the <term>norm</term>
+      of<nbsp/><m>v</m> and is denoted by <m>\|v\|</m>.
+      Thus for <m>v = (a, b) \in \RR{2}</m>, we have
+      <me>
+        \|v\| =\sqrt{a^2 + b^2}
+      </me>.
+    </p>
+    <p>
+      Similarly, if <m>v = (a,b,c) \in \RR{3}</m>,
+      then <m>\|v\| = \sqrt{a^2 + b^2 + c^2}</m>.
+    </p>
+    <p>
+      Even though we cannot draw pictures in higher dimensions,
+      the generalization to<nbsp/><m>\R{n}</m> is easy:
+      we define the norm of <m>x = (x_1, \dots, x_n) \in \R{n}</m> by
+          <idx><h>norm of a vector</h></idx>
+      <me>
+        \|x\| = \sqrt{{x_1}^{2} + \dots + {x_n}^{2}}
+      </me>.
+    </p>
+    <p>
+      The norm is not linear on <m>\RR{n}</m>.
+      To inject linearity into the discussion,
+      we introduce the dot product.
+    </p>
+    <definition>
+      <title>dot product</title>
+      <statement>
+        <p>
+          For <m>x, y \in \RR{n}</m>, the <term>dot product</term>
+              <idx><h>dot product</h></idx>
+          of<nbsp/><m>x</m> and<nbsp/><m>y</m>,
+          denoted by <m>x \cdot y</m>, is defined by
+          <me>
+            x \cdot y = x_1 y_1 + \dots + x_n y_n
+          </me>,
+          where <m>x = (x_1, \dots, x_n)</m> and <m>y = (y_1, \dots,
+          y_n)</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        If we think of a vector as a point instead of as an arrow,
+        then <m>\|x\|</m> should be interpreted to mean the distance from the origin to the point <m>x</m>.
+      </p>
+    </aside>
+    <p>
+      The dot product of two vectors in <m>\R{n}</m> is a number,
+      not a vector.
+      Notice that <m>x \cdot x = \|x\|^2</m> for all <m>x \in \RR{n}</m>.
+      Furthermore,
+      the dot product on <m>\R{n}</m> has the following properties.
+      <ol>
+        <li>
+          <p>
+            <m>x \cdot x \ge 0</m> for all <m>x \in \RR{n}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x \cdot x = 0</m> if and only if <m>x = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>y \in \R{n}</m> fixed,
+            the map from<nbsp/><m>\R{n}</m> to<nbsp/><m>\R{}</m> that sends
+            <m>x \in \R{n}</m> to <m>x \cdot y</m> is linear.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x \cdot y = y \cdot x</m> for all <m>x, y \in \RR{n}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      An inner product is a generalization of the dot product.
+      At this point you may be tempted to guess that an inner product is defined by abstracting the properties of the dot product discussed in the last paragraph.
+      For real vector spaces, that guess is correct.
+      However, so that we can make a definition that will be useful for both real and complex vector spaces,
+      we need to examine the complex case before making the definition.
+    </p>
+    <p>
+      Recall that if <m>\lambda = a + bi</m>,
+      where <m>a, b \in \R{}</m>, then
+      <ol>
+        <li>
+          <p>
+            the absolute value of <m>\lambda</m>,
+            denoted by <m>|\lambda|</m>, is defined by <m>|\lambda| = \sqrt{a^2 + b^2}</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            the complex conjugate of <m>\lambda</m>,
+            denoted by <m>\bar{\lambda}</m>,
+            is defined by <m>\bar{\lambda} = a - bi</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|\lambda|^2 = \lambda \bar{\lambda}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      See <xref ref="polynomials">Chapter</xref>
+      for the definitions and the basic properties of the absolute value and complex conjugate.
+    </p>
+    <p>
+      For <m>z = (z_1, \dots, z_n) \in \CC{n}</m>,
+      we define the norm of <m>z</m> by
+      <me>
+        \|z\| = \sqrt{|z_1|^2 + \dots + |z_n|^2}
+      </me>.
+    </p>
+    <p>
+      The absolute values are needed because we want <m>\|z\|</m> to be a nonnegative number.
+      Note that
+      <me>
+        \|z\|^2 = z_1 \overline{z_1} + \dots + z_n \overline{z_n}
+      </me>.
+    </p>
+    <p>
+      We want to think of <m>\|z\|^2</m> as the inner product of <m>z</m> with itself,
+      as we did in<nbsp/><m>\RR{n}</m>.
+      The equation above thus suggests that the inner product of the vector
+      <m>w = (w_1, \dots,
+      w_n) \in \C{n}</m> with <m>z</m> should equal
+      <me>
+        w_1 \overline{z_1}+ \dots + w_n \overline{z_n}
+      </me>.
+    </p>
+    <p>
+      If the roles of the <m>w</m> and <m>z</m> were interchanged,
+      the expression above would be replaced with its complex conjugate.
+      Thus we should expect that the inner product of<nbsp/><m>w</m> with<nbsp/><m>z</m> equals the complex conjugate of the inner product of<nbsp/><m>z</m> with<nbsp/><m>w</m>.
+      With that motivation,
+      we are now ready to define an inner product on<nbsp/><m>V{}</m>,
+      which may be a real or a complex vector space.
+    </p>
+    <p>
+      One comment about the notation used in the next definition:
+      <ol>
+        <li>
+          <p>
+            For <m>\lambda\in\C{}</m>,
+            the notation <m>\lambda \ge 0</m> means <m>\lambda</m> is real and<nbsp/>nonnegative.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <definition xml:id="innerproduct">
+      <title>inner product</title>
+      <statement>
+        <p>
+          An <term>inner product</term>
+              <idx><h>inner product</h></idx>
+          on <m>V</m> is a function that takes each ordered pair <m>(u,v)</m> of elements of <m>V</m> to a number
+          <m>\langle u,v \rangle \in \F{}</m> and has the following properties.
+          <ol>
+            <li>
+              <title>positivity</title>
+              <p>
+                <m>\langle v, v \rangle \ge 0</m> for all <m>v \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <title>definiteness</title>
+              <p>
+                <m>\langle v, v \rangle = 0</m> if and only if <m>v = 0</m>.
+              </p>
+            </li>
+            <li>
+              <title>additivity in first slot</title>
+              <p>
+                <m>\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle</m> for all <m>u,
+                v, w \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <title>homogeneity in first slot</title>
+              <p>
+                <m>\langle \lambda u, v \rangle = \lambda \langle u, v \rangle</m> for all
+                <m>\lambda \in \F{}</m> and all <m>u, v \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <title>conjugate symmetry</title>
+              <p>
+                <m>\langle u, v \rangle = \overline{\langle v,u \rangle }</m> for all <m>u,
+                v \in V{}</m>.
+                  <idx><h>conjugate symmetry</h></idx>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h sortby="uv"><m>\langle u, v \rangle</m></h></idx>
+    </p>
+    <aside>
+      <p>
+        Most mathematicians define inner products as above,
+        but many physicists use a definition that requires homogeneity in the second slot instead of the first slot.
+      </p>
+    </aside>
+    <p>
+      Every real number equals its complex conjugate.
+      Thus if we are dealing with a real vector space,
+      then in the last condition above we can dispense with the complex conjugate and simply state that
+      <m>\langle u,v \rangle = \langle v,u \rangle</m> for all <m>u,
+      v \in V{}</m>.
+    </p>
+    <example xml:id="exampleip">
+      <title>inner products</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The <term>Euclidean inner product</term>
+                <idx><h>Euclidean inner product</h></idx>
+              on<nbsp/><m>\F{n}</m> is defined by
+              <me>
+                \langle (w_1, \dots, w_n), (z_1, \dots, z_n) \rangle  = w_1 \overline{z_1}+ \dots + w_n \overline{z_n}
+              </me>
+              for all <m>(w_1, \dots, w_n), (z_1, \dots, z_n) \in \FF n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>c_1, \dots, c_n</m> are positive numbers,
+              then an inner product can be defined on<nbsp/><m>\F{n}</m> by
+              <me>
+                \langle (w_1, \dots, w_n), (z_1, \dots, z_n) \rangle  = c_1 w_1 \overline{z_1} + \dots + c_n w_n \overline{z_n}
+              </me>
+              for all <m>(w_1, \dots, w_n), (z_1, \dots, z_n) \in \FF n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              An inner product can be defined on the vector space of continuous real-valued functions on the interval <m>[-1, 1]</m> by
+              <me>
+                \langle f, g \rangle  = \int_{-1}^1fg
+              </me>
+              for all <m>f,
+              g</m> continuous real-valued functions on <m>[-1,1]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              An inner product can be defined on <m>\P(\R{})</m> by
+              <me>
+                \langle p, q \rangle  = p(0) q(0) + \int_{-1}^1 p' q'
+              </me>
+              for all <m>p, q \in \P(\R{})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              An inner product can be defined on <m>\P(\R{})</m> by
+              <me>
+                \langle p, q \rangle  = \int_0^\infty p(x) q(x) e^{-x}   dx
+              </me>
+              for all <m>p, q \in \P(\R{})</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <definition>
+      <title>inner product space</title>
+      <statement>
+        <p>
+          An <term>inner product space</term>
+              <idx><h>inner product space</h></idx>
+          is a vector space <m>V</m> along with an inner product on <m>V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The most important example of an inner product space is <m>\F{n}</m> with the Euclidean inner product given by (a) in the example above.
+      When <m>\F{n}</m> is referred to as an inner product space,
+      you should assume that the inner product is the Euclidean inner product unless explicitly told otherwise.
+    </p>
+    <p>
+      So that we do not have to keep repeating the hypothesis that <m>V</m> and <m>W</m> are inner product spaces,
+      we make the following assumption.
+    </p>
+    <principle>
+      <title><m>V</m>, <m>W</m></title>
+      <p>
+        For the rest of this chapter and the next chapter,
+        <m>V</m> and <m>W</m> denote inner product spaces over <m>\F{}{}</m>.
+      </p>
+    </principle>
+    <p>
+      Note the slight abuse of language here.
+      An inner product space is a vector space along with an inner product on that vector space.
+      When we say that a vector space <m>V</m> is an inner product space,
+      we are also thinking that an inner product on <m>V</m> is lurking nearby or is clear from the context
+      (or is the Euclidean inner product if the vector space is <m>\F{n}</m>).
+    </p>
+    <theorem xml:id="basicip">
+      <title>basic properties of an inner product</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              For each fixed <m>v \in V{}</m>,
+              the function that takes <m>u \in V</m> to
+              <m>\langle u,v \rangle</m> is a linear map from <m>V</m> to <m>\F{}{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle 0, v \rangle = 0</m> for every <m>v \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle v, 0 \rangle = 0</m> for every <m>v \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle u, v + w \rangle = \langle u , v \rangle + \langle u, w \rangle</m> for all <m>u,
+              v, w \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle u, \lambda v \rangle = \bar{\lambda} \langle u,v \rangle</m> for all
+              <m>\lambda \in \F{}</m> and all <m>u, v \in V{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            For <m>v \in V{}</m>, the linearity of
+            <m>u \mapsto \langle u,v \rangle</m> follows from the conditions of additivity and homogeneity in the first slot in the definition of an inner product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Every linear map takes <m>0</m> to <m>0</m>.
+            Thus (b) follows from (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>v \in V{}</m>,
+            then the conjugate symmetry property in the definition of an inner product and (b) show that <m>\langle v, 0 \rangle = \overline{ \langle 0, v \rangle } = \overline{0} = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>u, v, w \in V{}</m>.
+            Then
+            <md>
+              <mrow>\langle u, v + w \rangle  \amp = \overline{\langle v + w, u \rangle }</mrow>
+              <mrow>\amp = \overline{\langle v , u \rangle  + \langle w, u \rangle }</mrow>
+              <mrow>\amp = \overline{\langle v , u \rangle } + \overline{\langle w, u \rangle }</mrow>
+              <mrow>\amp = \langle u , v \rangle  + \langle u, w \rangle </mrow>
+            </md>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\lambda \in \F{}</m> and <m>u,v \in V{}</m>.
+            Then
+            <md>
+              <mrow>\langle u, \lambda v \rangle  \amp = \overline{\langle \lambda v,u \rangle }</mrow>
+              <mrow>\amp = \overline{\lambda\langle v,u \rangle }</mrow>
+              <mrow>\amp = \bar{\lambda}     \overline{\langle v,u \rangle }</mrow>
+              <mrow>\amp = \bar{\lambda} \langle u,v \rangle </mrow>
+            </md>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Norms</title>
+    <p>
+      Our motivation for defining inner products came initially from the norms of vectors on <m>\R2</m> and <m>\RR3</m>.
+      Now we see that each inner product determines a norm.
+    </p>
+    <definition>
+      <title>norm, <m>\|v\|</m></title>
+      <statement>
+        <p>
+          For <m>v \in V{}</m>, the <term>norm</term>
+              <idx><h>norm of a vector</h></idx>
+          of <m>v</m>, denoted by <m>\|v\|</m>, is defined by
+          <me>
+            \|v\| = \sqrt{\langle v,v \rangle }
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h sortby="w"><m>"|"|v"|"|</m></h></idx>
+    </p>
+    <example>
+      <title>norms</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>(z_1, \dots, z_n) \in \F{n}</m>
+              (with the Euclidean inner product),
+              then
+              <me>
+                \|(z_1, \dots, z_n)\| = \sqrt{|z_1|^2 + \dots + |z_n|^2}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <m>f</m> in the vector space of continuous real-valued functions on <m>[-1,1]</m> and with inner product given as in <xref ref="exampleip"></xref>(c), we have
+              <me>
+                \|f\| =  \sqrt{\int_{-1}^1 f^2}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <theorem xml:id="x2bnorm">
+      <title>basic properties of the norm</title>
+      <statement>
+        <p>
+          Suppose <m>v \in V{}</m>.
+          <ol>
+            <li>
+              <p>
+                <m>\|v\| = 0</m> if and only if <m>v = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\|\lambda v\| = |\lambda| \|v\|</m> for all <m>\lambda \in \F{}{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            The desired result holds because
+            <m>\langle v,v \rangle = 0</m> if and only if <m>v = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\lambda \in \F{}{}</m>.
+            Then
+            <md>
+              <mrow>\|\lambda v\|^2 \amp = \langle \lambda v, \lambda v \rangle</mrow>
+              <mrow>\amp = \lambda \langle v, \lambda v \rangle</mrow>
+              <mrow>\amp = \lambda \bar{\lambda}\langle v, v \rangle</mrow>
+              <mrow>\amp = |\lambda|^2   \|v\|^2{}</mrow>
+            </md>.
+            Taking square roots now gives the desired equality.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      The proof of (b) in the result above illustrates a general principle:
+      working with norms squared is usually easier than working directly with norms.
+    </p>
+    <p>
+      Now we come to a crucial definition.
+    </p>
+    <definition>
+      <title>orthogonal</title>
+      <statement>
+        <p>
+          Two vectors <m>u, v \in V</m> are called
+          <term>orthogonal</term><idx><h>orthogonal</h><h>vectors</h></idx> if <m>\langle u, v \rangle = 0</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        The word <em>orthogonal</em> comes from the Greek word
+        <em>orthogonios</em>, which means right-angled.
+      </p>
+    </aside>
+    <p>
+      In the definition above, the order of the two vectors does not matter,
+      because <m>\langle u, v \rangle = 0</m> if and only if <m>\langle v, u \rangle = 0</m>.
+      Instead of saying <m>u</m> and <m>v</m> are orthogonal,
+      sometimes we say <m>u</m> is orthogonal to <m>v</m>.
+    </p>
+    <p>
+      <xref ref="cost">Exercise</xref> asks you to prove that if
+      <m>u,
+      v</m> are nonzero vectors in <m>\RR{2}</m>, then
+      <me>
+        \langle u,v \rangle  = \|u\|   \|v\| \cos \theta
+      </me>,
+      where <m>\theta</m> is the angle between <m>u</m> and <m>v</m>
+      (thinking of<nbsp/><m>u</m> and<nbsp/><m>v</m> as arrows with initial point at the origin).
+      Thus two nonzero vectors in <m>\R2</m> are orthogonal
+      (with respect to the Euclidean inner product)
+      if and only if the cosine of the angle between them is <m>0</m>,
+      which happens if and only if the vectors are perpendicular in the usual sense of plane geometry.
+      Thus you can think of the word <emph>orthogonal</emph> as a fancy word meaning <emph>perpendicular</emph>.
+    </p>
+    <p>
+      We begin our study of orthogonality with an easy result.
+    </p>
+    <theorem>
+      <title>orthogonality and <m>0</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              <m>0</m> is orthogonal to every vector in <m>V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0</m> is the only vector in <m>V</m> that is orthogonal to itself.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            Recall that <xref ref="basicip"></xref>(b) states that
+            <m>\langle 0, v \rangle = 0</m> for every <m>v \in V{}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>v \in V</m> and <m>\langle v,v \rangle = 0</m>, then <m>v = 0</m>
+            (by definition of inner product).
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      For the special case <m>V = \RR{2}</m>,
+      the next theorem was known over 3,500 years ago in Babylonia and then rediscovered and proved over 2,500 years ago in Greece.
+      Of course, the proof below is not the original proof.
+    </p>
+    <theorem xml:id="x184">
+      <title>Pythagorean theorem</title>
+      <statement>
+        <p>
+              <idx><h>Pythagorean theorem</h></idx>
+          Suppose <m>u, v \in V{}</m>.
+          If <m>u</m> and <m>v</m> are orthogonal, then
+          <me>
+            \|u + v\|^2 = \|u\|^2 + \|v\|^2{}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>\langle u, v \rangle  = 0</m>.
+        Then
+        <md>
+          <mrow>\|u + v\|^2 \amp = \langle u+ v, u + v \rangle</mrow>
+          <mrow>\amp = \langle u, u \rangle  + \langle u, v \rangle  + \langle v, u \rangle  + \langle v, v \rangle</mrow>
+          <mrow>\amp = \|u\|^2 + \|v\|^2{}</mrow>
+        </md>.
+      </p>
+    </proof>
+    <p>
+      Suppose <m>u, v \in V{}</m>, with <m>v \ne 0</m>.
+      We would like to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector <m>w</m> orthogonal to<nbsp/><m>v</m>,
+      as suggested in the picture here.
+    </p>
+    <p>
+      <figure>
+        <caption>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</caption>
+        <image source="Mathematica/OrthogonalDecomposition.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      To discover how to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector orthogonal to<nbsp/><m>v</m>,
+      let <m>c \in \F{}</m> denote a scalar.
+      Then
+      <me>
+        u = c v + (u - c v)
+      </me>.
+    </p>
+    <p>
+      Thus we need to choose <m>c</m> so that <m>v</m> is orthogonal to <m>(u - c v)</m>.
+      Hence we want
+      <me>
+        0 = \langle u - c v, v \rangle  = \langle u,v \rangle  - c \|v\|^2{}
+      </me>.
+    </p>
+    <p>
+      The equation above shows that we should choose <m>c</m> to be <m>\langle u,v \rangle /\|v\|^2{}</m>.
+      Making this choice of<nbsp/><m>c</m>, we can write
+      <me>
+        u = \frac{\langle u,v \rangle }{\|v\|^2} v + (  u - \frac{\langle u,v \rangle }{\|v\|^2} v  )
+      </me>.
+    </p>
+    <p>
+      As you should verify,
+      the equation displayed above explicitly writes <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector orthogonal to<nbsp/><m>v</m>.
+      Thus we have proved the following key result.
+    </p>
+    <theorem xml:id="orthogdecomp">
+      <title>an orthogonal decomposition</title>
+      <statement>
+        <p>
+          Suppose <m>u, v \in V{}</m>, with <m>v \ne 0</m>.
+          Set <m>c =  \dfrac{\langle u,v \rangle }{\|v\|^2}</m> and <m>w = u - \dfrac{\langle u,v \rangle }{\|v\|^2} v</m>.
+          Then
+          <me>
+            u = c v + w \andd \langle w, v \rangle  = 0
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The orthogonal <xref ref="orthogdecomp">decomposition</xref>
+      will be used in the proof of the Cauchy<ndash/>Schwarz inequality,
+      which is our next result and is one of the most important inequalities in mathematics.
+    </p>
+    <theorem xml:id="x177">
+      <title>Cauchy<ndash/>Schwarz inequality</title>
+      <statement>
+        <p>
+              <idx><h>Cauchy<ndash/>Schwarz inequality</h></idx>
+          Suppose <m>u, v \in V{}</m>.
+          Then
+          <me>
+            |\langle u, v \rangle | \le \|u\| \|v\|
+          </me>.
+        </p>
+        <p>
+          This inequality is an equality if and only if one of
+          <m>u,
+          v</m> is a scalar multiple of the other.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>v = 0</m>,
+        then both sides of the desired inequality equal <m>0</m>.
+        Thus we can assume that <m>v \ne 0</m>.
+        Consider the orthogonal decomposition
+        <me>
+          u = \frac{\langle u,v \rangle }{\|v\|^2} v + w
+        </me>
+        given by <xref ref="orthogdecomp"></xref>,
+        where <m>w</m> is orthogonal to <m>v</m>.
+        By the Pythagorean theorem,
+        <md>
+          <mrow>\|u\|^2 \amp = \lVert  \frac{\langle u,v \rangle }{\|v\|^2} v  \rVert ^2 + \lVert w \rVert ^2</mrow>
+          <mrow>\amp = \frac{\lvert \langle u,v \rangle  \rvert ^2}{\|v\|^2}  + \|w\|^2</mrow>
+          <mrow xml:id="x336" number="yes">\amp \ge \frac{\lvert \langle u,v \rangle  \rvert ^2}{\|v\|^2}</mrow>
+        </md>.
+      </p>
+      <p>
+        Multiplying both sides of this inequality by <m>\|v\|^2</m> and then taking square roots gives the desired inequality.
+      </p>
+      <aside>
+        <p>
+          Augustin-Louis Cauchy (1789<ndash/>1857) <xref ref="CS">proved</xref> (a) in 1821.
+          In 1859, Cauchy's student Viktor Bunyakovsky (1804<ndash/>1889) proved integral inequalities like the one in <xref ref="CS"></xref> (b) . A few decades later,
+          similar discoveries by Hermann Schwarz (1843<ndash/>1921) attracted more attention and led to the name of this inequality.
+              <idx><h>Cauchy, Augustin-Louis</h></idx>
+              <idx><h>Bunyakovsky, Viktor</h></idx>
+        </p>
+      </aside>
+      <p>
+            <idx><h>Schwarz, Hermann</h></idx>
+      </p>
+      <p>
+        The proof in the paragraph above shows that the Cauchy<ndash/>Schwarz inequality is an equality if and only <xref ref="x336">if</xref> is an equality.
+        This happens if and only if <m>w = 0</m>.
+        But <m>w=0</m> if and only if <m>u</m> is a multiple of <m>v</m>
+        (<xref ref="orthogdecomp">see</xref>).
+        Thus the Cauchy<ndash/>Schwarz inequality is an equality if and only if <m>u</m> is a scalar multiple of <m>v</m> or <m>v</m> is a scalar multiple of <m>u</m>
+        (or both; the phrasing has been chosen to cover cases in which either <m>u</m> or <m>v</m> equals<nbsp/><m>0</m>).
+      </p>
+    </proof>
+    <example xml:id="CS">
+      <title>Cauchy<ndash/>Schwarz inequality</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>x_1, \ldots, x_n, y_1, \ldots, y_n \in \R{}</m>, then
+              <me>
+                ( x_1 y_1 + \cdots + x_n y_n)^2 \le (  {x_1}^{2} + \cdots + {x_n}^{2}  ) (  {y_1}^{2} + \cdots + {y_n}^{2}  )
+              </me>,
+              as follows from applying the Cauchy<ndash/>Schwarz inequality to the vectors
+              <m>(x_1, \ldots, x_n), (y_1, \ldots,
+              y_n) \in \RR n</m>, using the usual Euclidean inner product.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f, g</m> are continuous real-valued functions on <m>[-1, 1]</m>, then
+              <me>
+                \lvert \int_{-1}^1 fg   \rvert ^{2} \le (  \int_{-1}^1 f^2  ) (  \int_{-1}^1 g^2  )
+              </me>,
+              as follows from applying the Cauchy<ndash/>Schwarz inequality to <xref ref="exampleip">Example</xref>(c).
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      <figure>
+        <caption>*{-.2in}In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
+        <image source="Mathematica/TriangleInequality3.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      The next result, called the triangle inequality,
+          <idx><h>triangle inequality</h></idx>
+      has the geometric interpretation that the length of each side of a triangle is less than the sum of the lengths of the other two sides.
+    </p>
+    <p>
+      Note that the triangle inequality implies that the shortest polygonal path between two points is a single line segment (a polygonal path consists of line segments).
+    </p>
+    <theorem xml:id="x3triangle">
+      <title>triangle inequality</title>
+      <statement>
+        <p>
+          Suppose <m>u, v \in V{}</m>.
+          Then
+          <me>
+            \|u + v\| \le \|u\| + \|v\|
+          </me>.
+        </p>
+        <p>
+          This inequality is an equality if and only if one of
+          <m>u,
+          v</m> is a nonnegative real multiple of the other.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <md>
+          <mrow>\|u + v\|^2 \amp = \langle u + v, u + v \rangle</mrow>
+          <mrow>\amp =\langle u, u \rangle  + \langle v, v \rangle  + \langle u, v \rangle  + \langle v, u \rangle</mrow>
+          <mrow>\amp =\langle u, u \rangle  + \langle v, v \rangle  + \langle u, v \rangle  + \overline{\langle u, v \rangle }</mrow>
+          <mrow>\amp = \|u\|^2 + \|v\|^2 + 2\re \langle u, v \rangle</mrow>
+          <mrow xml:id="x176" number="yes">\amp \le \|u\|^2 + \|v\|^2 + 2 \lvert  \langle u, v \rangle   \rvert</mrow>
+          <mrow xml:id="x42" number="yes">\amp \le \|u\|^2 + \|v\|^2 + 2 \|u\| \|v\|</mrow>
+          <mrow>\amp = ( \|u\| + \|v\| )^2{}</mrow>
+        </md>,
+      </p>
+      <p>
+        <xref ref="x42">where</xref> follows from the Cauchy<ndash/>Schwarz inequality <xref ref="x177"/>.
+        Taking square roots of both sides of the inequality above gives the desired inequality.
+      </p>
+      <p>
+        The proof above shows that the triangle inequality is an equality if and only if we have equality in <xref ref="x176"></xref> and <xref ref="x42"></xref>.
+        Thus we have equality in the triangle inequality if and only if
+        <men xml:id="x374">
+          \langle u, v \rangle  = \|u\|   \|v\|
+        </men>.
+      </p>
+      <p>
+        If one of <m>u, v</m> is a nonnegative real multiple of the other,
+        <xref ref="x374">then</xref> holds.
+        Conversely, <xref ref="x374">suppose</xref> holds.
+        Then the condition for equality in the Cauchy<ndash/>Schwarz inequality <xref ref="x177"/> implies that one of
+        <m>u,
+        v</m> is a scalar multiple of the other.
+        This scalar must be a nonnegative real number,
+        by <xref ref="x374"></xref>, completing the proof.
+      </p>
+    </proof>
+    <p>
+      For the reverse triangle inequality,
+      see <xref ref="x6reverse">Exercise</xref>.
+    </p>
+    <p>
+      <figure>
+        <caption>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</caption>
+        <image source="Mathematica/Parallelogram.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      The next result is called the parallelogram equality because of its geometric interpretation:
+      in every parallelogram,
+      the sum of the squares of the lengths of the diagonals equals the sum of the squares of the lengths of the four sides.
+      Note that the proof here is more straightforward than the usual proof in Euclidean geometry.
+    </p>
+    <theorem>
+      <title>parallelogram equality</title>
+      <statement>
+        <p>
+          Suppose <m>u, v \in V{}</m>.
+          Then
+              <idx><h>parallelogram equality</h></idx>
+          <me>
+            \|u + v\|^2 + \|u - v\|^2 = 2(\|u\|^2 + \|v\|^2)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have
+        <md>
+          <mrow>\|u + v\|^2 + \|u - v\|^2 \amp = \langle u + v, u + v \rangle  + \langle u - v, u - v \rangle</mrow>
+          <mrow>\amp = \|u\|^2 + \|v\|^2 + \langle u, v \rangle  + \langle v,u \rangle</mrow>
+          <mrow>\amp   + \|u\|^2 + \|v\|^2 - \langle u,  v \rangle  -\langle v,u \rangle</mrow>
+          <mrow>\amp = 2 ( \|u\|^2 + \|v\|^2 )</mrow>
+        </md>,
+        as desired.
+      </p>
+    </proof>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If <m>v_1, \dots, v_m \in V{}</m>, then
+              <me>
+                \sum_{j=1}^m \sum_{k=1}^m \langle v_j, v_k \rangle  \ge 0
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S \in \Lc(V)</m>.
+              Define <m>\langle \cdot, \cdot \rangle _1</m> by
+              <me>
+                \langle u, v \rangle _1 = \langle Su, Sv \rangle
+              </me>
+              for all <m>u, v \in V{}</m>.
+              Show that <m>\langle \cdot, \cdot \rangle _1</m> is an inner product on <m>V</m> if and only if <m>S</m> is injective.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <ol>
+              <li>
+                <p>
+                  Show that the function taking an ordered pair
+                  <m>\bigl( (x_1, x_2), (y_1, y_2) \bigr)</m> of elements of <m>\R2</m> to
+                  <m>|x_1 y_1| + |x_2 y_2|</m> is not an inner product on <m>\RR2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the function taking an ordered pair
+                  <m>\bigl( (x_1, x_2, x_3), (y_1, y_2, y_3) \bigr)</m> of elements of <m>\R3</m> to
+                  <m>x_1 y_1 + x_3 y_3</m> is not an inner product on <m>\RR3</m>.
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is such that
+              <m>\|Tv\| \le \|v\|</m> for every <m>v \in V{}</m>.
+              Prove that <m>T - \sqrt{2} I</m> is injective.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is a real inner product space.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\langle u + v, u - v \rangle = \| u \|^2 - \| v \|^2</m> for every <m>u,
+                    v \in V{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>u, v \in V</m> have the same norm,
+                    then <m>u+v</m> is orthogonal to <m>u-v</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="orthognorm">
+          <statement>
+            <p>
+              Suppose <m>u, v \in V{}</m>.
+              Prove that <m>\langle u,v \rangle = 0 \iff \|u\| \le \|u + av\|</m> for all <m>a \in \F{}{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>u, v \in V{}</m>.
+              Prove that <m>\|au + bv\| = \|bu + av\|</m> for all
+              <m>a,
+              b \in \R{}</m> if and only if <m>\|u\| = \|v\|</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>a,b,c,x, y \in \R{}</m> and <m>a^2 + b^2 + c^2 + x^2 + y^2 \le 1</m>.
+              Prove that <m>a + b + c +4x + 9y \le 10</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>u, v \in V</m> and
+              <m>\| u \| = \|v \| = 1</m> and <m>\langle u, v \rangle = 1</m>.
+              Prove that <m>u = v</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>u, v \in V</m> and
+              <m>\|u\| \le 1</m> and <m>\|v\| \le 1</m>.
+              Prove that
+              <me>
+                \sqrt{ 1 - \|u\|^2} \sqrt{ 1 - \|v\|^2} \le 1 - \lvert \langle u, v \rangle  \rvert
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Find vectors <m>u,
+              v \in \R{2}</m> such that <m>u</m> is a scalar multiple of <m>(1,3)</m>,
+              <m>v</m> is orthogonal to <m>(1,3)</m>, and <m>(1,2) = u + v</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>a, b, c, d</m> are positive numbers.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>\displaystyle (a + b + c + d)( \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d} ) \ge 16</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    For which positive numbers
+                    <m>a,
+                    b, c, d</m> is the inequality above an equality?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that the square of an average is less than or equal to the average of the squares.
+              More precisely, show that if <m>a_1, \dots , a_n \in \R{}</m>,
+              then the square of the average of
+              <m>a_1, \dots , a_n</m> is less than or equal to the average of <m>{a_1}^{2}{}, \dots, {a_n}^{2}{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v \in V</m> and <m>v \ne 0</m>.
+              Prove that <m>v / \lVert v \rVert</m> is the unique closest element on the unit sphere of <m>V</m> to <m>v</m>.
+              More precisely,
+              prove that if <m>u \in V</m> and <m>\lVert u \rVert  = 1</m>, then
+              <me>
+                \lVert  v - \frac{v}{\lVert v \rVert }  \rVert  \le \lVert v - u \rVert
+              </me>,
+              with equality only if <m>u = v / \lVert v \rVert</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="cost">
+          <statement>
+            <p>
+              Suppose <m>u, v</m> are nonzero vectors in <m>\RR{2}</m>.
+              Prove that
+              <me>
+                \langle u, v \rangle  = \|u\|   \|v\| \cos \theta
+              </me>,
+              where <m>\theta</m> is the angle between <m>u</m> and <m>v</m>
+              (thinking of<nbsp/><m>u</m> and<nbsp/><m>v</m> as arrows with initial point at the origin).
+              <hint>
+                <p>
+                  Use the law of cosines on the triangle formed by <m>u</m>,
+                  <m>v</m>, and<nbsp/><m>u-v</m>.
+                </p>
+              </hint>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              The angle between two vectors
+              (thought of as arrows with initial point at the origin)
+              in <m>\R2</m> or <m>\R3</m> can be defined geometrically.
+              However, geometry is not as clear in <m>\R{n}</m> for <m>n > 3</m>.
+              Thus the angle between two nonzero vectors <m>x,
+              y \in \R{n}</m> is defined to be
+              <me>
+                \arccos \frac{ \langle x, y \rangle  }{ \|x\|  \|y\| }
+              </me>,
+              where the motivation for this definition comes from <xref ref="cost">Exercise</xref>.
+              Explain why the Cauchy<ndash/>Schwarz inequality is needed to show that this definition makes sense.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove that
+              <me>
+                (  \sum_{k=1}^n a_k b_k  )^2 \le (  \sum_{k=1}^n  k {a_k}^{2}  )  ( \sum_{k=1}^n \frac{{b_k}^{2}}{k}  )
+              </me>
+              for all real numbers <m>a_1, \dots,
+              a_n</m> and <m>b_1, \dots, b_n</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <ol>
+              <li>
+                <p>
+                  Suppose <m>\fun f {[1, \infty)} {[0, \infty)}</m> is continuous.
+                  Show that
+                  <me>
+                    (  \int_1^\infty f  )^2  \le \int_1^\infty x^2 (  f(x)  )^2   dx
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For which continuous functions
+                  <m>\fun f {[1, \infty)} {[0, \infty)}</m> is the inequality in (a) an equality with both sides finite?
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+        <exercise xml:id="x2HSeigen">
+          <statement>
+            <p>
+              Suppose <m>v_1, \ldots,
+              v_n</m> is a basis of <m>V</m> and <m>T \in \Lc(V)</m>.
+              Prove that if <m>\lambda</m> is an eigenvalue of <m>T</m>, then
+              <me>
+                \lvert \lambda \rvert ^2 \le \sum_{j=1}^n \sum_{k=1}^n \lvert \M(T)_{j,k} \rvert ^2{}
+              </me>,
+              where <m>\M(T)_{j,k}</m> denotes the entry in row <m>j</m>,
+              column <m>k</m> of the matrix of <m>T</m> with respect to the basis <m>v_1, \ldots, v_n</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x6reverse">
+          <statement>
+            <p>
+              Prove that if <m>u, v \in V{}</m>,
+              then <m>\lvert \lVert u \rVert - \lVert v \rVert \rvert \le \lVert u-v \rVert</m>.
+          <idx><h>reverse triangle inequality</h></idx>
+      Note: The inequality above is called the
+              <term>reverse triangle inequality</term>.
+              For the reverse triangle inequality when <m>V = \C{}</m>,
+              see <xref ref="x4reverse">Exercise</xref>
+              in <xref ref="polynomials">Chapter</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>u, v \in V</m> are such that
+              <me>
+                \|u\| = 3,  \|u + v\| = 4,  \|u - v\| = 6
+              </me>.
+            </p>
+            <p>
+              What number does <m>\|v\|</m> equal?
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that if <m>u, v \in V{}</m>, then
+              <me>
+                \|u + v\|   \|u - v\| \le \|u\|^2 + \|v\|^2{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>v_1, \dots, v_m \in V</m> are such that
+              <m>\lVert v_k \rVert  \le 1</m> for each <m>k= 1, \ldots, m</m>.
+              Show that there exist <m>a_1, \dots,
+              a_m \in \{1, -1\}</m> such that
+              <me>
+                \lVert a_1 v_1 + \dots + a_m v_m \rVert  \le \sqrt{m}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If
+              <m>\lVert \Cdot \rVert</m> is the norm associated with an inner product on <m>\RR{2}</m>,
+              then there exists <m>(x, y) \in \RR{2}</m> such that <m>\lVert (x, y) \rVert \ne \max\{|x|, |y|\}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>p > 0</m>.
+              Prove that there is an inner product on <m>\R{2}</m> such that the associated norm is given by
+              <me>
+                \|(x, y)\| = ( |x|^p + |y|^p )^{1/p}
+              </me>
+              for all <m>(x, y) \in \R{2}</m> if and only if <m>p = 2</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x201">
+          <statement>
+            <p>
+              Suppose <m>V</m> is a real inner product space.
+              Prove that
+              <me>
+                \langle u, v \rangle  = \frac{\|u + v\|^2 - \|u - v\|^2}{4}
+              </me>
+              for all <m>u, v \in V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x202">
+          <statement>
+            <p>
+              Suppose <m>V</m> is a complex inner product space.
+              Prove that
+              <me>
+                \langle u, v \rangle  = \frac{\|u + v\|^2 - \|u - v\|^2 + \|u + iv\|^2 i - \|u -iv\|^2 i}{4}
+              </me>
+              for all <m>u, v \in V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              A norm on a vector space <m>U</m> is a function
+              <me>
+                \lVert  \Cdot  \rVert  \colon U \rightarrow [0, \infty)
+              </me>
+              such that <m>\|u\| = 0</m> if and only if <m>u = 0</m>,
+              <m>\|\alpha  u\| = |\alpha | \|u\|</m> for all
+              <m>\alpha  \in \F{}</m> and all <m>u \in U</m>,
+              and <m>\|u + v\| \le \|u\| + \|v\|</m> for all <m>u, v \in U</m>.
+              Prove that a norm satisfying the parallelogram equality comes from an inner product \big(in other words,
+              show that if <m>\lVert \Cdot \rVert</m> is a norm on<nbsp/><m>U</m> satisfying the parallelogram equality,
+              then there is an inner product
+              <m>\langle \cdot ,\cdot  \rangle</m> on <m>U</m> such that
+              <m>\|u\| = \langle u,u \rangle ^{1/2}</m> for all <m>u \in U</m>\big).
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V{}_1, \dots, V{}_m</m> are inner product spaces.
+              Show that the equation
+              <me>
+                \langle (u_1, \dots, u_m), (v_1, \dots, v_m) \rangle  = \langle u_1, v_1 \rangle  + \dots + \langle u_m, v_m \rangle
+              </me>
+              defines an inner product on <m>V{}_1 \times \dots \times V{}_m</m>.
+              Note: In the expression above on the right,
+              for each <m>k = 1, \ldots, m</m>,
+              the inner product <m>\langle u_k, v_k \rangle</m> denotes the inner product on <m>V{}_k</m>.
+              Each of the spaces <m>V{}_1, \dots, V{}_m</m> may have a different inner product,
+              even though the same notation is used here.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is a real inner product space.
+              For <m>u, v, w, x\in V{}</m>,
+              define<idx><h>complexification</h><h>of an inner product space</h></idx>
+              <me>
+                \langle u+iv, w + ix \rangle _{\C{}} = \langle u,w \rangle  + \langle v,x \rangle  + (\langle v,w \rangle  - \langle u,x \rangle )i
+              </me>.
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>\langle \cdot, \cdot \rangle _{\C{}}</m> makes
+                    <m>V{}_{\C{}}</m> into a complex inner product space.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that if <m>u, v \in V{}</m>, then
+                    <me>
+                      \langle u, v \rangle _{\C{}} = \langle u, v \rangle  \andd {\lVert u + iv \rVert _{\C{}}}^{2} = \lVert u \rVert ^2 + \lVert v \rVert ^2{}
+                    </me>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: See <xref ref="x1VC">Exercise</xref>
+              in <xref ref="x1DefVS">Section</xref>
+              for the definition of the complexification <m>V{}_{\C{}}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x6wuv">
+          <statement>
+            <p>
+              Suppose <m>u, v, w \in V{}</m>.
+              Prove that
+              <me>
+                \lVert w - \tfrac{1}{2}(u+v) \rVert ^2 = \frac{\|w-u\|^2 + \|w-v\|^2}{2} -\frac{\|u-v\|^2}{4}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>E</m> is a subset of <m>V</m> with the property that
+              <m>u , v \in E</m> implies <m>\frac{1}{2}(u + v) \in E</m>.
+              Let <m>w \in V{}</m>.
+              Show that there is at most one point in <m>E</m> that is closest to <m>w</m>.
+              In other words,
+              show that there is at most one <m>u \in E</m> such that
+              <me>
+                \|w - u\| \le \|w - x\|
+              </me>
+              for all <m>x \in E</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>f,
+              g</m> are differentiable functions from <m>\R{}</m> to <m>\RR{n}</m>.
+              <ol>
+                <li>
+                  <p>
+                    Show that
+                    <me>
+                      \langle  f(t), g(t)  \rangle ' = \langle  f' \! (t), g(t) \rangle  + \langle f(t), g' \! (t)  \rangle
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Suppose <m>c</m> is a positive number and
+                    <m>\lVert f(t) \rVert = c</m> for every <m>t \in \R{}</m>.
+                    Show that <m>\langle f' \! (t),
+                    f(t) \rangle = 0</m> for every <m>t \in \R{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in <m>\R{n}</m> centered at the origin.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: A function <m>f \colon \R{} \to \R{n}</m> is called differentiable if there exist differentiable functions
+              <m>f_1, \dots,
+              f_n</m> from <m>\R{}</m> to <m>\R{}</m> such that
+              <m>f(t) = \bigl(f_1(t), \dots,
+              f_n(t)\bigr)</m> for each <m>t \in \R{}</m>.
+              Furthermore, for each <m>t \in \R{}</m>,
+              the derivative <m>f' \! (t) \in \R{n}</m> is defined by <m>f' \! (t) = \bigl({f_1}' \! (t), \dots, {f_n}' \! (t)\bigr)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="Apollonius">
+          <statement>
+            <p>
+              Use inner products to prove Apollonius's identity: In a triangle with sides of length <m>a</m>,
+              <m>b</m>,
+              and <m>c</m>,
+              let <m>d</m> be the length of the line segment from the midpoint of the side of length <m>c</m> to the opposite vertex.
+              Then
+          <idx><h>Apollonius's identity</h></idx>
+              <me>
+                a^2 + b^2 = \tfrac{1}{2} c^2 + 2d^2{}
+              </me>.
+            </p>
+            <p>
+              <image source="Mathematica/Apollonius.pdf">
+                <description>Missing description</description>
+              </image>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="harmonic">
+          <statement>
+            <p>
+              Fix a positive integer <m>n</m>.
+              The <term>Laplacian</term>
+          <idx><h>Laplacian</h></idx>
+              <m>\Delta p</m><idx><h sortby="Delta"><m>\Delta</m></h></idx> of a twice differentiable real-valued function <m>p</m> on <m>\R{n}</m> is the function on <m>\R{n}</m> defined by
+              <me>
+                \Delta p = \frac{ \partial^2 p }{\partial {x_1}^{2}} + \dots + \frac{ \partial^2 p }{\partial {x_n}^{2}}
+              </me>.
+            </p>
+            <p>
+              The function <m>p</m> is called
+              <term>harmonic</term> if <m>\Delta p = 0</m>.
+          <idx><h>harmonic function</h></idx>
+      </p>
+            <p>
+              A <term>polynomial</term> on <m>\R{n}</m> is a linear combination
+              (with coefficients in <m>\R{}</m>)
+              of functions of the form <m>{x_1}^{m_1} \dotsm {x_n}^{m_n}</m>,
+              where <m>m_1, \dots, m_n</m> are nonnegative integers.
+            </p>
+            <p>
+              Suppose <m>q</m> is a polynomial on <m>\RR{n}</m>.
+              Prove that there exists a harmonic polynomial <m>p</m> on <m>\R{n}</m> such that <m>p(x) = q(x)</m> for every
+              <m>x \in \R{n}</m> with <m>\|x\| = 1</m>.
+              Note: The only fact about harmonic functions that you need for this exercise is that if <m>p</m> is a harmonic function on <m>\R{n}</m> and <m>p(x) = 0</m> for all
+              <m>x \in \R{n}</m> with <m>\|x\|=1</m>, then <m>p = 0</m>.
+              <hint>
+                <p>
+                  A reasonable guess is that the desired harmonic polynomial <m>p</m> is of the form
+                  <m>q + ( 1 - \|x\|^2 ) r</m> for some polynomial <m>r</m>.
+                  Prove that there is a polynomial <m>r</m> on <m>\R{n}</m> such that
+                  <m>q + ( 1 - \|x\|^2 ) r</m> is harmonic by defining an operator <m>T</m> on a suitable vector space by
+                  <me>
+                    Tr = \Delta \bigl( (1 - \|x\|^2) r \bigr)
+                  </me>
+                  and then showing that <m>T</m> is injective and hence surjective.
+                </p>
+              </hint>
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+    <p>
+      <blockquote>
+        <p>
+          In realms of numbers, where the secrets lie,
+        </p>
+        <p>
+          A noble truth emerges from the deep,
+        </p>
+        <p>
+          Cauchy and Schwarz, their wisdom they apply,
+        </p>
+        <p>
+          An inequality for all to keep.
+        </p>
+        <p>
+          Two vectors, by this bond, are intertwined,
+        </p>
+        <p>
+          As inner products weave a gilded thread,
+        </p>
+        <p>
+          Their magnitude, by providence, confined,
+        </p>
+        <p>
+          A bound to which their destiny is wed.
+        </p>
+        <p>
+          Though shadows fall, and twilight dims the day,
+        </p>
+        <p>
+          This inequality will stand the test,
+        </p>
+        <p>
+          To guide us in our quest, to light the way,
+        </p>
+        <p>
+          And in its truth, our understanding rest.
+        </p>
+        <p>
+          So sing, ye muses, of this noble feat,
+        </p>
+        <p>
+          Cauchy<ndash/>Schwarz, the bound that none can beat.
+        </p>
+        <attribution>written by ChatGPT with input <emph>Shakespearean sonnet on Cauchy<ndash/>Schwarz inequality</emph></attribution>
+      </blockquote>
+    <idx><h>ChatGPT</h></idx>
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,50 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="VectorSpaces">
+  <title>Vector Spaces</title>
+  <introduction>
+    <p>
+      Linear algebra is the study of linear maps on finite-dimensional vector spaces.
+      Eventually we will learn what all these terms mean.
+      In this chapter we will define vector spaces and discuss their elementary properties.
+    </p>
+    <p>
+      In linear algebra,
+      better theorems and more insight emerge if complex numbers are investigated along with real numbers.
+      Thus we will begin by introducing the complex numbers and their basic properties.
+    </p>
+    <p>
+      We will generalize the examples of a plane and of ordinary space to <m>\R{n}</m> and <m>\CC{n}</m>,
+      which we then will generalize to the notion of a vector space.
+      As we will see,
+      a vector space is a set with operations of addition and scalar multiplication that satisfy natural algebraic properties.
+    </p>
+    <p>
+      Then our next topic will be subspaces,
+      which play a role for vector spaces analogous to the role played by subsets for sets.
+      Finally, we will look at sums of subspaces
+      (analogous to unions of subsets)
+      and direct sums of subspaces
+      (analogous to unions of disjoint sets).
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          Pierre Louis Dumesnil, Nils Forsberg
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>Ren&#xe9; Descartes
+    <idx><h>Descartes, Ren&#xe9;</h></idx>
+          explaining his work to Queen Christina of Sweden.
+    <idx><h>Christina, Queen of Sweden</h></idx>
+Vector spaces are a generalization of the description of a plane using two coordinates,
+          as published by Descartes in 1637.</em>
+        </p>
+      </blockquote>
+    </p>
+  </introduction>
+  <xi:include  href="Rn_and_Cn.ptx"/>
+  <xi:include  href="x1DefVS.ptx"/>
+  <xi:include  href="x1Subspaces.ptx"/>
+</chapter>

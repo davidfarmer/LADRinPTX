@@ -1,0 +1,773 @@
+<section xml:id="dimension">
+  <title>Dimension</title>
+  <p>
+    Although we have been discussing finite-dimensional vector spaces,
+    we have not yet defined the dimension of such an object.
+    How should dimension be defined?
+    A reasonable definition should force the dimension of <m>\F{n}</m> to equal<nbsp/><m>n</m>.
+    Notice that the standard basis
+    <me>
+      (1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)
+    </me>
+    of <m>\F{n}</m> has length <m>n</m>.
+    Thus we are tempted to define the dimension as the length of a basis.
+    However, a finite-dimensional vector space in general has many different bases,
+    and our attempted definition makes sense only if all bases in a given vector space have the same length.
+    Fortunately that turns out to be the case, as we now show.
+  </p>
+  <theorem xml:id="x3basislen">
+    <title>basis length does not depend on basis</title>
+    <statement>
+      <p>
+        Any two bases of a finite-dimensional vector space have the same length.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>V</m> is finite-dimensional.
+      Let <m>B_1</m> and <m>B_2</m> be two bases of<nbsp/><m>V{}</m>.
+      Then <m>B_1</m> is linearly independent in <m>V</m> and <m>B_2</m> spans <m>V{}</m>,
+      so the length of <m>B_1</m> is at most the length of <m>B_2</m>
+      (by <xref ref="x7"></xref>).
+      Interchanging the roles of <m>B_1</m> and <m>B_2</m>,
+      we also see that the length of <m>B_2</m> is at most the length of<nbsp/><m>B_1</m>.
+      Thus the length of <m>B_1</m> equals the length of <m>B_2</m>,
+      as desired.
+    </p>
+  </proof>
+  <p>
+    Now that we know that any two bases of a finite-dimensional vector space have the same length,
+    we can formally define the dimension of such spaces.
+  </p>
+  <definition>
+    <title>dimension, <m>\dim V</m></title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            The <term>dimension</term>
+              <idx><h>dimension</h></idx>
+            of a finite-dimensional vector space is the length of any basis of the vector space.
+          </p>
+        </li>
+        <li>
+          <p>
+            The dimension of a finite-dimensional vector space <m>V</m> is denoted by <m>\dim V{}</m>.
+              <idx><h>dim</h></idx>
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </definition>
+  <example>
+    <title>dimensions</title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            <m>\dim \F{n} = n</m> because the standard basis of <m>\F n</m> has length <m>n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\dim \P{}_m(\F{}) = m + 1</m> because the standard basis
+            <m>1, z, \dots,
+            z^m</m> of <m>\P{}_m(\F{})</m> has length <m>m+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>U = \{ (x, x, y) \in \F{3} \colon x, y \in \F{} \}</m>,
+            then <m>\dim U = 2</m> because
+            <m>(1, 1, 0), (0, 0, 1)</m> is a basis of <m>U</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>U = \{ (x, y, z) \in \F{3} \colon x + y + z = 0 \}</m>,
+            then <m>\dim U = 2</m> because the list
+            <m>(1, -1, 0), (1, 0, -1)</m> is a basis of <m>U</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </example>
+  <p>
+    Every subspace of a finite-dimensional vector space is finite-dimensional
+    (by <xref ref="x68"></xref>)
+    and so has a dimension.
+    The next result gives the expected inequality about the dimension of a subspace.
+  </p>
+  <theorem xml:id="x2subdim">
+    <title>dimension of a subspace</title>
+    <statement>
+      <p>
+        If <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <nbsp/><m>V{}</m>,
+        then <m>\dim U \le \dim V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
+      Think of a basis of <m>U</m> as a linearly independent list in <m>V{}</m>,
+      and think of a basis of <m>V</m> as a spanning list in <m>V{}</m>.
+      Now <xref ref="x7">use</xref> to conclude that <m>\dim U \le \dim V{}</m>.
+    </p>
+  </proof>
+  <aside>
+    <p>
+      The real vector space <m>\R{2}</m> has dimension two;
+      the complex vector space <m>\C{}</m> has dimension one.
+      As sets, <m>\R{2}</m> can be identified with <m>\C{}</m>
+      (and addition is the same on both spaces,
+      as is scalar multiplication by real numbers)
+      . Thus when we talk about the dimension of a vector space,
+      the role played by the choice of <m>\F{}</m> cannot be neglected.
+    </p>
+  </aside>
+  <p>
+    To check that a list of vectors in <m>V</m> is a basis of <m>V{}</m>,
+    we must, according to the definition,
+    show that the list in question satisfies two properties:
+    it must be linearly independent and it must span <m>V{}</m>.
+    The next two results show that if the list in question has the right length,
+    then we only need to check that it satisfies one of the two required properties.
+    First we prove that every linearly independent list of the right length is a basis.
+  </p>
+  <theorem xml:id="x75">
+    <title>linearly independent list of the right length is a basis</title>
+    <statement>
+      <p>
+        Suppose <m>V</m> is finite-dimensional.
+        Then every linearly independent list of vectors in <m>V</m> of length <m>\dim V</m> is a basis of<nbsp/><m>V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>\dim V = n</m> and
+      <m>v_1, \dots,
+      v_n</m> is linearly independent in <m>V{}</m>.
+      The list <m>v_1, \dots, v_n</m> can be extended to a basis of <m>V</m>
+      (by <xref ref="x9"></xref>).
+      However, every basis of <m>V</m> has length <m>n</m>,
+      so in this case the extension is the trivial one,
+      meaning that no elements are adjoined to <m>v_1, \dots, v_n</m>.
+      Thus <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>, as desired.
+    </p>
+  </proof>
+  <p>
+    The next result is a useful consequence of the previous result.
+  </p>
+  <theorem xml:id="x2subfull">
+    <title>subspace of full dimension equals the whole space</title>
+    <statement>
+      <p>
+        Suppose that <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V</m> such that <m>\dim U = \dim V{}</m>.
+        Then <m>U = V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>u_1, \dots, u_n</m> be a basis of <m>U</m>.
+      Thus <m>n = \dim U</m>,
+      and by hypothesis we also have <m>n = \dim V{}</m>.
+      Thus <m>u_1, \dots,
+      u_n</m> is a linearly independent list of vectors in <m>V</m>
+      (because it is a basis of<nbsp/><m>U</m>)
+      of length <m>\dim V{}</m>.
+      <xref ref="x75">From</xref>,
+      we see that <m>u_1, \dots, u_n</m> is a basis of <m>V{}</m>.
+      In particular every vector in <m>V</m> is a linear combination of <m>u_1, \dots, u_n</m>.
+      Thus <m>U = V{}</m>.
+    </p>
+  </proof>
+  <example>
+    <title>a basis of  <m>\F{2}</m></title>
+    <statement>
+      <p>
+        Consider the list <m>(5, 7), (4, 3)</m> of vectors in <m>\FF2</m>.
+        This list of length two is linearly independent in <m>\F2</m>
+        (because neither vector is a scalar multiple of the other).
+        Note that <m>\F{2}</m> has dimension two.
+        <xref ref="x75">Thus</xref> implies that the linearly independent list
+        <m>(5, 7), (4, 3)</m> of length two is a basis of<nbsp/><m>\F{2}</m>
+        (we do not need to bother checking that it spans<nbsp/><m>\F{2}</m>).
+      </p>
+    </statement>
+  </example>
+  <example xml:id="basissub">
+    <title>a basis of a subspace of  <m>\P_3(\R)</m></title>
+    <statement>
+      <p>
+        Let <m>U</m> be the subspace of <m>\P{}_3(\R{})</m> defined by
+        <me>
+          U = \{ p \in \P{}_3(\R{}): p' \! (5) = 0 \}
+        </me>.
+      </p>
+      <p>
+        To find a basis of <m>U</m>, first note that each of the polynomials <m>1</m>,
+        <m>(x - 5)^2{}</m>, and <m>(x-5)^3</m> is in<nbsp/><m>U</m>.
+      </p>
+      <p>
+        Suppose <m>a, b, c \in \R{}</m> and
+        <me>
+          a + b(x-5)^2 + c(x-5)^3 = 0
+        </me>
+        for every <m>x \in \R{}</m>.
+        Without explicitly expanding the left side of the equation above,
+        we can see that the left side has a <m>cx^3</m> term.
+        Because the right side has no <m>x^3</m> term,
+        this implies that <m>c = 0</m>.
+        Because <m>c = 0</m>, we see that the left side has a <m>bx^2</m> term,
+        which implies that <m>b = 0</m>.
+        Because <m>b = c = 0</m>, we can also conclude that <m>a = 0</m>.
+        Thus the equation above implies that <m>a = b = c = 0</m>.
+        Hence the list <m>1, (x - 5)^2{}, (x-5)^3</m> is linearly independent in <m>U</m>.
+        Thus <m>3 \le \dim U</m>.
+        Hence
+        <me>
+          3 \le \dim U \le \dim \P{}_3(\R{}) = 4
+        </me>,
+        where we have <xref ref="x2subdim">used</xref>.
+      </p>
+      <p>
+        The polynomial <m>x</m> is not in <m>U</m> because its derivative is the constant function<nbsp/><m>1</m>.
+        Thus <m>U \ne \P{}_3(\R{})</m>.
+        Hence <m>\dim U \ne 4</m>
+        (by <xref ref="x2subfull"></xref>).
+        The inequality above now implies that <m>\dim U = 3</m>.
+        Thus the linearly independent list
+        <m>1, (x - 5)^2{}, (x-5)^3</m> in <m>U</m> has length <m>\dim U</m> and hence is a basis of <m>U</m>
+        (by <xref ref="x75"></xref>).
+      </p>
+    </statement>
+  </example>
+  <p>
+    Now we prove that a spanning list of the right length is a basis.
+  </p>
+  <theorem xml:id="x276">
+    <title>spanning list of the right length is a basis</title>
+    <statement>
+      <p>
+        Suppose <m>V</m> is finite-dimensional.
+        Then every spanning list of vectors in <m>V</m> of length <m>\dim V</m> is a basis of<nbsp/><m>V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>\dim V = n</m> and <m>v_1, \dots, v_n</m> spans <m>V{}</m>.
+      The list <m>v_1, \dots, v_n</m> can be reduced to a basis of <m>V</m>
+      (by <xref ref="x267"></xref>).
+      However, every basis of <m>V</m> has length <m>n</m>,
+      so in this case the reduction is the trivial one,
+      meaning that no elements are deleted from <m>v_1, \dots, v_n</m>.
+      Thus <m>v_1, \dots, v_n</m> is a basis of <m>V{}</m>, as desired.
+    </p>
+  </proof>
+  <p>
+    The next result gives a formula for the dimension of the sum of two subspaces of a finite-dimensional vector space.
+    This formula is analogous to a familiar counting formula:
+    the number of elements in the union of two finite sets equals the number of elements in the first set,
+    plus the number of elements in the second set,
+    minus the number of elements in the intersection of the two sets.
+  </p>
+  <theorem xml:id="x128">
+    <title>dimension of a sum</title>
+    <statement>
+      <p>
+            <idx><h>dimension</h><h>of a sum of subspaces</h></idx>
+        If <m>V{}_1</m> and <m>V{}_2</m> are subspaces of a finite-dimensional vector space, then
+        <me>
+          \dim(V{}_1 + V{}_2) = \dim V{}_1 + \dim V{}_2 - \dim(V{}_1 \cap V{}_2)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>v_1, \dots, v_m</m> be a basis of <m>V{}_1 \cap V{}_2</m>;
+      thus <m>\dim(V{}_1 \cap V{}_2) = m</m>.
+      Because <m>v_1, \dots, v_m</m> is a basis of <m>V{}_1 \cap V{}_2</m>,
+      it is linearly independent in<nbsp/><m>V{}_1</m>.
+      Hence this list can be extended to a basis
+      <m>v_1, \dots, v_m, u_1, \dots,
+      u_j</m> of<nbsp/><m>V{}_1</m>
+      (by <xref ref="x9"></xref>).
+      Thus <m>\dim V{}_1 = m + j</m>.
+      Also extend <m>v_1, \dots,
+      v_m</m> to a basis <m>v_1, \dots,
+      v_m, w_1, \dots, w_k</m> of<nbsp/><m>V{}_2</m>;
+      thus <m>\dim V{}_2 = m + k</m>.
+    </p>
+    <p>
+      We will show that
+      <men xml:id="x3V1pV2">
+        v_1, \dots, v_m, u_1, \dots, u_j, w_1, \dots, w_k
+      </men>
+      is a basis of <m>V{}_1 + V{}_2</m>.
+      This will complete the proof, because then we will have
+      <md>
+        <mrow>\dim (V{}_1 + V{}_2) \amp = m + j + k</mrow>
+        <mrow>\amp = (m + j) + (m + k) - m</mrow>
+        <mrow>\amp = \dim V{}_1 + \dim V{}_2 - \dim(V{}_1 \cap V{}_2)</mrow>
+      </md>.
+    </p>
+    <p>
+      The <xref ref="x3V1pV2">list</xref>
+      is contained in <m>V_1 \cup V_2</m> and thus is contained in <m>V_1 + V_2</m>.
+      The span of this list contains <m>V_1</m> and contains <m>V_2</m> and hence is equal to <m>V_1 + V_2</m>.
+      Thus to show that <xref ref="x3V1pV2"></xref>
+      is a basis of <m>V{}_1 + V{}_2</m> we only need to show that it is linearly independent.
+    </p>
+    <p>
+      To prove that <xref ref="x3V1pV2"></xref>
+      is linearly independent, suppose
+      <me>
+        a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_j u_j + c_1 w_1 + \dots + c_k w_k = 0
+      </me>,
+      where all the <m>a</m>'s, <m>b</m>'s, and <m>c</m>'s are scalars.
+      We need to prove that all the <m>a</m>'s, <m>b</m>'s, and <m>c</m>'s equal <m>0</m>.
+      The equation above can be rewritten as
+      <men xml:id="x2dimsum">
+        c_1 w_1 + \dots + c_k w_k = - a_1 v_1 - \dots - a_m v_m - b_1 u_1 - \dots - b_j u_j
+      </men>,
+      which shows that <m>c_1 w_1 + \dots + c_k w_k \in V{}_1</m>.
+      All the <m>w</m>'s are in <m>V{}_2</m>,
+      so this implies that <m>c_1 w_1 + \dots + c_k w_k \in V{}_1 \cap V{}_2</m>.
+      Because <m>v_1, \dots,
+      v_m</m> is a basis of <m>V{}_1 \cap V{}_2</m>, we have
+      <me>
+        c_1 w_1 + \dots + c_k w_k = d_1 v_1 + \dots + d_m v_m
+      </me>
+      for some scalars <m>d_1, \dots, d_m</m>.
+      But <m>v_1, \dots, v_m, w_1, \dots,
+      w_k</m> is linearly independent,
+      so the last equation implies that all the <m>c</m>'s (and<nbsp/><m>d</m>'s) equal <m>0</m>.
+      <xref ref="x2dimsum">Thus</xref> becomes the equation
+      <me>
+        a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_j u_j = 0
+      </me>.
+    </p>
+    <p>
+      Because the list <m>v_1, \dots, v_m, u_1, \dots,
+      u_j</m> is linearly independent,
+      this equation implies that all the <m>a</m>'s and <m>b</m>'s are <m>0</m>,
+      completing the proof.
+    </p>
+  </proof>
+  <p>
+    For <m>S</m> a finite set,
+    let <m>\#S</m> denote the number of elements of <m>S</m>.
+    The table below compares finite sets with finite-dimensional vector spaces,
+    showing the analogy between <m>\#S</m>
+    (for sets)
+    and <m>\dim V</m>
+    (for vector spaces),
+    as well as the analogy between unions of subsets
+    (in the context of sets)
+    and sums of subspaces
+    (in the context of vector spaces).
+    <me>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><em>sets</em></cell>
+          <cell><em>vector spaces</em></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>\(S\) is a finite set</cell>
+          <cell>\(V\) is a finite-dimensional vector space</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>\(\#S\)</cell>
+          <cell>\(\dim V\)</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>for subsets \(S_1, S_2\) of \(S\), the union \(S_1 \cup S_2\) is the smallest subset of \(S\) containing \(S_1\) and \(S_2\)</cell>
+          <cell>for subspaces \(V{}_1, V{}_2\) of \(V{}\), the sum \(V{}_1 + V{}_2\) is the smallest subspace of \(V\) containing \(V{}_1\) and \(V{}_2\)</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>\(\#(S_1 \cup S_2)\)</cell>
+          <cell>\(\dim(V{}_1 + V{}_2)\)</cell>
+        </row>
+        <row>
+          <cell>\( = \#S_1 + \#S_2 - \#(S_1 \cap S_2)\)</cell>
+          <cell>\(= \dim V{}_1 + \dim V{}_2 - \dim(V{}_1 \cap V{}_2)\)</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>\(\#(S_1 \cup S_2) = \#S_1 + \#S_2 \)</cell>
+          <cell>\(\dim(V{}_1 + V{}_2) = \dim V{}_1 + \dim V{}_2\)</cell>
+        </row>
+        <row>
+          <cell>\(\iff S_1 \cap S_2 = \emptyset\)</cell>
+          <cell>\(\iff V{}_1 \cap V{}_2 = \{ 0 \}\)</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>\(S_1 \cup \cdots \cup S_m\) is a disjoint union \(\iff\) \(\#(S_1 \cup \cdots \cup S_m) = \#S_1 + \cdots + \#S_m\)</cell>
+          <cell>\(V{}_1 + \cdots + V{}_m\) is a direct sum \(\iff\)  \(\dim(V{}_1 + \cdots + V{}_m) \ \) \(= \dim V{}_1 + \cdots + \dim V{}_m\)</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </me>
+  </p>
+  <p>
+    The last row above focuses on the analogy between disjoint unions
+    (for sets)
+    and direct sums
+    (for vector spaces).
+    The proof of the result in the last box above will be given in <xref ref="x3directsumdim"></xref>.
+  </p>
+  <p>
+    You should be able to find results about sets that correspond,
+    via analogy,
+    to the results about vector spaces in <xref ref="x7exer">Exercises</xref>
+    through <xref ref="x8exer"></xref>.
+  </p>
+  <p>
+    <exercises>
+      <title></title>
+      <exercise>
+        <statement>
+          <p>
+            Show that the subspaces of <m>\R{2}</m> are precisely <m>\{0\}</m>,
+            all lines in <m>\R{2}</m> containing the origin, and <m>\RR{2}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that the subspaces of <m>\R{3}</m> are precisely <m>\{0\}</m>,
+            all lines in <m>\R{3}</m> containing the origin,
+            all planes in <m>\R{3}</m> containing the origin, and <m>\RR{3}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{ p \in \P{}_4(\F{}): p(6) = 0 \}</m>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\P{}_4(\F{})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of
+                <m>\P{}_4(\F{})</m> such that <m>\P{}_4(\F{}) = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{ p \in \P{}_4(\R{}):
+                p'' \! (6) = 0 \}</m>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\P{}_4(\R{})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of
+                <m>\P{}_4(\R{})</m> such that <m>\P{}_4(\R{}) = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2basis">
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{ p \in \P{}_4(\F{}): p(2) = p(5) \}</m>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\P{}_4(\F{})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of
+                <m>\P{}_4(\F{})</m> such that <m>\P{}_4(\F{}) = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{ p \in \P{}_4(\F{}):
+                p(2) = p(5) = p(6) \}</m>.
+                Find a basis of<nbsp/><m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\P{}_4(\F{})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of
+                <m>\P{}_4(\F{})</m> such that <m>\P{}_4(\F{}) = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{ p \in \P{}_4(\R{}): \int_{-1}^1 p = 0 \}</m>.
+                Find a basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Extend the basis in (a) to a basis of <m>\P{}_4(\R{})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a subspace <m>W</m> of
+                <m>\P{}_4(\R{})</m> such that <m>\P{}_4(\R{}) = U \oplus W{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots,
+            v_m</m> is linearly independent in <m>V</m> and <m>w \in V{}</m>.
+            Prove that
+            <me>
+              \dim \Span(v_1 + w, \dots, v_m + w) \ge m-1
+            </me>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>m</m> is a positive integer and
+            <m>p_0, p_1, \dots,
+            p_m \in \P(\F{})</m> are such that each <m>p_k</m> has degree<nbsp/><m>k</m>.
+            Prove that <m>p_0, p_1, \dots,
+            p_m</m> is a basis of <m>\P{}_m(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>m</m> is a positive integer.
+            For <m>0 \le k \le m</m>, let
+            <me>
+              p_k(x) = x^k (1-x)^{m-k}
+            </me>.
+          </p>
+          <p>
+            Show that <m>p_0, \ldots, p_m</m> is a basis of <m>\P{}_m(\F{})</m>.
+            Note: The basis in this exercise leads to what are called
+            <em>Bernstein polynomials</em>.
+            You can do a web search to learn how Bernstein polynomials are used to approximate continuous functions on <m>[0,1]</m>.
+        <idx><h>Bernstein polynomials</h></idx>
+    </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>W</m> are both four-dimensional subspaces of <m>\CC{6}</m>.
+            Prove that there exist two vectors in
+            <m>U \cap W</m> such that neither of these vectors is a scalar multiple of the other.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7exer">
+        <statement>
+          <p>
+            Suppose that <m>U</m> and <m>W</m> are subspaces of <m>\R{8}</m> such that <m>\dim U = 3</m>,
+            <m>\dim W = 5</m>, and <m>U + W = \RR{8}</m>.
+            Prove that <m>\R8 = U \oplus W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>W</m> are both five-dimensional subspaces of<nbsp/><m>\RR{9}</m>.
+            Prove that <m>U \cap W \ne \{0\}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a ten-dimensional vector space and
+            <m>V{}_1, V{}_2, V{}_3</m> are subspaces of <m>V</m> with <m>\dim V{}_1 = \dim V{}_2 = \dim V{}_3 = 7</m>.
+            Prove that <m>V{}_1 \cap V{}_2 \cap V{}_3 \ne \{ 0 \}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and
+            <m>V{}_1, V{}_2, V{}_3</m> are subspaces of <m>V</m> with <m>\dim V{}_1 + \dim V{}_2 + \dim V{}_3 > 2 \dim V{}</m>.
+            Prove that <m>V{}_1 \cap V{}_2 \cap V{}_3 \ne \{ 0 \}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V</m> with <m>U \ne V{}</m>.
+            Let <m>n = \dim V</m> and <m>m = \dim U</m>.
+            Prove that there exist <m>n - m</m> subspaces of <m>V{}</m>,
+            each of dimension <m>n-1</m>,
+            whose intersection equals <m>U</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V{}_1, \dots, V{}_m</m> are finite-dimensional subspaces of<nbsp/><m>V{}</m>.
+            Prove that <m>V{}_1 + \dots + V{}_m</m> is finite-dimensional and
+            <me>
+              \dim (V{}_1 + \dots + V{}_m) \le \dim V{}_1 + \dots + \dim V{}_m
+            </me>.
+          </p>
+          <p>
+            Note: The inequality above is an equality if and only if <m>V{}_1 + \dots + V{}_m</m> is a direct sum,
+            as will be shown in <xref ref="x3directsumdim"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8exer">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            with <m>\dim V = n \ge 1</m>.
+            Prove that there exist one-dimensional subspaces
+            <m>V{}_1, \dots, V{}_n</m> of<nbsp/><m>V</m> such that
+            <me>
+              V = V{}_1 \oplus \dots \oplus V{}_n
+            </me>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Explain why you might guess,
+            motivated by analogy with the formula for the number of elements in the union of three finite sets,
+            that if <m>V{}_1, V{}_2, V{}_3</m> are subspaces of a finite-dimensional vector space, then
+            <md>
+              <mrow>\dim(V{}_1 + V{}_2 \amp + V{}_3)</mrow>
+              <mrow>=\amp \dim V{}_1 + \dim V{}_2 + \dim V{}_3</mrow>
+              <mrow>\amp {} - \dim (V{}_1 \cap V{}_2) - \dim (V{}_1 \cap V{}_3) - \dim (V{}_2 \cap V{}_3)</mrow>
+              <mrow>\amp + \dim (V{}_1 \cap V{}_2 \cap V{}_3)</mrow>
+            </md>.
+          </p>
+          <p>
+            Then either prove the formula above or give a counterexample.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that if <m>V{}_1, V{}_2</m>,
+            and <m>V{}_3</m> are subspaces of a finite-dimensional vector space, then
+            <md>
+              <mrow>\dim\amp (V{}_1 + V{}_2+ V{}_3)</mrow>
+              <mrow>= \amp  \dim V{}_1 + \dim V{}_2 + \dim V{}_3</mrow>
+              <mrow>\amp -  \frac{ \dim(V{}_1 \cap V{}_2) + \dim(V{}_1 \cap V{}_3) + \dim(V{}_2 \cap V{}_3) }{3}</mrow>
+              <mrow>\amp -  \frac{ \dim\bigl( (V{}_1\! +\! V{}_2)\! \cap\! V{}_3 \bigr) + \dim\bigl( (V{}_1 \!+\! V{}_3)\! \cap\! V{}_2 \bigr) + \dim\bigl( (V{}_2{} +\! V{}_3)\! \cap\! V{}_1 \bigr) }{3}</mrow>
+            </md>.
+          </p>
+          <p>
+            Note: The formula above may seem strange because the right side does not look like an integer.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
+  </p>
+  <p>
+    <blockquote>
+      <p>
+        I at once gave up my former occupations,
+        set down natural history and all its progeny as a deformed and abortive creation,
+        and entertained the greatest disdain for a would-be science which could never even step within the threshold of real knowledge.
+        In this mood I betook myself to the mathematics and the branches of study appertaining to that science as being built upon secure foundations,
+        and so worthy of my consideration.
+      </p>
+      <attribution><em>Frankenstein, Mary Wollstonecraft Shelley<idx><h sortby="Frankenstein"><emph>Frankenstein</emph></h></idx>
+      </em><idx><h>Shelley, Mary Wollstonecraft</h></idx>
+      </attribution>
+    </blockquote>
+  </p>
+</section>

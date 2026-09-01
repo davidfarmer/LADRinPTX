@@ -1,0 +1,1133 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="polynomials">
+  <title>Polynomials</title>
+  <p>
+    This chapter contains material on polynomials that we will use to investigate linear maps from a vector space to itself.
+    Many results in this chapter will already be familiar to you from other courses;
+    they are included here for completeness.
+  </p>
+  <p>
+    Because this chapter is not about linear algebra,
+    your instructor may go through it rapidly.
+    You may not be asked to scrutinize all the proofs.
+    Make sure, however,
+    that you at least read and understand the statements of all results in this chapter<mdash/>they will be used in later chapters.
+  </p>
+  <p>
+    This chapter begins with a brief discussion of algebraic properties of the complex numbers.
+    Then we prove that a nonconstant polynomial cannot have more zeros than its degree.
+    We also give a linear-algebra-based proof of the division algorithm for polynomials,
+    which is worth reading even if you are already familiar with a proof that does not use linear algebra.
+  </p>
+  <p>
+    As we will see,
+    the fundamental theorem of algebra leads to a factorization of every polynomial into degree-one factors if the scalar field is <m>\C{}</m> or to factors of degree at most two if the scalar field is <m>\R{}</m>.
+  </p>
+  <p>
+    <paragraphs>
+      <title>Assumptions for this chapter</title>
+      <p>
+        <ul>
+          <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+        </ul>
+      </p>
+    </paragraphs>
+  </p>
+  <p>
+    <image source="KhayamR.jpg">
+      <description>Missing description</description>
+      <credit>
+        Alireza Javaheri CC BY
+      </credit>
+    </image>
+    <blockquote>
+      <p>
+        <em>Statue of mathematician and poet Omar Khayyam (1048<ndash/>1131) , whose algebra book written in 1070 contained the first serious study of cubic polynomials.</em>
+      </p>
+    </blockquote>
+  </p>
+  <p>
+        <idx><h>Khayyam, Omar</h></idx>
+  </p>
+  <p>
+    Before discussing polynomials with complex or real coefficients,
+    we need to learn a bit more about the complex numbers.
+  </p>
+  <definition>
+    <title>real part,  <m>\re z</m>, imaginary part,  <m>\im z</m></title>
+    <statement>
+      <p>
+        Suppose <m>z = a + bi</m>, where <m>a</m> and <m>b</m> are real numbers.
+        <ol>
+          <li>
+            <p>
+              The <term>real part</term>
+                <idx><h>real part</h></idx>
+              of <m>z</m>, denoted by <m>\re z</m>,
+                <idx><h sortby="Re"><m>\re</m></h></idx>
+              is defined by <m>\re z = a</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The <term>imaginary part</term>
+                <idx><h>imaginary part</h></idx>
+              of <m>z</m>, denoted by <m>\im z</m>,
+                <idx><h sortby="Im"><m>\im</m></h></idx>
+              is defined by <m>\im z = b</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Thus for every complex number <m>z</m>, we have
+    <me>
+      z = \re z +  (\im z)i
+    </me>.
+  </p>
+  <definition>
+    <title>complex conjugate, <m>\bar{z}</m>, absolute value, <m>|z|</m></title>
+    <statement>
+      <p>
+        Suppose <m>z \in \C{}</m>.
+        <ol>
+          <li>
+            <p>
+              The <term>complex conjugate</term>
+                <idx><h>complex conjugate</h></idx>
+              of <m>z \in \C{}</m>, denoted by <m>\bar{z}</m>,
+                <idx><h sortby="zaaa"><m>\protect\bar{z}</m></h></idx>
+              is defined by
+              <me>
+                \bar{z} = \re z - (\im z)i
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The <term>absolute value</term>
+                <idx><h>absolute value</h></idx>
+              of a complex number <m>z</m>,  denoted by <m>|z|</m>,
+                <idx><h sortby="zaab"><m>"|z"|</m></h></idx>
+              is defined by
+              <me>
+                |z| = \sqrt{(\re z)^2 + (\im z)^2}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <title>real and imaginary part, complex conjugate, absolute value</title>
+    <statement>
+      <p>
+        Suppose <m>z = 3 + 2i</m>.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\re z = 3</m> and <m>\im z = 2</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\overline{z} = 3 - 2i</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>|z| = \sqrt{3^2 + 2^2} = \sqrt{13}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+  <p>
+    Identifying a complex number
+    <m>z \in \C{}</m> with the ordered pair
+    <m>(\re z, \im z) \in \R2</m> identifies <m>\C{}</m> with <m>\RR2</m>.
+    Note that <m>\C{}</m> is a one-dimensional complex vector space,
+    but we can also think of <m>\C{}</m>
+    (identified with <m>\R2</m>)
+    as a two-dimensional real vector space.
+  </p>
+  <p>
+    The absolute value of each complex number is a nonnegative number.
+    Specifically, if <m>z \in \C{}</m>,
+    then <m>\lvert z \rvert</m> equals the distance from the origin in <m>\R2</m> to the point <m>(\re z, \im z) \in \RR2</m>.
+  </p>
+  <aside>
+    <p>
+      You should verify that <m>z = \bar{z}</m> if and only if <m>z</m> is a real number.
+    </p>
+  </aside>
+  <p>
+    The real and imaginary parts, complex conjugate,
+    and absolute value have the properties listed in the following multipart result.
+  </p>
+  <theorem xml:id="propcomplex">
+    <title>properties of complex numbers</title>
+    <statement>
+      <p>
+        Suppose <m>w, z \in \C{}</m>.
+        Then the following equalities and inequalities hold.
+        <ol>
+          <li>
+            <title>sum of <m>z</m> and <m>\bar{z}</m></title>
+            <p>
+              <m>z + \bar{z} = 2 \re z</m>.
+            </p>
+          </li>
+          <li>
+            <title>difference of <m>z</m> and <m>\bar{z}</m></title>
+            <p>
+              <m>z - \bar{z} = 2( \im z)i</m>.
+            </p>
+          </li>
+          <li>
+            <title>product of <m>z</m> and <m>\bar{z}</m></title>
+            <p>
+              <m>z \bar{z} = |z|^2{}</m>.
+            </p>
+          </li>
+          <li>
+            <title>additivity and multiplicativity of complex conjugate</title>
+            <p>
+              <m>\overline{w + z} = \bar{w} + \bar{z}</m> and <m>\overline{wz} = \bar{w} \; \bar{z}</m>.
+            </p>
+          </li>
+          <li>
+            <title>double complex conjugate</title>
+            <p>
+              <m>\overline{\bar{z}} = z</m>.
+            </p>
+          </li>
+          <li>
+            <title>real and imaginary parts are bounded by <m>|z|</m></title>
+            <p>
+              <m>| \re z | \le |z|</m> and <m>| \im z | \le |z|</m>.
+            </p>
+          </li>
+          <li>
+            <title>absolute value of the complex conjugate</title>
+            <p>
+              <m>\lvert \bar{z} \rvert = |z|</m>.
+            </p>
+          </li>
+          <li>
+            <title>multiplicativity of absolute value</title>
+            <p>
+              <m>|wz| = |w| |z|</m>.
+            </p>
+          </li>
+          <li>
+            <title>triangle inequality</title>
+            <p>
+                <idx><h>triangle inequality</h></idx> *{2in}Mathematica/TriangleInequality.pdf <m>|w + z| \le |w| + |z|</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <aside>
+    <p>
+      Geometric interpretation of triangle inequality: The length of each side of a triangle is less than or equal to the sum of the lengths of the two other sides.
+    </p>
+  </aside>
+  <proof>
+    <p>
+      Except for the last item above,
+      the routine verifications of the assertions above are left to the reader.
+      To verify the triangle inequality, we have
+      <md>
+        <mrow>|w + z|^2 \amp = (w + z)(\bar{w} + \bar{z})</mrow>
+        <mrow>\amp = w \bar{w} + z \bar{z} + w \bar{z} + z \bar{w}</mrow>
+        <mrow>\amp = |w|^2 + |z|^2 + w \bar{z} + \overline{w \bar{z}}</mrow>
+        <mrow>\amp = |w|^2 + |z|^2 + 2 \re( w \bar{z} )</mrow>
+        <mrow>\amp \le |w|^2 + |z|^2 + 2 \lvert w \bar{z} \rvert</mrow>
+        <mrow>\amp = |w|^2 + |z|^2 + 2 |w|   |z|</mrow>
+        <mrow>\amp = (|w| + |z|)^2{}</mrow>
+      </md>.
+    </p>
+    <aside>
+      <p>
+        See <xref ref="x4reverse">Exercise</xref>
+        for the reverse triangle inequality.
+      </p>
+    </aside>
+    <p>
+      Taking square roots now gives the desired inequality <m>|w + z| \le |w| + |z|</m>.
+    </p>
+  </proof>
+  <p>
+    \subsection{Zeros of Polynomials}
+  </p>
+  <p>
+    Recall that a function <m>p \colon \F{} \to \F{}</m> is called a polynomial of degree <m>m</m> if there exist
+    <m>a_0, \dots,
+    a_m \in \F{}</m> with <m>a_m \ne 0</m> such that
+    <me>
+      p(z) = a_0 + a_1 z + \cdots + a_m z^m
+    </me>
+    for all <m>z \in \F{}{}</m>.
+    A polynomial could have more than one degree if the representation of <m>p</m> in the form above were not unique.
+    Our first task is to show that this cannot happen.
+  </p>
+  <p>
+    The solutions to the equation
+    <m>p(z) = 0</m> play a crucial role in the study of a polynomial <m>p \in \P(\F{})</m>.
+    Thus these solutions have a special name.
+  </p>
+  <definition>
+    <title>zero of a polynomial</title>
+    <statement>
+      <p>
+        A number <m>\lambda \in \F{}</m> is called a <term>zero</term>
+            <idx><h>zero of a polynomial</h></idx>
+        (or <term>root</term>) of a polynomial <m>p \in \P(\F{})</m> if
+        <me>
+          p(\lambda) = 0
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    A zero of a polynomial is also called a <term>root</term>
+    of the polynomial. \end{aside}
+  </p>
+  <p>
+    The next result is the key tool that we will use to show that the degree of a polynomial is unique.
+  </p>
+  <theorem xml:id="x460">
+    <title>each zero of a polynomial corresponds to a degree-one factor</title>
+    <statement>
+      <p>
+        Suppose <m>m</m> is a positive integer and
+        <m>p \in \P(\F{})</m> is a polynomial of degree<nbsp/><m>m</m>.
+        Suppose <m>\lambda \in \F{}{}</m>.
+        Then <m>p(\lambda) = 0</m> if and only if there exists a polynomial
+        <m>q \in \P(\F{})</m> of degree <m>m-1</m> such that
+        <me>
+          p(z) = (z-\lambda)q(z)
+        </me>
+        for every <m>z \in \F{}{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      First suppose <m>p(\lambda) = 0</m>.
+      Let <m>a_0, a_1, \ldots, a_m \in \F{}</m> be such that
+      <me>
+        p(z) = a_0 + a_1 z + \cdots + a_m z^m
+      </me>
+      for all <m>z \in \F{}{}</m>.
+      Then
+      <men xml:id="x4zm">
+        p(z) = p(z) - p(\lambda) = a_1(z-\lambda) + \cdots + a_m ( z^m - \lambda^m )
+      </men>
+      for all <m>z \in \F{}{}</m>.
+      For each <m>k \in \{ 1, \ldots, m \}</m>, the equation
+      <me>
+        z^k - \lambda^k =  (z - \lambda) \sum_{j=1}^{k} \lambda^{j-1} z^{k-j}
+      </me>
+      shows that <m>z^k - \lambda^k</m> equals
+      <m>z - \lambda</m> times some polynomial of degree <m>k-1</m>.
+      <xref ref="x4zm">Thus</xref> shows that <m>p</m> equals
+      <m>z - \lambda</m> times some polynomial of degree <m>m-1</m>,
+      as desired.
+    </p>
+    <p>
+      To prove the implication in the other direction,
+      now suppose that there is a polynomial <m>q \in \P(\F{})</m> such that
+      <m>p(z) = (z - \lambda) q(z)</m> for every <m>z \in \F{}{}</m>.
+      Then <m>p(\lambda) = (\lambda - \lambda) q(\lambda) = 0</m>,
+      as desired.
+    </p>
+  </proof>
+  <p>
+    Now we can prove that polynomials do not have too many zeros.
+  </p>
+  <theorem xml:id="x4polyzero">
+    <title>degree  <m>m</m> implies at most  <m>m</m> zeros</title>
+    <statement>
+      <p>
+        Suppose <m>m</m> is a positive integer and
+        <m>p \in \P(\F{})</m> is a polynomial of degree <m>m</m>.
+        Then <m>p</m> has at most <m>m</m> zeros in <m>\F{}{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We will use induction on <m>m</m>.
+      The desired result holds if <m>m = 1</m> because if
+      <m>a_1 \ne 0</m> then the polynomial <m>a_0 + a_1 z</m> has only one zero
+      (which equals <m>-a_0 / a_1</m>).
+      Thus assume that <m>m > 1</m> and the desired result holds for <m>m-1</m>.
+    </p>
+    <p>
+      If <m>p</m> has no zeros in <m>\F{}{}</m>,
+      then the desired result holds and we are done.
+      Thus suppose <m>p</m> has a zero <m>\lambda \in \F{}{}</m>.
+      <xref ref="x460">By</xref>,
+      there is polynomial <m>q \in \P(\F{})</m> of degree <m>m-1</m> such that
+      <me>
+        p(z) = (z - \lambda) q(z)
+      </me>
+      for every <m>z \in \F{}{}</m>.
+      Our induction hypothesis implies that <m>q</m> has at most <m>m-1</m> zeros in <m>\F{}{}</m>.
+      The equation above shows that the zeros of <m>p</m> in <m>\F{}</m> are exactly the zeros of <m>q</m> in <m>\F{}</m> along with <m>\lambda</m>.
+      Thus <m>p</m> has at most <m>m</m> zeros in <m>\F{}{}</m>.
+    </p>
+  </proof>
+  <p>
+    The result above implies that the coefficients of a polynomial are uniquely determined
+    (because if a polynomial had two different sets of coefficients,
+    then subtracting the two representations of the polynomial would give a polynomial with some nonzero coefficients but infinitely many zeros).
+    In particular, the degree of a polynomial is uniquely defined.
+  </p>
+  <aside>
+    <p>
+      The <m>0</m> polynomial is declared to have degree <m>-\infty</m> so that exceptions are not needed for various reasonable results such as <m>\deg(p q) = \deg p + \deg q</m>.
+    </p>
+  </aside>
+  <p>
+    Recall that the degree of the <m>0</m> polynomial is defined to be <m>-\infty</m>.
+    When necessary, use the expected arithmetic with <m>-\infty</m>.
+    For example, <m>-\infty \lt m</m> and
+    <m>-\infty + m = -\infty</m> for every integer <m>m</m>.
+  </p>
+  <p>
+    \subsection{Division Algorithm for Polynomials}
+  </p>
+  <p>
+    If <m>p</m> and <m>s</m> are nonnegative integers, with <m>s \ne 0</m>,
+    then there exist nonnegative integers <m>q</m> and <m>r</m> such that
+    <me>
+      p = sq + r
+    </me>
+    and <m>r \lt  s</m>.
+    Think of dividing <m>p</m> by <m>s</m>,
+    getting quotient <m>q</m> with remainder<nbsp/><m>r</m>.
+    Our next result gives an analogous result for polynomials.
+    Thus the next result is often called the division algorithm for polynomials,
+    although as stated here it is not really an algorithm,
+    just a useful result.
+  </p>
+  <aside>
+    <p>
+      Think of the division algorithm for polynomials as giving a remainder polynomial <m>r</m> when the polynomial <m>p</m> is divided by the polynomial <m>s</m>.
+    </p>
+  </aside>
+  <p>
+    The division algorithm for polynomials could be proved without using any linear algebra.
+    However, as is appropriate for a linear algebra textbook,
+    the proof given here uses linear algebra techniques and makes nice use of a basis of <m>\P{}_n(\F{})</m>,
+    which is the <m>(n+1)</m>-dimensional vector space of polynomials with coefficients in <m>\F{}</m> and of degree at most <m>n</m>.
+  </p>
+  <theorem xml:id="x121">
+    <title>division algorithm for polynomials</title>
+    <statement>
+      <p>
+            <idx><h>division algorithm for polynomials</h></idx>
+        Suppose that <m>p, s \in \P(\F{})</m>, with <m>s \ne 0</m>.
+        Then there exist unique polynomials <m>q,
+        r \in \P(\F{})</m> such that
+        <me>
+          p = sq + r
+        </me>
+        and <m>\deg r \lt  \deg s</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>n = \deg p</m> and let <m>m = \deg s</m>.
+      If <m>n \lt m</m>,
+      then take <m>q = 0</m> and <m>r = p</m> to get the desired equation
+      <m>p = sq + r</m> with <m>\deg r \lt \deg s</m>.
+      Thus we now assume that <m>n \ge m</m>.
+    </p>
+    <p>
+      The list
+      <men xml:id="x4basis">
+        1, z, \ldots, z^{m-1}, s, zs, \ldots, z^{n-m} s
+      </men>
+      is linearly independent in
+      <m>\P{}_n(\F{})</m> because each polynomial in this list has a different degree.
+      Also, the <xref ref="x4basis">list</xref> has length <m>n+1</m>,
+      which equals <m>\dim \P{}_n(\F{})</m>.
+      <xref ref="x4basis">Hence</xref> is a basis of
+      <m>\P{}_n(\F{})</m> [by <xref ref="x75"></xref>].
+    </p>
+    <p>
+      Because <m>p \in \P{}_n(\F{})</m> and <xref ref="x4basis"></xref>
+      is a basis of <m>\P{}_n(\F{})</m>,
+      there exist unique constants
+      <m>a_0, a_1, \ldots,
+      a_{m-1} \in \F{}</m> and <m>b_0, b_1, \ldots,
+      b_{n-m} \in \F{}</m> such that
+      <md>
+        <mrow xml:id="x4unique" number="yes">p \amp = a_0 + a_1 z + \cdots + a_{m-1} z^{m-1} + b_0 s + b_1  zs + \cdots + b_{n-m}z^{n-m} s</mrow>
+        <mrow>\amp = \underbrace{a_0 + a_1 z + \cdots + a_{m-1} z^{m-1}}_r \ +\  s(\underbrace{b_0 + b_1  z + \cdots + b_{n-m}z^{n-m}}_q)</mrow>
+      </md>.
+    </p>
+    <p>
+      With <m>r</m> and <m>q</m> as defined above,
+      we see that <m>p</m> can be written as <m>p=sq+r</m> with <m>\deg r \lt \deg s</m>,
+      as desired.
+    </p>
+    <p>
+      The uniqueness of <m>q,
+      r \in \P(\F{})</m> satisfying these conditions follows from the uniqueness of the constants
+      <m>a_0, a_1, \ldots,
+      a_{m-1} \in \F{}</m> and <m>b_0, b_1, \ldots,
+      b_{n-m} \in \F{}</m> <xref ref="x4unique">satisfying</xref>.
+    </p>
+  </proof>
+  <p>
+    \subsection{Factorization of Polynomials over <m>\C{}</m>}
+  </p>
+  <aside>
+    <p>
+      The fundamental theorem of algebra is an existence theorem.
+      Its proof does not lead to a method for finding zeros.
+      The quadratic formula gives the zeros explicitly for polynomials of degree <nbsp/><m>2</m>.
+      Similar but more complicated formulas exist for polynomials of degree <m>3</m> and <m>4</m>.
+      No such formulas exist for polynomials of degree <m>5</m> and above.
+    </p>
+  </aside>
+  <p>
+    We have been handling polynomials with complex coefficients and polynomials with real coefficients simultaneously,
+    letting <m>\F{}</m> denote <m>\R{}</m> or <m>\C{}</m>.
+    Now we will see differences between these two cases.
+    First we treat polynomials with complex coefficients.
+    Then we will use those results to prove corresponding results for polynomials with real coefficients.
+  </p>
+  <p>
+    Our proof of the fundamental theorem of algebra implicitly uses the result that a continuous real-valued function on a closed disk in <m>\R 2</m> attains a minimum value.
+    A web search can lead you to several other proofs of the fundamental theorem of algebra.
+    The proof using Liouville's theorem is particularly nice if you are comfortable with analytic functions.
+    All proofs of the fundamental theorem of algebra need to use some analysis,
+    because the result is not true if <m>\C{}</m> is replaced,
+    for example,
+    with the set of numbers of the form <m>c + di</m> where
+    <m>c,
+    d</m> are rational numbers.
+  </p>
+  <theorem xml:id="FTA1">
+    <title>fundamental theorem of algebra, first version</title>
+    <statement>
+      <p>
+            <idx><h>fundamental theorem of algebra</h></idx>
+        Every nonconstant polynomial with complex coefficients has a zero in <m>\C{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      De Moivre's theorem,
+      which you can prove using induction on <m>k</m> and the addition formulas for cosine and sine,
+      states that if <m>k</m> is a positive integer and <m>\theta \in \R{}</m>, then
+          <idx><h>De Moivre's theorem</h></idx>
+      <me>
+        (\cos \theta + i \sin \theta)^k = \cos k\theta + i \sin k\theta
+      </me>.
+    </p>
+    <p>
+      Suppose <m>w \in \C{}</m> and <m>k</m> is a positive integer.
+      Using polar coordinates,
+      we know that there exist <m>r \ge 0</m> and <m>\theta \in \R{}</m> such that
+      <me>
+        r(\cos \theta + i \sin \theta) = w
+      </me>.
+    </p>
+    <p>
+      De Moivre's theorem implies that
+      <me>
+        (  r^{1/k} ( \cos \tfrac{\theta}{k} + i \sin \tfrac{\theta}{k}  )  )^k = w
+      </me>.
+    </p>
+    <p>
+      Thus every complex number has a <m>k^\nth</m> root,
+      a fact that we will soon use.
+    </p>
+    <p>
+      Suppose <m>p</m> is a nonconstant polynomial with complex coefficients and highest-order nonzero term <m>c_m z^m\!</m>.
+      Then <m>|p(z)| \rightarrow \infty</m> as <m>|z| \rightarrow \infty</m> (because
+      <m>\lvert p(z) \rvert /\lvert z^m \rvert \to \lvert c_m \rvert</m> as <m>|z| \rightarrow \infty</m>).
+      Thus the continuous function
+      <m>z \mapsto \lvert p(z) \rvert</m> has a global minimum at some point <m>\zeta \in \C{}</m>.
+      To show that <m>p(\zeta) = 0</m>,
+      suppose that <m>p(\zeta) \ne 0</m>.
+    </p>
+    <p>
+      Define a new polynomial <m>q</m> by
+      <me>
+        q(z) = \frac{p(z + \zeta)}{p(\zeta)}
+      </me>.
+    </p>
+    <p>
+      The function <m>z \mapsto \lvert q(z) \rvert</m> has a global minimum value of <m>1</m> at <m>z = 0</m>.
+      Write
+      <me>
+        q(z) = 1 + a_k z^k + \dots + a_m z^m\!
+      </me>,
+      where <m>k</m> is the smallest positive integer such that the coefficient of <m>z^k</m> is nonzero;
+      in other words, <m>a_k \ne 0</m>.
+    </p>
+    <p>
+      Let <m>\beta \in \C{}</m> be such that <m>\beta^k = -\dfrac{1}{a_k}</m>.
+      There is a constant <m>c > 1</m> such that if <m>t \in (0, 1)</m>, then
+      <md>
+        <mrow>\lvert q(t\beta) \rvert  \amp \le \lvert  1 + a_k t^k \beta^k  \rvert  + t^{k+1}c</mrow>
+        <mrow>\amp = 1 - t^k(1 - tc)</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus taking <m>t</m> to be <m>1/(2c)</m> in the inequality above,
+      we have <m>\lvert q(t \beta) \rvert \lt 1</m>,
+      which contradicts the assumption that the global minimum of <m>z \mapsto \lvert q(z) \rvert</m> is <m>1</m>.
+      This contradiction implies that <m>p(\zeta) = 0</m>,
+      showing that <m>p</m> has a zero, as desired.
+    </p>
+  </proof>
+  <p>
+    Computers can use clever numerical methods to find good approximations to the zeros of any polynomial,
+    even when exact zeros cannot be found.
+    For example,
+    no one will ever give an exact formula for a zero of the polynomial <m>p</m> defined by
+    <me>
+      p(x) = x^5 - 5 x^4 - 6 x^3 + 17 x^2 + 4 x -7
+    </me>.
+  </p>
+  <p>
+    However, a computer can find that the zeros of <m>p</m> are approximately the five numbers <m>-1.87,\ -0.74,\ 0.62,\ 1.47,\ 5.51</m>.
+  </p>
+  <p>
+    The first version of the fundamental theorem of algebra leads to the following factorization result for polynomials with complex coefficients.
+    Note that in this factorization,
+    the zeros of<nbsp/><m>p</m> are the numbers <m>\lambda_1, \dots, \lambda_m</m>,
+    which are the only values of <m>z</m> for which the right side of the equation in the next result equals<nbsp/><m>0</m>.
+  </p>
+  <theorem xml:id="x4FTA2">
+    <title>fundamental theorem of algebra, second version</title>
+    <statement>
+      <p>
+        If <m>p \in \P(\C{})</m> is a nonconstant polynomial,
+        then <m>p</m> has a unique factorization
+        (except for the order of the factors)
+        of the form
+        <me>
+          p(z) = c(z - \lambda_1) \dotsm (z - \lambda_m)
+        </me>,
+        where <m>c, \lambda_1, \dots, \lambda_m \in \C{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>p \in \P(\C{})</m> and let <m>m = \deg p</m>.
+      We will use induction on<nbsp/><m>m</m>.
+      If <m>m = 1</m>,
+      then the desired factorization exists and is unique.
+      So assume that <m>m > 1</m> and that the desired factorization exists and is unique for all polynomials of degree <m>m-1</m>.
+    </p>
+    <p>
+      First we will show that the desired factorization of <m>p</m> exists.
+      By the first version of the fundamental theorem of algebra <xref ref="FTA1"/>, <m>p</m> has a zero <m>\lambda \in \C{}</m>.
+      <xref ref="x460">By</xref>,
+      there is a polynomial <m>q</m> of degree <m>m-1</m> such that
+      <me>
+        p(z) = (z - \lambda) q(z)
+      </me>
+      for all <m>z \in \C{}</m>.
+      Our induction hypothesis implies that <m>q</m> has the desired factorization,
+      which when plugged into the equation above gives the desired factorization of <m>p</m>.
+    </p>
+    <p>
+      Now we turn to the question of uniqueness.
+      The number <m>c</m> is uniquely determined as the coefficient of <m>z^m</m> in <m>p</m>.
+      So we only need to show that except for the order,
+      there is only one way to choose <m>\lambda_1, \dots, \lambda_m</m>.
+      If
+      <me>
+        (z - \lambda_1) \dotsm (z - \lambda_m) = (z - \tau_1) \dotsm (z - \tau_m)
+      </me>
+      for all <m>z \in \C{}</m>,
+      then because the left side of the equation above equals <m>0</m> when <m>z = \lambda_1</m>,
+      one of the <m>\tau</m>'s on the right side equals <m>\lambda_1</m>.
+      Relabeling, we can assume that <m>\tau_1 = \lambda_1</m>.
+      Now if <m>z  \ne \lambda_1</m>,
+      we can divide both sides of the equation above by <m>z - \lambda_1</m>, getting
+      <me>
+        (z - \lambda_2) \dotsm (z - \lambda_m) = (z - \tau_2) \dotsm (z - \tau_m)
+      </me>
+      for all <m>z \in \C{}</m> except possibly <m>z = \lambda_1</m>.
+      Actually the equation above holds for all <m>z \in \C{}</m>,
+      because otherwise by subtracting the right side from the left side we would get a nonzero polynomial that has infinitely many zeros.
+      The equation above and our induction hypothesis imply that except for the order,
+      the <m>\lambda</m>'s are the same as the <m>\tau</m>'s, completing the proof of uniqueness.
+    </p>
+  </proof>
+  <p>
+    \subsection{Factorization of Polynomials over <m>\R{}</m>}
+  </p>
+  <aside>
+    <p>
+      The failure of the fundamental theorem of algebra for <m>\R{}</m> accounts for the differences between linear algebra on real and complex vector spaces,
+      as we will see in later chapters.
+    </p>
+  </aside>
+  <p>
+    A polynomial with real coefficients may have no real zeros.
+    For example, the polynomial <m>1 + x^2</m> has no real zeros.
+  </p>
+  <p>
+    To obtain a factorization theorem over <m>\R{}</m>,
+    we will use our factorization theorem over <m>\C{}</m>.
+    We begin with the next result.
+  </p>
+  <theorem xml:id="x170">
+    <title>polynomials with real coefficients have nonreal zeros in pairs</title>
+    <statement>
+      <p>
+        Suppose <m>p \in \P(\C{})</m> is a polynomial with real coefficients.
+        If <m>\lambda \in \C{}</m> is a zero of <m>p</m>,
+        then so is <nbsp/><m>\bar{\lambda}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let
+      <me>
+        p(z) = a_0 + a_1 z + \dots + a_m z^m\!
+      </me>,
+      where <m>a_0, \dots, a_m</m> are real numbers.
+      Suppose <m>\lambda \in \C{}</m> is a zero of<nbsp/><m>p</m>.
+      Then
+      <me>
+        a_0 + a_1 \lambda + \dots + a_m \lambda^m = 0
+      </me>.
+    </p>
+    <p>
+      Take the complex conjugate of both sides of this equation,
+      obtaining
+      <me>
+        a_0 + a_1 \bar{\lambda} + \dots + a_m \bar{\lambda}^m = 0
+      </me>,
+      where we have used basic properties of the complex conjugate
+      (<xref ref="propcomplex">see</xref>).
+      The equation above shows that
+      <m>\bar{\lambda}</m> is a zero of<nbsp/><m>p</m>.
+    </p>
+  </proof>
+  <aside>
+    <p>
+      Think about the quadratic formula in connection with the result below.
+    </p>
+  </aside>
+  <p>
+    We want a factorization theorem for polynomials with real coefficients.
+    We begin with the following result.
+  </p>
+  <theorem xml:id="x171">
+    <title>factorization of a quadratic polynomial</title>
+    <statement>
+      <p>
+        Suppose <m>b, c \in \R{}</m>.
+        Then there is a polynomial factorization of the form
+        <me>
+          x^2 + b x + c = (x - \lambda_1)(x - \lambda_2)
+        </me>
+        with <m>\lambda_1, \lambda_2 \in \R{}</m> if and only if <m>b^2 \ge 4 c</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Notice that
+      <me>
+        x^2 + b x + c = ( x + \frac{b}{2} )^2 + ( c -\frac{b^2}{4} )
+      </me>.
+    </p>
+    <aside>
+      <p>
+        The equation above is the basis of the technique called
+        <term>completing the square</term>.
+      </p>
+    </aside>
+    <p>
+      First suppose <m>b^2 \lt 4 c</m>.
+      Then the right side of the equation above is positive for every <m>x \in \R{}</m>.
+      Hence the polynomial <m>x^2 + b x + c</m> has no real zeros and thus cannot be factored in the form
+      <m>(x - \lambda_1)(x - \lambda_2)</m> with <m>\lambda_1, \lambda_2 \in \R{}</m>.
+    </p>
+    <p>
+      Conversely, now suppose <m>b^2 \ge 4 c</m>.
+      Then there is a real number <m>d</m> such that <m>d^2 = \frac{b^2}{4} - c</m>.
+      From the displayed equation above, we have
+      <md>
+        <mrow>x^2 + b x + c \amp = ( x + \frac{b}{2} )^2 - d^2</mrow>
+        <mrow>\amp = ( x + \frac{b}{2} + d ) ( x + \frac{b}{2} - d )</mrow>
+      </md>,
+      which gives the desired factorization.
+    </p>
+  </proof>
+  <p>
+    The next result gives a factorization of a polynomial over <m>\R{}</m>.
+    The idea of the proof is to use the second version of the fundamental theorem of algebra <xref ref="x4FTA2"/>,
+    which gives a factorization of<nbsp/><m>p</m> as a polynomial with complex coefficients.
+    Complex but nonreal zeros of<nbsp/><m>p</m> come in pairs;
+    <xref ref="x170">see</xref>.
+    Thus if the factorization of<nbsp/><m>p</m> as an element of<nbsp/><m>\P(\C{})</m> includes terms of the form
+    <m>(x - \lambda)</m> with<nbsp/><m>\lambda</m> a nonreal complex number,
+    then <m>(x - \bar{\lambda})</m> is also a term in the factorization.
+    Multiplying together these two terms, we get
+    <me>
+      x^2 - 2(\re \lambda)x + |\lambda|^2
+    </me>,
+    which is a quadratic term of the required form.
+  </p>
+  <p>
+    The idea sketched in the paragraph above almost provides a proof of the existence of our desired factorization.
+    However, we need to be careful about one point.
+    Suppose <m>\lambda</m> is a nonreal complex number and
+    <m>(x - \lambda)</m> is a term in the factorization of<nbsp/><m>p</m> as an element of<nbsp/><m>\P(\C{})</m>.
+    We are guaranteed by <xref ref="x170"></xref>
+    that <m>( x - \bar{\lambda} )</m> also appears as a term in the factorization,
+    <xref ref="x170">but</xref> does not state that these two factors appear the same number of times,
+    as needed to make the idea above work.
+    However, the proof works around this point.
+  </p>
+  <p>
+    In the next result, either <m>m</m> or <m>M</m> may equal <m>0</m>.
+    The numbers <m>\lambda_1, \dots, \lambda_m</m> are precisely the real zeros of <m>p</m>,
+    for these are the only real values of <m>x</m> for which the right side of the equation in the next result equals<nbsp/><m>0</m>.
+  </p>
+  <theorem xml:id="x158">
+    <title>factorization of a polynomial over <m>\R</m></title>
+    <statement>
+      <p>
+        Suppose <m>p \in \P(\R{})</m> is a nonconstant polynomial.
+        Then <m>p</m> has a unique factorization
+        (except for the order of the factors)
+        of the form
+        <me>
+          p(x) = c(x - \lambda_1) \cdots(x - \lambda_m) ( x^2 + b_1 x + c_1 ) \cdots ( x^2 + b_M x + c_M )
+        </me>,
+        where <m>c, \lambda_1, \dots, \lambda_m, b_1, \dots, b_M, c_1, \dots,
+        c_M\in \R{}</m>, with <m>{b_k}^{2} \lt  4c_k</m> for each <m>k</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      First we will prove that the desired factorization exists,
+      and after that we will prove the uniqueness.
+    </p>
+    <p>
+      Think of <m>p</m> as an element of <m>\P(\C{})</m>.
+      If all (complex) zeros of <m>p</m> are real,
+      then we have the desired factorization by <xref ref="x4FTA2"></xref>.
+      Thus suppose <m>p</m> has a zero
+      <m>\lambda \in \C{}</m> with <m>\lambda \notin \R{}</m>.
+      <xref ref="x170">By</xref>,
+      <m>\bar{\lambda}</m> is a zero of <m>p</m>.
+      Thus we can write
+      <md>
+        <mrow>p(x) \amp = (x - \lambda)( x - \bar{\lambda} )q(x)</mrow>
+        <mrow>\amp = \bigl(x^2 - 2(\re \lambda)x + |\lambda|^2\bigr) q(x)</mrow>
+      </md>
+      for some polynomial <m>q \in \P(\C{})</m> of degree two less than the degree of<nbsp/><m>p</m>.
+      If we can prove that <m>q</m> has real coefficients,
+      then using induction on the degree of <m>p</m> completes the proof of the existence part of this result.
+    </p>
+    <p>
+      To prove that <m>q</m> has real coefficients,
+      we solve the equation above for <m>q</m>,
+      getting Here we are not dividing by <m>0</m> because the zeros of
+      <m>x^2 - 2(\re \lambda)x + |\lambda|^2</m> are <m>\lambda</m> and <m>\bar{\lambda}</m>,
+      neither of which is real. \end{aside}
+      <me>
+        q(x) = \frac{p(x)}{x^2 - 2(\re \lambda)x + |\lambda|^2}
+      </me>
+      for all <m>x \in \R{}</m>.
+      The equation above implies that
+      <m>q(x) \in \R{}</m> for all <m>x \in \R{}</m>.
+      Writing
+      <me>
+        q(x) = a_0 + a_1 x + \dots + a_{n-2} x^{n-2}\!
+      </me>,
+      where <m>n = \deg p</m> and <m>a_0, \dots,
+      a_{n-2} \in \C{}</m>, we thus have
+      <me>
+        0 = \im q(x) = (\im a_0) + (\im a_1) x + \dots + (\im a_{n-2}) x^{n-2}
+      </me>
+      for all <m>x \in \R{}</m>.
+      This implies that <m>\im a_0, \dots, \im a_{n-2}</m> all equal<nbsp/><m>0</m>
+      (by <xref ref="x4polyzero"></xref>).
+      Thus all coefficients of<nbsp/><m>q</m> are real, as desired.
+      Hence the desired factorization exists.
+    </p>
+    <p>
+      Now we turn to the question of uniqueness of our factorization.
+      A factor of<nbsp/><m>p</m> of the form <m>x^2 + b_k x + c_k</m> with
+      <m>{b_k}^{2} \lt 4 c_k</m> can be uniquely written as
+      <m>(x - \lambda_k)( x - \overline{\lambda_k} )</m> with <m>\lambda_k \in \C{}</m>.
+      A moment's thought shows that two different factorizations of<nbsp/><m>p</m> as an element of<nbsp/><m>\P(\R{})</m> would lead to two different factorizations of<nbsp/><m>p</m> as an element of<nbsp/><m>\P(\C{})</m>,
+      <xref ref="x4FTA2">contradicting</xref>.
+    </p>
+  </proof>
+  <p>
+    <exercises>
+      <title></title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>w, z \in \C{}</m>.
+            Verify the following equalities and inequalities.
+            <ol>
+              <li>
+                <p>
+                  <m>z + \bar{z} = 2 \re z</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>z - \bar{z} = 2( \im z)i</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>z \bar{z} = |z|^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\overline{w + z} = \bar{w} + \bar{z}</m> and <m>\overline{wz} = \bar{w} \; \bar{z}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\overline{\bar{z}} = z</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>| \re z | \le |z|</m> and <m>| \im z | \le |z|</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\lvert \bar{z} \rvert = |z|</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>|wz| = |w| |z|</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: The results above are the parts of <xref ref="propcomplex"></xref> that were left to the reader.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4reverse">
+        <statement>
+          <p>
+            Prove that if <m>w, z \in \C{}</m>,
+            then <m>\lvert \lvert w \rvert - \lvert z \rvert \rvert \le \lvert w-z \rvert</m>.
+            Note: The inequality above is called the
+            <term>reverse triangle inequality</term>.
+        <idx><h>reverse triangle inequality</h></idx>
+    </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a complex vector space and <m>\phi \in V'\!</m>.
+            Define <m>\fun \sigma V {\R{}}</m> by
+            <m>\sigma(v) = \re \phi(v)</m> for each <m>v \in V{}</m>.
+            Show that
+            <me>
+              \phi(v) = \sigma(v) - i \sigma(iv)
+            </me>
+            for all <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>m</m> is a positive integer.
+            Is the set
+            <me>
+              \{0\} \cup \{ p \in \P(\F{}): \deg p = m \}
+            </me>
+            a subspace of <m>\P(\F{})</m>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Is the set
+            <me>
+              \{0\} \cup \{ p \in \P(\F{}): \deg p \text{ is even }  \}
+            </me>
+            a subspace of <m>\P(\F{})</m>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>m</m> and <m>n</m> are positive integers with <m>m \le n</m>,
+            and suppose <m>\lambda_1, \dots, \lambda_m \in \F{}{}</m>.
+            Prove that there exists a polynomial
+            <m>p \in \P(\F{})</m> with <m>\deg p = n</m> such that
+            <m>0 = p(\lambda_1) = \dots = p(\lambda_m)</m> and such that <m>p</m> has no other zeros.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="PolyInterpolation">
+        <statement>
+          <p>
+            Suppose that <m>m</m> is a nonnegative integer,
+            <m>z_1, \dots,
+            z_{m+1}</m> are distinct elements of <m>\F{}{}</m>,
+            and <m>w_1, \dots, w_{m+1} \in \F{}{}</m>.
+            Prove that there exists a unique polynomial <m>p \in \P{}_m(\F{})</m> such that
+            <me>
+              p(z_k) = w_k
+            </me>
+            for each <m>k = 1, \dots, m + 1</m>.
+            Note: This result can be proved without using linear algebra.
+            However, try to find the clearer,
+            shorter proof that uses some linear algebra.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p \in \P(\C{})</m> has degree <m>m</m>.
+            Prove that <m>p</m> has <m>m</m> distinct zeros if and only if <m>p</m> and its derivative <m>p'</m> have no zeros in common.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4oddzero">
+        <statement>
+          <p>
+            Prove that every polynomial of odd degree with real coefficients has a real zero.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>p \in \P(\R{})</m>, define <m>\fun {Tp} {\R{}} {\R{}}</m> by
+            <me>
+              (Tp)(x) = \begin{cases}\dfrac{p(x) - p(3)}{x-3} \amp  \text{ if }  x \ne 3,\\ p' \! (3) \amp  \text{ if }  x = 3 \end{cases}
+            </me>
+            for each <m>x \in \R{}</m>.
+            Show that <m>Tp \in \P(\R{})</m> for every polynomial
+            <m>p \in \P(\R{})</m> and also show that <m>\fun T {\P(\R{})} {\P(\R{})}</m> is a linear map.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p \in \P(\C{})</m>.
+            Define <m>q \colon \C{} \to \C{}</m> by
+            <me>
+              q(z) = p(z)   \overline{ p( \bar{z} ) }
+            </me>.
+          </p>
+          <p>
+            Prove that <m>q</m> is a polynomial with real coefficients.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>m</m> is a nonnegative integer and
+            <m>p \in \P{}_m(\C{})</m> is such that there are distinct real numbers
+            <m>x_0, x_1, \dots,
+            x_m</m> with <m>p(x_k) \in \R{}</m> for each <m>k = 0, 1, \dots, m</m>.
+            Prove that all coefficients of <m>p</m> are real.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p \in \P(\F{})</m> with <m>p \ne 0</m>.
+            Let <m>U = \{ p q : q \in \P(\F{}) \}</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>\dim \P(\F{})/U = \deg p</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a basis of <m>\P(\F{})/U</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p,
+            q \in \P(\C{})</m> are nonconstant polynomials with no zeros in common.
+            Let <m>m = \deg p</m> and <m>n = \deg q</m>.
+            Use linear algebra as outlined below in (a)<ndash/>(c) to prove that there exist
+            <m>r \in \P{}_{n-1}(\C{})</m> and <m>s \in \P{}_{m-1}(\C{})</m> such that
+            <me>
+              rp + sq = 1
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Define <m>\fun T { \P{}_{n-1}(\C{}) \times \P{}_{m-1}(\C{}) } {\P{}_{m+n-1}(\C{})}</m> by
+                  <me>
+                    T(r, s) = rp + sq
+                  </me>.
+                  Show that the linear map <m>T</m> is injective.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the linear map <m>T</m> in (a) is surjective.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use (b) to conclude that there exist <m>r \in \P{}_{n-1}(\C{})</m> and
+                  <m>s \in \P{}_{m-1}(\C{})</m> such that <m>rp + sq = 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
+  </p>
+</chapter>

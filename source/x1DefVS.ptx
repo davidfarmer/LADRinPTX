@@ -1,0 +1,605 @@
+<section xml:id="x1DefVS">
+  <title>Definition of Vector Space</title>
+  <p>
+    The motivation for the definition of a vector space comes from properties of addition and scalar multiplication in<nbsp/><m>\F{n}</m>: Addition is commutative,
+    associative, and has an identity.
+    Every element has an additive inverse.
+    Scalar multiplication is associative.
+    Scalar multiplication by <m>1</m> acts as expected.
+    Addition and scalar multiplication are connected by distributive properties.
+  </p>
+  <p>
+    We will define a vector space to be a set <m>V</m> with an addition and a scalar multiplication on <m>V</m> that satisfy the properties in the paragraph above.
+  </p>
+  <definition>
+    <title>addition, scalar multiplication</title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            An <term>addition</term><idx><h>addition</h><h>of vectors</h></idx> on a set <m>V</m> is a function that assigns an element<nbsp/><m>u + v \in V</m> to each pair of elements <m>u,
+            v \in V{}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            A <term>scalar multiplication</term>
+              <idx><h>scalar multiplication</h></idx>
+              <idx><h>product</h><h>of scalar and vector</h></idx>
+            on a set <m>V</m> is a function that assigns an element <m>\lambda v \in V</m> to each
+            <m>\lambda \in \F{}</m> and each <m>v \in V{}</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </definition>
+  <p>
+    Now we are ready to give the formal definition of a vector space.
+  </p>
+  <definition xml:id="vectorspace">
+    <title>vector space</title>
+    <statement>
+      <p>
+        A <term>vector space</term>
+            <idx><h>vector space</h></idx>
+        is a set <m>V</m> along with an addition on <m>V</m> and a scalar multiplication on <m>V</m> such that the following properties hold.
+        <ol>
+          <li>
+            <title>commutativity</title>
+            <p>
+              <m>u + v = v + u</m> for all <m>u, v \in V{}</m>.
+                <idx><h>commutativity</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>associativity</title>
+            <p>
+              <m>(u + v) + w = u + (v + w)</m> and <m>(ab)v = a(bv)</m> for all
+              <m>u,
+              v, w \in V</m> and for all <m>a, b \in \F{}{}</m>.
+                <idx><h>associativity</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>additive identity</title>
+            <p>
+              There exists an element <m>0 \in V</m> such that
+              <m>v + 0 = v</m> for all <m>v \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <title>additive inverse</title>
+            <p>
+              For every <m>v \in V{}</m>,
+              there exists <m>w \in V</m> such that <m>v + w = 0</m>.
+                <idx><h>additive inverse</h><h>in vector space</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>multiplicative identity</title>
+            <p>
+              <m>1v = v</m> for all <m>v \in V{}</m>.
+            </p>
+          </li>
+          <li>
+            <title>distributive properties</title>
+            <p>
+              <m>a(u + v) = au + av</m> and <m>(a + b)v = av + bv</m> for all
+              <m>a,
+              b \in \F{}</m> and all <m>u, v \in V{}</m>.
+                <idx><h>distributive property</h></idx>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The following geometric language sometimes aids our intuition.
+  </p>
+  <definition>
+    <title>vector, point</title>
+    <statement>
+      <p>
+        Elements of a vector space are called <term>vectors</term>
+            <idx><h>vector</h></idx>
+        or <term>points</term>.
+            <idx><h>point</h></idx>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The scalar multiplication in a vector space depends on <m>\F{}{}</m>.
+    Thus when we need to be precise,
+    we will say that <m>V</m> is a <term>vector space over <m>\F{}</m></term>
+    instead of saying simply that <m>V</m> is a vector space.
+    For example, <m>\R{n}</m> is a vector space over <m>\R{}</m>,
+    and <m>\C{n}</m> is a vector space over<nbsp/><m>\C{}</m>.
+  </p>
+  <definition>
+    <title>real vector space, complex vector space</title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            A vector space over <m>\R{}</m> is called a
+            <term>real vector space</term>.
+              <idx><h>real vector space</h></idx>
+          </p>
+        </li>
+        <li>
+          <p>
+            A vector space over <m>\C{}</m> is called a
+            <term>complex vector space</term>.
+              <idx><h>complex vector space</h></idx>
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </definition>
+  <p>
+    Usually the choice of <m>\F{}</m> is either clear from the context or irrelevant.
+    Thus we often assume that <m>\F{}</m> is lurking in the background without specifically mentioning it.\looseness=-1
+  </p>
+  <aside>
+    <p>
+      The simplest vector space is <m>\{0\}</m>,
+      which contains only one point.
+    </p>
+  </aside>
+  <p>
+    With the usual operations of addition and scalar multiplication,
+    <m>\F{n}</m> is a vector space over <m>\F{}{}</m>, as you should verify.
+    The example of <m>\F{n}</m> motivated our definition of vector space.
+  </p>
+  <example>
+    <title><m>\F{\infty}</m></title>
+    <statement>
+      <p>
+        <m>\F{\infty}</m><idx><h sortby="Finfty"><m>\F{\infty}{}</m></h></idx> is defined to be the set of all sequences of elements of <m>\F{}</m>:
+        <me>
+          \F{\infty} = \{  (x_1, x_2, \dotsc) : x_k \in \F{} \ for\  k = 1, 2, \dotsc \}
+        </me>.
+      </p>
+      <p>
+        Addition and scalar multiplication on
+        <m>\F{\infty}</m> are defined as expected:
+        <md>
+          <mrow>(x_1, x_2, \dotsc) + (y_1, y_2, \dotsc) = (x_1 + y_1, x_2 + y_2, \dotsc),</mrow>
+          <mrow>\lambda(x_1, x_2, \dotsc) = (\lambda x_1, \lambda x_2, \dotsc)</mrow>
+        </md>.
+      </p>
+      <p>
+        With these definitions,
+        <m>\F{\infty}</m> becomes a vector space over <m>\F{}{}</m>,
+        as you should verify.
+        The additive identity in this vector space is the sequence of all <m>0</m>'s.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Our next example of a vector space involves a set of functions.
+  </p>
+  <principle>
+    <title><m>\F{S}</m></title>
+    <ol>
+      <li>
+        <p>
+          If <m>S</m> is a set,
+          then <m>\F{S}</m> denotes the set of functions from <m>S</m> to <m>\F{}{}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          For <m>f, g \in \FF{S}</m>,
+          the <term>sum</term> <m>f + g \in \F{S}</m><idx><h>addition</h><h>of functions</h></idx> is the function defined by
+          <me>
+            (f + g)(x) = f(x) + g (x)
+          </me>
+          for all <m>x \in S</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          For <m>\lambda \in \F{}</m> and <m>f\in \FF{S}</m>,
+          the <term>product</term> <m>\lambda f \in \F{S}</m> is the function defined by
+          <me>
+            (\lambda f)(x) = \lambda f(x)
+          </me>
+          for all <m>x \in S</m>.
+        </p>
+      </li>
+    </ol>
+  </principle>
+  <p>
+        <idx><h sortby="FS"><m>\F{S}{}</m></h></idx>
+  </p>
+  <p>
+    As an example of the notation above,
+    if <m>S</m> is the interval <m>[0, 1]</m> and <m>\F{} = \R{}</m>,
+    then <m>\R{[0, 1]}</m> is the set of real-valued functions on the interval <m>[0, 1]</m>.
+  </p>
+  <p>
+    You should verify all three bullet points in the next example.
+  </p>
+  <example>
+    <title><m>\F{S}</m> is a vector space</title>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            If <m>S</m> is a nonempty set, then <m>\F{S}</m>
+            (with the operations of addition and scalar multiplication as defined above)
+            is a vector space over <m>\F{}{}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The additive identity of <m>\F{S}</m> is the function <m>0: S \to \F{}</m> defined by
+            <me>
+              0(x) = 0
+            </me>
+            for all <m>x \in S</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>f \in \FF{S}</m>,
+            the additive inverse of <m>f</m> is the function <m>-f: S \to \F{}</m> defined by
+            <me>
+              (-f)(x) = -f(x)
+            </me>
+            for all <m>x \in S</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </example>
+  <aside>
+    <p>
+      The elements of the vector space
+      <m>\R{[0,1]}</m> are real-valued functions on <m>[0, 1]</m>,
+      not lists.
+      In general, a vector space is an abstract entity whose elements might be lists,
+      functions, or weird objects.
+    </p>
+  </aside>
+  <p>
+    The vector space <m>\F{n}</m> is a special case of the vector space <m>\F{S}</m> because each
+    <m>(x_1, \ldots,
+    x_n) \in \F{n}</m> can be thought of as a function <m>x</m> from the set
+    <m>\{1, 2, \dots,
+    n\}</m> to <m>\F{}</m> by writing <m>x(k)</m> instead of <m>x_k</m> for the <m>k^\nth</m> coordinate of <m>(x_1, \dots,
+    x_n)</m>.
+    In other words,
+    we can think of <m>\F{n}</m> as <m>\FF{\{1, 2, \dots, n\}}</m>.
+    Similarly, we can think of
+    <m>\F{\infty}</m> as <m>\FF{\{1, 2, \dots \}}</m>.
+  </p>
+  <p>
+    Soon we will see further examples of vector spaces,
+    but first we need to develop some of the elementary properties of vector spaces.
+  </p>
+  <p>
+    The definition of a vector space requires it to have an additive identity.
+    The next result states that this identity is unique.
+  </p>
+  <theorem>
+    <title>unique additive identity</title>
+    <statement>
+      <p>
+        A vector space has a unique additive identity.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>0</m> and <m>0'</m> are both additive identities for some vector space<nbsp/><m>V{}</m>.
+      Then
+      <me>
+        0' = 0' + 0 = 0 + 0' = 0
+      </me>,
+      where the first equality holds because <m>0</m> is an additive identity,
+      the second equality comes from commutativity,
+      and the third equality holds because <m>0'</m> is an additive identity.
+      Thus <m>0' = 0</m>,
+      proving that <m>V</m> has only one additive identity.
+    </p>
+  </proof>
+  <p>
+    Each element <m>v</m> in a vector space has an additive inverse,
+    an element <m>w</m> in the vector space such that <m>v + w = 0</m>.
+    The next result shows that each element in a vector space has only one additive inverse.
+  </p>
+  <theorem>
+    <title>unique additive inverse</title>
+    <statement>
+      <p>
+        Every element in a vector space has a unique additive inverse.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>V</m> is a vector space.
+      Let <m>v \in V{}</m>.
+      Suppose <m>w</m> and <m>w'</m> are additive inverses of <m>v</m>.
+      Then
+      <me>
+        w = w + 0 = w + (v + w') = (w + v) + w' = 0 + w' = w'\!
+      </me>.
+    </p>
+    <p>
+      Thus <m>w = w'\!</m>, as desired.
+    </p>
+  </proof>
+  <p>
+    Because additive inverses are unique,
+    the following notation now makes sense.
+  </p>
+  <principle>
+    <title><m>-v</m>, <m>w - v</m></title>
+    <p>
+      Let <m>v, w \in V{}</m>.
+      Then
+          <idx><h sortby="v1"><m>-v</m></h></idx>
+      <ol>
+        <li>
+          <p>
+            <m>-v</m> denotes the additive inverse of <m>v</m>;<idx><h>additive inverse</h><h>in vector space</h></idx>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>w - v</m> is defined to be <m>w + (-v)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </principle>
+  <p>
+    Almost all results in this book involve some vector space.
+    To avoid having to restate frequently that <m>V</m> is a vector space,
+    we now make the necessary declaration once and for all.
+  </p>
+  <principle>
+    <title><m>V</m></title>
+    <p>
+      For the rest of this book,
+      <m>V</m> denotes a vector space over <m>\F{}{}</m>.
+    </p>
+  </principle>
+  <p>
+        <idx><h sortby="V"><m>V{}</m></h></idx>
+  </p>
+  <p>
+    In the next result, <m>0</m> denotes a scalar
+    (the number <m>0 \in \F{}</m>)
+    on the left side of the equation and a vector
+    (the additive identity of <m>V</m>)
+    on the right side of the equation.
+  </p>
+  <theorem xml:id="x64">
+    <title>the number <m>0</m> times a vector</title>
+    <statement>
+      <p>
+        <m>0v = 0</m> for every <m>v \in V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <aside>
+    <p>
+      The result in <xref ref="x64"></xref>
+      involves the additive identity of <m>V</m> and scalar multiplication.
+      The only part of the definition of a vector space that connects vector addition and scalar multiplication is the distributive property.
+      Thus the distributive property must be used in the proof of <xref ref="x64"></xref>.
+    </p>
+  </aside>
+  <p>
+        <idx><h>distributive property</h></idx>
+  </p>
+  <proof>
+    <p>
+      For <m>v \in V{}</m>, we have
+      <me>
+        0v = (0 + 0)v = 0v + 0v
+      </me>.
+    </p>
+    <p>
+      Adding the additive inverse of <m>0v</m> to both sides of the equation above gives <m>0 = 0v</m>,
+      as desired.
+    </p>
+  </proof>
+  <p>
+    In the next result,
+    <m>0</m> denotes the additive identity of <m>V{}</m>.
+    Although their proofs are similar,
+    <xref ref="x64"></xref> and <xref ref="x65"></xref> are not identical.
+    More precisely, <xref ref="x64"></xref>
+    states that the product of the scalar <m>0</m> and any vector equals the vector<nbsp/><m>0</m>,
+    <xref ref="x65">whereas</xref> states that the product of any scalar and the vector <m>0</m> equals the vector <m>0</m>.
+  </p>
+  <theorem xml:id="x65">
+    <title>a number times the vector  <m>0</m></title>
+    <statement>
+      <p>
+        <m>a0 = 0</m> for every <m>a \in \F{}{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      For <m>a \in \F{}{}</m>, we have
+      <me>
+        a0 = a(0 + 0) = a0 + a0
+      </me>.
+    </p>
+    <p>
+      Adding the additive inverse of <m>a0</m> to both sides of the equation above gives <m>0 = a0</m>,
+      as desired.
+    </p>
+  </proof>
+  <p>
+    Now we show that if an element of <m>V</m> is multiplied by the scalar<nbsp/><m>-1</m>,
+    then the result is the additive inverse of the element of<nbsp/><m>V{}</m>.
+  </p>
+  <theorem xml:id="x2">
+    <title>the number  <m>-1</m> times a vector</title>
+    <statement>
+      <p>
+        <m>(-1)v = -v</m> for every <m>v \in V{}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      For <m>v \in V{}</m>, we have
+      <me>
+        v + (-1)v = 1v + (-1)v = \bigl(1 + (-1)\bigr)v = 0v = 0
+      </me>.
+    </p>
+    <p>
+      This equation says that <m>(-1)v</m>,
+      when added to <m>v</m>, gives <m>0</m>.
+      Thus <m>(-1)v</m> is the additive inverse of <m>v</m>,
+      as desired.
+    </p>
+  </proof>
+  <p>
+    <exercises>
+      <title></title>
+      <exercise>
+        <statement>
+          <p>
+            Prove that <m>-(-v) = v</m> for every <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>a \in \F{}{}</m>, <m>v \in V{}</m>, and <m>av = 0</m>.
+            Prove that <m>a = 0</m> or <m>v = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v, w \in V{}</m>.
+            Explain why there exists a unique <m>x \in V</m> such that <m>v + 3x = w</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The empty set is not a vector space.
+            The empty set fails to satisfy only one of the requirements listed in the definition of a vector space <xref ref="vectorspace"/>.
+            Which one?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that in the definition of a vector space <xref ref="vectorspace"/>,
+            the additive inverse condition can be replaced with the condition that
+            <me>
+              0v = 0 \text{ for all }  v \in V{}
+            </me>.
+          </p>
+          <p>
+            Here the <m>0</m> on the left side is the number <m>0</m>,
+            and the <m>0</m> on the right side is the additive identity of <m>V{}</m>.
+            Note: The phrase a
+            <q>condition can be replaced</q>
+            in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Let <m>\infty</m> and <m>-\infty</m> denote two distinct objects,
+            neither of which is in <m>\R{}</m>.
+            Define an addition and scalar multiplication on
+            <m>\R{} \cup \{\infty, -\infty\}</m> as you could guess from the notation.
+            Specifically,
+            the sum and product of two real numbers is as usual,
+            and for <m>t \in \R{}</m> define
+            <me>
+              t \infty = \begin{cases}-\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ \infty \amp  \text{ if }  t > 0, \end{cases}  t (-\infty) = \begin{cases}\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ -\infty \amp  \text{ if }  t > 0, \end{cases}
+            </me>
+            and
+            <md>
+              <mrow>t + \infty \amp = \infty + t = \infty + \infty = \infty,</mrow>
+              <mrow>t + (-\infty) \amp = (-\infty) + t  = (-\infty) + (-\infty) = -\infty,</mrow>
+              <mrow>\infty + (-\infty) \amp = (-\infty) + \infty = 0</mrow>
+            </md>.
+          </p>
+          <p>
+            With these operations of addition and scalar multiplication,
+            is <m>\R{} \cup \{\infty,-\infty\}</m> a vector space over <m>\R{}</m>?
+            Explain.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S</m> is a nonempty set.
+            Let <m>V^S</m> denote the set of functions from <m>S</m> to<nbsp/><m>V{}</m>.
+            Define a natural addition and scalar multiplication on <m>V^S\!</m>,
+            and show that <m>V^S</m> is a vector space with these definitions.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a real vector space.
+            <ol>
+              <li>
+                <p>
+                  The <term>complexification</term> of <m>V{}</m>,
+                  denoted by <m>V{}_{\C{}}</m>,
+                  equals <m>V{} \times V{}</m>.
+                  An element of <m>V{}_{\C{}}</m> is an ordered pair <m>(u, v)</m>,
+                  where <m>u, v \in V{}</m>, but we write this as <m>u + iv</m>.
+                    <idx><h>complexification</h><h>of a vector space</h></idx>
+                    <idx><h sortby="VC"><m>V{}_{\C{}}</m></h></idx>
+                </p>
+              </li>
+              <li xml:id="x1VC">
+                <p>
+                  Addition on <m>V{}_{\C{}}</m> is defined by
+                  <me>
+                    (u_1 + i v_1) + (u_2 + i v_2) = (u_1 + u_2) + i (v_1 + v_2)
+                  </me>
+                  for all <m>u_1, v_1, u_2, v_2 \in V{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Complex scalar multiplication on<nbsp/><m>V{}_{\C{}}</m> is defined by
+                  <me>
+                    (a + bi)(u + iv) = (au - bv) + i(av + bu)
+                  </me>
+                  for all <m>a, b \in \R{}</m> and all <m>u, v \in V{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Prove that with the definitions of addition and scalar multiplication as above,
+            <m>V{}_{\C{}}</m> is a complex vector space.
+            Note: Think of <m>V</m> as a subset of
+            <m>V{}_{\C{}}</m> by identifying <m>u \in V</m> with <m>u + i0</m>.
+            The construction of <m>V{}_{\C{}}</m> from <m>V</m> can then be thought of as generalizing the construction of <m>\C{n}</m> from <m>\RR{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
+  </p>
+</section>

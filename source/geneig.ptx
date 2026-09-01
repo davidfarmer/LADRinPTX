@@ -1,0 +1,993 @@
+<section xml:id="geneig">
+  <title>Generalized Eigenvectors and Nilpotent Operators</title>
+  <subsection>
+    <title>Null Spaces of Powers of an Operator</title>
+    <p>
+      We begin this chapter with a study of null spaces of powers of an operator.
+          <idx><h>null space</h><h>of powers of an operator</h></idx>
+    </p>
+    <theorem xml:id="x76">
+      <title>sequence of increasing null spaces</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            \{0\} = \ker T^0 \subset \ker T^1 \subset \cdots \subset \ker T^k \subset \ker T^{k+1} \subset \dotsb
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>k</m> is a nonnegative integer and <m>v \in \ker T^k\!</m>.
+        Then <m>T^k v = 0</m>,
+        which implies that <m>T^{k+1} v = T( T^kv ) = T(0) = 0</m>.
+        Thus <m>v \in \ker T^{k+1}\!</m>.
+        Hence <m>\ker T^k \subset \ker T^{k+1}\!</m>, as desired.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        For similar results about decreasing sequences of ranges,
+        see <xref ref="range1">Exercises</xref>,
+        <xref ref="range2"></xref>, and <xref ref="range3"></xref>.
+      </p>
+    </aside>
+    <p>
+      The following result states that if two consecutive terms in the sequence of subspaces above are equal,
+      then all later terms in the sequence are equal.
+    </p>
+    <theorem xml:id="a113">
+      <title>equality in the sequence of null spaces</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer such that
+          <me>
+            \ker T^m = \ker T^{m+1}\!
+          </me>.
+        </p>
+        <p>
+          Then
+          <me>
+            \ker T^m = \ker T^{m+1} = \ker T^{m+2} = \ker T^{m+3} = \dotsb
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>k</m> be a positive integer.
+        We want to prove that
+        <me>
+          \ker T^{m+k} = \ker T^{m + k + 1}\!
+        </me>.
+      </p>
+      <p>
+        We already know from <xref ref="x76"></xref>
+        that <m>\ker T^{m+k} \subset \ker T^{m + k + 1}\!</m>.
+      </p>
+      <p>
+        To prove the inclusion in the other direction,
+        suppose <m>v \in \ker T^{m+ k+1}\!</m>.
+        Then
+        <me>
+          T^{m+1} ( T^k v ) = T^{m+k+1}v =0
+        </me>.
+      </p>
+      <p>
+        Hence
+        <me>
+          T^k v \in \ker T^{m+1} = \ker T^m\!
+        </me>.
+      </p>
+      <p>
+        Thus <m>T^{m+k} v = T^m( T^k v ) = 0</m>,
+        which means that <m>v \in \ker T^{m+k}\!</m>.
+        This implies that <m>\ker T^{m + k+1} \subset \ker T^{m+k}\!</m>,
+        completing the proof.
+      </p>
+    </proof>
+    <p>
+      The result above raises the question of whether there exists a nonnegative integer <m>m</m> such that <m>\ker T^m = \ker T^{m+1}\!</m>.
+      The next result shows that this equality holds at least when <m>m</m> equals the dimension of the vector space on which <m>T</m> operates.
+    </p>
+    <theorem xml:id="x23">
+      <title>null spaces stop growing</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            \ker T^{\dim V} = \ker T^{\dim V + 1} = \ker T^{\dim V + 2} = \dotsb
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We only need to prove that <m>\ker T^{\dim V} = \ker T^{\dim V + 1}</m>
+        (by <xref ref="a113"></xref>).
+        Suppose this is not true.
+        Then, by <xref ref="x76"></xref> and <xref ref="a113"></xref>, we have
+        <me>
+          \{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots \subsetneq \ker T^{\dim V} \subsetneq \ker T^{\dim V + 1}\!
+        </me>,
+        where the symbol <m>\subsetneq</m><idx><h sortby="subsetneq"><m>\subsetneq</m></h></idx> means
+        <q>contained in but not equal to</q>. At each of the strict inclusions in the chain above,
+        the dimension increases by at least<nbsp/><m>1</m>.
+        Thus <m>\dim \ker T^{\dim V + 1} \ge \dim V+ 1</m>,
+        a contradiction because a subspace of<nbsp/><m>V</m> cannot have a larger dimension than <m>\dim V{}</m>.
+      </p>
+    </proof>
+    <p>
+      It is not true that <m>V = \ker T \oplus \ran T</m> for every <m>T \in \Lc(V)</m>.
+      However, the next result can be a useful substitute.
+    </p>
+    <theorem xml:id="x8nulloplusran">
+      <title><m>V</m> is the direct sum of  <m>\ker T^{\dim V}</m> and  <m>\ran T^{\dim V}</m>\index{direct sum!of null Tn and ran Tn@of <m>\ker T^{\dim V}</m> and <m>\ran T^{\dim V}</m>}</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then
+          <me>
+            V = \ker T^{\dim V} \oplus \ran T^{\dim V}\!
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>n = \dim V{}</m>.
+        First we show that
+        <men xml:id="nullran">
+          ( \ker T^n ) \cap ( \ran T^n ) = \{0\}
+        </men>.
+      </p>
+      <p>
+        Suppose <m>v \in ( \ker T^n ) \cap ( \ran T^n )</m>.
+        Then <m>T^n v = 0</m>,
+        and there exists <m>u \in V</m> such that <m>v = T^n u</m>.
+        Applying <m>T^n</m> to both sides of the last equation shows that <m>T^n v = T^{2n} u</m>.
+        Hence <m>T^{2n} u = 0</m>, which implies that <m>T^n u = 0</m>
+        (by <xref ref="x23"></xref>).
+        Thus <m>v = T^n u = 0</m>,
+        completing the proof of <xref ref="nullran"></xref>.
+      </p>
+      <p>
+        <xref ref="nullran">Now</xref> implies that <m>\ker T^n + \ran T^n</m> is a direct sum
+        (by <xref ref="x219"></xref>).
+        Also,
+        <me>
+          \dim( \ker T^n \oplus \ran T^n ) = \dim \ker T^n + \dim \ran T^n = \dim V{}
+        </me>,
+        where the first equality above comes from <xref ref="x3directsumdim"></xref>
+        and the second equality comes from the fundamental theorem of linear maps <xref ref="x3ab11"/>.
+        The equation above implies that <m>\ker T^n \oplus \ran T^n = V{}</m>
+        (<xref ref="x2subfull">see</xref>),
+        as desired.
+      </p>
+    </proof>
+    <p>
+      For an improvement of the result above,
+      see <xref ref="x8notnil">Exercise</xref>.
+    </p>
+    <example>
+      <title><m>\F3 = \ker T^3 \oplus \ran T^3</m> for <m>T \in \Lc(\F3)</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(\F{3})</m> is defined by
+          <me>
+            T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
+          </me>.
+        </p>
+        <p>
+          Then <m>\ker T = \{ (z_1, 0, 0):
+          z_1 \in \F{} \}</m> and <m>\ran T = \{ (z_1, 0, z_3):
+          z_1, z_3 \in \F{} \}</m>.
+          Thus <m>\ker T \cap \ran T \ne \{0\}</m>.
+          Hence <m>\ker T + \ran T</m> is not a direct sum.
+          Also note that <m>\ker T + \ran T \ne \FF3</m>.
+          However, we have <m>T^3(z_1, z_2, z_3) = (0, 0, 125z_3)</m>.
+          Thus we see that
+          <me>
+            \ker T^3 = \{ (z_1, z_2, 0): z_1, z_2 \in \F{} \} \andd \ran T^3 = \{ (0, 0, z_3): z_3 \in \F{} \}
+          </me>.
+        </p>
+        <p>
+          Hence <m>\FF3 = \ker T^3 \oplus \ran T^3{}</m>,
+          as expected by <xref ref="x8nulloplusran"></xref>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Generalized Eigenvectors</title>
+    <p>
+      Some operators do not have enough eigenvectors to lead to good descriptions of their behavior.
+      Thus in this subsection we introduce the concept of generalized eigenvectors,
+      which will play a major role in our description of the structure of an operator.
+    </p>
+    <p>
+      To understand why we need more than eigenvectors,
+      let's examine the question of describing an operator by decomposing its domain into invariant subspaces.
+      Fix <m>T \in \Lc(V)</m>.
+      We seek to describe <m>T</m> by finding a
+      <q>nice</q>
+      direct sum decomposition
+      <me>
+        V = V{}_1 \oplus \dots \oplus V{}_n
+      </me>,
+      where each <m>V{}_k</m> is a subspace of <m>V</m> invariant under<nbsp/><m>T{}</m>.
+      The simplest possible nonzero invariant subspaces are one-dimensional.
+      A decomposition as above in which each <m>V{}_k</m> is a one-dimensional subspace of <m>V</m> invariant under <m>T</m> is possible if and only if <m>V</m> has a basis consisting of eigenvectors of<nbsp/><m>T</m>
+      (<xref ref="x427">see</xref>).
+      This happens if and only if <m>V</m> has an eigenspace decomposition
+      <men xml:id="x429">
+        V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)
+      </men>,
+      where <m>\lambda_1, \dots, \lambda_m</m> are the distinct eigenvalues of <m>T</m>
+      (<xref ref="x427">see</xref>).
+    </p>
+    <p>
+      The spectral theorem in the previous chapter shows that if <m>V</m> is an inner product space,
+      then a decomposition of the <xref ref="x429">form</xref>
+      holds for every self-adjoint operator if
+      <m>\F{} = \R{}</m> and for every normal operator if
+      <m>\F{} = \C{}</m> because operators of those types have enough eigenvectors to form a basis of <m>V</m>
+      (<xref ref="x86">see</xref> and <xref ref="x85"></xref>).
+    </p>
+    <p>
+      However, a decomposition of the <xref ref="x429">form</xref>
+      may not hold for more general operators,
+      even on a complex vector space.
+      An example was given by the operator in <xref ref="x428"></xref>,
+      which does not have enough eigenvectors <xref ref="x429">for</xref> to hold.
+      Generalized eigenvectors and generalized eigenspaces,
+      which we now introduce, will remedy this situation.
+    </p>
+    <definition>
+      <title>generalized eigenvector</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of<nbsp/><m>T{}</m>.
+          A vector <m>v \in V</m> is called a
+          <term>generalized eigenvector</term>
+              <idx><h>generalized eigenvector</h></idx>
+          of<nbsp/><m>T</m> corresponding to<nbsp/><m>\lambda</m> if <m>v \ne 0</m> and
+          <me>
+            (T - \lambda I)^k v = 0
+          </me>
+          for some positive integer<nbsp/><m>k</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Generalized eigenvalues are not defined because doing so would not lead to anything new.
+        Reason: if <m>(T - \lambda I)^k</m> is not injective for some positive integer <m>k</m>,
+        then <m>T - \lambda I</m> is not injective,
+        and hence <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+      </p>
+    </aside>
+    <p>
+      A nonzero vector <m>v \in V</m> is a generalized eigenvector of <m>T</m> corresponding to <m>\lambda</m> if and only if
+      <me>
+        (T - \lambda I)^{\dim V} v = 0
+      </me>,
+      as follows from <xref ref="x76">applying</xref> and <xref ref="x23"></xref>
+      to the operator <m>T  - \lambda I</m>.
+    </p>
+    <p>
+      As we know, an operator on a complex vector space may not have enough eigenvectors to form a basis of the domain.
+      The next result shows that on a complex vector space there are enough generalized eigenvectors to do this.
+    </p>
+    <theorem xml:id="x28">
+      <title>a basis of generalized eigenvectors</title>
+      <statement>
+        <p>
+              <idx><h>basis</h><h>of generalized eigenvectors</h></idx>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then there is a basis of <m>V</m> consisting of generalized eigenvectors of <m>T{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>n = \dim V{}</m>.
+        We will use induction on <m>n</m>.
+        To get started,
+        note that the desired result holds if <m>n=1</m> because then every nonzero vector in <m>V</m> is an eigenvector of <m>T{}</m>.
+      </p>
+      <aside>
+        <p>
+          This step is where we use the hypothesis that <m>\F{} = \C{}</m>,
+          because if <m>\F{} = \R{}</m> then <m>T</m> may not have any eigenvalues.
+        </p>
+      </aside>
+      <p>
+        Now suppose <m>n > 1</m> and the desired result holds for all smaller values of <m>\dim V{}</m>.
+        Let <m>\lambda</m> be an eigenvalue of <m>T{}</m>.
+        <xref ref="x8nulloplusran">Applying</xref>
+        to <m>T - \lambda I</m> shows that
+        <me>
+          V = \ker(T - \lambda I)^n \oplus \ran (T - \lambda I)^n{}
+        </me>.
+      </p>
+      <p>
+        If <m>\ker(T - \lambda I)^n = V{}</m>,
+        then every nonzero vector in <m>V</m> is a generalized eigenvector of <m>T</m>,
+        and thus in this case there is a basis of <m>V</m> consisting of generalized eigenvectors of <m>T{}</m>.
+        Hence we can assume that <m>\ker(T - \lambda I)^n \ne V{}</m>,
+        which implies that <m>\ran (T - \lambda I)^n \ne \{ 0 \}</m>.
+      </p>
+      <p>
+        Also, <m>\ker(T - \lambda I)^n \ne \{ 0 \}</m>,
+        because <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+        Thus we have
+        <me>
+          0 \lt  \dim \ran(T - \lambda I)^n \lt  n
+        </me>.
+      </p>
+      <p>
+        Furthermore,
+        <m>\ran(T - \lambda I)^n</m> is invariant under <m>T</m> [by <xref ref="x130"></xref>
+        with <m>p(z) = (z - \lambda)^n</m>] . Let
+        <m>S \in \Lc( \ran(T - \lambda I)^n )</m> equal <m>T</m> restricted to <m>\ran(T - \lambda I)^n{}</m>.
+        Our induction hypothesis applied to the operator <m>S</m> implies that there is a basis of
+        <m>\ran(T - \lambda I)^n</m> consisting of generalized eigenvectors of <m>S</m>,
+        which of course are generalized eigenvectors of <m>T{}</m>.
+        Adjoining that basis of <m>\ran(T - \lambda I)^n</m> to a basis of
+        <m>\ker(T - \lambda I)^n</m> gives a basis of <m>V</m> consisting of generalized eigenvectors of <m>T{}</m>.
+      </p>
+    </proof>
+    <p>
+      If <m>\F{} = \R{}</m> and <m>\dim V > 1</m>,
+      then some operators on <m>V</m> have the property that there exists a basis of <m>V</m> consisting of generalized eigenvectors of the operator, and
+      (unlike what happens when <m>\F{}=\C{}</m>)
+      other operators do not have this property.
+      See <xref ref="x8geneigb">Exercise</xref>
+      for a necessary and sufficient condition that determines whether an operator has this property.
+    </p>
+    <example xml:id="x8exgeneig">
+      <title>generalized eigenvectors of an operator on  <m>\C3</m></title>
+      <statement>
+        <p>
+          Define <m>T \in \Lc( \C{3} )</m> by
+          <me>
+            T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
+          </me>
+          for each <m>(z_1, z_2, z_3) \in \CC3</m>.
+          A routine use of the definition of eigenvalue shows that the eigenvalues of <m>T</m> are <m>0</m> and <m>5</m>.
+          Furthermore,
+          the eigenvectors corresponding to the eigenvalue <m>0</m> are the nonzero vectors of the form <m>(z_1, 0, 0)</m>,
+          and the eigenvectors corresponding to the eigenvalue <m>5</m> are the nonzero vectors of the form <m>(0, 0, z_3)</m>.
+          Hence this operator does not have enough eigenvectors to span its domain<nbsp/><m>\CC3</m>.
+        </p>
+        <p>
+          We compute that <m>T^3(z_1, z_2, z_3) = (0, 0, 125 z_3)</m>.
+          <xref ref="x76">Thus</xref> and <xref ref="x23"></xref>
+          imply that the generalized eigenvectors of <m>T</m> corresponding to the eigenvalue <m>0</m> are the nonzero vectors of the form <m>(z_1, z_2, 0)</m>.
+        </p>
+        <p>
+          We also have <m>(T-5I)^3(z_1, z_2, z_3) = (-125z_1 + 300z_2, -125z_2, 0)</m>.
+          Thus the generalized eigenvectors of <m>T</m> corresponding to the eigenvalue <m>5</m> are the nonzero vectors of the form <m>(0,0,z_3)</m>.
+        </p>
+        <p>
+          The paragraphs above show that each of the standard basis vectors of <m>\C3</m> is a generalized eigenvector of <m>T{}</m>.
+          Thus <m>\C3</m> indeed has a basis consisting of generalized eigenvectors of <m>T{}</m>,
+          as promised by <xref ref="x28"></xref>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      If <m>v</m> is an eigenvector of <m>T \in \Lc(V)</m>,
+      then the corresponding eigenvalue <m>\lambda</m> is uniquely determined by the equation <m>Tv = \lambda v</m>,
+      which can be satisfied by only one <m>\lambda \in \F{}</m>
+      (because <m>v\ne 0</m>).
+      However, if <m>v</m> is a generalized eigenvector of <m>T</m>,
+      then it is not obvious that the equation
+      <m>(T - \lambda I)^{\dim V}v = 0</m> can be satisfied by only one <m>\lambda \in \F{}{}</m>.
+      Fortunately,
+      the next result tells us that all is well on this issue.
+    </p>
+    <theorem xml:id="x8intgeneig">
+      <title>generalized eigenvector corresponds to a unique eigenvalue</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then each generalized eigenvector of <m>T</m> corresponds to only one eigenvalue of <m>T{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>v \in V</m> is a generalized eigenvector of <m>T</m> corresponding to eigenvalues <m>\alpha</m> and <m>\lambda</m> of <m>T{}</m>.
+        Let <m>m</m> be the smallest positive integer such that <m>(T - \alpha  I)^m v = 0</m>.
+        Let <m>n = \dim V{}</m>.
+        Then
+        <md>
+          <mrow>0 \amp  = (T - \lambda I)^n v</mrow>
+          <mrow>\amp  = (  (T - \alpha  I) + (\alpha  - \lambda) I  )^n v</mrow>
+          <mrow>\amp  = \sum_{k=0}^n b_k (\alpha  - \lambda)^{n-k} (T - \alpha  I)^k v</mrow>
+        </md>,
+        where <m>b_0 = 1</m> and the values of the other binomial coefficients <m>b_k</m> do not matter.
+        Apply the operator <m>(T - \alpha  I)^{m-1}</m> to both sides of the equation above, getting
+        <me>
+          0 = (\alpha  - \lambda)^n (T - \alpha  I)^{m-1} v
+        </me>.
+      </p>
+      <p>
+        Because <m>(T - \alpha I)^{m-1} v \ne 0</m>,
+        the equation above implies that <m>\alpha = \lambda</m>,
+        as desired.
+      </p>
+    </proof>
+    <p>
+      We saw earlier <xref ref="x26"/> that eigenvectors corresponding to distinct eigenvalues are linearly independent.
+      Now we prove a similar result for generalized eigenvectors,
+      with a proof that roughly follows the pattern of the proof of that earlier result.
+    </p>
+    <theorem xml:id="genind">
+      <title>linearly independent generalized eigenvectors</title>
+      <statement>
+        <p>
+          Suppose that <m>T \in \Lc(V)</m>.
+          Then every list of generalized eigenvectors of <m>T</m> corresponding to distinct eigenvalues of <m>T</m> is linearly independent.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose the desired result is false.
+        Then there exists a smallest positive integer <m>m</m> such that there exists a linearly dependent list
+        <m>v_1, \ldots,
+        v_m</m> of generalized eigenvectors of <m>T</m> corresponding to distinct eigenvalues <m>\lambda_1, \ldots, \lambda_m</m> of <m>T</m>
+        (note that <m>m\ge 2</m> because a generalized eigenvector is,
+        by definition,
+        nonzero).
+        Thus there exist <m>a_1, \ldots,
+        a_m \in \F{}{}</m>, none of which are <m>0</m>
+        (because of the minimality of <m>m</m>),
+        such that
+        <me>
+          a_1 v_1 + \cdots + a_m v_m = 0
+        </me>.
+      </p>
+      <p>
+        Let <m>n = \dim V{}</m>.
+        Apply <m>(T - \lambda_m I)^n</m> to both sides of the equation above, getting
+        <men xml:id="x8gene">
+          a_1 (T - \lambda_m I)^n v_1 + \cdots + a_{m-1} (T - \lambda_m I)^n v_{m-1} = 0
+        </men>.
+      </p>
+      <p>
+        Suppose <m>k \in \{ 1, \ldots, m-1 \}</m>.
+        Then
+        <me>
+          (T - \lambda_m I)^n v_k \ne 0
+        </me>
+        because otherwise <m>v_k</m> would be a generalized eigenvector of <m>T</m> corresponding to the distinct eigenvalues
+        <m>\lambda_k</m> and <m>\lambda_m</m>,
+        which would <xref ref="x8intgeneig">contradict</xref>.
+        However,
+        <me>
+          (T - \lambda_k I)^n (  (T - \lambda_m I)^n v_k  ) = (T - \lambda_m I)^n (  (T - \lambda_k I)^n v_k  ) = 0
+        </me>.
+      </p>
+      <p>
+        Thus the last two displayed equations show that
+        <m>(T - \lambda_m I)^n v_k</m> is a generalized eigenvector of <m>T</m> corresponding to the eigenvalue <m>\lambda_k</m>.
+        Hence
+        <me>
+          (T - \lambda_m I)^n v_1, \ldots, (T - \lambda_m I)^n v_{m-1}
+        </me>
+        is a linearly dependent list
+        (by <xref ref="x8gene"></xref>)
+        of <m>m-1</m> generalized eigenvectors corresponding to distinct eigenvalues,
+        contradicting the minimality of <m>m</m>.
+        This contradiction completes the proof.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Nilpotent Operators</title>
+    <definition>
+      <title>nilpotent</title>
+      <statement>
+        <p>
+          An operator is called <term>nilpotent</term>
+              <idx><h>nilpotent operator</h></idx>
+          if some power of it equals <m>0</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Thus an operator <m>T \in \Lc(V)</m> is nilpotent if and only if every nonzero vector in <m>V</m> is a generalized eigenvector of <m>T</m> corresponding to the eigenvalue <m>0</m>.
+    </p>
+    <example xml:id="x8nil">
+      <title>nilpotent operators</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The operator <m>T \in \Lc( \F{4} )</m> defined by
+              <me>
+                T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2)
+              </me>
+              is nilpotent because <m>T^2 = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The operator on <m>\F3</m> whose matrix
+              (with respect to the standard basis)
+              is
+              <me>
+                \begin{pmatrix}-3 \amp  9 \amp  0 \\ -7 \amp  9 \amp  6 \\ 4 \amp  0 \amp  -6 \end{pmatrix}
+              </me>
+              is nilpotent,
+              as can be shown by cubing the matrix above to get the zero matrix.\looseness=-1
+            </p>
+          </li>
+          <li>
+            <p>
+              The operator of differentiation<idx><h>differentiation linear map</h></idx> on
+              <m>\P{}_m(\R{})</m> is nilpotent because the
+              <m>(m + 1)^{\nth}</m> derivative of every polynomial of degree at most <m>m</m> equals<nbsp/><m>0</m>.
+              Note that on this space of dimension <m>m + 1</m>,
+              we need to raise the nilpotent operator to the power <m>m + 1</m> to get the <m>0</m> operator.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        The Latin word <em>nil</em> means nothing or zero;
+        the Latin word <em>potens</em> means having power.
+        Thus <em>nilpotent</em> literally means having a power that is zero.
+      </p>
+    </aside>
+    <p>
+      The next result shows that when raising a nilpotent operator to a power,
+      we never need to use a power higher than the dimension of the space.
+      For a slightly stronger result,
+      see <xref ref="nilrange">Exercise</xref>.
+    </p>
+    <theorem xml:id="x181">
+      <title>nilpotent operator raised to dimension of domain is <m>0</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is nilpotent.
+          Then <m>T^{\dim V} = 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Because <m>T</m> is nilpotent,
+        there exists a positive integer <m>k</m> such that <m>T^k = 0</m>.
+        Thus <m>\ker T^k = V{}</m>.
+        <xref ref="x76">Now</xref> and <xref ref="x23"></xref>
+        imply that <m>\ker T^{\dim V} = V{}</m>.
+        Thus <m>T^{\dim V} = 0</m>.
+      </p>
+    </proof>
+    <theorem xml:id="x8eignil">
+      <title>eigenvalues of nilpotent operator</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          <ol>
+            <li>
+              <p>
+                If <m>T</m> is nilpotent,
+                then <m>0</m> is an eigenvalue of <m>T</m> and <m>T</m> has no other eigenvalues.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\F{} = \C{}</m> and <m>0</m> is the only eigenvalue of <m>T</m>,
+                then <m>T</m> is nilpotent.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            To prove (a), suppose <m>T</m> is nilpotent.
+            Hence there is a positive integer <m>m</m> such that <m>T^m = 0</m>.
+            This implies that <m>T</m> is not injective.
+            Thus <m>0</m> is an eigenvalue of<nbsp/><m>T{}</m>.
+            To show that <m>T</m> has no other eigenvalues,
+            suppose <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+            Then there exists a nonzero vector <m>v \in V</m> such that
+            <me>
+              \lambda v = Tv
+            </me>.
+            Repeatedly applying <m>T</m> to both sides of this equation shows that
+            <me>
+              \lambda^m v = T^m v = 0
+            </me>.
+            Thus <m>\lambda = 0</m>, as desired.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>0</m> is the only eigenvalue of <m>T{}</m>.
+            <xref ref="x136">By</xref>(b),
+            the minimal polynomial of <m>T</m> equals <m>z^m</m> for some positive integer <m>m</m>.
+            Thus <m>T^m = 0</m>.
+            Hence <m>T</m> is nilpotent.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      <xref ref="Nil1">Exercise</xref> shows that the hypothesis that
+      <m>\F{} = \C{}</m> cannot be deleted in (b) of the result above.
+    </p>
+    <p>
+      Given an operator on <m>V{}</m>,
+      we want to find a basis of <m>V</m> such that the matrix of the operator with respect to this basis is as simple as possible,
+      meaning that the matrix contains many <m>0</m>'s.
+      The next result shows that if <m>T</m> is nilpotent,
+      then we can choose a basis of <m>V</m> such that the matrix of <m>T</m> with respect to this basis has more than half of its entries equal to <m>0</m>.
+      Later in this chapter we will do even better.
+    </p>
+    <theorem xml:id="a33">
+      <title>minimal polynomial and upper-triangular matrix of nilpotent operator</title>
+      <statement>
+        <p>
+              <idx><h>matrix</h><h>of nilpotent operator</h></idx>
+              <idx><h>minimal polynomial</h><h>of nilpotent operator</h></idx>
+          Suppose <m>T \in \Lc(V)</m>.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>T</m> is nilpotent.
+              </p>
+            </li>
+            <li>
+              <p>
+                The minimal polynomial of <m>T</m> is <m>z^m</m> for some positive integer <m>m</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is a basis of  <m>V</m> with respect to which the matrix of  <m>T</m> has the form
+                <me>
+                  \begin{pmatrix}0 \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  0 \end{pmatrix}
+                </me>,
+                where all entries on and below the diagonal equal  <m>0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose (a) holds, so <m>T</m> is nilpotent.
+        Thus there exists a positive integer <m>n</m> such that <m>T^n = 0</m>.
+        <xref ref="x140">Now</xref> implies that <m>z^n</m> is a polynomial multiple of the minimal polynomial of <m>T{}</m>.
+        Thus the minimal polynomial of <m>T</m> is <m>z^m</m> for some positive integer <m>m</m>,
+        proving that (a) implies (b).
+      </p>
+      <p>
+        Now suppose (b) holds,
+        so the minimal polynomial of <m>T</m> is <m>z^m</m> for some positive integer <m>m</m>.
+        This implies, by <xref ref="x136"></xref>(a),
+        that <m>0</m> \big(which is the only zero of <m>z^m</m>\big) is the only eigenvalue of <m>T{}</m>.
+        This further implies, by <xref ref="x5necsuf"></xref>,
+        that there is a basis of <m>V</m> with respect to which the matrix of <m>T</m> is upper triangular.
+        This also implies, by <xref ref="a221"></xref>,
+        that all entries on the diagonal of this matrix are <m>0</m>,
+        proving that (b) implies<nbsp/>(c).
+      </p>
+      <p>
+        Now suppose (c) holds.
+        <xref ref="x4polyut">Then</xref> implies that <m>T^{\dim V} = 0</m>.
+        Thus <m>T</m> is nilpotent, proving that (c) implies (a).
+      </p>
+    </proof>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Prove that if <m>\dim \ker T^4 = 8</m> and <m>\dim \ker T^6 = 9</m>,
+              then <m>\dim \ker T^m = 9</m> for all integers <m>m \ge 5</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8linind">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>, <m>m</m> is a positive integer,
+              <m>v \in V</m>, and <m>T^{m-1} v \ne 0</m> but <m>T^m v = 0</m>.
+              Prove that <m>v, Tv, T^2 v, \dots, T^{m-1} v</m> is linearly independent.
+              Note: The result in this exercise is used in the proof of <xref ref="x452"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Prove that
+              <me>
+                V = \ker T \oplus \ran T \iff \ker T^2 = \ker T{}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>, <m>\lambda \in \F{}{}</m>,
+              and <m>m</m> is a positive integer such that the minimal polynomial of <m>T</m> is a polynomial multiple of <m>(z - \lambda)^m\!</m>.
+              Prove that
+              <me>
+                \dim \ker(T - \lambda I)^m \ge m
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
+              Prove that
+              <me>
+                \dim \ker T^m \le m \dim \ker T
+              </me>.
+            </p>
+            <p>
+              <hint>
+                <p>
+                  <xref ref="x3diminv">Exercise</xref>
+                  in <xref ref="x3nullspace">Section</xref> may be useful.
+                </p>
+              </hint>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="range1">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Show that<idx><h>range</h><h>of powers of an operator</h></idx>
+              <me>
+                V = \ran T^0 \supset \ran T^1 \supset \cdots \supset \ran T^k \supset \ran T^{k+1} \supset \dotsb
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="range2">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer such that
+              <me>
+                \ran T^m = \ran T^{m+1}\!
+              </me>.
+            </p>
+            <p>
+              Prove that <m>\ran T^k = \ran T^m</m> for all <m>k > m</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="range3">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Prove that
+              <me>
+                \ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="kerran">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer.
+              Prove that
+              <me>
+                \ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}\!
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Define <m>T \in \Lc( \C{2} )</m> by <m>T(w,z) = (z,0)</m>.
+              Find all generalized eigenvectors of<nbsp/><m>T{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8geneigb">
+          <statement>
+            <p>
+              Suppose that <m>T \in \Lc(V)</m>.
+              Prove that there is a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> if and only if the minimal polynomial of <m>T</m> equals
+              <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
+          <idx><h>minimal polynomial</h><h>and basis of generalized eigenvectors</h></idx>
+      Note: Assume <m>\F{} = \R{}</m> because the case <m>\F{} = \C{}</m> follows from <xref ref="x136"></xref> (b) and <xref ref="x28"></xref>.
+            </p>
+            <p>
+              This exercise states that the condition for there to be a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> is the same as the condition for there to be a basis with respect to which <m>T</m> has an upper-triangular matrix
+              (<xref ref="x5necsuf">see</xref>)
+              .
+            </p>
+            <p>
+              <em>Caution:</em> If <m>T</m> has an upper-triangular matrix with respect to a basis <m>v_1, \ldots,
+              v_n</m> of <m>V{}</m>,
+              then <m>v_1</m> is an eigenvector of <m>T</m> but it is not necessarily true that
+              <m>v_2, \ldots,
+              v_n</m> are generalized eigenvectors of <m>T{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is such that every nonzero vector in <m>V</m> is a generalized eigenvector of <m>T{}</m>.
+              Prove that there exists <m>\lambda \in \F{}</m> such that <m>T - \lambda I</m> is nilpotent.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>S, T \in \Lc(V)</m> and <m>ST</m> is nilpotent.
+              Prove that <m>TS</m> is nilpotent.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>T \ne 0</m>.
+              Prove <m>T</m> is not diagonalizable.
+          <idx><h>diagonalizable</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x425">
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+              Prove that <m>T</m> is diagonalizable if and only if every generalized eigenvector of<nbsp/><m>T</m> is an eigenvector of<nbsp/><m>T{}</m>.
+          <idx><h>diagonalizable</h></idx>
+      Note: For <m>\F{} = \C{}</m>,
+              this exercise adds another equivalence to the list of conditions for diagonalizability in <xref ref="x427"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <ol>
+              <li>
+                <p>
+                  Give an example of nilpotent operators <m>S, T</m> on the same vector space such that neither <m>S+T</m> nor <m>ST</m> is nilpotent.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose <m>S, T \in \Lc(V)</m> are nilpotent and <m>ST = TS</m>.
+                  Prove that <m>S + T</m> and <m>ST</m> are nilpotent.
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>m</m> is a positive integer such that <m>T^m = 0</m>.
+              <ol>
+                <li>
+                  <p>
+                    Prove that <m>I-T</m> is invertible and that <m>(I - T)^{-1} = I + T + \dots + T^{m-1}\!</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Explain how you would guess the formula above.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="nilrange">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is nilpotent.
+              Prove that <m>T^{1 + \dim \ran T} = 0</m>.
+              Note: If <m>\dim \ran T \lt \dim V - 1</m>,
+              then this exercise <xref ref="x181">improves</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8notnil">
+          <statement>
+            <p>
+              Suppose <m>T\in \Lc(V)</m> is not nilpotent.
+              Show that
+              <me>
+                V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}\!
+              </me>.
+            </p>
+            <p>
+              Note: For operators that are not nilpotent,
+              this exercise <xref ref="x8nulloplusran">improves</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is an inner product space and
+              <m>T \in \Lc(V)</m> is normal and nilpotent.
+              Prove that <m>T = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8nullTk">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is such that <m>\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!</m>.
+              Prove that <m>T</m> is nilpotent and that
+              <m>\dim \ker T^k = k</m> for every integer <m>k</m> with <m>0 \le k \le \dim V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc( \C{5} )</m> is such that <m>\ran T^4 \ne \ran T^5{}</m>.
+              Prove that <m>T</m> is nilpotent.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="Nil1">
+          <statement>
+            <p>
+              Give an example of an operator <m>T</m> on a finite-dimensional real vector space such that <m>0</m> is the only eigenvalue of <m>T</m> but <m>T</m> is not nilpotent.
+              Note: This exercise shows that the implication (b)
+              <m>\implies</m> (a) in <xref ref="x8eignil"></xref>
+              does not hold without the hypothesis that <m>\F{} = \C{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              For each item in <xref ref="x8nil">Example</xref>,
+              find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by <xref ref="a33"></xref>(c).
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>V</m> is an inner product space and <m>T \in \Lc(V)</m> is nilpotent.
+              Show that there is an orthonormal basis of <m>V</m> with respect to which the matrix of <m>T</m> has the upper-triangular form promised by <xref ref="a33"></xref>(c).
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

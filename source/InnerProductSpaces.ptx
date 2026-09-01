@@ -1,0 +1,64 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="InnerProductSpaces">
+  <title>Inner Product Spaces</title>
+  <introduction>
+    <p>
+      In making the definition of a vector space,
+      we generalized the linear structure
+      (addition and scalar multiplication)
+      of <m>\R{2}</m> and <m>\RR{3}</m>.
+      We ignored geometric features such as the notions of length and angle.
+      These ideas are embedded in the concept of inner products,
+      which we will investigate in this chapter.
+    </p>
+    <p>
+      Every inner product induces a norm,
+      which you can think of as a length.
+      This norm satisfies key properties such as the Pythagorean theorem,
+      the triangle inequality,
+      the parallelogram equality, and the Cauchy<ndash/>Schwarz inequality.
+    </p>
+    <p>
+      The notion of perpendicular vectors in Euclidean geometry gets renamed to orthogonal vectors in the context of an inner product space.
+      We will see that orthonormal bases are tremendously useful in inner product spaces.
+      The Gram<ndash/>Schmidt procedure constructs such bases.
+      This chapter will conclude by putting together these tools to solve minimization problems.
+    </p>
+    <p>
+      <paragraphs>
+        <title>Assumptions for this chapter</title>
+        <p>
+          <ul>
+            <li><m>\F{}</m> denotes <m>\R{}</m> or <m>\C{}</m>.</li>
+            <li>
+              <m>V</m> and <m>W</m> denote vector spaces over <m>\F{}{}</m>.
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </p>
+    <p>
+      <image source="KhayamR.jpg">
+        <description>Missing description</description>
+        <credit>
+          Matthew Petroff CC BY-SA
+        </credit>
+      </image>
+      <blockquote>
+        <p>
+          <em>The George Peabody Library,
+          now part of Johns Hopkins University,
+          opened while James Sylvester (1814<ndash/>1897) was the university's first mathematics professor.
+          Sylvester's publications include the first use of the word
+          <em>matrix</em> in mathematics.</em>
+        </p>
+      </blockquote>
+    </p>
+    <p>
+          <idx><h>Sylvester, James</h></idx>
+          <idx><h>Peabody Library</h></idx>
+    </p>
+  </introduction>
+  <xi:include  href="x6ipn.ptx"/>
+  <xi:include  href="orthobases.ptx"/>
+  <xi:include  href="OrthoMin.ptx"/>
+</chapter>

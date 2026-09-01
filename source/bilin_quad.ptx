@@ -1,0 +1,1100 @@
+<section xml:id="bilin_quad">
+  <title>Bilinear Forms and Quadratic Forms</title>
+  <subsection>
+    <title>Bilinear Forms</title>
+    <p>
+      A bilinear form on <m>V</m> is a function from
+      <m>V{} \times V</m> to <m>\F{}</m> that is linear in each slot separately,
+      meaning that if we hold either slot fixed then we have a linear function in the other slot.
+      Here is the formal definition.
+    </p>
+    <definition xml:id="x8biform">
+      <title>bilinear form</title>
+      <statement>
+        <p>
+          A <term>bilinear form</term> on <m>V</m> is a function <m>\fun \beta {V{} \times V} \F{}</m> such that
+              <idx><h>bilinear form</h></idx>
+          <me>
+            v \mapsto \beta(v, u) \andd v \mapsto \beta(u,v)
+          </me>
+          are both linear functionals on <m>V</m> for every <m>u \in V{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Recall that the term <em>linear functional</em>,
+        used in the definition above,
+        means a linear function that maps into the scalar field <m>\F{}{}</m>.
+        Thus the term <em>bilinear functional</em>
+        would be more consistent terminology than <em>bilinear form</em>,
+        which unfortunately has become standard.
+      </p>
+    </aside>
+    <p>
+      For example, if <m>V</m> is a real inner product space,
+      then the function that takes an ordered pair <m>(u, v) \in V{} \times V</m> to
+      <m>\langle u, v \rangle</m> is a bilinear form on <m>V{}</m>.
+      If <m>V</m> is a nonzero complex inner product space,
+      then this function is not a bilinear form because the inner product is not linear in the second slot
+      (complex scalars come out of the second slot as their complex conjugates).
+    </p>
+    <p>
+      If <m>\F{} = \R{}</m>,
+      then a bilinear form differs from an inner product in that an inner product requires symmetry [meaning that <m>\beta(v,w) = \beta(w,v)</m> for all
+      <m>v,
+      w \in V</m>] and positive definiteness [meaning that <m>\beta(v, v) > 0</m> for all
+      <m>v \in V \sm \{ 0 \}</m>] , but these properties are not required for a bilinear form.
+    </p>
+    <example xml:id="x9BilinearExample">
+      <title>bilinear forms</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The function <m>\fun \beta {\F3 \times \F3} {\F{}}</m> defined by
+              <me>
+                \beta(  (x_1, x_2, x_3), (y_1, y_2, y_3)  ) = x_1 y_2 - 5 x_2 y_3 + 2 x_3 y_1
+              </me>
+              is a bilinear form on <m>\F3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>A</m> is an <m>n</m>-by-<m>n</m> matrix with
+              <m>A_{j,k} \in \F{}</m> in row <m>j</m>, column <m>k</m>.
+              Define a bilinear form <m>\beta_A</m> on <m>\F n</m> by
+              <me>
+                \beta_A(  (x_1, \ldots, x_n), (y_1, \ldots, y_n)  ) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j y_k
+              </me>.
+              The first bullet point is a special case of this bullet point with <m>n = 3</m> and
+              <me>
+                A = \begin{pmatrix}0 \amp  1 \amp  0\\ 0 \amp  0 \amp  -5 \\ 2 \amp  0 \amp  0 \end{pmatrix}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>V</m> is a real inner product space and <m>T \in \Lc(V)</m>.
+              Then the function <m>\fun \beta {V{} \times V} {\R{}}</m> defined by
+              <me>
+                \beta(u, v) = \langle u, Tv \rangle
+              </me>
+              is a bilinear form on <m>V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>n</m> is a positive integer,
+              then the function <m>\fun \beta { \P{}_n(\R{}) \times \P{}_n(\R{}) } {\R{}}</m> defined by
+              <me>
+                \beta(p,q) = p(2) \cdot q'(3)
+              </me>
+              is a bilinear form on <m>\P{}_n(\R{})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>\phi, \tau \in V'\!</m>.
+              Then the function <m>\fun \beta {V{} \times V} {\F{}}</m> defined by
+              <me>
+                \beta(u, v) = \phi(u) \cdot \tau(v)
+              </me>
+              is a bilinear form on <m>V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              More generally,
+              suppose that <m>\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'\!</m>.
+              Then the function <m>\fun \beta {V{} \times V} {\F{}}</m> defined by
+              <me>
+                \beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+              </me>
+              is a bilinear form on <m>V{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      A bilinear form on <m>V</m> is a function from <m>V{} \times V</m> to <m>\F{}{}</m>.
+      Because <m>V{} \times V</m> is a vector space,
+      this raises the question of whether a bilinear form can also be a linear map from <m>V{} \times V</m> to <m>\F{}{}</m>.
+      Note that none of the bilinear forms in <xref ref="x9BilinearExample"></xref>
+      are linear maps except in some special cases in which the bilinear form is the zero map.
+      <xref ref="x11zero">Exercise</xref>
+      shows that a bilinear form <m>\beta</m> on <m>V</m> is a linear map on
+      <m>V{} \times V</m> only if <m>\beta = 0</m>.
+    </p>
+    <definition>
+      <title><m>V^{(2)}</m></title>
+      <statement>
+        <p>
+          The set of bilinear forms on <m>V</m> is denoted by <m>V^{(2)}\!</m>.
+              <idx><h sortby="V2"><m>V^{(2)}{}</m></h></idx>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      With the usual operations of addition and scalar multiplication of functions,
+      <m>V^{(2)}</m> is a vector space.
+    </p>
+    <p>
+      For <m>T</m> an operator on an <m>n</m>-dimensional vector space <m>V</m> and a basis <m>e_1, \ldots,
+      e_n</m> of <m>V{}</m>,
+      we used an <m>n</m>-by-<m>n</m> matrix to provide information about <m>T{}</m>.
+      We now do the same thing for bilinear forms on <m>V{}</m>.
+    </p>
+    <definition>
+      <title>matrix of a bilinear form,  <m>\M(\beta)</m></title>
+      <statement>
+        <p>
+          Suppose <m>\beta</m> is a bilinear form on <m>V</m> and
+          <m>e_1, \ldots,
+          e_n</m> is a basis of <m>V{}</m>.
+          The <term>matrix</term> of <m>\beta</m> with respect to this basis is the n n matrix
+          <m>\M(\beta)</m> whose entry <m>\M(\beta)_{j,k}</m> in row <m>j</m>,
+          column <m>k</m> is given by<idx><h sortby="Mbeta"><m>\M(\beta)</m></h></idx>
+              <idx><h>matrix</h><h>of bilinear form</h></idx>
+          <me>
+            \M(\beta)_{j,k} = \beta(e_j, e_k)
+          </me>.
+        </p>
+        <p>
+          If the basis <m>e_1, \ldots, e_n</m> is not clear from the context,
+          then the notation <m>\M( \beta, (e_1, \ldots, e_n) )</m> is used.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Recall that <m>\F{n,n}</m> denotes the vector space of \by{n}{n} matrices with entries in <m>\F{}</m> and that <m>\dim \F{n,n} = n^2</m>
+      (<xref ref="x3mnmatrices">see</xref>
+      and <xref ref="dimFmn"></xref>).
+    </p>
+    <theorem xml:id="x9dimV2">
+      <title><m>\dim V^{(2)} = (\dim V)^2</m></title>
+      <statement>
+        <p>
+          Suppose <m>e_1, \ldots, e_n</m> is a basis of <m>V{}</m>.
+          Then the map <m>\beta \mapsto \M(\beta)</m> is an isomorphism of <m>V^{(2)}</m> onto <m>\FF{n,n}</m>.
+          Furthermore, <m>\dim V^{(2)} = (\dim V)^2{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The map <m>\beta \mapsto \M(\beta)</m> is clearly a linear map of <m>V^{(2)}</m> into <m>\FF{n,n}</m>.
+        For <m>A \in \FF{n,n}</m>,
+        define a bilinear form <m>\beta_A</m> on <m>V</m> by
+        <me>
+          \beta_A( x_1 e_1+ \cdots + x_n e_n, y_1 e_1 + \cdots + y_n e_n ) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j y_k
+        </me>
+        for <m>x_1, \ldots, x_n, y_1, \ldots,
+        y_n \in \F{}</m> \big(if <m>V = \F{n}</m> and
+        <m>e_1, \ldots,
+        e_n</m> is the standard basis of <m>\FF{n}</m>,
+        this <m>\beta_A</m> is the same as the bilinear form <m>\beta_A</m> in the second bullet point of <xref ref="x9BilinearExample">Example</xref>\big).\looseness=-1
+      </p>
+      <p>
+        The linear map <m>\beta \mapsto \M(\beta)</m> from <m>V^{(2)}</m> to <m>\F{n,n}</m> and the linear map
+        <m>A \mapsto \beta_A</m> from <m>\F{n,n}</m> to <m>V^{(2)}</m> are inverses of each other because <m>\beta_{\M(\beta)} = \beta</m> for all
+        <m>\beta \in V^{(2)}</m> and <m>\M(\beta_A) = A</m> for all
+        <m>A \in \FF{n,n}</m>, as you should verify.
+      </p>
+      <p>
+        Thus both maps are isomorphisms and the two spaces that they connect have the same dimension.
+        Hence <m>\dim V^{(2)} = \dim \F{n,n} = n^2 = (\dim V)^2{}</m>.
+      </p>
+    </proof>
+    <p>
+      Recall that <m>\tran{C}</m> denotes the transpose of a matrix <m>C</m>.
+      The matrix <m>\tran{C}</m> is obtained by interchanging the rows and the columns of <m>C</m>.
+    </p>
+    <theorem xml:id="x11comp">
+      <title>composition of a bilinear form and an operator</title>
+      <statement>
+        <p>
+          Suppose <m>\beta</m> is a bilinear form on <m>V</m> and <m>T \in \Lc(V)</m>.
+          Define bilinear forms <m>\alpha</m> and <m>\rho</m> on <m>V</m> by
+          <me>
+            \alpha (u,v) = \beta(u, Tv) \andd \rho(u,v) = \beta(Tu, v)
+          </me>.
+        </p>
+        <p>
+          Let <m>e_1, \ldots, e_n</m> be a basis of <m>V{}</m>.
+          Then
+          <me>
+            \M(\alpha ) = \M(\beta) \M(T) \andd \M(\rho) = \tran{\M(T)} \M(\beta)
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        If <m>j, k \in \{ 1, \ldots, n \}</m>, then
+        <md>
+          <mrow>\M(\alpha )_{j,k} \amp = \alpha (e_j, e_k)</mrow>
+          <mrow>\amp = \beta(e_j, Te_k)</mrow>
+          <mrow>\amp = \beta(  e_j, \sum_{m=1}^n \M(T)_{m,k}   e_m  )</mrow>
+          <mrow>\amp = \sum_{m=1}^n \beta(e_j, e_m) \M(T)_{m,k}</mrow>
+          <mrow>\amp = (  \M(\beta) \M(T)  )_{j, k}</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>\M(\alpha ) = \M(\beta) \M(T)</m>.
+        The proof that <m>\M(\rho) = \tran{\M(T)} \M(\beta)</m> is similar.
+      </p>
+    </proof>
+    <p>
+      The result below shows how the matrix of a bilinear form changes if we change the basis.
+      The formula in the result below should be compared to the change-of-basis formula for the matrix of an operator
+      (<xref ref="x303">see</xref>).
+      The two formulas are similar,
+      except that the transpose <m>\tran{C}</m> appears in the formula below and the inverse <m>C^{-1}</m> appears in the change-of-basis formula for the matrix of an operator.
+    </p>
+    <theorem xml:id="x11change">
+      <title>change-of-basis formula</title>
+      <statement>
+        <p>
+          Suppose <m>\beta \in V^{(2)}\!</m>.
+          Suppose <m>e_1, \ldots, e_n</m> and
+          <m>f_1, \ldots,
+          f_n</m> are bases of <m>V{}</m>.
+          Let<idx><h>change-of-basis formula</h><h>for bilinear forms</h></idx>
+          <me>
+            A= \M\bigl(\beta, (e_1, \ldots, e_n)\bigr) \andd B = \M\bigl(\beta, (f_1, \ldots, f_n)\bigr)
+          </me>
+          and <m>C = \M\bigl(I, (e_1, \ldots,
+          e_n), (f_1, \ldots, f_n)\bigr)</m>.
+          Then
+          <me>
+            A = \tran{C} B C
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The linear map lemma <xref ref="x3linearmap"/> tells us that there exists an operator <m>T \in \Lc(V)</m> such that
+        <m>Tf_k = e_k</m> for each <m>k = 1, \ldots, n</m>.
+        The definition of the matrix of an operator with respect to a basis implies that
+        <me>
+          \M(  T, (f_1, \ldots, f_n)  ) = C
+        </me>.
+      </p>
+      <p>
+        Define bilinear forms <m>\alpha , \rho</m> on <m>V</m> by
+        <me>
+          \alpha (u, v) = \beta(u, Tv) \andd \rho(u,v) = \alpha (Tu, v) = \beta(Tu, Tv)
+        </me>.
+      </p>
+      <p>
+        Then <m>\beta(e_j, e_k) = \beta(Tf_j, Tf_k) = \rho(f_j, f_k)</m> for all <m>j,
+        k \in \{ 1, \ldots, n \}</m>.
+        Thus
+        <md>
+          <mrow>A \amp = \M(  \rho, (f_1, \ldots, f_n)  )</mrow>
+          <mrow>\amp = \tran{C} \M(  \alpha , (f_1, \ldots, f_n)  )</mrow>
+          <mrow>\amp = \tran{C} B C</mrow>
+        </md>,
+        where the second and third lines each follow from <xref ref="x11comp"></xref>.
+      </p>
+    </proof>
+    <example>
+      <title>the matrix of a bilinear form on  <m>\P_2(\R)</m></title>
+      <statement>
+        <p>
+          Define a bilinear form <m>\beta</m> on
+          <m>\P{}_2(\R{})</m> by <m>\beta(p,q) = p(2) \cdot q'(3)</m>.
+          Let
+          <me>
+            A =  \M(  \beta, (1, x-2, (x-3)^2 )  ) \andd B = \M( \beta, (1, x, x^2)  )
+          </me>
+          and <m>C = \M(  I, (1, x-2, (x-3)^2 ), (1, x, x^2)  )</m>.
+          Then
+          <me>
+            A = \begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \end{pmatrix} {}\andd{} B = \begin{pmatrix}0 \amp  1 \amp  6 \\ 0 \amp  2 \amp  12 \\ 0 \amp  4 \amp  24 \end{pmatrix} {}\andd{} C = \begin{pmatrix}1 \amp  -2 \amp  9 \\ 0 \amp  1 \amp  -6 \\ 0 \amp  0 \amp  1 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Now the change-of-basis <xref ref="x11change">formula</xref>
+          asserts that <m>A = \tran{C} B C</m>,
+          which you can verify with matrix multiplication using the matrices above.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Symmetric Bilinear Forms</title>
+    <definition>
+      <title>symmetric bilinear form, <m>V^{(2)}_{sym}</m></title>
+      <statement>
+        <p>
+          A bilinear form <m>\rho \in V^{(2)}</m> is called <term>symmetric</term> if
+              <idx><h>symmetric bilinear form</h></idx>
+              <idx><h sortby="V2sym"><m>V^{(2)}_{\text{ sym } }</m></h></idx>
+          <me>
+            \rho(u,w) = \rho(w, u)
+          </me>
+          for all <m>u,w \in V{}</m>.
+          The set of symmetric bilinear forms on <m>V</m> is denoted by<nbsp/><m>V^{(2)}_{\text{ sym } }</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>symmetric bilinear forms</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              If <m>V</m> is a real inner product space and <m>\rho \in V^{(2)}</m> is defined by
+              <me>
+                \rho(u, w) = \langle u, w \rangle
+              </me>,
+              then <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>V</m> is a real inner product space and <m>T \in \Lc(V)</m>.
+              Define <m>\rho \in V^{(2)}</m> by
+              <me>
+                \rho(u, w) = \langle u, Tw \rangle
+              </me>.
+              Then <m>\rho</m> is a symmetric bilinear form on <m>V</m> if and only if <m>T</m> is a self-adjoint operator
+              (the previous bullet point is the special case <m>T = I</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>\fun \rho {\Lc(V) \times \Lc(V)} {\F{}}</m> is defined by
+              <me>
+                \rho(S,T) = \tr(ST)
+              </me>.
+              Then <m>\rho</m> is a symmetric bilinear form on <m>\Lc(V)</m> because trace is a linear functional on <m>\Lc(V)</m> and
+              <m>\tr(ST) = \tr(TS)</m> for all <m>S, T \in \Lc(V)</m>;
+              <xref ref="x372">see</xref>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <definition>
+      <title>symmetric matrix</title>
+      <statement>
+        <p>
+          A square matrix <m>A</m> is called <emph>symmetric</emph> if it equals its transpose.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>symmetric matrix</h></idx>
+    </p>
+    <p>
+      An operator on <m>V</m> may have a symmetric matrix with respect to some but not all bases of <m>V{}</m>.
+      In contrast,
+      the next result shows that a bilinear form on <m>V</m> has a symmetric matrix with respect to either all bases of <m>V</m> or with respect to no bases of <m>V{}</m>.\looseness=-1
+    </p>
+    <theorem xml:id="x9symdiag">
+      <title>symmetric bilinear forms are diagonalizable</title>
+      <statement>
+        <p>
+          Suppose <m>\rho \in V^{(2)}\!</m>.
+          Then the following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\M( \rho, (e_1, \ldots,
+                e_n) )</m> is a symmetric matrix for every basis <m>e_1, \ldots,
+                e_n</m> of <m>V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\M( \rho, (e_1, \ldots,
+                e_n) )</m> is a symmetric matrix for some basis <m>e_1, \ldots,
+                e_n</m> of <m>V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\M( \rho, (e_1, \ldots,
+                e_n) )</m> is a diagonal matrix for some basis <m>e_1, \ldots,
+                e_n</m> of <m>V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose (a) holds, so <m>\rho</m> is a symmetric bilinear form.
+        Suppose <m>e_1, \ldots,
+        e_n</m> is a basis of <m>V{}</m> and <m>j,k \in \{ 1, \ldots,
+        n \}</m>.
+        Then <m>\rho(e_j, e_k) = \rho(e_k, e_j)</m> because <m>\rho</m> is symmetric.
+        Thus <m>\M( \rho, (e_1, \ldots,
+        e_n) )</m> is a symmetric matrix,
+        showing that (a) implies (b).
+      </p>
+      <p>
+        Clearly (b) implies (c).
+      </p>
+      <p>
+        Now suppose (c) holds and <m>e_1, \ldots,
+        e_n</m> is a basis of <m>V</m> such that
+        <m>\M(  \rho, (e_1, \ldots,
+        e_n)  )</m> is a symmetric matrix.
+        Suppose <m>u, w \in V{}</m>.
+        There exist <m>a_1, \ldots, a_n, b_1, \ldots,
+        b_n \in \F{}</m> such that
+        <m>u = a_1 e_1 + \cdots + a_n e_n</m> and <m>w = b_1 e_1 + \cdots + b_n e_n</m>.
+        Now
+        <md>
+          <mrow>\rho(u, w) \amp = \rho(  \sum_{j=1}^n a_j e_j, \sum_{k=1}^n b_k e_k  )</mrow>
+          <mrow>\amp = \sum_{j=1}^n \sum_{k=1}^n a_j b_k \rho(e_j, e_k)</mrow>
+          <mrow>\amp = \sum_{j=1}^n \sum_{k=1}^n a_j b_k \rho(e_k, e_j)</mrow>
+          <mrow>\amp = \rho(  \sum_{k=1}^n b_k e_k, \sum_{j=1}^n a_j e_j  )</mrow>
+          <mrow>\amp = \rho(w,u)</mrow>
+        </md>,
+        where the third line holds because
+        <m>\M(\rho)</m> is a symmetric matrix.
+        The equation above shows that <m>\rho</m> is a symmetric bilinear form,
+        proving that (c) implies (a).
+      </p>
+      <p>
+        At this point, we have proved that (a), (b), (c) are equivalent.
+        Because every diagonal matrix is symmetric, (d) implies (c).
+        To complete the proof,
+        we will show that (a) implies (d) by induction on <m>n = \dim V{}</m>.
+      </p>
+      <p>
+        If <m>n = 1</m>,
+        then (a) implies (d) because every \by{1}{1} matrix is diagonal.
+        Now suppose <m>n > 1</m> and the implication (a)
+        <m>\implies</m> (d) holds for one less dimension.
+        Suppose (a) holds, so <m>\rho</m> is a symmetric bilinear form.
+        If <m>\rho = 0</m>,
+        then the matrix of <m>\rho</m> with respect to every basis of <m>V</m> is the zero matrix,
+        which is a diagonal matrix.
+        Hence we can assume that <m>\rho \ne 0</m>,
+        which means there exist <m>u,
+        w \in V</m> such that <m>\rho(u, w) \ne 0</m>.
+        Now
+        <me>
+          2 \rho(u, w) = \rho(u + w, u+w) - \rho(u, u) - \rho(w,w)
+        </me>.
+      </p>
+      <p>
+        Because the left side of the equation above is nonzero,
+        the three terms on the right cannot all equal <m>0</m>.
+        Hence there exists <m>v \in V</m> such that <m>\rho(v,v) \ne 0</m>.
+      </p>
+      <p>
+        Let <m>U = \{ u \in V : \rho(u,v) = 0 \}</m>.
+        Thus <m>U</m> is the null space of the linear functional <m>u \mapsto \rho(u, v)</m> on <m>V{}</m>.
+        This linear functional is not the zero linear functional because <m>v \notin U</m>.
+        Thus <m>\dim U = n-1</m>.
+        By our induction hypothesis, there is a basis
+        <m>e_1, \ldots,
+        e_{n-1}</m> of <m>U</m> such that the symmetric bilinear form
+        <m>\rho|_{U \times U}</m> has a diagonal matrix with respect to this basis.
+      </p>
+      <p>
+        Because <m>v \notin U</m>,
+        the list <m>e_1, \ldots, e_{n-1}, v</m> is a basis of <m>V{}</m>.
+        Suppose <m>k \in \{ 1, \ldots, n-1 \}</m>.
+        Then <m>\rho(e_k, v) = 0</m> by the construction of <m>U</m>.
+        Because <m>\rho</m> is symmetric,
+        we also have <m>\rho(v, e_k) = 0</m>.
+        Thus the matrix of <m>\rho</m> with respect to
+        <m>e_1, \ldots,
+        e_{n-1}, v</m> is a diagonal matrix,
+        completing the proof that (a) implies (d).
+      </p>
+    </proof>
+    <p>
+      The previous result states that every symmetric bilinear form has a diagonal matrix with respect to some basis.
+      If our vector space happens to be a real inner product space,
+      then the next result shows that every symmetric bilinear form has a diagonal matrix with respect to some
+      <term>orthonormal</term> basis.
+      Note that the inner product here is unrelated to the bilinear form.
+    </p>
+    <theorem xml:id="x9diagortho">
+      <title>diagonalization of a symmetric bilinear form by an orthonormal basis</title>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a real inner product space and <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>.
+          Then <m>\rho</m> has a diagonal matrix with respect to some orthonormal basis of <m>V{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>f_1, \ldots, f_n</m> be an orthonormal basis of <m>V{}</m>.
+        Let <m>B = \M( \rho, (f_1, \ldots, f_n) )</m>.
+        Then <m>B</m> is a symmetric matrix
+        (by <xref ref="x9symdiag"></xref>).
+        Let <m>T \in \Lc(V)</m> be the operator such that <m>\M( T, (f_1, \ldots,
+        f_n) ) = B</m>.
+        Thus <m>T</m> is self-adjoint.
+      </p>
+      <p>
+        The real spectral theorem <xref ref="x86"/> states that <m>T</m> has a diagonal matrix with respect to some orthonormal basis <m>e_1, \ldots,
+        e_n</m> of <m>V{}</m>.
+        Let <m>C = \M\bigl(I, (e_1, \ldots,
+        e_n), (f_1, \ldots, f_n)\bigr)</m>.
+        Thus <m>C^{-1} B C</m> is the matrix of <m>T</m> with respect to the basis <m>e_1, \ldots, e_n</m>
+        (by <xref ref="x303"></xref>).
+        Hence <m>C^{-1} B C</m> is a diagonal matrix.
+        Now
+        <me>
+          \\M(  \rho, (e_1, \ldots, e_n)  ) = \tran{C} B C = C^{-1} B C
+        </me>,
+        where the first equality holds by <xref ref="x11change"></xref>
+        and the second equality holds because <m>C</m> is a unitary matrix with real entries \big(which implies that <m>C^{-1} = \tran{C}</m>;
+        <xref ref="x7unitarymat">see</xref>\big).
+      </p>
+    </proof>
+    <p>
+      Now we turn our attention to alternating bilinear forms.
+      Alternating multilinear forms will play a major role in our approach to determinants later in this chapter.
+    </p>
+    <definition>
+      <title>alternating bilinear form, <m>V^{(2)}_{alt}</m></title>
+      <statement>
+        <p>
+          A bilinear form <m>\alpha  \in V^{(2)}</m> is called <term>alternating</term>
+          if<idx><h>alternating bilinear form</h></idx>
+              <idx><h sortby="V2alt"><m>V^{(2)}_{alt}</m></h></idx>
+          <me>
+            \alpha (v,v) = 0
+          </me>
+          for all <m>v \in V{}</m>.
+          The set of alternating bilinear forms on <m>V</m> is denoted by <m>V^{(2)}_{\text{ alt } }</m>.
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="x9alt">
+      <title>alternating bilinear forms</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>n \ge 3</m> and <m>\fun \alpha  {\F n \times \F n} {\F{}}</m> is defined by
+              <me>
+                \alpha (  (x_1, \ldots, x_n), (y_1, \ldots, y_n)  ) = x_1 y_2 - x_2 y_1 + x_1 y_3 - x_3 y_1
+              </me>.
+              Then <m>\alpha</m> is an alternating bilinear form on <m>\FF n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>\phi, \tau \in V'\!</m>.
+              Then the bilinear form <m>\alpha</m> on <m>V</m> defined by
+              <me>
+                \alpha (u, w) = \phi(u) \tau(w) - \phi(w) \tau(u)
+              </me>
+              is alternating.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      The next result shows that a bilinear form is alternating if and only if switching the order of the two inputs multiplies the output by <m>-1</m>.
+    </p>
+    <theorem xml:id="x9skew">
+      <title>characterization of alternating bilinear forms</title>
+      <statement>
+        <p>
+          A bilinear form <m>\alpha</m> on <m>V</m> is alternating if and only if
+          <me>
+            \alpha (u,w) = -\alpha (w,u)
+          </me>
+          for all <m>u, w \in V{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose that <m>\alpha</m> is alternating.
+        If <m>u, w \in V{}</m>, then
+        <md>
+          <mrow>0 \amp = \alpha (u+w, u+w)</mrow>
+          <mrow>\amp = \alpha (u,u) + \alpha (u,w) + \alpha (w,u) + \alpha (w,w)</mrow>
+          <mrow>\amp = \alpha (u,w) + \alpha (w,u)</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>\alpha (u,w) = -\alpha (w,u)</m>, as desired.
+      </p>
+      <p>
+        To prove the implication in the other direction,
+        suppose <m>\alpha (u,w) = -\alpha (w,u)</m> for all <m>u,
+        w \in V{}</m>.
+        Then <m>\alpha (v,v) = -\alpha (v, v)</m> for all <m>v \in V{}</m>,
+        which implies that <m>\alpha (v,v) = 0</m> for all <m>v \in V{}</m>.
+        Thus <m>\alpha</m> is alternating.
+      </p>
+    </proof>
+    <p>
+      Now we show that the vector space of bilinear forms on <m>V</m> is the direct sum of the symmetric bilinear forms on <m>V</m> and the alternating bilinear forms on <m>V{}</m>.
+    </p>
+    <theorem xml:id="x9V2">
+      <title><m>V^{(2)} = V^{(2)}_{sym} \oplus V^{(2)}_{alt}</m></title>
+      <statement>
+        <p>
+          The sets <m>V^{(2)}_{\text{ sym } }</m> and
+          <m>V^{(2)}_{\text{ alt } }</m> are subspaces of <m>V^{(2)}</m>.
+          Furthermore,
+          <me>
+            V^{(2)} = V^{(2)}_{\text{ sym } } \oplus V^{(2)}_{\text{ alt } }
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The definition of symmetric bilinear form implies that the sum of any two symmetric bilinear forms on <m>V</m> is a symmetric bilinear form on <m>V{}</m>,
+        and every scalar multiple of any symmetric bilinear form on <m>V</m> is a symmetric bilinear form on <m>V{}</m>.
+        Also, the zero bilinear form is in <m>V^{(2)}_{\text{ sym } }</m>.
+        Thus <m>V^{(2)}_{\text{ sym } }</m> is a subspace of <m>V^{(2)}\!</m>.
+        Similarly, the verification that
+        <m>V^{(2)}_{\text{ alt } }</m> is a subspace of <m>V^{(2)}</m> is straightforward.
+      </p>
+      <p>
+        Next, we want to show that <m>V^{(2)} = V^{(2)}_{\text{ sym } } + V^{(2)}_{\text{ alt } }</m>.
+        To do this, suppose <m>\beta \in V^{(2)}\!</m>.
+        Define <m>\rho, \alpha  \in V^{(2)}</m> by
+        <me>
+          \rho(u,w) = \frac{ \beta(u,w) + \beta(w,u) }{2} \andd \alpha (u,w) = \frac{ \beta(u,w) - \beta(w,u) }{2}
+        </me>.
+      </p>
+      <p>
+        Then <m>\rho \in V^{(2)}_{\text{ sym } }</m> and <m>\alpha \in V^{(2)}_{\text{ alt } }</m>,
+        and <m>\beta = \rho + \alpha</m>.
+        Thus <m>V^{(2)} = V^{(2)}_{\text{ sym } } + V^{(2)}_{\text{ alt } }</m>.
+      </p>
+      <p>
+        Finally, to show that the intersection of the two subspaces under consideration equals <m>\{ 0 \}</m>,
+        suppose <m>\beta \in V^{(2)}_{\text{ sym } } \cap V^{(2)}_{\text{ alt } }</m>.
+        If <m>u, w \in V{}</m>, <xref ref="x9skew">then</xref> implies that
+        <me>
+          \beta(u,w) = -\beta(w, u) = -\beta(u,w)
+        </me>
+        and hence <m>\beta(u, w) = 0</m>.
+        Thus <m>\beta = 0</m>.
+        Hence <m>V^{(2)} = V^{(2)}_{\text{ sym } } \oplus V^{(2)}_{\text{ alt } }</m>
+        (by <xref ref="x219"></xref>).
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Quadratic Forms</title>
+    <definition>
+      <title>quadratic form associated with a bilinear form, <m>q_\beta</m></title>
+      <statement>
+        <p>
+              <idx><h sortby="qbeta"><m>q_\beta</m></h></idx>
+          For <m>\beta</m> a bilinear form on <m>V{}</m>,
+          define a function <m>\fun {q_\beta} V {\F{}}</m> by <m>q_\beta(v) = \beta(v, v)</m>.
+          A function <m>\fun q V {\F{}}</m> is called a
+          <term>quadratic form</term>
+          on <m>V</m> if there exists a bilinear form <m>\beta</m> on <m>V</m> such that <m>q = q_\beta</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>quadratic form</h></idx>
+    </p>
+    <p>
+      Note that if <m>\beta</m> is a bilinear form,
+      then <m>q_\beta = 0</m> if and only if <m>\beta</m> is alternating.
+    </p>
+    <example xml:id="x9quad">
+      <title>quadratic form</title>
+      <statement>
+        <p>
+          Suppose <m>\beta</m> is the bilinear form on <m>\R3</m> defined by
+          <me>
+            \beta( (x_1, x_2,x_3), (y_1, y_2, y_3) ) =  x_1 y_1 - 4x_1 y_2  + 8x_1 y_3 - 3x_3 y_3
+          </me>.
+        </p>
+        <p>
+          Then <m>q_\beta</m> is the quadratic form on <m>\R3</m> given by the formula
+          <me>
+            q_\beta(x_1, x_2, x_3) = {x_1}^{2} - 4 x_1 x_2 +8 x_1 x_3 - 3{x_3}^{2}{}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The quadratic form in the example above is typical of quadratic forms on <m>\FF n</m>,
+      as shown in the next result.
+    </p>
+    <theorem>
+      <title>quadratic forms on  <m>\F n</m></title>
+      <statement>
+        <p>
+          Suppose <m>n</m> is a positive integer and <m>q</m> is a function from <m>\F n</m> to <m>\F{}{}</m>.
+          Then <m>q</m> is a quadratic form on <m>\F n</m> if and only if there exist numbers <m>A_{j,k} \in \F{}</m> for <m>j,
+          k \in \{  1, \ldots, n \}</m> such that
+          <me>
+            q(x_1, \ldots, x_n) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j x_k
+          </me>
+          for all <m>(x_1, \ldots, x_n) \in \FF n</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose <m>q</m> is a quadratic form on <m>\FF n</m>.
+        Thus there exists a bilinear form <m>\beta</m> on <m>\F n</m> such that <m>q = q_\beta</m>.
+        Let <m>A</m> be the matrix of <m>\beta</m> with respect to the standard basis of <m>\FF n</m>.
+        Then for all <m>(x_1, \ldots,
+        x_n) \in \FF n</m>, we have the desired equation
+        <me>
+          q(x_1, \ldots, x_n) = \beta(  (x_1, \ldots, x_n), (x_1, \ldots, x_n)  ) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j x_k
+        </me>.
+      </p>
+      <p>
+        Conversely, suppose there exist numbers <m>A_{j,k} \in \F{}</m> for <m>j,
+        k \in \{  1, \ldots, n \}</m> such<nbsp/>that
+        <me>
+          q(x_1, \ldots, x_n) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j x_k
+        </me>
+        for all <m>(x_1, \ldots, x_n) \in \FF n</m>.
+        Define a bilinear form <m>\beta</m> on <m>\F n</m> by
+        <me>
+          \beta(  (x_1, \ldots, x_n), (y_1, \ldots, y_n)  ) = \sum_{k=1}^n \sum_{j=1}^n A_{j,k} x_j y_k
+        </me>.
+      </p>
+      <p>
+        Then <m>q = q_\beta</m>, as desired.
+      </p>
+    </proof>
+    <p>
+      Although quadratic forms are defined in terms of an arbitrary bilinear form,
+      the equivalence of (a) and (b) in the result below shows that a <emph>symmetric</emph> bilinear form can always be used.
+    </p>
+    <theorem xml:id="x11charquad">
+      <title>characterizations of quadratic forms</title>
+      <statement>
+        <p>
+          Suppose <m>\fun q V {\F{}}</m> is a function.
+          The following are equivalent.
+          <ol>
+            <li>
+              <p>
+                <m>q</m> is a quadratic form.
+              </p>
+            </li>
+            <li>
+              <p>
+                There exists a unique symmetric bilinear form <m>\rho</m> on <m>V</m> such that <m>q = q_\rho</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>q(\lambda v) = \lambda^2 q(v)</m> for all
+                <m>\lambda \in \F{}</m> and all <m>v \in V{}</m>, and the function
+                <me>
+                  (u, w) \mapsto q(u+w) - q(u) - q(w)
+                </me>
+                is a symmetric bilinear form on <m>V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>q(2 v) = 4 q(v)</m> for all <m>v \in V{}</m>, and the function
+                <me>
+                  (u, w) \mapsto q(u+w) - q(u) - q(w)
+                </me>
+                is a symmetric bilinear form on <m>V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        First suppose (a) holds, so <m>q</m> is a quadratic form.
+        Hence there exists a bilinear form <m>\beta</m> such that <m>q = q_\beta</m>.
+        <xref ref="x9V2">By</xref>,
+        there exist a symmetric bilinear form <m>\rho</m> on <m>V</m> and an alternating bilinear form <m>\alpha</m> on <m>V</m> such that <m>\beta = \rho + \alpha</m>.
+        Now
+        <me>
+          q = q_\beta = q_\rho + q_\alpha  = q_\rho
+        </me>.
+      </p>
+      <p>
+        If <m>\rho' \in V^{(2)}_{\text{ sym } }</m> also satisfies <m>q_{\rho'} = q</m>,
+        then <m>q_{\rho' - \rho} = 0</m>;
+        thus <m>\rho' - \rho \in V^{(2)}_{\text{ sym } } \cap V^{(2)}_{\text{ alt } }</m>,
+        which implies that <m>\rho' = \rho</m>
+        (by <xref ref="x9V2"></xref>).
+        This completes the proof that (a) implies (b).
+      </p>
+      <p>
+        Now suppose (b) holds,
+        so there exists a symmetric bilinear form <m>\rho</m> on <m>V</m> such that <m>q = q_\rho</m>.
+        If <m>\lambda \in \F{}</m> and <m>v \in V</m> then
+        <me>
+          q(\lambda v) = \rho(\lambda v, \lambda v) = \lambda \rho(v, \lambda v) = \lambda^2 \rho(v, v) = \lambda^2 q(v)
+        </me>,
+        showing that the first part of (c) holds.
+      </p>
+      <p>
+        If <m>u, w \in V{}</m>, then
+        <me>
+          q(u+w) - q(u) - q(w) = \rho(u+w, u+ w) - \rho(u, u) - \rho(w, w) = 2 \rho(u, w)
+        </me>.
+      </p>
+      <p>
+        Thus the function <m>(u, w) \mapsto q(u+w) - q(u) - q(w)</m> equals <m>2\rho</m>,
+        which is a symmetric bilinear form on <m>V{}</m>,
+        completing the proof that (b) implies (c).
+      </p>
+      <p>
+        Clearly (c) implies (d).
+      </p>
+      <p>
+        Now suppose (d) holds.
+        Let <m>\rho</m> be the symmetric bilinear form on <m>V</m> defined by
+        <me>
+          \rho(u, w) = \frac{ q(u+w) - q(u) - q(w) }{2}
+        </me>.
+      </p>
+      <p>
+        If <m>v \in V{}</m>, then
+        <me>
+          \rho(v,v) =  \frac{ q(2v) - q(v) - q(v) }{2} = \frac{4q(v) - 2q(v)}{2} = q(v)
+        </me>.
+      </p>
+      <p>
+        Thus <m>q = q_\rho</m>, completing the proof that (d) implies (a).
+      </p>
+    </proof>
+    <example>
+      <title>symmetric bilinear form associated with a quadratic form</title>
+      <statement>
+        <p>
+          Suppose <m>q</m> is the quadratic form on <m>\R3</m> given by the formula
+          <me>
+            q(x_1, x_2, x_3) = {x_1}^{2} - 4 x_1 x_2 +8 x_1 x_3 - 3{x_3}^{2}{}
+          </me>.
+        </p>
+        <p>
+          A bilinear form <m>\beta</m> on <m>\R3</m> such that
+          <m>q = q_\beta</m> is given by <xref ref="x9quad">Example</xref>,
+          but this bilinear form is not symmetric,
+          as promised by <xref ref="x11charquad"></xref>(b).
+          However, the bilinear form <m>\rho</m> on <m>\R3</m> defined by
+          <me>
+            \rho( (x_1, x_2,x_3), (y_1, y_2, y_3) ) =  x_1 y_1 - 2 x_1 y_2  - 2 x_2 y_1 + 4x_1 y_3 + 4x_3 y_1- 3x_3 y_3
+          </me>
+          is symmetric and satisfies <m>q = q_\rho</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next result states that for each quadratic form we can choose a basis such that the quadratic form looks like a weighted sum of squares of the coordinates,
+      meaning that there are no cross terms of the form <m>x_j x_k</m> with <m>j \ne k</m>.
+    </p>
+    <theorem>
+      <title>diagonalization of quadratic form</title>
+      <statement>
+        <p>
+          Suppose <m>q</m> is a quadratic form on <m>V{}</m>.
+          <ol>
+            <li>
+              <p>
+                There exist a basis <m>e_1, \ldots,
+                e_n</m> of <m>V</m> and <m>\lambda_1, \ldots, \lambda_n \in \F{}</m> such that
+                <me>
+                  q( x_1 e_1 + \cdots + x_n e_n ) = \lambda_1 {x_1}^{2} + \cdots + \lambda_n {x_n}^{2}
+                </me>
+                for all <m>x_1, \ldots, x_n \in \F{}{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\F{} = \R{}</m> and <m>V</m> is an inner product space,
+                then the basis in (a) can be chosen to be an orthonormal basis of <m>V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            There exists a symmetric bilinear form <m>\rho</m> on <m>V</m> such that <m>q = q_\rho</m>
+            (by <xref ref="x11charquad"></xref>).
+            Now there exists a basis <m>e_1, \ldots,
+            e_n</m> of <m>V</m> such that <m>\M(  \rho, (e_1, \ldots,
+            e_n)  )</m> is a diagonal matrix
+            (by <xref ref="x9symdiag"></xref>).
+            Let <m>\lambda_1, \ldots, \lambda_n</m> denote the entries on the diagonal of this matrix.
+            Thus
+            <me>
+              \rho(e_j, e_k) = \begin{cases}\lambda_j \amp  \text{ if }  j = k,\\ 0 \amp  \text{ if }  j \ne k \end{cases}
+            </me>
+            for all <m>j, k \in \{ 1, \ldots, n \}</m>.
+            If <m>x_1, \ldots, x_n \in \F{}{}</m>, then
+            <md>
+              <mrow>q( x_1 e_1 + \cdots + x_n e_n ) \amp = \rho( x_1 e_1 + \cdots + x_n e_n, x_1 e_1 + \cdots + x_n e_n )</mrow>
+              <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^n x_j x_k \rho(e_j, e_k)</mrow>
+              <mrow>\amp = \lambda_1 {x_1}^{2} + \cdots + \lambda_n {x_n}^{2}{}</mrow>
+            </md>,
+            as desired.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\F{} = \R{}</m> and <m>V</m> is an inner product space.
+            <xref ref="x9diagortho">Then</xref>
+            tells us that the basis in (a) can be chosen to be an orthonormal basis of <m>V{}</m>.
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Prove that if <m>\beta</m> is a bilinear form on <m>\F{}{}</m>,
+              then there exists <m>c \in \F{}</m> such that
+              <me>
+                \beta(x,y) = c x y
+              </me>
+              for all <m>x, y \in \F{}{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Let <m>n = \dim V{}</m>.
+              Suppose <m>\beta</m> is a bilinear form on <m>V{}</m>.
+              Prove that there exist <m>\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'</m> such that
+              <me>
+                \beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+              </me>
+              for all <m>u, v \in V{}</m>.
+              Note: This exercise shows that if <m>n = \dim V{}</m>,
+              then every bilinear form on <m>V</m> is of the form given by the last bullet point of <xref ref="x9BilinearExample">Example</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x11zero">
+          <statement>
+            <p>
+              Suppose <m>\fun \beta {V{} \times V} {\F{}}</m> is a bilinear form on <m>V</m> and also is a linear functional on <m>V{} \times V{}</m>.
+              Prove that <m>\beta = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x9inn">
+          <statement>
+            <p>
+              Suppose <m>V</m> is a real inner product space and <m>\beta</m> is a bilinear form on <m>V{}</m>.
+              Show that there exists a unique operator <m>T \in \Lc(V)</m> such that
+              <me>
+                \beta(u, v) = \langle u,Tv \rangle
+              </me>
+              for all <m>u, v \in V{}</m>.
+              Note: This exercise states that if <m>V</m> is a real inner product space,
+              then every bilinear form on <m>V</m> is of the form given by the third bullet point in <xref ref="x9BilinearExample"></xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\beta</m> is a bilinear form on a real inner product space <m>V{}</m> and <m>T</m> is the unique operator on <m>V</m> such that
+              <m>\beta(u,v) = \langle u, Tv \rangle</m> for all <m>u,
+              v \in V</m>
+              (see <xref ref="x9inn">Exercise</xref>).
+              Show that <m>\beta</m> is an inner product on <m>V</m> if and only if <m>T</m> is an invertible positive operator on <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Prove or give a counterexample: If <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>, then
+              <me>
+                \{ v \in V: \rho(v, v) = 0 \}
+              </me>
+              is a subspace of <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Explain why the proof of <xref ref="x9diagortho"></xref>
+              (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space)
+              fails if the hypothesis that <m>\F{} = \R{}</m> is dropped.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Find formulas for <m>\dim V^{(2)}_{\text{ sym } }</m> and
+              <m>\dim V^{(2)}_{\text{ alt } }</m> in terms of <m>\dim V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>n</m> is a positive integer and <m>V = \{  p \in \P{}_n(\R{}): p(0) = p(1)  \}</m>.
+              Define <m>\fun \alpha  {V{} \times V} {\R{}}</m> by
+              <me>
+                \alpha (p,q) = \int_0^1 p q'\!
+              </me>.
+            </p>
+            <p>
+              Show that <m>\alpha</m> is an alternating bilinear form on <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>n</m> is a positive integer and
+              <me>
+                V = \{  p \in \P{}_n(\R{}): p(0) = p(1) \text{ and }  p'(0) = p'(1) \}
+              </me>.
+            </p>
+            <p>
+              Define <m>\fun \rho {V{} \times V} {\R{}}</m> by
+              <me>
+                \rho(p,q) = \int_0^1 p q''\!
+              </me>.
+            </p>
+            <p>
+              Show that <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>

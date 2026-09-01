@@ -1,0 +1,902 @@
+<section xml:id="Rn_and_Cn">
+  <title><m>\R n</m> and <m>\C n</m></title>
+  <subsection>
+    <title>Complex Numbers</title>
+    <p>
+      You should already be familiar with basic properties of the set <m>\R{}</m>
+          <idx><h sortby="R"><m>\R{}</m></h></idx>
+      of real numbers.
+      Complex numbers were invented so that we can take square roots of negative numbers.
+      The idea is to assume we have a square root of <m>-1</m>,
+      denoted by <m>i</m>, that obeys the usual rules of arithmetic.
+      Here are the formal definitions.
+    </p>
+    <definition>
+      <title>complex numbers, <m>\symbf{C}</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              A <term>complex number</term>
+                <idx><h>complex number</h></idx>
+              is an ordered pair <m>(a, b)</m>, where
+              <m>a,
+              b \in \R{}</m>, but we will write this as <m>a + bi</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of all complex numbers is denoted by <m>\C{}</m>:
+                <idx><h sortby="C"><m>\C{}</m></h></idx>
+              <me>
+                \C{} = \{ a + bi: a, b \in \R{} \}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Addition</term> and <term>multiplication</term><idx><h>addition</h><h>of complex numbers</h></idx>
+                <idx><h>product</h><h>of complex numbers</h></idx>
+              on <m>\C{}</m> are defined by
+              <md>
+                <mrow>(a + bi) + (c + di) = (a + c) + (b + d)i,</mrow>
+                <mrow>(a + bi)(c + di) = (ac - bd) + (ad + bc)i;</mrow>
+              </md>
+              here <m>a, b, c, d \in \R{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      If <m>a \in \R{}</m>,
+      we identify <m>a + 0i</m> with the real number <m>a</m>.
+      Thus we think of <m>\R{}</m> as a subset of <m>\C{}</m>.
+      We usually write <m>0 + bi</m> as just <m>bi</m>,
+      and we usually write <m>0 + 1i</m> as just<nbsp/><m>i</m>.
+    </p>
+    <aside>
+      <p>
+        The symbol <m>i</m> was first used to denote
+        <m>\sqrt{-1}</m> by Leonhard Euler in 1777.
+      </p>
+    </aside>
+    <p>
+      To motivate the definition of complex multiplication given above,
+      pretend that we knew that <m>i^2 = -1</m> and then use the usual rules of arithmetic to derive the formula above for the product of two complex numbers.
+      Then use that formula to verify that we indeed have
+      <me>
+        i^2 = -1
+      </me>.
+    </p>
+    <p>
+      Do not memorize the formula for the product of two complex numbers<mdash/>you can always rederive it by recalling that
+      <m>i^2 = -1</m> and then using the usual rules of arithmetic
+      (as given by <xref ref="complexarith"></xref>).
+      The next example illustrates this procedure.
+    </p>
+    <example>
+      <title>complex arithmetic</title>
+      <statement>
+        <p>
+          The product <m>(2 + 3i)(4+5i)</m> can be evaluated by applying the distributive and commutative properties from <xref ref="complexarith"></xref>:
+          <md>
+            <mrow>(2 + 3i)(4+5i) \amp = 2 \cdot (4+5i) +(3i)(4+5i)</mrow>
+            <mrow>\amp = 2 \cdot 4 + 2 \cdot 5i + 3i\cdot 4 + (3i)(5i)</mrow>
+            <mrow>\amp = 8 + 10i + 12i -15</mrow>
+            <mrow>\amp = -7 + 22i</mrow>
+          </md>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Our first result states that complex addition and complex multiplication have the familiar properties that we expect.
+    </p>
+    <theorem xml:id="complexarith">
+      <title>properties of complex arithmetic</title>
+      <statement>
+        <ol>
+          <li>
+            <title>commutativity</title>
+            <p>
+              <m>\alpha + \beta = \beta + \alpha</m> and
+              <m>\alpha \beta = \beta \alpha</m> for all <m>\alpha , \beta \in \C{}</m>.
+                <idx><h>commutativity</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>associativity</title>
+            <p>
+              <m>(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)</m> and
+              <m>(\alpha \beta)\lambda = \alpha (\beta \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
+                <idx><h>associativity</h></idx>
+            </p>
+          </li>
+          <li>
+            <title>identities</title>
+            <p>
+              <m>\lambda + 0 = \lambda</m> and
+              <m>\lambda 1 = \lambda</m> for all <m>\lambda \in \C{}</m>.
+            </p>
+          </li>
+          <li>
+            <title>additive inverse</title>
+            <p>
+              For every <m>\alpha \in \C{}</m>,
+              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha + \beta = 0</m>.
+                <idx><h>additive inverse</h><h>in <m>\C{}</m></h></idx>
+            </p>
+          </li>
+          <li>
+            <title>multiplicative inverse</title>
+            <p>
+              For every <m>\alpha \in \C{}</m> with <m>\alpha \ne 0</m>,
+              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha \beta = 1</m>.
+            </p>
+          </li>
+          <li>
+            <title>distributive property</title>
+            <p>
+              <m>\lambda(\alpha + \beta) = \lambda \alpha + \lambda \beta</m> for all <m>\lambda, \alpha , \beta \in \C{}</m>.
+                <idx><h>distributive property</h></idx>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <p>
+      The properties above are proved using the familiar properties of real numbers and the definitions of complex addition and multiplication.
+      The next example shows how commutativity of complex multiplication is proved.
+      Proofs of the other properties above are left as exercises.
+    </p>
+    <example>
+      <title>commutativity of complex multiplication</title>
+      <statement>
+        <p>
+              <idx><h>commutativity</h></idx>
+          To show that <m>\alpha  \beta = \beta \alpha</m> for all <m>\alpha , \beta \in \C{}</m>, suppose
+          <me>
+            \alpha  = a + bi \andd \beta = c + di
+          </me>,
+          where <m>a, b, c, d \in \R{}</m>.
+          Then the definition of multiplication of complex numbers shows that
+          <md>
+            <mrow>\alpha  \beta \amp = (a + bi)(c + di)</mrow>
+            <mrow>\amp = (ac - bd) + (ad + bc)i</mrow>
+          </md>
+          and
+          <md>
+            <mrow>\beta\alpha  \amp = (c + di)(a + bi)</mrow>
+            <mrow>\amp = (ca - db) + (cb + da)i</mrow>
+          </md>.
+        </p>
+        <p>
+          The equations above and the commutativity of multiplication and addition of real numbers show that <m>\alpha \beta = \beta \alpha</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Next, we define the additive and multiplicative inverses of complex numbers,
+      and then use those inverses to define subtraction and division operations with complex numbers.
+    </p>
+    <definition>
+      <title><m>-\alpha </m>, subtraction, <m>1/\alpha </m>, division</title>
+      <statement>
+        <p>
+          Suppose <m>\alpha , \beta \in \C{}</m>.
+          <ol>
+            <li>
+              <p>
+                Let <m>-\alpha</m> denote the additive inverse<idx><h>additive inverse</h><h>in <m>\C{}</m></h></idx> of <m>\alpha</m>.
+                Thus <m>-\alpha</m> is the unique complex number such that
+                <me>
+                  \alpha  + (-\alpha ) = 0
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Subtraction</term><idx><h>subtraction of complex numbers</h></idx> on <m>\C{}</m> is defined by
+                <me>
+                  \beta - \alpha  = \beta + (-\alpha )
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For <m>\alpha  \ne 0</m>,
+                let <m>1/\alpha</m> and <m>\frac{1}{\alpha }</m> denote the multiplicative inverse of<nbsp/><m>\alpha</m>.
+                Thus <m>1/\alpha</m> is the unique complex number such that
+                <me>
+                  \alpha  (1/\alpha ) = 1
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For <m>\alpha  \ne 0</m>,
+                <term>division</term> by <m>\alpha</m> is defined by<idx><h>division of complex numbers</h></idx>
+                <me>
+                  \beta / \alpha  = \beta (1/\alpha )
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      So that we can conveniently make definitions and prove theorems that apply to both real and complex numbers,
+      we adopt the following notation.
+    </p>
+    <p>
+      Throughout this book, \end{principle}
+    </p>
+    <principle>
+      <p>
+        Throughout this book,
+        <m>\F{}</m> stands for either <m>\R{}</m> or <m>\C{}</m>.
+      </p>
+    </principle>
+    <p>
+          <idx><h sortby="F"><m>\F{}</m></h></idx>
+    </p>
+    <aside>
+      <p>
+        The letter <m>\F{}</m> is used because <m>\R{}</m> and <m>\C{}</m> are examples of what are called <em>fields</em>.
+      </p>
+    </aside>
+    <p>
+      Thus if we prove a theorem involving <m>\F{}{}</m>,
+      we will know that it holds when <m>\F{}</m> is replaced with <m>\R{}</m> and when <m>\F{}</m> is replaced with <m>\C{}</m>.
+    </p>
+    <p>
+      Elements of <m>\F{}</m> are called <term>scalars</term>.
+          <idx><h>scalar</h></idx>
+      The word
+      <q>scalar</q>
+      (which is just a fancy word for
+      <q>number</q>
+      ) is often used when we want to emphasize that an object is a number,
+      as opposed to a vector
+      (vectors will be defined soon).
+    </p>
+    <p>
+      For <m>\alpha  \in \F{}</m> and <m>m</m> a positive integer,
+      we define <m>\alpha ^m</m> to denote the product of <m>\alpha</m> with itself <m>m</m> times:
+      <me>
+        \alpha ^m = \underbrace{\alpha  \cdots \alpha }_{m \text{ times } }\!\!
+      </me>.
+    </p>
+    <p>
+      This definition implies that
+      <me>
+        ( \alpha ^m )^n = \alpha ^{mn} \andd (\alpha  \beta)^m = \alpha ^m \beta^m
+      </me>
+      for all <m>\alpha , \beta \in \F{}</m> and all positive integers <m>m, n</m>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Lists</title>
+    <p>
+      Before defining <m>\R{n}</m> and <m>\CC{n}</m>,
+      we look at two important examples.
+    </p>
+    <example>
+      <title><m>\R{2}</m> and  <m>\R{3}</m></title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The set <m>\RR{2}</m>, which you can think of as a plane,
+              is the set of all ordered pairs of real numbers:
+              <me>
+                \R{2} = \{ (x,y): x, y \in \R{}  \}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set <m>\RR{3}</m>, which you can think of as ordinary space,
+              is the set of all ordered triples of real numbers:
+              <me>
+                \R{3} = \{ (x,y, z): x, y, z \in \R{}  \}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      To generalize <m>\R{2}</m> and <m>\R{3}</m> to higher dimensions,
+      we first need to discuss the concept of lists.
+    </p>
+    <definition>
+      <title>list, length</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>n</m> is a nonnegative integer.
+              A <term>list</term>
+                <idx><h>list</h></idx>
+              of <term>length</term>
+                <idx><h>length of list</h></idx>
+              <m>n</m> is an ordered collection of <m>n</m> elements
+              (which might be numbers, other lists,
+              or more abstract objects).
+            </p>
+          </li>
+          <li>
+            <p>
+              Two lists are equal if and only if they have the same length and the same elements in the same order.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Many mathematicians call a list of length <m>n</m> an <m>n</m><em>-tuple</em>.
+      </p>
+    </aside>
+    <p>
+          <idx><h>tuple</h></idx>
+    </p>
+    <p>
+      Lists are often written as elements separated by commas and surrounded by parentheses.
+      Thus a list of length two is an ordered pair that might be written as <m>(a, b)</m>.
+      A list of length three is an ordered triple that might be written as <m>(x,y,z)</m>.
+      A list of length <m>n</m> might look like this:
+      <me>
+        (z_1, \dots, z_n)
+      </me>.
+    </p>
+    <p>
+      Sometimes we will use the word <term>list</term>
+      without specifying its length.
+      Remember, however,
+      that by definition each list has a finite length that is a nonnegative integer.
+      Thus an object that looks like <m>(x_1, x_2, \dotsc )</m>,
+      which might be said to have infinite length, is not a list.
+    </p>
+    <p>
+      A list of length <m>0</m> looks like this: <m>(\ )</m>.
+      We consider such an object to be a list so that some of our theorems will not have trivial exceptions.
+    </p>
+    <p>
+      Lists differ from finite sets in two ways:
+      in lists, order matters and repetitions have meaning;
+      in sets, order and repetitions are irrelevant.
+    </p>
+    <example>
+      <title>lists versus sets</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              The lists <m>(3,5)</m> and <m>(5,3)</m> are not equal,
+              but the sets <m>\{3,5\}</m> and <m>\{5,3\}</m> are equal.
+            </p>
+          </li>
+          <li>
+            <p>
+              The lists <m>(4,4)</m> and <m>(4, 4, 4)</m> are not equal
+              (they do not have the same length),
+              although the sets <m>\{4,4\}</m> and
+              <m>\{4, 4, 4\}</m> both equal the set <m>\{4\}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title><m>\F n</m></title>
+    <p>
+      To define the higher-dimensional analogues of <m>\R{2}</m> and <m>\RR{3}</m>,
+      we will simply replace <m>\R{}</m> with <m>\F{}</m>
+      (which equals <m>\R{}</m> or <m>\C{}</m>)
+      and replace the <m>2</m> or <m>3</m> with an arbitrary positive integer.
+    </p>
+    <principle>
+      <title><m>n</m></title>
+      <p>
+        Fix a positive integer <m>n</m> for the rest of this chapter.
+      </p>
+    </principle>
+    <definition>
+      <title><m>\F{n}</m>, coordinate</title>
+      <statement>
+        <p>
+          <m>\F{n}</m><idx><h sortby="Fn"><m>\F{n}{}</m></h></idx> is the set of all lists of length <m>n</m> of elements of <m>\F{}</m>:
+          <me>
+            \F{n} = \{ (x_1, \dots, x_n): x_k \in\F{} \ for\  k = 1, \dots, n  \}
+          </me>.
+        </p>
+        <p>
+          For <m>(x_1, \dots,
+          x_n) \in \F{n}</m> and <m>k \in \{1, \dots, n\}</m>,
+          we say that <m>x_k</m> is the <m>k^\nth</m> <term>coordinate</term>
+              <idx><h>coordinate</h></idx>
+          of <m>(x_1, \dots, x_n)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If <m>\F{} = \R{}</m> and <m>n</m> equals <m>2</m> or <m>3</m>,
+      then the definition above of <m>\F{n}</m> agrees with our previous notions of <m>\R{2}</m> and <m>\RR{3}</m>.
+    </p>
+    <example>
+      <title><m>\C{4}</m></title>
+      <statement>
+        <p>
+          <m>\C{4}</m> is the set of all lists of four complex numbers:
+          <me>
+            \C{4} = \{  (z_1, z_2, z_3, z_4) : z_1, z_2, z_3, z_4 \in \C{}  \}
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <aside>
+      <p>
+        Read <em>Flatland: A Romance of Many Dimensions</em>, by Edwin A. Abbott,
+        for an amusing account of how <m>\R{3}</m> would be perceived by creatures living in <m>\RR{2}</m>.
+        This novel, published in 1884,
+        may help you imagine a physical space of four or more dimensions.
+            <idx><h>Abbott, Edwin A.</h></idx>
+            <idx><h sortby="Flatland"><emph>Flatland</emph></h></idx>
+      </p>
+    </aside>
+    <p>
+      If <m>n \ge 4</m>,
+      we cannot visualize <m>\R{n}</m> as a physical object.
+      Similarly, <m>\C{1}</m> can be thought of as a plane, but for <m>n \ge 2</m>,
+      the human brain cannot provide a full image of <m>\CC{n}</m>.
+      However, even if <m>n</m> is large,
+      we can perform algebraic manipulations in <m>\F{n}</m> as easily as in <m>\R{2}</m> or <m>\RR{3}</m>.
+      For example, addition in <m>\F{n}</m> is defined as follows.
+    </p>
+    <definition xml:id="x106">
+      <title>addition in  <m>\F{n}</m></title>
+      <statement>
+        <p>
+          <term>Addition</term> in <m>\F{n}</m><idx><h>addition</h><h>of vectors in <m>\F{n}</m></h></idx> is defined by adding corresponding coordinates:
+          <me>
+            (x_1, \dots, x_n) + (y_1, \dots, y_n) = (x_1 + y_1, \dots, x_n + y_n)
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Often the mathematics of <m>\F{n}</m> becomes cleaner if we use a single letter to denote a list of <m>n</m> numbers,
+      without explicitly writing the coordinates.
+      For example,
+      the next result is stated with <m>x</m> and <m>y</m> in <m>\F{n}</m> even though the proof requires the more cumbersome notation of
+      <m>(x_1, \dots,
+      x_n)</m> and <m>(y_1, \dots, y_n)</m>.
+    </p>
+    <theorem>
+      <title>commutativity of addition in <m>\F{n}</m></title>
+      <statement>
+        <p>
+          If <m>x, y \in \FF{n}</m>, then <m>x + y = y + x</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>commutativity</h></idx>
+    </p>
+    <proof>
+      <p>
+        Suppose <m>x = (x_1, \dots,
+        x_n) \in \F n</m> and <m>y = (y_1, \dots, y_n) \in \FF n</m>.
+        Then
+        <md>
+          <mrow>x + y \amp = (x_1, \dots, x_n) + (y_1, \dots, y_n )</mrow>
+          <mrow>\amp = (x_1 + y_1, \dots, x_n + y_n)</mrow>
+          <mrow>\amp = (y_1 + x_1, \dots, y_n + x_n)</mrow>
+          <mrow>\amp = (y_1, \dots, y_n) + (x_1, \dots, x_n )</mrow>
+          <mrow>\amp = y + x</mrow>
+        </md>,
+        where the second and fourth equalities above hold because of the definition of addition in <m>\F{n}</m> and the third equality holds because of the usual commutativity of addition in <m>\F{}{}</m>.
+      </p>
+    </proof>
+    <aside>
+      <p>
+        The symbol \qedsymbol<nbsp/>means
+        <q>end of proof</q>.
+            <idx><h sortby="qed">\qedsymbol</h></idx>
+      </p>
+    </aside>
+    <p>
+      If a single letter is used to denote an element of <m>\FF{n}</m>,
+      then the same letter with appropriate subscripts is often used when coordinates must be displayed.
+      For example, if <m>x \in \FF{n}</m>,
+      then letting <m>x</m> equal
+      <m>(x_1, \dots,
+      x_n)</m> is good notation, as shown in the proof above.
+      Even better,
+      work with just<nbsp/><m>x</m> and avoid explicit coordinates when possible.
+    </p>
+    <principle>
+      <title><m>0</m></title>
+      <p>
+        Let <m>0</m> denote the list of length <m>n</m> whose coordinates are all <m>0</m>:
+        <me>
+          0 = (0, \dots, 0)
+        </me>.
+      </p>
+    </principle>
+    <p>
+      Here we are using the symbol <m>0</m> in two different ways<mdash/>on the left side of the equation above,
+      the symbol <m>0</m> denotes a list of length <m>n</m>,
+      which is an element of <m>\FF n</m>,
+      whereas on the right side, each <m>0</m> denotes a number.
+      This potentially confusing practice actually causes no problems because the context should always make clear which <m>0</m> is intended.
+    </p>
+    <example>
+      <title>context determines which  <m>0</m> is intended</title>
+      <statement>
+        <p>
+          Consider the statement that <m>0</m> is an additive identity for<nbsp/><m>\F{n}</m>:
+          <me>
+            x + 0 = x  \text{ for all }  x \in \FF{n}
+          </me>.
+        </p>
+        <p>
+          Here the <m>0</m> above is the list defined in <xref ref="x0vector"></xref>,
+          not the number <m>0</m>,
+          because we have not defined the sum of an element of <m>\F{n}</m> (namely,
+          <m>x</m>) and the number<nbsp/><m>0</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      <figure>
+        <caption>Elements of <m>\R{2}</m> can be thought of as points or as vectors.</caption>
+        <image source="Mathematica/Axes.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      A picture can aid our intuition.
+      We will draw pictures in<nbsp/><m>\R{2}</m> because we can sketch this space on two-dimensional surfaces such as paper and computer screens.
+      A typical element of <m>\R{2}</m> is a point <m>v = (a, b)</m>.
+      Sometimes we think of <m>v</m> not as a point but as an arrow starting at the origin and ending at <m>(a, b)</m>,
+      as shown here.
+      When we think of an element of <m>\R{2}</m> as an arrow,
+      we refer to it as a <term>vector</term>.
+          <idx><h>vector</h></idx>
+    </p>
+    <p>
+      <figure>
+        <caption>A vector.</caption>
+        <image source="Mathematica/Vector.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      When we think of vectors in <m>\R{2}</m> as arrows,
+      we can move an arrow parallel to itself
+      (not changing its length or direction)
+      and still think of it as the same vector.
+      With that viewpoint,
+      you will often gain better understanding by dispensing with the coordinate axes and the explicit coordinates and just thinking of the vector,
+      as shown in the figure here.
+      The two arrows shown here have the same length and same direction,
+      so we think of them as the same vector.
+    </p>
+    <aside>
+      <p>
+        Mathematical models of the economy can have thousands of variables, say
+        <m>x_1, \dots,
+        x_{5000}</m>, which means that we must work in <m>\R{5000}</m>.
+        Such a space cannot be dealt with geometrically.
+        However, the algebraic approach works well.
+        Thus our subject is called <em>linear algebra</em>.
+      </p>
+    </aside>
+    <p>
+      Whenever we use pictures in <m>\R{2}</m> or use the somewhat vague language of points and vectors,
+      remember that these are just aids to our understanding,
+      not substitutes for the actual mathematics that we will develop.
+      Although we cannot draw good pictures in high-dimensional spaces,
+      the elements of these spaces are as rigorously defined as elements of<nbsp/><m>\RR{2}</m>.
+    </p>
+    <p>
+      For example,
+      <m>( 2, -3, 17, \pi, \sqrt{2} )</m> is an element of <m>\RR{5}</m>,
+      and we may casually refer to it as a point in <m>\R{5}</m> or a vector in <m>\R{5}</m> without worrying about whether the geometry of <m>\R{5}</m> has any physical meaning.
+    </p>
+    <p>
+      Recall that we defined the sum of two elements of <m>\F{n}</m> to be the element of <m>\F{n}</m> obtained by adding corresponding coordinates;
+      <xref ref="x106">see</xref>.
+      As we will now see,
+      addition has a simple geometric interpretation in the special case of<nbsp/><m>\RR{2}</m>.
+    </p>
+    <p>
+      <figure>
+        <caption>The sum of two vectors.</caption>
+        <image source="Mathematica/TriangleInequality2.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      Suppose we have two vectors <m>u</m> and <m>v</m> in <m>\R{2}</m> that we want to add.
+      Move the vector <m>v</m> parallel to itself so that its initial point coincides with the end point of the vector<nbsp/><m>u</m>,
+      as shown here.
+      The sum <m>u+v</m> then equals the vector whose initial point equals the initial point of <m>u</m> and whose end point equals the end point of the vector <m>v</m>,
+      as shown here.
+    </p>
+    <p>
+      In the next definition,
+      the <m>0</m> on the right side of the displayed equation is the list <m>0 \in \FF{n}</m>.
+    </p>
+    <definition>
+      <title>additive inverse in <m>\F{n}</m>,  <m>-x</m></title>
+      <statement>
+        <p>
+          For <m>x \in \FF{n}</m>,
+          the <term>additive inverse</term><idx><h>additive inverse</h><h>in <m>\F{n}</m></h></idx> of <m>x</m>,
+          denoted by <m>-x</m>, is the vector <m>-x \in \F{n}</m> such that
+          <me>
+            x + (-x) = 0
+          </me>.
+        </p>
+        <p>
+          Thus if <m>x= (x_1, \dots, x_n)</m>,
+          then <m>-x = (-x_1, \dots, -x_n)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      <figure>
+        <caption>A vector and its additive inverse.</caption>
+        <image source="Mathematica/Minusx.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      The additive inverse of a vector in <m>\R 2</m> is the vector with the same length but pointing in the opposite direction.
+      The figure here illustrates this way of thinking about the additive inverse in <m>\RR{2}</m>.
+      As you can see,
+      the vector labeled <m>-x</m> has the same length as the vector labeled <m>x</m> but points in the opposite direction.
+    </p>
+    <p>
+      Having dealt with addition in <m>\FF{n}</m>,
+      we now turn to multiplication.
+      We could define a multiplication in <m>\F{n}</m> in a similar fashion,
+      starting with two elements of <m>\F{n}</m> and getting another element of <m>\F{n}</m> by multiplying corresponding coordinates.
+      Experience shows that this definition is not useful for our purposes.
+      Another type of multiplication,
+      called scalar multiplication,
+      will be central to our subject.
+      Specifically,
+      we need to define what it means to multiply an element of <m>\F{n}</m> by an element of <m>\F{}{}</m>.
+    </p>
+    <definition>
+      <title>scalar multiplication in  <m>\F{n}</m></title>
+      <statement>
+        <p>
+          The <term>product</term><idx><h>product</h><h>of scalar and vector in <m>\F{n}</m></h></idx> of a number <m>\lambda</m> and a vector in <m>\F{n}</m> is computed by multiplying each coordinate of the vector by <m>\lambda</m>:
+              <idx><h>scalar multiplication</h></idx>
+          <me>
+            \lambda (x_1, \dots, x_n) = (\lambda x_1, \dots, \lambda x_n);
+          </me>
+          here <m>\lambda \in \F{}</m> and <m>(x_1, \dots, x_n) \in \FF{n}</m>.
+        </p>
+      </statement>
+    </definition>
+    <aside>
+      <p>
+        Scalar multiplication in <m>\F n</m> multiplies together a scalar and a vector,
+        getting a vector.
+        In contrast,
+        the dot product in <m>\R{2}</m> or <m>\R{3}</m> multiplies together two vectors and gets a scalar.
+        Generalizations of the dot product will become important in <xref ref="x89">Chapter</xref>.
+      </p>
+    </aside>
+    <p>
+      Scalar multiplication has a nice geometric interpretation in <m>\RR{2}</m>.
+      If <m>\lambda>0</m> and <m>x \in \RR{2}</m>,
+      then <m>\lambda x</m> is the vector that points in the same direction as <m>x</m> and whose length is <m>\lambda</m> times the length of <m>x</m>.
+      In other words, to get <m>\lambda x</m>,
+      we shrink or stretch <m>x</m> by a factor of <m>\lambda</m>,
+      depending on whether <m>\lambda \lt 1</m> or <m>\lambda > 1</m>.
+    </p>
+    <p>
+      <figure>
+        <caption>Scalar multiplication.</caption>
+        <image source="Mathematica/PositiveMultiplication.pdf">
+          <description>Missing description</description>
+        </image>
+      </figure>
+    </p>
+    <p>
+      If <m>\lambda\lt 0</m> and <m>x \in \RR{2}</m>,
+      then <m>\lambda x</m> is the vector that points in the direction opposite to that of <m>x</m> and whose length is
+      <m>|\lambda|</m> times the length of <m>x</m>, as shown here.
+    </p>
+  </subsection>
+  <subsection xml:id="fields">
+    <title>Digression on Fields</title>
+    <p>
+      A <term>field</term> is a set
+          <idx><h>field</h></idx>
+      containing at least two distinct elements called <m>0</m> and <m>1</m>,
+      along with operations of addition and multiplication satisfying all properties listed in <xref ref="complexarith"></xref>.
+      Thus <m>\R{}</m> and <m>\C{}</m> are fields,
+      as is the set of rational numbers along with the usual operations of addition and multiplication.
+      Another example of a field is the set
+      <m>\{0, 1\}</m> with the usual operations of addition and multiplication except that <m>1 + 1</m> is defined to equal <m>0</m>.
+    </p>
+    <p>
+      In this book we will not deal with fields other than <m>\R{}</m> and <m>\C{}</m>.
+      However, many of the definitions, theorems,
+      and proofs in linear algebra that work for the fields <m>\R{}</m> and <m>\C{}</m> also work without change for arbitrary fields.
+      If you prefer to do so, throughout much of this book
+      (except for <xref ref="x89">Chapters</xref> and <xref ref="x183"></xref>,
+      which deal with inner product spaces)
+      you can think of <m>\F{}</m> as denoting an arbitrary field instead of <m>\R{}</m> or<nbsp/><m>\C{}</m>.
+      For results
+      (except in the inner product chapters)
+      that have as a hypothesis that <m>\F{}</m> is <m>\C{}</m>,
+      you can probably replace that hypothesis with the hypothesis that <m>\F{}</m> is an algebraically closed field,
+      which means that every nonconstant polynomial with coefficients in <m>\F{}</m> has a zero.
+      A few results, such as <xref ref="x1threesub">Exercise</xref>
+      in <xref ref="x1Subspaces">Section</xref>,
+      require the hypothesis on <m>\F{}</m> that <m>1 + 1 \ne 0</m>.
+    </p>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>\alpha + \beta = \beta + \alpha</m> for all <m>\alpha , \beta \in \C{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>(\alpha \beta)\lambda = \alpha (\beta \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>\lambda(\alpha + \beta) = \lambda \alpha + \lambda \beta</m> for all <m>\lambda, \alpha , \beta \in \C{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that for every <m>\alpha \in \C{}</m>,
+              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha + \beta = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that for every <m>\alpha \in \C{}</m> with <m>\alpha \ne 0</m>,
+              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha \beta = 1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that
+              <me>
+                \frac{-1 + \sqrt{3}   i}{2}
+              </me>
+              is a cube root of <m>1</m>
+              (meaning that its cube equals<nbsp/><m>1</m>).
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Find two distinct square roots of <m>i</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Find <m>x \in \R{4}</m> such that
+              <me>
+                (4, -3, 1, 7) + 2x = (5, 9, -6, 8)
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Explain why there does not exist <m>\lambda \in \C{}</m> such that
+              <me>
+                \lambda (2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i)
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>(x + y) + z = x + (y + z)</m> for all <m>x,
+              y, z \in \FF{n}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>(ab)x = a(bx)</m> for all
+              <m>x \in \F{n}</m> and all <m>a, b \in \F{}{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>1x = x</m> for all <m>x \in \FF{n}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>\lambda(x + y) = \lambda x + \lambda y</m> for all
+              <m>\lambda \in \F{}</m> and all <m>x, y \in \FF{n}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Show that <m>(a + b)x = ax + bx</m> for all
+              <m>a,
+              b \in \F{}</m> and all <m>x \in \FF{n}</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+    <p>
+      <blockquote>
+        <p>
+          <q>Can you do addition?</q>
+          the White Queen asked.
+          <q>What's one and one and one and one and one and one and one and one and one and one?</q>
+        </p>
+        <p>
+          <q>I don't know,</q>
+          said Alice.
+          <q>I lost count.</q>
+        </p>
+        <attribution><em>Through the Looking Glass, Lewis Carroll
+    <idx><h>Carroll, Lewis</h></idx>
+    <idx><h sortby="Through the Looking"><emph>Through the Looking Glass</emph></h></idx>
+        </em></attribution>
+      </blockquote>
+    </p>
+  </subsection>
+</section>

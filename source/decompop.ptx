@@ -1,0 +1,987 @@
+<section xml:id="decompop">
+  <title>Generalized Eigenspace Decomposition</title>
+  <subsection>
+    <title>Generalized Eigenspaces</title>
+    <definition>
+      <title>generalized eigenspace, <m>G(\lambda, T)</m></title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>.
+          The <term>generalized eigenspace</term>
+          of <m>T</m> corresponding to <m>\lambda</m>,
+          denoted by <m>G(\lambda, T)</m>, is defined by
+          <me>
+            G(\lambda, T) = \{  v \in V : ( T- \lambda I)^k v = 0 \text{ for some positive integer }  k \}
+          </me>.
+        </p>
+        <p>
+          Thus <m>G(\lambda, T)</m> is the set of generalized eigenvectors of <m>T</m> corresponding to <m>\lambda</m>,
+          along with the <m>0</m> vector.
+              <idx><h sortby="GlambdaT"><m>G(\lambda, T)</m></h></idx>
+        </p>
+      </statement>
+    </definition>
+    <p>
+          <idx><h>generalized eigenspace</h></idx>
+    </p>
+    <p>
+      Because every eigenvector of <m>T</m> is a generalized eigenvector of <m>T</m>
+      (take <m>k=1</m> in the definition of generalized eigenvector),
+      each eigenspace is contained in the corresponding generalized eigenspace.
+      In other words,
+      if <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>,
+      then <m>E(\lambda, T) \subset G(\lambda, T)</m>.
+    </p>
+    <p>
+      The next result implies that if
+      <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>,
+      then the generalized eigenspace
+      <m>G(\lambda, T)</m> is a subspace of <nbsp/><m>V</m>
+      (because the null space of each linear map on <m>V</m> is a subspace of<nbsp/><m>V</m>).
+    </p>
+    <theorem xml:id="x180">
+      <title>description of generalized eigenspaces</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>\lambda \in \F{}{}</m>.
+          Then <m>G(\lambda, T) =\ker (T - \lambda I)^{\dim V}\!</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Suppose <m>v \in \ker (T - \lambda I)^{\dim V}\!</m>.
+        The definitions imply <m>v \in G(\lambda, T)</m>.
+        Thus <m>G(\lambda, T) \supset \ker (T - \lambda I)^{\dim V}</m>.
+      </p>
+      <p>
+        Conversely, suppose <m>v \in G(\lambda, T)</m>.
+        Thus there is a positive integer <m>k</m> such that <m>v \in \ker (T - \lambda I)^k\!</m>.
+        <xref ref="x76">From</xref> and <xref ref="x23"></xref>
+        (with <m>T - \lambda I</m> replacing <m>T</m>),
+        we get <m>v \in \ker (T - \lambda I)^{\dim V}</m>.
+        Thus <m>G(\lambda, T) \subset \ker (T - \lambda I)^{\dim V}</m>,
+        completing the proof.
+      </p>
+    </proof>
+    <example xml:id="x5exgeneig">
+      <title>generalized eigenspaces of an operator on  <m>\C3</m></title>
+      <statement>
+        <p>
+          Define <m>T \in \Lc( \C{3} )</m> by
+          <me>
+            T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
+          </me>.
+        </p>
+        <p>
+          In <xref ref="x8exgeneig">Example</xref>,
+          we saw that the eigenvalues of <m>T</m> are <m>0</m> and <m>5</m>,
+          and we found the corresponding sets of generalized eigenvectors.
+          Taking the union of those sets with <m>\{ 0 \}</m>, we have
+          <me>
+            G(0, T) = \{  (z_1, z_2, 0): z_1, z_2 \in \C{}  \} \andd G(5, T) = \{  (0, 0, z_3): z_3 \in \C{}  \}
+          </me>.
+        </p>
+        <p>
+          Note that <m>\CC{3} = G(0, T)\oplus G(5, T)</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In <xref ref="x5exgeneig">Example</xref>,
+      the domain space <m>\C3</m> is the direct sum of the generalized eigenspaces of the operator <m>T</m> in that example.
+      Our next result shows that this behavior holds in general.
+      Specifically, the following major result shows that if
+      <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>,
+      then <m>V</m> is the direct sum of the generalized eigenspaces of <m>T</m>,
+      each of which is invariant under <m>T</m> and on which <m>T</m> is a nilpotent operator plus a scalar multiple of the identity.
+      Thus the next result achieves our goal of decomposing <m>V</m> into invariant subspaces on which <m>T</m> has a known behavior.
+    </p>
+    <p>
+      As we will see,
+      the proof follows from putting together what we have learned about generalized eigenspaces and then using our result that for each operator <m>T \in \Lc(V)</m>,
+      there exists a basis of <m>V</m> consisting of generalized eigenvectors of <m>T{}</m>.
+    </p>
+    <theorem xml:id="x31">
+      <title>generalized eigenspace decomposition</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Let <m>\lambda_1, \dots, \lambda_m</m> be the distinct eigenvalues of<nbsp/><m>T{}</m>.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>G(\lambda_k, T)</m> is invariant under <m>T</m> for each <m>k = 1, \ldots, m</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> is nilpotent for each <m>k = 1, \ldots, m</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>V = G(\lambda_1, T) \oplus \dots \oplus G(\lambda_m, T)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <ol>
+        <li>
+          <p>
+            Suppose <m>k \in \{ 1, \ldots, m \}</m>.
+            <xref ref="x180">Then</xref> shows that
+            <me>
+              G(\lambda_k, T) = \ker (T - \lambda_k I)^{\dim V}\!
+            </me>.
+            <xref ref="x130">Thus</xref>,
+            with <m>p(z) = (z - \lambda_k)^{\dim V}\!</m>,
+            implies that <m>G(\lambda_k, T)</m> is invariant under<nbsp/><m>T</m>,
+            proving<nbsp/>(a).
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>k \in \{ 1, \ldots, m \}</m>.
+            If <m>v \in G(\lambda_k, T)</m>,
+            then <m>(T - \lambda_k I)^{\dim V} v = 0</m>
+            (by <xref ref="x180"></xref>).
+            Thus <m>( (T - \lambda_k I)|_{G(\lambda_k,T)} )^{\dim V} = 0</m>.
+            Hence <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> is nilpotent,
+            proving (b).
+          </p>
+        </li>
+        <li>
+          <p>
+            To show that <m>G(\lambda_1, T) + \dots + G(\lambda_m, T)</m> is a direct sum, suppose
+            <me>
+              v_1 + \dots + v_m = 0
+            </me>,
+            where each <m>v_k</m> is in <m>G(\lambda_k, T)</m>.
+            Because generalized eigenvectors of <m>T</m> corresponding to distinct eigenvalues are linearly independent
+            (by <xref ref="genind"></xref>),
+            this implies that each <m>v_k</m> equals<nbsp/><m>0</m>.
+            Thus <m>G(\lambda_1, T) + \dots + G(\lambda_m, T)</m> is a direct sum
+            (by <xref ref="x30"></xref>).
+            Finally, each vector in <m>V</m> can be written as a finite sum of generalized eigenvectors of <m>T</m>
+            (by <xref ref="x28"></xref>).
+            Thus
+            <me>
+              V = G(\lambda_1, T) \oplus \dots \oplus G(\lambda_m, T)
+            </me>,
+            proving (c).
+          </p>
+        </li>
+      </ol>
+    </proof>
+    <p>
+      For the analogous result when <m>\F{}=\R{}</m>,
+      see <xref ref="x8Rdecomp">Exercise</xref>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Multiplicity of an Eigenvalue</title>
+    <p>
+      If <m>V</m> is a complex vector space and <m>T\in \Lc(V)</m>,
+      then the decomposition of <m>V</m> provided by the generalized eigenspace decomposition <xref ref="x31"/> can be a powerful tool.
+      The dimensions of the subspaces involved in this decomposition are sufficiently important to get a name,
+      which is given in the next definition.
+    </p>
+    <definition xml:id="multeigen">
+      <title>multiplicity</title>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              The <term>multiplicity</term><idx><h>multiplicity of an eigenvalue</h></idx> of an eigenvalue <m>\lambda</m> of<nbsp/><m>T</m> is defined to be the dimension of the corresponding generalized eigenspace <m>G(\lambda, T)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In other words,
+              the  multiplicity of an eigenvalue <m>\lambda</m> of<nbsp/><m>T</m> equals
+              <me>
+                \dim \ker (T - \lambda I)^{\dim V\!}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <p>
+      The second bullet point above holds because <m>G(\lambda, T) = \ker (T - \lambda I)^{\dim V}</m>
+      (<xref ref="x180">see</xref>).
+    </p>
+    <example xml:id="multex">
+      <title>multiplicity of each eigenvalue of an operator</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \C{3} )</m> is defined by
+          <me>
+            T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3)
+          </me>.
+        </p>
+        <p>
+          The matrix of <m>T</m>
+          (with respect to the standard basis)
+          is
+          <me>
+            \begin{pmatrix}6 \amp  3 \amp  4 \\ 0 \amp  6 \amp  2 \\ 0 \amp  0 \amp  7 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          The eigenvalues of <m>T</m> are the diagonal entries <m>6</m> and <m>7</m>,
+          as follows from <xref ref="a221"></xref>.
+          You can verify that the generalized eigenspaces of <m>T</m> are as follows:
+          <me>
+            G(6, T)  = \Span\bigl( (1, 0, 0), (0, 1, 0) \bigr) \andd G(7, T) = \Span\bigl( (10, 2, 1) \bigr)
+          </me>.
+        </p>
+        <aside>
+          <p>
+            In this example,
+            the multiplicity of each eigenvalue equals the number of times that eigenvalue appears on the diagonal of an upper-triangular matrix representing the operator.
+            This behavior always happens,
+            as we will see in <xref ref="x253"></xref>.
+          </p>
+        </aside>
+        <p>
+          Thus the eigenvalue <m>6</m> has multiplicity <m>2</m> and the eigenvalue <m>7</m> has multiplicity <m>1</m>.
+          The direct sum <m>\CC3 = G(6, T) \oplus G(7, T)</m> is the generalized eigenspace decomposition promised by <xref ref="x31"></xref>.
+          A basis of <m>\C3</m> consisting of generalized eigenvectors of <m>T</m>,
+          as promised by <xref ref="x28"></xref>,
+          is <m>(1, 0, 0), (0, 1, 0), (10, 2, 1)</m>.
+          There does not exist a basis of <m>\C3</m> consisting of eigenvectors of this operator.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In the example above,
+      the sum of the multiplicities of the eigenvalues of<nbsp/><m>T</m> equals <m>3</m>,
+      which is the dimension of the domain of<nbsp/><m>T{}</m>.
+      The next result shows that this holds for all operators on finite-dimensional complex vector spaces.
+    </p>
+    <theorem xml:id="x8sm">
+      <title>sum of the multiplicities equals <m>\dim V</m></title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then the sum of the multiplicities of all eigenvalues of <nbsp/><m>T</m> equals <nbsp/><m>\dim V{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The desired result follows from the generalized eigenspace decomposition <xref ref="x31"/> and the formula for the dimension of a direct sum
+        (<xref ref="x3directsumdim">see</xref>).
+      </p>
+    </proof>
+    <p>
+      The terms <term>algebraic multiplicity</term>
+          <idx><h>algebraic multiplicity</h></idx>
+      and <term>geometric multiplicity</term>
+          <idx><h>geometric multiplicity</h></idx>
+      are used in some books.
+      In case you encounter this terminology,
+      be aware that the algebraic multiplicity is the same as the multiplicity defined here and the geometric multiplicity is the dimension of the corresponding eigenspace.
+      In other words,
+      if <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of <m>T</m>, then
+      <md>
+        <mrow>\text{ algebraic multiplicity of\ } \lambda = \dim \ker(T - \lambda I)^{\dim V} = \dim G(\lambda, T),</mrow>
+        <mrow>\text{ geometric multiplicity of\ } \lambda = \dim \ker (T - \lambda I) = \dim E(\lambda, T)</mrow>
+      </md>.
+    </p>
+    <p>
+      Note that as defined above,
+      the algebraic multiplicity also has a geometric meaning as the dimension of a certain null space.
+      The definition of multiplicity given here is cleaner than the traditional definition that involves determinants;
+      <xref ref="x9chareqdet"></xref> implies that these definitions are equivalent.
+    </p>
+    <p>
+      If <m>V</m> is an inner product space,
+      <m>T \in \Lc(V)</m> is normal,
+      and <m>\lambda</m> is an eigenvalue of <m>T</m>,
+      then the algebraic multiplicity of <m>\lambda</m> equals the geometric multiplicity of <m>\lambda</m>,
+      as can be seen from applying <xref ref="x399">Exercise</xref>
+      in <xref ref="selfadjoint_normal">Section</xref>
+      to the normal operator <m>T - \lambda I</m>.
+      As a special case, the singular values of <m>S \in \Lc(V{}, W)</m>
+      (here <m>V</m> and <m>W</m> are both finite-dimensional inner product spaces)
+      depend on the multiplicities
+      (either algebraic or geometric)
+      of the eigenvalues of the self-adjoint operator <m>S^* S</m>.
+    </p>
+    <p>
+      The next definition associates a monic polynomial with each operator on a finite-dimensional complex vector space.
+    </p>
+    <definition xml:id="x7charpoly">
+      <title>characteristic polynomial</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Let <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of<nbsp/><m>T</m>,
+          with multiplicities <m>d_1, \dots, d_m</m>.
+          The polynomial
+          <me>
+            (z - \lambda_1)^{d_1} \dotsm (z - \lambda_m)^{d_m}
+          </me>
+          is called the <term>characteristic polynomial</term><idx><h>characteristic polynomial</h><h>on complex vector space</h></idx> of<nbsp/><m>T{}</m>.
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="multex2">
+      <title>the characteristic polynomial of an operator</title>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \C3 )</m> is defined as in <xref ref="multex">Example</xref>.
+          Because the eigenvalues of <m>T</m> are <m>6</m>,
+          with multiplicity <m>2</m>, and <m>7</m>,
+          with multiplicity<nbsp/><m>1</m>,
+          we see that the characteristic polynomial of <m>T</m> is <m>(z-6)^2 (z-7)</m>.
+        </p>
+      </statement>
+    </example>
+    <theorem xml:id="degreezeros">
+      <title>degree and zeros of characteristic polynomial</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then
+          <ol>
+            <li>
+              <p>
+                the characteristic polynomial of <m>T</m> has degree <m>\dim V</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                the zeros of the characteristic polynomial of <m>T</m> are the eigenvalues of <m>T{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Our result about the sum of the multiplicities <xref ref="x8sm"/> implies (a).
+        The definition of the characteristic polynomial implies (b).
+      </p>
+    </proof>
+    <p>
+      Most texts define the characteristic polynomial using determinants
+      (the two definitions are equivalent by <xref ref="x9chareqdet"></xref>).
+      The approach taken here, which is considerably simpler,
+      leads to the following nice proof of the Cayley<ndash/>Hamilton theorem.
+    </p>
+    <theorem xml:id="x139">
+      <title>Cayley<ndash/>Hamilton theorem</title>
+      <statement>
+        <p>
+              <idx><h>Cayley<ndash/>Hamilton theorem</h><h>on complex vector space</h></idx>
+          Suppose <m>\F{} = \C{}</m>, <m>T \in \Lc(V)</m>,
+          and <m>q</m> is the characteristic polynomial of<nbsp/><m>T{}</m>.
+          Then <m>q(T) =0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>\lambda_1, \dots, \lambda_m</m> be the distinct eigenvalues of <m>T</m>,
+        and let <m>d_k = \dim G(\lambda_k, T)</m>.
+        For each <m>k \in \{1, \dots, m\}</m>,
+        we know that <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> is nilpotent.
+        Thus we have
+      </p>
+      <aside>
+        <p>
+          Arthur Cayley (1821<ndash/>1895) published three mathematics papers before completing his undergraduate degree.
+        </p>
+      </aside>
+      <p>
+            <idx><h>Cayley, Arthur</h></idx>
+        <me>
+          (T - \lambda_k I)^{d_k}|_{G(\lambda_k, T)} = 0
+        </me>
+      </p>
+      <p>
+        (by <xref ref="x181"></xref>) for each <m>k \in \{1, \dots, m\}</m>.
+      </p>
+      <p>
+        The generalized eigenspace decomposition <xref ref="x31"/> states that every vector in <m>V</m> is a sum of vectors in <m>G(\lambda_1, T), \dots, G(\lambda_m, T)</m>.
+        Thus to prove that <m>q(T) = 0</m>,
+        we only need to show that <m>q(T)|_{G(\lambda_k, T)} = 0</m> for each <m>k</m>.
+      </p>
+      <p>
+        Fix <m>k \in \{1, \dots, m\}</m>.
+        We have
+        <me>
+          q(T) = (T - \lambda_1 I)^{d_1} \dotsm (T - \lambda_m I)^{d_m}{}
+        </me>.
+      </p>
+      <p>
+        The operators on the right side of the equation above all commute,
+        so we can move the factor <m>(T - \lambda_k I)^{d_k}</m> to be the last term in the expression on the right.
+        Because <m>(T - \lambda_k I)^{d_k}|_{G(\lambda_k, T)} = 0</m>,
+        we have <m>q(T)|_{G(\lambda_k, T)} = 0</m>, as desired.
+      </p>
+    </proof>
+    <p>
+      The next result implies that if the minimal polynomial of an operator
+      <m>T \in \Lc(V)</m> has degree <m>\dim V</m>
+      (as happens almost always<mdash/>see the paragraphs <xref ref="x2defminpoly">following</xref>),
+      then the characteristic polynomial of <m>T</m> equals the minimal polynomial of <m>T{}</m>.
+    </p>
+    <theorem xml:id="charmult">
+      <title>characteristic polynomial is a multiple of minimal polynomial</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Then the characteristic polynomial of <m>T</m> is a polynomial multiple of the minimal polynomial of <m>T{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+          <idx><h>minimal polynomial</h><h>and characteristic polynomial</h></idx>
+    </p>
+    <proof>
+      <p>
+        The desired result follows immediately from the Cayley<ndash/>Hamilton theorem <xref ref="x139"/> and <xref ref="x140"></xref>.
+      </p>
+    </proof>
+    <p>
+      Now we can prove that the result suggested by <xref ref="multex">Example</xref>
+      holds for all operators on finite-dimensional complex vector spaces.
+    </p>
+    <theorem xml:id="x253">
+      <title>multiplicity of an eigenvalue equals number of times on diagonal</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Suppose <m>v_1, \ldots,
+          v_n</m> is a basis of <m>V</m> such that <m>\M( T, (v_1, \ldots,
+          v_n) )</m> is upper triangular.
+          Then the number of times that each eigenvalue <m>\lambda</m> of <m>T</m> appears on the diagonal of
+          <m>\M( T, (v_1, \ldots,
+          v_n) )</m> equals the multiplicity of <m>\lambda</m> as an eigenvalue of <m>T{}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Let <m>A = \M( T, (v_1, \ldots, v_n) )</m>.
+        Thus <m>A</m> is an upper-triangular matrix.
+        Let <m>\lambda_1, \ldots, \lambda_n</m> denote the entries on the diagonal of <m>A</m>.
+        Thus for each <m>k \in \{ 1, \ldots, n \}</m>, we have
+        <me>
+          Tv_k = u_k + \lambda_k v_k
+        </me>
+        for some <m>u_k \in \Span(v_1, \ldots, v_{k-1})</m>.
+        Hence if <m>k \in \{ 1, \ldots,
+        n \}</m> and <m>\lambda_k \ne 0</m>,
+        then <m>Tv_k</m> is not a linear combination of <m>Tv_1, \ldots, Tv_{k-1}</m>.
+        The linear dependence lemma <xref ref="x4"/> now implies that the list of those <m>Tv_k</m> such that
+        <m>\lambda_k \ne 0</m> is linearly independent.
+      </p>
+      <p>
+        Let <m>d</m> denote the number of indices
+        <m>k \in \{ 1, \ldots,
+        n \}</m> such that <m>\lambda_k = 0</m>.
+        The conclusion of the previous paragraph implies that
+        <me>
+          \dim \ran T \ge n - d
+        </me>.
+      </p>
+      <p>
+        Because <m>n = \dim V = \dim \ker T + \dim \ran T</m>,
+        the inequality above implies that
+        <men xml:id="x8dimnullT">
+          \dim \ker T \le d
+        </men>.
+      </p>
+      <p>
+        The matrix of the operator <m>T^n</m> with respect to the basis
+        <m>v_1, \ldots,
+        v_n</m> is the upper-triangular matrix <m>A^n{}</m>,
+        which has diagonal entries
+        <m>{\lambda_1}^{n}, \ldots, {\lambda_n}^{n}</m> [see <xref ref="x2AB">Exercise</xref>(b) in <xref ref="x4utm">Section</xref>] . Because
+        <m>{\lambda_k}^{n} = 0</m> if and only if <m>\lambda_k = 0</m>,
+        the number of times that <m>0</m> appears on the diagonal of <m>A^n</m> equals <m>d</m>.
+        Thus <xref ref="x8dimnullT">applying</xref>
+        with <m>T</m> replaced with <m>T^n{}</m>, we have
+        <men xml:id="x8dimnullTn">
+          \dim \ker T^n \le d
+        </men>.
+      </p>
+      <p>
+        For <m>\lambda</m> an eigenvalue of <m>T{}</m>,
+        let <m>m_{\lambda}</m> denote the multiplicity of <m>\lambda</m> as an eigenvalue of <m>T</m> and let
+        <m>d_{\lambda}</m> denote the number of times that <m>\lambda</m> appears on the diagonal of <m>A</m>.
+        Replacing <m>T</m> in <xref ref="x8dimnullTn"></xref>
+        with <m>T - \lambda I</m>, we see that
+        <men xml:id="x8md">
+          m_{\lambda} \le d_{\lambda}
+        </men>
+        for each eigenvalue <m>\lambda</m> of <m>T{}</m>.
+        The sum of the multiplicities
+        <m>m_{\lambda}</m> over all eigenvalues <m>\lambda</m> of <m>T</m> equals <m>n</m>,
+        the dimension of <m>V</m>
+        (by <xref ref="x8sm"></xref>).
+        The sum of the numbers <m>d_{\lambda}</m> over all eigenvalues <m>\lambda</m> of <m>T</m> also equals <m>n</m>,
+        because the diagonal of <m>A</m> has length <m>n</m>.
+      </p>
+      <p>
+        Thus summing both sides of <xref ref="x8md"></xref>
+        over all eigenvalues <m>\lambda</m> of <m>T</m> produces an equality.
+        <xref ref="x8md">Hence</xref> must actually be an equality for each eigenvalue <m>\lambda</m> of <m>T{}</m>.
+        Thus the multiplicity of <m>\lambda</m> as an eigenvalue of <m>T{}</m> equals the number of times that <m>\lambda</m> appears on the diagonal of <m>A</m>,
+        as desired.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Block Diagonal Matrices</title>
+    <aside>
+      <p>
+        Often we can understand a matrix better by thinking of it as composed of smaller matrices.
+      </p>
+    </aside>
+    <p>
+      To interpret our results in matrix form,
+      we make the following definition,
+      generalizing the notion of a diagonal matrix.
+      If each matrix <m>A_k</m> in the definition below is a <m>1</m>-by-<m>1</m> matrix,
+      then we actually have a diagonal matrix.
+    </p>
+    <definition>
+      <title>block diagonal matrix</title>
+      <statement>
+        <p>
+          A <term>block diagonal matrix</term>
+              <idx><h>block diagonal matrix</h></idx>
+          is a square matrix of the form
+          <me>
+            \begin{pmatrix}A_1 \amp  \amp  0 \\ \amp  \ddots \amp  \\ 0 \amp  \amp  A_m \end{pmatrix}
+          </me>,
+          where <m>A_1, \dots, A_m</m> are square matrices lying along the diagonal and all other entries of the matrix equal<nbsp/><m>0</m>.
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="x260">
+      <title>a block diagonal matrix</title>
+      <statement>
+        <p>
+          The <m>5</m>-by-<m>5</m> matrix
+          <me>
+            A = \begin{pmatrix}\begin{pmatrix}4 \end{pmatrix}  \amp  \begin{matrix}0 \amp  0 \end{matrix}  \amp  \begin{matrix}0 \amp  0 \end{matrix} \\ \begin{matrix}0 \\ 0 \end{matrix}  \amp  \begin{pmatrix}2 \amp  -3 \\ 0 \amp  2 \end{pmatrix}  \amp \begin{matrix}0 \amp  0 \\ 0 \amp  0 \end{matrix}  \\ \begin{matrix}0 \\ 0 \end{matrix}  \amp  \begin{matrix}0 \amp  0 \\ 0 \amp  0 \end{matrix}  \amp \begin{pmatrix}1 \amp  7 \\ 0 \amp  1 \end{pmatrix} \end{pmatrix}
+          </me>
+          is a block diagonal matrix with
+          <me>
+            A = \begin{pmatrix}A_1 \amp  \amp  0 \\ \amp  A_2 \amp  \\ 0 \amp  \amp  A_3 \end{pmatrix}
+          </me>,
+          where
+          <me>
+            A_1 = \begin{pmatrix}4 \end{pmatrix} , A_2 = \begin{pmatrix}2 \amp  -3 \\ 0 \amp  2 \end{pmatrix} , A_3 = \begin{pmatrix}1 \amp  7 \\ 0 \amp  1 \end{pmatrix}
+          </me>.
+        </p>
+        <p>
+          Here the inner matrices in the <m>5</m>-by-<m>5</m> matrix above are blocked off to show how we can think of it as a block diagonal matrix.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Note that in the example above,
+      each of <m>A_1</m>, <m>A_2</m>,
+      <m>A_3</m> is an upper-triangular matrix whose diagonal entries are all equal.
+      The next result shows that with respect to an appropriate basis,
+      every operator on a finite-dimensional complex vector space has a matrix of this form.
+      Note that this result gives us many more zeros in the matrix than are needed to make it upper triangular.
+          <idx><h>upper-triangular matrix</h></idx>
+    </p>
+    <theorem xml:id="x187">
+      <title>block diagonal matrix with upper-triangular blocks</title>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+          Let <m>\lambda_1, \dots, \lambda_m</m> be the distinct eigenvalues of <m>T</m>,
+          with multiplicities <m>d_1, \dots, d_m</m>.
+          Then there is a basis of <m>V</m> with respect to which <m>T</m> has a block diagonal matrix of the form
+          <me>
+            \begin{pmatrix}A_1 \amp  \amp  0 \\ \amp  \ddots \amp  \\ 0 \amp   \amp  A_m \end{pmatrix}
+          </me>,
+          where each <m>A_k</m> is a <m>d_k</m>-by-<m>d_k</m> upper-triangular matrix of the form
+          <me>
+            A_k = \begin{pmatrix}\lambda_k \amp  \amp * \\ \amp \ddots \amp  \\ 0 \amp  \amp  \lambda_k \end{pmatrix}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Each <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> is nilpotent
+        (<xref ref="x31">see</xref>).
+        For each <m>k</m>, choose a basis of <m>G(\lambda_k, T)</m>,
+        which is a vector space of dimension <m>d_k</m>,
+        such that the matrix of <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> with respect to this basis is as in <xref ref="a33"></xref>(c).
+        Thus with respect to this basis,
+        the matrix of <m>T|_{G(\lambda_k, T)}</m>,
+        which equals <m>(T - \lambda_k I)|_{G(\lambda_k, T)} + \lambda_k I|_{G(\lambda_k, T)}</m>,
+        looks like the desired form shown above for <m>A_k</m>.
+      </p>
+      <p>
+        The generalized eigenspace decomposition <xref ref="x31"/> shows that putting together the bases of the
+        <m>G(\lambda_k, T)</m>'s chosen above gives a basis of <m>V{}</m>.
+        The matrix of <m>T</m> with respect to this basis has the desired form.
+      </p>
+    </proof>
+    <example xml:id="decompex">
+      <title>block diagonal matrix via generalized eigenvectors</title>
+      <statement>
+        <p>
+          Let <m>T \in \Lc( \C{3} )</m> be defined by <m>T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3)</m>.
+          The matrix of <m>T</m>
+          (with respect to the standard basis)
+          is
+          <me>
+            \begin{pmatrix}6 \amp  3 \amp  4 \\ 0 \amp  6 \amp  2 \\ 0 \amp  0 \amp  7 \end{pmatrix}
+          </me>,
+          which is an upper-triangular matrix but is not of the form promised by <xref ref="x187"></xref>.
+        </p>
+        <p>
+          As we saw in <xref ref="multex">Example</xref>,
+          the eigenvalues of <m>T</m> are <m>6</m> and <m>7</m>; also,
+          <me>
+            G(6, T)  = \Span\bigl( (1, 0, 0), (0, 1, 0) \bigr) \andd G(7, T) = \Span\bigl( (10, 2, 1) \bigr)
+          </me>.
+        </p>
+        <p>
+          We also saw that a basis of <m>\C3</m> consisting of generalized eigenvectors of <m>T</m> is
+          <me>
+            (1, 0, 0), (0, 1, 0), (10, 2, 1)
+          </me>.
+        </p>
+        <p>
+          The matrix of <m>T</m> with respect to this basis is
+          <me>
+            \begin{pmatrix}\begin{pmatrix}6 \amp  3 \\ 0 \amp  6 \end{pmatrix}  \amp  \begin{matrix}0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \end{matrix}  \amp  \begin{pmatrix}7 \end{pmatrix} \end{pmatrix}
+          </me>,
+          which is a matrix of the block diagonal form promised by <xref ref="x187"></xref>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      <exercises>
+        <title></title>
+        <exercise>
+          <statement>
+            <p>
+              Define <m>T \in \Lc( \C{2} )</m> by <m>T(w,z) = (-z, w)</m>.
+              Find the generalized eigenspaces corresponding to the distinct eigenvalues of <m>T{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> is invertible.
+              Prove that <m>G(\lambda, T) = G( \frac{1}{\lambda}, T^{-1} )</m> for every
+              <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m>.
+              Suppose <m>S \in \Lc(V)</m> is invertible.
+              Prove that <m>T</m> and <m>S^{-1} T S</m> have the same eigenvalues with the same multiplicities.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\dim V \ge 2</m> and
+              <m>T \in \Lc(V)</m> is such that <m>\ker T^{\dim V-2\!} \ne \ker T^{\dim V-1\!}</m>.
+              Prove that <m>T</m> has at most two distinct eigenvalues.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>3</m> and <m>8</m> are eigenvalues of <m>T{}</m>.
+              Let <m>n = \dim V{}</m>.
+              Prove that <m>V = ( \ker T^{n-2} ) \oplus ( \ran T^{n-2} )</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+              Explain why the exponent of
+              <m>z-\lambda</m> in the factorization of the minimal polynomial of <m>T</m> is the smallest positive integer <m>m</m> such that <m>(T - \lambda I)^m|_{G(\lambda, T)} = 0</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of <m>T</m> with multiplicity <m>d</m>.
+              Prove that <m>G(\lambda, T) = \ker(T - \lambda I)^d\!</m>.
+              Note: If <m>d \lt \dim V{}</m>,
+              then this exercise <xref ref="x180">improves</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8Rdecomp">
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and
+              <m>\lambda_1, \ldots, \lambda_m</m> are the distinct eigenvalues of <m>T{}</m>.
+              Prove that <idx><h>minimal polynomial</h><h>and generalized eigenspace decomposition</h></idx>
+              <me>
+                V = G(\lambda_1, T) \oplus \cdots \oplus G(\lambda_m, T)
+              </me>
+              if and only if the minimal polynomial of <m>T</m> equals
+              <m>(z-\lambda_1)^{k_1} \cdots (z - \lambda_m)^{k_m}</m> for some positive integers <m>k_1, \ldots, k_m</m>.
+              Note: The case <m>\F{} = \C{}</m> follows immediately from <xref ref="x136"></xref>
+              (b) and the generalized eigenspace decomposition <xref ref="x31"/> ; thus this exercise is interesting only when <m>\F{} = \R{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+              Prove that there exist <m>D, N \in \Lc(V)</m> such that <m>T = D + N</m>,
+              the operator <m>D</m> is diagonalizable,
+              <m>N</m> is nilpotent, and <m>DN = ND</m>.
+          <idx><h>diagonalizable</h></idx>
+      </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>V</m> is a complex inner product space,
+              <m>e_1, \ldots,
+              e_n</m> is an orthonormal basis of <m>V</m>, and <m>T \in \Lc(V)</m>.
+              Let <m>\lambda_1, \dots, \lambda_n</m> be the eigenvalues of<nbsp/><m>T</m>,
+              each included as many times as its multiplicity.
+              Prove that
+              <me>
+                |\lambda_1|^2 + \dots + |\lambda_n|^2 \le \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2{}
+              </me>.
+            </p>
+            <p>
+              Note: See the comment after <xref ref="x6sumT2">Exercise</xref>
+              in <xref ref="selfadjoint_normal">Section</xref>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of an operator on <m>\C{4}</m> whose characteristic polynomial equals <m>(z - 7)^2 (z - 8)^2{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of an operator on <m>\C4</m> whose characteristic polynomial equals
+              <m>(z - 1) (z - 5)^3</m> and whose minimal polynomial equals <m>(z - 1) (z - 5)^2{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of an operator on <m>\C{4}</m> whose characteristic and minimal polynomials both equal <m>z (z - 1)^2 (z - 3)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Give an example of an operator on <m>\C{4}</m> whose characteristic polynomial equals
+              <m>z (z - 1)^2 (z - 3)</m> and whose minimal polynomial equals <m>z (z - 1) (z - 3)</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Let <m>T</m> be the operator on <m>\C4</m> defined by <m>T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)</m>.
+              Find the characteristic polynomial and the minimal polynomial of <m>T</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Let <m>T</m> be the operator on <m>\C6</m> defined by
+              <me>
+                T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0)
+              </me>.
+            </p>
+            <p>
+              Find the characteristic polynomial and the minimal polynomial of <m>T</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8P2">
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and
+              <m>P \in \Lc(V)</m> is such that <m>P^2 = P{}</m>.
+              Prove that the characteristic polynomial of <m>P</m> is <m>z^m (z-1)^n{}</m>,
+              where <m>m = \dim \ker P</m> and <m>n = \dim \ran P{}</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+              Explain why the following four numbers equal each other.
+              <ol>
+                <li>
+                  <p>
+                    The exponent of <m>z-\lambda</m> in the factorization of the minimal polynomial of <m>T</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The smallest positive integer <m>m</m> such that <m>(T - \lambda I)^m|_{G(\lambda, T)} = 0</m>.
+                      <idx><h>minimal polynomial</h><h>and generalized eigenspaces</h></idx>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The smallest positive integer <m>m</m> such that
+                    <me>
+                      \ker (T - \lambda I)^m = \ker (T - \lambda I)^{m+1}\!
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The smallest positive integer <m>m</m> such that
+                    <me>
+                      \ran (T - \lambda I)^m = \ran (T - \lambda I)^{m+1}\!
+                    </me>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>\F{} = \C{}</m> and
+              <m>S \in \Lc(V)</m> is a unitary operator.
+              Prove that the constant term in the characteristic polynomial of <m>S</m> has absolute value <m>1</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose that <m>\F{} = \C{}</m> and
+              <m>V{}_1, \dots, V{}_m</m> are nonzero subspaces of <m>V</m> such that
+              <me>
+                V = V{}_1 \oplus \dots \oplus V{}_m
+              </me>.
+            </p>
+            <p>
+              Suppose <m>T \in \Lc(V)</m> and each <m>V{}_k</m> is invariant under <m>T{}</m>.
+              For each <m>k</m>,
+              let <m>p_k</m> denote the characteristic polynomial of <m>T|_{V{}_k}</m>.
+              Prove that the characteristic polynomial of <m>T</m> equals <m>p_1 \dotsm p_m</m>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>
+              Suppose <m>p,
+              q \in \P(\C{})</m> are monic polynomials with the same zeros and <m>q</m> is a polynomial multiple of <m>p</m>.
+              Prove that there exists <m>T \in \Lc( \C{\deg q} )</m> such that the characteristic polynomial of <m>T</m> is <m>q</m> and the minimal polynomial of <m>T</m> is <m>p</m>.
+              Note: This exercise implies that every monic polynomial is the characteristic polynomial of some operator.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="blockmult">
+          <statement>
+            <p>
+              Suppose <m>A</m> and <m>B</m> are block diagonal matrices of the form
+              <me>
+                A = \begin{pmatrix}A_1 \amp  \amp  0 \\ \amp  \ddots \amp  \\ 0 \amp  \amp  A_m \end{pmatrix} , B = \begin{pmatrix}B_1 \amp  \amp  0 \\ \amp  \ddots \amp  \\ 0 \amp  \amp  B_m \end{pmatrix}
+              </me>,
+              where <m>A_k</m> and <m>B_k</m> are square matrices of the same size for each <m>k = 1, \dots, m</m>.
+              Show that <m>AB</m> is a block diagonal matrix of the form
+              <me>
+                AB = \begin{pmatrix}A_1 B_1 \amp  \amp  0 \\ \amp  \ddots \amp  \\ 0 \amp  \amp  A_m B_m \end{pmatrix}
+              </me>.
+            </p>
+          </statement>
+        </exercise>
+        <exercise xml:id="x8compmult">
+          <statement>
+            <p>
+              Suppose <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
+              and <m>\lambda \in \C{}</m>.
+          <idx><h>complexification</h><h>generalized eigenvectors of</h></idx>
+          <idx><h>complexification</h><h>multiplicity of eigenvalues</h></idx>
+          <idx><h>eigenvalue</h><h>on odd-dimensional space</h></idx>
+              <ol>
+                <li>
+                  <p>
+                    Show that <m>u + iv \in G( \lambda, T{}_{\C{}} )</m> if and only if <m>u - iv \in G( \overline{\lambda}, T{}_{\C{}} )</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that the multiplicity of <m>\lambda</m> as an eigenvalue of
+                    <m>T{}_{\C{}}</m> equals the multiplicity of
+                    <m>\bar{\lambda}</m> as an eigenvalue of <m>T{}_{\C{}}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use (b) and the result about the sum of the multiplicities <xref ref="x8sm"/> to show that if <m>\dim V</m> is an odd number,
+                    then <m>T{}_{\C{}}</m> has a real eigenvalue.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use (c) and the result about real eigenvalues of <m>T{}_{\C{}}</m>
+                    (<xref ref="x5realeig">Exercise</xref>
+                    in <xref ref="x5invar">Section</xref>)
+                    to show that if <m>\dim V</m> is an odd number,
+                    then <m>T</m> has an eigenvalue
+                    (thus giving an alternative proof of <xref ref="x5odd"></xref>).
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              Note: See <xref ref="x3complexMap">Exercise</xref>
+              in <xref ref="x3nullspace">Section</xref>
+              for the definition of the complexification <m>T{}_{\C{}}</m>.
+            </p>
+          </statement>
+        </exercise>
+      </exercises>
+    </p>
+  </subsection>
+</section>
