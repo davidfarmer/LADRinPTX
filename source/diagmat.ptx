@@ -15,12 +15,12 @@
     <example xml:id="diagmatex">
       <title>diagonal matrix</title>
       <statement>
-        <me>
+        <md>
           \begin{pmatrix}8 \amp  0 \amp  0\\
           0 \amp  5 \amp  0\\
           0 \amp  0 \amp  5
           \end{pmatrix}
-        </me>
+        </md>
         <p>
           is a diagonal matrix.
         </p>
@@ -54,22 +54,22 @@
       <statement>
         <p>
           Define <m>T \in \Lc( \R2 )</m> by
-          <me>
-            T(x, y) = (41x + 7y, -20x + 74y)
-          </me>.
+          <md>
+            T(x, y) = (41x + 7y, -20x + 74y).
+          </md>
         </p>
         <p>
           The matrix of <m>T</m> with respect to the standard basis of <m>\R2</m> is
-          <me>
-            \begin{pmatrix}41 \amp  7 \\ -20 \amp  74 \end{pmatrix}
-          </me>,
+          <md>
+            \begin{pmatrix}41 \amp  7 \\ -20 \amp  74 \end{pmatrix} ,
+          </md>
           which is not a diagonal matrix.
           However, <m>T</m> is diagonalizable.
           Specifically,
           the matrix of <m>T</m> with respect to the basis <m>(1,4), (7, 5)</m> is
-          <me>
+          <md>
             \begin{pmatrix}69 \amp  0 \\ 0 \amp  46 \end{pmatrix}
-          </me>
+          </md>
           because <m>T(1,4) = (69, 276) = 69(1, 4)</m> and <m>T(7, 5) = (322, 230) = 46(7,5)</m>.
         </p>
       </statement>
@@ -86,9 +86,9 @@
           The <term>eigenspace</term> of <m>T</m> corresponding to <m>\lambda</m> is the subspace
           <m>E(\lambda, T)</m> of <m>V</m> defined by<idx><h sortby="ElambdaT"><m>E(\lambda, T)</m></h></idx>
               <idx><h>eigenspace</h></idx>
-          <me>
-            E(\lambda, T) = \ker(T - \lambda I) = \{ v \in V: Tv = \lambda v \}
-          </me>.
+          <md>
+            E(\lambda, T) = \ker(T - \lambda I) = \{ v \in V: Tv = \lambda v \}.
+          </md>
         </p>
         <p>
           Hence <m>E(\lambda, T)</m> is the set of all eigenvectors of <m>T</m> corresponding to <m>\lambda</m>,
@@ -109,9 +109,9 @@
           <m>T \in\Lc(V)</m> with respect to a basis
           <m>v_1, v_2, v_3</m> of <m>V</m> is the matrix in <xref ref="diagmatex">Example</xref>.
           Then
-          <me>
-            E(8, T) = \Span(v_1),  E(5, T) = \Span(v_2, v_3)
-          </me>.
+          <md>
+            E(8, T) = \Span(v_1),  E(5, T) = \Span(v_2, v_3).
+          </md>
         </p>
       </statement>
     </example>
@@ -127,23 +127,23 @@
           Suppose <m>T \in \Lc(V)</m> and
           <m>\lambda_1, \dots, \lambda_m</m> are distinct eigenvalues of <m>T{}</m>.
           Then
-          <me>
+          <md>
             E(\lambda_1, T) + \dots + E(\lambda_m, T)
-          </me>
+          </md>
           is a direct sum.
           Furthermore, if <m>V</m> is finite-dimensional, then
-          <me>
-            \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T) \le \dim V{}
-          </me>.
+          <md>
+            \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T) \le \dim V{}.
+          </md>
         </p>
       </statement>
     </theorem>
     <proof>
       <p>
         To show that <m>E(\lambda_1, T) + \dots + E(\lambda_m, T)</m> is a direct sum, suppose
-        <me>
-          v_1 + \dots + v_m = 0
-        </me>,
+        <md>
+          v_1 + \dots + v_m = 0,
+        </md>
         where each <m>v_k</m> is in <m>E(\lambda_k, T)</m>.
         Because eigenvectors corresponding to distinct eigenvalues are linearly independent
         (by <xref ref="x26"></xref>),
@@ -205,9 +205,9 @@
     <proof>
       <p>
         An operator <m>T \in \Lc(V)</m> has a diagonal matrix
-        <me>
+        <md>
           \begin{pmatrix}\lambda_1 \amp  \amp 0 \\ \amp  \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix}
-        </me>
+        </md>
         with respect to a basis <m>v_1, \dots,
         v_n</m> of <m>V</m> if and only if
         <m>Tv_k = \lambda_k v_k</m> for each<nbsp/><m>k</m>.
@@ -218,9 +218,9 @@
         thus <m>V</m> has a basis consisting of eigenvectors of<nbsp/><m>T{}</m>.
         Hence every vector in <m>V</m> is a linear combination of eigenvectors of<nbsp/><m>T</m>,
         which implies that
-        <me>
-          V = E(\lambda_1, T) + \dots + E(\lambda_m, T)
-        </me>.
+        <md>
+          V = E(\lambda_1, T) + \dots + E(\lambda_m, T).
+        </md>
       </p>
       <p>
         <xref ref="dirE">Now</xref> shows that (c) holds,
@@ -231,9 +231,9 @@
       </p>
       <p>
         Finally, suppose (d) holds; thus
-        <men xml:id="x426">
-          \dim V = \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T)
-        </men>.
+        <md number="yes" xml:id="x426">
+          \dim V = \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T).
+        </md>
       </p>
       <p>
         Choose a basis of each <m>E(\lambda_k, T)</m>;
@@ -242,16 +242,16 @@
         v_n</m> of eigenvectors of<nbsp/><m>T</m>, where <m>n = \dim V</m>
         (by <xref ref="x426"></xref>).
         To show that this list is linearly independent, suppose
-        <me>
-          a_1 v_1 + \dots + a_n v_n = 0
-        </me>,
+        <md>
+          a_1 v_1 + \dots + a_n v_n = 0,
+        </md>
         where <m>a_1, \dots, a_n \in \F{}{}</m>.
         For each <m>k = 1, \dots, m</m>,
         let <m>u_k</m> denote the sum of all the terms <m>a_j v_j</m> such that <m>v_j \in E(\lambda_k, T)</m>.
         Thus each <m>u_k</m> is in <m>E(\lambda_k, T)</m>, and
-        <me>
-          u_1 + \dots + u_m = 0
-        </me>.
+        <md>
+          u_1 + \dots + u_m = 0.
+        </md>
       </p>
       <p>
         Because eigenvectors corresponding to distinct eigenvalues are linearly independent
@@ -287,17 +287,17 @@
         <p>
           Define an operator <m>T \in \Lc( \F{3} )</m> by <m>T(a,b,c) = (b,c, 0)</m>.
           The matrix of <m>T</m> with respect to the standard basis of <m>\F3</m> is
-          <me>
-            \begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix}
-          </me>,
+          <md>
+            \begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix} ,
+          </md>
           which is an upper-triangular matrix but is not a diagonal matrix.
         </p>
         <p>
           As you should verify,
           <m>0</m> is the only eigenvalue of <m>T</m> and furthermore
-          <me>
-            E(0, T) = \{ (a,0,0) \in \F3: a \in \F{} \}
-          </me>.
+          <md>
+            E(0, T) = \{ (a,0,0) \in \F3: a \in \F{} \}.
+          </md>
         </p>
         <p>
           Hence conditions (b), (c), and (d) of <xref ref="x427"></xref> fail
@@ -370,9 +370,9 @@
         <p>
           Define <m>T \in \Lc( \F3 )</m> by <m>T(x, y, z) = (2x + y, 5y + 3z, 8z)</m>.
           With respect to the standard basis, the matrix of <m>T</m> is
-          <me>
-            \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix} .
+          </md>
         </p>
         <p>
           The matrix above is an upper-triangular matrix but it is not a diagonal matrix.
@@ -385,9 +385,9 @@
           To find this basis,
           we only have to find an eigenvector for each eigenvalue.
           In other words, we have to find a nonzero solution to the equation
-          <me>
+          <md>
             T(x, y, z) = \lambda(x, y, z)
-          </me>
+          </md>
           for <m>\lambda = 2</m>, then for <m>\lambda = 5</m>,
           and then for <m>\lambda = 8</m>.
           Solving these simple equations shows that for
@@ -398,16 +398,16 @@
         <p>
           Thus <m>(1, 0, 0), (1, 3, 0), (1, 6, 6)</m> is a basis of <m>\FF3</m> consisting of eigenvectors of <m>T</m>,
           and with respect to this basis the matrix of <m>T</m> is the diagonal matrix
-          <me>
-            \begin{pmatrix}2 \amp  0 \amp  0 \\ 0 \amp  5 \amp  0 \\ 0 \amp  0 \amp  8 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}2 \amp  0 \amp  0 \\ 0 \amp  5 \amp  0 \\ 0 \amp  0 \amp  8 \end{pmatrix} .
+          </md>
         </p>
         <p>
           To compute <m>T^{100}(0, 0, 1)</m>, for example,
           write <m>(0, 0,1)</m> as a linear combination of our basis of eigenvectors:
-          <me>
-            (0, 0, 1) =\tfrac{1}{6} (1,0,0) - \tfrac{1}{3} (1,3, 0) + \tfrac{1}{6}(1,6, 6)
-          </me>.
+          <md>
+            (0, 0, 1) =\tfrac{1}{6} (1,0,0) - \tfrac{1}{3} (1,3, 0) + \tfrac{1}{6}(1,6, 6).
+          </md>
         </p>
         <p>
           Now apply <m>T^{100}</m> to both sides of the equation above, getting
@@ -439,9 +439,9 @@
       <statement>
         <p>
           Define <m>T \in \Lc(  \C5  )</m> by
-          <me>
-            T(z_1, z_2, z_3, z_4 ,z_5) = (-3z_5, z_1 + 6z_5, z_2, z_3, z_4)
-          </me>.
+          <md>
+            T(z_1, z_2, z_3, z_4 ,z_5) = (-3z_5, z_1 + 6z_5, z_2, z_3, z_4).
+          </md>
         </p>
         <p>
           The matrix of <m>T</m> is shown in <xref ref="x141">Example</xref>,
@@ -465,15 +465,15 @@
       <statement>
         <p>
           Define <m>T \in \Lc( \F{3} )</m> by
-          <me>
-            T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3)
-          </me>.
+          <md>
+            T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + 2z_3, 7z_3).
+          </md>
         </p>
         <p>
           The matrix of <m>T</m> with respect to the standard basis of <m>\F3</m> is
-          <me>
-            \begin{pmatrix}6 \amp  3 \amp  4 \\ 0 \amp  6 \amp  2 \\ 0 \amp  0 \amp  7 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}6 \amp  3 \amp  4 \\ 0 \amp  6 \amp  2 \\ 0 \amp  0 \amp  7 \end{pmatrix} .
+          </md>
         </p>
         <p>
           The matrix above is an upper-triangular matrix but is not a diagonal matrix.
@@ -522,9 +522,9 @@
         Then for each <m>v_j</m>,
         there exists <m>\lambda_k</m> with <m>(T - \lambda_k I)v_j = 0</m>.
         Thus
-        <me>
-          (T - \lambda_1 I) \dotsm (T - \lambda_m I)v_j = 0
-        </me>,
+        <md>
+          (T - \lambda_1 I) \dotsm (T - \lambda_m I)v_j = 0,
+        </md>
         which implies that the minimal polynomial of <m>T</m> equals <m>(z-\lambda_1) \cdots (z-\lambda_m)</m>.
       </p>
       <p>
@@ -532,9 +532,9 @@
         now suppose the minimal polynomial of <m>T</m> equals
         <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some list of distinct numbers <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
         Thus
-        <men xml:id="x9Tr">
-          (T - \lambda_1 I) \dotsm (T - \lambda_m I) = 0
-        </men>.
+        <md number="yes" xml:id="x9Tr">
+          (T - \lambda_1 I) \dotsm (T - \lambda_m I) = 0.
+        </md>
       </p>
       <p>
         We will prove that <m>T</m> is diagonalizable by induction on <m>m</m>.
@@ -553,9 +553,9 @@
         If <m>u \in \ran(T-\lambda_m I)</m>,
         then <m>u = (T - \lambda_m I) v</m> for some <m>v \in V{}</m>,
         and <xref ref="x9Tr"></xref> implies
-        <men xml:id="x7minr">
-          (T - \lambda_1 I) \cdots (T - \lambda_{m-1} I) u = (T - \lambda_1 I) \cdots (T - \lambda_m I) v = 0
-        </men>.
+        <md number="yes" xml:id="x7minr">
+          (T - \lambda_1 I) \cdots (T - \lambda_{m-1} I) u = (T - \lambda_1 I) \cdots (T - \lambda_m I) v = 0.
+        </md>
       </p>
       <p>
         Hence <m>(z - \lambda_1) \cdots (z-\lambda_{m-1})</m> is a polynomial multiple of the minimal polynomial of <m>T</m> restricted to
@@ -638,9 +638,9 @@
           A <term>Gershgorin disk</term> of <m>T</m> with respect to the basis <m>v_1, \ldots,
           v_n</m> is a set of the form
               <idx><h>Gershgorin disk</h></idx>
-          <me>
-            \{  z \in \F{}: \lvert  z - A_{j,j}  \rvert  \le \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \lvert A_{j,k} \rvert  \}
-          </me>,
+          <md>
+            \{  z \in \F{}: \lvert  z - A_{j,j}  \rvert  \le \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \lvert A_{j,k} \rvert  \},
+          </md>
           where <m>j \in \{ 1, \ldots, n \}</m>.
         </p>
       </statement>
@@ -684,9 +684,9 @@
         Suppose <m>\lambda \in \F{}</m> is an eigenvalue of <m>T</m>.
         Let <m>w \in V</m> be a corresponding eigenvector.
         There exist <m>c_1, \ldots, c_n \in \F{}</m> such that
-        <men xml:id="x5Ger">
-          w = c_1 v_1 + \cdots + c_n v_n
-        </men>.
+        <md number="yes" xml:id="x5Ger">
+          w = c_1 v_1 + \cdots + c_n v_n.
+        </md>
       </p>
       <p>
         Let <m>A</m> denote the matrix of <m>T</m> with respect to the basis <m>v_1, \ldots, v_n</m>.
@@ -699,18 +699,18 @@
       </p>
       <p>
         Let <m>j \in \{ 1, \ldots, n \}</m> be such that
-        <me>
-          \lvert c_j \rvert  = \max\{  \lvert c_1 \rvert , \ldots, \lvert c_n \rvert   \}
-        </me>.
+        <md>
+          \lvert c_j \rvert  = \max\{  \lvert c_1 \rvert , \ldots, \lvert c_n \rvert   \}.
+        </md>
       </p>
       <p>
         <xref ref="x5Ger">Using</xref>,
         we see that the coefficient of <m>v_j</m> on the left side of <xref ref="x52Ger"></xref> equals <m>\lambda c_j</m>,
         which must equal the coefficient of <m>v_j</m> on the right side of <xref ref="x53Ger"></xref>.
         In other words,
-        <me>
-          \lambda c_j = \sum_{k=1}^n A_{j,k}   c_k
-        </me>.
+        <md>
+          \lambda c_j = \sum_{k=1}^n A_{j,k}   c_k.
+        </md>
       </p>
       <p>
         Subtract <m>A_{j,j}   c_j</m> from each side of the equation above and then divide both sides by <m>c_j</m> to get
@@ -743,371 +743,369 @@
       excluding the diagonal entry,
       and the theorem above would still hold.
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that if <m>T^4 = I</m>,
-                    then <m>T</m> is diagonalizable.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that if <m>T^4 = T</m>,
-                    then <m>T</m> is diagonalizable.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Give an example of an operator <m>T \in \Lc( \C2 )</m> such that
-                    <m>T^4 = T^2</m> and <m>T</m> is not diagonalizable.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> has a diagonal matrix <m>A</m> with respect to some basis of <m>V{}</m>.
-              Prove that if <m>\lambda \in \F{}{}</m>,
-              then <m>\lambda</m> appears on the diagonal of <m>A</m> precisely <m>\dim E(\lambda, T)</m> times.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5diagdir">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that if the operator <m>T</m> is diagonalizable,
-              then <m>V = \ker T \oplus \ran T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="nullrandir">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that the following are equivalent.
-              <ol>
-                <li>
-                  <p>
-                    <m>V = \ker T \oplus \ran T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>V = \ker T + \ran T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\ker T \cap \ran T = \{0\}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="diagKerRan">
-          <statement>
-            <p>
-              Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is diagonalizable if and only if
-          <idx><h>diagonalizable</h></idx>
-              <me>
-                V = \ker(T - \lambda I) \oplus \ran(T - \lambda I)
-              </me>
-              for every <m>\lambda \in \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \F{5} )</m> and <m>\dim E(8, T) = 4</m>.
-              Prove that <m>T - 2I</m> or <m>T - 6I</m> is invertible.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is invertible.
-              Prove that
-              <me>
-                E(\lambda, T) = E( \tfrac{1}{\lambda}, T^{-1} )
-              </me>
-              for every <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Let <m>\lambda_1, \dots, \lambda_m</m> denote the distinct nonzero eigenvalues of <m>T{}</m>.
-              Prove that
-              <me>
-                \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T) \le \dim \ran T{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>R, T \in \Lc( \F3 )</m> each have <m>2</m>,
-              <m>6</m>, <m>7</m> as eigenvalues.
-              Prove that there exists an invertible operator
-              <m>S \in \Lc( \F3 )</m> such that <m>R = S^{-1} T S</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find <m>R, T \in \Lc( \F4 )</m> such that <m>R</m> and <m>T</m> each have <m>2</m>,
-              <m>6</m>,
-              <m>7</m> as eigenvalues, <m>R</m> and <m>T</m> have no other eigenvalues,
-              and there does not exist an invertible operator
-              <m>S \in \Lc( \F4 )</m> such that <m>R = S^{-1} T S</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find <m>T \in \Lc( \C3 )</m> such that <m>6</m> and <m>7</m> are eigenvalues of <m>T</m> and such that <m>T</m> does not have a diagonal matrix with respect to any basis of <m>\CC3</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \C3 )</m> is such that <m>6</m> and <m>7</m> are eigenvalues of <m>T{}</m>.
-              Furthermore,
-              suppose <m>T</m> does not have a diagonal matrix with respect to any basis of <m>\CC3</m>.
-              Prove that there exists <m>(z_1, z_2, z_3) \in \C3</m> such that
-              <me>
-                T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>A</m> is a diagonal matrix with distinct entries on the diagonal and <m>B</m> is a matrix of the same size as <m>A</m>.
-              Show that <m>AB = BA</m> if and only if <m>B</m> is a diagonal matrix.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.
             <ol>
               <li>
                 <p>
-                  Give an example of a finite-dimensional complex vector space and an operator <m>T</m> on that vector space such that <m>T^2</m> is diagonalizable but <m>T</m> is not diagonalizable.
+                  Prove that if <m>T^4 = I</m>,
+                  then <m>T</m> is diagonalizable.
                 </p>
               </li>
               <li>
                 <p>
-                  Suppose <m>\F{} = \C{}</m>,
-                  <m>k</m> is a positive integer,
-                  and <m>T \in \Lc(V)</m> is invertible.
-                  Prove that <m>T</m> is diagonalizable if and only if <m>T^k</m> is diagonalizable.
+                  Prove that if <m>T^4 = T</m>,
+                  then <m>T</m> is diagonalizable.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an operator <m>T \in \Lc( \C2 )</m> such that
+                  <m>T^4 = T^2</m> and <m>T</m> is not diagonalizable.
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2gcd">
-          <statement>
-            <p>
-              Suppose <m>V</m> is a finite-dimensional complex vector space,
-              <m>T \in \Lc(V)</m>,
-              and <m>p</m> is the minimal polynomial of <m>T{}</m>.
-              Prove that the following are equivalent.
-          <idx><h>minimal polynomial</h><h>gcd with its derivative</h></idx>
-      <ol>
-                <li>
-                  <p>
-                    <m>T</m> is diagonalizable.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    There does not exist <m>\lambda \in \C{}</m> such that <m>p</m> is a polynomial multiple of <m>(z-\lambda)^2{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>p</m> and its derivative <m>p'</m> have no zeros in common.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The greatest common divisor of <m>p</m> and <m>p'</m> is the constant polynomial <m>1</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: The <em>greatest common divisor</em>
-              of <m>p</m> and <m>p'</m> is the monic polynomial <m>q</m> of largest degree such that <m>p</m> and <m>p'</m> are both polynomial multiples of <m>q</m>.
-              The Euclidean algorithm for polynomials
-              (look it up)
-              can quickly determine the greatest common divisor of two polynomials,
-              without requiring any information about the zeros of the polynomials.
-              Thus the equivalence of (a) and (d) above shows that we can determine whether <m>T</m> is diagonalizable without knowing anything about the zeros of <m>p</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> is diagonalizable.
-              Let<nbsp/><m>\lambda_1, \ldots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
-              Prove that a subspace <m>U</m> of <m>V</m> is invariant under <m>T</m> if and only if there exist subspaces
-              <m>U_1, \ldots, U_m</m> of <m>V</m> such that
-              <m>U_k \subset E(\lambda_k, T)</m> for each <m>k</m> and <m>U = U_1 \oplus \cdots \oplus U_m</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5basisdiag">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional.
-              Prove that <m>\Lc(V)</m> has a basis consisting of diagonalizable operators.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> is diagonalizable and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
-              Prove that the quotient operator <m>T{}/U</m> is a diagonalizable operator on <m>V{}/U</m>.
-          <idx><h>quotient</h><h>operator</h></idx>
-      Note: The quotient operator <m>T{}/U</m> was defined in <xref ref="x5quotient">Exercise</xref>
-              in <xref ref="x5invar">Section</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>T \in \Lc(V)</m> and there exists a subspace <m>U</m> of <m>V</m> that is invariant under <m>T</m> such that <m>T|_U</m> and <m>T{}/U</m> are both diagonalizable,
-              then <m>T</m> is diagonalizable.
-              Note: See <xref ref="x6Tutm">Exercise</xref>
-              in <xref ref="x4utm">Section</xref>
-              for an analogous statement about upper-triangular matrices.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is diagonalizable if and only if the dual operator <m>T'</m> is diagonalizable.
-          <idx><h>dual</h><h>of a linear map</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="Fibonacci">
-          <statement>
-            <p>
-              The <term>Fibonacci sequence</term>
-              <m>F_0, F_1, F_2, \dots</m> is defined by
-          <idx><h>Fibonacci sequence</h></idx>
-              <me>
-                F_0 = 0,\ F_1 = 1, \text{ and } F_n = F_{n-2} + F_{n-1} \textit{ for\ } n \ge 2
-              </me>.
-            </p>
-            <p>
-              Define <m>T \in \Lc( \R2 )</m> by <m>T(x, y) = (y, x+y)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>T^n(0, 1) = (F_n, F_{n+1})</m> for each nonnegative integer <m>n</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find the eigenvalues of <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find a basis of <m>\R2</m> consisting of eigenvectors of <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Use the solution to (c) to compute <m>T^n(0, 1)</m>.
-                    Conclude that
-                    <me>
-                      F_n = \frac{1}{\sqrt{5}} \Biggl[ (  \frac{1 + \sqrt{5}}{2}  )^{\!n} -(  \frac{1 - \sqrt{5}}{2}  )^{\!n} \Biggr]
-                    </me>
-                    for each nonnegative integer <m>n</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Use (d) to conclude that if <m>n</m> is a nonnegative integer,
-                    then the Fibonacci number <m>F_n</m> is the integer that is closest to
-                    <me>
-                      \frac{1}{\sqrt{5}}  (  \frac{1 + \sqrt{5}}{2}  )^{\!n}
-                    </me>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: Each <m>F_n</m> is a nonnegative integer,
-              even though the right side of the formula in (d) does not look like an integer.
-              The number
-              <me>
-                \frac{1 + \sqrt{5}}{2}
-              </me>
-              is called the <term>golden ratio</term>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5Gershgor">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>A</m> is an <m>n</m>-by-<m>n</m> matrix that is the matrix of <m>T</m> with respect to some basis of <m>V</m>.
-              Prove that if
-              <me>
-                \lvert  A_{j,j}  \rvert  > \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \lvert A_{j,k} \rvert
-              </me>
-              for each <m>j \in \{ 1, \ldots,
-              n \}</m>, then <m>T</m> is invertible.
-              Note: This exercise states that if the diagonal entries of the matrix of <m>T</m> are large compared to the nondiagonal entries,
-              then <m>T</m> is invertible.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5Gershgo">
-          <statement>
-            <p>
-              Suppose the definition of the Gershgorin disks is changed so that the radius of the <m>k^\nth</m> disk is the sum of the absolute values of the entries in column
-              (instead of row)
-              <m>k</m> of <m>A</m>, excluding the diagonal entry.
-              Show that the Gershgorin disk theorem <xref ref="x5Gershg"/> still holds with this changed definition.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> has a diagonal matrix <m>A</m> with respect to some basis of <m>V{}</m>.
+            Prove that if <m>\lambda \in \F{}{}</m>,
+            then <m>\lambda</m> appears on the diagonal of <m>A</m> precisely <m>\dim E(\lambda, T)</m> times.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5diagdir">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that if the operator <m>T</m> is diagonalizable,
+            then <m>V = \ker T \oplus \ran T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="nullrandir">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that the following are equivalent.
+            <ol>
+              <li>
+                <p>
+                  <m>V = \ker T \oplus \ran T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>V = \ker T + \ran T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\ker T \cap \ran T = \{0\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="diagKerRan">
+        <statement>
+          <p>
+            Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is diagonalizable if and only if
+                <idx><h>diagonalizable</h></idx>
+            <md>
+              V = \ker(T - \lambda I) \oplus \ran(T - \lambda I)
+            </md>
+            for every <m>\lambda \in \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \F{5} )</m> and <m>\dim E(8, T) = 4</m>.
+            Prove that <m>T - 2I</m> or <m>T - 6I</m> is invertible.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is invertible.
+            Prove that
+            <md>
+              E(\lambda, T) = E( \tfrac{1}{\lambda}, T^{-1} )
+            </md>
+            for every <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Let <m>\lambda_1, \dots, \lambda_m</m> denote the distinct nonzero eigenvalues of <m>T{}</m>.
+            Prove that
+            <md>
+              \dim E(\lambda_1, T) + \dots + \dim E(\lambda_m, T) \le \dim \ran T{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>R, T \in \Lc( \F3 )</m> each have <m>2</m>,
+            <m>6</m>, <m>7</m> as eigenvalues.
+            Prove that there exists an invertible operator
+            <m>S \in \Lc( \F3 )</m> such that <m>R = S^{-1} T S</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>R, T \in \Lc( \F4 )</m> such that <m>R</m> and <m>T</m> each have <m>2</m>,
+            <m>6</m>,
+            <m>7</m> as eigenvalues, <m>R</m> and <m>T</m> have no other eigenvalues,
+            and there does not exist an invertible operator
+            <m>S \in \Lc( \F4 )</m> such that <m>R = S^{-1} T S</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>T \in \Lc( \C3 )</m> such that <m>6</m> and <m>7</m> are eigenvalues of <m>T</m> and such that <m>T</m> does not have a diagonal matrix with respect to any basis of <m>\CC3</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \C3 )</m> is such that <m>6</m> and <m>7</m> are eigenvalues of <m>T{}</m>.
+            Furthermore,
+            suppose <m>T</m> does not have a diagonal matrix with respect to any basis of <m>\CC3</m>.
+            Prove that there exists <m>(z_1, z_2, z_3) \in \C3</m> such that
+            <md>
+              T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>A</m> is a diagonal matrix with distinct entries on the diagonal and <m>B</m> is a matrix of the same size as <m>A</m>.
+            Show that <m>AB = BA</m> if and only if <m>B</m> is a diagonal matrix.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Give an example of a finite-dimensional complex vector space and an operator <m>T</m> on that vector space such that <m>T^2</m> is diagonalizable but <m>T</m> is not diagonalizable.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>\F{} = \C{}</m>,
+                <m>k</m> is a positive integer,
+                and <m>T \in \Lc(V)</m> is invertible.
+                Prove that <m>T</m> is diagonalizable if and only if <m>T^k</m> is diagonalizable.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2gcd">
+        <statement>
+          <p>
+            Suppose <m>V</m> is a finite-dimensional complex vector space,
+            <m>T \in \Lc(V)</m>,
+            and <m>p</m> is the minimal polynomial of <m>T{}</m>.
+            Prove that the following are equivalent.
+                <idx><h>minimal polynomial</h><h>gcd with its derivative</h></idx>
+            <ol>
+              <li>
+                <p>
+                  <m>T</m> is diagonalizable.
+                </p>
+              </li>
+              <li>
+                <p>
+                  There does not exist <m>\lambda \in \C{}</m> such that <m>p</m> is a polynomial multiple of <m>(z-\lambda)^2{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>p</m> and its derivative <m>p'</m> have no zeros in common.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The greatest common divisor of <m>p</m> and <m>p'</m> is the constant polynomial <m>1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: The <em>greatest common divisor</em>
+            of <m>p</m> and <m>p'</m> is the monic polynomial <m>q</m> of largest degree such that <m>p</m> and <m>p'</m> are both polynomial multiples of <m>q</m>.
+            The Euclidean algorithm for polynomials
+            (look it up)
+            can quickly determine the greatest common divisor of two polynomials,
+            without requiring any information about the zeros of the polynomials.
+            Thus the equivalence of (a) and (d) above shows that we can determine whether <m>T</m> is diagonalizable without knowing anything about the zeros of <m>p</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> is diagonalizable.
+            Let<nbsp/><m>\lambda_1, \ldots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
+            Prove that a subspace <m>U</m> of <m>V</m> is invariant under <m>T</m> if and only if there exist subspaces
+            <m>U_1, \ldots, U_m</m> of <m>V</m> such that
+            <m>U_k \subset E(\lambda_k, T)</m> for each <m>k</m> and <m>U = U_1 \oplus \cdots \oplus U_m</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5basisdiag">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional.
+            Prove that <m>\Lc(V)</m> has a basis consisting of diagonalizable operators.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> is diagonalizable and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
+            Prove that the quotient operator <m>T{}/U</m> is a diagonalizable operator on <m>V{}/U</m>.
+                <idx><h>quotient</h><h>operator</h></idx>
+            Note: The quotient operator <m>T{}/U</m> was defined in <xref ref="x5quotient">Exercise</xref>
+            in <xref ref="x5invar">Section</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>T \in \Lc(V)</m> and there exists a subspace <m>U</m> of <m>V</m> that is invariant under <m>T</m> such that <m>T|_U</m> and <m>T{}/U</m> are both diagonalizable,
+            then <m>T</m> is diagonalizable.
+            Note: See <xref ref="x6Tutm">Exercise</xref>
+            in <xref ref="x4utm">Section</xref>
+            for an analogous statement about upper-triangular matrices.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is diagonalizable if and only if the dual operator <m>T'</m> is diagonalizable.
+                <idx><h>dual</h><h>of a linear map</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="Fibonacci">
+        <statement>
+          <p>
+            The <term>Fibonacci sequence</term>
+            <m>F_0, F_1, F_2, \dots</m> is defined by
+                <idx><h>Fibonacci sequence</h></idx>
+            <md>
+              F_0 = 0,\ F_1 = 1, \text{ and } F_n = F_{n-2} + F_{n-1} \textit{ for\ } n \ge 2.
+            </md>
+          </p>
+          <p>
+            Define <m>T \in \Lc( \R2 )</m> by <m>T(x, y) = (y, x+y)</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>T^n(0, 1) = (F_n, F_{n+1})</m> for each nonnegative integer <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the eigenvalues of <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a basis of <m>\R2</m> consisting of eigenvectors of <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the solution to (c) to compute <m>T^n(0, 1)</m>.
+                  Conclude that
+                  <md>
+                    F_n = \frac{1}{\sqrt{5}} \Biggl[ (  \frac{1 + \sqrt{5}}{2}  )^{\!n} -(  \frac{1 - \sqrt{5}}{2}  )^{\!n} \Biggr]
+                  </md>
+                  for each nonnegative integer <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use (d) to conclude that if <m>n</m> is a nonnegative integer,
+                  then the Fibonacci number <m>F_n</m> is the integer that is closest to
+                  <md>
+                    \frac{1}{\sqrt{5}}  (  \frac{1 + \sqrt{5}}{2}  )^{\!n}.
+                  </md>
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: Each <m>F_n</m> is a nonnegative integer,
+            even though the right side of the formula in (d) does not look like an integer.
+            The number
+            <md>
+              \frac{1 + \sqrt{5}}{2}
+            </md>
+            is called the <term>golden ratio</term>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5Gershgor">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>A</m> is an <m>n</m>-by-<m>n</m> matrix that is the matrix of <m>T</m> with respect to some basis of <m>V</m>.
+            Prove that if
+            <md>
+              \lvert  A_{j,j}  \rvert  > \sum_{\scriptstyle k=1 \atop \scriptstyle k\ne j}^n \lvert A_{j,k} \rvert
+            </md>
+            for each <m>j \in \{ 1, \ldots,
+            n \}</m>, then <m>T</m> is invertible.
+            Note: This exercise states that if the diagonal entries of the matrix of <m>T</m> are large compared to the nondiagonal entries,
+            then <m>T</m> is invertible.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5Gershgo">
+        <statement>
+          <p>
+            Suppose the definition of the Gershgorin disks is changed so that the radius of the <m>k^\nth</m> disk is the sum of the absolute values of the entries in column
+            (instead of row)
+            <m>k</m> of <m>A</m>, excluding the diagonal entry.
+            Show that the Gershgorin disk theorem <xref ref="x5Gershg"/> still holds with this changed definition.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

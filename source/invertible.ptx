@@ -44,9 +44,9 @@
       <p>
         Suppose <m>T \in \Lc(V{},W)</m> is invertible and <m>S_1</m> and <m>S_2</m> are inverses of<nbsp/><m>T{}</m>.
         Then
-        <me>
-          S_1 = S_1I = S_1(TS_2) = (S_1T)S_2 = IS_2 = S_2
-        </me>.
+        <md>
+          S_1 = S_1I = S_1(TS_2) = (S_1T)S_2 = IS_2 = S_2.
+        </md>
       </p>
       <p>
         Thus <m>S_1 = S_2</m>.
@@ -57,8 +57,9 @@
       we can give it a notation.
     </p>
     <principle>
-      <title><m>T^{-1}</m>\index{T-1@<m>T^{-1}</m>}</title>
+      <title><m>T^{-1}</m></title>
       <p>
+            <idx><h sortby="T-1"><m>T^{-1}{}</m></h></idx>
         If <m>T</m> is invertible, then its inverse is denoted by <m>T^{-1}{}</m>.
         In other words, if <m>T \in \Lc(V{},W)</m> is invertible,
         then <m>T^{-1}</m> is the unique element of <m>\Lc(W{},V)</m> such that
@@ -77,9 +78,9 @@
           Hence the inverse map <m>T^{-1} \in \Lc(  \R3  )</m> is the clockwise rotation by
           <m>90^\circ</m> in the <m>xy</m>-plane and a stretch by a factor of
           <m>\frac{1}{4}</m> in the direction of the <m>z</m>-axis:
-          <me>
-            T^{-1}(x, y, z) = ( y, -x, \tfrac{1}{4}z  )
-          </me>.
+          <md>
+            T^{-1}(x, y, z) = ( y, -x, \tfrac{1}{4}z  ).
+          </md>
         </p>
       </statement>
     </example>
@@ -104,9 +105,9 @@
         To show that <m>T</m> is injective, suppose <m>u,
         v \in V</m> and <m>Tu = Tv</m>.
         Then
-        <me>
-          u = T^{-1}(Tu) = T^{-1}(Tv) = v
-        </me>,
+        <md>
+          u = T^{-1}(Tu) = T^{-1}(Tv) = v,
+        </md>
         so <m>u = v</m>.
         Hence <m>T</m> is injective.
       </p>
@@ -133,9 +134,9 @@
         To prove that <m>S \circ T</m> equals the identity operator on <m>V{}</m>,
         let <m>v \in V{}</m>.
         Then
-        <me>
-          T\bigl((S \circ T)v \bigr) = (T \circ S)(Tv) = I(Tv) = Tv
-        </me>.
+        <md>
+          T\bigl((S \circ T)v \bigr) = (T \circ S)(Tv) = I(Tv) = Tv.
+        </md>
       </p>
       <p>
         This equation implies that <m>(S \circ T)v = v</m>
@@ -146,9 +147,9 @@
         To complete the proof, we need to show that <m>S</m> is linear.
         To do this, suppose <m>w_1</m>, <m>w_2 \in W{}</m>.
         Then
-        <me>
-          T( S(w_1) + S(w_2) ) = T( S(w_1) ) + T( S(w_2) ) = w_1 + w_2
-        </me>.
+        <md>
+          T( S(w_1) + S(w_2) ) = T( S(w_1) ) + T( S(w_2) ) = w_1 + w_2.
+        </md>
       </p>
       <p>
         Thus <m>S(w_1) + S(w_2)</m> is the unique element of <m>V</m> that <m>T</m> maps to <m>w_1 + w_2</m>.
@@ -160,9 +161,9 @@
         The proof of homogeneity is similar.
         Specifically,
         if <m>w \in W</m> and <m>\lambda \in \F{}{}</m>, then
-        <me>
-          T( \lambda S(w) ) = \lambda T( S(w) ) = \lambda w
-        </me>.
+        <md>
+          T( \lambda S(w) ) = \lambda T( S(w) ) = \lambda w.
+        </md>
       </p>
       <p>
         Thus <m>\lambda S(w)</m> is the unique element of <m>V</m> that <m>T</m> maps to <m>\lambda w</m>.
@@ -218,36 +219,36 @@
           Suppose that <m>V</m> and <m>W</m> are finite-dimensional vector spaces,
           <m>\dim V = \dim W{}</m>, and <m>T \in \Lc(V{}, W)</m>.
           Then
-          <me>
-            T  is invertible \iff T  is injective \iff T  is surjective
-          </me>.
+          <md>
+            T  is invertible \iff T  is injective \iff T  is surjective.
+          </md>
         </p>
       </statement>
     </theorem>
     <proof>
       <p>
         The fundamental theorem of linear maps <xref ref="x3ab11"/> states that
-        <men xml:id="x3FTLM">
-          \dim V = \dim \ker T + \dim \ran T{}
-        </men>.
+        <md number="yes" xml:id="x3FTLM">
+          \dim V = \dim \ker T + \dim \ran T{}.
+        </md>
       </p>
       <p>
         If <m>T</m> is injective
         (which by <xref ref="x12"></xref>
         is equivalent to the condition <m>\dim \ker T = 0</m>),
         then the equation above implies that
-        <me>
-          \dim \ran T = \dim V - \dim \ker T = \dim V = \dim W{}
-        </me>,
+        <md>
+          \dim \ran T = \dim V - \dim \ker T = \dim V = \dim W{},
+        </md>
         which implies that <m>T</m> is surjective
         (by <xref ref="x2subfull"></xref>).
       </p>
       <p>
         Conversely, if <m>T</m> is surjective,
         <xref ref="x3FTLM">then</xref> implies that
-        <me>
-          \dim \ker T = \dim V - \dim \ran T = \dim V - \dim W = 0
-        </me>,
+        <md>
+          \dim \ker T = \dim V - \dim \ran T = \dim V - \dim W = 0,
+        </md>
         which implies that <m>T</m> is injective.
       </p>
       <p>
@@ -268,9 +269,9 @@
       <statement>
         <p>
           The linear map
-          <me>
+          <md>
             p \mapsto \bigl((x^2 + 5x + 7)p\bigr)''
-          </me>
+          </md>
           from <m>\P(\R{})</m> to itself is injective, as you can show.
           Thus we are tempted to <xref ref="x18">use</xref>
           to show that this map is surjective.
@@ -283,9 +284,9 @@
           Suppose <m>q \in \P(\R{})</m>.
           There exists a nonnegative integer <m>m</m> such that <m>q \in \P{}_m(\R{})</m>.
           Define <m>T \colon \P{}_m(\R{}) \to \P{}_m(\R{})</m> by
-          <me>
-            Tp = \bigl((x^2 + 5x + 7)p\bigr)''\!
-          </me>.
+          <md>
+            Tp = \bigl((x^2 + 5x + 7)p\bigr)''\!.
+          </md>
         </p>
         <p>
           Multiplying a nonzero polynomial by
@@ -334,9 +335,9 @@
       <p>
         First suppose <m>ST = I</m>.
         If <m>v \in V</m> and <m>Tv = 0</m>, then
-        <me>
-          v = Iv= (ST)v = S(Tv) = S(0) = 0
-        </me>.
+        <md>
+          v = Iv= (ST)v = S(Tv) = S(0) = 0.
+        </md>
       </p>
       <p>
         Thus <m>T</m> is injective
@@ -347,9 +348,9 @@
       </p>
       <p>
         Now multiply both sides of the equation <m>ST = I</m> by <m>T^{-1}</m> on the right, getting
-        <me>
-          S = T^{-1}{}
-        </me>.
+        <md>
+          S = T^{-1}{}.
+        </md>
       </p>
       <p>
         Thus <m>TS = TT^{-1} = I</m>, as desired.
@@ -428,15 +429,15 @@
         Because <m>T</m> is invertible,
         we have <m>\ker T = \{0\}</m> and <m>\ran T = W{}</m>.
         Thus
-        <me>
-          \dim \ker T = 0 \andd \dim \ran T = \dim W{}
-        </me>.
+        <md>
+          \dim \ker T = 0 \andd \dim \ran T = \dim W{}.
+        </md>
       </p>
       <p>
         The formula
-        <me>
+        <md>
           \dim V = \dim \ker T + \dim \ran T
-        </me>
+        </md>
       </p>
       <p>
         (the fundamental theorem of linear maps,
@@ -450,9 +451,9 @@
         <m>w_1, \dots,
         w_n</m> be a basis of <m>W{}</m>.
         Let <m>T \in \Lc(V{}, W)</m> be defined by
-        <me>
-          T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n
-        </me>.
+        <md>
+          T(c_1 v_1 + \dots + c_n v_n) = c_1 w_1 + \dots + c_n w_n.
+        </md>
       </p>
       <p>
         Then <m>T</m> is a well-defined linear map because
@@ -528,9 +529,9 @@
         To prove that <m>\M</m> is surjective,
         suppose <m>A \in \FF{m,n}</m>.
         By the linear map lemma <xref ref="x3linearmap"/>, there exists <m>T \in \Lc(V{},W)</m> such that
-        <me>
+        <md>
           Tv_k = \sum_{j=1}^m A_{j,k}w_j
-        </me>
+        </md>
         for each <m>k = 1, \dots, n</m>.
         Because <m>\M(T)</m> equals <m>A</m>,
         the range of <m>\M</m> equals<nbsp/><m>\FF{m,n}</m>, as desired.
@@ -545,9 +546,9 @@
         <p>
           Suppose <m>V</m> and <m>W</m> are finite-dimensional.
           Then <m>\Lc(V{},W)</m> is finite-dimensional and
-          <me>
-            \dim \Lc(V{},W) = (\dim V)(\dim W)
-          </me>.
+          <md>
+            \dim \Lc(V{},W) = (\dim V)(\dim W).
+          </md>
         </p>
       </statement>
     </theorem>
@@ -575,13 +576,13 @@
           The <term>matrix of</term> <m>v</m>
               <idx><h>matrix</h><h>of vector</h></idx>
           with respect to this basis is the <m>n</m>-by-<m>1</m> matrix
-          <me>
-            \M(v) = \begin{pmatrix}b_1 \\ \vdots \\ b_n \end{pmatrix}
-          </me>,
+          <md>
+            \M(v) = \begin{pmatrix}b_1 \\ \vdots \\ b_n \end{pmatrix} ,
+          </md>
           where <m>b_1, \dots, b_n</m> are the scalars such that
-          <me>
-            v = b_1 v_1 + \dots + b_n v_n
-          </me>.
+          <md>
+            v = b_1 v_1 + \dots + b_n v_n.
+          </md>
         </p>
       </statement>
     </definition>
@@ -599,18 +600,18 @@
             <p>
               The matrix of the polynomial
               <m>2 - 7x + 5x^3 + x^4</m> with respect to the standard basis of <m>\P{}_4(\R{})</m> is
-              <me>
-                \begin{pmatrix}2 \\ -7 \\ 0 \\ 5 \\ 1 \end{pmatrix}
-              </me>.
+              <md>
+                \begin{pmatrix}2 \\ -7 \\ 0 \\ 5 \\ 1 \end{pmatrix} .
+              </md>
             </p>
           </li>
           <li>
             <p>
               The matrix of a vector <m>x \in \F{n}</m> with respect to the standard basis is obtained by writing the coordinates of <m>x</m> as the  entries in an <m>n</m>-by-<m>1</m> matrix.
               In other words, if <m>x = (x_1, \dots, x_n) \in \FF{n}</m>, then
-              <me>
-                \M(x) = \begin{pmatrix}x_1 \\ \vdots \\ x_n \end{pmatrix}
-              </me>.
+              <md>
+                \M(x) = \begin{pmatrix}x_1 \\ \vdots \\ x_n \end{pmatrix} .
+              </md>
             </p>
           </li>
         </ol>
@@ -664,9 +665,9 @@
           <m>w_1, \dots,
           w_m</m> is a basis of <m>W{}</m>.
           Then
-          <me>
-            \M(Tv) = \M(T) \M(v)
-          </me>.
+          <md>
+            \M(Tv) = \M(T) \M(v).
+          </md>
         </p>
       </statement>
     </theorem>
@@ -675,9 +676,9 @@
         Suppose <m>v = b_1 v_1 + \dots + b_n v_n</m>,
         where <m>b_1, \dots, b_n \in \F{}{}</m>.
         Thus
-        <men xml:id="Tv">
-          Tv = b_1 Tv_1 + \dots + b_n Tv_n
-        </men>.
+        <md number="yes" xml:id="Tv">
+          Tv = b_1 Tv_1 + \dots + b_n Tv_n.
+        </md>
       </p>
       <p>
         Hence
@@ -745,9 +746,9 @@
         the <m>m</m>-by-<m>1</m> matrix
         <m>\M(Tv_k)</m> equals column <m>k</m> of <m>\M(T)</m>.
         Thus
-        <me>
-          \dim \ran T =  \text{ the column rank of }  \M(T)
-        </me>,
+        <md>
+          \dim \ran T =  \text{ the column rank of }  \M(T),
+        </md>
         as desired.
       </p>
     </proof>
@@ -756,9 +757,9 @@
     <title>Change of Basis</title>
     <p>
       In <xref ref="matrices">Section</xref> we defined the matrix
-      <me>
+      <md>
         \M\bigl(T, (v_1, \dots, v_n), (w_1, \dots, w_m) \bigr)
-      </me>
+      </md>
       of a linear map <m>T</m> from <m>V</m> to a possibly different vector space <m>W{}</m>, where
       <m>v_1, \dots,
       v_n</m> is a basis of <m>V</m> and
@@ -773,9 +774,9 @@
       v_n</m> is a basis of <m>V{}</m>,
       then the notation <m>\M(  T, (v_1, \ldots,
       v_n)  )</m> is defined by the equation
-      <me>
-        \M(  T, (v_1, \ldots, v_n)  ) = \M(  T, (v_1, \ldots, v_n), (v_1, \ldots, v_n)  )
-      </me>.
+      <md>
+        \M(  T, (v_1, \ldots, v_n)  ) = \M(  T, (v_1, \ldots, v_n), (v_1, \ldots, v_n)  ).
+      </md>
     </p>
     <p>
       If the basis <m>v_1, \ldots,
@@ -789,9 +790,9 @@
               <idx><h sortby="I"><m>I</m></h></idx>
           Suppose <m>n</m> is a positive integer.
           The <m>n</m>-by-<m>n</m> matrix
-          <me>
+          <md>
             \begin{pmatrix}1 \amp  \amp 0 \\ \amp \ddots \amp  \\ 0 \amp  \amp 1 \end{pmatrix}
-          </me>
+          </md>
           with <m>1</m>'s on the diagonal
           (the entries where the row number equals the column number)
           and <m>0</m>'s elsewhere is called the
@@ -857,9 +858,9 @@
     <p>
       If <m>A</m> is an invertible matrix,
       then <m>{( A^{-1} )}^{-1} = A</m> because
-      <me>
-        A^{-1} A = A A^{-1} = I
-      </me>.
+      <md>
+        A^{-1} A = A A^{-1} = I.
+      </md>
     </p>
     <p>
       Also, if <m>A</m> and <m>C</m> are invertible square matrices of the same size,
@@ -913,9 +914,9 @@
           Suppose that <m>u_1, \dots,
           u_n</m> and <m>v_1, \dots, v_n</m> are bases of<nbsp/><m>V{}</m>.
           Then the matrices
-          <me>
+          <md>
             \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr) \andd \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n)\bigr)
-          </me>
+          </md>
           are invertible, and each is the inverse of the other.
         </p>
       </statement>
@@ -924,15 +925,15 @@
       <p>
         <xref ref="x298">In</xref>, replace <m>w_k</m> with<nbsp/><m>u_k</m>,
         and replace <m>S</m> and <m>T</m> with<nbsp/><m>I</m>, getting
-        <me>
-          I = \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr) \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr)
-        </me>.
+        <md>
+          I = \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr) \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr).
+        </md>
       </p>
       <p>
         Now interchange the roles of the <m>u</m>'s and <m>v</m>'s, getting
-        <me>
-          I = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr) \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr)
-        </me>.
+        <md>
+          I = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr) \M\bigl(I, (v_1, \dots, v_n), (u_1, \dots, u_n) \bigr).
+        </md>
       </p>
       <p>
         These two equations above give the desired result.
@@ -945,20 +946,20 @@
           Consider the bases <m>(4, 2), (5, 3)</m> and
           <m>\ (1, 0), (0, 1)</m> of<nbsp/><m>\FF{2}</m>.
           Because <m>I(4,2) = 4(1,0) + 2(0,1)</m> and <m>I(5, 3) = 5(1,0) + 3(0, 1)</m>, we have
-          <me>
-            \M\Bigl(I, \bigl((4, 2), (5, 3)\bigr), \bigl((1, 0), (0, 1)\bigr) \Bigr) = \begin{pmatrix}4 \amp 5 \\ 2 \amp 3 \end{pmatrix}
-          </me>.
+          <md>
+            \M\Bigl(I, \bigl((4, 2), (5, 3)\bigr), \bigl((1, 0), (0, 1)\bigr) \Bigr) = \begin{pmatrix}4 \amp 5 \\ 2 \amp 3 \end{pmatrix} .
+          </md>
         </p>
         <p>
           The inverse of the matrix above is
-          <me>
-            \begin{pmatrix}\frac{3}{2} \amp -\frac{5}{2} \\ -1 \amp 2 \end{pmatrix}
-          </me>,
+          <md>
+            \begin{pmatrix}\frac{3}{2} \amp -\frac{5}{2} \\ -1 \amp 2 \end{pmatrix} ,
+          </md>
           as you should verify.
           <xref ref="x299">Thus</xref> implies that
-          <me>
-            \M\Bigl(I, \bigl((1, 0), (0, 1)\bigr), \bigl((4, 2), (5, 3)\bigr) \Bigr) = \begin{pmatrix}\frac{3}{2} \amp -\frac{5}{2} \\ -1 \amp 2 \end{pmatrix}
-          </me>.
+          <md>
+            \M\Bigl(I, \bigl((1, 0), (0, 1)\bigr), \bigl((4, 2), (5, 3)\bigr) \Bigr) = \begin{pmatrix}\frac{3}{2} \amp -\frac{5}{2} \\ -1 \amp 2 \end{pmatrix} .
+          </md>
         </p>
       </statement>
     </example>
@@ -967,9 +968,9 @@
       In the next result, we have two different bases of <m>V{}</m>,
       each of which is used as a basis for the domain space and as a basis for the target space.
       Recall our shorthand notation that allows us to display a basis only once when it is used in both capacities:
-      <me>
-        \M\bigl(T, (u_1, \dots, u_n)\bigr) = \M\bigl(T, (u_1, \dots, u_n), (u_1, \dots, u_n) \bigr)
-      </me>.
+      <md>
+        \M\bigl(T, (u_1, \dots, u_n)\bigr) = \M\bigl(T, (u_1, \dots, u_n), (u_1, \dots, u_n) \bigr).
+      </md>
     </p>
     <theorem xml:id="x303">
       <title>change-of-basis formula</title>
@@ -980,15 +981,15 @@
           <m>v_1, \dots,
           v_n</m> are bases of <m>V{}</m>.
           Let<idx><h>change-of-basis formula</h><h>for operators</h></idx>
-          <me>
+          <md>
             A= \M\bigl(T, (u_1, \dots, u_n)\bigr) \andd B = \M\bigl(T, (v_1, \dots, v_n)\bigr)
-          </me>
+          </md>
           and <m>C = \M\bigl(I, (u_1, \dots,
           u_n), (v_1, \dots, v_n)\bigr)</m>.
           Then
-          <me>
-            A = C^{-1}B C
-          </me>.
+          <md>
+            A = C^{-1}B C.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -996,18 +997,18 @@
       <p>
         <xref ref="x298">In</xref>,
         replace <m>w_k</m> with<nbsp/><m>u_k</m> and replace <m>S</m> with<nbsp/><m>I</m>, getting
-        <men xml:id="x300">
-          A = C^{-1} \M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr)
-        </men>,
+        <md number="yes" xml:id="x300">
+          A = C^{-1} \M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr),
+        </md>
         where we have <xref ref="x299">used</xref>.
       </p>
       <p>
         Again <xref ref="x298">use</xref>,
         this time replacing <m>w_k</m> with<nbsp/><m>v_k</m>.
         Also replace <m>T</m> with<nbsp/><m>I</m> and replace <m>S</m> with<nbsp/><m>T</m>, getting
-        <me>
-          \M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr) = B C
-        </me>.
+        <md>
+          \M\bigl(T, (u_1, \dots, u_n), (v_1, \dots, v_n) \bigr) = B C.
+        </md>
       </p>
       <p>
         Substituting the equation above <xref ref="x300">into</xref>
@@ -1028,328 +1029,326 @@
         </p>
       </statement>
     </theorem>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m> is invertible.
-              Show that <m>T^{-1}</m> is invertible and
-              <me>
-                (  T^{-1}  )^{-1} = T{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(U, V)</m> and
-              <m>S \in \Lc(V{},W)</m> are both invertible linear maps.
-              Prove that <m>ST \in \Lc(U, W)</m> is invertible and that <m>(ST)^{-1} = T^{-1} S^{-1}{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that the following are equivalent.
-              <ol>
-                <li>
-                  <p>
-                    <m>T</m> is invertible.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>Tv_1, \ldots, Tv_n</m> is a basis of <m>V</m> for every basis <m>v_1, \ldots,
-                    v_n</m> of <m>V{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>Tv_1, \ldots, Tv_n</m> is a basis of <m>V</m> for some basis <m>v_1, \ldots,
-                    v_n</m> of <m>V{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>\dim V > 1</m>.
-              Prove that the set of noninvertible linear maps from <m>V</m> to itself is not a subspace of<nbsp/><m>\Lc(V)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3inv">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>U</m> is a subspace of <m>V{}</m>,
-              and <m>S \in \Lc(U, V)</m>.
-              Prove that there exists an invertible linear map <m>T</m> from <m>V</m> to itself such that <m>Tu = Su</m> for every <m>u \in U</m> if and only if <m>S</m> is injective.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x1020">
-          <statement>
-            <p>
-              Suppose that <m>W</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
-              Prove that <m>\ker S = \ker T</m> if and only if there exists an invertible
-              <m>E \in \Lc(W)</m> such that <m>S = ET{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
-              Prove that <m>\ran S = \ran T</m> if and only if there exists an invertible
-              <m>E \in \Lc(V)</m> such that <m>S = T E</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>S, T\in \Lc(V{}, W)</m>.
-              Prove that there exist invertible
-              <m>E_1 \in \Lc(V)</m> and <m>E_2\in \Lc(W)</m> such that
-              <m>S = E_2 T E_1</m> if and only if <m>\dim \ker S = \dim \ker T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and
-              <m>T \colon V \to W</m> is a surjective linear map of <m>V</m> onto <m>W{}</m>.
-              Prove that there is a subspace <m>U</m> of <m>V</m> such that <m>T|_U</m> is an isomorphism of <m>U</m> onto <m>W{}</m>.
-              Note: Here <m>T|_U</m> means the function <m>T</m> restricted to <m>U</m>.
-              Thus <m>T|_U</m> is the function whose domain is <m>U</m>,
-              with <m>T|_U</m> defined by
-              <m>T|_U(u) = Tu</m> for every <m>u \in U</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
-              Let
-              <me>
-                \E = \{  T \in \Lc(V{}, W): U \subset \ker T \}
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>\E</m> is a subspace of <m>\Lc(V{}, W)</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find a formula for <m>\dim \E</m> in terms of <m>\dim V{}</m>,
-                    <m>\dim W{}</m>, and <m>\dim U</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              <hint>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m> is invertible.
+            Show that <m>T^{-1}</m> is invertible and
+            <md>
+              (  T^{-1}  )^{-1} = T{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(U, V)</m> and
+            <m>S \in \Lc(V{},W)</m> are both invertible linear maps.
+            Prove that <m>ST \in \Lc(U, W)</m> is invertible and that <m>(ST)^{-1} = T^{-1} S^{-1}{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that the following are equivalent.
+            <ol>
+              <li>
                 <p>
-                  Define <m>\fun \Phi {\Lc(V{}, W)} {\Lc(U,W)}</m> by <m>\Phi(T) = T|_U</m>.
-                  What is <m>\ker \Phi</m>?
-                  What is <m>\ran \Phi</m>?
+                  <m>T</m> is invertible.
                 </p>
-              </hint>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x379">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V)</m>.
-              Prove that
-              <me>
-                ST \text{ is invertible }  \iff S \text{ and }  T \text{ are invertible }
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3STU">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>S, T, U \in \Lc(V)</m> and <m>STU = I</m>.
-              Show that <m>T</m> is invertible and that <m>T^{-1} = US</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that the result in <xref ref="x3STU">Exercise</xref>
-              can fail without the hypothesis that <m>V</m> is finite-dimensional.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If <m>V</m> is a finite-dimensional vector space and
-              <m>R, S, T \in \Lc(V)</m> are such that <m>RST</m> is surjective,
-              then <m>S</m> is injective.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>v_1, \dots,
-              v_m</m> is a list in <m>V</m> such that
-              <m>Tv_1, \dots, Tv_m</m> spans<nbsp/><m>V{}</m>.
-              Prove that <m>v_1, \dots, v_m</m> spans <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that every linear map from <m>\F{n,1}</m> to <m>\F{m,1}</m> is given by a matrix multiplication.
-              In other words,
-              prove that if <m>T \in \Lc( \FF{n,1}, \F{m,1} )</m>,
-              then there exists an <m>m</m>-by-<m>n</m> matrix <m>A</m> such that <m>Tx = Ax</m> for every <m>x \in \FF{n,1}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>S \in \Lc(V)</m>.
-              Define <m>\A \in \Lc( \Lc(V) )</m> by
-              <me>
-                \A(T) = ST
-              </me>
-              for <m>T \in \Lc(V)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>\dim \ker \A = (\dim V)(\dim \ker S)</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <m>\dim \ran \A = (\dim V)(\dim \ran S)</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>V</m> and <m>\Lc(\F{}, V)</m> are isomorphic vector spaces.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> has the same matrix with respect to every basis of<nbsp/><m>V</m> if and only if <m>T</m> is a scalar multiple of the identity operator.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>q \in \P(\R{})</m>.
-              Prove that there exists a polynomial <m>p \in \P(\R{})</m> such that
-              <me>
-                q(x) = ( x^2 + x ) p'' \! (x) +2x p' \! (x) + p(3)
-              </me>
-              for all <m>x \in \R{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>n</m> is a positive integer and
-              <m>A_{j,k} \in \F{}</m> for all <m>j,k = 1, \dots, n</m>.
-              Prove that the following are equivalent
-              (note that in both parts below,
-              the number of equations equals the number of variables).
-          <idx><h>homogeneous system of linear equations</h></idx>
-          <idx><h>linear equations</h></idx>
-              <ol>
-                <li>
-                  <p>
-                    The trivial solution <m>x_1 = \dots = x_n = 0</m> is the only solution to the homogeneous system of equations
-                    <md>
-                      <mrow>\sum_{k=1}^n A_{1,k}   x_k \amp = 0</mrow>
-                      <mrow>\amp  \vdots</mrow>
-                      <mrow>\sum_{k=1}^n A_{n,k}   x_k \amp = 0</mrow>
-                    </md>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    For every <m>c_1, \dots,
-                    c_n \in \F{}{}</m>, there exists a solution to the system of equations
-                    <md>
-                      <mrow>\sum_{k=1}^n A_{1,k}   x_k \amp = c_1</mrow>
-                      <mrow>\amp  \vdots</mrow>
-                      <mrow>\sum_{k=1}^n A_{n,k}   x_k \amp = c_n</mrow>
-                    </md>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>v_1, \dots,
-              v_n</m> is a basis of<nbsp/><m>V{}</m>.
-              Prove that
-              <me>
-                \M\bigl(T, (v_1, \dots, v_n) \bigr) \text{ is invertible }  \iff T \text{ is invertible }
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>u_1, \dots,
-              u_n</m> and <m>v_1, \dots, v_n</m> are bases of<nbsp/><m>V{}</m>.
-              Let <m>T \in \Lc(V)</m> be such that
-              <m>Tv_k = u_k</m> for each <m>k = 1, \dots, n</m>.
-              Prove that
-              <me>
-                \M\bigl( T, (v_1, \dots, v_n) \bigr) = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>A</m> and <m>B</m> are square matrices of the same size and <m>AB = I</m>.
-              Prove that <m>BA = I</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+              </li>
+              <li>
+                <p>
+                  <m>Tv_1, \ldots, Tv_n</m> is a basis of <m>V</m> for every basis <m>v_1, \ldots,
+                  v_n</m> of <m>V{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>Tv_1, \ldots, Tv_n</m> is a basis of <m>V</m> for some basis <m>v_1, \ldots,
+                  v_n</m> of <m>V{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>\dim V > 1</m>.
+            Prove that the set of noninvertible linear maps from <m>V</m> to itself is not a subspace of<nbsp/><m>\Lc(V)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3inv">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>U</m> is a subspace of <m>V{}</m>,
+            and <m>S \in \Lc(U, V)</m>.
+            Prove that there exists an invertible linear map <m>T</m> from <m>V</m> to itself such that <m>Tu = Su</m> for every <m>u \in U</m> if and only if <m>S</m> is injective.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x1020">
+        <statement>
+          <p>
+            Suppose that <m>W</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
+            Prove that <m>\ker S = \ker T</m> if and only if there exists an invertible
+            <m>E \in \Lc(W)</m> such that <m>S = ET{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
+            Prove that <m>\ran S = \ran T</m> if and only if there exists an invertible
+            <m>E \in \Lc(V)</m> such that <m>S = T E</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>S, T\in \Lc(V{}, W)</m>.
+            Prove that there exist invertible
+            <m>E_1 \in \Lc(V)</m> and <m>E_2\in \Lc(W)</m> such that
+            <m>S = E_2 T E_1</m> if and only if <m>\dim \ker S = \dim \ker T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and
+            <m>T \colon V \to W</m> is a surjective linear map of <m>V</m> onto <m>W{}</m>.
+            Prove that there is a subspace <m>U</m> of <m>V</m> such that <m>T|_U</m> is an isomorphism of <m>U</m> onto <m>W{}</m>.
+            Note: Here <m>T|_U</m> means the function <m>T</m> restricted to <m>U</m>.
+            Thus <m>T|_U</m> is the function whose domain is <m>U</m>,
+            with <m>T|_U</m> defined by
+            <m>T|_U(u) = Tu</m> for every <m>u \in U</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
+            Let
+            <md>
+              \E = \{  T \in \Lc(V{}, W): U \subset \ker T \}.
+            </md>
+            <ol>
+              <li>
+                <p>
+                  Show that <m>\E</m> is a subspace of <m>\Lc(V{}, W)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a formula for <m>\dim \E</m> in terms of <m>\dim V{}</m>,
+                  <m>\dim W{}</m>, and <m>\dim U</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            <hint>
+              <p>
+                Define <m>\fun \Phi {\Lc(V{}, W)} {\Lc(U,W)}</m> by <m>\Phi(T) = T|_U</m>.
+                What is <m>\ker \Phi</m>?
+                What is <m>\ran \Phi</m>?
+              </p>
+            </hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x379">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V)</m>.
+            Prove that
+            <md>
+              ST \text{ is invertible }  \iff S \text{ and }  T \text{ are invertible } .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3STU">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>S, T, U \in \Lc(V)</m> and <m>STU = I</m>.
+            Show that <m>T</m> is invertible and that <m>T^{-1} = US</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that the result in <xref ref="x3STU">Exercise</xref>
+            can fail without the hypothesis that <m>V</m> is finite-dimensional.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>V</m> is a finite-dimensional vector space and
+            <m>R, S, T \in \Lc(V)</m> are such that <m>RST</m> is surjective,
+            then <m>S</m> is injective.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>v_1, \dots,
+            v_m</m> is a list in <m>V</m> such that
+            <m>Tv_1, \dots, Tv_m</m> spans<nbsp/><m>V{}</m>.
+            Prove that <m>v_1, \dots, v_m</m> spans <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that every linear map from <m>\F{n,1}</m> to <m>\F{m,1}</m> is given by a matrix multiplication.
+            In other words,
+            prove that if <m>T \in \Lc( \FF{n,1}, \F{m,1} )</m>,
+            then there exists an <m>m</m>-by-<m>n</m> matrix <m>A</m> such that <m>Tx = Ax</m> for every <m>x \in \FF{n,1}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>S \in \Lc(V)</m>.
+            Define <m>\A \in \Lc( \Lc(V) )</m> by
+            <md>
+              \A(T) = ST
+            </md>
+            for <m>T \in \Lc(V)</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>\dim \ker \A = (\dim V)(\dim \ker S)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>\dim \ran \A = (\dim V)(\dim \ran S)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>V</m> and <m>\Lc(\F{}, V)</m> are isomorphic vector spaces.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> has the same matrix with respect to every basis of<nbsp/><m>V</m> if and only if <m>T</m> is a scalar multiple of the identity operator.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>q \in \P(\R{})</m>.
+            Prove that there exists a polynomial <m>p \in \P(\R{})</m> such that
+            <md>
+              q(x) = ( x^2 + x ) p'' \! (x) +2x p' \! (x) + p(3)
+            </md>
+            for all <m>x \in \R{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>n</m> is a positive integer and
+            <m>A_{j,k} \in \F{}</m> for all <m>j,k = 1, \dots, n</m>.
+            Prove that the following are equivalent
+            (note that in both parts below,
+            the number of equations equals the number of variables).
+                <idx><h>homogeneous system of linear equations</h></idx>
+                <idx><h>linear equations</h></idx>
+            <ol>
+              <li>
+                <p>
+                  The trivial solution <m>x_1 = \dots = x_n = 0</m> is the only solution to the homogeneous system of equations
+                  <md>
+                    <mrow>\sum_{k=1}^n A_{1,k}   x_k \amp = 0</mrow>
+                    <mrow>\amp  \vdots</mrow>
+                    <mrow>\sum_{k=1}^n A_{n,k}   x_k \amp = 0</mrow>
+                  </md>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For every <m>c_1, \dots,
+                  c_n \in \F{}{}</m>, there exists a solution to the system of equations
+                  <md>
+                    <mrow>\sum_{k=1}^n A_{1,k}   x_k \amp = c_1</mrow>
+                    <mrow>\amp  \vdots</mrow>
+                    <mrow>\sum_{k=1}^n A_{n,k}   x_k \amp = c_n</mrow>
+                  </md>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>v_1, \dots,
+            v_n</m> is a basis of<nbsp/><m>V{}</m>.
+            Prove that
+            <md>
+              \M\bigl(T, (v_1, \dots, v_n) \bigr) \text{ is invertible }  \iff T \text{ is invertible } .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>u_1, \dots,
+            u_n</m> and <m>v_1, \dots, v_n</m> are bases of<nbsp/><m>V{}</m>.
+            Let <m>T \in \Lc(V)</m> be such that
+            <m>Tv_k = u_k</m> for each <m>k = 1, \dots, n</m>.
+            Prove that
+            <md>
+              \M\bigl( T, (v_1, \dots, v_n) \bigr) = \M\bigl(I, (u_1, \dots, u_n), (v_1, \dots, v_n)\bigr).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>A</m> and <m>B</m> are square matrices of the same size and <m>AB = I</m>.
+            Prove that <m>BA = I</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

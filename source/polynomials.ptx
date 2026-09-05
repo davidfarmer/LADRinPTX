@@ -82,9 +82,9 @@
   </definition>
   <p>
     Thus for every complex number <m>z</m>, we have
-    <me>
-      z = \re z +  (\im z)i
-    </me>.
+    <md>
+      z = \re z +  (\im z)i.
+    </md>
   </p>
   <definition>
     <title>complex conjugate, <m>\bar{z}</m>, absolute value, <m>|z|</m></title>
@@ -99,9 +99,9 @@
               of <m>z \in \C{}</m>, denoted by <m>\bar{z}</m>,
                 <idx><h sortby="zaaa"><m>\protect\bar{z}</m></h></idx>
               is defined by
-              <me>
-                \bar{z} = \re z - (\im z)i
-              </me>.
+              <md>
+                \bar{z} = \re z - (\im z)i.
+              </md>
             </p>
           </li>
           <li>
@@ -111,9 +111,9 @@
               of a complex number <m>z</m>,  denoted by <m>|z|</m>,
                 <idx><h sortby="zaab"><m>"|z"|</m></h></idx>
               is defined by
-              <me>
-                |z| = \sqrt{(\re z)^2 + (\im z)^2}
-              </me>.
+              <md>
+                |z| = \sqrt{(\re z)^2 + (\im z)^2}.
+              </md>
             </p>
           </li>
         </ol>
@@ -271,9 +271,9 @@
     Recall that a function <m>p \colon \F{} \to \F{}</m> is called a polynomial of degree <m>m</m> if there exist
     <m>a_0, \dots,
     a_m \in \F{}</m> with <m>a_m \ne 0</m> such that
-    <me>
+    <md>
       p(z) = a_0 + a_1 z + \cdots + a_m z^m
-    </me>
+    </md>
     for all <m>z \in \F{}{}</m>.
     A polynomial could have more than one degree if the representation of <m>p</m> in the form above were not unique.
     Our first task is to show that this cannot happen.
@@ -290,9 +290,9 @@
         A number <m>\lambda \in \F{}</m> is called a <term>zero</term>
             <idx><h>zero of a polynomial</h></idx>
         (or <term>root</term>) of a polynomial <m>p \in \P(\F{})</m> if
-        <me>
-          p(\lambda) = 0
-        </me>.
+        <md>
+          p(\lambda) = 0.
+        </md>
       </p>
     </statement>
   </definition>
@@ -312,9 +312,9 @@
         Suppose <m>\lambda \in \F{}{}</m>.
         Then <m>p(\lambda) = 0</m> if and only if there exists a polynomial
         <m>q \in \P(\F{})</m> of degree <m>m-1</m> such that
-        <me>
+        <md>
           p(z) = (z-\lambda)q(z)
-        </me>
+        </md>
         for every <m>z \in \F{}{}</m>.
       </p>
     </statement>
@@ -323,19 +323,19 @@
     <p>
       First suppose <m>p(\lambda) = 0</m>.
       Let <m>a_0, a_1, \ldots, a_m \in \F{}</m> be such that
-      <me>
+      <md>
         p(z) = a_0 + a_1 z + \cdots + a_m z^m
-      </me>
+      </md>
       for all <m>z \in \F{}{}</m>.
       Then
-      <men xml:id="x4zm">
+      <md number="yes" xml:id="x4zm">
         p(z) = p(z) - p(\lambda) = a_1(z-\lambda) + \cdots + a_m ( z^m - \lambda^m )
-      </men>
+      </md>
       for all <m>z \in \F{}{}</m>.
       For each <m>k \in \{ 1, \ldots, m \}</m>, the equation
-      <me>
+      <md>
         z^k - \lambda^k =  (z - \lambda) \sum_{j=1}^{k} \lambda^{j-1} z^{k-j}
-      </me>
+      </md>
       shows that <m>z^k - \lambda^k</m> equals
       <m>z - \lambda</m> times some polynomial of degree <m>k-1</m>.
       <xref ref="x4zm">Thus</xref> shows that <m>p</m> equals
@@ -377,9 +377,9 @@
       Thus suppose <m>p</m> has a zero <m>\lambda \in \F{}{}</m>.
       <xref ref="x460">By</xref>,
       there is polynomial <m>q \in \P(\F{})</m> of degree <m>m-1</m> such that
-      <me>
+      <md>
         p(z) = (z - \lambda) q(z)
-      </me>
+      </md>
       for every <m>z \in \F{}{}</m>.
       Our induction hypothesis implies that <m>q</m> has at most <m>m-1</m> zeros in <m>\F{}{}</m>.
       The equation above shows that the zeros of <m>p</m> in <m>\F{}</m> are exactly the zeros of <m>q</m> in <m>\F{}</m> along with <m>\lambda</m>.
@@ -409,9 +409,9 @@
   <p>
     If <m>p</m> and <m>s</m> are nonnegative integers, with <m>s \ne 0</m>,
     then there exist nonnegative integers <m>q</m> and <m>r</m> such that
-    <me>
+    <md>
       p = sq + r
-    </me>
+    </md>
     and <m>r \lt  s</m>.
     Think of dividing <m>p</m> by <m>s</m>,
     getting quotient <m>q</m> with remainder<nbsp/><m>r</m>.
@@ -439,9 +439,9 @@
         Suppose that <m>p, s \in \P(\F{})</m>, with <m>s \ne 0</m>.
         Then there exist unique polynomials <m>q,
         r \in \P(\F{})</m> such that
-        <me>
+        <md>
           p = sq + r
-        </me>
+        </md>
         and <m>\deg r \lt  \deg s</m>.
       </p>
     </statement>
@@ -456,9 +456,9 @@
     </p>
     <p>
       The list
-      <men xml:id="x4basis">
+      <md number="yes" xml:id="x4basis">
         1, z, \ldots, z^{m-1}, s, zs, \ldots, z^{n-m} s
-      </men>
+      </md>
       is linearly independent in
       <m>\P{}_n(\F{})</m> because each polynomial in this list has a different degree.
       Also, the <xref ref="x4basis">list</xref> has length <m>n+1</m>,
@@ -536,23 +536,23 @@
       which you can prove using induction on <m>k</m> and the addition formulas for cosine and sine,
       states that if <m>k</m> is a positive integer and <m>\theta \in \R{}</m>, then
           <idx><h>De Moivre's theorem</h></idx>
-      <me>
-        (\cos \theta + i \sin \theta)^k = \cos k\theta + i \sin k\theta
-      </me>.
+      <md>
+        (\cos \theta + i \sin \theta)^k = \cos k\theta + i \sin k\theta.
+      </md>
     </p>
     <p>
       Suppose <m>w \in \C{}</m> and <m>k</m> is a positive integer.
       Using polar coordinates,
       we know that there exist <m>r \ge 0</m> and <m>\theta \in \R{}</m> such that
-      <me>
-        r(\cos \theta + i \sin \theta) = w
-      </me>.
+      <md>
+        r(\cos \theta + i \sin \theta) = w.
+      </md>
     </p>
     <p>
       De Moivre's theorem implies that
-      <me>
-        (  r^{1/k} ( \cos \tfrac{\theta}{k} + i \sin \tfrac{\theta}{k}  )  )^k = w
-      </me>.
+      <md>
+        (  r^{1/k} ( \cos \tfrac{\theta}{k} + i \sin \tfrac{\theta}{k}  )  )^k = w.
+      </md>
     </p>
     <p>
       Thus every complex number has a <m>k^\nth</m> root,
@@ -569,16 +569,16 @@
     </p>
     <p>
       Define a new polynomial <m>q</m> by
-      <me>
-        q(z) = \frac{p(z + \zeta)}{p(\zeta)}
-      </me>.
+      <md>
+        q(z) = \frac{p(z + \zeta)}{p(\zeta)}.
+      </md>
     </p>
     <p>
       The function <m>z \mapsto \lvert q(z) \rvert</m> has a global minimum value of <m>1</m> at <m>z = 0</m>.
       Write
-      <me>
-        q(z) = 1 + a_k z^k + \dots + a_m z^m\!
-      </me>,
+      <md>
+        q(z) = 1 + a_k z^k + \dots + a_m z^m\!,
+      </md>
       where <m>k</m> is the smallest positive integer such that the coefficient of <m>z^k</m> is nonzero;
       in other words, <m>a_k \ne 0</m>.
     </p>
@@ -603,9 +603,9 @@
     even when exact zeros cannot be found.
     For example,
     no one will ever give an exact formula for a zero of the polynomial <m>p</m> defined by
-    <me>
-      p(x) = x^5 - 5 x^4 - 6 x^3 + 17 x^2 + 4 x -7
-    </me>.
+    <md>
+      p(x) = x^5 - 5 x^4 - 6 x^3 + 17 x^2 + 4 x -7.
+    </md>
   </p>
   <p>
     However, a computer can find that the zeros of <m>p</m> are approximately the five numbers <m>-1.87,\ -0.74,\ 0.62,\ 1.47,\ 5.51</m>.
@@ -624,9 +624,9 @@
         then <m>p</m> has a unique factorization
         (except for the order of the factors)
         of the form
-        <me>
-          p(z) = c(z - \lambda_1) \dotsm (z - \lambda_m)
-        </me>,
+        <md>
+          p(z) = c(z - \lambda_1) \dotsm (z - \lambda_m),
+        </md>
         where <m>c, \lambda_1, \dots, \lambda_m \in \C{}</m>.
       </p>
     </statement>
@@ -644,9 +644,9 @@
       By the first version of the fundamental theorem of algebra <xref ref="FTA1"/>, <m>p</m> has a zero <m>\lambda \in \C{}</m>.
       <xref ref="x460">By</xref>,
       there is a polynomial <m>q</m> of degree <m>m-1</m> such that
-      <me>
+      <md>
         p(z) = (z - \lambda) q(z)
-      </me>
+      </md>
       for all <m>z \in \C{}</m>.
       Our induction hypothesis implies that <m>q</m> has the desired factorization,
       which when plugged into the equation above gives the desired factorization of <m>p</m>.
@@ -657,18 +657,18 @@
       So we only need to show that except for the order,
       there is only one way to choose <m>\lambda_1, \dots, \lambda_m</m>.
       If
-      <me>
+      <md>
         (z - \lambda_1) \dotsm (z - \lambda_m) = (z - \tau_1) \dotsm (z - \tau_m)
-      </me>
+      </md>
       for all <m>z \in \C{}</m>,
       then because the left side of the equation above equals <m>0</m> when <m>z = \lambda_1</m>,
       one of the <m>\tau</m>'s on the right side equals <m>\lambda_1</m>.
       Relabeling, we can assume that <m>\tau_1 = \lambda_1</m>.
       Now if <m>z  \ne \lambda_1</m>,
       we can divide both sides of the equation above by <m>z - \lambda_1</m>, getting
-      <me>
+      <md>
         (z - \lambda_2) \dotsm (z - \lambda_m) = (z - \tau_2) \dotsm (z - \tau_m)
-      </me>
+      </md>
       for all <m>z \in \C{}</m> except possibly <m>z = \lambda_1</m>.
       Actually the equation above holds for all <m>z \in \C{}</m>,
       because otherwise by subtracting the right side from the left side we would get a nonzero polynomial that has infinitely many zeros.
@@ -707,22 +707,22 @@
   <proof>
     <p>
       Let
-      <me>
-        p(z) = a_0 + a_1 z + \dots + a_m z^m\!
-      </me>,
+      <md>
+        p(z) = a_0 + a_1 z + \dots + a_m z^m\!,
+      </md>
       where <m>a_0, \dots, a_m</m> are real numbers.
       Suppose <m>\lambda \in \C{}</m> is a zero of<nbsp/><m>p</m>.
       Then
-      <me>
-        a_0 + a_1 \lambda + \dots + a_m \lambda^m = 0
-      </me>.
+      <md>
+        a_0 + a_1 \lambda + \dots + a_m \lambda^m = 0.
+      </md>
     </p>
     <p>
       Take the complex conjugate of both sides of this equation,
       obtaining
-      <me>
-        a_0 + a_1 \bar{\lambda} + \dots + a_m \bar{\lambda}^m = 0
-      </me>,
+      <md>
+        a_0 + a_1 \bar{\lambda} + \dots + a_m \bar{\lambda}^m = 0,
+      </md>
       where we have used basic properties of the complex conjugate
       (<xref ref="propcomplex">see</xref>).
       The equation above shows that
@@ -744,9 +744,9 @@
       <p>
         Suppose <m>b, c \in \R{}</m>.
         Then there is a polynomial factorization of the form
-        <me>
+        <md>
           x^2 + b x + c = (x - \lambda_1)(x - \lambda_2)
-        </me>
+        </md>
         with <m>\lambda_1, \lambda_2 \in \R{}</m> if and only if <m>b^2 \ge 4 c</m>.
       </p>
     </statement>
@@ -754,9 +754,9 @@
   <proof>
     <p>
       Notice that
-      <me>
-        x^2 + b x + c = ( x + \frac{b}{2} )^2 + ( c -\frac{b^2}{4} )
-      </me>.
+      <md>
+        x^2 + b x + c = ( x + \frac{b}{2} )^2 + ( c -\frac{b^2}{4} ).
+      </md>
     </p>
     <aside>
       <p>
@@ -791,9 +791,9 @@
     <m>(x - \lambda)</m> with<nbsp/><m>\lambda</m> a nonreal complex number,
     then <m>(x - \bar{\lambda})</m> is also a term in the factorization.
     Multiplying together these two terms, we get
-    <me>
-      x^2 - 2(\re \lambda)x + |\lambda|^2
-    </me>,
+    <md>
+      x^2 - 2(\re \lambda)x + |\lambda|^2,
+    </md>
     which is a quadratic term of the required form.
   </p>
   <p>
@@ -820,9 +820,9 @@
         Then <m>p</m> has a unique factorization
         (except for the order of the factors)
         of the form
-        <me>
-          p(x) = c(x - \lambda_1) \cdots(x - \lambda_m) ( x^2 + b_1 x + c_1 ) \cdots ( x^2 + b_M x + c_M )
-        </me>,
+        <md>
+          p(x) = c(x - \lambda_1) \cdots(x - \lambda_m) ( x^2 + b_1 x + c_1 ) \cdots ( x^2 + b_M x + c_M ),
+        </md>
         where <m>c, \lambda_1, \dots, \lambda_m, b_1, \dots, b_M, c_1, \dots,
         c_M\in \R{}</m>, with <m>{b_k}^{2} \lt  4c_k</m> for each <m>k</m>.
       </p>
@@ -856,21 +856,21 @@
       getting Here we are not dividing by <m>0</m> because the zeros of
       <m>x^2 - 2(\re \lambda)x + |\lambda|^2</m> are <m>\lambda</m> and <m>\bar{\lambda}</m>,
       neither of which is real. \end{aside}
-      <me>
+      <md>
         q(x) = \frac{p(x)}{x^2 - 2(\re \lambda)x + |\lambda|^2}
-      </me>
+      </md>
       for all <m>x \in \R{}</m>.
       The equation above implies that
       <m>q(x) \in \R{}</m> for all <m>x \in \R{}</m>.
       Writing
-      <me>
-        q(x) = a_0 + a_1 x + \dots + a_{n-2} x^{n-2}\!
-      </me>,
+      <md>
+        q(x) = a_0 + a_1 x + \dots + a_{n-2} x^{n-2}\!,
+      </md>
       where <m>n = \deg p</m> and <m>a_0, \dots,
       a_{n-2} \in \C{}</m>, we thus have
-      <me>
+      <md>
         0 = \im q(x) = (\im a_0) + (\im a_1) x + \dots + (\im a_{n-2}) x^{n-2}
-      </me>
+      </md>
       for all <m>x \in \R{}</m>.
       This implies that <m>\im a_0, \dots, \im a_{n-2}</m> all equal<nbsp/><m>0</m>
       (by <xref ref="x4polyzero"></xref>).
@@ -886,248 +886,246 @@
       <xref ref="x4FTA2">contradicting</xref>.
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>w, z \in \C{}</m>.
-            Verify the following equalities and inequalities.
-            <ol>
-              <li>
-                <p>
-                  <m>z + \bar{z} = 2 \re z</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>z - \bar{z} = 2( \im z)i</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>z \bar{z} = |z|^2</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>\overline{w + z} = \bar{w} + \bar{z}</m> and <m>\overline{wz} = \bar{w} \; \bar{z}</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>\overline{\bar{z}} = z</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>| \re z | \le |z|</m> and <m>| \im z | \le |z|</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>\lvert \bar{z} \rvert = |z|</m>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>|wz| = |w| |z|</m>
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: The results above are the parts of <xref ref="propcomplex"></xref> that were left to the reader.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x4reverse">
-        <statement>
-          <p>
-            Prove that if <m>w, z \in \C{}</m>,
-            then <m>\lvert \lvert w \rvert - \lvert z \rvert \rvert \le \lvert w-z \rvert</m>.
-            Note: The inequality above is called the
-            <term>reverse triangle inequality</term>.
-        <idx><h>reverse triangle inequality</h></idx>
-    </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is a complex vector space and <m>\phi \in V'\!</m>.
-            Define <m>\fun \sigma V {\R{}}</m> by
-            <m>\sigma(v) = \re \phi(v)</m> for each <m>v \in V{}</m>.
-            Show that
-            <me>
-              \phi(v) = \sigma(v) - i \sigma(iv)
-            </me>
-            for all <m>v \in V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>m</m> is a positive integer.
-            Is the set
-            <me>
-              \{0\} \cup \{ p \in \P(\F{}): \deg p = m \}
-            </me>
-            a subspace of <m>\P(\F{})</m>?
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Is the set
-            <me>
-              \{0\} \cup \{ p \in \P(\F{}): \deg p \text{ is even }  \}
-            </me>
-            a subspace of <m>\P(\F{})</m>?
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose that <m>m</m> and <m>n</m> are positive integers with <m>m \le n</m>,
-            and suppose <m>\lambda_1, \dots, \lambda_m \in \F{}{}</m>.
-            Prove that there exists a polynomial
-            <m>p \in \P(\F{})</m> with <m>\deg p = n</m> such that
-            <m>0 = p(\lambda_1) = \dots = p(\lambda_m)</m> and such that <m>p</m> has no other zeros.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="PolyInterpolation">
-        <statement>
-          <p>
-            Suppose that <m>m</m> is a nonnegative integer,
-            <m>z_1, \dots,
-            z_{m+1}</m> are distinct elements of <m>\F{}{}</m>,
-            and <m>w_1, \dots, w_{m+1} \in \F{}{}</m>.
-            Prove that there exists a unique polynomial <m>p \in \P{}_m(\F{})</m> such that
-            <me>
-              p(z_k) = w_k
-            </me>
-            for each <m>k = 1, \dots, m + 1</m>.
-            Note: This result can be proved without using linear algebra.
-            However, try to find the clearer,
-            shorter proof that uses some linear algebra.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>p \in \P(\C{})</m> has degree <m>m</m>.
-            Prove that <m>p</m> has <m>m</m> distinct zeros if and only if <m>p</m> and its derivative <m>p'</m> have no zeros in common.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x4oddzero">
-        <statement>
-          <p>
-            Prove that every polynomial of odd degree with real coefficients has a real zero.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            For <m>p \in \P(\R{})</m>, define <m>\fun {Tp} {\R{}} {\R{}}</m> by
-            <me>
-              (Tp)(x) = \begin{cases}\dfrac{p(x) - p(3)}{x-3} \amp  \text{ if }  x \ne 3,\\ p' \! (3) \amp  \text{ if }  x = 3 \end{cases}
-            </me>
-            for each <m>x \in \R{}</m>.
-            Show that <m>Tp \in \P(\R{})</m> for every polynomial
-            <m>p \in \P(\R{})</m> and also show that <m>\fun T {\P(\R{})} {\P(\R{})}</m> is a linear map.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>p \in \P(\C{})</m>.
-            Define <m>q \colon \C{} \to \C{}</m> by
-            <me>
-              q(z) = p(z)   \overline{ p( \bar{z} ) }
-            </me>.
-          </p>
-          <p>
-            Prove that <m>q</m> is a polynomial with real coefficients.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>m</m> is a nonnegative integer and
-            <m>p \in \P{}_m(\C{})</m> is such that there are distinct real numbers
-            <m>x_0, x_1, \dots,
-            x_m</m> with <m>p(x_k) \in \R{}</m> for each <m>k = 0, 1, \dots, m</m>.
-            Prove that all coefficients of <m>p</m> are real.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>p \in \P(\F{})</m> with <m>p \ne 0</m>.
-            Let <m>U = \{ p q : q \in \P(\F{}) \}</m>.
-            <ol>
-              <li>
-                <p>
-                  Show that <m>\dim \P(\F{})/U = \deg p</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Find a basis of <m>\P(\F{})/U</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>p,
-            q \in \P(\C{})</m> are nonconstant polynomials with no zeros in common.
-            Let <m>m = \deg p</m> and <m>n = \deg q</m>.
-            Use linear algebra as outlined below in (a)<ndash/>(c) to prove that there exist
-            <m>r \in \P{}_{n-1}(\C{})</m> and <m>s \in \P{}_{m-1}(\C{})</m> such that
-            <me>
-              rp + sq = 1
-            </me>.
-            <ol>
-              <li>
-                <p>
-                  Define <m>\fun T { \P{}_{n-1}(\C{}) \times \P{}_{m-1}(\C{}) } {\P{}_{m+n-1}(\C{})}</m> by
-                  <me>
-                    T(r, s) = rp + sq
-                  </me>.
-                  Show that the linear map <m>T</m> is injective.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Show that the linear map <m>T</m> in (a) is surjective.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Use (b) to conclude that there exist <m>r \in \P{}_{n-1}(\C{})</m> and
-                  <m>s \in \P{}_{m-1}(\C{})</m> such that <m>rp + sq = 1</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>w, z \in \C{}</m>.
+          Verify the following equalities and inequalities.
+          <ol>
+            <li>
+              <p>
+                <m>z + \bar{z} = 2 \re z</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>z - \bar{z} = 2( \im z)i</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>z \bar{z} = |z|^2</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\overline{w + z} = \bar{w} + \bar{z}</m> and <m>\overline{wz} = \bar{w} \; \bar{z}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\overline{\bar{z}} = z</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>| \re z | \le |z|</m> and <m>| \im z | \le |z|</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\lvert \bar{z} \rvert = |z|</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>|wz| = |w| |z|</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: The results above are the parts of <xref ref="propcomplex"></xref> that were left to the reader.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x4reverse">
+      <statement>
+        <p>
+          Prove that if <m>w, z \in \C{}</m>,
+          then <m>\lvert \lvert w \rvert - \lvert z \rvert \rvert \le \lvert w-z \rvert</m>.
+          Note: The inequality above is called the
+          <term>reverse triangle inequality</term>.
+              <idx><h>reverse triangle inequality</h></idx>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a complex vector space and <m>\phi \in V'\!</m>.
+          Define <m>\fun \sigma V {\R{}}</m> by
+          <m>\sigma(v) = \re \phi(v)</m> for each <m>v \in V{}</m>.
+          Show that
+          <md>
+            \phi(v) = \sigma(v) - i \sigma(iv)
+          </md>
+          for all <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>m</m> is a positive integer.
+          Is the set
+          <md>
+            \{0\} \cup \{ p \in \P(\F{}): \deg p = m \}
+          </md>
+          a subspace of <m>\P(\F{})</m>?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Is the set
+          <md>
+            \{0\} \cup \{ p \in \P(\F{}): \deg p \text{ is even }  \}
+          </md>
+          a subspace of <m>\P(\F{})</m>?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose that <m>m</m> and <m>n</m> are positive integers with <m>m \le n</m>,
+          and suppose <m>\lambda_1, \dots, \lambda_m \in \F{}{}</m>.
+          Prove that there exists a polynomial
+          <m>p \in \P(\F{})</m> with <m>\deg p = n</m> such that
+          <m>0 = p(\lambda_1) = \dots = p(\lambda_m)</m> and such that <m>p</m> has no other zeros.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="PolyInterpolation">
+      <statement>
+        <p>
+          Suppose that <m>m</m> is a nonnegative integer,
+          <m>z_1, \dots,
+          z_{m+1}</m> are distinct elements of <m>\F{}{}</m>,
+          and <m>w_1, \dots, w_{m+1} \in \F{}{}</m>.
+          Prove that there exists a unique polynomial <m>p \in \P{}_m(\F{})</m> such that
+          <md>
+            p(z_k) = w_k
+          </md>
+          for each <m>k = 1, \dots, m + 1</m>.
+          Note: This result can be proved without using linear algebra.
+          However, try to find the clearer,
+          shorter proof that uses some linear algebra.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>p \in \P(\C{})</m> has degree <m>m</m>.
+          Prove that <m>p</m> has <m>m</m> distinct zeros if and only if <m>p</m> and its derivative <m>p'</m> have no zeros in common.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x4oddzero">
+      <statement>
+        <p>
+          Prove that every polynomial of odd degree with real coefficients has a real zero.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          For <m>p \in \P(\R{})</m>, define <m>\fun {Tp} {\R{}} {\R{}}</m> by
+          <md>
+            (Tp)(x) = \begin{cases}\dfrac{p(x) - p(3)}{x-3} \amp  \text{ if }  x \ne 3,\\ p' \! (3) \amp  \text{ if }  x = 3 \end{cases}
+          </md>
+          for each <m>x \in \R{}</m>.
+          Show that <m>Tp \in \P(\R{})</m> for every polynomial
+          <m>p \in \P(\R{})</m> and also show that <m>\fun T {\P(\R{})} {\P(\R{})}</m> is a linear map.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>p \in \P(\C{})</m>.
+          Define <m>q \colon \C{} \to \C{}</m> by
+          <md>
+            q(z) = p(z)   \overline{ p( \bar{z} ) }.
+          </md>
+        </p>
+        <p>
+          Prove that <m>q</m> is a polynomial with real coefficients.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>m</m> is a nonnegative integer and
+          <m>p \in \P{}_m(\C{})</m> is such that there are distinct real numbers
+          <m>x_0, x_1, \dots,
+          x_m</m> with <m>p(x_k) \in \R{}</m> for each <m>k = 0, 1, \dots, m</m>.
+          Prove that all coefficients of <m>p</m> are real.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>p \in \P(\F{})</m> with <m>p \ne 0</m>.
+          Let <m>U = \{ p q : q \in \P(\F{}) \}</m>.
+          <ol>
+            <li>
+              <p>
+                Show that <m>\dim \P(\F{})/U = \deg p</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a basis of <m>\P(\F{})/U</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>p,
+          q \in \P(\C{})</m> are nonconstant polynomials with no zeros in common.
+          Let <m>m = \deg p</m> and <m>n = \deg q</m>.
+          Use linear algebra as outlined below in (a)<ndash/>(c) to prove that there exist
+          <m>r \in \P{}_{n-1}(\C{})</m> and <m>s \in \P{}_{m-1}(\C{})</m> such that
+          <md>
+            rp + sq = 1.
+          </md>
+          <ol>
+            <li>
+              <p>
+                Define <m>\fun T { \P{}_{n-1}(\C{}) \times \P{}_{m-1}(\C{}) } {\P{}_{m+n-1}(\C{})}</m> by
+                <md>
+                  T(r, s) = rp + sq.
+                </md>
+                Show that the linear map <m>T</m> is injective.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that the linear map <m>T</m> in (a) is surjective.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use (b) to conclude that there exist <m>r \in \P{}_{n-1}(\C{})</m> and
+                <m>s \in \P{}_{m-1}(\C{})</m> such that <m>rp + sq = 1</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </chapter>

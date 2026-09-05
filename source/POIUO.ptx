@@ -7,9 +7,9 @@
         An operator <m>T \in \Lc(V)</m> is called <term>positive</term>
             <idx><h>positive operator</h></idx>
         if <m>T</m> is self-adjoint and
-        <me>
+        <md>
           \langle Tv, v \rangle  \ge 0
-        </me>
+        </md>
         for all <m>v \in V{}</m>.
       </p>
     </statement>
@@ -155,9 +155,9 @@
       suppose <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
       Let <m>v</m> be an eigenvector of <m>T</m> corresponding to <m>\lambda</m>.
       Then
-      <me>
-        0 \le \langle Tv, v \rangle  = \langle \lambda v, v \rangle  = \lambda \langle v, v \rangle
-      </me>.
+      <md>
+        0 \le \langle Tv, v \rangle  = \langle \lambda v, v \rangle  = \lambda \langle v, v \rangle .
+      </md>
     </p>
     <p>
       Thus <m>\lambda</m> is a nonnegative number.
@@ -182,9 +182,9 @@
       Suppose <m>e_1, \ldots,
       e_n</m> is an orthonormal basis of <m>V</m> such that the matrix of <m>T</m> with respect to this basis is a diagonal matrix with nonnegative numbers <m>\lambda_1, \ldots, \lambda_n</m> on the diagonal.
       The linear map lemma <xref ref="x3linearmap"/> implies that there exists <m>R \in \Lc(V)</m> such that
-      <me>
+      <md>
         Re_k = \sqrt{\lambda_k} e_k
-      </me>
+      </md>
       for each <m>k = 1, \dots, n</m>.
       As you should verify, <m>R</m> is a positive operator.
       Furthermore,
@@ -210,9 +210,9 @@
       Then <m>T^* = ( R^*R )^* = R^*( R^* )^* = R^*R = T{}</m>.
       Hence <m>T</m> is self-adjoint.
       To complete the proof that (a) holds, note that
-      <me>
+      <md>
         \langle Tv, v \rangle  = \langle R^*Rv, v \rangle  = \langle Rv, Rv \rangle  \ge 0
-      </me>
+      </md>
       for every <m>v \in V{}</m>.
       Thus <m>T</m> is positive, showing that (f) implies (a).
     </p>
@@ -265,39 +265,39 @@
     <p>
       Because <m>e_1, \dots, e_n</m> is a basis of <m>V{}</m>,
       we can write
-      <me>
+      <md>
         v = a_1 e_1 + \dots + a_n e_n
-      </me>
+      </md>
       for some numbers <m>a_1, \dots, a_n \in \F{}{}</m>.
       Thus
-      <me>
-        Rv = a_1 \sqrt{\lambda_1} e_1 + \dots + a_n \sqrt{\lambda_n} e_n
-      </me>.
+      <md>
+        Rv = a_1 \sqrt{\lambda_1} e_1 + \dots + a_n \sqrt{\lambda_n} e_n.
+      </md>
     </p>
     <p>
       Hence
-      <me>
-        \lambda v = Tv = R^2v = a_1 \lambda_1 e_1 + \dots + a_n \lambda_n e_n
-      </me>.
+      <md>
+        \lambda v = Tv = R^2v = a_1 \lambda_1 e_1 + \dots + a_n \lambda_n e_n.
+      </md>
     </p>
     <p>
       The equation above implies that
-      <me>
-        a_1 \lambda e_1 + \dots + a_n \lambda e_n = a_1 \lambda_1 e_1 + \dots + a_n \lambda_n e_n
-      </me>.
+      <md>
+        a_1 \lambda e_1 + \dots + a_n \lambda e_n = a_1 \lambda_1 e_1 + \dots + a_n \lambda_n e_n.
+      </md>
     </p>
     <p>
       Thus <m>a_k(\lambda - \lambda_k) = 0</m> for each <m>k = 1, \dots, n</m>.
       Hence
-      <me>
-        v = \sum_{\{k:\lambda_k = \lambda\}} a_k e_k
-      </me>.
+      <md>
+        v = \sum_{\{k:\lambda_k = \lambda\}} a_k e_k.
+      </md>
     </p>
     <p>
       Thus
-      <me>
-        Rv = \sum_{\{k:\lambda_k = \lambda\}} a_k \sqrt{\lambda} e_k = \sqrt{\lambda} v
-      </me>,
+      <md>
+        Rv = \sum_{\{k:\lambda_k = \lambda\}} a_k \sqrt{\lambda} e_k = \sqrt{\lambda} v,
+      </md>
       as desired.}
     </p>
   </proof>
@@ -320,15 +320,15 @@
         Define operators <m>S, T</m> on <m>\R 2</m>
         (with the usual Euclidean inner product)
         by
-        <me>
-          S(x, y) = (x, 2y) \andd T(x, y) = (x+y, x+y)
-        </me>.
+        <md>
+          S(x, y) = (x, 2y) \andd T(x, y) = (x+y, x+y).
+        </md>
       </p>
       <p>
         Then with respect to the standard basis of <m>\R 2</m> we have
-        <men xml:id="MST">
-          \M(S) = \begin{pmatrix} 1 \amp  0 \\ 0 \amp  2\end{pmatrix} \andd \M(T) = \begin{pmatrix} 1 \amp  1 \\ 1 \amp  1\end{pmatrix}
-        </men>.
+        <md number="yes" xml:id="MST">
+          \M(S) = \begin{pmatrix} 1 \amp  0 \\ 0 \amp  2\end{pmatrix} \andd \M(T) = \begin{pmatrix} 1 \amp  1 \\ 1 \amp  1\end{pmatrix}.
+        </md>
       </p>
       <p>
         Each of these matrices equals its transpose;
@@ -336,13 +336,13 @@
       </p>
       <p>
         If <m>(x, y) \in \R2</m>, then
-        <me>
+        <md>
           \langle  S(x, y), (x, y)  \rangle  = x^2 + 2y^2 \ge 0
-        </me>
+        </md>
         and
-        <me>
-          \langle  T(x, y), (x, y)  \rangle  = x^2 + 2 xy + y^2 = (x+y)^2 \ge 0
-        </me>.
+        <md>
+          \langle  T(x, y), (x, y)  \rangle  = x^2 + 2 xy + y^2 = (x+y)^2 \ge 0.
+        </md>
       </p>
       <p>
         Thus <m>S</m> and <m>T</m> are positive operators.
@@ -350,9 +350,9 @@
       <p>
         The standard basis of <m>\R2</m> is an orthonormal basis consisting of eigenvectors of <m>S</m>.
         Note that
-        <me>
+        <md>
           (  \tfrac{1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}} ), (  \tfrac{1}{\sqrt{2}}, -\tfrac{1}{\sqrt{2}} )
-        </me>
+        </md>
         is an orthonormal basis of eigenvectors of<nbsp/><m>T</m>,
         with eigenvalue <m>2</m> for the first eigenvector and eigenvalue <m>0</m> for the second eigenvector.
         Thus <m>\sqrt{T}</m> has the same eigenvectors,
@@ -360,9 +360,9 @@
       </p>
       <p>
         You can verify that
-        <me>
+        <md>
           \M( \! \sqrt{S}    ) = \begin{pmatrix}1 \amp  0 \\ 0 \amp  \sqrt{2} \end{pmatrix} \andd \M( \! \sqrt{T}    ) = \begin{pmatrix}\frac{1}{\sqrt{2}} \amp  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \amp  \frac{1}{\sqrt{2}} \end{pmatrix}
-        </me>
+        </md>
         with respect to the standard basis by showing that the squares of the matrices above are the matrices in <xref ref="MST"></xref>
         and that each matrix above is the matrix of a positive operator.
       </p>
@@ -384,302 +384,300 @@
   <proof>
     <p>
       We have
-      <me>
-        0 = \langle Tv, v \rangle  = \langle \sqrt{T} \sqrt{T} v, v \rangle  = \langle \sqrt T v, \sqrt T v \rangle  = \lVert \sqrt T v \rVert ^2{}
-      </me>.
+      <md>
+        0 = \langle Tv, v \rangle  = \langle \sqrt{T} \sqrt{T} v, v \rangle  = \langle \sqrt T v, \sqrt T v \rangle  = \lVert \sqrt T v \rVert ^2{}.
+      </md>
     </p>
     <p>
       Hence <m>\sqrt T v = 0</m>.
       Thus <m>Tv = \sqrt T( \sqrt T v ) = 0</m>, as desired.
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m>.
-            Prove that if both <m>T</m> and <m>-T</m> are positive operators,
-            then <m>T = 0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc( \F4 )</m> is the operator whose matrix
-            (with respect to the standard basis)
-            is
-            <me>
-              \begin{pmatrix}2 \amp  -1 \amp  0 \amp  0 \\ -1 \amp  2 \amp  -1 \amp  0\\ 0 \amp  -1 \amp  2 \amp  - 1 \\ 0 \amp  0 \amp  -1 \amp  2 \end{pmatrix}
-            </me>.
-          </p>
-          <p>
-            Show that <m>T</m> is an invertible positive operator.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>n</m> is a positive integer and
-            <m>T \in \Lc( \F n )</m> is the operator whose matrix
-            (with respect to the standard basis)
-            consists of all <m>1</m>'s.
-            Show that <m>T</m> is a positive operator.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>n</m> is an integer with <m>n > 1</m>.
-            Show that there exists an <m>n</m>-by-<m>n</m> matrix <m>A</m> such that all of the entries of <m>A</m> are positive numbers and <m>A = A^*{}</m>,
-            but the operator on <m>\F n</m> whose matrix
-            (with respect to the standard basis)
-            equals <m>A</m> is not a positive operator.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is self-adjoint.
-            Prove that <m>T</m> is a positive operator if and only if for every orthonormal basis <m>e_1, \ldots,
-            e_n</m> of <m>V{}</m>,
-            all entries on the diagonal of
-            <m>\M( T, (e_1, \ldots,
-            e_n) )</m> are nonnegative numbers.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Prove that the sum of two positive operators on <m>V</m> is a positive operator.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>S \in \Lc(V)</m> is an invertible positive operator and
-            <m>T \in \Lc(V)</m> is a positive operator.
-            Prove that <m>S+T</m> is invertible.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m>.
-            Prove that <m>T</m> is a positive operator if and only if the pseudoinverse
-            <m>T^\dagger</m> is a positive operator.
-        <idx><h>pseudoinverse</h></idx>
-    </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>S \in \Lc(W{}, V)</m>.
-            Prove that <m>S^* T S</m> is a positive operator on <m>W{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T</m> is a positive operator on <m>V{}</m>.
-            Suppose <m>v, w \in V</m> are such that
-            <me>
-              Tv = w \andd Tw = v
-            </me>.
-          </p>
-          <p>
-            Prove that <m>v = w</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T</m> is a positive operator on <m>V</m> and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
-            Prove that <m>T|_U \in \Lc(U)</m> is a positive operator on <m>U</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is a positive operator.
-            Prove that <m>T^k</m> is a positive operator for every positive integer<nbsp/><m>k</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>\alpha \in \R{}</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that <m>T - \alpha I</m> is a positive operator if and only if <m>\alpha</m> is less than or equal to every eigenvalue of <m>T{}</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that <m>\alpha I - T</m> is a positive operator if and only if <m>\alpha</m> is greater than or equal to every eigenvalue of <m>T{}</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T</m> is a positive operator on <m>V</m> and <m>v_1, \ldots,
-            v_m \in V{}</m>.
-            Prove that
-            <me>
-              \sum_{j=1}^m \sum_{k=1}^m \langle Tv_k, v_j \rangle  \ge 0
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is self-adjoint.
-            Prove that there exist positive operators <m>A, B \in \Lc(V)</m> such that
-            <me>
-              T = A - B \andd \sqrt{T^* T} = A + B \andd AB = BA = 0
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T</m> is a positive operator on <m>V{}</m>.
-            Prove that
-            <me>
-              \ker \sqrt{T} = \ker T \andd \ran \sqrt{T} = \ran T{}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x2psqrt">
-        <statement>
-          <p>
-            Suppose that <m>T \in \Lc(V)</m> is a positive operator.
-            Prove that there exists a polynomial <m>p</m> with real coefficients such that <m>\sqrt{T} = p(T)</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x2ProdPos">
-        <statement>
-          <p>
-            Suppose <m>S</m> and <m>T</m> are positive operators on <m>V{}</m>.
-            Prove that <m>ST</m> is a positive operator if and only if <m>S</m> and <m>T</m> commute.
-        <idx><h>commuting operators</h></idx>
-    </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Show that the identity operator on <m>\F{2}</m> has infinitely many self-adjoint square roots.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="Grammian">
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> and
-            <m>e_1, \ldots,
-            e_n</m> is an orthonormal basis of <m>V{}</m>.
-            Prove that <m>T</m> is a positive operator if and only if there exist <m>v_1, \ldots,
-            v_n \in V</m> such that
-            <me>
-              \langle Te_k, e_j \rangle  = \langle v_k, v_j \rangle
-            </me>
-            for all <m>j, k = 1, \ldots, n</m>.
-            Note: The numbers <m>\{ \langle Te_k, e_j \rangle  \} _{j, k = 1, \ldots,
-            n}</m> are the entries in the matrix of <m>T</m> with respect to the orthonormal basis <m>e_1, \ldots, e_n</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>n</m> is a positive integer.
-            The <m>n</m>-by-<m>n</m> <term>Hilbert matrix</term>
-            is the <m>n</m>-by-<m>n</m> matrix whose entry in row <m>j</m>,
-            column <m>k</m> is <m>\frac{1}{j+k-1}</m>.
-            Suppose <m>T \in \Lc(V)</m> is an operator whose matrix with respect to some orthonormal basis of <m>V</m> is the <m>n</m>-by-<m>n</m> Hilbert matrix.
-            Prove that <m>T</m> is a positive invertible operator.
-        <idx><h>Hilbert matrix</h></idx>
-    Note: Example: The <m>4</m>-by-<m>4</m> Hilbert matrix is
-            <me>
-              \begin{pmatrix}1 \amp  \frac{1}{2} \amp  \frac{1}{3} \amp  \frac{1}{4} \\ \frac{1}{2} \amp  \frac{1}{3} \amp  \frac{1}{4} \amp  \frac{1}{5}\\ \frac{1}{3} \amp  \frac{1}{4} \amp  \frac{1}{5} \amp  \frac{1}{6}\\ \frac{1}{4} \amp  \frac{1}{5} \amp  \frac{1}{6} \amp  \frac{1}{7} \end{pmatrix}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>u \in V</m> is such that <m>\lVert u \rVert = 1</m> and
-            <m>\lVert Tu \rVert \ge \lVert Tv \rVert</m> for all <m>v \in V</m> with <m>\lVert v \rVert = 1</m>.
-            Show that <m>u</m> is an eigenvector of<nbsp/><m>T</m> corresponding to the largest eigenvalue of <m>T{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            For <m>T \in \Lc(V)</m> and <m>u, v \in V{}</m>,
-            define <m>\langle u, v \rangle _T</m> by <m>\langle u, v \rangle _T = \langle Tu, v \rangle</m>.
-            <ol>
-              <li>
-                <p>
-                  Suppose <m>T \in \Lc(V)</m>.
-                  Prove that <m>\langle \cdot, \cdot \rangle _T</m> is an inner product on <m>V</m> if and only if <m>T</m> is an invertible positive operator
-                  (with respect to the original inner product <m>\langle \cdot, \cdot \rangle</m>).
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that every inner product on <m>V</m> is of the form
-                  <m>\langle \cdot, \cdot \rangle _T</m> for some positive invertible operator <m>T \in \Lc(V)</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>S</m> and <m>T</m> are positive operators on <m>V{}</m>.
-            Prove that
-            <me>
-              \ker(S+T) = \ker S \cap \ker T{}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Let <m>T</m> be the second derivative operator in <xref ref="x1100">Exercise</xref>(b) in <xref ref="selfadjoint_normal">Section</xref>.
-            Show that <m>-T</m> is a positive operator.
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Prove that if both <m>T</m> and <m>-T</m> are positive operators,
+          then <m>T = 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \F4 )</m> is the operator whose matrix
+          (with respect to the standard basis)
+          is
+          <md>
+            \begin{pmatrix}2 \amp  -1 \amp  0 \amp  0 \\ -1 \amp  2 \amp  -1 \amp  0\\ 0 \amp  -1 \amp  2 \amp  - 1 \\ 0 \amp  0 \amp  -1 \amp  2 \end{pmatrix} .
+          </md>
+        </p>
+        <p>
+          Show that <m>T</m> is an invertible positive operator.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>n</m> is a positive integer and
+          <m>T \in \Lc( \F n )</m> is the operator whose matrix
+          (with respect to the standard basis)
+          consists of all <m>1</m>'s.
+          Show that <m>T</m> is a positive operator.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>n</m> is an integer with <m>n > 1</m>.
+          Show that there exists an <m>n</m>-by-<m>n</m> matrix <m>A</m> such that all of the entries of <m>A</m> are positive numbers and <m>A = A^*{}</m>,
+          but the operator on <m>\F n</m> whose matrix
+          (with respect to the standard basis)
+          equals <m>A</m> is not a positive operator.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is self-adjoint.
+          Prove that <m>T</m> is a positive operator if and only if for every orthonormal basis <m>e_1, \ldots,
+          e_n</m> of <m>V{}</m>,
+          all entries on the diagonal of
+          <m>\M( T, (e_1, \ldots,
+          e_n) )</m> are nonnegative numbers.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Prove that the sum of two positive operators on <m>V</m> is a positive operator.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>S \in \Lc(V)</m> is an invertible positive operator and
+          <m>T \in \Lc(V)</m> is a positive operator.
+          Prove that <m>S+T</m> is invertible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m>.
+          Prove that <m>T</m> is a positive operator if and only if the pseudoinverse
+          <m>T^\dagger</m> is a positive operator.
+              <idx><h>pseudoinverse</h></idx>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>S \in \Lc(W{}, V)</m>.
+          Prove that <m>S^* T S</m> is a positive operator on <m>W{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a positive operator on <m>V{}</m>.
+          Suppose <m>v, w \in V</m> are such that
+          <md>
+            Tv = w \andd Tw = v.
+          </md>
+        </p>
+        <p>
+          Prove that <m>v = w</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a positive operator on <m>V</m> and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
+          Prove that <m>T|_U \in \Lc(U)</m> is a positive operator on <m>U</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is a positive operator.
+          Prove that <m>T^k</m> is a positive operator for every positive integer<nbsp/><m>k</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>\alpha \in \R{}</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that <m>T - \alpha I</m> is a positive operator if and only if <m>\alpha</m> is less than or equal to every eigenvalue of <m>T{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>\alpha I - T</m> is a positive operator if and only if <m>\alpha</m> is greater than or equal to every eigenvalue of <m>T{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a positive operator on <m>V</m> and <m>v_1, \ldots,
+          v_m \in V{}</m>.
+          Prove that
+          <md>
+            \sum_{j=1}^m \sum_{k=1}^m \langle Tv_k, v_j \rangle  \ge 0.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is self-adjoint.
+          Prove that there exist positive operators <m>A, B \in \Lc(V)</m> such that
+          <md>
+            T = A - B \andd \sqrt{T^* T} = A + B \andd AB = BA = 0.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T</m> is a positive operator on <m>V{}</m>.
+          Prove that
+          <md>
+            \ker \sqrt{T} = \ker T \andd \ran \sqrt{T} = \ran T{}.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x2psqrt">
+      <statement>
+        <p>
+          Suppose that <m>T \in \Lc(V)</m> is a positive operator.
+          Prove that there exists a polynomial <m>p</m> with real coefficients such that <m>\sqrt{T} = p(T)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x2ProdPos">
+      <statement>
+        <p>
+          Suppose <m>S</m> and <m>T</m> are positive operators on <m>V{}</m>.
+          Prove that <m>ST</m> is a positive operator if and only if <m>S</m> and <m>T</m> commute.
+              <idx><h>commuting operators</h></idx>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Show that the identity operator on <m>\F{2}</m> has infinitely many self-adjoint square roots.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="Grammian">
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and
+          <m>e_1, \ldots,
+          e_n</m> is an orthonormal basis of <m>V{}</m>.
+          Prove that <m>T</m> is a positive operator if and only if there exist <m>v_1, \ldots,
+          v_n \in V</m> such that
+          <md>
+            \langle Te_k, e_j \rangle  = \langle v_k, v_j \rangle
+          </md>
+          for all <m>j, k = 1, \ldots, n</m>.
+          Note: The numbers <m>\{ \langle Te_k, e_j \rangle  \} _{j, k = 1, \ldots,
+          n}</m> are the entries in the matrix of <m>T</m> with respect to the orthonormal basis <m>e_1, \ldots, e_n</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>n</m> is a positive integer.
+          The <m>n</m>-by-<m>n</m> <term>Hilbert matrix</term>
+          is the <m>n</m>-by-<m>n</m> matrix whose entry in row <m>j</m>,
+          column <m>k</m> is <m>\frac{1}{j+k-1}</m>.
+          Suppose <m>T \in \Lc(V)</m> is an operator whose matrix with respect to some orthonormal basis of <m>V</m> is the <m>n</m>-by-<m>n</m> Hilbert matrix.
+          Prove that <m>T</m> is a positive invertible operator.
+              <idx><h>Hilbert matrix</h></idx>
+          Note: Example: The <m>4</m>-by-<m>4</m> Hilbert matrix is
+          <md>
+            \begin{pmatrix}1 \amp  \frac{1}{2} \amp  \frac{1}{3} \amp  \frac{1}{4} \\ \frac{1}{2} \amp  \frac{1}{3} \amp  \frac{1}{4} \amp  \frac{1}{5}\\ \frac{1}{3} \amp  \frac{1}{4} \amp  \frac{1}{5} \amp  \frac{1}{6}\\ \frac{1}{4} \amp  \frac{1}{5} \amp  \frac{1}{6} \amp  \frac{1}{7} \end{pmatrix} .
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>u \in V</m> is such that <m>\lVert u \rVert = 1</m> and
+          <m>\lVert Tu \rVert \ge \lVert Tv \rVert</m> for all <m>v \in V</m> with <m>\lVert v \rVert = 1</m>.
+          Show that <m>u</m> is an eigenvector of<nbsp/><m>T</m> corresponding to the largest eigenvalue of <m>T{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          For <m>T \in \Lc(V)</m> and <m>u, v \in V{}</m>,
+          define <m>\langle u, v \rangle _T</m> by <m>\langle u, v \rangle _T = \langle Tu, v \rangle</m>.
+          <ol>
+            <li>
+              <p>
+                Suppose <m>T \in \Lc(V)</m>.
+                Prove that <m>\langle \cdot, \cdot \rangle _T</m> is an inner product on <m>V</m> if and only if <m>T</m> is an invertible positive operator
+                (with respect to the original inner product <m>\langle \cdot, \cdot \rangle</m>).
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that every inner product on <m>V</m> is of the form
+                <m>\langle \cdot, \cdot \rangle _T</m> for some positive invertible operator <m>T \in \Lc(V)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>S</m> and <m>T</m> are positive operators on <m>V{}</m>.
+          Prove that
+          <md>
+            \ker(S+T) = \ker S \cap \ker T{}.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Let <m>T</m> be the second derivative operator in <xref ref="x1100">Exercise</xref>(b) in <xref ref="selfadjoint_normal">Section</xref>.
+          Show that <m>-T</m> is a positive operator.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

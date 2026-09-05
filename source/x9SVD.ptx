@@ -12,9 +12,9 @@
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Let <m>s_1</m> be the largest singular value of <m>T{}</m>.
           Then
-          <me>
+          <md>
             \lVert Tv \rVert  \le s_1 \lVert v \rVert
-          </me>
+          </md>
           for all <m>v \in V{}</m>.
         </p>
       </statement>
@@ -35,9 +35,9 @@
         <m>f_1, \ldots,
         f_m</m> be an orthonormal list in <m>W</m> that provide a singular value decomposition of <m>T{}</m>.
         Thus
-        <men xml:id="x73SVD">
+        <md number="yes" xml:id="x73SVD">
           Tv = s_1 \langle v, e_1 \rangle f_1 + \cdots + s_m \langle v, e_m \rangle f_m
-        </men>
+        </md>
         for all <m>v \in V{}</m>.
         Hence if <m>v \in V</m> then
         <md>
@@ -53,9 +53,9 @@
     <p>
       Suppose <m>T \in \Lc(V{},W)</m> and <m>s_1</m> is the largest singular value of <m>T{}</m>.
       The result above shows that
-      <men xml:id="x77norm">
-        \lVert Tv \rVert  \le s_1 \text{ for all }  v \in V \text{ with }  \lVert v \rVert  \le 1
-      </men>.
+      <md number="yes" xml:id="x77norm">
+        \lVert Tv \rVert  \le s_1 \text{ for all }  v \in V \text{ with }  \lVert v \rVert  \le 1.
+      </md>
     </p>
     <p>
       Taking <m>v = e_1</m> in <xref ref="x73SVD"></xref>
@@ -64,9 +64,9 @@
       this implies that <m>\lVert Te_1 \rVert  = s_1</m>.
       Thus because <m>\lVert e_1 \rVert  = 1</m>,
       the inequality in <xref ref="x77norm"></xref> leads to the equation
-      <men xml:id="x7max">
-        \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \} = s_1
-      </men>.
+      <md number="yes" xml:id="x7max">
+        \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \} = s_1.
+      </md>
     </p>
     <p>
       The equation above is the motivation for the following definition,
@@ -81,9 +81,9 @@
           denoted by <m>\lVert T \rVert</m>,
           is defined by<idx><h sortby="Tnorm"><m>\lVert T \rVert</m></h></idx>
               <idx><h>norm of a linear map</h></idx>
-          <me>
-            \lVert T \rVert  = \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \}
-          </me>.
+          <md>
+            \lVert T \rVert  = \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -159,9 +159,9 @@
             Suppose <m>\lVert T \rVert  = 0</m>.
             Thus <m>Tv = 0</m> for all <m>v \in V</m> with <m>\lVert v \rVert  \le 1</m>.
             If <m>u \in V</m> with <m>u \ne 0</m>, then
-            <me>
-              Tu = \lVert u \rVert    T(  \frac{u}{\lVert u \rVert  }  ) = 0
-            </me>,
+            <md>
+              Tu = \lVert u \rVert    T(  \frac{u}{\lVert u \rVert  }  ) = 0,
+            </md>
             where the last equality holds because <m>u/\lVert u \rVert</m> has norm <m>1</m>.
             Because <m>Tu = 0</m> for all
             <m>u \in V{}</m>, we have <m>T = 0</m>.
@@ -185,9 +185,9 @@
             The definition of <m>\lVert S+T \rVert</m> implies that there exists <m>v \in V</m> such that
             <m>\lVert v \rVert  \le 1</m> and <m>\lVert S + T \rVert  = \lVert (S+T)v \rVert</m>.
             Now
-            <me>
-              \lVert S+T \rVert  = \lVert (S+T)v \rVert  = \lVert Sv + Tv \rVert  \le \lVert Sv \rVert  + \lVert Tv \rVert  \le \lVert S \rVert  + \lVert T \rVert
-            </me>,
+            <md>
+              \lVert S+T \rVert  = \lVert (S+T)v \rVert  = \lVert Sv + Tv \rVert  \le \lVert Sv \rVert  + \lVert Tv \rVert  \le \lVert S \rVert  + \lVert T \rVert ,
+            </md>
             completing the proof of (d).
           </p>
         </li>
@@ -241,9 +241,9 @@
             Let <m>v \in V</m> be such that <m>0 \lt  \lVert v \rVert  \le 1</m>.
             Let <m>u = v/\lVert v \rVert</m>.
             Then
-            <me>
-              \lVert u \rVert  = \lVert  \frac{v}{\lVert v \rVert }  \rVert  = 1 \andd \lVert Tu \rVert  =\lVert  T(  \frac{v}{\lVert v \rVert }  )  \rVert  = \frac{\lVert Tv \rVert }{\lVert v \rVert } \ge \lVert Tv \rVert
-            </me>.
+            <md>
+              \lVert u \rVert  = \lVert  \frac{v}{\lVert v \rVert }  \rVert  = 1 \andd \lVert Tu \rVert  =\lVert  T(  \frac{v}{\lVert v \rVert }  )  \rVert  = \frac{\lVert Tv \rVert }{\lVert v \rVert } \ge \lVert Tv \rVert .
+            </md>
             Thus when finding the maximum of
             <m>\lVert Tv \rVert</m> with <m>\lVert v \rVert  \le 1</m>,
             we can restrict attention to vectors in <m>V</m> with norm <m>1</m>,
@@ -254,19 +254,19 @@
           <p>
             Suppose <m>v \in V</m> and <m>v \ne 0</m>.
             Then the definition of <m>\lVert T \rVert</m> implies that
-            <me>
-              \lVert  T(  \frac{v}{\lVert v \rVert }  )  \rVert  \le \lVert T \rVert
-            </me>,
+            <md>
+              \lVert  T(  \frac{v}{\lVert v \rVert }  )  \rVert  \le \lVert T \rVert ,
+            </md>
             which implies that
-            <men xml:id="x8norm">
-              \lVert Tv \rVert  \le \lVert T \rVert    \lVert v \rVert
-            </men>.
+            <md number="yes" xml:id="x8norm">
+              \lVert Tv \rVert  \le \lVert T \rVert    \lVert v \rVert .
+            </md>
             Now suppose <m>c \ge 0</m> and
             <m>\lVert Tv \rVert  \le c \lVert v \rVert</m> for all <m>v \in V{}</m>.
             This implies that
-            <me>
+            <md>
               \lVert Tv \rVert  \le c
-            </me>
+            </md>
             for all <m>v\in V</m> with <m>\lVert v \rVert  \le 1</m>.
             Taking the maximum of the left side of the inequality above over all <m>v \in V</m> with
             <m>\lVert v \rVert  \le 1</m> shows that <m>\lVert T \rVert  \le c</m>.
@@ -347,15 +347,15 @@
       <p>
         Suppose <m>w \in W{}</m>.
         Then
-        <me>
-          \lVert T^*w \rVert ^2 = \langle T^*w, T^*w \rangle  = \langle TT^*w, w \rangle  \le \lVert TT^*w \rVert    \lVert w \rVert  \le \lVert T \rVert    \lVert T^*w \rVert    \lVert w \rVert
-        </me>.
+        <md>
+          \lVert T^*w \rVert ^2 = \langle T^*w, T^*w \rangle  = \langle TT^*w, w \rangle  \le \lVert TT^*w \rVert    \lVert w \rVert  \le \lVert T \rVert    \lVert T^*w \rVert    \lVert w \rVert .
+        </md>
       </p>
       <p>
         The inequality above implies that
-        <me>
-          \lVert T^*w \rVert  \le \lVert T \rVert    \lVert w \rVert
-        </me>,
+        <md>
+          \lVert T^*w \rVert  \le \lVert T \rVert    \lVert w \rVert ,
+        </md>
         which along <xref ref="x3altNorm">with</xref>(c) implies that <m>\lVert T^* \rVert  \le \lVert T \rVert</m>.
       </p>
       <p>
@@ -390,19 +390,19 @@
           <m>s_1 \ge \cdots \ge s_m</m> are the positive singular values of<nbsp/><m>T{}</m>.
           Suppose <m>1 \le k \lt  m</m>.
           Then
-          <me>
-            \min \{  \lVert T-S \rVert  : S \in \Lc(V{}, W) \text{ and }  \dim \ran S \le k \} = s_{k+1}
-          </me>.
+          <md>
+            \min \{  \lVert T-S \rVert  : S \in \Lc(V{}, W) \text{ and }  \dim \ran S \le k \} = s_{k+1}.
+          </md>
         </p>
         <p>
           Furthermore, if
-          <me>
+          <md>
             Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_m \langle v, e_m \rangle  f_m
-          </me>
+          </md>
           is a singular value decomposition of <m>T</m> and <m>T{}_k \in \Lc(V{},W)</m> is defined by
-          <me>
+          <md>
             T{}_k v = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_k \langle v, e_k \rangle  f_k
-          </me>
+          </md>
           for each <m>v \in V{}</m>,
           then <m>\dim \ran T{}_k = k</m> and <m>\lVert T-T{}_k \rVert  = s_{k+1}</m>.
         </p>
@@ -428,9 +428,9 @@
         which is a list of length <m>k+1</m>, is linearly dependent.
         Hence there exist <m>a_1, \ldots,
         a_{k+1} \in \F{}{}</m>, not all <m>0</m>, such that
-        <me>
-          a_1 Se_1 + \cdots + a_{k+1} Se_{k+1} = 0
-        </me>.
+        <md>
+          a_1 Se_1 + \cdots + a_{k+1} Se_{k+1} = 0.
+        </md>
       </p>
       <p>
         Now <m>a_1 e_1 + \cdots + a_{k+1} e_{k+1} \ne 0</m> because
@@ -448,9 +448,9 @@
       <p>
         Because <m>a_1 e_1 + \cdots + a_{k+1} e_{k+1} \ne 0</m>,
         the inequality above implies that
-        <me>
-          \lVert T-S \rVert  \ge s_{k+1}
-        </me>.
+        <md>
+          \lVert T-S \rVert  \ge s_{k+1}.
+        </md>
       </p>
       <p>
         Thus <m>S = T{}_k</m> minimizes <m>\lVert T-S \rVert</m> among
@@ -501,9 +501,9 @@
     </p>
     <p>
       Specifically, consider the case <m>\F{} = \C{}</m>, and suppose
-      <me>
+      <md>
         T = S \sqrt{T^* T}
-      </me>
+      </md>
       is a polar decomposition of an operator <m>T \in \Lc(V)</m>,
       where <m>S</m> is a unitary operator.
       Then there is an orthonormal basis of<nbsp/><m>V</m> with respect to which <m>S</m> has a diagonal matrix,
@@ -535,9 +535,9 @@
               <idx><h>polar decomposition</h></idx>
           Suppose <m>T \in \Lc(V)</m>.
           Then there exists a unitary operator <m>S \in \Lc(V)</m> such that
-          <me>
-            T = S\sqrt{T^*T}
-          </me>.
+          <md>
+            T = S\sqrt{T^*T}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -547,9 +547,9 @@
         s_m</m> be the positive singular values of <m>T</m>, and let
         <m>e_1, \ldots,
         e_m</m> and <m>f_1, \dots, f_m</m> be orthonormal lists in <m>V</m> such that
-        <men xml:id="x4polar">
+        <md number="yes" xml:id="x4polar">
           Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_m \langle v, e_m \rangle  f_m
-        </men>
+        </md>
         for every <m>v \in V{}</m>.
         Extend <m>e_1, \ldots, e_m</m> and
         <m>f_1, \dots,
@@ -559,9 +559,9 @@
       </p>
       <p>
         Define <m>S \in \Lc(V)</m> by
-        <me>
+        <md>
           Sv = \langle v, e_1 \rangle  f_1 + \cdots + \langle v, e_n \rangle  f_n
-        </me>
+        </md>
         for each <m>v \in V{}</m>.
         Then
         <md>
@@ -576,14 +576,14 @@
       <p>
         Applying <m>T^*</m> to both sides of <xref ref="x4polar"></xref>
         and then using the formula for <m>T^*</m> given by <xref ref="x6SVD"></xref> shows that
-        <me>
+        <md>
           T^*Tv = {s_1}^{2} \langle v,e_1 \rangle  e_1 + \cdots + {s_m}^{2} \langle v, e_m \rangle  e_m
-        </me>
+        </md>
         for every <m>v \in V{}</m>.
         Thus if <m>v \in V{}</m>, then
-        <me>
+        <md>
           \sqrt{T^*T} v = s_1 \langle v, e_1 \rangle  e_1 + \cdots + s_m \langle v, e_m \rangle  e_m
-        </me>
+        </md>
         because the operator that sends <m>v</m> to the right side of the equation above is a positive operator whose square equals <m>T^*T{}</m>.
         Now
         <md>
@@ -614,9 +614,9 @@
           denoted by <m>B</m>, is defined<nbsp/>by
               <idx><h>ball</h></idx>
               <idx><h sortby="Br"><m>B</m></h></idx>
-          <me>
-            B = \{  v \in V: \lVert v \rVert  \lt  1 \}
-          </me>.
+          <md>
+            B = \{  v \in V: \lVert v \rVert  \lt  1 \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -654,9 +654,9 @@
               <idx><h>ellipsoid</h></idx>
               <idx><h>principal axes</h></idx>
               <idx><h sortby="Ef1"><m>E(s_1 f_1, \ldots, s_n f_n)</m></h></idx>
-          <me>
-            E(s_1 f_1, \ldots, s_n f_n) = \{  v \in V:\frac{\lvert \langle v,f_1 \rangle  \rvert ^2}{{s_1}^{2}} + \cdots + \frac{\lvert \langle v,f_n \rangle  \rvert ^2}{{s_n}^{2}} \lt  1  \}
-          </me>.
+          <md>
+            E(s_1 f_1, \ldots, s_n f_n) = \{  v \in V:\frac{\lvert \langle v,f_1 \rangle  \rvert ^2}{{s_1}^{2}} + \cdots + \frac{\lvert \langle v,f_n \rangle  \rvert ^2}{{s_n}^{2}} \lt  1  \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -671,9 +671,6 @@
     <example>
       <title>ellipsoids</title>
       <statement>
-        <p>
-          { \overfullrule=0in
-        </p>
         <p>
           *{-.15in}
         </p>
@@ -714,9 +711,9 @@
       <p>
         For <m>T</m> a function defined on <m>V</m> and <m>\Omega \subset V{}</m>,
         define <m>T(\Omega)</m><idx><h sortby="TaaaOmega"><m>T(\Omega)</m></h></idx> by
-        <me>
-          T(\Omega) = \{ Tv : v \in \Omega \}
-        </me>.
+        <md>
+          T(\Omega) = \{ Tv : v \in \Omega \}.
+        </md>
       </p>
     </principle>
     <p>
@@ -740,9 +737,9 @@
     <proof>
       <p>
         Suppose <m>T</m> has singular value decomposition
-        <men xml:id="x5Tv">
+        <md number="yes" xml:id="x5Tv">
           Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n
-        </men>
+        </md>
         for all <m>v \in V</m>; here
         <m>s_1, \ldots,
         s_n</m> are the singular values of <m>T</m> and
@@ -757,9 +754,9 @@
         none of the singular values <m>s_1, \ldots, s_n</m> equals <m>0</m>
         (<xref ref="x7posSV">see</xref>).
         <xref ref="x5Tv">Thus</xref> implies that
-        <me>
-          \frac{\lvert \langle Tv,f_1 \rangle  \rvert ^2}{{s_1}^{2}} + \cdots + \frac{\lvert \langle Tv,f_n \rangle  \rvert ^2}{{s_n}^{2}} = \lvert \langle v, e_1 \rangle  \rvert ^2 + \cdots + \lvert \langle v, e_n \rangle  \rvert ^2 \lt  1
-        </me>.
+        <md>
+          \frac{\lvert \langle Tv,f_1 \rangle  \rvert ^2}{{s_1}^{2}} + \cdots + \frac{\lvert \langle Tv,f_n \rangle  \rvert ^2}{{s_n}^{2}} = \lvert \langle v, e_1 \rangle  \rvert ^2 + \cdots + \lvert \langle v, e_n \rangle  \rvert ^2 \lt  1.
+        </md>
       </p>
       <p>
         Thus <m>Tv \in E(s_1 f_1, \ldots, s_n f_n)</m>.
@@ -769,9 +766,9 @@
         To prove inclusion in the other direction,
         now suppose <m>w \in E(s_1 f_1, \ldots, s_n f_n)</m>.
         Let
-        <me>
-          v = \frac{\langle w, f_1 \rangle }{s_1} e_1 + \cdots + \frac{\langle w, f_n \rangle }{s_n} e_n
-        </me>.
+        <md>
+          v = \frac{\langle w, f_1 \rangle }{s_1} e_1 + \cdots + \frac{\langle w, f_n \rangle }{s_n} e_n.
+        </md>
       </p>
       <p>
         Then <m>\lVert v \rVert \lt 1</m> and <xref ref="x5Tv"></xref>
@@ -800,17 +797,17 @@
         <m>s_1, \ldots,
         s_n</m> such that <m>E = E(s_1f_1, \ldots, s_nf_n)</m>.
         Define <m>S \in \Lc(V)</m> by
-        <me>
-          S( a_1 f_1 + \cdots + a_n f_n) = a_1 s_1 f_1 + \cdots + a_n s_n f_n
-        </me>.
+        <md>
+          S( a_1 f_1 + \cdots + a_n f_n) = a_1 s_1 f_1 + \cdots + a_n s_n f_n.
+        </md>
       </p>
       <p>
         Then <m>S</m> maps the ball <m>B</m> of <m>V</m> onto <m>E</m>,
         as you can verify.
         Thus
-        <me>
-          T(E) = T(  S(B)  ) = (TS)(B)
-        </me>.
+        <md>
+          T(E) = T(  S(B)  ) = (TS)(B).
+        </md>
       </p>
       <p>
         The equation above and <xref ref="x7TB"></xref>, applied to <m>TS</m>,
@@ -820,9 +817,9 @@
     <p>
       Recall (<xref ref="x2vU">see</xref>) that if <m>u \in V</m> and
       <m>\Omega \subset V</m> then <m>u + \Omega</m> is defined by
-      <me>
-        u + \Omega = \{  u + w: w \in \Omega \}
-      </me>.
+      <md>
+        u + \Omega = \{  u + w: w \in \Omega \}.
+      </md>
     </p>
     <p>
       Geometrically,
@@ -839,9 +836,9 @@
         <p>
           Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
           Let
-          <me>
-            P(v_1, \ldots, v_n) = \{  a_1 v_1 + \cdots + a_n v_n: a_1, \ldots, a_n \in (0,1) \}
-          </me>.
+          <md>
+            P(v_1, \ldots, v_n) = \{  a_1 v_1 + \cdots + a_n v_n: a_1, \ldots, a_n \in (0,1) \}.
+          </md>
         </p>
         <p>
           A <term>parallelepiped</term> is a set of the form
@@ -855,9 +852,6 @@
     <example>
       <title>parallelepipeds</title>
       <statement>
-        <p>
-          { \overfullrule=0in
-        </p>
         <sidebyside>
           <figure>
             <caption>The parallelepiped
@@ -883,9 +877,9 @@
           v_n</m> is a basis of <m>V{}</m>,
           and <m>T \in \Lc(V)</m> is invertible.
           Then
-          <me>
-            T ( u +  P(v_1, \ldots, v_n)  ) = Tu + P(Tv_1, \ldots, Tv_n)
-          </me>.
+          <md>
+            T ( u +  P(v_1, \ldots, v_n)  ) = Tu + P(Tv_1, \ldots, Tv_n).
+          </md>
         </p>
       </statement>
     </theorem>
@@ -894,9 +888,9 @@
         Because <m>T</m> is invertible,
         the list <m>Tv_1, \ldots, Tv_n</m> is a basis of <m>V{}</m>.
         The linearity of <m>T</m> implies that
-        <me>
+        <md>
           T(u + a_1 v_1 + \cdots + a_n v_n) = Tu + a_1 Tv_1 + \cdots + a_n Tv_n
-        </me>
+        </md>
         for all <m>a_1, \ldots, a_n \in (0,1)</m>.
         Thus <m>T (  u + P(v_1, \ldots,
         v_n)  ) = Tu + P(Tv_1, \ldots, Tv_n)</m>.
@@ -911,9 +905,9 @@
       <statement>
         <p>
           A <term>box</term> in <m>V</m> is a set of the form {
-          <me>
-            u + P(r_1 e_1, \ldots, r_n e_n)
-          </me>,
+          <md>
+            u + P(r_1 e_1, \ldots, r_n e_n),
+          </md>
           where <m>u \in V</m> and <m>r_1, \ldots,
           r_n</m> are positive numbers and
           <m>e_1, \ldots,
@@ -924,9 +918,6 @@
     <p>
       Note that in the special case of <m>\R2</m> each box is a rectangle,
       but the terminology <emph>box</emph> can be used in all dimensions.
-    </p>
-    <p>
-      { \overfullrule=0in
     </p>
     <example xml:id="x2boxes">
       <title>boxes</title>
@@ -966,9 +957,9 @@
         <p>
           Suppose <m>T \in \Lc(V)</m> is invertible.
           Suppose <m>T</m> has singular value decomposition
-          <me>
-            Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n
-          </me>,
+          <md>
+            Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n,
+          </md>
           where <m>s_1, \ldots,
           s_n</m> are the singular values of <m>T</m> and <m>e_1, \ldots,
           e_n</m> and <m>f_1, \ldots,
@@ -987,9 +978,9 @@
         If <m>a_1, \ldots, a_n \in (0, 1)</m> and
         <m>r_1, \ldots,
         r_n</m> are positive numbers and <m>u \in V{}</m>, then
-        <me>
-          T(u + a_1 r_1  e_1 + \cdots + a_n r_n e_n) = Tu + a_1 r_1 s_1 f_1 + \cdots + a_n r_n s_n f_n
-        </me>.
+        <md>
+          T(u + a_1 r_1  e_1 + \cdots + a_n r_n e_n) = Tu + a_1 r_1 s_1 f_1 + \cdots + a_n r_n s_n f_n.
+        </md>
       </p>
       <p>
         Thus <m>T ( u + P(r_1 e_1, \ldots,
@@ -1032,9 +1023,9 @@
           <m>e_1, \ldots,
           e_n</m> is an orthonormal basis of <m>V{}</m>, then
               <idx><h>volume</h><h>of a box</h></idx>
-          <me>
-            \vol ( u + P(r_1 e_1, \ldots, r_n e_n) ) = r_1 \times \cdots \times r_n
-          </me>.
+          <md>
+            \vol ( u + P(r_1 e_1, \ldots, r_n e_n) ) = r_1 \times \cdots \times r_n.
+          </md>
         </p>
       </statement>
     </definition>
@@ -1134,18 +1125,18 @@
           <m>T \in \Lc(V)</m> is invertible,
           and <m>\Omega \subset V{}</m>.
           Then
-          <me>
-            \vol T(\Omega) = (\text{ product of singular values of }  T)(\vol \Omega)
-          </me>.
+          <md>
+            \vol T(\Omega) = (\text{ product of singular values of }  T)(\vol \Omega).
+          </md>
         </p>
       </statement>
     </theorem>
     <proof>
       <p>
         Suppose <m>T</m> has singular value decomposition
-        <me>
+        <md>
           Tv = s_1 \langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n
-        </me>
+        </md>
         for all <m>v \in V{}</m>, where
         <m>e_1, \ldots,
         e_n</m> and <m>f_1, \ldots, f_n</m> are orthonormal bases of <m>V{}</m>.
@@ -1193,7 +1184,7 @@
       assuming <m>\F{} = \C{}</m>, equal the absolute values of the eigenvalues
       (by <xref ref="x7singsp">Exercise</xref>
       in <xref ref="x2SVD">Section</xref>).
-      <me>
+      <md>
         <tabular>
           <row>
             <cell><em>properties of a normal operator</em></cell>
@@ -1260,424 +1251,422 @@
             <cell></cell>
           </row>
         </tabular>
-      </me>
+      </md>
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise xml:id="x5reverse">
-          <statement>
-            <p>
-              Prove that if <m>S, T \in \Lc(V{}, W)</m>,
-              then <m>\lvert \lVert S \rVert - \lVert T \rVert \rvert \le \lVert S-T \rVert</m>.
-              Note: The inequality above is called the
-              <term>reverse triangle inequality</term>.
-          <idx><h>reverse triangle inequality</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> is self-adjoint or that
-              <m>\F{}= \C{}</m> and <m>T \in \Lc(V)</m> is normal.
-              Prove that
-              <me>
-                \lVert T \rVert  = \max \{  \lvert \lambda \rvert  : \lambda \text{ is an eigenvalue of }  T \}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7eq">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m> and <m>v \in V</m>.
-              Prove that
-              <me>
-                \lVert Tv \rVert  = \lVert T \rVert    \lVert v \rVert  \iff T^*T v = \lVert T \rVert ^2 v
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>, <m>v \in V{}</m>,
-              and <m>\lVert Tv \rVert = \lVert T \rVert \lVert v \rVert</m>.
-              Prove that if <m>u \in V</m> and <m>\langle u, v \rangle = 0</m>,
-              then <m>\langle Tu, Tv \rangle = 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2prod">
-          <statement>
-            <p>
-              Suppose <m>U</m> is a finite-dimensional inner product space,
-              <m>T \in \Lc(V{}, U)</m>, and <m>S \in \Lc(U, W)</m>.
-              Prove that
-              <me>
-                \lVert ST \rVert  \le \lVert S \rVert    \lVert T \rVert
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If <m>S, T \in \Lc(V)</m>,
-              then <m>\lVert ST \rVert = \lVert TS \rVert</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7met">
-          <statement>
-            <p>
-              Show that defining <m>d(S, T) = \lVert S-T \rVert</m> for
-              <m>S, T \in \Lc(V{}, W)</m> makes <m>d</m> a metric on <m>\Lc(V{}, W)</m>.
-              Note: This exercise is intended for readers who are familiar with metric spaces.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise xml:id="x5reverse">
+        <statement>
+          <p>
+            Prove that if <m>S, T \in \Lc(V{}, W)</m>,
+            then <m>\lvert \lVert S \rVert - \lVert T \rVert \rvert \le \lVert S-T \rVert</m>.
+            Note: The inequality above is called the
+            <term>reverse triangle inequality</term>.
+                <idx><h>reverse triangle inequality</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> is self-adjoint or that
+            <m>\F{}= \C{}</m> and <m>T \in \Lc(V)</m> is normal.
+            Prove that
+            <md>
+              \lVert T \rVert  = \max \{  \lvert \lambda \rvert  : \lambda \text{ is an eigenvalue of }  T \}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7eq">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m> and <m>v \in V</m>.
+            Prove that
+            <md>
+              \lVert Tv \rVert  = \lVert T \rVert    \lVert v \rVert  \iff T^*T v = \lVert T \rVert ^2 v.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>, <m>v \in V{}</m>,
+            and <m>\lVert Tv \rVert = \lVert T \rVert \lVert v \rVert</m>.
+            Prove that if <m>u \in V</m> and <m>\langle u, v \rangle = 0</m>,
+            then <m>\langle Tu, Tv \rangle = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2prod">
+        <statement>
+          <p>
+            Suppose <m>U</m> is a finite-dimensional inner product space,
+            <m>T \in \Lc(V{}, U)</m>, and <m>S \in \Lc(U, W)</m>.
+            Prove that
+            <md>
+              \lVert ST \rVert  \le \lVert S \rVert    \lVert T \rVert .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>S, T \in \Lc(V)</m>,
+            then <m>\lVert ST \rVert = \lVert TS \rVert</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7met">
+        <statement>
+          <p>
+            Show that defining <m>d(S, T) = \lVert S-T \rVert</m> for
+            <m>S, T \in \Lc(V{}, W)</m> makes <m>d</m> a metric on <m>\Lc(V{}, W)</m>.
+            Note: This exercise is intended for readers who are familiar with metric spaces.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Prove that if <m>T \in \Lc(V)</m> and <m>\lVert I - T \rVert \lt 1</m>,
+                then <m>T</m> is invertible.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose that <m>S \in \Lc(V)</m> is invertible.
+                Prove that if <m>T \in \Lc(V)</m> and <m>\lVert S - T \rVert \lt 1/\lVert S^{-1} \rVert</m>,
+                then <m>T</m> is invertible.
+              </p>
+            </li>
+          </ol>
+          <p>
+            Note: This exercise shows that the set of invertible operators in <m>\Lc(V)</m> is an open subset of <m>\Lc(V)</m>,
+            using the metric defined in <xref ref="x7met">Exercise</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7invert">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that for every <m>\epsilon > 0</m>,
+            there exists an invertible operator
+            <m>S \in \Lc(V)</m> such that <m>0 \lt \lVert T - S \rVert \lt \epsilon</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\dim V > 1</m> and <m>T \in \Lc(V)</m> is not invertible.
+            Prove that for every <m>\epsilon > 0</m>,
+            there exists <m>S \in \Lc(V)</m> such that
+            <m>0 \lt \lVert T - S \rVert \lt \epsilon</m> and <m>S</m> is not invertible.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that for every <m>\epsilon > 0</m> there exists a diagonalizable operator
+            <m>S \in \Lc(V)</m> such that <m>0 \lt \lVert T - S \rVert \lt \epsilon</m>.
+                <idx><h>diagonalizable</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is a positive operator.
+            Show that <m>\lVert \sqrt{T} \rVert = \sqrt{\lVert T \rVert }</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S, T \in \Lc(V)</m> are positive operators.
+            Show that
+            <md>
+              \lVert S-T \rVert  \le \max\{  \lVert S \rVert , \lVert T \rVert   \} \le \lVert S+T \rVert .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> such that <m>\lVert P_U - P_W \rVert \lt 1</m>.
+            Prove that <m>\dim U = \dim W</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \F{3} )</m> by
+            <md>
+              T(z_1, z_2, z_3) = (z_3, 2z_1, 3z_2).
+            </md>
+          </p>
+          <p>
+            Find (explicitly) a unitary operator
+            <m>S \in \Lc( \F{3} )</m> such that <m>T = S \sqrt{T^*T}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S \in \Lc(V)</m> is a positive invertible operator.
+            Prove that there exists <m>\delta > 0</m> such that <m>T</m> is a positive operator for every self-adjoint operator
+            <m>T \in \Lc(V)</m> with <m>\lVert S-T \rVert \lt \delta</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that if <m>u \in V</m> and <m>\phi_u</m> is the linear functional on <m>V</m> defined by the equation <m>\phi_u(v) = \langle v, u \rangle</m>,
+            then <m>\lVert \phi_u \rVert = \lVert u \rVert</m>.
+            Note: Here we are thinking of the scalar field <m>\F{}</m> as an inner product space with
+            <m>\langle \alpha ,\beta \rangle = \alpha \overline{\beta}</m> for all <m>\alpha , \beta \in \F{}{}</m>.
+            Thus <m>\lVert \phi_u \rVert</m> means the norm of <m>\phi_u</m> as a linear map from <m>V</m> to <m>\F{}{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>e_1, \ldots,
+            e_n</m> is an orthonormal basis of <m>V</m> and <m>T \in \Lc(V{},W)</m>.
             <ol>
               <li>
                 <p>
-                  Prove that if <m>T \in \Lc(V)</m> and <m>\lVert I - T \rVert \lt 1</m>,
-                  then <m>T</m> is invertible.
+                  Prove that <m>\max\{ \lVert Te_1 \rVert , \ldots, \lVert Te_n \rVert \} \le \lVert T \rVert \le ( \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 )^{1/2}\!</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Suppose that <m>S \in \Lc(V)</m> is invertible.
-                  Prove that if <m>T \in \Lc(V)</m> and <m>\lVert S - T \rVert \lt 1/\lVert S^{-1} \rVert</m>,
-                  then <m>T</m> is invertible.
+                  Prove that <m>\lVert T \rVert = ( \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 )^{1/2}</m> if and only if <m>\dim \ran T \le 1</m>.
                 </p>
               </li>
             </ol>
-            <p>
-              Note: This exercise shows that the set of invertible operators in <m>\Lc(V)</m> is an open subset of <m>\Lc(V)</m>,
-              using the metric defined in <xref ref="x7met">Exercise</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7invert">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that for every <m>\epsilon > 0</m>,
-              there exists an invertible operator
-              <m>S \in \Lc(V)</m> such that <m>0 \lt \lVert T - S \rVert \lt \epsilon</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\dim V > 1</m> and <m>T \in \Lc(V)</m> is not invertible.
-              Prove that for every <m>\epsilon > 0</m>,
-              there exists <m>S \in \Lc(V)</m> such that
-              <m>0 \lt \lVert T - S \rVert \lt \epsilon</m> and <m>S</m> is not invertible.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that for every <m>\epsilon > 0</m> there exists a diagonalizable operator
-              <m>S \in \Lc(V)</m> such that <m>0 \lt \lVert T - S \rVert \lt \epsilon</m>.
-          <idx><h>diagonalizable</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is a positive operator.
-              Show that <m>\lVert \sqrt{T} \rVert = \sqrt{\lVert T \rVert }</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>S, T \in \Lc(V)</m> are positive operators.
-              Show that
-              <me>
-                \lVert S-T \rVert  \le \max\{  \lVert S \rVert , \lVert T \rVert   \} \le \lVert S+T \rVert
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> such that <m>\lVert P_U - P_W \rVert \lt 1</m>.
-              Prove that <m>\dim U = \dim W</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \F{3} )</m> by
-              <me>
-                T(z_1, z_2, z_3) = (z_3, 2z_1, 3z_2)
-              </me>.
-            </p>
-            <p>
-              Find (explicitly) a unitary operator
-              <m>S \in \Lc( \F{3} )</m> such that <m>T = S \sqrt{T^*T}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>S \in \Lc(V)</m> is a positive invertible operator.
-              Prove that there exists <m>\delta > 0</m> such that <m>T</m> is a positive operator for every self-adjoint operator
-              <m>T \in \Lc(V)</m> with <m>\lVert S-T \rVert \lt \delta</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that if <m>u \in V</m> and <m>\phi_u</m> is the linear functional on <m>V</m> defined by the equation <m>\phi_u(v) = \langle v, u \rangle</m>,
-              then <m>\lVert \phi_u \rVert = \lVert u \rVert</m>.
-              Note: Here we are thinking of the scalar field <m>\F{}</m> as an inner product space with
-              <m>\langle \alpha ,\beta \rangle = \alpha \overline{\beta}</m> for all <m>\alpha , \beta \in \F{}{}</m>.
-              Thus <m>\lVert \phi_u \rVert</m> means the norm of <m>\phi_u</m> as a linear map from <m>V</m> to <m>\F{}{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>e_1, \ldots,
-              e_n</m> is an orthonormal basis of <m>V</m> and <m>T \in \Lc(V{},W)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>\max\{ \lVert Te_1 \rVert , \ldots, \lVert Te_n \rVert \} \le \lVert T \rVert \le ( \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 )^{1/2}\!</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>\lVert T \rVert = ( \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 )^{1/2}</m> if and only if <m>\dim \ran T \le 1</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: Here <m>e_1, \ldots,
-              e_n</m> is an arbitrary orthonormal basis of <m>V{}</m>,
-              not necessarily connected with a singular value decomposition of <m>T{}</m>.
-              If <m>s_1, \ldots,
-              s_n</m> is the list of singular values of <m>T</m>,
-              then the right side of the inequality above equals <m>( s_1^{2} + \cdots + {s_n}^{2} )^{1/2}\!</m>,
-              as was shown in <xref ref="x7sums2">Exercise</xref>
-              (a) in <xref ref="x2SVD">Section</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8Cstar">
-          <statement>
-            <p>
-              Prove that if <m>T \in \Lc(V{}, W)</m>,
-              then <m>\lVert T^*T \rVert = \lVert T \rVert ^2{}</m>.
-          <idx><h sortby="C*"><m>C^*</m>-algebras</h></idx>
-      Note: This formula for <m>\lVert T^*T \rVert</m> leads to the important subject of <m>C^*</m>-algebras.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7normTk">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is normal.
-              Prove that <m>\lVert T^k \rVert = \lVert T \rVert ^k</m> for every positive integer <m>k</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x6notinner">
-          <statement>
-            <p>
-              Suppose <m>\dim V > 1</m> and <m>\dim W > 1</m>.
-              Prove that the norm on <m>\Lc(V{}, W)</m> does not come from an inner product.
-              In other words,
-              prove that there does not exist an inner product on <m>\Lc(V{}, W)</m> such that
-              <me>
-                \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \} = {\textstyle \sqrt{\langle T, T \rangle }}
-              </me>
-              for all <m>T \in \Lc(V{}, W)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7approx">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Let <m>n = \dim V</m> and let
-              <m>s_1 \ge \cdots \ge s_n</m> denote the singular values of <m>T{}</m>.
-              Prove that if <m>1 \le k \le n</m>, then
-              <me>
-                \min \{  \lVert T|_U \rVert  : U \text { is a subspace of } V \text{ with }  \dim U = k \} = s_{n-k+1}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Show that <m>T</m> is uniformly continuous with respect to the metrics on <m>V</m> and <m>W</m> that arise from the norms on those spaces
-              (see <xref ref="x4metric">Exercise</xref>
-              in <xref ref="orthobases">Section</xref>).
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is invertible.
-              Prove that
-              <me>
-                \lVert  T^{-1}  \rVert  = \lVert T \rVert ^{-1} \iff \frac{T}{\lVert T \rVert } \text{ is a unitary operator }
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Fix <m>u, x \in V</m> with <m>u \ne 0</m>.
-              Define <m>T \in \Lc(V)</m> by
-              <m>Tv = \langle v, u \rangle x</m> for every <m>v \in V{}</m>.
-              Prove that
-              <me>
-                \sqrt{T^* T}v = \frac{ \|x\| }{ \|u\| } \langle v,u \rangle  u
-              </me>
-              for every <m>v \in V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is invertible if and only if there exists a unique unitary operator
-              <m>S \in \Lc(V)</m> such that <m>T = S \sqrt{T^* T}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7unitary">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>s_1, \ldots,
-              s_n</m> are the singular values of <m>T{}</m>.
-              Let <m>e_1, \ldots, e_n</m> and
-              <m>f_1, \ldots,
-              f_n</m> be orthonormal bases of <m>V</m> such that
-              <me>
-                Tv = s_1\langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n
-              </me>
-              for all <m>v \in V{}</m>.
-              Define <m>S \in \Lc(V)</m> by
-              <me>
-                Sv = \langle v, e_1 \rangle  f_1 + \cdots + \langle v, e_n \rangle  f_n
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>S</m> is unitary and <m>\lVert T-S \rVert = \max \{ \lvert s_1 -1 \rvert , \ldots, \lvert s_n - 1 \rvert \}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that if <m>E \in \Lc(V)</m> is unitary,
-                    then <m>\lVert T-E \rVert \ge \lVert T-S \rVert</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: This exercise finds a unitary operator <m>S</m> that is as close as possible
-              (among the unitary operators)
-              to a given operator <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that there exists a unitary operator
-              <m>S \in \Lc(V)</m> such that <m>T = \sqrt{TT^*} S</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Use the polar decomposition to show that there exists a unitary operator
-                    <m>S \in \Lc(V)</m> such that <m>TT^* = ST^*TS^*{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show how (a) implies that <m>T</m> and <m>T^*</m> have the same singular values.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>,
-              <m>S \in \Lc(V)</m> is a unitary operator,
-              and <m>R \in \Lc(V)</m> is a positive operator such that <m>T = SR</m>.
-              Prove that <m>R = \sqrt{T^* T}</m>.
-              Note: This exercise shows that if we write <m>T</m> as the product of a unitary operator and a positive operator
-              (as in the polar <xref ref="x244">decomposition</xref>)
-              , then the positive operator equals <m>\sqrt{T^*T}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8PolarNor">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal.
-              Prove that there exists a unitary operator <m>S \in \Lc(V)</m> such that
-              <m>T = S \sqrt{T^*T}</m> and such that <m>S</m> and
-              <m>\sqrt{T^*T}</m> both have diagonal matrices with respect to the same orthonormal basis of <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V{},W)</m> and <m>T \ne 0</m>.
-              Let <m>s_1, \ldots,
-              s_m</m> denote the positive singular values of <m>T{}</m>.
-              Show that there exists an orthonormal basis
-              <m>e_1, \ldots,
-              e_m</m> of <m>(\ker T)^\perp</m> such that
-              <me>
-                T(  E(  \frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}  )  )
-              </me>
-              equals the ball in <m>\ran T</m> of radius <m>1</m> centered at <m>0</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+          <p>
+            Note: Here <m>e_1, \ldots,
+            e_n</m> is an arbitrary orthonormal basis of <m>V{}</m>,
+            not necessarily connected with a singular value decomposition of <m>T{}</m>.
+            If <m>s_1, \ldots,
+            s_n</m> is the list of singular values of <m>T</m>,
+            then the right side of the inequality above equals <m>( s_1^{2} + \cdots + {s_n}^{2} )^{1/2}\!</m>,
+            as was shown in <xref ref="x7sums2">Exercise</xref>
+            (a) in <xref ref="x2SVD">Section</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8Cstar">
+        <statement>
+          <p>
+            Prove that if <m>T \in \Lc(V{}, W)</m>,
+            then <m>\lVert T^*T \rVert = \lVert T \rVert ^2{}</m>.
+                <idx><h sortby="C*"><m>C^*</m>-algebras</h></idx>
+            Note: This formula for <m>\lVert T^*T \rVert</m> leads to the important subject of <m>C^*</m>-algebras.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7normTk">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is normal.
+            Prove that <m>\lVert T^k \rVert = \lVert T \rVert ^k</m> for every positive integer <m>k</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x6notinner">
+        <statement>
+          <p>
+            Suppose <m>\dim V > 1</m> and <m>\dim W > 1</m>.
+            Prove that the norm on <m>\Lc(V{}, W)</m> does not come from an inner product.
+            In other words,
+            prove that there does not exist an inner product on <m>\Lc(V{}, W)</m> such that
+            <md>
+              \max \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  \le 1 \} = {\textstyle \sqrt{\langle T, T \rangle }}
+            </md>
+            for all <m>T \in \Lc(V{}, W)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7approx">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Let <m>n = \dim V</m> and let
+            <m>s_1 \ge \cdots \ge s_n</m> denote the singular values of <m>T{}</m>.
+            Prove that if <m>1 \le k \le n</m>, then
+            <md>
+              \min \{  \lVert T|_U \rVert  : U \text { is a subspace of } V \text{ with }  \dim U = k \} = s_{n-k+1}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Show that <m>T</m> is uniformly continuous with respect to the metrics on <m>V</m> and <m>W</m> that arise from the norms on those spaces
+            (see <xref ref="x4metric">Exercise</xref>
+            in <xref ref="orthobases">Section</xref>).
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is invertible.
+            Prove that
+            <md>
+              \lVert  T^{-1}  \rVert  = \lVert T \rVert ^{-1} \iff \frac{T}{\lVert T \rVert } \text{ is a unitary operator } .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Fix <m>u, x \in V</m> with <m>u \ne 0</m>.
+            Define <m>T \in \Lc(V)</m> by
+            <m>Tv = \langle v, u \rangle x</m> for every <m>v \in V{}</m>.
+            Prove that
+            <md>
+              \sqrt{T^* T}v = \frac{ \|x\| }{ \|u\| } \langle v,u \rangle  u
+            </md>
+            for every <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is invertible if and only if there exists a unique unitary operator
+            <m>S \in \Lc(V)</m> such that <m>T = S \sqrt{T^* T}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7unitary">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>s_1, \ldots,
+            s_n</m> are the singular values of <m>T{}</m>.
+            Let <m>e_1, \ldots, e_n</m> and
+            <m>f_1, \ldots,
+            f_n</m> be orthonormal bases of <m>V</m> such that
+            <md>
+              Tv = s_1\langle v, e_1 \rangle  f_1 + \cdots + s_n \langle v, e_n \rangle  f_n
+            </md>
+            for all <m>v \in V{}</m>.
+            Define <m>S \in \Lc(V)</m> by
+            <md>
+              Sv = \langle v, e_1 \rangle  f_1 + \cdots + \langle v, e_n \rangle  f_n.
+            </md>
+            <ol>
+              <li>
+                <p>
+                  Show that <m>S</m> is unitary and <m>\lVert T-S \rVert = \max \{ \lvert s_1 -1 \rvert , \ldots, \lvert s_n - 1 \rvert \}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that if <m>E \in \Lc(V)</m> is unitary,
+                  then <m>\lVert T-E \rVert \ge \lVert T-S \rVert</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: This exercise finds a unitary operator <m>S</m> that is as close as possible
+            (among the unitary operators)
+            to a given operator <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that there exists a unitary operator
+            <m>S \in \Lc(V)</m> such that <m>T = \sqrt{TT^*} S</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            <ol>
+              <li>
+                <p>
+                  Use the polar decomposition to show that there exists a unitary operator
+                  <m>S \in \Lc(V)</m> such that <m>TT^* = ST^*TS^*{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show how (a) implies that <m>T</m> and <m>T^*</m> have the same singular values.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>,
+            <m>S \in \Lc(V)</m> is a unitary operator,
+            and <m>R \in \Lc(V)</m> is a positive operator such that <m>T = SR</m>.
+            Prove that <m>R = \sqrt{T^* T}</m>.
+            Note: This exercise shows that if we write <m>T</m> as the product of a unitary operator and a positive operator
+            (as in the polar <xref ref="x244">decomposition</xref>)
+            , then the positive operator equals <m>\sqrt{T^*T}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8PolarNor">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal.
+            Prove that there exists a unitary operator <m>S \in \Lc(V)</m> such that
+            <m>T = S \sqrt{T^*T}</m> and such that <m>S</m> and
+            <m>\sqrt{T^*T}</m> both have diagonal matrices with respect to the same orthonormal basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V{},W)</m> and <m>T \ne 0</m>.
+            Let <m>s_1, \ldots,
+            s_m</m> denote the positive singular values of <m>T{}</m>.
+            Show that there exists an orthonormal basis
+            <m>e_1, \ldots,
+            e_m</m> of <m>(\ker T)^\perp</m> such that
+            <md>
+              T(  E(  \frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}  )  )
+            </md>
+            equals the ball in <m>\ran T</m> of radius <m>1</m> centered at <m>0</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

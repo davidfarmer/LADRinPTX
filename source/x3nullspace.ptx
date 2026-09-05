@@ -14,9 +14,9 @@
           the <term>null space</term> of <m>T</m>, denoted by <m>\ker T</m>,
           is the subset of <m>V</m> consisting of those vectors that <m>T</m> maps to <m>0</m>:
               <idx><h>null space</h></idx>
-          <me>
-            \ker T = \{v \in V: Tv = 0 \}
-          </me>.
+          <md>
+            \ker T = \{v \in V: Tv = 0 \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -73,9 +73,9 @@
             <p>
               Suppose <m>T\in \Lc( \F{\infty} )</m> is the backward shift defined by
                 <idx><h>backward shift</h></idx>
-              <me>
-                T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots)
-              </me>.
+              <md>
+                T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots).
+              </md>
               Then <m>T(x_1, x_2, x_3, \dots)</m> equals <m>0</m> if and only if the numbers <m>x_2, x_3, \dots</m> are all <m>0</m>.
               Thus <m>\ker T = \{  (a, 0, 0, \dots): a \in \F{}  \}</m>.
             </p>
@@ -109,9 +109,9 @@
       <p>
         Suppose <m>u, v \in \ker T{}</m>.
         Then
-        <me>
-          T(u + v) = Tu + Tv = 0 + 0 = 0
-        </me>.
+        <md>
+          T(u + v) = Tu + Tv = 0 + 0 = 0.
+        </md>
       </p>
       <p>
         Hence <m>u + v \in \ker T{}</m>.
@@ -120,9 +120,9 @@
       <p>
         Suppose <m>u \in \ker T</m> and <m>\lambda \in \F{}{}</m>.
         Then
-        <me>
-          T(\lambda u) = \lambda Tu = \lambda 0 = 0
-        </me>.
+        <md>
+          T(\lambda u) = \lambda Tu = \lambda 0 = 0.
+        </md>
       </p>
       <p>
         Hence <m>\lambda u \in \ker T{}</m>.
@@ -186,9 +186,9 @@
         To prove the inclusion in the other direction,
         suppose <m>v \in \ker T{}</m>.
         Then
-        <me>
-          T(v) = 0 = T(0)
-        </me>.
+        <md>
+          T(v) = 0 = T(0).
+        </md>
       </p>
       <p>
         Because <m>T</m> is injective,
@@ -201,9 +201,9 @@
         We want to prove that <m>T</m> is injective.
         To do this, suppose <m>u, v \in V</m> and <m>Tu = Tv</m>.
         Then
-        <me>
-          0 = Tu - Tv = T(u - v)
-        </me>.
+        <md>
+          0 = Tu - Tv = T(u - v).
+        </md>
       </p>
       <p>
         Thus <m>u - v</m> is in <m>\ker T</m>,
@@ -225,9 +225,9 @@
           For <m>T \in \Lc(V{}, W)</m>,
           the <term>range</term> of <m>T</m> is the subset of <m>W</m> consisting of those vectors that are equal to <m>Tv</m> for some <m>v \in V</m>:
               <idx><h>range</h></idx>
-          <me>
-            \ran T = \{Tv: v \in V \}
-          </me>.
+          <md>
+            \ran T = \{Tv: v \in V \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -246,9 +246,9 @@
             <p>
               Suppose <m>T \in \Lc( \RR2, \R3 )</m> is defined by <m>T(x, y) = (2x, 5y, x + y)</m>.
               Then
-              <me>
-                \ran T = \{  (2x, 5y, x + y ): x, y \in \R{}  \}
-              </me>.
+              <md>
+                \ran T = \{  (2x, 5y, x + y ): x, y \in \R{}  \}.
+              </md>
               Note that <m>\ran T</m> is a subspace of <m>\R3</m>.
               We will soon see that the range of each element of
               <m>\Lc(V{},W)</m> is a subspace of <m>W{}</m>.
@@ -290,9 +290,9 @@
         then there exist <m>v_1, v_2 \in V</m> such that
         <m>Tv_1 = w_1</m> and <m>Tv_2 = w_2</m>.
         Thus
-        <me>
-          T(v_1 + v_2) = Tv_1 + Tv_2 = w_1 + w_2
-        </me>.
+        <md>
+          T(v_1 + v_2) = Tv_1 + Tv_2 = w_1 + w_2.
+        </md>
       </p>
       <p>
         Hence <m>w_1 + w_2 \in \ran T{}</m>.
@@ -302,9 +302,9 @@
         If <m>w \in \ran T</m> and <m>\lambda \in \F{}{}</m>,
         then there exists <m>v \in V</m> such that <m>Tv = w</m>.
         Thus
-        <me>
-          T(\lambda v) = \lambda Tv = \lambda w
-        </me>.
+        <md>
+          T(\lambda v) = \lambda Tv = \lambda w.
+        </md>
       </p>
       <p>
         Hence <m>\lambda w \in \ran T{}</m>.
@@ -370,9 +370,9 @@
               <idx><h>fundamental theorem of linear maps</h></idx>
           Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
           Then <m>\ran T</m> is finite-dimensional and
-          <me>
-            \dim V = \dim \ker T + \dim \ran T{}
-          </me>.
+          <md>
+            \dim V = \dim \ker T + \dim \ran T{}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -383,9 +383,9 @@
         The linearly independent list
         <m>u_1, \dots,
         u_m</m> can be extended to a basis
-        <me>
+        <md>
           u_1, \dots, u_m, v_1, \dots, v_n
-        </me>
+        </md>
         of <m>V</m>
         (by <xref ref="x9"></xref>).
         Thus <m>\dim V = m + n</m>.
@@ -398,14 +398,14 @@
         Let <m>v \in V{}</m>.
         Because <m>u_1, \dots, u_m,  v_1, \dots,
         v_n</m> spans <m>V{}</m>, we can write
-        <me>
-          v = a_1 u_1 + \dots + a_m u_m + b_1 v_1 + \dots + b_n v_n
-        </me>,
+        <md>
+          v = a_1 u_1 + \dots + a_m u_m + b_1 v_1 + \dots + b_n v_n,
+        </md>
         where the <m>a</m>'s and <m>b</m>'s are in <m>\F{}{}</m>.
         Applying <m>T</m> to both sides of this equation, we get
-        <me>
-          Tv = b_1 Tv_1 + \dots + b_n Tv_n
-        </me>,
+        <md>
+          Tv = b_1 Tv_1 + \dots + b_n Tv_n,
+        </md>
         where the terms of the form <m>Tu_k</m> disappeared because each <m>u_k</m> is in <m>\ker T{}</m>.
         The last equation implies that the list
         <m>Tv_1, \dots, Tv_n</m> spans <m>\ran T{}</m>.
@@ -414,27 +414,27 @@
       <p>
         To show <m>Tv_1, \dots, Tv_n</m> is linearly independent,
         suppose <m>c_1, \dots, c_n \in \F{}</m> and
-        <me>
-          c_1 Tv_1 + \dots + c_n Tv_n = 0
-        </me>.
+        <md>
+          c_1 Tv_1 + \dots + c_n Tv_n = 0.
+        </md>
       </p>
       <p>
         Then
-        <me>
-          T(c_1 v_1 + \dots + c_n v_n) = 0
-        </me>.
+        <md>
+          T(c_1 v_1 + \dots + c_n v_n) = 0.
+        </md>
       </p>
       <p>
         Hence
-        <me>
-          c_1 v_1 + \dots + c_n v_n \in \ker T{}
-        </me>.
+        <md>
+          c_1 v_1 + \dots + c_n v_n \in \ker T{}.
+        </md>
       </p>
       <p>
         Because <m>u_1, \dots, u_m</m> spans <m>\ker T</m>, we can write
-        <me>
-          c_1 v_1 + \dots + c_n v_n = d_1 u_1 + \dots + d_m u_m
-        </me>,
+        <md>
+          c_1 v_1 + \dots + c_n v_n = d_1 u_1 + \dots + d_m u_m,
+        </md>
         where the <m>d</m>'s are in <m>\F{}{}</m>.
         This equation implies that all the <m>c</m>'s
         (and <m>d</m>'s)
@@ -482,9 +482,9 @@
       <statement>
         <p>
           Define a linear map <m>\fun T {\F4} {\F3}</m> by
-          <me>
-            T(z_1, z_2, z_3, z_4) = (  \sqrt{7} z_1 + \pi z_2 + z_4, 97 z_1 + 3 z_2 + 2z_3, z_2 + 6z_3 + 7z_4  )
-          </me>.
+          <md>
+            T(z_1, z_2, z_3, z_4) = (  \sqrt{7} z_1 + \pi z_2 + z_4, 97 z_1 + 3 z_2 + 2z_3, z_2 + 6z_3 + 7z_4  ).
+          </md>
         </p>
         <p>
           Because <m>\dim \F4 > \dim \FF3</m>,
@@ -557,9 +557,9 @@
     </p>
     <p>
       Define <m>T\colon \F{n}  \rightarrow \F{m}</m> by
-      <men xml:id="x3sim">
-        T(x_1, \dots, x_n) = ( \sum_{k=1}^n A_{1,k}   x_k, \dots, \sum_{k=1}^n A_{m,k}   x_k )
-      </men>.
+      <md number="yes" xml:id="x3sim">
+        T(x_1, \dots, x_n) = ( \sum_{k=1}^n A_{1,k}   x_k, \dots, \sum_{k=1}^n A_{m,k}   x_k ).
+      </md>
     </p>
     <p>
       The equation <m>T(x_1, \dots, x_n) = 0</m>
@@ -662,377 +662,375 @@
       a system of five linear equations with four variables has no solution for some choice of the constant terms.
           <idx><h>linear equations|)</h></idx>
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of a linear map <m>T</m> with
-              <m>\dim \ker T = 3</m> and <m>\dim \ran T = 2</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>S, T \in \Lc(V)</m> are such that <m>\ran S \subset \ker T{}</m>.
-              Prove that <m>(ST)^2 = 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots, v_m</m> is a list of vectors in <m>V{}</m>.
-              Define <m>T \in \Lc( \FF{m}, V )</m> by
-              <me>
-                T(z_1, \dots, z_m) = z_1 v_1 + \dots + z_m v_m
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    What property of <m>T</m> corresponds to <m>v_1, \dots,
-                    v_m</m> spanning <m>V</m>?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    What property of <m>T</m> corresponds to the list
-                    <m>v_1, \dots,
-                    v_m</m> being linearly independent?
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>\{ T \in \Lc( \RR{5}, \R4 ): \dim \ker T > 2 \}</m> is not a subspace of <m>\Lc( \RR{5}, \R4 )</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of <m>T \in \Lc( \R{4} )</m> such that <m>\ran T = \ker T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that there does not exist
-              <m>T \in \Lc( \R{5} )</m> such that <m>\ran T = \ker T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional with <m>2 \le \dim V \le \dim W{}</m>.
-              Show that <m>\{ T \in \Lc(V{}, W) : T \text{ is not injective } \}</m> is not a subspace of <m>\Lc(V{}, W)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional with <m>\dim V \ge \dim W \ge 2</m>.
-              Show that <m>\{ T \in \Lc(V{}, W) : T \text{ is not surjective } \}</m> is not a subspace of <m>\Lc(V{}, W)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3001">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{},W)</m> is injective and
-              <m>v_1, \dots,
-              v_n</m> is linearly independent in<nbsp/><m>V{}</m>.
-              Prove that <m>Tv_1, \dots, Tv_n</m> is linearly independent in <m>W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3spanrange">
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots,
-              v_n</m> spans <m>V</m> and <m>T \in \Lc(V{},W)</m>.
-              Show that <m>Tv_1, \dots, Tv_n</m> spans <m>\ran T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional and that <m>T \in \Lc(V{},W)</m>.
-              Prove that there exists a subspace <m>U</m> of <m>V</m> such that
-              <me>
-                U \cap \ker T = \{0\} \andd \ran T = \{Tu:u\in U\}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T</m> is a linear map from <m>\F{4}</m> to <m>\F{2}</m> such that
-              <me>
-                \ker T = \{ (x_1, x_2, x_3, x_4) \in \F{4}: x_1 = 5 x_2 \ and\  x_3 = 7 x_4  \}
-              </me>.
-            </p>
-            <p>
-              Prove that <m>T</m> is surjective.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is a three-dimensional subspace of <m>\R{8}</m> and that <m>T</m> is a linear map from <m>\R{8}</m> to <m>\R{5}</m> such that <m>\ker T = U</m>.
-              Prove that <m>T</m> is surjective.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that there does not exist a linear map from <m>\F{5}</m> to <m>\F{2}</m> whose null space equals <m>\{ (x_1, x_2, x_3, x_4, x_5) \in \F{5}: x_1 = 3 x_2 \ and\ x_3 = x_4 = x_5 \}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose there exists a linear map on <m>V</m> whose null space and range are both finite-dimensional.
-              Prove that <m>V</m> is finite-dimensional.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are both finite-dimensional.
-              Prove that there exists an injective linear map from <m>V</m> to <m>W</m> if and only if <m>\dim V \le \dim W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are both finite-dimensional.
-              Prove that there exists a surjective linear map from <m>V</m> onto <m>W</m> if and only if <m>\dim V \ge \dim W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional and that <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
-              Prove that there exists <m>T \in \Lc(V{},W)</m> such that
-              <m>\ker T = U</m> if and only if <m>\dim U \ge \dim V - \dim W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>W</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
-              Prove that <m>T</m> is injective if and only if there exists
-              <m>S \in \Lc(W{}, V)</m> such that <m>ST</m> is the identity operator on<nbsp/><m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>W</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
-              Prove that <m>T</m> is surjective if and only if there exists
-              <m>S \in \Lc(W{}, V)</m> such that <m>TS</m> is the identity operator on<nbsp/><m>W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3diminv">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>T \in \Lc(V{}, W)</m>, and <m>U</m> is a subspace of <m>W{}</m>.
-              Prove that <m>\{ v \in V: Tv \in U \}</m> is a subspace of <m>V</m> and
-              <me>
-                \dim \{ v \in V: Tv \in U \} = \dim \ker T + \dim (U \cap \ran T)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> and <m>V</m> are finite-dimensional vector spaces and
-              <m>S \in \Lc(V{}, W)</m> and <m>T \in \Lc(U, V)</m>.
-              Prove that
-              <me>
-                \dim \ker ST \le \dim \ker S + \dim \ker T{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5dimST">
-          <statement>
-            <p>
-              Suppose <m>U</m> and <m>V</m> are finite-dimensional vector spaces and
-              <m>S \in \Lc(V{}, W)</m> and <m>T \in \Lc(U, V)</m>.
-              Prove that
-              <me>
-                \dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of a linear map <m>T</m> with
+            <m>\dim \ker T = 3</m> and <m>\dim \ran T = 2</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S, T \in \Lc(V)</m> are such that <m>\ran S \subset \ker T{}</m>.
+            Prove that <m>(ST)^2 = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots, v_m</m> is a list of vectors in <m>V{}</m>.
+            Define <m>T \in \Lc( \FF{m}, V )</m> by
+            <md>
+              T(z_1, \dots, z_m) = z_1 v_1 + \dots + z_m v_m.
+            </md>
             <ol>
               <li>
                 <p>
-                  Suppose <m>\dim V = 5</m> and
-                  <m>S, T \in \Lc(V)</m> are such that <m>ST = 0</m>.
-                  Prove that <m>\dim \ran TS \le 2</m>.
+                  What property of <m>T</m> corresponds to <m>v_1, \dots,
+                  v_m</m> spanning <m>V</m>?
                 </p>
               </li>
               <li>
                 <p>
-                  Give an example of <m>S, T \in \Lc( \F5 )</m> with <m>ST = 0</m> and <m>\dim \ran TS = 2</m>.
+                  What property of <m>T</m> corresponds to the list
+                  <m>v_1, \dots,
+                  v_m</m> being linearly independent?
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise xml:id="kerT1">
-          <statement>
-            <p>
-              Suppose that <m>W</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
-              Prove that <m>\ker S \subset \ker T</m> if and only if there exists
-              <m>E \in \Lc(W)</m> such that <m>T = E S</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
-              Prove that <m>\ran S \subset \ran T</m> if and only if there exists
-              <m>E \in \Lc(V)</m> such that <m>S = T E</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>P \in \Lc(V)</m> and <m>P^2 = P</m>.
-              Prove that <m>V = \ker P \oplus \ran P</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3polydeg">
-          <statement>
-            <p>
-              Suppose <m>D \in \Lc\bigl(\P(\R{})\bigr)</m> is such that
-              <m>\deg Dp = (\deg p) - 1</m> for every nonconstant polynomial <m>p \in \P(\R{})</m>.
-              Prove that <m>D</m> is surjective.
-          <idx><h>differentiation linear map</h></idx>
-      Note: The notation <m>D</m> is used above to remind you of the differentiation map that sends a polynomial <m>p</m> to <m>p'\!</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>p \in \P(\R{})</m>.
-              Prove that there exists a polynomial
-              <m>q \in \P(\R{})</m> such that <m>5 q'' + 3 q' = p</m>.
-              Note: This exercise can be done without linear algebra,
-              but it's more fun to do it using linear algebra.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\phi \in \Lc(V{}, \F{})</m> and <m>\phi \ne 0</m>.
-              Suppose <m>u \in V</m> is not in <m>\ker \phi</m>.
-              Prove that
-              <me>
-                V = \ker \phi \oplus \{au: a \in \F{}\}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>X</m> is a subspace of <m>V{}</m>,
-              and <m>Y</m> is a finite-dimensional subspace of <m>W{}</m>.
-              Prove that there exists <m>T \in \Lc(V, W)</m> such that <m>\ker T = X</m> and
-              <m>\ran T = Y</m> if and only if <m>\dim X + \dim Y = \dim V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional with <m>\dim V > 1</m>.
-              Show that if <m>\fun \phi {\!\Lc(V)\!} {\F{}}</m> is a linear map such that <m>\phi(ST) = \phi(S) \phi(T)</m> for all
-              <m>S, T \in \Lc(V)</m>, then <m>\phi = 0</m>.
-              <hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>\{ T \in \Lc( \RR{5}, \R4 ): \dim \ker T > 2 \}</m> is not a subspace of <m>\Lc( \RR{5}, \R4 )</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of <m>T \in \Lc( \R{4} )</m> such that <m>\ran T = \ker T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that there does not exist
+            <m>T \in \Lc( \R{5} )</m> such that <m>\ran T = \ker T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional with <m>2 \le \dim V \le \dim W{}</m>.
+            Show that <m>\{ T \in \Lc(V{}, W) : T \text{ is not injective } \}</m> is not a subspace of <m>\Lc(V{}, W)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional with <m>\dim V \ge \dim W \ge 2</m>.
+            Show that <m>\{ T \in \Lc(V{}, W) : T \text{ is not surjective } \}</m> is not a subspace of <m>\Lc(V{}, W)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3001">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{},W)</m> is injective and
+            <m>v_1, \dots,
+            v_n</m> is linearly independent in<nbsp/><m>V{}</m>.
+            Prove that <m>Tv_1, \dots, Tv_n</m> is linearly independent in <m>W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3spanrange">
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots,
+            v_n</m> spans <m>V</m> and <m>T \in \Lc(V{},W)</m>.
+            Show that <m>Tv_1, \dots, Tv_n</m> spans <m>\ran T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional and that <m>T \in \Lc(V{},W)</m>.
+            Prove that there exists a subspace <m>U</m> of <m>V</m> such that
+            <md>
+              U \cap \ker T = \{0\} \andd \ran T = \{Tu:u\in U\}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T</m> is a linear map from <m>\F{4}</m> to <m>\F{2}</m> such that
+            <md>
+              \ker T = \{ (x_1, x_2, x_3, x_4) \in \F{4}: x_1 = 5 x_2 \ and\  x_3 = 7 x_4  \}.
+            </md>
+          </p>
+          <p>
+            Prove that <m>T</m> is surjective.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is a three-dimensional subspace of <m>\R{8}</m> and that <m>T</m> is a linear map from <m>\R{8}</m> to <m>\R{5}</m> such that <m>\ker T = U</m>.
+            Prove that <m>T</m> is surjective.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that there does not exist a linear map from <m>\F{5}</m> to <m>\F{2}</m> whose null space equals <m>\{ (x_1, x_2, x_3, x_4, x_5) \in \F{5}: x_1 = 3 x_2 \ and\ x_3 = x_4 = x_5 \}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose there exists a linear map on <m>V</m> whose null space and range are both finite-dimensional.
+            Prove that <m>V</m> is finite-dimensional.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are both finite-dimensional.
+            Prove that there exists an injective linear map from <m>V</m> to <m>W</m> if and only if <m>\dim V \le \dim W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are both finite-dimensional.
+            Prove that there exists a surjective linear map from <m>V</m> onto <m>W</m> if and only if <m>\dim V \ge \dim W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional and that <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
+            Prove that there exists <m>T \in \Lc(V{},W)</m> such that
+            <m>\ker T = U</m> if and only if <m>\dim U \ge \dim V - \dim W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>W</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
+            Prove that <m>T</m> is injective if and only if there exists
+            <m>S \in \Lc(W{}, V)</m> such that <m>ST</m> is the identity operator on<nbsp/><m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>W</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
+            Prove that <m>T</m> is surjective if and only if there exists
+            <m>S \in \Lc(W{}, V)</m> such that <m>TS</m> is the identity operator on<nbsp/><m>W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3diminv">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>T \in \Lc(V{}, W)</m>, and <m>U</m> is a subspace of <m>W{}</m>.
+            Prove that <m>\{ v \in V: Tv \in U \}</m> is a subspace of <m>V</m> and
+            <md>
+              \dim \{ v \in V: Tv \in U \} = \dim \ker T + \dim (U \cap \ran T).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>V</m> are finite-dimensional vector spaces and
+            <m>S \in \Lc(V{}, W)</m> and <m>T \in \Lc(U, V)</m>.
+            Prove that
+            <md>
+              \dim \ker ST \le \dim \ker S + \dim \ker T{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5dimST">
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>V</m> are finite-dimensional vector spaces and
+            <m>S \in \Lc(V{}, W)</m> and <m>T \in \Lc(U, V)</m>.
+            Prove that
+            <md>
+              \dim \ran ST \le \min \{\dim \ran S, \dim \ran T\}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Suppose <m>\dim V = 5</m> and
+                <m>S, T \in \Lc(V)</m> are such that <m>ST = 0</m>.
+                Prove that <m>\dim \ran TS \le 2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of <m>S, T \in \Lc( \F5 )</m> with <m>ST = 0</m> and <m>\dim \ran TS = 2</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="kerT1">
+        <statement>
+          <p>
+            Suppose that <m>W</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
+            Prove that <m>\ker S \subset \ker T</m> if and only if there exists
+            <m>E \in \Lc(W)</m> such that <m>T = E S</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V{}, W)</m>.
+            Prove that <m>\ran S \subset \ran T</m> if and only if there exists
+            <m>E \in \Lc(V)</m> such that <m>S = T E</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>P \in \Lc(V)</m> and <m>P^2 = P</m>.
+            Prove that <m>V = \ker P \oplus \ran P</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3polydeg">
+        <statement>
+          <p>
+            Suppose <m>D \in \Lc\bigl(\P(\R{})\bigr)</m> is such that
+            <m>\deg Dp = (\deg p) - 1</m> for every nonconstant polynomial <m>p \in \P(\R{})</m>.
+            Prove that <m>D</m> is surjective.
+                <idx><h>differentiation linear map</h></idx>
+            Note: The notation <m>D</m> is used above to remind you of the differentiation map that sends a polynomial <m>p</m> to <m>p'\!</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p \in \P(\R{})</m>.
+            Prove that there exists a polynomial
+            <m>q \in \P(\R{})</m> such that <m>5 q'' + 3 q' = p</m>.
+            Note: This exercise can be done without linear algebra,
+            but it's more fun to do it using linear algebra.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\phi \in \Lc(V{}, \F{})</m> and <m>\phi \ne 0</m>.
+            Suppose <m>u \in V</m> is not in <m>\ker \phi</m>.
+            Prove that
+            <md>
+              V = \ker \phi \oplus \{au: a \in \F{}\}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>X</m> is a subspace of <m>V{}</m>,
+            and <m>Y</m> is a finite-dimensional subspace of <m>W{}</m>.
+            Prove that there exists <m>T \in \Lc(V, W)</m> such that <m>\ker T = X</m> and
+            <m>\ran T = Y</m> if and only if <m>\dim X + \dim Y = \dim V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional with <m>\dim V > 1</m>.
+            Show that if <m>\fun \phi {\!\Lc(V)\!} {\F{}}</m> is a linear map such that <m>\phi(ST) = \phi(S) \phi(T)</m> for all
+            <m>S, T \in \Lc(V)</m>, then <m>\phi = 0</m>.
+            <hint>
+              <p>
+                The description of the two-sided ideals of <m>\Lc(V)</m> given by <xref ref="ideals">Exercise</xref>
+                in <xref ref="vslinear">Section</xref> might be useful.
+              </p>
+            </hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3complexMap">
+        <statement>
+          <p>
+            Suppose that <m>V</m> and <m>W</m> are real vector spaces and <m>T \in \Lc(V{}, W)</m>.
+            Define <m>\fun {T{}_{\C{}}} {V{}_{\C{}}} {W{}_{\C{}}}</m> by<idx><h>complexification</h><h>of a linear map</h></idx> <idx><h sortby="TC"><m>T{}_{\C{}}</m></h></idx>
+            <md>
+              T{}_{\C{}}(u + iv) = Tu + iTv
+            </md>
+            for all <m>u, v \in V{}</m>.
+            <ol>
+              <li>
                 <p>
-                  The description of the two-sided ideals of <m>\Lc(V)</m> given by <xref ref="ideals">Exercise</xref>
-                  in <xref ref="vslinear">Section</xref> might be useful.
+                  Show that <m>T{}_{\C{}}</m> is a (complex) linear map from
+                  <m>V{}_{\C{}}</m> to <m>W{}_{\C{}}</m>.
                 </p>
-              </hint>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3complexMap">
-          <statement>
-            <p>
-              Suppose that <m>V</m> and <m>W</m> are real vector spaces and <m>T \in \Lc(V{}, W)</m>.
-              Define <m>\fun {T{}_{\C{}}} {V{}_{\C{}}} {W{}_{\C{}}}</m> by<idx><h>complexification</h><h>of a linear map</h></idx> <idx><h sortby="TC"><m>T{}_{\C{}}</m></h></idx>
-              <me>
-                T{}_{\C{}}(u + iv) = Tu + iTv
-              </me>
-              for all <m>u, v \in V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>T{}_{\C{}}</m> is a (complex) linear map from
-                    <m>V{}_{\C{}}</m> to <m>W{}_{\C{}}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <m>T{}_{\C{}}</m> is injective if and only if <m>T</m> is injective.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <m>\ran T{}_{\C{}} = W{}_{\C{}}</m> if and only if <m>\ran T = W{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: See <xref ref="x1VC">Exercise</xref>
-              in <xref ref="x1DefVS">Section</xref>
-              for the definition of the complexification <m>V{}_{\C{}}</m>.
-              The linear map <m>T{}_{\C{}}</m> is called the
-              <term>complexification</term>
-              of the linear map <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>T{}_{\C{}}</m> is injective if and only if <m>T</m> is injective.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>\ran T{}_{\C{}} = W{}_{\C{}}</m> if and only if <m>\ran T = W{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: See <xref ref="x1VC">Exercise</xref>
+            in <xref ref="x1DefVS">Section</xref>
+            for the definition of the complexification <m>V{}_{\C{}}</m>.
+            The linear map <m>T{}_{\C{}}</m> is called the
+            <term>complexification</term>
+            of the linear map <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

@@ -45,9 +45,9 @@
       suppose <m>b, c \in \R{}</m> and <m>b^2 \lt  4 c</m>.
       Let <m>x</m> be a real number.
       Then
-      <me>
-        x^2 + b x + c = ( x + \frac{b}{2} )^2 + ( c - \frac{b^2}{4} ) > 0
-      </me>.
+      <md>
+        x^2 + b x + c = ( x + \frac{b}{2} )^2 + ( c - \frac{b^2}{4} ) > 0.
+      </md>
     </p>
     <p>
       In particular,
@@ -64,9 +64,9 @@
           <m>b,
           c \in \R{}</m> are such that <m>b^2 \lt  4 c</m>.
           Then
-          <me>
+          <md>
             T^2 + b T + c I
-          </me>
+          </md>
           is an invertible operator.
         </p>
       </statement>
@@ -121,15 +121,15 @@
         there exist <m>\lambda_1, \dots, \lambda_m \in \R{}</m> and
         <m>b_1, \dots, b_N, c_1, \dots,
         c_N \in \R{}</m> with <m>{b_k}^{2} \lt  4c_k</m> for each <m>k</m> such that the minimal polynomial of <m>T</m> equals
-        <men xml:id="x7minT">
+        <md number="yes" xml:id="x7minT">
           (z - \lambda_1) \cdots(z - \lambda_m) ( z^2 + b_1 z + c_1 ) \cdots ( z^2 + b_N z + c_N );
-        </men>
+        </md>
         here either <m>m</m> or <m>N</m> might equal <m>0</m>,
         meaning that there are no terms of the corresponding form.
         Now
-        <me>
-          (T - \lambda_1 I) \cdots(T - \lambda_m I) ( T^2 + b_1 T + c_1 I ) \cdots ( T^2 + b_N T + c_N I ) = 0
-        </me>.
+        <md>
+          (T - \lambda_1 I) \cdots(T - \lambda_m I) ( T^2 + b_1 T + c_1 I ) \cdots ( T^2 + b_N T + c_N I ) = 0.
+        </md>
       </p>
       <p>
         If <m>N> 0</m>,
@@ -219,22 +219,22 @@
           Consider the operator <m>T</m> on<nbsp/><m>\R{3}</m> whose matrix
           (with respect to the standard basis)
           is
-          <me>
-            \begin{pmatrix}14 \amp  -13 \amp  8 \\ -13 \amp  14 \amp  8 \\ 8 \amp  8 \amp  -7 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}14 \amp  -13 \amp  8 \\ -13 \amp  14 \amp  8 \\ 8 \amp  8 \amp  -7 \end{pmatrix} .
+          </md>
         </p>
         <p>
           This matrix with real entries equals its transpose;
           thus <m>T</m> is self-adjoint.
           As you can verify,
-          <me>
+          <md>
             \frac{(1, -1, 0)}{\sqrt{2}}, \frac{(1, 1, 1)}{\sqrt{3}}, \frac{(1, 1, -2)}{\sqrt{6}}
-          </me>
+          </md>
           is an orthonormal basis of<nbsp/><m>\R{3}</m> consisting of eigenvectors of <m>T</m>.
           With respect to this basis, the matrix of <m>T</m> is the diagonal matrix
-          <me>
-            \begin{pmatrix}27 \amp  0 \amp  0\\ 0 \amp  9 \amp  0 \\ 0 \amp  0 \amp  -15 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}27 \amp  0 \amp  0\\ 0 \amp  9 \amp  0 \\ 0 \amp  0 \amp  -15 \end{pmatrix} .
+          </md>
         </p>
       </statement>
     </example>
@@ -285,9 +285,9 @@
         <m>e_1, \dots,
         e_n</m> of <m>V</m> with respect to which <m>T</m> has an upper-triangular matrix.
         Thus we can write
-        <men xml:id="x405">
-          \M\bigl(T, (e_1, \dots, e_n) \bigr) = \begin{pmatrix} a_{1,1} \amp  \cdots  \amp  a_{1,n} \\ \amp  \ddots \amp  \vdots\\ 0 \amp  \amp  a_{n,n}\end{pmatrix}
-        </men>.
+        <md number="yes" xml:id="x405">
+          \M\bigl(T, (e_1, \dots, e_n) \bigr) = \begin{pmatrix} a_{1,1} \amp  \cdots  \amp  a_{1,n} \\ \amp  \ddots \amp  \vdots\\ 0 \amp  \amp  a_{n,n}\end{pmatrix}.
+        </md>
       </p>
       <p>
         We will show that this matrix is actually a diagonal matrix.
@@ -307,15 +307,15 @@
       </p>
       <p>
         <xref ref="x405">Now</xref> implies
-        <me>
+        <md>
           \|Te_2\|^2 = |a_{2,2}|^2
-        </me>
+        </md>
       </p>
       <p>
         (because <m>a_{1,2} = 0</m>, as we showed in the paragraph above) and
-        <me>
-          \lVert T^* e_2 \rVert ^2 = |a_{2,2}|^2 +  |a_{2,3}|^2 + \dots +  |a_{2,n}|^2{}
-        </me>.
+        <md>
+          \lVert T^* e_2 \rVert ^2 = |a_{2,2}|^2 +  |a_{2,3}|^2 + \dots +  |a_{2,n}|^2{}.
+        </md>
       </p>
       <p>
         Because <m>T</m> is normal, <m>\|Te_2\| = \lVert T^* e_2 \rVert</m>.
@@ -370,9 +370,9 @@
           The matrix of <m>T</m>
           (with respect to the standard basis)
           is
-          <me>
-            \begin{pmatrix}2 \amp  -3 \\ 3 \amp  2 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}2 \amp  -3 \\ 3 \amp  2 \end{pmatrix} .
+          </md>
         </p>
         <p>
           As we saw in <xref ref="normalnotsa">Example</xref>,
@@ -380,339 +380,337 @@
         </p>
         <p>
           As you can verify,
-          <me>
+          <md>
             \tfrac{1}{\sqrt{2}}(i, 1), \tfrac{1}{\sqrt{2}}(-i, 1)
-          </me>
+          </md>
           is an orthonormal basis of<nbsp/><m>\C{2}</m> consisting of eigenvectors of <m>T</m>,
           and with respect to this basis the matrix of <m>T</m> is the diagonal matrix
-          <me>
-            \begin{pmatrix}2 + 3i \amp  0 \\ 0 \amp  2 - 3i \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}2 + 3i \amp  0 \\ 0 \amp  2 - 3i \end{pmatrix} .
+          </md>
         </p>
       </statement>
     </example>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise xml:id="x7normalreal">
-          <statement>
-            <p>
-              Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.
-              Note: This exercise strengthens the analogy
-              (for normal operators)
-              between self-adjoint operators and real numbers.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m>.
-              Suppose <m>T \in \Lc(V)</m> is normal and has only one eigenvalue.
-              Prove that <m>T</m> is a scalar multiple of the identity operator.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal.
-              Prove that the set of eigenvalues of <m>T</m> is contained in
-              <m>\{ 0, 1 \}</m> if and only if there is a subspace <m>U</m> of <m>V</m> such that <m>T = P_{\!U}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that a normal operator on a complex inner product space is skew
-              (meaning it equals the negative of its adjoint)
-              if and only if all its eigenvalues are purely imaginary
-              (meaning that they have real part equal to<nbsp/><m>0</m>).
-          <idx><h>skew operator</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>T \in \Lc( \C{3} )</m> is a diagonalizable operator,
-              then <m>T</m> is normal
-              (with respect to the usual inner product).
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a complex inner product space and
-              <m>T \in \Lc(V)</m> is a normal operator such that <m>T^9 = T^8{}</m>.
-              Prove that <m>T</m> is self-adjoint and <m>T^2 =T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of an operator <m>T</m> on a complex vector space such that
-              <m>T^9 = T^8</m> but <m>T^2 \ne T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is normal if and only if every eigenvector of <m>T</m> is also an eigenvector of <m>T^*{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x4pnormal">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is normal if and only if there exists a polynomial
-              <m>p \in \P(\C{})</m> such that <m>T^* = p(T)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a complex inner product space.
-              Prove that every normal operator on <m>V</m> has a square root.
-              Note: An operator <m>S \in \Lc(V)</m> is called a
-              <term>square root</term><idx><h>square root of an operator</h></idx> of <m>T \in \Lc(V)</m> if <m>S^2 = T{}</m>.
-              We will discuss more about square roots of operators in <xref ref="POIUO">Sections</xref>
-              and <xref ref="x8geneigde"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that every self-adjoint operator on <m>V</m> has a cube root.
-              Note: An operator <m>S \in \Lc(V)</m> is called a
-              <term>cube root</term><idx><h>cube root of an operator</h></idx> of <m>T \in \Lc(V)</m> if <m>S^3 = T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a complex vector space and <m>T \in \Lc(V)</m> is normal.
-              Prove that if <m>S</m> is an operator on <m>V</m> that commutes with <m>T</m>,
-              then <m>S</m> commutes with <m>T^*{}</m>.
-              Note: The result in this exercise is called Fuglede's theorem.
-          <idx><h>Fuglede's theorem</h></idx>
-          <idx><h>commuting operators</h></idx>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="AltCST">
-          <statement>
-            <p>
-              Without using the complex spectral theorem,
-              use the version of Schur's theorem that applies to two commuting operators \big(take
-              <m>\E = \{ T, T^* \}</m> in <xref ref="x3Schur">Exercise</xref>
-              in <xref ref="orthobases">Section</xref>\big) to give a different proof that if
-              <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal,
-              then <m>T</m> has a diagonal matrix with respect to some orthonormal basis of <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7dirsum">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \R{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of <m>T</m> are orthogonal and <m>V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)</m>,
-              where <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7dirsum2">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of <m>T</m> are orthogonal and <m>V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)</m>,
-              where <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5SimDiag">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>\E \subset \Lc(V)</m>.
-              Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if <m>S</m> and <m>T</m> are commuting normal operators for all <m>S, T \in \E</m>.
-          <idx><h>commuting operators|(</h></idx>
-      Note: This exercise extends the complex spectral theorem to the context of a collection of commuting normal operators.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5SimDiagR">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \R{}</m> and <m>\E \subset \Lc(V)</m>.
-              Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if <m>S</m> and <m>T</m> are commuting self-adjoint operators for all <m>S, T \in \E</m>.
-          <idx><h>commuting operators|)</h></idx>
-      Note: This exercise extends the real spectral theorem to the context of a collection of commuting self-adjoint operators.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of a real inner product space <m>V</m>,
-              an operator <m>T \in \Lc(V)</m>,
-              and real numbers <m>b, c</m> with <m>b^2 \lt  4 c</m> such that
-              <me>
-                T^2 + b T + c I
-              </me>
-              is not invertible.
-              Note: This exercise shows that the hypothesis that <m>T</m> is self-adjoint cannot be deleted in <xref ref="x150"></xref>,
-              even for real vector spaces.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="sa210">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>T|_U \in \Lc(U)</m> is self-adjoint.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>T|_{U^\perp} \in \Lc( U^\perp )</m> is self-adjoint.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7spectralalt">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is normal and <m>U</m> is a subspace of <nbsp/><m>V</m> that is invariant under <nbsp/><m>T{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>U</m> is invariant under <m>T^*{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>(T|_U)^* = ( T^* )|_U</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>T|_U \in \Lc(U)</m> and
-                    <m>T|_{U^\perp} \in \Lc( U^\perp )</m> are normal operators.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: This exercise can be used to give yet another proof of the complex spectral theorem
-              (use induction on <m>\dim V</m> and the result that <m>T</m> has an eigenvector)
-              .
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T</m> is a self-adjoint operator on a finite-dimensional inner product space and that <m>2</m> and <m>3</m> are the only eigenvalues of<nbsp/><m>T{}</m>.
-              Prove that
-              <me>
-                T^2 - 5T + 6I = 0
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of an operator
-              <m>T \in \Lc( \C{3} )</m> such that <m>2</m> and <m>3</m> are the only eigenvalues of <m>T</m> and <m>T^2 - 5T + 6I \ne 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is self-adjoint,
-              <m>\lambda \in \F{}{}</m>, and <m>\epsilon > 0</m>.
-              Suppose there exists <m>v \in V</m> such that <m>\|v\| = 1</m> and
-              <me>
-                \|Tv - \lambda v\| \lt  \epsilon
-              </me>.
-            </p>
-            <p>
-              Prove that <m>T</m> has an eigenvalue
-              <m>\lambda'</m> such that <m>\lvert \lambda - \lambda' \rvert \lt \epsilon</m>.
-              Note: This exercise shows that for a self-adjoint operator,
-              a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="Diag2">
-          <statement>
-            <p>
-              Suppose <m>U</m> is a finite-dimensional vector space and <m>T \in \Lc(U)</m>.
-          <idx><h>basis</h><h>of eigenvectors</h></idx>
-      <ol>
-                <li>
-                  <p>
-                    Suppose <m>\F{} = \R{}</m>.
-                    Prove that <m>T</m> is diagonalizable if and only if there is a basis of <m>U</m> such that the matrix of <m>T</m> with respect to this basis equals its transpose.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Suppose <m>\F{} = \C{}</m>.
-                    Prove that <m>T</m> is diagonalizable if and only if there is a basis of <m>U</m> such that the matrix of <m>T</m> with respect to this basis commutes with its conjugate transpose.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in <xref ref="x427"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> and there is an orthonormal basis
-              <m>e_1, \ldots,
-              e_n</m> of <m>V</m> consisting of eigenvectors of <m>T</m>,
-              with corresponding eigenvalues <m>\lambda_1, \ldots, \lambda_n</m>.
-              Show that if <m>k \in \{ 1, \ldots, n \}</m>,
-              then the pseudoinverse <m>T^\dagger</m> satisfies the equation
-          <idx><h>pseudoinverse</h></idx>
-              <me>
-                T^\dagger e_k = \begin{cases}\frac{1}{\lambda_k} e_k \amp  \text{ if }  \lambda_k \ne 0, \\ 0 \amp  \text{ if }  \lambda_k = 0. \end{cases}
-              </me>
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+    <exercises>
+      <title>Exercises</title>
+      <exercise xml:id="x7normalreal">
+        <statement>
+          <p>
+            Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.
+            Note: This exercise strengthens the analogy
+            (for normal operators)
+            between self-adjoint operators and real numbers.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m>.
+            Suppose <m>T \in \Lc(V)</m> is normal and has only one eigenvalue.
+            Prove that <m>T</m> is a scalar multiple of the identity operator.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal.
+            Prove that the set of eigenvalues of <m>T</m> is contained in
+            <m>\{ 0, 1 \}</m> if and only if there is a subspace <m>U</m> of <m>V</m> such that <m>T = P_{\!U}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that a normal operator on a complex inner product space is skew
+            (meaning it equals the negative of its adjoint)
+            if and only if all its eigenvalues are purely imaginary
+            (meaning that they have real part equal to<nbsp/><m>0</m>).
+                <idx><h>skew operator</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>T \in \Lc( \C{3} )</m> is a diagonalizable operator,
+            then <m>T</m> is normal
+            (with respect to the usual inner product).
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a complex inner product space and
+            <m>T \in \Lc(V)</m> is a normal operator such that <m>T^9 = T^8{}</m>.
+            Prove that <m>T</m> is self-adjoint and <m>T^2 =T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of an operator <m>T</m> on a complex vector space such that
+            <m>T^9 = T^8</m> but <m>T^2 \ne T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is normal if and only if every eigenvector of <m>T</m> is also an eigenvector of <m>T^*{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4pnormal">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is normal if and only if there exists a polynomial
+            <m>p \in \P(\C{})</m> such that <m>T^* = p(T)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a complex inner product space.
+            Prove that every normal operator on <m>V</m> has a square root.
+            Note: An operator <m>S \in \Lc(V)</m> is called a
+            <term>square root</term><idx><h>square root of an operator</h></idx> of <m>T \in \Lc(V)</m> if <m>S^2 = T{}</m>.
+            We will discuss more about square roots of operators in <xref ref="POIUO">Sections</xref>
+            and <xref ref="x8geneigde"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that every self-adjoint operator on <m>V</m> has a cube root.
+            Note: An operator <m>S \in \Lc(V)</m> is called a
+            <term>cube root</term><idx><h>cube root of an operator</h></idx> of <m>T \in \Lc(V)</m> if <m>S^3 = T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a complex vector space and <m>T \in \Lc(V)</m> is normal.
+            Prove that if <m>S</m> is an operator on <m>V</m> that commutes with <m>T</m>,
+            then <m>S</m> commutes with <m>T^*{}</m>.
+            Note: The result in this exercise is called Fuglede's theorem.
+                <idx><h>Fuglede's theorem</h></idx>
+                <idx><h>commuting operators</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="AltCST">
+        <statement>
+          <p>
+            Without using the complex spectral theorem,
+            use the version of Schur's theorem that applies to two commuting operators \big(take
+            <m>\E = \{ T, T^* \}</m> in <xref ref="x3Schur">Exercise</xref>
+            in <xref ref="orthobases">Section</xref>\big) to give a different proof that if
+            <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m> is normal,
+            then <m>T</m> has a diagonal matrix with respect to some orthonormal basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7dirsum">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \R{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of <m>T</m> are orthogonal and <m>V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)</m>,
+            where <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7dirsum2">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of <m>T</m> are orthogonal and <m>V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)</m>,
+            where <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5SimDiag">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>\E \subset \Lc(V)</m>.
+            Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if <m>S</m> and <m>T</m> are commuting normal operators for all <m>S, T \in \E</m>.
+                <idx><h>commuting operators|(</h></idx>
+            Note: This exercise extends the complex spectral theorem to the context of a collection of commuting normal operators.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5SimDiagR">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \R{}</m> and <m>\E \subset \Lc(V)</m>.
+            Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if <m>S</m> and <m>T</m> are commuting self-adjoint operators for all <m>S, T \in \E</m>.
+                <idx><h>commuting operators|)</h></idx>
+            Note: This exercise extends the real spectral theorem to the context of a collection of commuting self-adjoint operators.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of a real inner product space <m>V</m>,
+            an operator <m>T \in \Lc(V)</m>,
+            and real numbers <m>b, c</m> with <m>b^2 \lt  4 c</m> such that
+            <md>
+              T^2 + b T + c I
+            </md>
+            is not invertible.
+            Note: This exercise shows that the hypothesis that <m>T</m> is self-adjoint cannot be deleted in <xref ref="x150"></xref>,
+            even for real vector spaces.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="sa210">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>T|_U \in \Lc(U)</m> is self-adjoint.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>T|_{U^\perp} \in \Lc( U^\perp )</m> is self-adjoint.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7spectralalt">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is normal and <m>U</m> is a subspace of <nbsp/><m>V</m> that is invariant under <nbsp/><m>T{}</m>.
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>U</m> is invariant under <m>T^*{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>(T|_U)^* = ( T^* )|_U</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>T|_U \in \Lc(U)</m> and
+                  <m>T|_{U^\perp} \in \Lc( U^\perp )</m> are normal operators.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: This exercise can be used to give yet another proof of the complex spectral theorem
+            (use induction on <m>\dim V</m> and the result that <m>T</m> has an eigenvector)
+            .
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T</m> is a self-adjoint operator on a finite-dimensional inner product space and that <m>2</m> and <m>3</m> are the only eigenvalues of<nbsp/><m>T{}</m>.
+            Prove that
+            <md>
+              T^2 - 5T + 6I = 0.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of an operator
+            <m>T \in \Lc( \C{3} )</m> such that <m>2</m> and <m>3</m> are the only eigenvalues of <m>T</m> and <m>T^2 - 5T + 6I \ne 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is self-adjoint,
+            <m>\lambda \in \F{}{}</m>, and <m>\epsilon > 0</m>.
+            Suppose there exists <m>v \in V</m> such that <m>\|v\| = 1</m> and
+            <md>
+              \|Tv - \lambda v\| \lt  \epsilon.
+            </md>
+          </p>
+          <p>
+            Prove that <m>T</m> has an eigenvalue
+            <m>\lambda'</m> such that <m>\lvert \lambda - \lambda' \rvert \lt \epsilon</m>.
+            Note: This exercise shows that for a self-adjoint operator,
+            a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="Diag2">
+        <statement>
+          <p>
+            Suppose <m>U</m> is a finite-dimensional vector space and <m>T \in \Lc(U)</m>.
+                <idx><h>basis</h><h>of eigenvectors</h></idx>
+            <ol>
+              <li>
+                <p>
+                  Suppose <m>\F{} = \R{}</m>.
+                  Prove that <m>T</m> is diagonalizable if and only if there is a basis of <m>U</m> such that the matrix of <m>T</m> with respect to this basis equals its transpose.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose <m>\F{} = \C{}</m>.
+                  Prove that <m>T</m> is diagonalizable if and only if there is a basis of <m>U</m> such that the matrix of <m>T</m> with respect to this basis commutes with its conjugate transpose.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in <xref ref="x427"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> and there is an orthonormal basis
+            <m>e_1, \ldots,
+            e_n</m> of <m>V</m> consisting of eigenvectors of <m>T</m>,
+            with corresponding eigenvalues <m>\lambda_1, \ldots, \lambda_n</m>.
+            Show that if <m>k \in \{ 1, \ldots, n \}</m>,
+            then the pseudoinverse <m>T^\dagger</m> satisfies the equation
+                <idx><h>pseudoinverse</h></idx>
+            <md>
+              T^\dagger e_k = \begin{cases}\frac{1}{\lambda_k} e_k \amp  \text{ if }  \lambda_k \ne 0, \\ 0 \amp  \text{ if }  \lambda_k = 0. \end{cases}
+            </md>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

@@ -41,14 +41,14 @@
         <li>
           <p>
             We have
-            <me>
-              ( T^* T )^* = T^* ( T^* )^* = T^* T{}
-            </me>.
+            <md>
+              ( T^* T )^* = T^* ( T^* )^* = T^* T{}.
+            </md>
             Thus <m>T^* T</m> is self-adjoint.
             If <m>v \in V{}</m>, then
-            <me>
-              \langle ( T^*T )v , v \rangle  = \langle  T^*(Tv), v \rangle  = \langle Tv, Tv \rangle  = \|Tv\|^2 \ge 0
-            </me>.
+            <md>
+              \langle ( T^*T )v , v \rangle  = \langle  T^*(Tv), v \rangle  = \langle Tv, Tv \rangle  = \|Tv\|^2 \ge 0.
+            </md>
             Thus <m>T^* T</m> is a positive operator.
           </p>
         </li>
@@ -56,9 +56,9 @@
           <p>
             First suppose <m>v \in \ker T^*T{}</m>.
             Then
-            <me>
-              \lVert Tv \rVert ^2 = \langle Tv, Tv \rangle  = \langle T^*Tv, v \rangle  = \langle 0, v \rangle  = 0
-            </me>.
+            <md>
+              \lVert Tv \rVert ^2 = \langle Tv, Tv \rangle  = \langle T^*Tv, v \rangle  = \langle 0, v \rangle  = 0.
+            </md>
             Thus <m>Tv = 0</m>, proving that <m>\ker T^*T \subset \ker T{}</m>.
             The inclusion in the other direction is clear,
             because if <m>v \in V</m> and <m>Tv = 0</m>, then <m>T^*Tv = 0</m>.
@@ -70,9 +70,9 @@
           <p>
             We already know from (a) that <m>T^*T</m> is self-adjoint.
             Thus
-            <me>
-              \ran T^* T = ( \ker T^* T )^\perp = (\ker T)^\perp = \ran T^*{}
-            </me>,
+            <md>
+              \ran T^* T = ( \ker T^* T )^\perp = (\ker T)^\perp = \ran T^*{},
+            </md>
             where the first and last equalities come from <xref ref="x377"></xref>
             and the second equality comes from (b).
           </p>
@@ -80,9 +80,9 @@
         <li>
           <p>
             To verify the first equation in (d), note that
-            <me>
-              \dim \ran T = \dim ( \ker T^* )^\perp = \dim W - \dim \ker T^* = \dim \ran T^*{}
-            </me>,
+            <md>
+              \dim \ran T = \dim ( \ker T^* )^\perp = \dim W - \dim \ker T^* = \dim \ran T^*{},
+            </md>
             where the first equality comes from <xref ref="x377"></xref>(d),
             the second equality comes from <xref ref="x350"></xref>,
             and the last equality comes from the fundamental theorem of linear maps <xref ref="x3ab11"/>.
@@ -118,18 +118,18 @@
         <p>
           Define <m>T \in \Lc( \F{4} )</m> by <m>T(z_1, z_2, z_3, z_4) = (0, 3 z_1, 2 z_2, -3z_4)</m>.
           A calculation shows that
-          <me>
-            T^*T(z_1, z_2, z_3, z_4) = (9 z_1, 4z_2, 0, 9z_4)
-          </me>,
+          <md>
+            T^*T(z_1, z_2, z_3, z_4) = (9 z_1, 4z_2, 0, 9z_4),
+          </md>
           as you should verify.
           Thus the standard basis of <m>\F4</m> diagonalizes <m>T^*T</m>,
           and we see that the eigenvalues of <m>T^* T</m> are <m>9</m>,
           <m>4</m>,
           and <m>0</m>.
           Also, the dimensions of the eigenspaces corresponding to the eigenvalues are
-          <me>
-            \dim E( 9, T^* T ) = 2 \andd \dim E( 4, T^* T ) = 1 \andd \dim E( 0, T^*T ) = 1
-          </me>.
+          <md>
+            \dim E( 9, T^* T ) = 2 \andd \dim E( 4, T^* T ) = 1 \andd \dim E( 0, T^*T ) = 1.
+          </md>
         </p>
         <p>
           Taking nonnegative square roots of these eigenvalues of <m>T^*T</m> and using dimension information from above,
@@ -150,15 +150,15 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(  \F4, \F3  )</m> has matrix (with respect to the standard bases)
-          <me>
-            \begin{pmatrix}0 \amp  0 \amp  0 \amp  -5 \\ 0 \amp  0 \amp  0 \amp  0\\ 1 \amp  1 \amp  0 \amp  0 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}0 \amp  0 \amp  0 \amp  -5 \\ 0 \amp  0 \amp  0 \amp  0\\ 1 \amp  1 \amp  0 \amp  0 \end{pmatrix} .
+          </md>
         </p>
         <p>
           You can verify that the matrix of <m>T^* T</m> is
-          <me>
+          <md>
             \begin{pmatrix}1 \amp  1 \amp  0 \amp  0 \\ 1 \amp  1 \amp  0 \amp  0\\ 0 \amp  0 \amp  0\amp  0\\ 0 \amp  0 \amp  0 \amp  25 \end{pmatrix}
-          </me>
+          </md>
           and that the eigenvalues of the operator <m>T^*T</m> are <m>25</m>,
           <m>2</m>, <m>0</m>, with <m>\dim E( 25, T^* T ) = 1</m>,
           <m>\dim E( 2, T^* T ) = 1</m>,
@@ -219,7 +219,7 @@
     </proof>
     <p>
       The table below compares eigenvalues with singular values.
-      <me>
+      <md>
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -282,7 +282,7 @@
             <cell></cell>
           </row>
         </tabular>
-      </me>
+      </md>
     </p>
     <p>
       The next result nicely characterizes isometries in terms of singular values.
@@ -293,9 +293,9 @@
         <p>
           Suppose that <m>S \in \Lc(V{}, W)</m>.
           Then
-          <me>
-            \(S\) is an isometry \(\iff\) all singular values of \(S\) equal \(1\)
-          </me>.
+          <md>
+            \(S\) is an isometry \(\iff\) all singular values of \(S\) equal \(1\).
+          </md>
         </p>
       </statement>
     </theorem>
@@ -335,9 +335,9 @@
           <m>e_1, \dots,
           e_m</m> in <m>V</m> and <m>f_1, \dots,
           f_m</m> in<nbsp/><m>W</m> such that
-          <men xml:id="x6Tv">
+          <md number="yes" xml:id="x6Tv">
             Tv = s_1 \langle v, e_1 \rangle  f_1 + \dots + s_m \langle v, e_m \rangle  f_m
-          </men>
+          </md>
           for every <m>v \in V{}</m>.
         </p>
       </statement>
@@ -348,22 +348,22 @@
         (thus <m>n = \dim V</m>).
         Because <m>T^*T</m> is a positive operator [<xref ref="x2Tstar">see</xref>(a)] , the spectral theorem implies that there exists an orthonormal basis <m>e_1, \ldots,
         e_n</m> of <m>V</m> with
-        <men xml:id="x6sing">
+        <md number="yes" xml:id="x6sing">
           T^*T e_k = {s_k}^{2} e_k
-        </men>
+        </md>
         for each <m>k = 1, \ldots, n</m>.
       </p>
       <p>
         For each <m>k = 1, \ldots, m</m>, let
-        <men xml:id="x7v">
-          f_k = \frac{Te_k}{s_k}
-        </men>.
+        <md number="yes" xml:id="x7v">
+          f_k = \frac{Te_k}{s_k}.
+        </md>
       </p>
       <p>
         If <m>j, k \in \{ 1, \ldots, m \}</m>, then
-        <me>
+        <md>
           \langle f_j, f_k \rangle  = \frac{1}{s_j s_k} \langle Te_j, Te_k \rangle  =  \frac{1}{s_j s_k} \langle e_j, T^*T e_k \rangle  = \frac{s_k}{s_j} \langle e_j, e_k \rangle = \begin{cases}0 \amp  \text{ if }  j \ne k ,\\ 1 \amp  \text{ if }  j = k. \end{cases}
-        </me>
+        </md>
       </p>
       <p>
         Thus <m>f_1, \ldots, f_m</m> is an orthonormal list in <m>W{}</m>.
@@ -403,17 +403,17 @@
       f_m</m> can be extended to an orthonormal basis <m>f_1, \ldots,
       f_{\dim W}</m> of <m>W{}</m>.
       The <xref ref="x6Tv">formula</xref> shows that
-      <me>
+      <md>
         Te_k = \begin{cases}s_k f_k \amp  \text{ if }  1 \le k \le m,\\ 0 \amp  \text{ if }  m \lt  k \le \dim V{}. \end{cases}
-      </me>
+      </md>
     </p>
     <p>
       Thus the matrix of <m>T</m> with respect to the orthonormal bases <m>(e_1, \ldots,
       e_{\dim V})</m> and <m>(f_1, \ldots,
       f_{\dim W})</m> has the simple form
-      <me>
+      <md>
         \M(  T, (e_1, \ldots, e_{\dim V}), (f_1, \ldots, f_{\dim W})  )_{j,k} = \begin{cases}s_k \amp \text{ if }  1 \le j = k \le m, \\ 0 \amp \text{ otherwise } . \end{cases}
-      </me>
+      </md>
     </p>
     <p>
       If <m>\dim V = \dim W</m>
@@ -436,7 +436,7 @@
     <p>
       The table below compares the spectral theorem ( <xref ref="x86"></xref>
       and <xref ref="x85"></xref>) with the singular value decomposition <xref ref="x382"/>.
-      <me>
+      <md>
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -475,7 +475,7 @@
             <cell></cell>
           </row>
         </tabular>
-      </me>
+      </md>
     </p>
     <p>
       The singular value decomposition gives us a new way to understand the adjoint and the inverse of a linear map.
@@ -504,18 +504,18 @@
           Suppose <m>e_1, \dots, e_m</m> and
           <m>f_1, \dots,
           f_m</m> are orthonormal lists in <m>V</m> and <m>W</m> such that
-          <men xml:id="x5SVD">
+          <md number="yes" xml:id="x5SVD">
             Tv = s_1 \langle v, e_1 \rangle  f_1 + \dots + s_m \langle v, e_m \rangle  f_m
-          </men>
+          </md>
           for every <m>v \in V{}</m>.
           Then
-          <men xml:id="x6SVD">
+          <md number="yes" xml:id="x6SVD">
             T^*w = s_1 \langle w, f_1 \rangle  e_1 + \dots + s_m \langle w, f_m \rangle  e_m
-          </men>
+          </md>
           and
-          <men xml:id="x7SVD">
+          <md number="yes" xml:id="x7SVD">
             T^\dagger w = \frac{\langle w, f_1 \rangle }{s_1} e_1 + \dots + \frac{\langle w, f_m \rangle }{s_m} e_m
-          </men>
+          </md>
           for every <m>w \in W{}</m>.
         </p>
       </statement>
@@ -531,9 +531,9 @@
       </p>
       <p>
         This implies that
-        <me>
-          T^*w = s_1 \langle w, f_1 \rangle  e_1 + \dots + s_m \langle w, f_m \rangle  e_m
-        </me>,
+        <md>
+          T^*w = s_1 \langle w, f_1 \rangle  e_1 + \dots + s_m \langle w, f_m \rangle  e_m,
+        </md>
       </p>
       <p>
         <xref ref="x6SVD">proving</xref>.
@@ -541,9 +541,9 @@
       <p>
         To <xref ref="x7SVD">prove</xref>, suppose <m>w \in W{}</m>.
         Let
-        <me>
-          v = \frac{\langle w, f_1 \rangle }{s_1} e_1 + \dots + \frac{\langle w, f_m \rangle }{s_m} e_m
-        </me>.
+        <md>
+          v = \frac{\langle w, f_1 \rangle }{s_1} e_1 + \dots + \frac{\langle w, f_m \rangle }{s_m} e_m.
+        </md>
       </p>
       <p>
         Apply <m>T</m> to both sides of the equation above, getting
@@ -572,16 +572,16 @@
           The matrix of <m>T</m>
           (with respect to the standard bases)
           is
-          <me>
-            \begin{pmatrix}0 \amp  0 \amp  0 \amp  -5 \\ 0 \amp  0 \amp  0 \amp  0\\ 1 \amp  1 \amp  0 \amp  0 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}0 \amp  0 \amp  0 \amp  -5 \\ 0 \amp  0 \amp  0 \amp  0\\ 1 \amp  1 \amp  0 \amp  0 \end{pmatrix} .
+          </md>
         </p>
         <p>
           Thus, as discussed in <xref ref="x43singular">Example</xref>,
           the matrix of <m>T^*T</m> is
-          <me>
-            \begin{pmatrix}1 \amp  1 \amp  0 \amp  0 \\ 1 \amp  1 \amp  0 \amp  0\\ 0 \amp  0 \amp  0\amp  0\\ 0 \amp  0 \amp  0 \amp  25 \end{pmatrix}
-          </me>,
+          <md>
+            \begin{pmatrix}1 \amp  1 \amp  0 \amp  0 \\ 1 \amp  1 \amp  0 \amp  0\\ 0 \amp  0 \amp  0\amp  0\\ 0 \amp  0 \amp  0 \amp  25 \end{pmatrix} ,
+          </md>
           and the positive eigenvalues of <m>T^*T</m> are <m>25</m>,
           <m>2</m>,
           with <m>\dim E( 25, T^* T ) = 1</m> and <m>\dim E( 2, T^* T ) = 1</m>.
@@ -592,30 +592,30 @@
           we must find an orthonormal list
           <m>e_1, e_2</m> in <m>\F4</m> and an orthonormal list
           <m>f_1, f_2</m> in <m>\F3</m> such that
-          <me>
+          <md>
             Tv = 5 \langle v, e_1 \rangle  f_1 + \sqrt{2} \langle v, e_2 \rangle  f_2
-          </me>
+          </md>
           for all <m>v \in \F4</m>.
         </p>
         <p>
           An orthonormal basis of <m>E( 25, T^* T )</m> is the vector <m>(0,0,0,1 )</m>;
           an orthonormal basis of <m>E( 2, T^*T )</m> is the vector <m>(  \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}},0,0  )</m>.
           Thus, following the proof of <xref ref="x382"></xref>, we take
-          <me>
+          <md>
             e_1 = (0,0,0,1) \andd e_2 = (  \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}},0,0  )
-          </me>
+          </md>
           and
-          <me>
-            f_1 = \frac{Te_1}{5} = (-1, 0, 0) \andd f_2 = \frac{Te_2}{\sqrt{2}} = (0, 0, 1)
-          </me>.
+          <md>
+            f_1 = \frac{Te_1}{5} = (-1, 0, 0) \andd f_2 = \frac{Te_2}{\sqrt{2}} = (0, 0, 1).
+          </md>
         </p>
         <p>
           Then, as expected, we see that
           <m>e_1, e_2</m> is an orthonormal list in <m>\F4</m> and
           <m>f_1, f_2</m> is an orthonormal list in <m>\F3</m> and
-          <me>
+          <md>
             Tv = 5 \langle v, e_1 \rangle  f_1 + \sqrt{2} \langle v, e_2 \rangle  f_2
-          </me>
+          </md>
           for all <m>v \in \F4</m>.
           Thus we have found a singular value decomposition of <m>T{}</m>.
         </p>
@@ -640,9 +640,9 @@
           Then there exist a <m>p</m>-by-<m>m</m> matrix <m>B</m> with orthonormal columns,
           an <m>m</m>-by-<m>m</m> diagonal matrix<nbsp/><m>D</m> with positive numbers on the diagonal,
           and an <m>n</m>-by-<m>m</m> matrix <m>C</m> with orthonormal columns such that
-          <me>
-            A = B D C^*{}
-          </me>.
+          <md>
+            A = B D C^*{}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -652,9 +652,9 @@
         Then <m>\dim \ran T = m</m>
         (by <xref ref="x3rangecolrank"></xref>).
         Let
-        <men xml:id="x7MatSVD">
+        <md number="yes" xml:id="x7MatSVD">
           Tv = s_1 \langle v, e_1 \rangle f_1 + \cdots + s_m \langle v, e_m \rangle  f_m
-        </men>
+        </md>
         be a singular value decomposition of <m>T{}</m>.
         Let
         <md>
@@ -667,9 +667,9 @@
         Let <m>u_1, \ldots,
         u_m</m> denote the standard basis of <m>\FF{m}</m>.
         If <m>k \in \{ 1, \ldots, m \}</m> then
-        <me>
-          (AC - BD)u_k = Ae_k - B(s_k u_k) = s_k f_k - s_k f_k = 0
-        </me>.
+        <md>
+          (AC - BD)u_k = Ae_k - B(s_k u_k) = s_k f_k - s_k f_k = 0.
+        </md>
       </p>
       <p>
         Thus <m>AC = B D</m>.
@@ -678,9 +678,9 @@
         Multiply both sides of this last equation by <m>C^*</m>
         (the conjugate transpose of <m>C</m>)
         on the right to get
-        <me>
-          ACC^* = B D C^*{}
-        </me>.
+        <md>
+          ACC^* = B D C^*{}.
+        </md>
       </p>
       <p>
         Note that the rows of <m>C^*</m> are the complex conjugates of <m>e_1, \ldots, e_m</m>.
@@ -705,9 +705,9 @@
         e_m)</m> and on <m>( \Span(e_1, \dots,
         e_m) )^\perp</m>, we conclude that <m>ACC^* = A</m>.
         Thus the displayed equation above becomes
-        <me>
-          A = B D C^*{}
-        </me>,
+        <md>
+          A = B D C^*{},
+        </md>
         as desired.
       </p>
     </proof>
@@ -715,258 +715,256 @@
       Note that the matrix <m>A</m> in the result above has <m>pn</m> entries.
       In comparison, the matrices <m>B</m>, <m>D</m>,
       and <m>C</m> above have a total of
-      <me>
+      <md>
         m(p + m + n)
-      </me>
+      </md>
       entries.
       Thus if <m>p</m> and <m>n</m> are large numbers and the rank <m>m</m> is considerably less than <m>p</m> and <m>n</m>,
       then the number of entries that must be stored on a computer to represent <m>A</m> is considerably less than <m>pn</m>.
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Show that <m>T = 0</m> if and only if all singular values of <m>T</m> are <m>0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2Schmidt">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m> and <m>s > 0</m>.
-              Prove that <m>s</m> is a singular value of <m>T</m> if and only if there exist nonzero vectors <m>v \in V</m> and <m>w \in W</m> such that
-              <me>
-                Tv = sw \andd T^* w = sv
-              </me>.
-            </p>
-            <p>
-              Note: The vectors <m>v,
-              w</m> satisfying both equations above are called a <em>Schmidt pair</em>.
-              Erhard Schmidt introduced the concept of singular values in 1907.
-          <idx><h>Schmidt pair</h></idx>
-          <idx><h>Schmidt, Erhard</h></idx>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of <m>T \in \Lc( \C2 )</m> such that <m>0</m> is the only eigenvalue of <m>T</m> and the singular values of <m>T</m> are <m>5, 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3interval">
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V{}, W)</m>,
-              <m>s_1</m> is the largest singular value of <m>T</m>,
-              and <m>s_n</m> is the smallest singular value of <m>T{}</m>.
-              Prove that
-              <me>
-                \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  = 1  \} = [s_n, s_1]
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \C{2} )</m> is defined by <m>T(x, y) = (-4y, x)</m>.
-              Find the singular values of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find the singular values of the differentiation operator
-              <m>D \in \Lc\bigl(\P{}_2(\R{})\bigr)</m> defined by <m>Dp = p'\!</m>,
-              where the inner product on
-              <m>\P{}_2(\R{})</m> is as in <xref ref="obP2R">Example</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7singsp">
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> is self-adjoint or that
-              <m>\F{}= \C{}</m> and <m>T \in \Lc(V)</m> is normal.
-              Let <m>\lambda_1, \ldots, \lambda_n</m> be the eigenvalues of <m>T</m>,
-              each included in this list as many times as the dimension of the corresponding eigenspace.
-              Show that the singular values of <m>T</m> are <m>\lvert \lambda_1 \rvert , \ldots, \lvert \lambda_n \rvert</m>,
-              after these numbers have been sorted into decreasing order.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x4SVD">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Suppose <m>s_1 \ge  s_2 \ge \cdots \ge s_m >0</m> and
-              <m>e_1, \dots,
-              e_m</m> is an orthonormal list in <m>V</m> and
-              <m>f_1, \dots,
-              f_m</m> is an orthonormal list in<nbsp/><m>W</m> such that
-              <me>
-                Tv = s_1 \langle v, e_1 \rangle  f_1 + \dots + s_m \langle v, e_m \rangle  f_m
-              </me>
-              for every <m>v \in V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>f_1, \dots,
-                    f_m</m> is an orthonormal basis of <m>\ran T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>e_1, \dots,
-                    e_m</m> is an orthonormal basis of <m>(\ker T)^\perp</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>s_1, \ldots,
-                    s_m</m> are the positive singular values of <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that if <m>k \in \{ 1, \ldots, m \}</m>,
-                    then <m>e_k</m> is an eigenvector of <m>T^*T</m> with corresponding eigenvalue <m>{s_k}^{2}{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that
-                    <me>
-                      TT^*w = {s_1}^{2} \langle w, f_1 \rangle  f_1 + \cdots + {s_m}^{2} \langle w, f_m \rangle  f_m
-                    </me>
-                    for all <m>w \in W{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x4TstarSing">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Show that <m>T</m> and <m>T^*</m> have the same positive singular values.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7singinv">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m> has singular values <m>s_1, \ldots, s_n</m>.
-              Prove that if <m>T</m> is an invertible linear map,
-              then <m>T^{-1}</m> has singular values
-              <me>
-                \frac{1}{s_n}, \ldots, \frac{1}{s_1}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7sums2">
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V{}, W)</m> and
-              <m>v_1, \ldots,
-              v_n</m> is an orthonormal basis of <m>V{}</m>.
-              Let <m>s_1, \ldots, s_n</m> denote the singular values of <m>T{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>\lVert Tv_1 \rVert ^2 + \cdots + \lVert Tv_n \rVert ^2 = {s_1}^{2} + \cdots + {s_n}^{2}{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that if <m>W = V</m> and <m>T</m> is a positive operator, then
-                    <me>
-                      \langle Tv_1, v_1 \rangle  + \cdots + \langle Tv_n, v_n \rangle  = s_1 + \cdots + s_n
-                    </me>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: See the comment after <xref ref="x6sumT2">Exercise</xref>
-              in <xref ref="selfadjoint_normal">Section</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Show that <m>T = 0</m> if and only if all singular values of <m>T</m> are <m>0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2Schmidt">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m> and <m>s > 0</m>.
+            Prove that <m>s</m> is a singular value of <m>T</m> if and only if there exist nonzero vectors <m>v \in V</m> and <m>w \in W</m> such that
+            <md>
+              Tv = sw \andd T^* w = sv.
+            </md>
+          </p>
+          <p>
+            Note: The vectors <m>v,
+            w</m> satisfying both equations above are called a <em>Schmidt pair</em>.
+            Erhard Schmidt introduced the concept of singular values in 1907.
+                <idx><h>Schmidt pair</h></idx>
+                <idx><h>Schmidt, Erhard</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of <m>T \in \Lc( \C2 )</m> such that <m>0</m> is the only eigenvalue of <m>T</m> and the singular values of <m>T</m> are <m>5, 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3interval">
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V{}, W)</m>,
+            <m>s_1</m> is the largest singular value of <m>T</m>,
+            and <m>s_n</m> is the smallest singular value of <m>T{}</m>.
+            Prove that
+            <md>
+              \{  \lVert Tv \rVert  : v \in V \text{ and }  \lVert v \rVert  = 1  \} = [s_n, s_1].
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \C{2} )</m> is defined by <m>T(x, y) = (-4y, x)</m>.
+            Find the singular values of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find the singular values of the differentiation operator
+            <m>D \in \Lc\bigl(\P{}_2(\R{})\bigr)</m> defined by <m>Dp = p'\!</m>,
+            where the inner product on
+            <m>\P{}_2(\R{})</m> is as in <xref ref="obP2R">Example</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7singsp">
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> is self-adjoint or that
+            <m>\F{}= \C{}</m> and <m>T \in \Lc(V)</m> is normal.
+            Let <m>\lambda_1, \ldots, \lambda_n</m> be the eigenvalues of <m>T</m>,
+            each included in this list as many times as the dimension of the corresponding eigenspace.
+            Show that the singular values of <m>T</m> are <m>\lvert \lambda_1 \rvert , \ldots, \lvert \lambda_n \rvert</m>,
+            after these numbers have been sorted into decreasing order.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4SVD">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Suppose <m>s_1 \ge  s_2 \ge \cdots \ge s_m >0</m> and
+            <m>e_1, \dots,
+            e_m</m> is an orthonormal list in <m>V</m> and
+            <m>f_1, \dots,
+            f_m</m> is an orthonormal list in<nbsp/><m>W</m> such that
+            <md>
+              Tv = s_1 \langle v, e_1 \rangle  f_1 + \dots + s_m \langle v, e_m \rangle  f_m
+            </md>
+            for every <m>v \in V{}</m>.
             <ol>
               <li>
                 <p>
-                  Give an example of a finite-dimensional vector space and an operator <m>T</m> on it such that the singular values of <m>T^2</m> do not equal the squares of the singular values of<nbsp/><m>T{}</m>.
+                  Prove that <m>f_1, \dots,
+                  f_m</m> is an orthonormal basis of <m>\ran T{}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Suppose <m>T \in \Lc(V)</m> is normal.
-                  Prove that the singular values of <m>T^2</m> equal the squares of the singular values of<nbsp/><m>T{}</m>.
+                  Prove that <m>e_1, \dots,
+                  e_m</m> is an orthonormal basis of <m>(\ker T)^\perp</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>s_1, \ldots,
+                  s_m</m> are the positive singular values of <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that if <m>k \in \{ 1, \ldots, m \}</m>,
+                  then <m>e_k</m> is an eigenvector of <m>T^*T</m> with corresponding eigenvalue <m>{s_k}^{2}{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that
+                  <md>
+                    TT^*w = {s_1}^{2} \langle w, f_1 \rangle  f_1 + \cdots + {s_m}^{2} \langle w, f_m \rangle  f_m
+                  </md>
+                  for all <m>w \in W{}</m>.
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T{}_1, T{}_2 \in \Lc(V)</m>.
-              Prove that <m>T{}_1</m> and <m>T{}_2</m> have the same singular values if and only if there exist unitary operators
-              <m>S_1, S_2 \in \Lc(V)</m> such that <m>T{}_1 = S_1 T{}_2 S_2</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3smallSV">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{},W)</m>.
-              Let <m>s_n</m> denote the smallest singular value of<nbsp/><m>T{}</m>.
-              Prove that <m>s_n \| v \| \le \| Tv \|</m> for every <m>v \in V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>s_1 \ge \cdots \ge s_n</m> are the singular values of <m>T{}</m>.
-              Prove that if <m>\lambda</m> is an eigenvalue of <m>T</m>,
-              then <m>s_1 \ge |\lambda| \ge s_n</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x7Tdagstar">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m>.
-              Prove that <m>( T^* )^\dagger = ( T^\dagger )^*{}</m>.
-          <idx><h>pseudoinverse|(</h></idx>
-      Note: Compare the result in this exercise to the analogous result for invertible linear maps \big[<xref ref="x7propadjoint">see</xref> ( f ) \big].
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is self-adjoint if and only if <m>T^\dagger</m> is self-adjoint.
-          <idx><h>pseudoinverse|)</h></idx>
-      </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4TstarSing">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Show that <m>T</m> and <m>T^*</m> have the same positive singular values.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7singinv">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m> has singular values <m>s_1, \ldots, s_n</m>.
+            Prove that if <m>T</m> is an invertible linear map,
+            then <m>T^{-1}</m> has singular values
+            <md>
+              \frac{1}{s_n}, \ldots, \frac{1}{s_1}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7sums2">
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V{}, W)</m> and
+            <m>v_1, \ldots,
+            v_n</m> is an orthonormal basis of <m>V{}</m>.
+            Let <m>s_1, \ldots, s_n</m> denote the singular values of <m>T{}</m>.
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>\lVert Tv_1 \rVert ^2 + \cdots + \lVert Tv_n \rVert ^2 = {s_1}^{2} + \cdots + {s_n}^{2}{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that if <m>W = V</m> and <m>T</m> is a positive operator, then
+                  <md>
+                    \langle Tv_1, v_1 \rangle  + \cdots + \langle Tv_n, v_n \rangle  = s_1 + \cdots + s_n.
+                  </md>
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: See the comment after <xref ref="x6sumT2">Exercise</xref>
+            in <xref ref="selfadjoint_normal">Section</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Give an example of a finite-dimensional vector space and an operator <m>T</m> on it such that the singular values of <m>T^2</m> do not equal the squares of the singular values of<nbsp/><m>T{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>T \in \Lc(V)</m> is normal.
+                Prove that the singular values of <m>T^2</m> equal the squares of the singular values of<nbsp/><m>T{}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T{}_1, T{}_2 \in \Lc(V)</m>.
+            Prove that <m>T{}_1</m> and <m>T{}_2</m> have the same singular values if and only if there exist unitary operators
+            <m>S_1, S_2 \in \Lc(V)</m> such that <m>T{}_1 = S_1 T{}_2 S_2</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3smallSV">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{},W)</m>.
+            Let <m>s_n</m> denote the smallest singular value of<nbsp/><m>T{}</m>.
+            Prove that <m>s_n \| v \| \le \| Tv \|</m> for every <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>s_1 \ge \cdots \ge s_n</m> are the singular values of <m>T{}</m>.
+            Prove that if <m>\lambda</m> is an eigenvalue of <m>T</m>,
+            then <m>s_1 \ge |\lambda| \ge s_n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x7Tdagstar">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m>.
+            Prove that <m>( T^* )^\dagger = ( T^\dagger )^*{}</m>.
+                <idx><h>pseudoinverse|(</h></idx>
+            Note: Compare the result in this exercise to the analogous result for invertible linear maps \big[<xref ref="x7propadjoint">see</xref> ( f ) \big].
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is self-adjoint if and only if <m>T^\dagger</m> is self-adjoint.
+                <idx><h>pseudoinverse|)</h></idx>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
     <p>
       <blockquote>
         <p>

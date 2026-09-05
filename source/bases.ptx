@@ -51,9 +51,9 @@
         <li>
           <p>
             The list <m>(1, -1, 0), (1, 0, -1)</m> is a basis of
-            <me>
-              \{ (x, y, z) \in \F{3} \colon x + y + z = 0 \}
-            </me>.
+            <md>
+              \{ (x, y, z) \in \F{3} \colon x + y + z = 0 \}.
+            </md>
           </p>
         </li>
         <li>
@@ -70,9 +70,9 @@
     In addition to the standard basis,
     <m>\F{n}</m> has many other bases.
     For example,
-    <me>
+    <md>
       (7, 5), (-4, 9) \andd (1,2), (3,5)
-    </me>
+    </md>
     are both bases of <m>\FF{2}</m>.
   </p>
   <p>
@@ -88,9 +88,9 @@
       <p>
         A list <m>v_1, \dots,
         v_n</m> of vectors in <m>V</m> is a basis of <m>V</m> if and only if every <m>v \in V</m> can be written uniquely in the form
-        <men xml:id="x66">
-          v = a_1 v_1 + \dots + a_n v_n
-        </men>,
+        <md number="yes" xml:id="x66">
+          v = a_1 v_1 + \dots + a_n v_n,
+        </md>
         where <m>a_1, \dots, a_n \in \F{}{}</m>.
       </p>
     </statement>
@@ -110,15 +110,15 @@
       a_n \in \F{}</m> such that <xref ref="x66"></xref> holds.
       To show that the representation in <xref ref="x66"></xref> is unique,
       suppose <m>c_1, \dots, c_n</m> are scalars such that we also have
-      <me>
-        v = c_1 v_1 + \dots + c_n v_n
-      </me>.
+      <md>
+        v = c_1 v_1 + \dots + c_n v_n.
+      </md>
     </p>
     <p>
       Subtracting the last equation from <xref ref="x66"></xref>, we get
-      <me>
-        0 = (a_1 - c_1) v_1 + \dots + (a_n - c_n) v_n
-      </me>.
+      <md>
+        0 = (a_1 - c_1) v_1 + \dots + (a_n - c_n) v_n.
+      </md>
     </p>
     <p>
       This implies that each <m>a_k - c_k</m> equals <m>0</m>
@@ -133,9 +133,9 @@
       This implies that the list <m>v_1, \dots, v_n</m> spans <m>V{}</m>.
       To show that <m>v_1, \dots, v_n</m> is linearly independent,
       suppose <m>a_1, \dots, a_n \in \F{}</m> are such that
-      <me>
-        0 = a_1 v_1 + \dots + a_n v_n
-      </me>.
+      <md>
+        0 = a_1 v_1 + \dots + a_n v_n.
+      </md>
     </p>
     <p>
       The uniqueness of the <xref ref="x66">representation</xref>
@@ -245,9 +245,9 @@
       Let <m>w_1, \dots,
       w_n</m> be a list of vectors in <m>V</m> that spans <m>V{}</m>.
       Thus the list
-      <me>
+      <md>
         u_1, \dots, u_m, w_1, \dots, w_n
-      </me>
+      </md>
       spans <m>V{}</m>.
       Applying the procedure of the proof of <xref ref="x267"></xref>
       to reduce this list to a basis of <m>V</m> produces a basis consisting of the vectors
@@ -263,9 +263,9 @@
     suppose we start with the linearly independent list <m>(2, 3, 4), (9, 6, 8)</m>.
     If we take <m>w_1, w_2, w_3</m> to be the standard basis of <m>\FF{3}</m>,
     then applying the procedure in the proof above produces the list
-    <me>
-      (2, 3, 4), (9, 6, 8), (0, 1, 0)
-    </me>,
+    <md>
+      (2, 3, 4), (9, 6, 8), (0, 1, 0),
+    </md>
     which is a basis of <m>\FF{3}</m>.
   </p>
   <aside>
@@ -306,9 +306,9 @@
     <p>
       To prove that <m>V = U \oplus W{}</m>,
       by <xref ref="x219"></xref> we only need to show that
-      <me>
-        V = U + W \andd U \cap W = \{0\}
-      </me>.
+      <md>
+        V = U + W \andd U \cap W = \{0\}.
+      </md>
     </p>
     <p>
       To prove the first equation above, suppose <m>v \in V{}</m>.
@@ -316,9 +316,9 @@
       u_m, w_1, \dots, w_n</m> spans <m>V{}</m>,
       there exist <m>a_1, \dots, a_m, b_1, \dots,
       b_n \in \F{}</m> such that
-      <me>
-        v = \underbrace{a_1 u_1 + \dots + a_m u_m}_u + \underbrace{b_1 w_1 + \dots + b_n w_n}_w{}
-      </me>.
+      <md>
+        v = \underbrace{a_1 u_1 + \dots + a_m u_m}_u + \underbrace{b_1 w_1 + \dots + b_n w_n}_w{}.
+      </md>
     </p>
     <p>
       We have <m>v = u + w</m>,
@@ -330,183 +330,181 @@
       suppose <m>v \in U \cap W{}</m>.
       Then there exist scalars <m>a_1, \dots, a_m, b_1, \dots,
       b_n \in \F{}</m> such that
-      <me>
-        v = a_1 u_1 + \dots + a_m u_m = b_1 w_1 + \dots + b_n w_n
-      </me>.
+      <md>
+        v = a_1 u_1 + \dots + a_m u_m = b_1 w_1 + \dots + b_n w_n.
+      </md>
     </p>
     <p>
       Thus
-      <me>
-        a_1 u_1 + \dots + a_m u_m - b_1 w_1 - \dots - b_n w_n = 0
-      </me>.
+      <md>
+        a_1 u_1 + \dots + a_m u_m - b_1 w_1 - \dots - b_n w_n = 0.
+      </md>
     </p>
     <p>
       Because <m>u_1, \dots, u_m, w_1, \dots,
       w_n</m> is linearly independent, this implies that
-      <me>
-        a_1 = \dots = a_m = b_1 = \dots = b_n = 0
-      </me>.
+      <md>
+        a_1 = \dots = a_m = b_1 = \dots = b_n = 0.
+      </md>
     </p>
     <p>
       Thus <m>v = 0</m>, completing the proof that <m>U \cap W = \{0\}</m>.
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Find all vector spaces that have exactly one basis.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Verify all assertions in <xref ref="ex_bases">Example</xref>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <ol>
-            <li>
-              <p>
-                Let <m>U</m> be the subspace of <m>\R{5}</m> defined by
-                <me>
-                  U = \{  (x_1, x_2, x_3, x_4, x_5) \in \R{5}: x_1 = 3 x_2 \ and\  x_3 = 7x_4 \}
-                </me>.
-                Find a basis of <m>U</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Extend the basis in (a) to a basis of <m>\RR5</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Find a subspace <m>W</m> of <m>\R5</m> such that <m>\R5 = U \oplus W{}</m>.
-              </p>
-            </li>
-          </ol>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <ol>
-            <li>
-              <p>
-                Let <m>U</m> be the subspace of <m>\C{5}</m> defined by
-                <me>
-                  U = \{  (z_1, z_2, z_3, z_4, z_5) \in \C{5}: 6 z_1 = z_2 \ and\  z_3 + 2z_4 + 3z_5 = 0 \}
-                </me>.
-                Find a basis of <m>U</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Extend the basis in (a) to a basis of <m>\CC5</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Find a subspace <m>W</m> of <m>\C5</m> such that <m>\C5 = U \oplus W{}</m>.
-              </p>
-            </li>
-          </ol>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional and <m>U, W</m> are subspaces of <m>V</m> such that <m>V = U + W{}</m>.
-            Prove that there exists a basis of <m>V</m> consisting of vectors in <m>U \cup W{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Prove or give a counterexample: If <m>p_0, p_1, p_2, p_3</m> is a list in
-            <m>\P{}_3(\F{})</m> such that none of the polynomials
-            <m>p_0, p_1, p_2, p_3</m> has degree<nbsp/><m>2</m>,
-            then <m>p_0, p_1, p_2, p_3</m> is not a basis of <m>\P{}_3(\F{})</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V{}</m>.
-            Prove that
-            <me>
-              v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4
-            </me>
-            is also a basis of <m>V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Prove or give a counterexample: If
-            <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V</m> and <m>U</m> is a subspace of <m>V</m> such that <m>v_1, v_2 \in U</m> and
-            <m>v_3 \notin U</m> and <m>v_4 \notin U</m>,
-            then <m>v_1, v_2</m> is a basis of <m>U</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
-            For <m>k \in \{ 1, \ldots, m \}</m>, let
-            <me>
-              w_k = v_1 + \cdots + v_k
-            </me>.
-          </p>
-          <p>
-            Show that <m>v_1, \ldots,
-            v_m</m> is a basis of <m>V</m> if and only if
-            <m>w_1, \ldots,
-            w_m</m> is a basis of <m>V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> such that <m>V = U \oplus W{}</m>.
-            Suppose also that <m>u_1, \dots,
-            u_m</m> is a basis of <m>U</m> and
-            <m>w_1, \dots,
-            w_n</m> is a basis of <m>W{}</m>.
-            Prove that
-            <me>
-              u_1, \dots, u_m, w_1, \dots, w_n
-            </me>
-            is a basis of <m>V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is a real vector space.
-            Show that if <m>v_1, \dots, v_n</m> is a basis of <m>V</m>
-            (as a real vector space),
-            then <m>v_1, \dots,
-            v_n</m> is also a basis of the complexification <m>V{}_{\C{}}</m>
-            (as a complex vector space).
-        <idx><h>complexification</h><h>of a vector space</h></idx>
-    Note: See <xref ref="x1VC">Exercise</xref>
-            in <xref ref="x1DefVS">Section</xref>
-            for the definition of the complexification <m>V{}_{\C{}}</m>.
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Find all vector spaces that have exactly one basis.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Verify all assertions in <xref ref="ex_bases">Example</xref>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Let <m>U</m> be the subspace of <m>\R{5}</m> defined by
+              <md>
+                U = \{  (x_1, x_2, x_3, x_4, x_5) \in \R{5}: x_1 = 3 x_2 \ and\  x_3 = 7x_4 \}.
+              </md>
+              Find a basis of <m>U</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Extend the basis in (a) to a basis of <m>\RR5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a subspace <m>W</m> of <m>\R5</m> such that <m>\R5 = U \oplus W{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Let <m>U</m> be the subspace of <m>\C{5}</m> defined by
+              <md>
+                U = \{  (z_1, z_2, z_3, z_4, z_5) \in \C{5}: 6 z_1 = z_2 \ and\  z_3 + 2z_4 + 3z_5 = 0 \}.
+              </md>
+              Find a basis of <m>U</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Extend the basis in (a) to a basis of <m>\CC5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a subspace <m>W</m> of <m>\C5</m> such that <m>\C5 = U \oplus W{}</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional and <m>U, W</m> are subspaces of <m>V</m> such that <m>V = U + W{}</m>.
+          Prove that there exists a basis of <m>V</m> consisting of vectors in <m>U \cup W{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Prove or give a counterexample: If <m>p_0, p_1, p_2, p_3</m> is a list in
+          <m>\P{}_3(\F{})</m> such that none of the polynomials
+          <m>p_0, p_1, p_2, p_3</m> has degree<nbsp/><m>2</m>,
+          then <m>p_0, p_1, p_2, p_3</m> is not a basis of <m>\P{}_3(\F{})</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V{}</m>.
+          Prove that
+          <md>
+            v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4
+          </md>
+          is also a basis of <m>V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Prove or give a counterexample: If
+          <m>v_1, v_2, v_3, v_4</m> is a basis of <m>V</m> and <m>U</m> is a subspace of <m>V</m> such that <m>v_1, v_2 \in U</m> and
+          <m>v_3 \notin U</m> and <m>v_4 \notin U</m>,
+          then <m>v_1, v_2</m> is a basis of <m>U</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
+          For <m>k \in \{ 1, \ldots, m \}</m>, let
+          <md>
+            w_k = v_1 + \cdots + v_k.
+          </md>
+        </p>
+        <p>
+          Show that <m>v_1, \ldots,
+          v_m</m> is a basis of <m>V</m> if and only if
+          <m>w_1, \ldots,
+          w_m</m> is a basis of <m>V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> such that <m>V = U \oplus W{}</m>.
+          Suppose also that <m>u_1, \dots,
+          u_m</m> is a basis of <m>U</m> and
+          <m>w_1, \dots,
+          w_n</m> is a basis of <m>W{}</m>.
+          Prove that
+          <md>
+            u_1, \dots, u_m, w_1, \dots, w_n
+          </md>
+          is a basis of <m>V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a real vector space.
+          Show that if <m>v_1, \dots, v_n</m> is a basis of <m>V</m>
+          (as a real vector space),
+          then <m>v_1, \dots,
+          v_n</m> is also a basis of the complexification <m>V{}_{\C{}}</m>
+          (as a complex vector space).
+              <idx><h>complexification</h><h>of a vector space</h></idx>
+          Note: See <xref ref="x1VC">Exercise</xref>
+          in <xref ref="x1DefVS">Section</xref>
+          for the definition of the complexification <m>V{}_{\C{}}</m>.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

@@ -24,9 +24,9 @@
     <p>
       Suppose <m>T \in \Lc(V)</m>.
       If <m>m \ge 2</m> and
-      <me>
-        V = V{}_1 \oplus \dots \oplus V{}_m
-      </me>,
+      <md>
+        V = V{}_1 \oplus \dots \oplus V{}_m  ,
+      </md>
       where each <m>V{}_k</m> is a nonzero subspace of <m>V{}</m>,
       then to understand the behavior of <m>T</m> we only need to understand the behavior of each
       <m>T|_{V{}_k}</m>;<idx><h sortby="TU"><m>T"|_U</m></h></idx> here
@@ -129,9 +129,9 @@
     </p>
     <p>
       Take any <m>v \in V</m> with <m>v \ne 0</m> and let <m>U</m> equal the set of all scalar multiples of<nbsp/><m>v</m>:
-      <me>
-        U = \{\lambda v: \lambda \in \F{}\} = \Span (v)
-      </me>.
+      <md>
+        U = \{\lambda v: \lambda \in \F{}\} = \Span (v).
+      </md>
     </p>
     <p>
       Then <m>U</m> is a one-dimensional subspace of <m>V</m>
@@ -139,9 +139,9 @@
       If <m>U</m> is invariant under an operator
       <m>T \in \Lc(V)</m>, then <m>Tv \in U</m>,
       and hence there is a scalar <m>\lambda \in \F{}</m> such that
-      <me>
-        Tv = \lambda v
-      </me>.
+      <md>
+        Tv = \lambda v.
+      </md>
     </p>
     <p>
       Conversely, if <m>Tv = \lambda v</m> for some <m>\lambda \in \F{}{}</m>,
@@ -183,9 +183,9 @@
       <statement>
         <p>
           Define an operator <m>T \in \Lc( \F3 )</m> by
-          <me>
+          <md>
             T(x,y,z) = (7x + 3z, 3x +6y + 9z, -6y)
-          </me>
+          </md>
           for <m>(x, y, z) \in \FF3</m>.
           Then <m>T(3,1,-1) = (18, 6, -6) = 6(3,1,-1)</m>.
           Thus <m>6</m> is an eigenvalue of <m>T{}</m>.
@@ -282,19 +282,19 @@
                 we must find the scalars <m>\lambda</m> such that
                 <m>T(w,z) = \lambda (w, z)</m> has some solution other than <m>w = z = 0</m>.
                 The equation <m>T(w,z) = \lambda (w, z)</m> is equivalent to the simultaneous equations
-                <men xml:id="x118">
-                  -z = \lambda w,  w = \lambda z
-                </men>.
+                <md number="yes" xml:id="x118">
+                  -z = \lambda w,  w = \lambda z.
+                </md>
                 Substituting the value for <m>w</m> given by the second equation into the first equation gives
-                <me>
-                  -z = \lambda^2 z
-                </me>.
+                <md>
+                  -z = \lambda^2 z.
+                </md>
                 Now <m>z</m> cannot equal <m>0</m>  [<xref ref="x118">otherwise</xref> implies that <m>w = 0</m>;
                 we are looking for solutions to <xref ref="x118"></xref>
                 such that <m>(w, z)</m> is not the <m>0</m> vector] , so the equation above leads to the equation
-                <me>
-                  -1 = \lambda^2{}
-                </me>.
+                <md>
+                  -1 = \lambda^2{}.
+                </md>
                 The solutions to this equation are
                 <m>\lambda = i</m> and <m>\lambda = -i</m>.
                 You can verify that <m>i</m> and <m>-i</m> are eigenvalues of <m>T{}</m>.
@@ -311,9 +311,9 @@
     </example>
     <p>
       In the next proof, we again use the equivalence
-      <me>
-        Tv = \lambda v \iff (T - \lambda I)v = 0
-      </me>.
+      <md>
+        Tv = \lambda v \iff (T - \lambda I)v = 0.
+      </md>
     </p>
     <theorem xml:id="x26">
       <title>linearly independent eigenvectors</title>
@@ -336,15 +336,15 @@
         a_m \in \F{}{}</m>, none of which are <m>0</m>
         (because of the minimality of <m>m</m>),
         such that
-        <me>
-          a_1 v_1 + \cdots + a_m v_m = 0
-        </me>.
+        <md>
+          a_1 v_1 + \cdots + a_m v_m = 0.
+        </md>
       </p>
       <p>
         Apply <m>T - \lambda_m I</m> to both sides of the equation above, getting
-        <me>
-          a_1 (\lambda_1 - \lambda_m) v_1 + \cdots + a_{m-1} (\lambda_{m-1} - \lambda_m) v_{m-1} = 0
-        </me>.
+        <md>
+          a_1 (\lambda_1 - \lambda_m) v_1 + \cdots + a_{m-1} (\lambda_{m-1} - \lambda_m) v_{m-1} = 0.
+        </md>
       </p>
       <p>
         Because the eigenvalues <m>\lambda_1, \ldots, \lambda_m</m> are distinct,
@@ -418,9 +418,9 @@
             <p>
               If <m>T</m> is invertible with inverse <m>T^{-1}{}</m>,
               then <m>T^{-m} \in \Lc(V)</m> is defined by
-              <me>
-                T^{-m} = ( T^{-1} )^m\!
-              </me>.
+              <md>
+                T^{-m} = ( T^{-1} )^m\!.
+              </md>
             </p>
           </li>
         </ol>
@@ -428,9 +428,9 @@
     </principle>
     <p>
       You should verify that if <m>T</m> is an operator, then
-      <me>
-        T^m T^n = T^{m+n} \andd ( T^m )^n = T^{mn}\!
-      </me>,
+      <md>
+        T^m T^n = T^{m+n} \andd ( T^m )^n = T^{mn}\!,
+      </md>
       where <m>m</m> and <m>n</m> are arbitrary integers if <m>T</m> is invertible and are nonnegative integers if <m>T</m> is not invertible.
     </p>
     <p>
@@ -442,15 +442,15 @@
       <p>
         Suppose <m>T \in \Lc(V)</m> and
         <m>p \in \P(\F{})</m> is a polynomial given by
-        <me>
+        <md>
           p(z) = a_0 + a_1 z + a_2 z^2 + \dots + a_m z^m
-        </me>
+        </md>
         for all <m>z \in \F{}{}</m>.
         Then <m>p(T)</m> is the operator on <m>V</m> defined by
             <idx><h sortby="pt"><m>p(T)</m></h></idx>
-        <me>
-          p(T) = a_0 I + a_1 T + a_2 T^2 + \dots + a_m T^m\!
-        </me>.
+        <md>
+          p(T) = a_0 I + a_1 T + a_2 T^2 + \dots + a_m T^m\!.
+        </md>
       </p>
     </principle>
     <p>
@@ -469,9 +469,9 @@
           Suppose <m>D \in \Lc\bigl(\P(\R{})\bigr)</m> is the differentiation operator<idx><h>differentiation linear map</h></idx> defined by <m>Dq = q'</m> and <m>p</m> is the polynomial defined by <m>p(x) = 7 - 3x + 5x^2{}</m>.
           Then <m>p(D) = 7I - 3D + 5D^2{}</m>.
           Thus
-          <me>
+          <md>
             \bigl(p(D)\bigr)q  = 7q - 3q' + 5q''
-          </me>
+          </md>
           for every <m>q \in \P(\R{})</m>.
         </p>
       </statement>
@@ -487,9 +487,9 @@
         <p>
           If <m>p, q \in \P(\F{})</m>,
           then <m>pq \in \P(\F{})</m> is the polynomial defined by<idx><h>product</h><h>of polynomials</h></idx>
-          <me>
+          <md>
             (pq)(z) = p(z) q(z)
-          </me>
+          </md>
           for all <m>z \in \F{}{}</m>.
         </p>
       </statement>
@@ -528,9 +528,9 @@
             Suppose <m>\displaystyle p(z) = \sum_{j=1[=0]}^m a_j z^j</m> and
             <m>\displaystyle q(z) = \sum_{k=0}^n b_k z^k</m> for all <m>z \in \F{}{}</m>.
             Then
-            <me>
-              (pq)(z) = \sum_{j=1[=0]}^m \sum_{k=0}^n a_j b_k z^{j+k}\!
-            </me>.
+            <md>
+              (pq)(z) = \sum_{j=1[=0]}^m \sum_{k=0}^n a_j b_k z^{j+k}\!.
+            </md>
             Thus
             <md>
               <mrow>(pq)(T) \amp = \sum_{j=1[=0]}^m \sum_{k=0}^n a_j b_k T^{j+k}</mrow>
@@ -567,9 +567,9 @@
         Suppose <m>u \in \ker p(T)</m>.
         Then <m>p(T)u = 0</m>.
         Thus
-        <me>
-          \bigl(p(T)\bigr)(Tu) = (  p(T) T  )(u) = (  T p(T)  )(u) = T\bigl(p(T)u\bigr) = T(0) = 0
-        </me>.
+        <md>
+          \bigl(p(T)\bigr)(Tu) = (  p(T) T  )(u) = (  T p(T)  )(u) = T\bigl(p(T)u\bigr) = T(0) = 0.
+        </md>
       </p>
       <p>
         Hence <m>Tu \in \ker p(T)</m>.
@@ -580,9 +580,9 @@
         Suppose <m>u \in \ran p(T)</m>.
         Then there exists <m>v \in V</m> such that <m>u = p(T)v</m>.
         Thus
-        <me>
-          Tu = T\bigl(p(T)v\bigr) = p(T)(Tv)
-        </me>.
+        <md>
+          Tu = T\bigl(p(T)v\bigr) = p(T)(Tv).
+        </md>
       </p>
       <p>
         Hence <m>Tu \in \ran p(T)</m>.
@@ -590,532 +590,530 @@
         as desired.
       </p>
     </proof>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of <m>V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that if <m>U \subset \ker T</m>,
-                    then <m>U</m> is invariant under <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that if <m>\ran T \subset U</m>,
-                    then <m>U</m> is invariant under <m>T{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m> and
-              <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V</m> invariant under<nbsp/><m>T{}</m>.
-              Prove that <m>V{}_1 + \dots + V{}_m</m> is invariant under <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that the intersection of every collection of subspaces of <m>V</m> invariant under <m>T</m> is invariant under<nbsp/><m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V</m> that is invariant under every operator on <m>V{}</m>,
-              then <m>U = \{0\}</m> or <m>U = V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \R{2} )</m> is defined by <m>T(x, y) = (-3y, x)</m>.
-              Find the eigenvalues of<nbsp/><m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \F{2} )</m> by <m>T(w, z) = (z, w)</m>.
-              Find all eigenvalues and eigenvectors of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \F{3} )</m> by <m>T(z_1, z_2, z_3) = (2 z_2, 0, 5z_3)</m>.
-              Find all eigenvalues and eigenvectors of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5P">
-          <statement>
-            <p>
-              Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P{}</m>.
-              Prove that if <m>\lambda</m> is an eigenvalue of<nbsp/><m>P{}</m>,
-              then <m>\lambda = 0</m> or <m>\lambda = 1</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \colon \P(\R{}) \to \P(\R{})</m> by <m>Tp = p'\!</m>.
-              Find all eigenvalues and eigenvectors of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc\bigl( \P{}_4(\R{}) \bigr)</m> by
-              <m>(Tp)(x) = x p' \! (x)</m> for all <m>x \in \R{}</m>.
-              Find all eigenvalues and eigenvectors of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>T \in \Lc(V)</m>, and <m>\alpha \in \F{}{}</m>.
-              Prove that there exists <m>\delta > 0</m> such that
-              <m>T - \lambda I</m> is invertible for all
-              <m>\lambda \in \F{}</m> such that <m>0 \lt |\alpha - \lambda| \lt \delta</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V = U \oplus W{}</m>,
-              where <m>U</m> and <m>W</m> are nonzero subspaces of<nbsp/><m>V{}</m>.
-              Define <m>P \in \Lc(V)</m> by
-              <m>P(u + w) = u</m> for each <m>u \in U</m> and each <m>w \in W{}</m>.
-              Find all eigenvalues and eigenvectors of<nbsp/><m>P{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Suppose <m>S \in \Lc(V)</m> is invertible.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>T</m> and <m>S^{-1} T S</m> have the same eigenvalues.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    What is the relationship between the eigenvectors of <m>T</m> and the eigenvectors of <m>S^{-1} T S</m>?
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of an operator on <m>\R{4}</m> that has no (real) eigenvalues.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5eigdual">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>T \in \Lc(V)</m>, and <m>\lambda \in \F{}{}</m>.
-              Show that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>\lambda</m> is an eigenvalue of the dual operator <m>T' \in \Lc(V')</m>.
-          <idx><h>dual</h><h>of an operator</h></idx>
-          <idx><h>eigenvalue</h><h>of dual of an operator</h></idx>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \ldots,
-              v_n</m> is a basis of <m>V</m> and <m>T \in \Lc(V)</m>.
-              Prove that if <m>\lambda</m> is an eigenvalue of <m>T</m>, then
-              <me>
-                \lvert \lambda \rvert  \le n \max \{  \lvert \M(T)_{j,k} \rvert  : 1 \le j, k \le n  \}
-              </me>,
-              where <m>\M(T)_{j,k}</m> denotes the entry in row <m>j</m>,
-              column <m>k</m> of the matrix of <m>T</m> with respect to the basis <m>v_1, \ldots, v_n</m>.
-              Note: See <xref ref="x2HSeigen">Exercise</xref>
-              in <xref ref="x6ipn">Section</xref>
-              for a different bound on <m>\lvert \lambda \rvert</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5realeig">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
-              and <m>\lambda \in \R{}</m>.
-              Prove that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>\lambda</m> is an eigenvalue of the complexification <m>T{}_{\C{}}</m>.
-          <idx><h>complexification</h><h>eigenvalues of|(</h></idx>
-      Note: See <xref ref="x3complexMap">Exercise</xref>
-              in <xref ref="x3nullspace">Section</xref>
-              for the definition of <m>T{}_{\C{}}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5TC">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
-              and <m>\lambda \in \C{}</m>.
-              Prove that <m>\lambda</m> is an eigenvalue of the complexification <m>T{}_{\C{}}</m> if and only if
-              <m>\bar{\lambda}</m> is an eigenvalue of <m>T{}_{\C{}}</m>.
-          <idx><h>complexification</h><h>eigenvalues of|)</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that the forward shift operator <m>T \in \Lc( \F{\infty} )</m> defined by
-          <idx><h>forward shift</h></idx>
-              <me>
-                T(z_1, z_2, \dots ) = (0, z_1, z_2, \dots )
-              </me>
-              has no eigenvalues.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define the backward shift operator <m>S \in \Lc( \F{\infty} )</m> by
-          <idx><h>backward shift</h></idx>
-              <me>
-                S(z_1, z_2, z_3, \dots) = (z_2, z_3, \dots)
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    Show that every element of <m>\F{}</m> is an eigenvalue of <m>S</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find all eigenvectors of <m>S</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is invertible.
-              <ol>
-                <li>
-                  <p>
-                    Suppose <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
-                    Prove that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if
-                    <m>\frac{1}{\lambda}</m> is an eigenvalue of<nbsp/><m>T^{-1}{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>T</m> and <m>T^{-1}</m> have the same eigenvectors.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and there exist nonzero vectors <m>u</m> and <m>w</m> in <m>V</m> such that
-              <me>
-                Tu = 3w \andd Tw = 3u
-              </me>.
-            </p>
-            <p>
-              Prove that <m>3</m> or <m>-3</m> is an eigenvalue of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V)</m>.
-              Prove that <m>ST</m> and <m>TS</m> have the same eigenvalues.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>A</m> is an <m>n</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
-              Define <m>T \in \Lc( \F{n} )</m> by <m>Tx = Ax</m>,
-              where elements of <m>\F{n}</m> are thought of as <m>n</m>-by-<m>1</m> column vectors.
-              <ol>
-                <li>
-                  <p>
-                    Suppose the sum of the entries in each row of <m>A</m> equals<nbsp/><m>1</m>.
-                    Prove that <m>1</m> is an eigenvalue of <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Suppose the sum of the entries in each column of <m>A</m> equals<nbsp/><m>1</m>.
-                    Prove that <m>1</m> is an eigenvalue of <m>T{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>u,
-              w</m> are eigenvectors of <m>T</m> such that <m>u+w</m> is also an eigenvector of <m>T{}</m>.
-              Prove that <m>u</m> and <m>w</m> are eigenvectors of <m>T</m> corresponding to the same eigenvalue.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x388">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is such that every nonzero vector in <m>V</m> is an eigenvector of<nbsp/><m>T{}</m>.
-              Prove that <m>T</m> is a scalar multiple of the identity operator.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional and <m>k \in \{ 1, \ldots,\dim V - 1 \}</m>.
-              Suppose <m>T \in \Lc(V)</m> is such that every subspace of <m>V</m> of dimension <m>k</m> is invariant under<nbsp/><m>T{}</m>.
-              Prove that <m>T</m> is a scalar multiple of the identity operator.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> has at most
-              <m>1 + \dim \ran T</m> distinct eigenvalues.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \R{3} )</m> and <m>-4</m>,
-              <m>5</m>, and <m>\sqrt{7}</m> are eigenvalues of <m>T{}</m>.
-              Prove that there exists <m>x \in \R{3}</m> such that <m>Tx - 9x = ( -4, 5, \sqrt{7} )</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>(T-2I) (T-3 I) (T-4 I) = 0</m>.
-              Suppose <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
-              Prove that <m>\lambda = 2</m> or
-              <m>\lambda = 3</m> or <m>\lambda = 4</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of <m>T \in \Lc( \R2 )</m> such that <m>T^4 = -I</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> has no eigenvalues and <m>T^4 = I</m>.
-              Prove that <m>T^2 = -I</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>T</m> is injective if and only if <m>T^m</m> is injective.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>T</m> is surjective if and only if <m>T^m</m> is surjective.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>v_1, \dots,
-              v_m \in V{}</m>.
-              Prove that the list <m>v_1, \dots,
-              v_m</m> is linearly independent if and only if there exists <m>T \in \Lc(V)</m> such that
-              <m>v_1, \dots,
-              v_m</m> are eigenvectors of <m>T</m> corresponding to distinct eigenvalues.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>\lambda_1, \dots, \lambda_n</m> is a list of distinct real numbers.
-              Prove that the list <m>e^{\lambda_1 x}, \dots,
-              e^{\lambda_n x}</m> is linearly independent in the vector space of real-valued functions on <m>\R{}</m>.
-              <hint>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of <m>V{}</m>.
+            <ol>
+              <li>
                 <p>
-                  Let <m>V = \Span( e^{\lambda_1 x}, \dots, e^{\lambda_n x} )</m>,
-                  and define an operator <m>D \in \Lc(V)</m> by <m>Df = f'\!</m>.
-                  Find eigenvalues and eigenvectors of <m>D</m>.
+                  Prove that if <m>U \subset \ker T</m>,
+                  then <m>U</m> is invariant under <m>T{}</m>.
                 </p>
-              </hint>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>\lambda_1, \dots, \lambda_n</m> is a list of distinct positive numbers.
-              Prove that the list <m>\cos(\lambda_1 x), \dots, \cos(\lambda_n x)</m> is linearly independent in the vector space of real-valued functions on <m>\R{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="LLV">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Define <m>\A \in \Lc( \Lc(V) )</m> by
-              <me>
-                \A(S) = TS
-              </me>
-              for each <m>S \in \Lc(V)</m>.
-              Prove that the set of eigenvalues of <m>T</m> equals the set of eigenvalues of <m>\A</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5quotient">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
-              and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
-              The <term>quotient operator</term>
-          <idx><h>quotient</h><h>operator</h></idx>
-              <m>T{}/U \in \Lc(V{}/U)</m> is defined by<idx><h sortby="TU2"><m>T{}/U</m></h></idx>
-              <me>
-                (T{}/U)(v + U) = Tv +U
-              </me>
-              for each <m>v \in V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that the definition of <m>T{}/U</m> makes sense
-                    (which requires using the condition that <m>U</m> is invariant under <m>T</m>)
-                    and show that <m>T{}/U</m> is an operator on <m>V{}/U</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that each eigenvalue of <m>T{}/U</m> is an eigenvalue of <m>T{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> has an eigenvalue if and only if there exists a subspace of <m>V</m> of dimension
-              <m>\dim V - 1</m> that is invariant under <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>S, T \in \Lc(V)</m> and <m>S</m> is invertible.
-              Suppose <m>p \in \P(\F{})</m> is a polynomial.
-              Prove that
-              <me>
-                p( STS^{-1} ) = S p(T) S^{-1}{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="InvPoly">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
-              Prove that <m>U</m> is invariant under <m>p(T)</m> for every polynomial <m>p \in \P(\F{})</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \F{n} )</m> by <m>T(x_1, x_2, x_3, \dots,
-              x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Find all eigenvalues and eigenvectors of <m>T{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find all subspaces of <m>\F n</m> that are invariant under <m>T{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional,
-              <m>\dim V > 1</m>, and <m>T \in \Lc(V)</m>.
-              Prove that <m>\{ p(T): p \in \P(\F{}) \} \ne \Lc(V)</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+              </li>
+              <li>
+                <p>
+                  Prove that if <m>\ran T \subset U</m>,
+                  then <m>U</m> is invariant under <m>T{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m> and
+            <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V</m> invariant under<nbsp/><m>T{}</m>.
+            Prove that <m>V{}_1 + \dots + V{}_m</m> is invariant under <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that the intersection of every collection of subspaces of <m>V</m> invariant under <m>T</m> is invariant under<nbsp/><m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V</m> that is invariant under every operator on <m>V{}</m>,
+            then <m>U = \{0\}</m> or <m>U = V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \R{2} )</m> is defined by <m>T(x, y) = (-3y, x)</m>.
+            Find the eigenvalues of<nbsp/><m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \F{2} )</m> by <m>T(w, z) = (z, w)</m>.
+            Find all eigenvalues and eigenvectors of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \F{3} )</m> by <m>T(z_1, z_2, z_3) = (2 z_2, 0, 5z_3)</m>.
+            Find all eigenvalues and eigenvectors of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5P">
+        <statement>
+          <p>
+            Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P{}</m>.
+            Prove that if <m>\lambda</m> is an eigenvalue of<nbsp/><m>P{}</m>,
+            then <m>\lambda = 0</m> or <m>\lambda = 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \colon \P(\R{}) \to \P(\R{})</m> by <m>Tp = p'\!</m>.
+            Find all eigenvalues and eigenvectors of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc\bigl( \P{}_4(\R{}) \bigr)</m> by
+            <m>(Tp)(x) = x p' \! (x)</m> for all <m>x \in \R{}</m>.
+            Find all eigenvalues and eigenvectors of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>T \in \Lc(V)</m>, and <m>\alpha \in \F{}{}</m>.
+            Prove that there exists <m>\delta > 0</m> such that
+            <m>T - \lambda I</m> is invertible for all
+            <m>\lambda \in \F{}</m> such that <m>0 \lt |\alpha - \lambda| \lt \delta</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V = U \oplus W{}</m>,
+            where <m>U</m> and <m>W</m> are nonzero subspaces of<nbsp/><m>V{}</m>.
+            Define <m>P \in \Lc(V)</m> by
+            <m>P(u + w) = u</m> for each <m>u \in U</m> and each <m>w \in W{}</m>.
+            Find all eigenvalues and eigenvectors of<nbsp/><m>P{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Suppose <m>S \in \Lc(V)</m> is invertible.
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>T</m> and <m>S^{-1} T S</m> have the same eigenvalues.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the relationship between the eigenvectors of <m>T</m> and the eigenvectors of <m>S^{-1} T S</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of an operator on <m>\R{4}</m> that has no (real) eigenvalues.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5eigdual">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>T \in \Lc(V)</m>, and <m>\lambda \in \F{}{}</m>.
+            Show that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>\lambda</m> is an eigenvalue of the dual operator <m>T' \in \Lc(V')</m>.
+                <idx><h>dual</h><h>of an operator</h></idx>
+                <idx><h>eigenvalue</h><h>of dual of an operator</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \ldots,
+            v_n</m> is a basis of <m>V</m> and <m>T \in \Lc(V)</m>.
+            Prove that if <m>\lambda</m> is an eigenvalue of <m>T</m>, then
+            <md>
+              \lvert \lambda \rvert  \le n \max \{  \lvert \M(T)_{j,k} \rvert  : 1 \le j, k \le n  \},
+            </md>
+            where <m>\M(T)_{j,k}</m> denotes the entry in row <m>j</m>,
+            column <m>k</m> of the matrix of <m>T</m> with respect to the basis <m>v_1, \ldots, v_n</m>.
+            Note: See <xref ref="x2HSeigen">Exercise</xref>
+            in <xref ref="x6ipn">Section</xref>
+            for a different bound on <m>\lvert \lambda \rvert</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5realeig">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
+            and <m>\lambda \in \R{}</m>.
+            Prove that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if <m>\lambda</m> is an eigenvalue of the complexification <m>T{}_{\C{}}</m>.
+                <idx><h>complexification</h><h>eigenvalues of|(</h></idx>
+            Note: See <xref ref="x3complexMap">Exercise</xref>
+            in <xref ref="x3nullspace">Section</xref>
+            for the definition of <m>T{}_{\C{}}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5TC">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \R{}</m>, <m>T \in \Lc(V)</m>,
+            and <m>\lambda \in \C{}</m>.
+            Prove that <m>\lambda</m> is an eigenvalue of the complexification <m>T{}_{\C{}}</m> if and only if
+            <m>\bar{\lambda}</m> is an eigenvalue of <m>T{}_{\C{}}</m>.
+                <idx><h>complexification</h><h>eigenvalues of|)</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that the forward shift operator <m>T \in \Lc( \F{\infty} )</m> defined by
+                <idx><h>forward shift</h></idx>
+            <md>
+              T(z_1, z_2, \dots ) = (0, z_1, z_2, \dots )
+            </md>
+            has no eigenvalues.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define the backward shift operator <m>S \in \Lc( \F{\infty} )</m> by
+                <idx><h>backward shift</h></idx>
+            <md>
+              S(z_1, z_2, z_3, \dots) = (z_2, z_3, \dots).
+            </md>
+            <ol>
+              <li>
+                <p>
+                  Show that every element of <m>\F{}</m> is an eigenvalue of <m>S</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find all eigenvectors of <m>S</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is invertible.
+            <ol>
+              <li>
+                <p>
+                  Suppose <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
+                  Prove that <m>\lambda</m> is an eigenvalue of <m>T</m> if and only if
+                  <m>\frac{1}{\lambda}</m> is an eigenvalue of<nbsp/><m>T^{-1}{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>T</m> and <m>T^{-1}</m> have the same eigenvectors.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and there exist nonzero vectors <m>u</m> and <m>w</m> in <m>V</m> such that
+            <md>
+              Tu = 3w \andd Tw = 3u.
+            </md>
+          </p>
+          <p>
+            Prove that <m>3</m> or <m>-3</m> is an eigenvalue of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>S, T \in \Lc(V)</m>.
+            Prove that <m>ST</m> and <m>TS</m> have the same eigenvalues.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>A</m> is an <m>n</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
+            Define <m>T \in \Lc( \F{n} )</m> by <m>Tx = Ax</m>,
+            where elements of <m>\F{n}</m> are thought of as <m>n</m>-by-<m>1</m> column vectors.
+            <ol>
+              <li>
+                <p>
+                  Suppose the sum of the entries in each row of <m>A</m> equals<nbsp/><m>1</m>.
+                  Prove that <m>1</m> is an eigenvalue of <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose the sum of the entries in each column of <m>A</m> equals<nbsp/><m>1</m>.
+                  Prove that <m>1</m> is an eigenvalue of <m>T{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>u,
+            w</m> are eigenvectors of <m>T</m> such that <m>u+w</m> is also an eigenvector of <m>T{}</m>.
+            Prove that <m>u</m> and <m>w</m> are eigenvectors of <m>T</m> corresponding to the same eigenvalue.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x388">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is such that every nonzero vector in <m>V</m> is an eigenvector of<nbsp/><m>T{}</m>.
+            Prove that <m>T</m> is a scalar multiple of the identity operator.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional and <m>k \in \{ 1, \ldots,\dim V - 1 \}</m>.
+            Suppose <m>T \in \Lc(V)</m> is such that every subspace of <m>V</m> of dimension <m>k</m> is invariant under<nbsp/><m>T{}</m>.
+            Prove that <m>T</m> is a scalar multiple of the identity operator.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> has at most
+            <m>1 + \dim \ran T</m> distinct eigenvalues.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \R{3} )</m> and <m>-4</m>,
+            <m>5</m>, and <m>\sqrt{7}</m> are eigenvalues of <m>T{}</m>.
+            Prove that there exists <m>x \in \R{3}</m> such that <m>Tx - 9x = ( -4, 5, \sqrt{7} )</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>(T-2I) (T-3 I) (T-4 I) = 0</m>.
+            Suppose <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
+            Prove that <m>\lambda = 2</m> or
+            <m>\lambda = 3</m> or <m>\lambda = 4</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of <m>T \in \Lc( \R2 )</m> such that <m>T^4 = -I</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> has no eigenvalues and <m>T^4 = I</m>.
+            Prove that <m>T^2 = -I</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>T</m> is injective if and only if <m>T^m</m> is injective.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>T</m> is surjective if and only if <m>T^m</m> is surjective.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>v_1, \dots,
+            v_m \in V{}</m>.
+            Prove that the list <m>v_1, \dots,
+            v_m</m> is linearly independent if and only if there exists <m>T \in \Lc(V)</m> such that
+            <m>v_1, \dots,
+            v_m</m> are eigenvectors of <m>T</m> corresponding to distinct eigenvalues.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>\lambda_1, \dots, \lambda_n</m> is a list of distinct real numbers.
+            Prove that the list <m>e^{\lambda_1 x}, \dots,
+            e^{\lambda_n x}</m> is linearly independent in the vector space of real-valued functions on <m>\R{}</m>.
+            <hint>
+              <p>
+                Let <m>V = \Span( e^{\lambda_1 x}, \dots, e^{\lambda_n x} )</m>,
+                and define an operator <m>D \in \Lc(V)</m> by <m>Df = f'\!</m>.
+                Find eigenvalues and eigenvectors of <m>D</m>.
+              </p>
+            </hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>\lambda_1, \dots, \lambda_n</m> is a list of distinct positive numbers.
+            Prove that the list <m>\cos(\lambda_1 x), \dots, \cos(\lambda_n x)</m> is linearly independent in the vector space of real-valued functions on <m>\R{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="LLV">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Define <m>\A \in \Lc( \Lc(V) )</m> by
+            <md>
+              \A(S) = TS
+            </md>
+            for each <m>S \in \Lc(V)</m>.
+            Prove that the set of eigenvalues of <m>T</m> equals the set of eigenvalues of <m>\A</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5quotient">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
+            and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
+            The <term>quotient operator</term>
+                <idx><h>quotient</h><h>operator</h></idx>
+            <m>T{}/U \in \Lc(V{}/U)</m> is defined by<idx><h sortby="TU2"><m>T{}/U</m></h></idx>
+            <md>
+              (T{}/U)(v + U) = Tv +U
+            </md>
+            for each <m>v \in V{}</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that the definition of <m>T{}/U</m> makes sense
+                  (which requires using the condition that <m>U</m> is invariant under <m>T</m>)
+                  and show that <m>T{}/U</m> is an operator on <m>V{}/U</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that each eigenvalue of <m>T{}/U</m> is an eigenvalue of <m>T{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> has an eigenvalue if and only if there exists a subspace of <m>V</m> of dimension
+            <m>\dim V - 1</m> that is invariant under <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S, T \in \Lc(V)</m> and <m>S</m> is invertible.
+            Suppose <m>p \in \P(\F{})</m> is a polynomial.
+            Prove that
+            <md>
+              p( STS^{-1} ) = S p(T) S^{-1}{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="InvPoly">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of <m>V</m> invariant under <m>T{}</m>.
+            Prove that <m>U</m> is invariant under <m>p(T)</m> for every polynomial <m>p \in \P(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \F{n} )</m> by <m>T(x_1, x_2, x_3, \dots,
+            x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)</m>.
+            <ol>
+              <li>
+                <p>
+                  Find all eigenvalues and eigenvectors of <m>T{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find all subspaces of <m>\F n</m> that are invariant under <m>T{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional,
+            <m>\dim V > 1</m>, and <m>T \in \Lc(V)</m>.
+            Prove that <m>\{ p(T): p \in \P(\F{}) \} \ne \Lc(V)</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

@@ -15,25 +15,25 @@
             <li>
               <p>
                 The <term>product</term><idx><h>product</h><h>of vector spaces</h></idx> <m>V{}_1 \times \dots \times V{}_m</m> is defined by
-                <me>
-                  V{}_1 \times \dots \times V{}_m = \{ (v_1, \dots, v_m): v_1 \in V{}_1, \dots, v_m \in V{}_m \}
-                </me>.
+                <md>
+                  V{}_1 \times \dots \times V{}_m = \{ (v_1, \dots, v_m): v_1 \in V{}_1, \dots, v_m \in V{}_m \}.
+                </md>
               </p>
             </li>
             <li>
               <p>
                 Addition on <m>V{}_1 \times \dots \times V{}_m</m> is defined by
-                <me>
-                  (u_1, \dots, u_m) + (v_1, \dots, v_m) = (u_1 + v_1, \dots, u_m + v_m)
-                </me>.
+                <md>
+                  (u_1, \dots, u_m) + (v_1, \dots, v_m) = (u_1 + v_1, \dots, u_m + v_m).
+                </md>
               </p>
             </li>
             <li>
               <p>
                 Scalar multiplication on <m>V{}_1 \times \dots \times V{}_m</m> is defined by
-                <me>
-                  \lambda (v_1, \dots, v_m) = (\lambda v_1, \dots, \lambda v_m)
-                </me>.
+                <md>
+                  \lambda (v_1, \dots, v_m) = (\lambda v_1, \dots, \lambda v_m).
+                </md>
               </p>
             </li>
           </ol>
@@ -87,14 +87,14 @@
       <statement>
         <p>
           Elements of the vector space <m>\R2 \times \R3</m> are lists
-          <me>
-            \bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr)
-          </me>,
+          <md>
+            \bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr),
+          </md>
           where <m>x_1, x_2, x_3, x_4, x_5 \in \R{}</m>.
           Elements of <m>\R5</m> are lists
-          <me>
-            (x_1, x_2, x_3, x_4, x_5)
-          </me>,
+          <md>
+            (x_1, x_2, x_3, x_4, x_5),
+          </md>
           where <m>x_1, x_2, x_3, x_4, x_5 \in \R{}</m>.
         </p>
         <p>
@@ -114,9 +114,9 @@
         </aside>
         <p>
           The linear map
-          <me>
-            \overfullrule=0bp \bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr) \mapsto (x_1, x_2, x_3, x_4, x_5)
-          </me>
+          <md>
+            \bigl( (x_1, x_2), (x_3, x_4, x_5) \bigr) \mapsto (x_1, x_2, x_3, x_4, x_5)
+          </md>
           is an isomorphism of the vector space
           <m>\R2 \times \R3</m> onto the vector space <m>\RR5</m>.
           Thus these two vector spaces are isomorphic,
@@ -132,9 +132,9 @@
       <statement>
         <p>
           Consider this list of length five of elements of <m>\P{}_2(\R{}) \times \R2</m>:
-          <me>
-            \bigl(1, (0,0) \bigr), \bigl(x,(0,0) \bigr), \bigl(x^2{}, (0,0) \bigr), \bigl(0, (1,0) \bigr), \bigl(0, (0, 1)\bigr)
-          </me>.
+          <md>
+            \bigl(1, (0,0) \bigr), \bigl(x,(0,0) \bigr), \bigl(x^2{}, (0,0) \bigr), \bigl(0, (1,0) \bigr), \bigl(0, (0, 1)\bigr).
+          </md>
         </p>
         <p>
           The list above is linearly independent and it spans <m>\P{}_2(\R{}) \times \RR2</m>.
@@ -148,9 +148,9 @@
         <p>
           Suppose <m>V{}_1, \dots, V{}_m</m> are finite-dimensional vector spaces.
           Then <m>V{}_1 \times \dots \times V{}_m</m> is finite-dimensional and
-          <me>
-            \dim (V{}_1 \times \dots \times V{}_m) = \dim V{}_1 + \dots + \dim V{}_m
-          </me>.
+          <md>
+            \dim (V{}_1 \times \dots \times V{}_m) = \dim V{}_1 + \dots + \dim V{}_m.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -179,9 +179,9 @@
         <p>
           Suppose that <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
           Define a linear map <m>\Gamma: V{}_1 \times \dots \times V{}_m \to V{}_1 + \dots + V{}_m</m> by
-          <me>
-            \Gamma(v_1, \dots, v_m) = v_1 + \dots + v_m
-          </me>.
+          <md>
+            \Gamma(v_1, \dots, v_m) = v_1 + \dots + v_m.
+          </md>
         </p>
         <p>
           Then <m>V{}_1 + \dots + V{}_m</m> is a direct sum if and only if <m>\Gamma</m> is injective.
@@ -206,9 +206,9 @@
           <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
           Then <m>V{}_1 + \dots + V{}_m</m> is a direct sum if and only if
               <idx><h>direct sum</h></idx>
-          <me>
-            \dim(V{}_1 + \dots + V{}_m) = \dim V{}_1 + \dots + \dim V{}_m
-          </me>.
+          <md>
+            \dim(V{}_1 + \dots + V{}_m) = \dim V{}_1 + \dots + \dim V{}_m.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -216,17 +216,17 @@
       <p>
         The map <m>\Gamma</m> in <xref ref="productsum"></xref> is surjective.
         Thus by the fundamental theorem of linear maps <xref ref="x3ab11"/>, <m>\Gamma</m> is injective if and only if
-        <me>
-          \dim(V{}_1 + \dots + V{}_m) = \dim (V{}_1 \times \dots \times V{}_m)
-        </me>.
+        <md>
+          \dim(V{}_1 + \dots + V{}_m) = \dim (V{}_1 \times \dots \times V{}_m).
+        </md>
       </p>
       <p>
         <xref ref="productsum">Combining</xref>
         and <xref ref="x3dimproduct"></xref>
         now shows that <m>V{}_1 + \dots + V{}_m</m> is a direct sum if and only if
-        <me>
-          \dim(V{}_1 + \dots + V{}_m) = \dim V{}_1 + \dots + \dim V{}_m
-        </me>,
+        <md>
+          \dim(V{}_1 + \dots + V{}_m) = \dim V{}_1 + \dots + \dim V{}_m,
+        </md>
         as desired.
       </p>
     </proof>
@@ -241,14 +241,14 @@
     <p>
       We begin our approach to quotient spaces by defining the sum of a vector and a subset.
     </p>
-    <principle>
+    <principle xml:id="x2vU">
       <title><m>v + U</m></title>
       <p>
         Suppose <m>v \in V</m> and <m>U \subset V{}</m>.
         Then <m>v + U</m> is the subset of <m>V</m> defined by<idx><h sortby="vU"><m>v + U</m></h></idx>
-        <me>
-          v + U = \{ v + u: u \in U\}
-        </me>.
+        <md>
+          v + U = \{ v + u: u \in U\}.
+        </md>
       </p>
     </principle>
     <example xml:id="U1720">
@@ -264,23 +264,23 @@
         </p>
         <p>
           Suppose
-          <me>
-            U = \{ (x, 2x) \in \R2: x \in \R{} \}
-          </me>.
+          <md>
+            U = \{ (x, 2x) \in \R2: x \in \R{} \}.
+          </md>
         </p>
         <p>
           Hence <m>U</m> is the line in <m>\R2</m> through the origin with slope <m>2</m>.
           Thus
-          <me>
+          <md>
             (17,20) + U
-          </me>
+          </md>
           is the line in <m>\R2</m> that contains the point <m>(17,20)</m> and has slope <m>2</m>.
         </p>
         <p>
           Because
-          <me>
-            (10, 20) \in U \andd (17,20) \in (17, 20) + U
-          </me>,
+          <md>
+            (10, 20) \in U \andd (17,20) \in (17, 20) + U,
+          </md>
           we see that <m>(17,20) + U</m> is obtained by moving <m>U</m> to the right by <m>7</m> units.
         </p>
       </statement>
@@ -335,17 +335,18 @@
       </statement>
     </example>
     <definition>
-      <title>quotient space, <m>V/U</m>\index{V/U@<m>V\hspace{-.16667em}/U</m>}</title>
+      <title>quotient space, <m>V/U</m></title>
       <statement>
         <p>
+              <idx><h sortby="V/U"><m>V/U</m></h></idx>
           Suppose <m>U</m> is a subspace of <m>V{}</m>.
           Then the <term>quotient space</term>
           <m>V{}/U</m> is the set of all translates of <m>U</m>.
           Thus
               <idx><h>quotient</h><h>space</h></idx>
-          <me>
-            V{}/U = \{ v + U : v \in V \}
-          </me>.
+          <md>
+            V{}/U = \{ v + U : v \in V \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -385,9 +386,9 @@
         <p>
           Suppose <m>U</m> is a subspace of <m>V</m> and <m>v, w \in V{}</m>.
           Then
-          <me>
-            v - w \in U \iff v+U =w+U \iff (v+U) \cap (w+U) \ne \emptyset
-          </me>.
+          <md>
+            v - w \in U \iff v+U =w+U \iff (v+U) \cap (w+U) \ne \emptyset.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -395,9 +396,9 @@
       <p>
         First suppose <m>v - w \in U</m>.
         If <m>u \in U</m>, then
-        <me>
-          v + u = w + \bigl((v - w) + u\bigr) \in w + U
-        </me>.
+        <md>
+          v + u = w + \bigl((v - w) + u\bigr) \in w + U.
+        </md>
       </p>
       <p>
         Thus <m>v + U \subset w + U</m>.
@@ -411,9 +412,9 @@
       <p>
         Now suppose <m>(v+U) \cap (w+U) \ne \emptyset</m>.
         Thus there exist <m>u_1, u_2 \in U</m> such that
-        <me>
-          v + u_1 = w + u_2
-        </me>.
+        <md>
+          v + u_1 = w + u_2.
+        </md>
       </p>
       <p>
         Thus <m>v-w = u_2 - u_1</m>.
@@ -461,9 +462,9 @@
         The potential problem with the definitions above of addition and scalar multiplication on <m>V{}/U</m> is that the representation of a translate of <m>U</m> is not unique.
         Specifically,
         suppose <m>v_1, v_2, w_1, w_2\in V</m> are such that
-        <me>
-          v_1 + U = v_2 + U \andd w_1 + U = w_2 + U
-        </me>.
+        <md>
+          v_1 + U = v_2 + U \andd w_1 + U = w_2 + U.
+        </md>
       </p>
       <p>
         To show that the definition of addition on <m>V{}/U</m> given above makes sense,
@@ -471,18 +472,18 @@
       </p>
       <p>
         <xref ref="equalordisjoint">By</xref>, we have
-        <me>
-          v_1 - v_2 \in U \andd w_1 - w_2 \in U
-        </me>.
+        <md>
+          v_1 - v_2 \in U \andd w_1 - w_2 \in U.
+        </md>
       </p>
       <p>
         Because <m>U</m> is a subspace of <m>V</m> and thus is closed under addition,
         this implies that <m>(v_1 - v_2) + (w_1 - w_2) \in U</m>.
         Thus <m>(v_1 + w_1) - (v_2 + w_2) \in U</m>.
         <xref ref="equalordisjoint">Using</xref> again, we see that
-        <me>
-          (v_1+w_1) + U = (v_2+w_2) + U
-        </me>,
+        <md>
+          (v_1+w_1) + U = (v_2+w_2) + U,
+        </md>
         as desired.
         Thus the definition of addition on <m>V{}/U</m> makes sense.
       </p>
@@ -493,9 +494,9 @@
         we have <m>\lambda(v_1 - v_2) \in U</m>.
         Thus <m>\lambda v_1 - \lambda v_2 \in U</m>.
         <xref ref="equalordisjoint">Hence</xref> implies that
-        <me>
-          (\lambda v_1) + U = (\lambda v_2) + U
-        </me>.
+        <md>
+          (\lambda v_1) + U = (\lambda v_2) + U.
+        </md>
       </p>
       <p>
         Thus the definition of scalar multiplication on <m>V{}/U</m> makes sense.
@@ -520,9 +521,9 @@
           The <term>quotient map</term>
               <idx><h>quotient</h><h>map</h></idx>
           <m>\pi \colon V \to V{}/U</m> is the linear map defined by
-          <me>
+          <md>
             \pi(v) = v + U
-          </me>
+          </md>
           for each <m>v \in V{}</m>.
         </p>
       </statement>
@@ -538,9 +539,9 @@
         <p>
           Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
           Then
-          <me>
-            \dim V{}/U = \dim V - \dim U
-          </me>.
+          <md>
+            \dim V{}/U = \dim V - \dim U.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -561,13 +562,14 @@
       <m>\tilde{T}</m> on <m>V{}/(\ker T)</m>, as defined below.
     </p>
     <principle>
-      <title><m>\tilde{T}</m>\index{T@<m>\tilde{T}</m>}</title>
+      <title><m>\tilde{T}</m></title>
       <p>
+            <idx><h sortby="T"><m>\protect\tilde{T}</m></h></idx>
         Suppose <m>T \in \Lc(V{}, W)</m>.
         Define <m>\tilde{T} \colon V{}/(\ker T) \to W</m> by
-        <me>
-          \tilde{T}(v + \ker T) = Tv
-        </me>.
+        <md>
+          \tilde{T}(v + \ker T) = Tv.
+        </md>
       </p>
     </principle>
     <p>
@@ -654,263 +656,261 @@
         </li>
       </ol>
     </proof>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T</m> is a function from <m>V</m> to <m>W{}</m>.
-              The <term>graph</term> of <m>T</m>
-          <idx><h>graph of a linear map</h></idx>
-              is the subset of <m>V{} \times W</m> defined by
-              <me>
-                \text{ graph of } \ T = \{  (v, Tv) \in V{} \times W: v \in V  \}
-              </me>.
-            </p>
-            <p>
-              Prove that <m>T</m> is a linear map if and only if the graph of <m>T</m> is a subspace of <m>V{} \times W{}</m>.
-              Note: Formally,
-              a function <m>T</m> from <m>V</m> to <m>W</m> is a subset <m>T</m> of
-              <m>V{} \times W</m> such that for each <m>v \in V{}</m>,
-              there exists exactly one element <m>(v, w) \in T{}</m>.
-              In other words,
-              formally a function is what is called above its graph.
-              We do not usually think of functions in this formal manner.
-              However, if we do become formal,
-              then this exercise could be rephrased as follows: Prove that a function <m>T</m> from <m>V</m> to <m>W</m> is a linear map if and only if <m>T</m> is a subspace of <m>V{} \times W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V{}_1, \dots, V{}_m</m> are vector spaces such that
-              <m>V{}_1 \times \dots \times V{}_m</m> is finite-dimensional.
-              Prove that <m>V{}_k</m> is finite-dimensional for each <m>k = 1, \dots, m</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V{}_1, \dots, V{}_m</m> are vector spaces.
-              Prove that <m>\Lc(V{}_1 \times \dots \times V{}_m, W)</m> and
-              <m>\Lc(V{}_1, W) \times \dots \times \Lc(V{}_m, W)</m> are isomorphic vector spaces.
-              Note: There is no assumption in the exercise above or in the two following exercises that the vector spaces are finite-dimensional.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>W{}_1, \dots, W{}_m</m> are vector spaces.
-              Prove that <m>\Lc(V{}, W{}_1 \times \dots \times W{}_m)</m> and
-              <m>\Lc(V{}, W{}_1) \times \dots \times \Lc(V{}, W{}_m)</m> are isomorphic vector spaces.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              For <m>m</m> a positive integer,
-              define <m>V^m</m> by<idx><h sortby="Vm"><m>V^m\mskip -2mu</m></h></idx>
-              <me>
-                V^m = \underbrace{V{} \times \dots \times V}_{m \textit{ times}}\!
-              </me>.
-            </p>
-            <p>
-              Prove that <m>V^m</m> and <m>\Lc( \FF{m}, V )</m> are isomorphic vector spaces.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>v,
-              x</m> are vectors in <m>V</m> and that <m>U, W</m> are subspaces of <m>V</m> such that <m>v + U = x + W{}</m>.
-              Prove that <m>U = W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3translates">
-          <statement>
-            <p>
-              Let <m>U = \{  (x, y, z) \in \R3: 2x + 3y + 5z= 0 \}</m>.
-              Suppose <m>A \subset \RR3</m>.
-              Prove that <m>A</m> is a translate of <m>U</m> if and only if there exists <m>c \in \R{}</m> such that
-              <me>
-                A = \{  (x, y, z) \in \R3: 2x + 3y + 5z= c \}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T</m> is a function from <m>V</m> to <m>W{}</m>.
+            The <term>graph</term> of <m>T</m>
+                <idx><h>graph of a linear map</h></idx>
+            is the subset of <m>V{} \times W</m> defined by
+            <md>
+              \text{ graph of } \ T = \{  (v, Tv) \in V{} \times W: v \in V  \}.
+            </md>
+          </p>
+          <p>
+            Prove that <m>T</m> is a linear map if and only if the graph of <m>T</m> is a subspace of <m>V{} \times W{}</m>.
+            Note: Formally,
+            a function <m>T</m> from <m>V</m> to <m>W</m> is a subset <m>T</m> of
+            <m>V{} \times W</m> such that for each <m>v \in V{}</m>,
+            there exists exactly one element <m>(v, w) \in T{}</m>.
+            In other words,
+            formally a function is what is called above its graph.
+            We do not usually think of functions in this formal manner.
+            However, if we do become formal,
+            then this exercise could be rephrased as follows: Prove that a function <m>T</m> from <m>V</m> to <m>W</m> is a linear map if and only if <m>T</m> is a subspace of <m>V{} \times W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V{}_1, \dots, V{}_m</m> are vector spaces such that
+            <m>V{}_1 \times \dots \times V{}_m</m> is finite-dimensional.
+            Prove that <m>V{}_k</m> is finite-dimensional for each <m>k = 1, \dots, m</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V{}_1, \dots, V{}_m</m> are vector spaces.
+            Prove that <m>\Lc(V{}_1 \times \dots \times V{}_m, W)</m> and
+            <m>\Lc(V{}_1, W) \times \dots \times \Lc(V{}_m, W)</m> are isomorphic vector spaces.
+            Note: There is no assumption in the exercise above or in the two following exercises that the vector spaces are finite-dimensional.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>W{}_1, \dots, W{}_m</m> are vector spaces.
+            Prove that <m>\Lc(V{}, W{}_1 \times \dots \times W{}_m)</m> and
+            <m>\Lc(V{}, W{}_1) \times \dots \times \Lc(V{}, W{}_m)</m> are isomorphic vector spaces.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>m</m> a positive integer,
+            define <m>V^m</m> by<idx><h sortby="Vm"><m>V^m\mskip -2mu</m></h></idx>
+            <md>
+              V^m = \underbrace{V{} \times \dots \times V}_{m \textit{ times}}\!.
+            </md>
+          </p>
+          <p>
+            Prove that <m>V^m</m> and <m>\Lc( \FF{m}, V )</m> are isomorphic vector spaces.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>v,
+            x</m> are vectors in <m>V</m> and that <m>U, W</m> are subspaces of <m>V</m> such that <m>v + U = x + W{}</m>.
+            Prove that <m>U = W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3translates">
+        <statement>
+          <p>
+            Let <m>U = \{  (x, y, z) \in \R3: 2x + 3y + 5z= 0 \}</m>.
+            Suppose <m>A \subset \RR3</m>.
+            Prove that <m>A</m> is a translate of <m>U</m> if and only if there exists <m>c \in \R{}</m> such that
+            <md>
+              A = \{  (x, y, z) \in \R3: 2x + 3y + 5z= c \}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Suppose <m>T \in \Lc(V, W)</m> and <m>c \in W{}</m>.
+                Prove that <m>\{ x \in V : Tx = c \}</m> is either the empty set or is a translate of <m>\ker T{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why the set of solutions to a system of linear equations such <xref ref="x3inhomeq">as</xref>
+                is either the empty set or is a translate of some subspace of <m>\FF n</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="affine">
+        <statement>
+          <p>
+            Prove that a nonempty subset <m>A</m> of <m>V</m> is a translate of some subspace of <m>V</m> if and only if <m>\lambda v + (1-\lambda)w \in A</m> for all
+            <m>v,
+            w \in A</m> and all <m>\lambda \in \F{}{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>A_1 = v + U_1</m> and <m>A_2 = w + U_2</m> for some
+            <m>v,
+            w \in V</m> and some subspaces <m>U_1, U_2</m> of <m>V{}</m>.
+            Prove that the intersection
+            <m>A_1 \cap A_2</m> is either a translate of some subspace of <m>V</m> or is the empty set.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U = \{ (x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{ for only finitely many } \ k \}</m>.
             <ol>
               <li>
                 <p>
-                  Suppose <m>T \in \Lc(V, W)</m> and <m>c \in W{}</m>.
-                  Prove that <m>\{ x \in V : Tx = c \}</m> is either the empty set or is a translate of <m>\ker T{}</m>.
+                  Show that <m>U</m> is a subspace of <m>\FF{\infty}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Explain why the set of solutions to a system of linear equations such <xref ref="x3inhomeq">as</xref>
-                  is either the empty set or is a translate of some subspace of <m>\FF n</m>.
+                  Prove that <m>\FF{\infty}/U</m> is infinite-dimensional.
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise xml:id="affine">
-          <statement>
-            <p>
-              Prove that a nonempty subset <m>A</m> of <m>V</m> is a translate of some subspace of <m>V</m> if and only if <m>\lambda v + (1-\lambda)w \in A</m> for all
-              <m>v,
-              w \in A</m> and all <m>\lambda \in \F{}{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>A_1 = v + U_1</m> and <m>A_2 = w + U_2</m> for some
-              <m>v,
-              w \in V</m> and some subspaces <m>U_1, U_2</m> of <m>V{}</m>.
-              Prove that the intersection
-              <m>A_1 \cap A_2</m> is either a translate of some subspace of <m>V</m> or is the empty set.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U = \{ (x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{ for only finitely many } \ k \}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>U</m> is a subspace of <m>\FF{\infty}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>\FF{\infty}/U</m> is infinite-dimensional.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots, v_m \in V{}</m>.
-              Let
-              <me>
-                A = \{ \lambda_1 v_1 + \dots + \lambda_m v_m : \lambda_1, \dots, \lambda_m \in \F{}\ \text{ and } \ \lambda_1 + \dots + \lambda_m = 1 \}
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>A</m> is a translate of some subspace of <m>V{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that if <m>B</m> is a translate of some subspace of <m>V</m> and
-                    <m>\{ v_1, \dots,
-                    v_m \} \subset B</m>, then <m>A \subset B</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that <m>A</m> is a translate of some subspace of <m>V</m> of dimension less than<nbsp/><m>m</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is a subspace of <m>V</m> such that <m>V{}/U</m> is finite-dimensional.
-              Prove that <m>V</m> is isomorphic to <m>U \times (V{}/U)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> and <m>V = U \oplus W{}</m>.
-              Suppose <m>w_1, \ldots, w_m</m> is a basis of <m>W{}</m>.
-              Prove that <m>w_1 + U, \ldots,
-              w_m + U</m> is a basis of <m>V{}/U</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="basisUVmodU">
-          <statement>
-            <p>
-              Suppose <m>U</m> is a subspace of <m>V</m> and
-              <m>v_1 + U, \dots,
-              v_m + U</m> is a basis of <m>V{}/U</m> and
-              <m>u_1, \dots,
-              u_n</m> is a basis of <m>U</m>.
-              Prove that <m>v_1, \dots, v_m, u_1, \dots,
-              u_n</m> is a basis of <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\phi \in \Lc(V{}, \F{})</m> and <m>\phi \ne 0</m>.
-              Prove that <m>\dim V \!/\! (\ker \phi) = 1</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is a subspace of <m>V</m> such that <m>\dim V{}/U = 1</m>.
-              Prove that there exists <m>\phi \in \Lc(V{}, \F{})</m> such that <m>\ker \phi = U</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>U</m> is a subspace of <m>V</m> such that <m>V{}/U</m> is finite-dimensional.
-              <ol>
-                <li>
-                  <p>
-                    Show that if <m>W</m> is a finite-dimensional subspace of <m>V</m> and <m>V = U + W</m>,
-                    then <m>\dim W \ge \dim V{}/U</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Prove that there exists a finite-dimensional subspace <m>W</m> of <m>V</m> such that
-                    <m>\dim W = \dim V{}/U</m> and <m>V = U \oplus W</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x1715">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V{}, W)</m> and <m>U</m> is a subspace of <m>V{}</m>.
-              Let <m>\pi</m> denote the quotient map from <m>V</m> onto <m>V{}/U</m>.
-              Prove that there exists <m>S \in \Lc(V{}/U, W)</m> such that
-              <m>T = S \circ \pi</m> if and only if <m>U \subset \ker T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots, v_m \in V{}</m>.
+            Let
+            <md>
+              A = \{ \lambda_1 v_1 + \dots + \lambda_m v_m : \lambda_1, \dots, \lambda_m \in \F{}\ \text{ and } \ \lambda_1 + \dots + \lambda_m = 1 \}.
+            </md>
+            <ol>
+              <li>
+                <p>
+                  Prove that <m>A</m> is a translate of some subspace of <m>V{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that if <m>B</m> is a translate of some subspace of <m>V</m> and
+                  <m>\{ v_1, \dots,
+                  v_m \} \subset B</m>, then <m>A \subset B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that <m>A</m> is a translate of some subspace of <m>V</m> of dimension less than<nbsp/><m>m</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is a subspace of <m>V</m> such that <m>V{}/U</m> is finite-dimensional.
+            Prove that <m>V</m> is isomorphic to <m>U \times (V{}/U)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> and <m>W</m> are subspaces of <m>V</m> and <m>V = U \oplus W{}</m>.
+            Suppose <m>w_1, \ldots, w_m</m> is a basis of <m>W{}</m>.
+            Prove that <m>w_1 + U, \ldots,
+            w_m + U</m> is a basis of <m>V{}/U</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="basisUVmodU">
+        <statement>
+          <p>
+            Suppose <m>U</m> is a subspace of <m>V</m> and
+            <m>v_1 + U, \dots,
+            v_m + U</m> is a basis of <m>V{}/U</m> and
+            <m>u_1, \dots,
+            u_n</m> is a basis of <m>U</m>.
+            Prove that <m>v_1, \dots, v_m, u_1, \dots,
+            u_n</m> is a basis of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\phi \in \Lc(V{}, \F{})</m> and <m>\phi \ne 0</m>.
+            Prove that <m>\dim V \!/\! (\ker \phi) = 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is a subspace of <m>V</m> such that <m>\dim V{}/U = 1</m>.
+            Prove that there exists <m>\phi \in \Lc(V{}, \F{})</m> such that <m>\ker \phi = U</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>U</m> is a subspace of <m>V</m> such that <m>V{}/U</m> is finite-dimensional.
+            <ol>
+              <li>
+                <p>
+                  Show that if <m>W</m> is a finite-dimensional subspace of <m>V</m> and <m>V = U + W</m>,
+                  then <m>\dim W \ge \dim V{}/U</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that there exists a finite-dimensional subspace <m>W</m> of <m>V</m> such that
+                  <m>\dim W = \dim V{}/U</m> and <m>V = U \oplus W</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x1715">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V{}, W)</m> and <m>U</m> is a subspace of <m>V{}</m>.
+            Let <m>\pi</m> denote the quotient map from <m>V</m> onto <m>V{}/U</m>.
+            Prove that there exists <m>S \in \Lc(V{}/U, W)</m> such that
+            <m>T = S \circ \pi</m> if and only if <m>U \subset \ker T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

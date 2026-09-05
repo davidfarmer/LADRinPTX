@@ -34,9 +34,9 @@
               <idx><h>linear combination</h></idx>
           of a list <m>v_1, \dots,
           v_m</m> of vectors in<nbsp/><m>V</m> is a vector of the form
-          <me>
-            a_1 v_1 + \dots + a_m v_m
-          </me>,
+          <md>
+            a_1 v_1 + \dots + a_m v_m,
+          </md>
           where <m>a_1, \dots, a_m \in \F{}{}</m>.
         </p>
       </statement>
@@ -49,9 +49,9 @@
             <p>
               <m>(17, -4, 2)</m> is a linear combination of <m>(2, 1, -3), (1, -2, 4)</m>,
               which is a list of length two of vectors in <m>\RR3</m>, because
-              <me>
-                (17, -4, 2) = 6(2, 1, -3) + 5(1, -2, 4)
-              </me>.
+              <md>
+                (17, -4, 2) = 6(2, 1, -3) + 5(1, -2, 4).
+              </md>
             </p>
           </li>
           <li>
@@ -59,9 +59,9 @@
               <m>(17, -4, 5)</m> is not a linear combination of <m>(2, 1, -3), (1, -2, 4)</m>,
               which is a list of length two of vectors in <m>\RR3</m>,
               because there do not exist numbers <m>a_1, a_2 \in \F{}</m> such that
-              <me>
-                (17, -4, 5) = a_1(2, 1, -3) + a_2(1, -2, 4)
-              </me>.
+              <md>
+                (17, -4, 5) = a_1(2, 1, -3) + a_2(1, -2, 4).
+              </md>
               In other words, the system of equations
               <md>
                 <mrow>17 \amp = 2 a_1 + a_2</mrow>
@@ -86,9 +86,9 @@
           of <m>v_1, \dots, v_m</m>, denoted by <m>\Span(v_1, \dots,
           v_m)</m>.
           In other words,
-          <me>
-            \Span(v_1, \dots, v_m) = \{ a_1 v_1 + \dots + a_m v_m: a_1, \dots, a_m \in \F{} \}
-          </me>.
+          <md>
+            \Span(v_1, \dots, v_m) = \{ a_1 v_1 + \dots + a_m v_m: a_1, \dots, a_m \in \F{} \}.
+          </md>
         </p>
         <p>
           The span of the empty list <m>(\ )</m> is defined to be <m>\{0\}</m>.
@@ -138,22 +138,22 @@
         First we show that <m>\Span (v_1, \dots,
         v_m)</m> is a subspace of <m>V{}</m>.
         The additive identity is in <m>\Span (v_1, \dots, v_m)</m> because
-        <me>
-          0 = 0v_1 + \dots + 0v_m
-        </me>.
+        <md>
+          0 = 0v_1 + \dots + 0v_m.
+        </md>
       </p>
       <p>
         Also, <m>\Span (v_1, \dots, v_m)</m> is closed under addition because
-        <me>
-          (a_1 v_1 + \dots + a_m v_m) + (c_1 v_1 + \dots + c_m v_m) = (a_1 + c_1)v_1 + \dots + (a_m + c_m)v_m
-        </me>.
+        <md>
+          (a_1 v_1 + \dots + a_m v_m) + (c_1 v_1 + \dots + c_m v_m) = (a_1 + c_1)v_1 + \dots + (a_m + c_m)v_m.
+        </md>
       </p>
       <p>
         Furthermore, <m>\Span (v_1, \dots,
         v_m)</m> is closed under scalar multiplication because
-        <me>
-          \lambda(a_1 v_1 + \dots + a_m v_m) = \lambda a_1 v_1 + \dots + \lambda a_m v_m
-        </me>.
+        <md>
+          \lambda(a_1 v_1 + \dots + a_m v_m) = \lambda a_1 v_1 + \dots + \lambda a_m v_m.
+        </md>
       </p>
       <p>
         Thus <m>\Span (v_1, \dots, v_m)</m> is a subspace of <m>V</m>
@@ -189,18 +189,18 @@
         <p>
           Suppose <m>n</m> is a positive integer.
           We want to show that
-          <me>
+          <md>
             (1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)
-          </me>
+          </md>
           spans <m>\FF{n}</m>.
           Here the <m>k^\nth</m> vector in the list above has <m>1</m> in the <m>k^\nth</m> slot and <m>0</m> in all other slots.
         </p>
         <p>
           Suppose <m>(x_1, \dots, x_n) \in \FF{n}</m>.
           Then
-          <me>
-            (x_1, \dots, x_n) = x_1 (1, 0, \dots, 0) + x_2 (0, 1, 0, \dots, 0) + \dots + x_n (0, \dots, 0, 1)
-          </me>.
+          <md>
+            (x_1, \dots, x_n) = x_1 (1, 0, \dots, 0) + x_2 (0, 1, 0, \dots, 0) + \dots + x_n (0, \dots, 0, 1).
+          </md>
         </p>
         <p>
           Thus <m>(x_1, \dots,
@@ -241,9 +241,9 @@
                 <idx><h>polynomial</h></idx>
               with coefficients in <m>\F{}</m> if there exist <m>a_0, \dots,
               a_m \in \F{}</m> such that
-              <me>
+              <md>
                 p(z) = a_0 + a_1 z + a_2 z^2 + \dots + a_m z^m
-              </me>
+              </md>
               for all <m>z \in \F{}{}</m>.
             </p>
           </li>
@@ -284,9 +284,9 @@
                 <m>m</m> if there exist scalars
                 <m>a_0, a_1, \dots,
                 a_m \in \F{}</m> with <m>a_m \ne 0</m> such that for every <m>z \in \F{}</m>, we have
-                <me>
-                  p(z) = a_0 + a_1 z + \dots + a_m z^m\!
-                </me>.
+                <md>
+                  p(z) = a_0 + a_1 z + \dots + a_m z^m\!.
+                </md>
               </p>
             </li>
             <li>
@@ -350,22 +350,22 @@
       v_m \in V</m> and <m>v \in \Span (v_1, \dots, v_m)</m>.
       By the definition of span,
       there exist <m>a_1, \dots, a_m \in \F{}</m> such that {
-      <me>
-        v = a_1 v_1 + \dots + a_m v_m
-      </me>.
+      <md>
+        v = a_1 v_1 + \dots + a_m v_m.
+      </md>
     </p>
     <p>
       Consider the question of whether the choice of scalars in the equation above is unique.
       Suppose <m>c_1, \dots, c_m</m> is another set of scalars such that
-      <me>
-        v = c_1 v_1 + \dots + c_m v_m
-      </me>.
+      <md>
+        v = c_1 v_1 + \dots + c_m v_m.
+      </md>
     </p>
     <p>
       Subtracting the last two equations, we have
-      <me>
-        0 = (a_1 - c_1) v_1 + \dots + (a_m - c_m)v_m
-      </me>.
+      <md>
+        0 = (a_1 - c_1) v_1 + \dots + (a_m - c_m)v_m.
+      </md>
     </p>
     <p>
       Thus we have written <m>0</m> as a linear combination of <m>(v_1, \dots,
@@ -387,9 +387,9 @@
                 <idx><h>linearly independent</h></idx>
               if the only choice of <m>a_1, \dots,
               a_m \in \F{}</m> that makes
-              <me>
+              <md>
                 a_1 v_1 + \dots + a_m v_m =0
-              </me>
+              </md>
               is <m>a_1 = \dots = a_m = 0</m>.
             </p>
           </li>
@@ -416,13 +416,13 @@
             <p>
               To see that the list <m>(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0)</m> is linearly independent in <m>\FF{4}</m>,
               suppose <m>a_1, a_2, a_3 \in \F{}</m> and
-              <me>
-                a_1 (1, 0, 0, 0) + a_2(0, 1, 0, 0) + a_3(0,0,1, 0) = (0, 0, 0, 0)
-              </me>.
+              <md>
+                a_1 (1, 0, 0, 0) + a_2(0, 1, 0, 0) + a_3(0,0,1, 0) = (0, 0, 0, 0).
+              </md>
               Thus
-              <me>
-                (a_1, a_2, a_3, 0) = (0, 0, 0, 0)
-              </me>.
+              <md>
+                (a_1, a_2, a_3, 0) = (0, 0, 0, 0).
+              </md>
               Hence <m>a_1 = a_2 = a_3 = 0</m>.
               Thus the list <m>(1, 0, 0, 0), (0, 1, 0, 0) ,(0,0,1, 0)</m> is linearly independent in <m>\FF4</m>.
             </p>
@@ -433,14 +433,14 @@
               To see that the list <m>1, z, \dots,
               z^m</m> is linearly independent in <nbsp/><m>\P(\F{})</m>,
               suppose <m>a_0, a_1, \dots, a_m \in \F{}</m> and
-              <me>
-                a_0 + a_1 z + \dots + a_m z^m = 0
-              </me>,
+              <md>
+                a_0 + a_1 z + \dots + a_m z^m = 0,
+              </md>
               where we think of both sides as elements of <m>\P(\F{})</m>.
               Then
-              <me>
+              <md>
                 a_0 + a_1 z + \dots + a_m z^m = 0
-              </me>
+              </md>
               for all <m>z \in \F{}{}</m>.
               As discussed earlier
               (and as follows from <xref ref="x4polyzero"></xref>),
@@ -496,9 +496,9 @@
           <li>
             <p>
               <m>(2, 3, 1), (1, -1, 2), (7, 3, 8)</m> is linearly dependent in <m>\F{3}</m> because
-              <me>
-                2(2, 3, 1) + 3(1, -1, 2) + (-1)(7, 3, 8) = (0, 0, 0)
-              </me>.
+              <md>
+                2(2, 3, 1) + 3(1, -1, 2) + (-1)(7, 3, 8) = (0, 0, 0).
+              </md>
             </p>
           </li>
           <li>
@@ -540,9 +540,9 @@
           Suppose <m>v_1, \dots,
           v_m</m> is a linearly dependent list in <m>V{}</m>.
           Then there exists <m>k \in \{1, 2, \dots, m\}</m> such that
-          <me>
-            v_k \in \Span(v_1, \dots, v_{k-1})
-          </me>.
+          <md>
+            v_k \in \Span(v_1, \dots, v_{k-1}).
+          </md>
         </p>
         <p>
           Furthermore,
@@ -558,18 +558,18 @@
         v_m</m> is linearly dependent,
         there exist numbers <m>a_1, \dots,
         a_m \in \F{}{}</m>, not all <m>0</m>, such that
-        <me>
-          a_1 v_1 + \dots + a_m v_m = 0
-        </me>.
+        <md>
+          a_1 v_1 + \dots + a_m v_m = 0.
+        </md>
       </p>
       <p>
         Let <m>k</m> be the largest element of
         <m>\{1, \dots,
         m \}</m> such that <m>a_k \ne 0</m>.
         Then
-        <me>
-          v_k = -\frac{a_1}{a_k} v_1 - \dots - \frac{a_{k-1}}{a_k} v_{k-1}
-        </me>,
+        <md>
+          v_k = -\frac{a_1}{a_k} v_1 - \dots - \frac{a_{k-1}}{a_k} v_{k-1},
+        </md>
         which proves that <m>v_k \in \Span(v_1, \dots,
         v_{k-1})</m>, as desired. }
       </p>
@@ -578,17 +578,17 @@
         <m>\{1, \dots,
         m \}</m> such that <m>v_k \in \Span(v_1, \dots, v_{k-1})</m>.
         Let <m>b_1, \ldots, b_{k-1} \in \F{}</m> be such that
-        <men xml:id="x5">
-          v_k = b_1 v_1 + \cdots + b_{k-1} v_{k-1}
-        </men>.
+        <md number="yes" xml:id="x5">
+          v_k = b_1 v_1 + \cdots + b_{k-1} v_{k-1}.
+        </md>
       </p>
       <p>
         Suppose <m>u \in \Span(v_1, \dots, v_m)</m>.
         Then there exist <m>c_1, \dots,
         c_m \in \F{}</m> such that
-        <me>
-          u = c_1 v_1 + \dots + c_m v_m
-        </me>.
+        <md>
+          u = c_1 v_1 + \dots + c_m v_m.
+        </md>
       </p>
       <p>
         In the equation above,
@@ -615,9 +615,9 @@
       <statement>
         <p>
           Consider the list
-          <me>
+          <md>
             (1, 2, 3), (6, 5,4), (15, 16, 17), (8, 9, 7)
-          </me>
+          </md>
           in <m>\RR3</m>.
           This list of length four is linearly dependent, as we will soon see.
           Thus the linear dependence lemma implies that there exists
@@ -639,9 +639,9 @@
           Taking <m>k = 3</m> in the linear dependence lemma works if and only if the third vector in the list is a linear combination of the first two vectors.
           Thus for the list in this example,
           we want to know whether there exist <m>a, b \in \R{}</m> such that
-          <me>
-            (15, 16, 17) = a (1, 2,3) + b(6, 5,4)
-          </me>.
+          <md>
+            (15, 16, 17) = a (1, 2,3) + b(6, 5,4).
+          </md>
         </p>
         <p>
           The equation above is equivalent to a system of three linear equations in the two unknowns <m>a, b</m>.
@@ -684,9 +684,9 @@
               (because <m>u_1</m> can be written as a linear combination of <m>w_1, \ldots,
               w_n</m>).
               In other words, the list
-              <me>
+              <md>
                 u_1, w_1, \dots, w_n
-              </me>
+              </md>
               is linearly dependent.
               Thus by the linear dependence lemma <xref ref="x4"/>,
               one of the vectors in the list above is a linear combination of the previous vectors in the list.
@@ -807,9 +807,9 @@
               then <m>U</m> is finite-dimensional and we are done.
               If <m>U \ne \Span(u_1, \dots,
               u_{k-1})</m>, then choose a  vector <m>u_k \in U</m> such that
-              <me>
-                u_k \notin \Span(u_1, \dots, u_{k-1})
-              </me>.
+              <md>
+                u_k \notin \Span(u_1, \dots, u_{k-1}).
+              </md>
             </p>
           </li>
         </ol>
@@ -825,235 +825,233 @@
         which means that <m>U</m> is finite-dimensional.
       </p>
     </proof>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Find a list of four distinct vectors in <m>\F3</m> whose span equals
-              <me>
-                \{ (x, y,z) \in \F3: x+y+z = 0 \}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>v_1, v_2, v_3, v_4</m> spans <m>V{}</m>, then the list
-              <me>
-                v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
-              </me>
-              also spans <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2span">
-          <statement>
-            <p>
-              Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
-              For <m>k \in \{ 1, \ldots, m \}</m>, let
-              <me>
-                w_k = v_1 + \cdots + v_k
-              </me>.
-            </p>
-            <p>
-              Show that <m>\Span(v_1, \ldots,
-              v_m) = \Span(w_1, \ldots, w_m)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <ol>
-              <li>
-                <p>
-                  Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not<nbsp/><m>0</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
-                </p>
-              </li>
-            </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find a number <m>t</m> such that
-              <me>
-                (3,1, 4), (2, -3, 5), (5, 9, t)
-              </me>
-              is not linearly independent in <m>\RR3</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that the list <m>(2, 3, 1), (1, -1, 2), (7, 3, c)</m> is linearly dependent in <m>\F{3}</m> if and only if <m>c = 8</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <ol>
-              <li>
-                <p>
-                  Show that if we think of <m>\C{}</m> as a vector space over <m>\R{}</m>,
-                  then the list <m>1 + i, 1 - i</m> is linearly independent.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Show that if we think of <m>\C{}</m> as a vector space over <m>\C{}</m>,
-                  then the list <m>1 + i, 1 - i</m> is linearly dependent.
-                </p>
-              </li>
-            </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, v_2, v_3, v_4</m> is linearly independent in <m>V{}</m>.
-              Prove that the list
-              <me>
-                v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
-              </me>
-              is also linearly independent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>v_1, v_2, \dots,
-              v_m</m> is a linearly independent list of vectors in <m>V{}</m>, then
-              <me>
-                5v_1 - 4v_2, v_2, v_3, \dots, v_m
-              </me>
-              is linearly independent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>v_1, v_2, \dots,
-              v_m</m> is a linearly independent list of vectors in <m>V</m> and
-              <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>,
-              then <m>\lambda v_1, \lambda v_2, \dots,\lambda v_m</m> is linearly independent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If <m>v_1, \dots,
-              v_m</m> and <m>w_1, \dots,
-              w_m</m> are linearly independent lists of vectors in <m>V{}</m>,
-              then the list <m>v_1 + w_1, \dots,
-              v_m + w_m</m> is linearly independent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots,
-              v_m</m> is linearly independent in <m>V</m> and <m>w \in V{}</m>.
-              Prove that if <m>v_1 + w, \dots,
-              v_m + w</m> is linearly dependent,
-              then <m>w \in \Span(v_1, \dots, v_m)</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots,
-              v_m</m> is linearly independent in <m>V</m> and <m>w \in V{}</m>.
-              Show that
-              <me>
-                v_1, \dots, v_m, w \text{ is linearly independent }  \iff w \notin \Span (v_1, \dots, v_m)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2ind">
-          <statement>
-            <p>
-              Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
-              For <m>k \in \{ 1, \ldots, m \}</m>, let
-              <me>
-                w_k = v_1 + \cdots + v_k
-              </me>.
-            </p>
-            <p>
-              Show that the list <m>v_1, \ldots,
-              v_m</m> is linearly independent if and only if the list
-              <m>w_1, \ldots,
-              w_m</m> is linearly independent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Explain why there does not exist a list of six polynomials that is linearly independent in <m>\P{}_4(\F{})</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Explain why no list of four polynomials spans <m>\P{}_4(\F{})</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2infdim">
-          <statement>
-            <p>
-              Prove that <m>V</m> is infinite-dimensional if and only if there is a sequence
-              <m>v_1, v_2, \dots</m> of vectors in <m>V</m> such that
-              <m>v_1, \dots,
-              v_m</m> is linearly independent for every positive integer <m>m</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that <m>\F{\infty}</m> is infinite-dimensional.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that the real vector space of all continuous real-valued functions on the interval <m>[0, 1]</m> is infinite-dimensional.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>p_0, p_1, \dots,
-              p_m</m> are polynomials in <m>\P{}_m(\F{})</m> such that
-              <m>p_k(2) = 0</m> for each <m>k \in \{ 0, \ldots, m \}</m>.
-              Prove that <m>p_0, p_1, \dots,
-              p_m</m> is not linearly independent in <m>\P{}_m(\F{})</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Find a list of four distinct vectors in <m>\F3</m> whose span equals
+            <md>
+              \{ (x, y,z) \in \F3: x+y+z = 0 \}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>v_1, v_2, v_3, v_4</m> spans <m>V{}</m>, then the list
+            <md>
+              v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
+            </md>
+            also spans <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2span">
+        <statement>
+          <p>
+            Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
+            For <m>k \in \{ 1, \ldots, m \}</m>, let
+            <md>
+              w_k = v_1 + \cdots + v_k.
+            </md>
+          </p>
+          <p>
+            Show that <m>\Span(v_1, \ldots,
+            v_m) = \Span(w_1, \ldots, w_m)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not<nbsp/><m>0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a number <m>t</m> such that
+            <md>
+              (3,1, 4), (2, -3, 5), (5, 9, t)
+            </md>
+            is not linearly independent in <m>\RR3</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that the list <m>(2, 3, 1), (1, -1, 2), (7, 3, c)</m> is linearly dependent in <m>\F{3}</m> if and only if <m>c = 8</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Show that if we think of <m>\C{}</m> as a vector space over <m>\R{}</m>,
+                then the list <m>1 + i, 1 - i</m> is linearly independent.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that if we think of <m>\C{}</m> as a vector space over <m>\C{}</m>,
+                then the list <m>1 + i, 1 - i</m> is linearly dependent.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, v_2, v_3, v_4</m> is linearly independent in <m>V{}</m>.
+            Prove that the list
+            <md>
+              v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
+            </md>
+            is also linearly independent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>v_1, v_2, \dots,
+            v_m</m> is a linearly independent list of vectors in <m>V{}</m>, then
+            <md>
+              5v_1 - 4v_2, v_2, v_3, \dots, v_m
+            </md>
+            is linearly independent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>v_1, v_2, \dots,
+            v_m</m> is a linearly independent list of vectors in <m>V</m> and
+            <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>,
+            then <m>\lambda v_1, \lambda v_2, \dots,\lambda v_m</m> is linearly independent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>v_1, \dots,
+            v_m</m> and <m>w_1, \dots,
+            w_m</m> are linearly independent lists of vectors in <m>V{}</m>,
+            then the list <m>v_1 + w_1, \dots,
+            v_m + w_m</m> is linearly independent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots,
+            v_m</m> is linearly independent in <m>V</m> and <m>w \in V{}</m>.
+            Prove that if <m>v_1 + w, \dots,
+            v_m + w</m> is linearly dependent,
+            then <m>w \in \Span(v_1, \dots, v_m)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots,
+            v_m</m> is linearly independent in <m>V</m> and <m>w \in V{}</m>.
+            Show that
+            <md>
+              v_1, \dots, v_m, w \text{ is linearly independent }  \iff w \notin \Span (v_1, \dots, v_m).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2ind">
+        <statement>
+          <p>
+            Suppose <m>v_1, \ldots, v_m</m> is a list of vectors in <m>V{}</m>.
+            For <m>k \in \{ 1, \ldots, m \}</m>, let
+            <md>
+              w_k = v_1 + \cdots + v_k.
+            </md>
+          </p>
+          <p>
+            Show that the list <m>v_1, \ldots,
+            v_m</m> is linearly independent if and only if the list
+            <m>w_1, \ldots,
+            w_m</m> is linearly independent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Explain why there does not exist a list of six polynomials that is linearly independent in <m>\P{}_4(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Explain why no list of four polynomials spans <m>\P{}_4(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2infdim">
+        <statement>
+          <p>
+            Prove that <m>V</m> is infinite-dimensional if and only if there is a sequence
+            <m>v_1, v_2, \dots</m> of vectors in <m>V</m> such that
+            <m>v_1, \dots,
+            v_m</m> is linearly independent for every positive integer <m>m</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that <m>\F{\infty}</m> is infinite-dimensional.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that the real vector space of all continuous real-valued functions on the interval <m>[0, 1]</m> is infinite-dimensional.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>p_0, p_1, \dots,
+            p_m</m> are polynomials in <m>\P{}_m(\F{})</m> such that
+            <m>p_k(2) = 0</m> for each <m>k \in \{ 0, \ldots, m \}</m>.
+            Prove that <m>p_0, p_1, \dots,
+            p_m</m> is not linearly independent in <m>\P{}_m(\F{})</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

@@ -17,9 +17,9 @@
             <p>
               In other words, a list <m>e_1, \dots,
               e_m</m> of vectors in <m>V</m> is  orthonormal if
-              <me>
+              <md>
                 \langle e_j, e_k \rangle  = \begin{cases}1 \amp \text{ if \(j = k\), } \\ 0 \amp \text{ if \(j \ne k\) } \end{cases}
-              </me>
+              </md>
               for all <m>j, k \in \{ 1, \ldots, m \}</m>.
             </p>
           </li>
@@ -49,14 +49,14 @@
             <p>
               Suppose <m>n</m> is a positive integer.
               Then, as <xref ref="x8Fourier">Exercise</xref> asks you to verify,
-              <me>
+              <md>
                 \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots, \frac{\sin nx}{\sqrt{\pi}}
-              </me>
+              </md>
               is an orthonormal list of vectors in <m>C[-\pi,\pi]</m>,
               the vector space of continuous real-valued functions on <m>[-\pi,\pi]</m> with inner product
-              <me>
-                \langle f, g \rangle  = \int_{-\pi}^{\pi} fg
-              </me>.
+              <md>
+                \langle f, g \rangle  = \int_{-\pi}^{\pi} fg.
+              </md>
               The orthonormal list above is often used for modeling periodic phenomena,
               such as tides.
             </p>
@@ -64,9 +64,9 @@
           <li>
             <p>
               Suppose we make <m>\P{}_2(\R{})</m> into an inner product space using the inner product given by
-              <me>
+              <md>
                 \langle p, q \rangle  = \int_{-1}^{1} pq
-              </me>
+              </md>
               for all <m>p, q \in \P{}_2(\R{})</m>.
               The standard basis <m>1,
               x, x^2</m> of <m>\P{}_2(\R{})</m> is not an orthonormal list because the vectors in that list do not have norm <m>1</m>.
@@ -93,9 +93,9 @@
           Suppose <m>e_1, \dots,
           e_m</m> is an orthonormal list of vectors in<nbsp/><m>V{}</m>.
           Then
-          <me>
+          <md>
             \| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
-          </me>
+          </md>
           for all <m>a_1, \dots, a_m \in \F{}{}</m>.
         </p>
       </statement>
@@ -122,9 +122,9 @@
         Suppose <m>e_1, \dots,
         e_m</m> is an orthonormal list of vectors in<nbsp/><m>V</m> and <m>a_1, \dots,
         a_m \in \F{}</m> are such that
-        <me>
-          a_1 e_1 + \dots + a_m e_m = 0
-        </me>.
+        <md>
+          a_1 e_1 + \dots + a_m e_m = 0.
+        </md>
       </p>
       <p>
         Then <m>| a_1|^2 + \dots + |a_m|^2 = 0</m>
@@ -148,9 +148,9 @@
           e_m</m> is an orthonormal list of vectors in<nbsp/><m>V{}</m>.
           If <m>v \in V</m> then
               <idx><h>Bessel's inequality</h></idx>
-          <me>
-            \lvert \langle v, e_1 \rangle  \rvert ^2 + \cdots + \lvert \langle v, e_m \rangle  \rvert ^2 \le \lVert v \rVert ^2{}
-          </me>.
+          <md>
+            \lvert \langle v, e_1 \rangle  \rvert ^2 + \cdots + \lvert \langle v, e_m \rangle  \rvert ^2 \le \lVert v \rVert ^2{}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -158,9 +158,9 @@
       <p>
         Suppose <m>v \in V{}</m>.
         Then
-        <me>
-          v =\underbrace{\langle v, e_1 \rangle  e_1 + \cdots + \langle v, e_m \rangle  e_m }_u + \underbrace{ v - \langle v, e_1 \rangle  e_1 - \cdots - \langle v, e_m \rangle  e_m }_w\!
-        </me>.
+        <md>
+          v =\underbrace{\langle v, e_1 \rangle  e_1 + \cdots + \langle v, e_m \rangle  e_m }_u + \underbrace{ v - \langle v, e_1 \rangle  e_1 - \cdots - \langle v, e_m \rangle  e_m }_w\!.
+        </md>
       </p>
       <p>
         Let <m>u</m> and <m>w</m> be defined as in the equation above.
@@ -216,25 +216,25 @@
           As mentioned above,
           the standard basis is an orthonormal basis of<nbsp/><m>\FF{4}</m>.
           We now show that
-          <me>
+          <md>
             ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ), ( \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} ), ( \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} ), ( -\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} )
-          </me>
+          </md>
           is also an orthonormal basis of <m>\FF{4}</m>.
         </p>
         <p>
           We have
-          <me>
-            \lVert  ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} )  \rVert = \sqrt{ \tfrac{1}{2^2} + \tfrac{1}{2^2} + \tfrac{1}{2^2}+ \tfrac{1}{2^2} }  = 1
-          </me>.
+          <md>
+            \lVert  ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} )  \rVert = \sqrt{ \tfrac{1}{2^2} + \tfrac{1}{2^2} + \tfrac{1}{2^2}+ \tfrac{1}{2^2} }  = 1.
+          </md>
         </p>
         <p>
           Similarly, the other three vectors in the list above also have norm <m>1</m>.
         </p>
         <p>
           Note that
-          <me>
-            \langle  ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ), (  \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} )  \rangle  = \tfrac{1}{2} \cdot \tfrac{1}{2} + \tfrac{1}{2} \cdot \tfrac{1}{2} + \tfrac{1}{2} \cdot ( -\tfrac{1}{2} ) + \tfrac{1}{2} \cdot (  -\tfrac{1}{2}  ) = 0
-          </me>.
+          <md>
+            \langle  ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ), (  \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} )  \rangle  = \tfrac{1}{2} \cdot \tfrac{1}{2} + \tfrac{1}{2} \cdot \tfrac{1}{2} + \tfrac{1}{2} \cdot ( -\tfrac{1}{2} ) + \tfrac{1}{2} \cdot (  -\tfrac{1}{2}  ) = 0.
+          </md>
         </p>
         <p>
           Similarly, the inner product of any two distinct vectors in the list above also equals<nbsp/><m>0</m>.
@@ -252,9 +252,9 @@
       e_n</m> of <m>V</m> and a vector <m>v \in V{}</m>,
       we know that there is some choice of scalars <m>a_1, \dots,
       a_n \in \F{}</m> such that
-      <me>
-        v = a_1 e_1 + \dots + a_n e_n
-      </me>.
+      <md>
+        v = a_1 e_1 + \dots + a_n e_n.
+      </md>
     </p>
     <p>
       Computing the numbers <m>a_1, \dots,
@@ -306,9 +306,9 @@
       <p>
         Because <m>e_1, \dots, e_n</m> is a basis of<nbsp/><m>V{}</m>,
         there exist scalars <m>a_1, \dots, a_n</m> such that
-        <me>
-          v = a_1 e_1 + \dots + a_n e_n
-        </me>.
+        <md>
+          v = a_1 e_1 + \dots + a_n e_n.
+        </md>
       </p>
       <p>
         Because <m>e_1, \dots, e_n</m> is orthonormal,
@@ -328,17 +328,17 @@
         <p>
           Suppose we want to write the vector
           <m>(1,2,4,7) \in \F4</m> as a linear combination of the orthonormal basis
-          <me>
+          <md>
             ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ), ( \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} ), ( \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} ), ( -\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} )
-          </me>
+          </md>
           of <m>\F4</m> from <xref ref="x4FonBasis">Example</xref>.
           Instead of solving a system of four linear equations in four unknowns,
           as typically would be required if we were working with a nonorthonormal basis,
           we simply evaluate four inner products and <xref ref="x190">use</xref>(a),
           getting that <m>(1,2,4,7)</m> equals
-          <me>
-            7 ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ) -4( \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} ) +( \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} ) +2( -\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} )
-          </me>.
+          <md>
+            7 ( \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2}, \tfrac{1}{2} ) -4( \tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2} ) +( \tfrac{1}{2}, -\tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} ) +2( -\tfrac{1}{2}, \tfrac{1}{2}, -\tfrac{1}{2}, \tfrac{1}{2} ).
+          </md>
         </p>
       </statement>
     </example>
@@ -372,18 +372,18 @@
           v_m</m> is a linearly independent list of vectors in <nbsp/><m>V{}</m>.
           Let <m>f_1 = v_1</m>.
           For <m>k = 2, \dots, m</m>, define <m>f_k</m> inductively by
-          <me>
-            f_k = v_k - \frac{\langle v_k, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 - \dots - \frac{\langle v_k, f_{k-1}  \rangle }{\lVert f_{k-1} \rVert ^2} f_{k-1}
-          </me>.
+          <md>
+            f_k = v_k - \frac{\langle v_k, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 - \dots - \frac{\langle v_k, f_{k-1}  \rangle }{\lVert f_{k-1} \rVert ^2} f_{k-1}.
+          </md>
         </p>
         <p>
           For each <m>k = 1, \ldots,
           m</m>, let <m>e_k = \dfrac{f_k}{\lVert f_k \rVert }</m>.
           Then <m>e_1, \dots,
           e_m</m> is an orthonormal list of vectors in <nbsp/><m>V</m> such that
-          <me>
+          <md>
             \Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
-          </me>
+          </md>
           for each <m>k = 1, \dots, m</m>.
         </p>
       </statement>
@@ -401,9 +401,9 @@
         <m>e_1, \dots,
         e_{k-1}</m> generated by <xref ref="x186"></xref>
         is an orthonormal list such that
-        <men xml:id="x83">
-          \Span (v_1, \dots, v_{k-1}) = \Span (e_1, \dots, e_{k-1})
-        </men>.
+        <md number="yes" xml:id="x83">
+          \Span (v_1, \dots, v_{k-1}) = \Span (e_1, \dots, e_{k-1}).
+        </md>
       </p>
       <p>
         Because <m>v_1, \dots, v_m</m> is linearly independent,
@@ -432,9 +432,9 @@
         From the definition of <m>e_k</m> given in <xref ref="x186"></xref>,
         we see that <m>v_k \in \Span (e_1, \dots, e_k)</m>.
         Combining this information <xref ref="x83">with</xref> shows that
-        <me>
-          \Span (v_1, \dots, v_k) \subset \Span (e_1, \dots, e_k)
-        </me>.
+        <md>
+          \Span (v_1, \dots, v_k) \subset \Span (e_1, \dots, e_k).
+        </md>
       </p>
       <p>
         Both lists above are linearly independent
@@ -450,9 +450,9 @@
       <statement>
         <p>
           Suppose we make <m>\P{}_2(\R{})</m> into an inner product space using the inner product given by
-          <me>
+          <md>
             \langle p, q \rangle  = \int_{-1}^{1} pq
-          </me>
+          </md>
           for all <m>p, q \in \P{}_2(\R{})</m>.
           We know that <m>1, x, x^2</m> is a basis of <m>\P{}_2(\R{})</m>,
           but it is not an orthonormal basis.
@@ -464,29 +464,29 @@
           To get started, take <m>f_1 = v_1 = 1</m>.
           Thus <m>\lVert f_1 \rVert ^2 = \int_{-1}^1 1 = 2</m>.
           Hence the formula in <xref ref="x186"></xref> tells us that
-          <me>
-            f_2 = v_2 - \frac{\langle v_2, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 = x - \frac{\langle x, 1 \rangle }{\lVert f_1 \rVert ^2} = x
-          </me>,
+          <md>
+            f_2 = v_2 - \frac{\langle v_2, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 = x - \frac{\langle x, 1 \rangle }{\lVert f_1 \rVert ^2} = x,
+          </md>
           where the last equality holds because <m>\langle x, 1 \rangle  = \int_{-1}^1 t   dt = 0</m>.
         </p>
         <p>
           The formula above for <m>f_2</m> implies that <m>\lVert f_2 \rVert ^2 = \int_{-1}^1 t^2   dt = \frac{2}{3}</m>.
           Now the formula in <xref ref="x186"></xref> tells us that
-          <me>
-            f_3 = v_3 - \frac{\langle v_3, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 - \frac{\langle v_3, f_2 \rangle }{\lVert f_2 \rVert ^2} f_2 = x^2 - \tfrac{1}{2} \langle x^2{}, 1 \rangle  - \tfrac{3}{2}\langle x^2{}, x \rangle  x = x^2 - \tfrac{1}{3}
-          </me>.
+          <md>
+            f_3 = v_3 - \frac{\langle v_3, f_1 \rangle }{\lVert f_1 \rVert ^2} f_1 - \frac{\langle v_3, f_2 \rangle }{\lVert f_2 \rVert ^2} f_2 = x^2 - \tfrac{1}{2} \langle x^2{}, 1 \rangle  - \tfrac{3}{2}\langle x^2{}, x \rangle  x = x^2 - \tfrac{1}{3}.
+          </md>
         </p>
         <p>
           The formula above for <m>f_3</m> implies that
-          <me>
-            \lVert f_3 \rVert ^2 = \int_{-1}^1 ( t^2 - \tfrac{1}{3}  )^2   dt =  \int_{-1}^{1} (  t^4 -\tfrac{2}{3} t^2 + \tfrac{1}{9}  )   dt = \tfrac{8}{45}
-          </me>.
+          <md>
+            \lVert f_3 \rVert ^2 = \int_{-1}^1 ( t^2 - \tfrac{1}{3}  )^2   dt =  \int_{-1}^{1} (  t^4 -\tfrac{2}{3} t^2 + \tfrac{1}{9}  )   dt = \tfrac{8}{45}.
+          </md>
         </p>
         <p>
           Now dividing each of <m>f_1, f_2, f_3</m> by its norm gives us the orthonormal list
-          <me>
-            \sqrt{\tfrac{1}{2}}, \sqrt{\tfrac{3}{2}} x, \sqrt{\tfrac{45}{8}} (  x^2 - \tfrac{1}{3}  )
-          </me>.
+          <md>
+            \sqrt{\tfrac{1}{2}}, \sqrt{\tfrac{3}{2}} x, \sqrt{\tfrac{45}{8}} (  x^2 - \tfrac{1}{3}  ).
+          </md>
         </p>
         <p>
           The orthonormal list above has length three,
@@ -543,18 +543,18 @@
         Now apply the Gram<ndash/>Schmidt procedure <xref ref="x186"/> to
         <m>e_1, \dots,
         e_m, v_1, \dots, v_n</m>, producing an orthonormal list
-        <me>
+        <md>
           e_1, \dots, e_m, f_1, \dots, f_n;
-        </me>
+        </md>
         here the formula given by the Gram<ndash/>Schmidt procedure leaves the first <m>m</m> vectors unchanged because they are already orthonormal.
         The list above is an orthonormal basis of <m>V</m> by <xref ref="onbasis"></xref>.
       </p>
     </proof>
     <p>
       Recall that a matrix is called <term>upper triangular</term> if it looks like this:
-      <me>
-        \begin{pmatrix}* \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  * \end{pmatrix}
-      </me>,
+      <md>
+        \begin{pmatrix}* \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  * \end{pmatrix} ,
+      </md>
       where the <m>0</m> in the matrix above indicates that all entries below the diagonal equal<nbsp/><m>0</m>,
       and asterisks are used to denote entries on and above the diagonal.
     </p>
@@ -592,9 +592,9 @@
         producing an orthonormal basis <m>e_1, \dots,
         e_n</m> of<nbsp/><m>V{}</m>.
         Because
-        <me>
+        <md>
           \Span(e_1, \dots, e_k) = \Span(v_1, \dots, v_k)
-        </me>
+        </md>
         for each <m>k</m>
         (<xref ref="x186">see</xref>),
         we conclude that <m>\Span(e_1, \dots,
@@ -669,14 +669,14 @@
       <statement>
         <p>
           The function <m>\phi \colon \F{3} \rightarrow \F{}</m> defined by
-          <me>
+          <md>
             \phi(z_1, z_2, z_3) = 2 z_1 - 5 z_2 + z_3
-          </me>
+          </md>
           is a linear functional on <m>\FF{3}</m>.
           We could write this linear functional in the form
-          <me>
+          <md>
             \phi(z) = \langle z, w \rangle
-          </me>
+          </md>
           for every <m>z \in \FF3</m>, where <m>w = (2, -5, 1)</m>.
         </p>
       </statement>
@@ -686,9 +686,9 @@
       <statement>
         <p>
           The function <m>\phi \colon \P{}_5(\R{}) \rightarrow \R{}</m> defined by
-          <me>
+          <md>
             \phi(p) = \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr) dt
-          </me>
+          </md>
           is a linear functional on <m>\P{}_5(\R{})</m>.
         </p>
       </statement>
@@ -713,9 +713,9 @@
       <m>\P{}_5(\R{})</m> into an inner product space by defining <m>\langle p, q \rangle  = \int_{-1}^{1} pq</m>.
       Let <m>\phi</m> be as in <xref ref="x360">Example</xref>.
       It is not obvious that there exists <m>q \in \P{}_5(\R{})</m> such that
-      <me>
+      <md>
         \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr) dt = \langle p, q \rangle
-      </me>
+      </md>
       for every <m>p \in \P{}_5(\R{})</m> [we cannot take
       <m>q(t) = \cos(\pi t)</m> because that choice of <m>q</m> is not an element of<nbsp/><m>\P{}_5(\R{})</m>] . The next result tells us the somewhat surprising result that there indeed exists a polynomial
       <m>q \in \P{}_5(\R{})</m> such that the equation above holds for all <m>p \in \P{}_5(\R{})</m>.
@@ -727,9 +727,9 @@
               <idx><h>Riesz representation theorem</h></idx>
           Suppose <m>V</m> is finite-dimensional and <m>\phi</m> is a linear functional on <m>V{}</m>.
           Then there is a unique vector <m>v \in V</m> such that
-          <me>
+          <md>
             \phi(u) = \langle u,v \rangle
-          </me>
+          </md>
           for every <m>u \in V{}</m>.
         </p>
       </statement>
@@ -748,23 +748,23 @@
         for every <m>u \in V{}</m>,
         where the first equality comes from <xref ref="x190"></xref>(a).
         Thus setting
-        <men xml:id="GSformula">
-          v = \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n
-        </men>,
+        <md number="yes" xml:id="GSformula">
+          v = \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n,
+        </md>
         we have <m>\phi(u) = \langle u, v \rangle</m> for every <m>u \in V{}</m>,
         as desired.
       </p>
       <p>
         Now we prove that only one vector <m>v \in V</m> has the desired behavior.
         Suppose <m>v_1, v_2 \in V</m> are such that
-        <me>
+        <md>
           \phi(u) = \langle u, v_1 \rangle  = \langle u, v_2 \rangle
-        </me>
+        </md>
         for every <m>u \in V{}</m>.
         Then
-        <me>
+        <md>
           0 = \langle u, v_1 \rangle  - \langle u, v_2 \rangle  = \langle u, v_1 - v_2 \rangle
-        </me>
+        </md>
         for every <m>u \in V{}</m>.
         Taking <m>u = v_1 - v_2</m> shows that <m>v_1 - v_2 =0</m>.
         Thus <m>v_1 = v_2</m>,
@@ -776,9 +776,9 @@
       <statement>
         <p>
           Suppose we want to find a polynomial <m>q \in \P{}_2(\R{})</m> such that
-          <men xml:id="x2rrt">
+          <md number="yes" xml:id="x2rrt">
             \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr) dt = \int_{-1}^1 pq
-          </men>
+          </md>
           for every polynomial <m>p \in \P{}_2(\R{})</m>.
           To do this, we make <m>\P{}_2(\R{})</m> into an inner product space by defining
           <m>\langle p, q \rangle</m> to be the right side of the equation above for <m>p,
@@ -789,9 +789,9 @@
         </p>
         <p>
           Define a linear functional <m>\phi</m> on <m>\P{}_2(\R{})</m> by letting
-          <me>
+          <md>
             \phi(p) = \int_{-1}^1 p(t) \bigl(\cos(\pi t)\bigr) dt
-          </me>
+          </md>
           for each <m>p \in \P{}_2(\R{})</m>.
           Now use the orthonormal basis from <xref ref="obP2R">Example</xref>
           and apply <xref ref="GSformula">formula</xref>
@@ -804,17 +804,17 @@
         </p>
         <p>
           A bit of calculus applied to the equation above shows that
-          <me>
-            q(x) = \tfrac{15}{2 \pi^2} ( 1 - 3 x^2 )
-          </me>.
+          <md>
+            q(x) = \tfrac{15}{2 \pi^2} ( 1 - 3 x^2 ).
+          </md>
         </p>
         <p>
           The same procedure shows that if we want to find
           <m>q \in \P{}_5(\R{})</m> such that <xref ref="x2rrt"></xref>
           holds for all <m>p \in \P{}_5(\R{})</m>, then we should take
-          <me>
-            q(x) = \tfrac{105}{8 \pi^4} (  ( 27 - 2 \pi^2 ) + ( 24 \pi^2 - 270 ) x^2 + ( 315 - 30 \pi^2 ) x^4 )
-          </me>.
+          <md>
+            q(x) = \tfrac{105}{8 \pi^4} (  ( 27 - 2 \pi^2 ) + ( 24 \pi^2 - 270 ) x^2 + ( 315 - 30 \pi^2 ) x^4 ).
+          </md>
         </p>
       </statement>
     </example>
@@ -822,14 +822,14 @@
       Suppose <m>V</m> is finite-dimensional and <m>\phi</m> a linear functional on <m>V{}</m>.
       <xref ref="GSformula">Then</xref>
       gives a formula for the vector <m>v</m> that satisfies
-      <me>
+      <md>
         \phi(u) = \langle u, v \rangle
-      </me>
+      </md>
       for all <m>u \in V{}</m>.
       Specifically, we have
-      <me>
-        v = \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n
-      </me>.
+      <md>
+        v = \overline{\phi(e_1)} e_1  + \dots + \overline{\phi(e_n)} e_n.
+      </md>
     </p>
     <p>
       The right side of the equation above seems to depend on the orthonormal basis
@@ -845,387 +845,385 @@
       <xref ref="x3RRT">see</xref> and also <xref ref="VVpiso">Exercise</xref>
       in <xref ref="OrthoMin">Section</xref>.
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>e_1, \dots,
-              e_m</m> is a list of vectors in<nbsp/><m>V</m> such that
-              <me>
-                \| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
-              </me>
-              for all <m>a_1, \dots, a_m \in \F{}{}</m>.
-              Show that <m>e_1, \dots, e_m</m> is an orthonormal list.
-              Note: This exercise provides a converse to <xref ref="x4strange"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>e_1, \dots,
+            e_m</m> is a list of vectors in<nbsp/><m>V</m> such that
+            <md>
+              \| a_1 e_1 + \dots + a_m e_m \|^2 = | a_1|^2 + \dots + |a_m|^2
+            </md>
+            for all <m>a_1, \dots, a_m \in \F{}{}</m>.
+            Show that <m>e_1, \dots, e_m</m> is an orthonormal list.
+            Note: This exercise provides a converse to <xref ref="x4strange"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Suppose <m>\theta \in \R{}</m>.
+                Show that both
+                <md>
+                  (\cos \theta, \sin \theta), (-\sin \theta, \cos \theta) \andd (\cos \theta, \sin \theta), (\sin \theta, -\cos \theta)
+                </md>
+                are orthonormal bases of <m>\RR2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that each orthonormal basis of <m>\R2</m> is of the form given by one of the two possibilities in (a).
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>e_1, \dots,
+            e_m</m> is an orthonormal list in<nbsp/><m>V</m> and <m>v \in V{}</m>.
+            Prove<nbsp/>that
+            <md>
+              \|v\|^2 = \lvert  \langle v, e_1 \rangle   \rvert ^2 + \dots + \lvert  \langle v, e_m \rangle   \rvert ^2 \iff v \in \Span(e_1, \dots, e_m).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8Fourier">
+        <statement>
+          <p>
+            Suppose <m>n</m> is a positive integer.
+            Prove that
+            <md>
+              \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots, \frac{\sin nx}{\sqrt{\pi}}
+            </md>
+            is an orthonormal list of vectors in <m>C[-\pi,\pi]</m>,
+            the vector space of continuous real-valued functions on <m>[-\pi,\pi]</m> with inner product
+            <md>
+              \langle f, g \rangle  = \int_{-\pi}^{\pi} fg.
+            </md>
+          </p>
+          <p>
+            <hint>
+              <p>
+                The following formulas should help.
+              </p>
+            </hint>
+            <md>
+              <mrow>(\sin x)(\cos y) \amp = \frac{\sin(x-y) + \sin(x+y)}{2}</mrow>
+              <mrow>(\sin x)(\sin y) \amp = \frac{\cos(x-y) - \cos(x+y)}{2}</mrow>
+              <mrow>(\cos x)(\cos y) \amp = \frac{\cos(x-y) + \cos(x+y)}{2}</mrow>
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\fun f {[-\pi, \pi]} {\R{}}</m> is continuous.
+            For each nonnegative integer <m>k</m>, define
+            <md>
+              a_k = \tfrac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(kx)  dx \andd b_k = \tfrac{1}{\sqrt{\pi}}  \int_{-\pi}^{\pi} f(x) \sin(kx)  dx.
+            </md>
+          </p>
+          <p>
+            Prove that
+            <md>
+              \frac{{a_0}^{2}}{2} + \sum_{k=1}^\infty (  {a_k}^{2} + {b_k}^{2}  ) \le \int_{-\pi}^{\pi} f^2{}.
+            </md>
+          </p>
+          <p>
+            Note: The inequality above is actually an equality for all continuous functions <m>\fun f {[-\pi, \pi]} {\R{}}</m>.
+            However, proving that this inequality is an equality involves Fourier series techniques beyond the scope of this book.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V{}</m>.
             <ol>
               <li>
                 <p>
-                  Suppose <m>\theta \in \R{}</m>.
-                  Show that both
-                  <me>
-                    (\cos \theta, \sin \theta), (-\sin \theta, \cos \theta) \andd (\cos \theta, \sin \theta), (\sin \theta, -\cos \theta)
-                  </me>
-                  are orthonormal bases of <m>\RR2</m>.
+                  Prove that if <m>v_1, \dots, v_n</m> are vectors in <m>V</m> such that
+                  <md>
+                    \|e_k - v_k\| \lt  \frac{1}{\sqrt{n}}
+                  </md>
+                  for each <m>k</m>, then <m>v_1, \dots,
+                  v_n</m> is a basis of <m>V{}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Show that each orthonormal basis of <m>\R2</m> is of the form given by one of the two possibilities in (a).
+                  Show that there exist <m>v_1, \ldots, v_n \in V</m> such that
+                  <md>
+                    \|e_k - v_k\| \le \frac{1}{\sqrt{n}}
+                  </md>
+                  for each <m>k</m>, but <m>v_1, \ldots,
+                  v_n</m> is not linearly independent.
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>e_1, \dots,
-              e_m</m> is an orthonormal list in<nbsp/><m>V</m> and <m>v \in V{}</m>.
-              Prove<nbsp/>that
-              <me>
-                \|v\|^2 = \lvert  \langle v, e_1 \rangle   \rvert ^2 + \dots + \lvert  \langle v, e_m \rangle   \rvert ^2 \iff v \in \Span(e_1, \dots, e_m)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8Fourier">
-          <statement>
-            <p>
-              Suppose <m>n</m> is a positive integer.
-              Prove that
-              <me>
-                \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \dots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \dots, \frac{\sin nx}{\sqrt{\pi}}
-              </me>
-              is an orthonormal list of vectors in <m>C[-\pi,\pi]</m>,
-              the vector space of continuous real-valued functions on <m>[-\pi,\pi]</m> with inner product
-              <me>
-                \langle f, g \rangle  = \int_{-\pi}^{\pi} fg
-              </me>.
-            </p>
-            <p>
-              <hint>
+          </p>
+          <p>
+            Note: This exercise states in (a) that an appropriately small perturbation of an orthonormal basis is a basis.
+            Then (b) shows that the number
+            <m>1/\!\sqrt{n}</m> on the right side of the inequality in (a) cannot be higher.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \R{3} )</m> has an upper-triangular matrix with respect to the basis
+            <m>(1, 0, 0)</m>, (1, 1, 1), <m>(1, 1, 2)</m>.
+            Find an orthonormal basis of <m>\R{3}</m> with respect to which <m>T</m> has an upper-triangular matrix.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x375">
+        <statement>
+          <p>
+            Make <m>\P{}_2(\R{})</m> into an inner product space by defining
+            <m>\langle p, q \rangle = \int_0^1 pq</m> for all <m>p,
+            q \in \P{}_2(\R{})</m>.
+            <ol>
+              <li>
                 <p>
-                  The following formulas should help.
+                  Apply the Gram<ndash/>Schmidt procedure to the basis
+                  <m>1,
+                  x, x^2</m> to produce an orthonormal basis of <m>\P{}_2(\R{})</m>.
                 </p>
-              </hint>
-              <md>
-                <mrow>(\sin x)(\cos y) \amp = \frac{\sin(x-y) + \sin(x+y)}{2}</mrow>
-                <mrow>(\sin x)(\sin y) \amp = \frac{\cos(x-y) - \cos(x+y)}{2}</mrow>
-                <mrow>(\cos x)(\cos y) \amp = \frac{\cos(x-y) + \cos(x+y)}{2}</mrow>
-              </md>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\fun f {[-\pi, \pi]} {\R{}}</m> is continuous.
-              For each nonnegative integer <m>k</m>, define
-              <me>
-                a_k = \tfrac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(kx)  dx \andd b_k = \tfrac{1}{\sqrt{\pi}}  \int_{-\pi}^{\pi} f(x) \sin(kx)  dx
-              </me>.
-            </p>
-            <p>
-              Prove that
-              <me>
-                \frac{{a_0}^{2}}{2} + \sum_{k=1}^\infty (  {a_k}^{2} + {b_k}^{2}  ) \le \int_{-\pi}^{\pi} f^2{}
-              </me>.
-            </p>
-            <p>
-              Note: The inequality above is actually an equality for all continuous functions <m>\fun f {[-\pi, \pi]} {\R{}}</m>.
-              However, proving that this inequality is an equality involves Fourier series techniques beyond the scope of this book.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that if <m>v_1, \dots, v_n</m> are vectors in <m>V</m> such that
-                    <me>
-                      \|e_k - v_k\| \lt  \frac{1}{\sqrt{n}}
-                    </me>
-                    for each <m>k</m>, then <m>v_1, \dots,
-                    v_n</m> is a basis of <m>V{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that there exist <m>v_1, \ldots, v_n \in V</m> such that
-                    <me>
-                      \|e_k - v_k\| \le \frac{1}{\sqrt{n}}
-                    </me>
-                    for each <m>k</m>, but <m>v_1, \ldots,
-                    v_n</m> is not linearly independent.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: This exercise states in (a) that an appropriately small perturbation of an orthonormal basis is a basis.
-              Then (b) shows that the number
-              <m>1/\!\sqrt{n}</m> on the right side of the inequality in (a) cannot be higher.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \R{3} )</m> has an upper-triangular matrix with respect to the basis
-              <m>(1, 0, 0)</m>, (1, 1, 1), <m>(1, 1, 2)</m>.
-              Find an orthonormal basis of <m>\R{3}</m> with respect to which <m>T</m> has an upper-triangular matrix.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x375">
-          <statement>
-            <p>
-              Make <m>\P{}_2(\R{})</m> into an inner product space by defining
-              <m>\langle p, q \rangle = \int_0^1 pq</m> for all <m>p,
-              q \in \P{}_2(\R{})</m>.
-              <ol>
-                <li>
-                  <p>
-                    Apply the Gram<ndash/>Schmidt procedure to the basis
-                    <m>1,
-                    x, x^2</m> to produce an orthonormal basis of <m>\P{}_2(\R{})</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The differentiation operator<idx><h>differentiation linear map</h></idx> \big(the operator that takes <m>p</m> to <m>p'</m>\big) on
-                    <m>\P{}_2(\R{})</m> has an upper-triangular matrix with respect to the basis <m>1, x, x^2{}</m>,
-                    which is not an orthonormal basis.
-                    Find the matrix of the differentiation operator on
-                    <m>\P{}_2(\R{})</m> with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular,
-                    as expected from the proof of <xref ref="x188"></xref>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>e_1, \dots,
-              e_m</m> is the result of applying the Gram<ndash/>Schmidt procedure to a linearly independent list <m>v_1, \dots,
-              v_m</m> in <m>V{}</m>.
-              Prove that <m>\langle v_k, e_k \rangle > 0</m> for each <m>k = 1, \dots, m</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8GSunique">
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots,
-              v_m</m> is a linearly independent list in <m>V{}</m>.
-              Explain why the orthonormal list produced by the formulas of the Gram<ndash/>Schmidt procedure <xref ref="x186"/> is the only orthonormal list
-              <m>e_1, \ldots,
-              e_m</m> in <m>V</m> such that <m>\langle v_k, e_k \rangle > 0</m> and
-              <m>\Span(v_1, \ldots,
-              v_k) = \Span(e_1, \ldots, e_k)</m> for each <m>k = 1, \ldots, m</m>.
-              Note: The result in this exercise is used in the proof of <xref ref="x7QR"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x6int">
-          <statement>
-            <p>
-              Find a polynomial <m>q \in \P{}_2(\R{})</m> such that
-              <m>p( \tfrac{1}{2} ) = \int_0^1 pq</m> for every <m>p \in \P{}_2(\R{})</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find a polynomial <m>q \in \P{}_2(\R{})</m> such that
-              <me>
-                \int_0^1 p(x) \cos(\pi x)  dx = \int_0^1 pq
-              </me>
-              for every <m>p \in \P{}_2(\R{})</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="GSlindep">
-          <statement>
-            <p>
-              Show that a list <m>v_1, \ldots,
-              v_m</m> of vectors in <m>V</m> is linearly dependent if and only if the Gram<ndash/>Schmidt formula in <xref ref="x186"></xref>
-              produces <m>f_k= 0</m> for some <m>k \in \{ 1, \ldots,
-              m \}</m>.
-              Note: This exercise gives an alternative to Gaussian elimination techniques for determining whether a list of vectors in an inner product space is linearly dependent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a real inner product space and
-              <m>v_1, \dots,
-              v_m</m> is a linearly independent list of vectors in<nbsp/><m>V{}</m>.
-              Prove that there exist exactly <m>2^m</m> orthonormal lists
-              <m>e_1, \dots,
-              e_m</m> of vectors in<nbsp/><m>V</m> such that
-              <me>
-                \Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
-              </me>
-              for all <m>k \in \{1, \dots, m\}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\langle \cdot, \cdot \rangle _1</m> and
-              <m>\langle \cdot, \cdot \rangle _2</m> are inner products on <m>V</m> such that
-              <m>\langle u,v \rangle _1 = 0</m> if and only if <m>\langle u,v \rangle _2= 0</m>.
-              Prove that there is a positive number <m>c</m> such that
-              <m>\langle u, v \rangle _1 = c \langle u, v \rangle _2</m> for every <m>u,
-              v \in V{}</m>.
-              Note: This exercise shows that if two inner products have the same pairs of orthogonal vectors,
-              then each of the inner products is a scalar multiple of the other inner product.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional.
-              Suppose <m>\langle \cdot, \cdot \rangle _1</m>,
-              <m>\langle \cdot, \cdot \rangle _2</m> are inner products on <m>V</m> with corresponding norms
-              <m>\lVert \Cdot \rVert _1</m> and <m>\lVert \Cdot \rVert _2</m>.
-              Prove that there exists a positive number <m>c</m> such that
-              <m>\| v \|_1 \le c \| v \|_2</m> for every <m>v \in V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>V</m> is finite-dimensional.
-              Prove that if <m>T</m> is an operator on <m>V</m> such that <m>1</m> is the only eigenvalue of <m>T</m> and
-              <m>\lVert Tv \rVert \le \lVert v \rVert</m> for all <m>v \in V{}</m>,
-              then <m>T</m> is the identity operator.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>u_1, \dots,
-              u_m</m> is a linearly independent list in <m>V{}</m>.
-              Show that there exists <m>v \in V</m> such that
-              <m>\langle u_k, v \rangle =1</m> for all <m>k \in \{1, \dots, m\}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
-              Prove that there exists a basis
-              <m>u_1, \ldots,
-              u_n</m> of <m>V</m> such that
-              <me>
-                \langle v_j, u_k \rangle  = \begin{cases}0 \amp  \text{ if }  j \ne k, \\ 1 \amp  \text{ if }  j=k. \end{cases}
-              </me>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3Schur">
-          <statement>
-            <p>
-              Suppose <m>\F{}=\C{}</m>,
-              <m>V</m> is finite-dimensional,
-              and <m>\E \subset \Lc(V)</m> is such that
-              <me>
-                ST = TS
-              </me>
-              for all <m>S, T \in \E</m>.
-              Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has an upper-triangular matrix.
-          <idx><h>commuting operators</h></idx>
-      Note: This exercise strengthens <xref ref="x4ManyOps">Exercise</xref>
-              (b) in <xref ref="x2diagmat">Section</xref>
-              (in the context of inner product spaces)
-              by asserting that the basis in that exercise can be chosen to be orthonormal.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m>,
-              <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
-              and all eigenvalues of <m>T</m> have absolute value less than <m>1</m>.
-              Let <m>\epsilon > 0</m>.
-              Prove that there exists a positive integer <m>m</m> such that
-              <m>\lVert T^m v \rVert \le \epsilon \|v\|</m> for every <m>v \in V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>C[-1, 1]</m> is the vector space of continuous real-valued functions on the interval <m>[-1 ,1]</m> with inner product given by <idx><h>Riesz representation theorem</h></idx>
-              <me>
-                \langle f, g \rangle  = \int_{-1}^1 fg
-              </me>
-              for all <m>f, g \in C[-1, 1]</m>.
-              Let <m>\phi</m> be the linear functional on
-              <m>C[-1, 1]</m> defined by <m>\phi(f) = f(0)</m>.
-              Show that there does not exist <m>g \in C[-1, 1]</m> such that
-              <me>
-                \phi(f) = \langle f, g \rangle
-              </me>
-              for every <m>f \in C[-1, 1]</m>.
-              Note: This exercise shows that the Riesz representation theorem <xref ref="x50"/> does not hold on infinite-dimensional vector spaces without additional hypotheses on <m>V</m> and <m>\phi</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x4metric">
-          <statement>
-            <p>
-              For all <m>u, v \in V{}</m>, define <m>d(u, v) = \|u - v\|</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>d</m> is a metric on <m>V{}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that if <m>V</m> is finite-dimensional,
-                    then <m>d</m> is a complete metric on <m>V</m>
-                    (meaning that every Cauchy sequence converges).
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that every finite-dimensional subspace of <m>V</m> is a closed subset of<nbsp/><m>V</m>
-                    (with respect to the metric <m>d</m> ).
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: This exercise requires familiarity with metric spaces.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+              </li>
+              <li>
+                <p>
+                  The differentiation operator<idx><h>differentiation linear map</h></idx> \big(the operator that takes <m>p</m> to <m>p'</m>\big) on
+                  <m>\P{}_2(\R{})</m> has an upper-triangular matrix with respect to the basis <m>1, x, x^2{}</m>,
+                  which is not an orthonormal basis.
+                  Find the matrix of the differentiation operator on
+                  <m>\P{}_2(\R{})</m> with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular,
+                  as expected from the proof of <xref ref="x188"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>e_1, \dots,
+            e_m</m> is the result of applying the Gram<ndash/>Schmidt procedure to a linearly independent list <m>v_1, \dots,
+            v_m</m> in <m>V{}</m>.
+            Prove that <m>\langle v_k, e_k \rangle > 0</m> for each <m>k = 1, \dots, m</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8GSunique">
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots,
+            v_m</m> is a linearly independent list in <m>V{}</m>.
+            Explain why the orthonormal list produced by the formulas of the Gram<ndash/>Schmidt procedure <xref ref="x186"/> is the only orthonormal list
+            <m>e_1, \ldots,
+            e_m</m> in <m>V</m> such that <m>\langle v_k, e_k \rangle > 0</m> and
+            <m>\Span(v_1, \ldots,
+            v_k) = \Span(e_1, \ldots, e_k)</m> for each <m>k = 1, \ldots, m</m>.
+            Note: The result in this exercise is used in the proof of <xref ref="x7QR"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x6int">
+        <statement>
+          <p>
+            Find a polynomial <m>q \in \P{}_2(\R{})</m> such that
+            <m>p( \tfrac{1}{2} ) = \int_0^1 pq</m> for every <m>p \in \P{}_2(\R{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a polynomial <m>q \in \P{}_2(\R{})</m> such that
+            <md>
+              \int_0^1 p(x) \cos(\pi x)  dx = \int_0^1 pq
+            </md>
+            for every <m>p \in \P{}_2(\R{})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="GSlindep">
+        <statement>
+          <p>
+            Show that a list <m>v_1, \ldots,
+            v_m</m> of vectors in <m>V</m> is linearly dependent if and only if the Gram<ndash/>Schmidt formula in <xref ref="x186"></xref>
+            produces <m>f_k= 0</m> for some <m>k \in \{ 1, \ldots,
+            m \}</m>.
+            Note: This exercise gives an alternative to Gaussian elimination techniques for determining whether a list of vectors in an inner product space is linearly dependent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a real inner product space and
+            <m>v_1, \dots,
+            v_m</m> is a linearly independent list of vectors in<nbsp/><m>V{}</m>.
+            Prove that there exist exactly <m>2^m</m> orthonormal lists
+            <m>e_1, \dots,
+            e_m</m> of vectors in<nbsp/><m>V</m> such that
+            <md>
+              \Span (v_1, \dots, v_k) = \Span (e_1, \dots, e_k)
+            </md>
+            for all <m>k \in \{1, \dots, m\}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\langle \cdot, \cdot \rangle _1</m> and
+            <m>\langle \cdot, \cdot \rangle _2</m> are inner products on <m>V</m> such that
+            <m>\langle u,v \rangle _1 = 0</m> if and only if <m>\langle u,v \rangle _2= 0</m>.
+            Prove that there is a positive number <m>c</m> such that
+            <m>\langle u, v \rangle _1 = c \langle u, v \rangle _2</m> for every <m>u,
+            v \in V{}</m>.
+            Note: This exercise shows that if two inner products have the same pairs of orthogonal vectors,
+            then each of the inner products is a scalar multiple of the other inner product.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional.
+            Suppose <m>\langle \cdot, \cdot \rangle _1</m>,
+            <m>\langle \cdot, \cdot \rangle _2</m> are inner products on <m>V</m> with corresponding norms
+            <m>\lVert \Cdot \rVert _1</m> and <m>\lVert \Cdot \rVert _2</m>.
+            Prove that there exists a positive number <m>c</m> such that
+            <m>\| v \|_1 \le c \| v \|_2</m> for every <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>V</m> is finite-dimensional.
+            Prove that if <m>T</m> is an operator on <m>V</m> such that <m>1</m> is the only eigenvalue of <m>T</m> and
+            <m>\lVert Tv \rVert \le \lVert v \rVert</m> for all <m>v \in V{}</m>,
+            then <m>T</m> is the identity operator.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>u_1, \dots,
+            u_m</m> is a linearly independent list in <m>V{}</m>.
+            Show that there exists <m>v \in V</m> such that
+            <m>\langle u_k, v \rangle =1</m> for all <m>k \in \{1, \dots, m\}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
+            Prove that there exists a basis
+            <m>u_1, \ldots,
+            u_n</m> of <m>V</m> such that
+            <md>
+              \langle v_j, u_k \rangle  = \begin{cases}0 \amp  \text{ if }  j \ne k, \\ 1 \amp  \text{ if }  j=k. \end{cases}
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3Schur">
+        <statement>
+          <p>
+            Suppose <m>\F{}=\C{}</m>,
+            <m>V</m> is finite-dimensional,
+            and <m>\E \subset \Lc(V)</m> is such that
+            <md>
+              ST = TS
+            </md>
+            for all <m>S, T \in \E</m>.
+            Prove that there is an orthonormal basis of <m>V</m> with respect to which every element of <m>\E</m> has an upper-triangular matrix.
+                <idx><h>commuting operators</h></idx>
+            Note: This exercise strengthens <xref ref="x4ManyOps">Exercise</xref>
+            (b) in <xref ref="x2diagmat">Section</xref>
+            (in the context of inner product spaces)
+            by asserting that the basis in that exercise can be chosen to be orthonormal.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m>,
+            <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
+            and all eigenvalues of <m>T</m> have absolute value less than <m>1</m>.
+            Let <m>\epsilon > 0</m>.
+            Prove that there exists a positive integer <m>m</m> such that
+            <m>\lVert T^m v \rVert \le \epsilon \|v\|</m> for every <m>v \in V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>C[-1, 1]</m> is the vector space of continuous real-valued functions on the interval <m>[-1 ,1]</m> with inner product given by <idx><h>Riesz representation theorem</h></idx>
+            <md>
+              \langle f, g \rangle  = \int_{-1}^1 fg
+            </md>
+            for all <m>f, g \in C[-1, 1]</m>.
+            Let <m>\phi</m> be the linear functional on
+            <m>C[-1, 1]</m> defined by <m>\phi(f) = f(0)</m>.
+            Show that there does not exist <m>g \in C[-1, 1]</m> such that
+            <md>
+              \phi(f) = \langle f, g \rangle
+            </md>
+            for every <m>f \in C[-1, 1]</m>.
+            Note: This exercise shows that the Riesz representation theorem <xref ref="x50"/> does not hold on infinite-dimensional vector spaces without additional hypotheses on <m>V</m> and <m>\phi</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x4metric">
+        <statement>
+          <p>
+            For all <m>u, v \in V{}</m>, define <m>d(u, v) = \|u - v\|</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>d</m> is a metric on <m>V{}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that if <m>V</m> is finite-dimensional,
+                  then <m>d</m> is a complete metric on <m>V</m>
+                  (meaning that every Cauchy sequence converges).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that every finite-dimensional subspace of <m>V</m> is a closed subset of<nbsp/><m>V</m>
+                  (with respect to the metric <m>d</m> ).
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: This exercise requires familiarity with metric spaces.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
     <p>
       <paragraphs>
         <title>orthogonality at the Supreme Court</title>

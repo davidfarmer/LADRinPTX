@@ -9,9 +9,9 @@
           If <m>U</m> is a subset of <m>V{}</m>,
           then the <term>orthogonal complement</term><idx><h>orthogonal</h><h>complement</h></idx> of <m>U</m>,
           denoted by <m>U^\perp{}</m>,<idx><h sortby="U"><m>U^\perp</m></h></idx> is the set of all vectors in <m>V</m> that are orthogonal to every vector in <m>U</m>:
-          <me>
-            U^\perp = \{ v \in V: \langle u,v \rangle  = 0 \ for every\  u \in U \}
-          </me>.
+          <md>
+            U^\perp = \{ v \in V: \langle u,v \rangle  = 0 \ for every\  u \in U \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -52,18 +52,18 @@
             <p>
               If <m>V = \F5</m> and <m>U = \{  (a,b, 0, 0, 0) \in \F5:
               a,b \in \F{}  \}</m>, then
-              <me>
-                U^\perp = \{ (0, 0, x,y,z) \in \F5: x,y,z \in \F{} \}
-              </me>.
+              <md>
+                U^\perp = \{ (0, 0, x,y,z) \in \F5: x,y,z \in \F{} \}.
+              </md>
             </p>
           </li>
           <li>
             <p>
               If <m>e_1, \ldots, e_m, f_1, \ldots,
               f_n</m> is an orthonormal basis of <m>V{}</m>, then
-              <me>
-                ( \Span( e_1, \ldots, e_m) )^\perp = \Span( f_1, \ldots, f_n)
-              </me>.
+              <md>
+                ( \Span( e_1, \ldots, e_m) )^\perp = \Span( f_1, \ldots, f_n).
+              </md>
             </p>
           </li>
         </ol>
@@ -116,16 +116,16 @@
             thus <m>0 \in U^\perp{}</m>.
             Suppose <m>v, w \in U^\perp{}</m>.
             If <m>u \in U</m>, then
-            <me>
-              \langle u,v+w \rangle  = \langle u,v \rangle  + \langle u,w \rangle  = 0 + 0 = 0
-            </me>.
+            <md>
+              \langle u,v+w \rangle  = \langle u,v \rangle  + \langle u,w \rangle  = 0 + 0 = 0.
+            </md>
             Thus <m>v + w \in U^\perp{}</m>,
             which shows that <m>U^\perp</m> is closed under addition.
             Similarly, suppose <m>\lambda \in \F{}</m> and <m>v \in U^\perp{}</m>.
             If <m>u \in U</m>, then
-            <me>
-              \langle u, \lambda v \rangle  = \overline{\lambda} \langle u,v \rangle  = \overline{\lambda} \cdot 0 = 0
-            </me>.
+            <md>
+              \langle u, \lambda v \rangle  = \overline{\lambda} \langle u,v \rangle  = \overline{\lambda} \cdot 0 = 0.
+            </md>
             Thus <m>\lambda v \in U^\perp{}</m>,
             which shows that <m>U^\perp</m> is closed under scalar multiplication.
             Thus <m>U^\perp</m> is a subspace of <m>V{}</m>.
@@ -189,18 +189,18 @@
               <idx><h>direct sum</h><h>of a subspace and its orthogonal complement</h></idx>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           Then
-          <me>
-            V = U \oplus U^\perp{}
-          </me>.
+          <md>
+            V = U \oplus U^\perp{}.
+          </md>
         </p>
       </statement>
     </theorem>
     <proof>
       <p>
         First we will show that
-        <me>
-          V = U + U^\perp{}
-        </me>.
+        <md>
+          V = U + U^\perp{}.
+        </md>
       </p>
       <p>
         To do this, suppose that <m>v \in V{}</m>.
@@ -209,9 +209,9 @@
       </p>
       <p>
         We have
-        <men xml:id="x416">
-          v = \underbrace{\langle v, e_1 \rangle e_1 + \dots + \langle v, e_m \rangle e_m}_u + \underbrace{v - \langle v, e_1 \rangle e_1 - \dots - \langle v, e_m \rangle e_m}_w\!
-        </men>.
+        <md number="yes" xml:id="x416">
+          v = \underbrace{\langle v, e_1 \rangle e_1 + \dots + \langle v, e_m \rangle e_m}_u + \underbrace{v - \langle v, e_1 \rangle e_1 - \dots - \langle v, e_m \rangle e_m}_w\!.
+        </md>
       </p>
       <p>
         Let <m>u</m> and <m>w</m> be defined as in the equation above
@@ -249,9 +249,9 @@
         <p>
           Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
           Then
-          <me>
-            \dim U^\perp = \dim V - \dim U
-          </me>.
+          <md>
+            \dim U^\perp = \dim V - \dim U.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -270,18 +270,18 @@
         <p>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           Then
-          <me>
-            U = ( U^\perp )^\perp{}
-          </me>.
+          <md>
+            U = ( U^\perp )^\perp{}.
+          </md>
         </p>
       </statement>
     </theorem>
     <proof>
       <p>
         First we will show that
-        <men xml:id="x415">
-          U \subset ( U^\perp )^\perp{}
-        </men>.
+        <md number="yes" xml:id="x415">
+          U \subset ( U^\perp )^\perp{}.
+        </md>
       </p>
       <p>
         To do this, suppose <m>u \in U</m>.
@@ -328,9 +328,9 @@
         <p>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           Then
-          <me>
-            U^\perp = \{0\} \iff U = V{}
-          </me>.
+          <md>
+            U^\perp = \{0\} \iff U = V{}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -378,17 +378,17 @@
         </p>
         <p>
           If <m>v \in V{}</m>, then
-          <me>
-            v = \frac{\langle v, u \rangle }{\|u\|^2} u + (  v - \frac{\langle v, u \rangle }{\|u\|^2} u  )
-          </me>,
+          <md>
+            v = \frac{\langle v, u \rangle }{\|u\|^2} u + (  v - \frac{\langle v, u \rangle }{\|u\|^2} u  ),
+          </md>
           where the first term on the right is in <m>\Span(u)</m>
           (and thus is in <m>U</m>)
           and the second term on the right is orthogonal to <m>u</m> (and thus is in <m>U^\perp)</m>.
           Thus <m>P_{\!U} v</m> equals the first term on the right.
           In other words, we have the formula
-          <me>
+          <md>
             P_{\!U} v = \frac{\langle v, u \rangle }{\|u\|^2} u
-          </me>
+          </md>
           for every <m>v \in V{}</m>.
         </p>
         <p>
@@ -449,9 +449,9 @@
               <p>
                 if <m>e_1, \dots,
                 e_m</m> is an orthonormal basis of <m>U</m> and <m>v \in V{}</m>, then
-                <me>
-                  P_{\!U} v = \langle v, e_1 \rangle  e_1 + \dots + \langle v, e_m \rangle  e_m
-                </me>.
+                <md>
+                  P_{\!U} v = \langle v, e_1 \rangle  e_1 + \dots + \langle v, e_m \rangle  e_m.
+                </md>
               </p>
             </li>
           </ol>
@@ -465,20 +465,20 @@
             To show that <m>P_{\!U}</m> is a linear map on <m>V{}</m>,
             suppose <m>v_1, v_2 \in V{}</m>.
             Write
-            <me>
+            <md>
               v_1 = u_1 + w_1 \andd v_2 = u_2 + w_2
-            </me>
+            </md>
             with <m>u_1, u_2 \in U</m> and <m>w_1, w_2 \in U^\perp{}</m>.
             Thus <m>P_{\!U} v_1 = u_1</m> and <m>P_{\!U} v_2 = u_2</m>.
             Now
-            <me>
-              v_1 + v_2 = (u_1 + u_2) + (w_1 + w_2)
-            </me>,
+            <md>
+              v_1 + v_2 = (u_1 + u_2) + (w_1 + w_2),
+            </md>
             where <m>u_1 + u_2 \in U</m> and <m>w_1 + w_2 \in U^\perp{}</m>.
             Thus
-            <me>
-              P_{\!U}(v_1 + v_2) = u_1 + u_2 = P_{\!U} v_1 + P_{\!U} v_2
-            </me>.
+            <md>
+              P_{\!U}(v_1 + v_2) = u_1 + u_2 = P_{\!U} v_1 + P_{\!U} v_2.
+            </md>
             Similarly, suppose <m>\lambda \in \F{}</m> and <m>v \in V{}</m>.
             Write <m>v = u + w</m>, where <m>u \in U</m> and <m>w \in U^\perp{}</m>.
             Then <m>\lambda v = \lambda u + \lambda w</m> with
@@ -522,25 +522,25 @@
         <li>
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
-            <me>
-              v - P_{\!U}v = v - u = w \in U^\perp{}
-            </me>.
+            <md>
+              v - P_{\!U}v = v - u = w \in U^\perp{}.
+            </md>
           </p>
         </li>
         <li>
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
-            <me>
-              ( P_{\!U}^{2} )v = P_{\!U}(P_{\!U} v) = P_{\!U} u = u = P_{\!U}v
-            </me>.
+            <md>
+              ( P_{\!U}^{2} )v = P_{\!U}(P_{\!U} v) = P_{\!U} u = u = P_{\!U}v.
+            </md>
           </p>
         </li>
         <li>
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
-            <me>
-              \|P_{\!U} v\|^2 = \|u\|^2 \le \|u\|^2 + \|w\|^2 = \|v\|^2{}
-            </me>,
+            <md>
+              \|P_{\!U} v\|^2 = \|u\|^2 \le \|u\|^2 + \|w\|^2 = \|v\|^2{},
+            </md>
             where the last equality comes from the Pythagorean theorem.
           </p>
         </li>
@@ -586,9 +586,9 @@
           Suppose <m>V</m> is finite-dimensional.
           For each <m>v \in V{}</m>,
           define <m>\phi_v \in V'</m> by<idx><h>Riesz representation theorem</h></idx>
-          <me>
+          <md>
             \phi_v(u) = \langle u, v \rangle
-          </me>
+          </md>
           for each <m>u \in V{}</m>.
           Then <m>v \mapsto \phi_v</m> is a one-to-one function from <m>V</m> onto <m>V'\!</m>.
         </p>
@@ -615,9 +615,9 @@
       <p>
         Let <m>w \in (\ker \phi)^\perp</m> be such that <m>w \ne 0</m>.
         Let
-        <men xml:id="wu">
-          v = \frac{ \overline{\phi(w)} }{\lVert w \rVert ^2} w
-        </men>.
+        <md number="yes" xml:id="wu">
+          v = \frac{ \overline{\phi(w)} }{\lVert w \rVert ^2} w.
+        </md>
       </p>
       <p>
         Then <m>v \in (\ker \phi)^\perp{}</m>.
@@ -626,31 +626,31 @@
       </p>
       <p>
         Taking the norm of both sides of <xref ref="wu"></xref> gives
-        <men xml:id="normw">
-          \lVert v \rVert  = \frac{ \lvert \phi(w)  \rvert }{\lVert w \rVert }
-        </men>.
+        <md number="yes" xml:id="normw">
+          \lVert v \rVert  = \frac{ \lvert \phi(w)  \rvert }{\lVert w \rVert }.
+        </md>
       </p>
       <p>
         Applying <m>\phi</m> to both sides of <xref ref="wu"></xref>
         and then <xref ref="normw">using</xref>, we have
-        <me>
-          \phi(v) = \frac{ \lvert \phi(w) \rvert ^2 }{ \lVert w \rVert ^2} = \lVert v \rVert ^2{}
-        </me>.
+        <md>
+          \phi(v) = \frac{ \lvert \phi(w) \rvert ^2 }{ \lVert w \rVert ^2} = \lVert v \rVert ^2{}.
+        </md>
       </p>
       <p>
         Now suppose <m>u \in V{}</m>.
         Using the equation above, we have
-        <me>
-          u = (  u - \frac{ \phi(u) }{ \phi(v) } v  ) + \frac{ \phi(u) }{ \lVert v \rVert ^2 } v
-        </me>.
+        <md>
+          u = (  u - \frac{ \phi(u) }{ \phi(v) } v  ) + \frac{ \phi(u) }{ \lVert v \rVert ^2 } v.
+        </md>
       </p>
       <p>
         The first term in parentheses above is in
         <m>\ker \phi</m> and hence is orthogonal to <m>v</m>.
         Thus taking the inner product of both sides of the equation above with <m>v</m> shows that
-        <me>
-          \langle u, v \rangle  = \frac{ \phi(u) }{ \lVert v \rVert ^2 } \langle v, v \rangle  = \phi(u)
-        </me>.
+        <md>
+          \langle u, v \rangle  = \frac{ \phi(u) }{ \lVert v \rVert ^2 } \langle v, v \rangle  = \phi(u).
+        </md>
       </p>
       <p>
         Thus <m>\phi = \phi_v</m>,
@@ -684,9 +684,9 @@
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>,
           <m>v \in V{}</m>, and <m>u \in U</m>.
           Then
-          <me>
-            \| v - P_{\!U} v \| \le \| v - u \|
-          </me>.
+          <md>
+            \| v - P_{\!U} v \| \le \| v - u \|.
+          </md>
         </p>
         <p>
           Furthermore,
@@ -728,25 +728,25 @@
         <p>
           Suppose we want to find a polynomial <m>u</m> with real coefficients and of degree at most <m>5</m> that approximates the sine function as well as possible on the interval <m>[-\pi, \pi]</m>,
           in the sense that
-          <me>
+          <md>
             \int_{-\pi}^{\pi} \lvert \sin x - u(x) \rvert ^2 dx
-          </me>
+          </md>
           is as small as possible.
         </p>
         <p>
           Let <m>C[-\pi, \pi]</m> denote the real inner product space of continuous real-valued functions on <m>[-\pi, \pi]</m> with inner product
-          <men xml:id="x419">
-            \langle f, g \rangle  = \int_{-\pi}^{\pi} fg
-          </men>.
+          <md number="yes" xml:id="x419">
+            \langle f, g \rangle  = \int_{-\pi}^{\pi} fg.
+          </md>
         </p>
         <p>
           Let <m>v \in C[-\pi, \pi]</m> be the function defined by <m>v(x) = \sin x</m>.
           Let <m>U</m> denote the subspace of
           <m>C[-\pi, \pi]</m> consisting of the polynomials with real coefficients and of degree at most<nbsp/><m>5</m>.
           Our problem can now be reformulated as follows:
-          <me>
+          <md>
             \text{ Find \(u\in U\) such that \(\|v - u\|\) is as small as possible. }
-          </me>
+          </md>
         </p>
         <aside>
           <p>
@@ -764,9 +764,9 @@
           (with <m>m = 6</m>).
           Doing this computation shows that
           <m>P_{\!U} v</m> is the function <m>u</m> defined by
-          <men xml:id="x420">
-            u(x) = 0.987862 x - 0.155271 x^3 + 0.00564312 x^5{}
-          </men>,
+          <md number="yes" xml:id="x420">
+            u(x) = 0.987862 x - 0.155271 x^3 + 0.00564312 x^5{},
+          </md>
           where the <m>\pi</m>'s that appear in the exact answer have been replaced with a good decimal approximation.
           <xref ref="x417">By</xref>,
           the polynomial <m>u</m> above is the best approximation to the sine function on
@@ -796,9 +796,9 @@
         </p>
         <p>
           Another well-known approximation to the sine function by a polynomial of degree <m>5</m> is given by the Taylor polynomial <m>p</m> defined by
-          <men xml:id="x421">
-            p(x) = x - \frac{x^3}{3!}  + \frac{x^5}{5!}
-          </men>.
+          <md number="yes" xml:id="x421">
+            p(x) = x - \frac{x^3}{3!}  + \frac{x^5}{5!}.
+          </md>
         </p>
         <p>
           To see how good this approximation is,
@@ -834,9 +834,9 @@
     <p>
       Suppose <m>T \in \Lc(V{}, W)</m> and <m>w \in W{}</m>.
       Consider the problem of finding <m>v \in V</m> such that
-      <me>
-        Tv = w
-      </me>.
+      <md>
+        Tv = w.
+      </md>
     </p>
     <p>
       For example, if <m>V = \F n</m> and <m>W = \FF m</m>,
@@ -900,9 +900,9 @@
         <m>x \in (\ker T)^\perp</m> such that <m>v = u + x</m>
         (by <xref ref="x191"></xref>).
         Now
-        <me>
-          T|_{(\ker T)^\perp}x = Tx = Tv - Tu = w - 0 = w
-        </me>,
+        <md>
+          T|_{(\ker T)^\perp}x = Tx = Tv - Tu = w - 0 = w,
+        </md>
         which shows that <m>w \in \ran T|_{(\ker T)^\perp}</m>.
         Hence <m>\ran T \subset \ran T|_{(\ker T)^\perp}</m>,
         completing the proof that <m>\ran T|_{(\ker T)^\perp} = \ran T{}</m>.
@@ -932,9 +932,9 @@
           <m>T^\dagger \in \Lc(W{}, V)</m> of <m>T</m> is the linear map from <m>W</m> to <m>V</m> defined by
               <idx><h>pseudoinverse</h></idx>
               <idx><h sortby="Tdagger"><m>T^\dagger{}</m></h></idx>
-          <me>
+          <md>
             T^\dagger w = (T|_{(\ker T)^\perp})^{-1} P_{\!\ran T}   w
-          </me>
+          </md>
           for each <m>w \in W{}</m>.
         </p>
       </statement>
@@ -990,9 +990,9 @@
           <p>
             Suppose <m>w \in \ran T{}</m>.
             Thus
-            <me>
-              T T^\dagger w = T (T|_{(\ker T)^\perp})^{-1} w = w = P_{\!\ran T}   w
-            </me>.
+            <md>
+              T T^\dagger w = T (T|_{(\ker T)^\perp})^{-1} w = w = P_{\!\ran T}   w.
+            </md>
             If <m>w \in (\ran T)^\perp{}</m>,
             then <m>T^\dagger w = 0</m>.
             Hence <m>TT^\dagger w = 0 = P_{\!\ran T}   w</m>.
@@ -1007,9 +1007,9 @@
             Suppose <m>v \in (\ker T)^\perp{}</m>.
             Because <m>Tv \in \ran T{}</m>,
             the definition of <m>T^\dagger</m> shows that
-            <me>
-              T^\dagger(Tv)= (T|_{(\ker T)^\perp})^{-1} (Tv) = v = P_{\!(\ker T)^\perp} v
-            </me>.
+            <md>
+              T^\dagger(Tv)= (T|_{(\ker T)^\perp})^{-1} (Tv) = v = P_{\!(\ker T)^\perp} v.
+            </md>
             If <m>v \in \ker T</m>,
             then <m>T^\dagger T v = 0 = P_{\!(\ker T)^\perp} v</m>.
             Thus <m>T^\dagger T</m> and <m>P_{\!(\ker T)^\perp}</m> agree on
@@ -1042,9 +1042,9 @@
     <p>
       For <m>T \in \Lc(V{},W)</m> and <m>w \in W{}</m>,
       we now return to the problem of finding <m>v \in V</m> that solves the equation
-      <me>
-        Tv = w
-      </me>.
+      <md>
+        Tv = w.
+      </md>
     </p>
     <p>
       As we noted earlier, if <m>T</m> is invertible,
@@ -1071,18 +1071,18 @@
             <li>
               <p>
                 If <m>v \in V{}</m>, then
-                <me>
-                  \lVert  T(T^\dagger w) - w  \rVert  \le \lVert Tv - w \rVert
-                </me>,
+                <md>
+                  \lVert  T(T^\dagger w) - w  \rVert  \le \lVert Tv - w \rVert ,
+                </md>
                 with equality if and only if <m>v \in T^\dagger w + \ker T{}</m>.
               </p>
             </li>
             <li>
               <p>
                 If <m>v \in T^\dagger w + \ker T</m>, then
-                <me>
-                  \lVert T^\dagger w \rVert  \le \lVert v \rVert
-                </me>,
+                <md>
+                  \lVert T^\dagger w \rVert  \le \lVert v \rVert ,
+                </md>
                 with equality if and only if <m>v = T^\dagger w</m>.
               </p>
             </li>
@@ -1096,9 +1096,9 @@
           <p>
             Suppose <m>v \in V{}</m>.
             Then
-            <me>
-              Tv - w = (Tv - TT^\dagger w) + (TT^\dagger w - w)
-            </me>.
+            <md>
+              Tv - w = (Tv - TT^\dagger w) + (TT^\dagger w - w).
+            </md>
             The first term in parentheses above is in <m>\ran T{}</m>.
             Because the operator <m>TT^\dagger</m> is the orthogonal projection of <m>W</m> onto <m>\ran T</m>  [by <xref ref="x6propps"></xref>(b)] , the second term in parentheses above is in
             <m>(\ran T)^\perp</m>  [<xref ref="x418">see</xref>(f)] .  Thus the Pythagorean theorem implies the desired inequality that the norm of the second term in parentheses above is less than or equal to <m>\lVert Tv - w \rVert</m>,
@@ -1113,9 +1113,9 @@
             Suppose <m>v \in T^\dagger w + \ker T{}</m>.
             Hence <m>v - T^\dagger w \in \ker T{}</m>.
             Now
-            <me>
-              v = (v - T^\dagger w) + T^\dagger w
-            </me>.
+            <md>
+              v = (v - T^\dagger w) + T^\dagger w.
+            </md>
             The definition of <m>T^\dagger</m> implies that <m>T^\dagger w \in (\ker T)^\perp{}</m>.
             Thus the Pythagorean theorem implies that <m>\lVert T^\dagger w \rVert  \le \lVert v \rVert</m>,
             with equality if and only if <m>v = T^\dagger w</m>.
@@ -1132,29 +1132,29 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(  \F4, \F3  )</m> is defined by
-          <me>
-            T(a, b, c, d) = (a + b + c, 2c + d, 0)
-          </me>.
+          <md>
+            T(a, b, c, d) = (a + b + c, 2c + d, 0).
+          </md>
         </p>
         <p>
           This linear map is neither injective nor surjective,
           but we can compute its pseudoinverse.
           To do this, first note that <m>\ran T = \{ (x,y,0) : x, y \in \F{} \}</m>.
           Thus
-          <me>
+          <md>
             P_{\ran T}(x,y,z) = (x, y, 0)
-          </me>
+          </md>
           for each <m>(x, y, z) \in \FF3</m>.
           Also,
-          <me>
-            \ker T = \{  (a, b, c, d) \in \F4 : a+b+c= 0 \text{ and }  2c + d = 0 \}
-          </me>.
+          <md>
+            \ker T = \{  (a, b, c, d) \in \F4 : a+b+c= 0 \text{ and }  2c + d = 0 \}.
+          </md>
         </p>
         <p>
           The list <m>(-1, 1, 0, 0), (-1, 0, 1, -2)</m> of two vectors in <m>\ker T</m> spans <m>\ker T</m> because if <m>(a, b, c, d) \in \ker T</m> then
-          <me>
-            (a, b, c, d) = b(-1, 1, 0, 0) + c(-1,0,1,-2)
-          </me>.
+          <md>
+            (a, b, c, d) = b(-1, 1, 0, 0) + c(-1,0,1,-2).
+          </md>
         </p>
         <p>
           Because the list <m>(-1, 1, 0, 0), (-1, 0, 1, -2)</m> is linearly independent,
@@ -1163,9 +1163,9 @@
         <p>
           Now suppose <m>(x, y, z) \in \FF3</m>.
           Then
-          <men xml:id="x6Tpseudo">
-            T^\dagger(x, y, z) = (T|_{(\ker T)^\perp})^{-1} P_{\!\ran T} (x, y, z) = (T|_{(\ker T)^\perp})^{-1} (x, y, 0)
-          </men>.
+          <md number="yes" xml:id="x6Tpseudo">
+            T^\dagger(x, y, z) = (T|_{(\ker T)^\perp})^{-1} P_{\!\ran T} (x, y, z) = (T|_{(\ker T)^\perp})^{-1} (x, y, 0).
+          </md>
         </p>
         <p>
           The right side of the equation above is the vector <m>(a, b, c, d) \in \F4</m> such that
@@ -1186,15 +1186,15 @@
           <m>b</m>,
           <m>c</m>, <m>d</m> as unknowns,
           we can solve the system above of four equations in four unknowns, getting
-          <me>
-            a = \tfrac{1}{11} (5x-2y),\ b = \tfrac{1}{11} (5x-2y),\ c = \tfrac{1}{11} (x+4y),\ d = \tfrac{1}{11} (-2x + 3y)
-          </me>.
+          <md>
+            a = \tfrac{1}{11} (5x-2y),\ b = \tfrac{1}{11} (5x-2y),\ c = \tfrac{1}{11} (x+4y),\ d = \tfrac{1}{11} (-2x + 3y).
+          </md>
         </p>
         <p>
           <xref ref="x6Tpseudo">Hence</xref> tells us that
-          <me>
-            T^\dagger(x,y,z) = \tfrac{1}{11} (5x-2y, 5x-2y, x+4y, -2x +3y)
-          </me>.
+          <md>
+            T^\dagger(x,y,z) = \tfrac{1}{11} (5x-2y, 5x-2y, x+4y, -2x +3y).
+          </md>
         </p>
         <p>
           The formula above for <m>T^\dagger</m> shows that
@@ -1204,345 +1204,343 @@
         </p>
       </statement>
     </example>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>v_1, \dots, v_m \in V{}</m>.
-              Prove that
-              <me>
-                \{v_1, \dots, v_m\}^\perp = \bigl( \Span(v_1, \dots, v_m) \bigr)^\perp{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x6onbasis">
-          <statement>
-            <p>
-              Suppose <m>U</m> is a subspace of <m>V</m> with basis <m>u_1, \dots,
-              u_m</m> and
-              <me>
-                u_1, \dots, u_m, v_1, \dots, v_n
-              </me>
-              is a basis of <m>V{}</m>.
-              Prove that if the Gram<ndash/>Schmidt procedure is applied to the basis of <m>V</m> above,
-              producing a list <m>e_1, \dots,
-              e_m, f_1, \dots, f_n</m>, then
-              <m>e_1, \dots,
-              e_m</m> is an orthonormal basis of <m>U</m> and
-              <m>f_1, \dots,
-              f_n</m> is an orthonormal basis of <m>U^\perp{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is the subspace of <m>\R4</m> defined by
-              <me>
-                U = \Span\bigl( (1,2,3,-4), (-5,4, 3, 2) \bigr)
-              </me>.
-            </p>
-            <p>
-              Find an orthonormal basis of <m>U</m> and an orthonormal basis of <m>U^\perp{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x190converse">
-          <statement>
-            <p>
-              Suppose <m>e_1, \ldots, e_n</m> is a list of vectors in <m>V</m> with
-              <m>\lVert e_k \rVert  = 1</m> for each <m>k=1, \ldots,
-              n</m> and
-              <me>
-                \|v\|^2 = \lvert  \langle v, e_1 \rangle   \rvert ^2  + \dots + \lvert  \langle v, e_n \rangle   \rvert ^2
-              </me>
-              for all <m>v \in V{}</m>.
-              Prove that <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
-              Note: This exercise provides a converse to <xref ref="x190"></xref> (b) .
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
-              Show that <m>P_{\!U^\perp} = I - P_{\!U}</m>,
-              where <m>I</m> is the identity operator on <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
-              Show that
-              <me>
-                T = TP_{\!(\ker T)^\perp}= P_{\!\ran T} T{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>X</m> and <m>Y</m> are finite-dimensional subspaces of <m>V{}</m>.
-              Prove that <m>P_{\!X} P_{\!Y} = 0</m> if and only if
-              <m>\langle x, y \rangle = 0</m> for all <m>x \in X</m> and all <m>y \in Y</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is a finite-dimensional subspace of <m>V</m> and <m>v \in V{}</m>.
-              Define a linear functional <m>\fun \phi U \F{}</m> by
-              <me>
-                \phi(u) = \langle u, v \rangle
-              </me>
-              for all <m>u \in U</m>.
-              By the Riesz representation theorem <xref ref="x50"/> as applied to the inner product space <m>U</m>,
-              there exists a unique vector <m>w \in U</m> such that<idx><h>Riesz representation theorem</h></idx>
-              <me>
-                \phi(u) = \langle u, w \rangle
-              </me>
-              for all <m>u \in U</m>.
-              Show that <m>w = P_{\!U} v</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x6orth">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional.
-              Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P</m> and every vector in <m>\ker P</m> is orthogonal to every vector in <m>\ran P{}</m>.
-              Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and
-              <m>P \in \Lc(V)</m> is such that <m>P^2 = P</m> and
-              <me>
-                \|Pv\| \le \|v\|
-              </me>
-              for every <m>v \in V{}</m>.
-              Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x6invP">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a finite-dimensional subspace of<nbsp/><m>V{}</m>.
-              Prove that
-              <me>
-                U \text{ is invariant under }  T \iff P_{\!U} T P_{\!U} = T P_{\!U}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional,
-              <m>T \in \Lc(V)</m>, and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
-              Prove that
-              <me>
-                U \text{ and }  U^\perp \text{ are both invariant under }  T \iff P_{\!U} T = T P_{\!U}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="VVpiso">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \R{}</m> and <m>V</m> is finite-dimensional.
-              For each <m>v \in V{}</m>,
-              let <m>\phi_v</m> denote the linear functional on <m>V</m> defined by <idx><h>Riesz representation theorem</h></idx>
-              <me>
-                \phi_v(u) = \langle u, v \rangle
-              </me>
-              for all <m>u \in V{}</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>v \mapsto \phi_v</m> is an injective linear map from <m>V</m> to<nbsp/><m>V'\!</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Use (a) and a dimension-counting argument to show that
-                    <m>v \mapsto \phi_v</m> is an isomorphism from <m>V</m> onto<nbsp/><m>V'\!</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-            <p>
-              Note: The purpose of this exercise is to give an alternative proof of the Riesz representation theorem ( <xref ref="x50"></xref>
-              and <xref ref="x3RRT"></xref>) when <m>\F{} = \R{}</m>.
-              Thus you should not use the Riesz representation theorem as a tool in your solution.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
-              Explain why the dual basis
-              (<xref ref="DualBasis">see</xref>)
-              of <m>e_1, \ldots, e_n</m> is
-              <m>e_1, \ldots,
-              e_n</m> under the identification of <m>V'</m> with <m>V</m> provided by the Riesz representation theorem <xref ref="x3RRT"/>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              In <m>\R{4}</m>, let
-              <me>
-                U = \Span \bigl( (1, 1, 0, 0), (1, 1, 1, 2) \bigr)
-              </me>.
-            </p>
-            <p>
-              Find <m>u \in U</m> such that
-              <m>\| u - (1,2,3,4) \|</m> is as small as possible.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="dense">
-          <statement>
-            <p>
-              Suppose <m>C[-1, 1]</m> is the vector space of continuous real-valued functions on the interval <m>[-1 ,1]</m> with inner product given by
-              <me>
-                \langle f, g \rangle  = \int_{-1}^1 fg
-              </me>
-              for all <m>f, g \in C[-1, 1]</m>.
-              Let <m>U</m> be the subspace of <m>C[-1, 1]</m> defined by
-              <me>
-                U = \{  f \in C[-1, 1]: f(0) = 0  \}
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>U^\perp = \{0\}</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <xref ref="x191"></xref> and <xref ref="x376"></xref>
-                    do not hold without the finite-dimensional hypothesis.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find <m>p \in \P{}_3(\R{})</m> such that
-              <m>p(0) = 0</m>, <m>p' \! (0) = 0</m>,
-              and <m>\displaystyle \int_0^1 \lvert 2 + 3x - p(x) \rvert ^2 dx</m> is as small as possible.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find <m>p \in \P{}_5(\R{})</m> that makes
-              <m>\displaystyle \int_{-\pi}^{\pi} \lvert \sin x - p(x) \rvert ^2 dx</m> as small as possible.
-              Note: The <xref ref="x420">polynomial</xref>
-              is an excellent approximation to the answer to this exercise,
-              but here you are asked to find the exact solution,
-              which involves powers of <m>\pi</m>.
-              A computer that can perform symbolic integration should help.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x3dagger">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and
-              <m>P \in \Lc(V)</m> is an orthogonal projection of <m>V</m> onto some subspace of <m>V{}</m>.
-              Prove that <m>P^\dagger = P{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x5NullRanTd">
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
-              Show that
-              <me>
-                \ker T^\dagger = (\ran T)^\perp \andd \ran T^\dagger = (\ker T)^\perp{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(  \F3, \F2  )</m> is defined by
-              <me>
-                T(a, b, c) = (a + b + c, 2b + 3c)
-              </me>.
-              <ol>
-                <li>
-                  <p>
-                    For <m>(x, y) \in \FF2</m>, find a formula for <m>T^\dagger(x,y)</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Verify that the equation <m>TT^\dagger = P_{\!\ran T}</m> from <xref ref="x6propps"></xref>(b) holds with the formula for <m>T^\dagger</m> obtained in (a).
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Verify that the equation <m>T^\dagger T = P_{\!(\ker T)^\perp}</m> from <xref ref="x6propps"></xref>(c) holds with the formula for <m>T^\dagger</m> obtained in (a).
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
-              Prove that
-              <me>
-                TT^\dagger T = T \andd T^\dagger T T^\dagger = T^\dagger{}
-              </me>.
-            </p>
-            <p>
-              Note: Both formulas above clearly hold if <m>T</m> is invertible because in that case we can replace
-              <m>T^\dagger</m> with <m>T^{-1}{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x2dag">
-          <statement>
-            <p>
-              Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
-              Prove that
-              <me>
-                ( T^\dagger )^\dagger = T{}
-              </me>.
-            </p>
-            <p>
-              Note: The equation above is analogous to the equation
-              <m>( T^{-1} )^{-1} = T</m> that holds if <m>T</m> is invertible.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>v_1, \dots, v_m \in V{}</m>.
+            Prove that
+            <md>
+              \{v_1, \dots, v_m\}^\perp = \bigl( \Span(v_1, \dots, v_m) \bigr)^\perp{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x6onbasis">
+        <statement>
+          <p>
+            Suppose <m>U</m> is a subspace of <m>V</m> with basis <m>u_1, \dots,
+            u_m</m> and
+            <md>
+              u_1, \dots, u_m, v_1, \dots, v_n
+            </md>
+            is a basis of <m>V{}</m>.
+            Prove that if the Gram<ndash/>Schmidt procedure is applied to the basis of <m>V</m> above,
+            producing a list <m>e_1, \dots,
+            e_m, f_1, \dots, f_n</m>, then
+            <m>e_1, \dots,
+            e_m</m> is an orthonormal basis of <m>U</m> and
+            <m>f_1, \dots,
+            f_n</m> is an orthonormal basis of <m>U^\perp{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is the subspace of <m>\R4</m> defined by
+            <md>
+              U = \Span\bigl( (1,2,3,-4), (-5,4, 3, 2) \bigr).
+            </md>
+          </p>
+          <p>
+            Find an orthonormal basis of <m>U</m> and an orthonormal basis of <m>U^\perp{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x190converse">
+        <statement>
+          <p>
+            Suppose <m>e_1, \ldots, e_n</m> is a list of vectors in <m>V</m> with
+            <m>\lVert e_k \rVert  = 1</m> for each <m>k=1, \ldots,
+            n</m> and
+            <md>
+              \|v\|^2 = \lvert  \langle v, e_1 \rangle   \rvert ^2  + \dots + \lvert  \langle v, e_n \rangle   \rvert ^2
+            </md>
+            for all <m>v \in V{}</m>.
+            Prove that <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
+            Note: This exercise provides a converse to <xref ref="x190"></xref> (b) .
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
+            Show that <m>P_{\!U^\perp} = I - P_{\!U}</m>,
+            where <m>I</m> is the identity operator on <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+            Show that
+            <md>
+              T = TP_{\!(\ker T)^\perp}= P_{\!\ran T} T{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>X</m> and <m>Y</m> are finite-dimensional subspaces of <m>V{}</m>.
+            Prove that <m>P_{\!X} P_{\!Y} = 0</m> if and only if
+            <m>\langle x, y \rangle = 0</m> for all <m>x \in X</m> and all <m>y \in Y</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is a finite-dimensional subspace of <m>V</m> and <m>v \in V{}</m>.
+            Define a linear functional <m>\fun \phi U \F{}</m> by
+            <md>
+              \phi(u) = \langle u, v \rangle
+            </md>
+            for all <m>u \in U</m>.
+            By the Riesz representation theorem <xref ref="x50"/> as applied to the inner product space <m>U</m>,
+            there exists a unique vector <m>w \in U</m> such that<idx><h>Riesz representation theorem</h></idx>
+            <md>
+              \phi(u) = \langle u, w \rangle
+            </md>
+            for all <m>u \in U</m>.
+            Show that <m>w = P_{\!U} v</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x6orth">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional.
+            Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P</m> and every vector in <m>\ker P</m> is orthogonal to every vector in <m>\ran P{}</m>.
+            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and
+            <m>P \in \Lc(V)</m> is such that <m>P^2 = P</m> and
+            <md>
+              \|Pv\| \le \|v\|
+            </md>
+            for every <m>v \in V{}</m>.
+            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x6invP">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a finite-dimensional subspace of<nbsp/><m>V{}</m>.
+            Prove that
+            <md>
+              U \text{ is invariant under }  T \iff P_{\!U} T P_{\!U} = T P_{\!U}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional,
+            <m>T \in \Lc(V)</m>, and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
+            Prove that
+            <md>
+              U \text{ and }  U^\perp \text{ are both invariant under }  T \iff P_{\!U} T = T P_{\!U}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="VVpiso">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \R{}</m> and <m>V</m> is finite-dimensional.
+            For each <m>v \in V{}</m>,
+            let <m>\phi_v</m> denote the linear functional on <m>V</m> defined by <idx><h>Riesz representation theorem</h></idx>
+            <md>
+              \phi_v(u) = \langle u, v \rangle
+            </md>
+            for all <m>u \in V{}</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>v \mapsto \phi_v</m> is an injective linear map from <m>V</m> to<nbsp/><m>V'\!</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use (a) and a dimension-counting argument to show that
+                  <m>v \mapsto \phi_v</m> is an isomorphism from <m>V</m> onto<nbsp/><m>V'\!</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: The purpose of this exercise is to give an alternative proof of the Riesz representation theorem ( <xref ref="x50"></xref>
+            and <xref ref="x3RRT"></xref>) when <m>\F{} = \R{}</m>.
+            Thus you should not use the Riesz representation theorem as a tool in your solution.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
+            Explain why the dual basis
+            (<xref ref="DualBasis">see</xref>)
+            of <m>e_1, \ldots, e_n</m> is
+            <m>e_1, \ldots,
+            e_n</m> under the identification of <m>V'</m> with <m>V</m> provided by the Riesz representation theorem <xref ref="x3RRT"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            In <m>\R{4}</m>, let
+            <md>
+              U = \Span \bigl( (1, 1, 0, 0), (1, 1, 1, 2) \bigr).
+            </md>
+          </p>
+          <p>
+            Find <m>u \in U</m> such that
+            <m>\| u - (1,2,3,4) \|</m> is as small as possible.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="dense">
+        <statement>
+          <p>
+            Suppose <m>C[-1, 1]</m> is the vector space of continuous real-valued functions on the interval <m>[-1 ,1]</m> with inner product given by
+            <md>
+              \langle f, g \rangle  = \int_{-1}^1 fg
+            </md>
+            for all <m>f, g \in C[-1, 1]</m>.
+            Let <m>U</m> be the subspace of <m>C[-1, 1]</m> defined by
+            <md>
+              U = \{  f \in C[-1, 1]: f(0) = 0  \}.
+            </md>
+            <ol>
+              <li>
+                <p>
+                  Show that <m>U^\perp = \{0\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <xref ref="x191"></xref> and <xref ref="x376"></xref>
+                  do not hold without the finite-dimensional hypothesis.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>p \in \P{}_3(\R{})</m> such that
+            <m>p(0) = 0</m>, <m>p' \! (0) = 0</m>,
+            and <m>\displaystyle \int_0^1 \lvert 2 + 3x - p(x) \rvert ^2 dx</m> is as small as possible.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>p \in \P{}_5(\R{})</m> that makes
+            <m>\displaystyle \int_{-\pi}^{\pi} \lvert \sin x - p(x) \rvert ^2 dx</m> as small as possible.
+            Note: The <xref ref="x420">polynomial</xref>
+            is an excellent approximation to the answer to this exercise,
+            but here you are asked to find the exact solution,
+            which involves powers of <m>\pi</m>.
+            A computer that can perform symbolic integration should help.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x3dagger">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and
+            <m>P \in \Lc(V)</m> is an orthogonal projection of <m>V</m> onto some subspace of <m>V{}</m>.
+            Prove that <m>P^\dagger = P{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x5NullRanTd">
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+            Show that
+            <md>
+              \ker T^\dagger = (\ran T)^\perp \andd \ran T^\dagger = (\ker T)^\perp{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(  \F3, \F2  )</m> is defined by
+            <md>
+              T(a, b, c) = (a + b + c, 2b + 3c).
+            </md>
+            <ol>
+              <li>
+                <p>
+                  For <m>(x, y) \in \FF2</m>, find a formula for <m>T^\dagger(x,y)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Verify that the equation <m>TT^\dagger = P_{\!\ran T}</m> from <xref ref="x6propps"></xref>(b) holds with the formula for <m>T^\dagger</m> obtained in (a).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Verify that the equation <m>T^\dagger T = P_{\!(\ker T)^\perp}</m> from <xref ref="x6propps"></xref>(c) holds with the formula for <m>T^\dagger</m> obtained in (a).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+            Prove that
+            <md>
+              TT^\dagger T = T \andd T^\dagger T T^\dagger = T^\dagger{}.
+            </md>
+          </p>
+          <p>
+            Note: Both formulas above clearly hold if <m>T</m> is invertible because in that case we can replace
+            <m>T^\dagger</m> with <m>T^{-1}{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2dag">
+        <statement>
+          <p>
+            Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
+            Prove that
+            <md>
+              ( T^\dagger )^\dagger = T{}.
+            </md>
+          </p>
+          <p>
+            Note: The equation above is analogous to the equation
+            <m>( T^{-1} )^{-1} = T</m> that holds if <m>T</m> is invertible.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

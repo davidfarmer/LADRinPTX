@@ -17,13 +17,13 @@
         The <term>matrix of</term> <m>T</m> with respect to a basis
         <m>v_1, \dots,
         v_n</m> of <m>V</m> is the <m>n</m>-by-<m>n</m> matrix<idx><h>matrix</h><h>of operator</h></idx>
-        <me>
+        <md>
           \M(T) = \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{n,1} \amp  \cdots \amp  A_{n,n} \end{pmatrix}
-        </me>
+        </md>
         whose entries <m>A_{j,k}</m> are defined by
-        <me>
-          Tv_k = A_{1,k} v_1 + \dots + A_{n,k} v_n
-        </me>.
+        <md>
+          Tv_k = A_{1,k} v_1 + \dots + A_{n,k} v_n.
+        </md>
       </p>
       <p>
         The notation <m>\M\bigl( T, (v_1, \dots,
@@ -53,9 +53,9 @@
       <p>
         Define <m>T \in \Lc( \F3 )</m> by <m>T(x, y, z) = (2x + y, 5y + 3z, 8z)</m>.
         Then the matrix of <m>T</m> with respect to the standard basis of <m>\F3</m> is
-        <me>
-          \M(T) = \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix}
-        </me>,
+        <md>
+          \M(T) = \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix} ,
+        </md>
         as you should verify.
       </p>
     </statement>
@@ -72,9 +72,9 @@
     except possibly the first entry.
     In other words,
     there is a basis of <m>V</m> with respect to which the matrix of <m>T</m> looks like
-    <me>
+    <md>
       \begin{pmatrix}\lambda \amp  \amp  \amp  \amp  \\ 0 \amp  \amp  * \amp  \amp  \\ \vdots \amp  \amp  \amp  \amp  \\ 0 \amp  \amp  \amp  \amp \end{pmatrix} ;
-    </me>
+    </md>
     here <m>*</m> denotes the entries in all columns other than the first column.
     To prove this,
     let <m>\lambda</m> be an eigenvalue of<nbsp/><m>T</m>
@@ -94,9 +94,9 @@
   </definition>
   <p>
     For example, the diagonal of the matrix
-    <me>
+    <md>
       \M(T) = \begin{pmatrix}\color{red}2 \amp  1 \amp  0 \\ 0 \amp  \color{red}5 \amp  3 \\ 0 \amp  0 \amp  \color{red}8 \end{pmatrix}
-    </me>
+    </md>
     from <xref ref="uppertmat">Example</xref>
     consists of the entries <m>2, 5, 8</m>,
     which are shown in red in the matrix above.
@@ -119,9 +119,9 @@
   </p>
   <p>
     Typically we represent an upper-triangular matrix in the form
-    <me>
+    <md>
       \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix} ;
-    </me>
+    </md>
   </p>
   <aside>
     <p>
@@ -173,17 +173,17 @@
       To prove that (b) holds, suppose <m>k \in \{ 1, \ldots,
       n \}</m>.
       If <m>j \in \{ 1, \ldots, n \}</m>, then
-      <me>
+      <md>
         Tv_j \in \Span (v_1, \ldots, v_j)
-      </me>
+      </md>
       because the matrix of <m>T</m> with respect to <m>v_1, \dots,
       v_n</m> is upper triangular.
       Because <m>\Span(v_1, \ldots,
       v_j) \subset \Span(v_1, \ldots,
       v_k)</m> if <m>j \le k</m>, we see that
-      <me>
+      <md>
         Tv_j \in \Span(v_1, \ldots, v_k)
-      </me>
+      </md>
       for each <m>j \in \{ 1, \ldots, k \}</m>.
       Thus <m>\Span(v_1, \dots,
       v_k)</m> is invariant under <m>T</m>,
@@ -214,9 +214,9 @@
   <p>
     The next result tells us that if
     <m>T \in \Lc(V)</m> and with respect to some basis of <m>V</m> we have
-    <me>
-      \M(T) = \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp   \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix}
-    </me>,
+    <md>
+      \M(T) = \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp   \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix} ,
+    </md>
     then <m>T</m> satisfies a simple equation depending on <m>\lambda_1, \ldots, \lambda_n</m>.
   </p>
   <theorem xml:id="x4polyut">
@@ -225,9 +225,9 @@
       <p>
         Suppose <m>T \in \Lc(V)</m> and <m>V</m> has a basis with respect to which <m>T</m> has an upper-triangular matrix with diagonal entries <m>\lambda_1, \ldots, \lambda_n</m>.
         Then
-        <me>
-          (T-\lambda_1 I) \cdots (T - \lambda_n I) = 0
-        </me>.
+        <md>
+          (T-\lambda_1 I) \cdots (T - \lambda_n I) = 0.
+        </md>
       </p>
     </statement>
   </theorem>
@@ -282,9 +282,9 @@
     <p>
       Suppose <m>v_1, \dots,
       v_n</m> is a basis of<nbsp/><m>V</m> with respect to which <m>T</m> has an upper-triangular matrix
-      <me>
-        \M(T) = \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp   \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix}
-      </me>.
+      <md>
+        \M(T) = \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp   \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix} .
+      </md>
     </p>
     <p>
       Because <m>Tv_1 = \lambda_1 v_1</m>,
@@ -297,9 +297,9 @@
       <m>\Span(v_1, \dots,
       v_k)</m> into <m>\Span(v_1, \dots, v_{k-1})</m>.
       Because
-      <me>
-        \dim \Span(v_1, \dots, v_k) = k \andd  \dim \Span(v_1, \dots, v_{k-1}) = k-1
-      </me>,
+      <md>
+        \dim \Span(v_1, \dots, v_k) = k \andd  \dim \Span(v_1, \dots, v_{k-1}) = k-1,
+      </md>
       this implies that <m>T- \lambda_k I</m> restricted to <m>\Span(v_1, \dots,
       v_k)</m> is not injective
       (by <xref ref="x13"></xref>).
@@ -328,9 +328,9 @@
       <p>
         Define <m>T \in \Lc( \F3 )</m> by <m>T(x, y, z) = (2x + y, 5y + 3z, 8z)</m>.
         The matrix of <m>T</m> with respect to the standard basis is
-        <me>
-          \M(T) = \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix}
-        </me>.
+        <md>
+          \M(T) = \begin{pmatrix}2 \amp  1 \amp  0 \\ 0 \amp  5 \amp  3 \\ 0 \amp  0 \amp  8 \end{pmatrix} .
+        </md>
       </p>
       <p>
         <xref ref="a221">Now</xref> implies that the eigenvalues of <m>T</m> are <m>2</m>,
@@ -348,46 +348,46 @@
     <statement>
       <p>
         Define <m>T \in \Lc( \F4 )</m> by
-        <me>
-          T(z_1, z_2, z_3, z_4) = (-z_2, z_1, 2 z_1 + 3z_3, z_3+3z_4)
-        </me>.
+        <md>
+          T(z_1, z_2, z_3, z_4) = (-z_2, z_1, 2 z_1 + 3z_3, z_3+3z_4).
+        </md>
       </p>
       <p>
         Thus with respect to the standard basis of <m>\F4</m>,
         the matrix of <m>T</m> is
-        <me>
-          \begin{pmatrix}0 \amp  -1 \amp  0 \amp  0 \\ 1 \amp  0 \amp  0 \amp  0 \\ 2 \amp  0 \amp  3 \amp  0\\ 0 \amp  0 \amp  1 \amp  3 \end{pmatrix}
-        </me>.
+        <md>
+          \begin{pmatrix}0 \amp  -1 \amp  0 \amp  0 \\ 1 \amp  0 \amp  0 \amp  0 \\ 2 \amp  0 \amp  3 \amp  0\\ 0 \amp  0 \amp  1 \amp  3 \end{pmatrix} .
+        </md>
       </p>
       <p>
         You can ask a computer to verify that the minimal polynomial of <m>T</m> is the polynomial <m>p</m> defined by
-        <me>
-          p(z) = 9 - 6z + 10 z^2 -6z^3 + z^4{}
-        </me>.
+        <md>
+          p(z) = 9 - 6z + 10 z^2 -6z^3 + z^4{}.
+        </md>
       </p>
       <p>
         First consider the case <m>\F{} = \R{}</m>.
         Then the polynomial <m>p</m> factors as
-        <me>
-          p(z) = ( z^2 + 1 ) (z-3)(z-3)
-        </me>,
+        <md>
+          p(z) = ( z^2 + 1 ) (z-3)(z-3),
+        </md>
         with no further factorization of <m>z^2 + 1</m> as the product of two polynomials of degree <m>1</m> with real coefficients.
         <xref ref="x5necsuf">Thus</xref> states that there does not exist a basis of <m>\R4</m> with respect to which <m>T</m> has an upper-triangular matrix.
       </p>
       <p>
         Now consider the case <m>\F{} = \C{}</m>.
         Then the polynomial <m>p</m> factors as
-        <me>
-          p(z) = (z-i)(z+i)(z-3)(z-3)
-        </me>,
+        <md>
+          p(z) = (z-i)(z+i)(z-3)(z-3),
+        </md>
         where all factors above have the form <m>z - \lambda_k</m>.
         <xref ref="x5necsuf">Thus</xref> states that there is a basis of <m>\C4</m> with respect to which <m>T</m> has an upper-triangular matrix.
         Indeed, you can verify that with respect to the basis <m>(4-3i, -3-4i,-3+i,1), (4+3i,-3+4i,-3-i,1)</m>,
         <m>(0, 0, 0, 1), (0,0,1, 0)</m> of <m>\C4</m>,
         the operator <m>T</m> has the upper-triangular matrix
-        <me>
-          \begin{pmatrix}i \amp  0 \amp  0 \amp  0 \\ 0 \amp  -i \amp  0 \amp  0 \\ 0 \amp  0 \amp  3 \amp  1\\ 0 \amp  0 \amp  0 \amp  3 \end{pmatrix}
-        </me>.
+        <md>
+          \begin{pmatrix}i \amp  0 \amp  0 \amp  0 \\ 0 \amp  -i \amp  0 \amp  0 \\ 0 \amp  0 \amp  3 \amp  1\\ 0 \amp  0 \amp  0 \amp  3 \end{pmatrix} .
+        </md>
       </p>
     </statement>
   </example>
@@ -409,9 +409,9 @@
       First suppose <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>.
       Let <m>\alpha_1, \ldots, \alpha_n</m> denote the diagonal entries of that matrix.
       Define a polynomial <m>q \in \P(\F{})</m> by
-      <me>
-        q(z) = (z-\alpha_1) \cdots (z-\alpha_n)
-      </me>.
+      <md>
+        q(z) = (z-\alpha_1) \cdots (z-\alpha_n).
+      </md>
     </p>
     <p>
       Then <m>q(T) = 0</m>, by <xref ref="x4polyut"></xref>.
@@ -435,9 +435,9 @@
     <p>
       Now suppose <m>m > 1</m> and the desired result holds for all smaller positive integers.
       Let
-      <me>
-        U = \ran (T - \lambda_m I)
-      </me>.
+      <md>
+        U = \ran (T - \lambda_m I).
+      </md>
     </p>
     <p>
       Then <m>U</m> is invariant under<nbsp/><m>T</m> [this is a special case of <xref ref="x130"></xref>
@@ -446,9 +446,9 @@
     <p>
       If <m>u \in U</m>,
       then <m>u = (T - \lambda_m I) v</m> for some <m>v \in V</m> and
-      <me>
-        (T - \lambda_1 I) \cdots (T - \lambda_{m-1} I) u = (T - \lambda_1 I) \cdots (T - \lambda_m I) v = 0
-      </me>.
+      <md>
+        (T - \lambda_1 I) \cdots (T - \lambda_{m-1} I) u = (T - \lambda_1 I) \cdots (T - \lambda_m I) v = 0.
+      </md>
     </p>
     <p>
       Hence <m>(z - \lambda_1) \cdots (z-\lambda_{m-1})</m> is a polynomial multiple of the minimal polynomial of <m>T|_U</m>,
@@ -461,25 +461,25 @@
       u_M</m> of <m>U</m> with respect to which <m>T|_U</m> has an upper-triangular matrix.
       Thus for each <m>k \in \{ 1, \ldots, M \}</m>,
       we have (<xref ref="a225">using</xref>)
-      <men xml:id="x401">
-        Tu_k = (T|_U)(u_k) \in \Span(u_1, \dots, u_k)
-      </men>.
+      <md number="yes" xml:id="x401">
+        Tu_k = (T|_U)(u_k) \in \Span(u_1, \dots, u_k).
+      </md>
     </p>
     <p>
       Extend <m>u_1, \dots, u_M</m> to a basis <m>u_1, \dots,
       u_M, v_1, \dots, v_N</m> of<nbsp/><m>V{}</m>.
       If <m>k \in \{ 1, \ldots, N \}</m>, then
-      <me>
-        Tv_k = (T - \lambda_m I)v_k + \lambda_m v_k
-      </me>.
+      <md>
+        Tv_k = (T - \lambda_m I)v_k + \lambda_m v_k.
+      </md>
     </p>
     <p>
       The definition of <m>U</m> shows that <m>(T - \lambda_m I)v_k \in U = \Span(u_1, \dots,
       u_M)</m>.
       Thus the equation above shows that
-      <men xml:id="x402">
-        Tv_k \in \Span(u_1, \dots, u_M, v_1, \dots, v_k)
-      </men>.
+      <md number="yes" xml:id="x402">
+        Tv_k \in \Span(u_1, \dots, u_M, v_1, \dots, v_k).
+      </md>
     </p>
     <p>
       <xref ref="x401">From</xref> and <xref ref="x402"></xref>,
@@ -497,7 +497,7 @@
     although the list <m>\lambda_1, \ldots, \lambda_m</m> in the previous result may contain repetitions.
   </p>
   <p>
-    In <xref ref="x88">Chapter</xref>
+    In <xref ref="operators_complex_vs">Chapter</xref>
     we will improve even the wonderful result below;
     <xref ref="x187">see</xref> and <xref ref="x398"></xref>.
   </p>
@@ -518,15 +518,10 @@
     </p>
   </proof>
   <p>
-    For additional necessary and sufficient conditions for an operator on a real vector space to have an upper-triangular matrix with respect to some basis,
-    see <xref ref="x1Ruppertri">Exercise</xref>
-    in <xref ref="geneig">Section</xref>. \end{aside}
-  </p>
-  <p>
     For an extension of the result above to two operators <m>S</m> and <m>T</m> such that
-    <me>
-      ST = TS
-    </me>,
+    <md>
+      ST = TS,
+    </md>
   </p>
   <p>
     <xref ref="x2commute">see</xref>.
@@ -562,228 +557,226 @@
     (if <m>\F{} = \C{}</m>)<mdash/>there is no connection between these upper-triangular matrices.
         <idx><h>upper-triangular matrix|)</h></idx>
   </p>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Prove or give a counterexample: If
-            <m>T \in \Lc(V)</m> and <m>T^2</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>,
-            then <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x2AB">
-        <statement>
-          <p>
-            Suppose <m>A</m> and <m>B</m> are upper-triangular matrices of the same size,
-            with <m>\alpha_1, \ldots, \alpha_n</m> on the diagonal of <m>A</m> and
-            <m>\beta_1, \ldots, \beta_n</m> on the diagonal of <m>B</m>.
-            <ol>
-              <li>
-                <p>
-                  Show that <m>A+B</m> is an upper-triangular matrix with <m>\alpha_1 + \beta _1, \ldots, \alpha_n + \beta_n</m> on the diagonal.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Show that <m>AB</m> is an upper-triangular matrix with <m>\alpha_1 \beta _1, \ldots, \alpha_n \beta_n</m> on the diagonal.
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: The results in this exercise are used in the proof of <xref ref="x2EigenSum"></xref>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is invertible and
-            <m>v_1, \dots,
-            v_n</m> is a basis of <m>V</m> with respect to which the matrix of <m>T</m> is upper triangular,
-            with <m>\lambda_1, \ldots, \lambda_n</m> on the diagonal.
-            Show that the matrix of <m>T^{-1}</m> is also upper triangular with respect to the basis <m>v_1, \dots,
-            v_n</m>, with
-            <me>
-              \frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}
-            </me>
-            on the diagonal.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Give an example of an operator whose matrix with respect to some basis contains only <m>0</m>'s on the diagonal,
-            but the operator is invertible.
-            Note: This exercise and the exercise below show that <xref ref="a221"></xref>
-            fails without the hypothesis that an upper-triangular matrix is under consideration.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal,
-            but the operator is not invertible.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x457">
-        <statement>
-          <p>
-            Suppose <m>\F{} = \C{}</m>,
-            <m>V</m> is finite-dimensional, and <m>T \in \Lc(V)</m>.
-            Prove that if <m>k \in \{ 1, \dots, \dim V \}</m>,
-            then <m>V</m> has a <m>k</m>-dimensional subspace invariant under <m>T{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x2minpolyv">
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional,
-            <m>T \in \Lc(V)</m>, and <m>v \in V{}</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that there exists a unique monic polynomial <m>p_v</m> of smallest degree such that <m>p_v(T)v = 0</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that the minimal polynomial of <m>T</m> is a polynomial multiple of <m>p_v</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
-            and there exists a nonzero vector <m>v \in V</m> such that <m>T^2 v + 2Tv = -2v</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that if <m>\F{} = \R{}</m>,
-                  then there does not exist a basis of <m>V</m> with respect to which <m>T</m> has an upper-triangular matrix.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that if <m>\F{} = \C{}</m> and <m>A</m> is an upper-triangular matrix that equals the matrix of <m>T</m> with respect to some basis of <m>V{}</m>,
-                  then <m>-1 + i</m> or <m>-1 - i</m> appears on the diagonal of <m>A</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>B</m> is a square matrix with complex entries.
-            Prove that there exists an invertible square matrix <m>A</m> with complex entries such that
-            <m>A^{-1} B A</m> is an upper-triangular matrix.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x5lower">
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> and
-            <m>v_1, \dots,
-            v_n</m> is a basis of <m>V{}</m>.
-            Show that the following are equivalent.
-        <idx><h>lower-triangular matrix</h></idx>
-    <ol>
-              <li>
-                <p>
-                  The matrix of <m>T</m> with respect to <m>v_1, \dots,
-                  v_n</m> is lower triangular.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>\Span(v_k, \dots,
-                  v_n)</m> is invariant under <m>T</m> for each <m>k = 1, \dots, n</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>Tv_k \in \Span(v_k, \dots,
-                  v_n)</m> for each <m>k = 1, \dots, n</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: A square matrix is called
-            <term>lower triangular</term>
-            if all entries above the diagonal are <m>0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>\F{} = \C{}</m> and <m>V</m> is finite-dimensional.
-            Prove that if <m>T \in \Lc(V)</m>,
-            then there exists a basis of <m>V</m> with respect to which <m>T</m> has a lower-triangular matrix.
-        <idx><h>lower-triangular matrix</h></idx>
-    </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional,
-            <m>T \in \Lc(V)</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>,
-            and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that <m>T|_U</m> has an upper-triangular matrix with respect to some basis of <m>U</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that the quotient operator <m>T{}/U</m> has an upper-triangular matrix with respect to some basis of <m>V{}/U</m>.
-                    <idx><h>quotient</h><h>operator</h></idx>
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: The quotient operator <m>T{}/U</m> was defined in <xref ref="x5quotient">Exercise</xref>
-            in <xref ref="x5invar">Section</xref>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x6Tutm">
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-            Suppose there exists a subspace <m>U</m> of <m>V</m> that is invariant under <m>T</m> such that <m>T|_U</m> has an upper-triangular matrix with respect to some basis of <m>U</m> and also <m>T{}/U</m> has an upper-triangular matrix with respect to some basis of <m>V{}/U</m>.
-            Prove that <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>.
-        <idx><h>quotient</h><h>operator</h></idx>
-    </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
-            Prove that <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V</m> if and only if the dual operator <m>T'</m> has an upper-triangular matrix with respect to some basis of the dual space <m>V'\!</m>.
-        <idx><h>dual</h><h>of a linear map</h></idx>
-    </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Prove or give a counterexample: If
+          <m>T \in \Lc(V)</m> and <m>T^2</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>,
+          then <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x2AB">
+      <statement>
+        <p>
+          Suppose <m>A</m> and <m>B</m> are upper-triangular matrices of the same size,
+          with <m>\alpha_1, \ldots, \alpha_n</m> on the diagonal of <m>A</m> and
+          <m>\beta_1, \ldots, \beta_n</m> on the diagonal of <m>B</m>.
+          <ol>
+            <li>
+              <p>
+                Show that <m>A+B</m> is an upper-triangular matrix with <m>\alpha_1 + \beta _1, \ldots, \alpha_n + \beta_n</m> on the diagonal.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that <m>AB</m> is an upper-triangular matrix with <m>\alpha_1 \beta _1, \ldots, \alpha_n \beta_n</m> on the diagonal.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: The results in this exercise are used in the proof of <xref ref="x2EigenSum"></xref>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is invertible and
+          <m>v_1, \dots,
+          v_n</m> is a basis of <m>V</m> with respect to which the matrix of <m>T</m> is upper triangular,
+          with <m>\lambda_1, \ldots, \lambda_n</m> on the diagonal.
+          Show that the matrix of <m>T^{-1}</m> is also upper triangular with respect to the basis <m>v_1, \dots,
+          v_n</m>, with
+          <md>
+            \frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}
+          </md>
+          on the diagonal.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Give an example of an operator whose matrix with respect to some basis contains only <m>0</m>'s on the diagonal,
+          but the operator is invertible.
+          Note: This exercise and the exercise below show that <xref ref="a221"></xref>
+          fails without the hypothesis that an upper-triangular matrix is under consideration.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal,
+          but the operator is not invertible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x457">
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m>,
+          <m>V</m> is finite-dimensional, and <m>T \in \Lc(V)</m>.
+          Prove that if <m>k \in \{ 1, \dots, \dim V \}</m>,
+          then <m>V</m> has a <m>k</m>-dimensional subspace invariant under <m>T{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x2minpolyv">
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional,
+          <m>T \in \Lc(V)</m>, and <m>v \in V{}</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that there exists a unique monic polynomial <m>p_v</m> of smallest degree such that <m>p_v(T)v = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that the minimal polynomial of <m>T</m> is a polynomial multiple of <m>p_v</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
+          and there exists a nonzero vector <m>v \in V</m> such that <m>T^2 v + 2Tv = -2v</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that if <m>\F{} = \R{}</m>,
+                then there does not exist a basis of <m>V</m> with respect to which <m>T</m> has an upper-triangular matrix.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that if <m>\F{} = \C{}</m> and <m>A</m> is an upper-triangular matrix that equals the matrix of <m>T</m> with respect to some basis of <m>V{}</m>,
+                then <m>-1 + i</m> or <m>-1 - i</m> appears on the diagonal of <m>A</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>B</m> is a square matrix with complex entries.
+          Prove that there exists an invertible square matrix <m>A</m> with complex entries such that
+          <m>A^{-1} B A</m> is an upper-triangular matrix.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x5lower">
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and
+          <m>v_1, \dots,
+          v_n</m> is a basis of <m>V{}</m>.
+          Show that the following are equivalent.
+              <idx><h>lower-triangular matrix</h></idx>
+          <ol>
+            <li>
+              <p>
+                The matrix of <m>T</m> with respect to <m>v_1, \dots,
+                v_n</m> is lower triangular.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\Span(v_k, \dots,
+                v_n)</m> is invariant under <m>T</m> for each <m>k = 1, \dots, n</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>Tv_k \in \Span(v_k, \dots,
+                v_n)</m> for each <m>k = 1, \dots, n</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: A square matrix is called
+          <term>lower triangular</term>
+          if all entries above the diagonal are <m>0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>\F{} = \C{}</m> and <m>V</m> is finite-dimensional.
+          Prove that if <m>T \in \Lc(V)</m>,
+          then there exists a basis of <m>V</m> with respect to which <m>T</m> has a lower-triangular matrix.
+              <idx><h>lower-triangular matrix</h></idx>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional,
+          <m>T \in \Lc(V)</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>,
+          and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that <m>T|_U</m> has an upper-triangular matrix with respect to some basis of <m>U</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that the quotient operator <m>T{}/U</m> has an upper-triangular matrix with respect to some basis of <m>V{}/U</m>.
+                  <idx><h>quotient</h><h>operator</h></idx>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: The quotient operator <m>T{}/U</m> was defined in <xref ref="x5quotient">Exercise</xref>
+          in <xref ref="x5invar">Section</xref>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x6Tutm">
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+          Suppose there exists a subspace <m>U</m> of <m>V</m> that is invariant under <m>T</m> such that <m>T|_U</m> has an upper-triangular matrix with respect to some basis of <m>U</m> and also <m>T{}/U</m> has an upper-triangular matrix with respect to some basis of <m>V{}/U</m>.
+          Prove that <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>.
+              <idx><h>quotient</h><h>operator</h></idx>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
+          Prove that <m>T</m> has an upper-triangular matrix with respect to some basis of <m>V</m> if and only if the dual operator <m>T'</m> has an upper-triangular matrix with respect to some basis of the dual space <m>V'\!</m>.
+              <idx><h>dual</h><h>of a linear map</h></idx>
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

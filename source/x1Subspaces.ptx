@@ -97,9 +97,9 @@
           <li>
             <p>
               If <m>b \in \F{}{}</m>, then
-              <me>
+              <md>
                 \{ (x_1, x_2, x_3, x_4) \in \F{4} : x_3 = 5 x_4 + b  \}
-              </me>
+              </md>
               is a subspace of <m>\F{4}</m> if and only if <m>b = 0</m>.
             </p>
           </li>
@@ -176,9 +176,9 @@
           is the set of all possible sums of elements of <m>V{}_1, \dots, V{}_m</m>.
           More precisely,<idx><h>addition</h><h>of subspaces</h></idx>
               <idx><h>sum of subspaces</h></idx>
-          <me>
-            V{}_1 + \dots + V{}_m = \{ v_1 + \dots + v_m: v_1 \in V{}_1, \dots, v_m \in V{}_m \}
-          </me>.
+          <md>
+            V{}_1 + \dots + V{}_m = \{ v_1 + \dots + v_m: v_1 \in V{}_1, \dots, v_m \in V{}_m \}.
+          </md>
         </p>
       </statement>
     </definition>
@@ -191,15 +191,15 @@
         <p>
           Suppose <m>U</m> is the set of all elements of<nbsp/><m>\F{3}</m> whose second and third coordinates equal<nbsp/><m>0</m>,
           and <m>W</m> is the set of all elements of<nbsp/><m>\F{3}</m> whose first and third coordinates equal<nbsp/><m>0</m>:
-          <me>
-            U = \{ (x, 0, 0) \in \F{3}: x \in \F{} \} \andd W = \{ (0, y, 0) \in \F{3}: y \in \F{} \}
-          </me>.
+          <md>
+            U = \{ (x, 0, 0) \in \F{3}: x \in \F{} \} \andd W = \{ (0, y, 0) \in \F{3}: y \in \F{} \}.
+          </md>
         </p>
         <p>
           Then
-          <me>
-            U + W = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \}
-          </me>,
+          <md>
+            U + W = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \},
+          </md>
           as you should verify.
         </p>
       </statement>
@@ -209,9 +209,9 @@
       <statement>
         <p>
           Suppose
-          <me>
-            U = \{ (x, x, y, y)\in\F{4}: x, y \in \F{} \} \andd W = \{ (x, x, x, y) \in \F{4}: x, y \in \F{} \}
-          </me>.
+          <md>
+            U = \{ (x, x, y, y)\in\F{4}: x, y \in \F{} \} \andd W = \{ (x, x, x, y) \in \F{4}: x, y \in \F{} \}.
+          </md>
         </p>
         <p>
           Using words rather than symbols,
@@ -224,30 +224,30 @@
           <m>(a, a, b, b)</m> of <m>U</m> and a typical element <m>(c,c, c, d)</m> of <m>W{}</m>,
           where <m>a, b, c, d \in \F{}{}</m>.
           We have
-          <me>
-            (a, a, b, b) + (c, c, c, d) = (a + c, a+c, b+c, b+d)
-          </me>,
+          <md>
+            (a, a, b, b) + (c, c, c, d) = (a + c, a+c, b+c, b+d),
+          </md>
           which shows that every element of <m>U + W</m> has its first two coordinates equal to each other.
           Thus
-          <men xml:id="UpW">
-            U + W \subset \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \}
-          </men>.
+          <md number="yes" xml:id="UpW">
+            U + W \subset \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \}.
+          </md>
         </p>
         <p>
           To prove the inclusion in the other direction,
           suppose <m>x, y, z \in \F{}{}</m>.
           Then
-          <me>
-            (x, x, y, z) = (x,x,y,y) + (0, 0, 0, z-y)
-          </me>,
+          <md>
+            (x, x, y, z) = (x,x,y,y) + (0, 0, 0, z-y),
+          </md>
           where the first vector on the right is in <m>U</m> and the second vector on the right is in<nbsp/><m>W{}</m>.
           Thus <m>(x, x, y, z) \in U + W{}</m>,
           showing that the <xref ref="UpW">inclusion</xref>
           also holds in the opposite direction.
           Hence
-          <me>
-            U + W = \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \}
-          </me>,
+          <md>
+            U + W = \{ (x, x, y, z) \in \F{4}: x, y, z \in \F{} \},
+          </md>
           which shows that <m>U + W</m> is the set of elements of <m>\F4</m> whose first two coordinates equal each other.
         </p>
       </statement>
@@ -298,9 +298,9 @@
     <p>
       Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
       Every element of <m>V{}_1 + \dots + V{}_m</m> can be written in the form
-      <me>
-        v_1 + \dots + v_m
-      </me>,
+      <md>
+        v_1 + \dots + v_m,
+      </md>
       where each <m>v_k \in V{}_k</m>.
       Of special interest are cases in which each vector in
       <m>V{}_1 + \dots + V{}_m</m> can be represented in the form above in only one way.
@@ -341,9 +341,9 @@
         <p>
           Suppose <m>U</m> is the subspace of<nbsp/><m>\F{3}</m> of those vectors whose last coordinate equals<nbsp/><m>0</m>,
           and <m>W</m> is the subspace of<nbsp/><m>\F{3}</m> of those vectors whose first two coordinates equal<nbsp/><m>0</m>:
-          <me>
-            U = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \} \andd W = \{ (0, 0, z) \in \F{3}: z \in \F{} \}
-          </me>.
+          <md>
+            U = \{ (x, y, 0) \in \F{3}: x, y \in \F{} \} \andd W = \{ (0, 0, z) \in \F{3}: z \in \F{} \}.
+          </md>
         </p>
         <p>
           Then <m>\F{3} = U \oplus W{}</m>, as you should verify.
@@ -364,9 +364,9 @@
           for example,
           <m>V{}_2 = \{ (0, x, 0, \dots, 0) \in \F{n}: x \in \F{} \}</m>.
           Then
-          <me>
-            \F{n} = V{}_1 \oplus \dots \oplus V{}_n
-          </me>,
+          <md>
+            \F{n} = V{}_1 \oplus \dots \oplus V{}_n,
+          </md>
           as you should verify.
         </p>
       </statement>
@@ -387,9 +387,9 @@
         </p>
         <p>
           Then <m>\F{3} = V{}_1 + V{}_2 + V{}_3</m> because every vector <m>(x, y, z) \in \F{3}</m> can be written as
-          <me>
-            (x, y, z) = (x, y, 0) + (0, 0, z) + (0, 0, 0)
-          </me>,
+          <md>
+            (x, y, z) = (x, y, 0) + (0, 0, z) + (0, 0, 0),
+          </md>
           where the first vector on the right side is in<nbsp/><m>V{}_1</m>,
           the second vector is in<nbsp/><m>V{}_2</m>,
           and the third vector is in<nbsp/><m>V{}_3</m>.
@@ -399,13 +399,13 @@
           because the vector <m>(0,0,0)</m> can be written in more than one way as a sum <m>v_1 + v_2 + v_3</m>,
           with each <m>v_k \in V{}_k</m>.
           Specifically, we have
-          <me>
+          <md>
             (0,0,0) = (0,1,0) + (0,0,1) + (0,-1,-1)
-          </me>
+          </md>
           and, of course,
-          <me>
-            (0,0,0) = (0,0,0) + (0,0,0) + (0,0,0)
-          </me>,
+          <md>
+            (0,0,0) = (0,0,0) + (0,0,0) + (0,0,0),
+          </md>
           where the first vector on the right side of each equation above is in<nbsp/><m>V{}_1</m>,
           the second vector is in<nbsp/><m>V{}_2</m>,
           and the third vector is in<nbsp/><m>V{}_3</m>.
@@ -449,19 +449,19 @@
         To show that <m>V{}_1 + \dots + V{}_m</m> is a direct sum,
         let <m>v \in V{}_1 + \dots + V{}_m</m>.
         We can write
-        <me>
+        <md>
           v = v_1 + \dots + v_m
-        </me>
+        </md>
         for some <m>v_1 \in V{}_1, \dots, v_m \in V{}_m</m>.
         To show that this representation is unique, suppose we also have
-        <me>
-          v = u_1 + \dots + u_m
-        </me>,
+        <md>
+          v = u_1 + \dots + u_m,
+        </md>
         where <m>u_1 \in V{}_1, \dots, u_m \in V{}_m</m>.
         Subtracting these two equations, we have
-        <me>
-          0 = (v_1 - u_1) + \dots + (v_m - u_m)
-        </me>.
+        <md>
+          0 = (v_1 - u_1) + \dots + (v_m - u_m).
+        </md>
       </p>
       <p>
         Because <m>v_1 - u_1 \in V{}_1, \dots, v_m - u_m \in V{}_m</m>,
@@ -485,9 +485,9 @@
         <p>
           Suppose <m>U</m> and <m>W</m> are subspaces of<nbsp/><m>V{}</m>.
           Then
-          <me>
-            U + W \text{ is a direct sum }  \iff U \cap W = \{0\}
-          </me>.
+          <md>
+            U + W \text{ is a direct sum }  \iff U \cap W = \{0\}.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -506,9 +506,9 @@
         now suppose <m>U \cap W = \{0\}</m>.
         To prove that <m>U + W</m> is a direct sum,
         suppose <m>u \in U</m>, <m>w \in W{}</m>, and
-        <me>
-          0 = u + w
-        </me>.
+        <md>
+          0 = u + w.
+        </md>
       </p>
       <p>
         To complete the proof, we only need to show that <m>u = w = 0</m>
@@ -538,289 +538,287 @@
       In that nonexample of a direct sum,
       we have <m>V{}_1 \cap V{}_2 = V{}_1 \cap V{}_3 = V{}_2 \cap V{}_3 = \{0\}</m>.
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              For each of the following subsets of <m>\FF{3}</m>,
-              determine whether it is a subspace of <m>\F{3}</m>.
-              <ol>
-                <li>
-                  <p>
-                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 0 \}</m>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 4 \}</m>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 x_2 x_3 = 0 \}</m>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 = 5 x_3 \}</m>
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Verify all assertions about subspaces in <xref ref="subspaces">Example</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that the set of differentiable real-valued functions <m>f</m> on the interval <m>(-4, 4)</m> such that
-              <m>f'\!(-1) = 3f(2)</m> is a subspace of <m>\RR{(-4, 4)}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>b \in \R{}</m>.
-              Show that the set of continuous real-valued functions <m>f</m> on the interval <m>[0, 1]</m> such that <m>\int_0^1 f = b</m> is a subspace of
-              <m>\R{[0, 1]}</m> if and only if <m>b = 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Is <m>\R{2}</m> a subspace of the complex vector space <m>\C{2}</m>?
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            For each of the following subsets of <m>\FF{3}</m>,
+            determine whether it is a subspace of <m>\F{3}</m>.
             <ol>
               <li>
                 <p>
-                  Is <m>\{ (a, b, c) \in \R{3}: a^3 =b^3 \}</m> a subspace of <m>\R{3}</m>?
+                  <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 0 \}</m>
                 </p>
               </li>
               <li>
                 <p>
-                  Is <m>\{ (a, b, c) \in \C{3}: a^3 =b^3 \}</m> a subspace of <m>\C{3}</m>?
+                  <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 4 \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 x_2 x_3 = 0 \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 = 5 x_3 \}</m>
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If <m>U</m> is a nonempty subset of <m>\R{2}</m> such that <m>U</m> is closed under addition and under taking additive inverses
-              (meaning <m>-u \in U</m> whenever <m>u \in U</m>),
-              then <m>U</m> is a subspace of<nbsp/><m>\RR{2}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Give an example of a nonempty subset <m>U</m> of <m>\R{2}</m> such that <m>U</m> is closed under scalar multiplication,
-              but <m>U</m> is not a subspace of<nbsp/><m>\RR{2}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              A function <m>\fun f {\R{}} {\R{}}</m> is called <term>periodic</term>
-              if there exists a positive number <m>p</m> such that
-              <m>f(x) = f(x + p)</m> for all <m>x \in \R{}</m>.
-              Is the set of periodic functions from <m>\R{}</m> to <m>\R{}</m> a subspace of <m>\R{\R{}}</m>?
-              Explain.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V{}_1</m> and <m>V{}_2</m> are subspaces of <m>V{}</m>.
-              Prove that the intersection
-              <m>V{}_1 \cap V{}_2</m> is a subspace of <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove that the intersection of every collection of subspaces of <m>V</m> is a subspace of <m>V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x218">
-          <statement>
-            <p>
-              Prove that the union of two subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces is contained in the other.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x1threesub">
-          <statement>
-            <p>
-              Prove that the union of three subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces contains the other two.
-              Note: This exercise is surprisingly harder than <xref ref="x218">Exercise</xref>,
-              possibly because this exercise is not true if we replace <m>\F{}</m> with a field containing only two elements.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose
-              <me>
-                U = \{  (x, -x, 2x) \in \F3 : x\in \F{} \} \andd W = \{  (x, x, 2x) \in \F3: x \in \F{} \}
-              </me>.
-            </p>
-            <p>
-              Describe <m>U+W</m> using symbols,
-              and also give a description of <m>U + W</m> that uses no symbols.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>U</m> is a subspace of <m>V{}</m>.
-              What is <m>U + U</m>?
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Is the operation of addition on the subspaces of <m>V</m> commutative?
-              In other words,
-              if <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>, is <m>U + W = W + U</m>?
-          <idx><h>commutativity</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Is the operation of addition on the subspaces of <m>V</m> associative?
-              In other words,
-              if <m>V{}_1,V{}_2, V{}_3</m> are subspaces of <m>V{}</m>, is
-              <me>
-                (V{}_1 + V{}_2) + V{}_3 = V{}_1 + (V{}_2 + V{}_3)?
-              </me>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Does the operation of addition on the subspaces of <m>V</m> have an additive identity?
-              Which subspaces have additive inverses?
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
-              <me>
-                V{}_1 + U = V{}_2 + U
-              </me>,
-              then <m>V{}_1 = V{}_2</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose
-              <me>
-                U = \{ (x, x, y, y) \in \F{4}: x, y \in \F{} \}
-              </me>.
-            </p>
-            <p>
-              Find a subspace <m>W</m> of <m>\F{4}</m> such that <m>\F{4} = U \oplus W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose
-              <me>
-                U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}
-              </me>.
-            </p>
-            <p>
-              Find a subspace <m>W</m> of <m>\F{5}</m> such that <m>\F{5} = U \oplus W{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose
-              <me>
-                U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}
-              </me>.
-            </p>
-            <p>
-              Find three subspaces <m>W{}_1, W{}_2, W{}_3</m> of <m>\FF{5}</m>,
-              none of which equals <m>\{0\}</m>,
-              such that <m>\F{5} = U \oplus W{}_1 \oplus W{}_2 \oplus W{}_3</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Prove or give a counterexample: If
-              <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
-              <me>
-                V = V{}_1 \oplus U \andd V = V{}_2 \oplus U
-              </me>,
-              then <m>V{}_1 = V{}_2</m>.
-              <hint>
-                <p>
-                  When trying to discover whether a conjecture in linear algebra is true or false,
-                  it is often useful to start by experimenting in <m>\FF2</m>.
-                </p>
-              </hint>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              A function <m>f\colon \R{} \to \R{}</m> is called <term>even</term> if
-              <me>
-                f(-x) = f(x)
-              </me>
-              for all <m>x \in \R{}</m>.
-              A function <m>f\colon \R{} \to \R{}</m> is called <term>odd</term> if
-              <me>
-                f(-x) = -f(x)
-              </me>
-              for all <m>x \in \R{}</m>.
-              Let <m>V{}_\text{e}</m> denote the set of real-valued even functions on <m>\R{}</m> and let
-              <m>V{}_\text{o}</m> denote the set of real-valued odd functions on <m>\R{}</m>.
-              Show that <m>\R{\R{}} = V{}_\text{e}  \oplus V{}_\text{o}</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Verify all assertions about subspaces in <xref ref="subspaces">Example</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that the set of differentiable real-valued functions <m>f</m> on the interval <m>(-4, 4)</m> such that
+            <m>f'\!(-1) = 3f(2)</m> is a subspace of <m>\RR{(-4, 4)}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>b \in \R{}</m>.
+            Show that the set of continuous real-valued functions <m>f</m> on the interval <m>[0, 1]</m> such that <m>\int_0^1 f = b</m> is a subspace of
+            <m>\R{[0, 1]}</m> if and only if <m>b = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Is <m>\R{2}</m> a subspace of the complex vector space <m>\C{2}</m>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Is <m>\{ (a, b, c) \in \R{3}: a^3 =b^3 \}</m> a subspace of <m>\R{3}</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\{ (a, b, c) \in \C{3}: a^3 =b^3 \}</m> a subspace of <m>\C{3}</m>?
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If <m>U</m> is a nonempty subset of <m>\R{2}</m> such that <m>U</m> is closed under addition and under taking additive inverses
+            (meaning <m>-u \in U</m> whenever <m>u \in U</m>),
+            then <m>U</m> is a subspace of<nbsp/><m>\RR{2}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Give an example of a nonempty subset <m>U</m> of <m>\R{2}</m> such that <m>U</m> is closed under scalar multiplication,
+            but <m>U</m> is not a subspace of<nbsp/><m>\RR{2}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A function <m>\fun f {\R{}} {\R{}}</m> is called <term>periodic</term>
+            if there exists a positive number <m>p</m> such that
+            <m>f(x) = f(x + p)</m> for all <m>x \in \R{}</m>.
+            Is the set of periodic functions from <m>\R{}</m> to <m>\R{}</m> a subspace of <m>\R{\R{}}</m>?
+            Explain.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V{}_1</m> and <m>V{}_2</m> are subspaces of <m>V{}</m>.
+            Prove that the intersection
+            <m>V{}_1 \cap V{}_2</m> is a subspace of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove that the intersection of every collection of subspaces of <m>V</m> is a subspace of <m>V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x218">
+        <statement>
+          <p>
+            Prove that the union of two subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces is contained in the other.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x1threesub">
+        <statement>
+          <p>
+            Prove that the union of three subspaces of <m>V</m> is a subspace of <m>V</m> if and only if one of the subspaces contains the other two.
+            Note: This exercise is surprisingly harder than <xref ref="x218">Exercise</xref>,
+            possibly because this exercise is not true if we replace <m>\F{}</m> with a field containing only two elements.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose
+            <md>
+              U = \{  (x, -x, 2x) \in \F3 : x\in \F{} \} \andd W = \{  (x, x, 2x) \in \F3: x \in \F{} \}.
+            </md>
+          </p>
+          <p>
+            Describe <m>U+W</m> using symbols,
+            and also give a description of <m>U + W</m> that uses no symbols.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>U</m> is a subspace of <m>V{}</m>.
+            What is <m>U + U</m>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Is the operation of addition on the subspaces of <m>V</m> commutative?
+            In other words,
+            if <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>, is <m>U + W = W + U</m>?
+                <idx><h>commutativity</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Is the operation of addition on the subspaces of <m>V</m> associative?
+            In other words,
+            if <m>V{}_1,V{}_2, V{}_3</m> are subspaces of <m>V{}</m>, is
+            <md>
+              (V{}_1 + V{}_2) + V{}_3 = V{}_1 + (V{}_2 + V{}_3)?
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Does the operation of addition on the subspaces of <m>V</m> have an additive identity?
+            Which subspaces have additive inverses?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
+            <md>
+              V{}_1 + U = V{}_2 + U,
+            </md>
+            then <m>V{}_1 = V{}_2</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose
+            <md>
+              U = \{ (x, x, y, y) \in \F{4}: x, y \in \F{} \}.
+            </md>
+          </p>
+          <p>
+            Find a subspace <m>W</m> of <m>\F{4}</m> such that <m>\F{4} = U \oplus W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose
+            <md>
+              U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}.
+            </md>
+          </p>
+          <p>
+            Find a subspace <m>W</m> of <m>\F{5}</m> such that <m>\F{5} = U \oplus W{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose
+            <md>
+              U = \{ (x, y, x+y, x-y, 2x) \in \F{5}: x, y \in \F{} \}.
+            </md>
+          </p>
+          <p>
+            Find three subspaces <m>W{}_1, W{}_2, W{}_3</m> of <m>\FF{5}</m>,
+            none of which equals <m>\{0\}</m>,
+            such that <m>\F{5} = U \oplus W{}_1 \oplus W{}_2 \oplus W{}_3</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Prove or give a counterexample: If
+            <m>V{}_1, V{}_2, U</m> are subspaces of<nbsp/><m>V</m> such that
+            <md>
+              V = V{}_1 \oplus U \andd V = V{}_2 \oplus U,
+            </md>
+            then <m>V{}_1 = V{}_2</m>.
+            <hint>
+              <p>
+                When trying to discover whether a conjecture in linear algebra is true or false,
+                it is often useful to start by experimenting in <m>\FF2</m>.
+              </p>
+            </hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A function <m>f\colon \R{} \to \R{}</m> is called <term>even</term> if
+            <md>
+              f(-x) = f(x)
+            </md>
+            for all <m>x \in \R{}</m>.
+            A function <m>f\colon \R{} \to \R{}</m> is called <term>odd</term> if
+            <md>
+              f(-x) = -f(x)
+            </md>
+            for all <m>x \in \R{}</m>.
+            Let <m>V{}_\text{e}</m> denote the set of real-valued even functions on <m>\R{}</m> and let
+            <m>V{}_\text{o}</m> denote the set of real-valued odd functions on <m>\R{}</m>.
+            Show that <m>\R{\R{}} = V{}_\text{e}  \oplus V{}_\text{o}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

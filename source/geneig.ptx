@@ -12,9 +12,9 @@
         <p>
           Suppose <m>T \in \Lc(V)</m>.
           Then
-          <me>
-            \{0\} = \ker T^0 \subset \ker T^1 \subset \cdots \subset \ker T^k \subset \ker T^{k+1} \subset \dotsb
-          </me>.
+          <md>
+            \{0\} = \ker T^0 \subset \ker T^1 \subset \cdots \subset \ker T^k \subset \ker T^{k+1} \subset \dotsb .
+          </md>
         </p>
       </statement>
     </theorem>
@@ -43,15 +43,15 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer such that
-          <me>
-            \ker T^m = \ker T^{m+1}\!
-          </me>.
+          <md>
+            \ker T^m = \ker T^{m+1}\!.
+          </md>
         </p>
         <p>
           Then
-          <me>
-            \ker T^m = \ker T^{m+1} = \ker T^{m+2} = \ker T^{m+3} = \dotsb
-          </me>.
+          <md>
+            \ker T^m = \ker T^{m+1} = \ker T^{m+2} = \ker T^{m+3} = \dotsb .
+          </md>
         </p>
       </statement>
     </theorem>
@@ -59,9 +59,9 @@
       <p>
         Let <m>k</m> be a positive integer.
         We want to prove that
-        <me>
-          \ker T^{m+k} = \ker T^{m + k + 1}\!
-        </me>.
+        <md>
+          \ker T^{m+k} = \ker T^{m + k + 1}\!.
+        </md>
       </p>
       <p>
         We already know from <xref ref="x76"></xref>
@@ -71,15 +71,15 @@
         To prove the inclusion in the other direction,
         suppose <m>v \in \ker T^{m+ k+1}\!</m>.
         Then
-        <me>
-          T^{m+1} ( T^k v ) = T^{m+k+1}v =0
-        </me>.
+        <md>
+          T^{m+1} ( T^k v ) = T^{m+k+1}v =0.
+        </md>
       </p>
       <p>
         Hence
-        <me>
-          T^k v \in \ker T^{m+1} = \ker T^m\!
-        </me>.
+        <md>
+          T^k v \in \ker T^{m+1} = \ker T^m\!.
+        </md>
       </p>
       <p>
         Thus <m>T^{m+k} v = T^m( T^k v ) = 0</m>,
@@ -98,9 +98,9 @@
         <p>
           Suppose <m>T \in \Lc(V)</m>.
           Then
-          <me>
-            \ker T^{\dim V} = \ker T^{\dim V + 1} = \ker T^{\dim V + 2} = \dotsb
-          </me>.
+          <md>
+            \ker T^{\dim V} = \ker T^{\dim V + 1} = \ker T^{\dim V + 2} = \dotsb .
+          </md>
         </p>
       </statement>
     </theorem>
@@ -110,9 +110,9 @@
         (by <xref ref="a113"></xref>).
         Suppose this is not true.
         Then, by <xref ref="x76"></xref> and <xref ref="a113"></xref>, we have
-        <me>
-          \{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots \subsetneq \ker T^{\dim V} \subsetneq \ker T^{\dim V + 1}\!
-        </me>,
+        <md>
+          \{0\} = \ker T^0 \subsetneq \ker T^1 \subsetneq \dots \subsetneq \ker T^{\dim V} \subsetneq \ker T^{\dim V + 1}\!,
+        </md>
         where the symbol <m>\subsetneq</m><idx><h sortby="subsetneq"><m>\subsetneq</m></h></idx> means
         <q>contained in but not equal to</q>. At each of the strict inclusions in the chain above,
         the dimension increases by at least<nbsp/><m>1</m>.
@@ -130,9 +130,9 @@
         <p>
           Suppose <m>T \in \Lc(V)</m>.
           Then
-          <me>
-            V = \ker T^{\dim V} \oplus \ran T^{\dim V}\!
-          </me>.
+          <md>
+            V = \ker T^{\dim V} \oplus \ran T^{\dim V}\!.
+          </md>
         </p>
       </statement>
     </theorem>
@@ -140,9 +140,9 @@
       <p>
         Let <m>n = \dim V{}</m>.
         First we show that
-        <men xml:id="nullran">
-          ( \ker T^n ) \cap ( \ran T^n ) = \{0\}
-        </men>.
+        <md number="yes" xml:id="nullran">
+          ( \ker T^n ) \cap ( \ran T^n ) = \{0\}.
+        </md>
       </p>
       <p>
         Suppose <m>v \in ( \ker T^n ) \cap ( \ran T^n )</m>.
@@ -158,9 +158,9 @@
         <xref ref="nullran">Now</xref> implies that <m>\ker T^n + \ran T^n</m> is a direct sum
         (by <xref ref="x219"></xref>).
         Also,
-        <me>
-          \dim( \ker T^n \oplus \ran T^n ) = \dim \ker T^n + \dim \ran T^n = \dim V{}
-        </me>,
+        <md>
+          \dim( \ker T^n \oplus \ran T^n ) = \dim \ker T^n + \dim \ran T^n = \dim V{},
+        </md>
         where the first equality above comes from <xref ref="x3directsumdim"></xref>
         and the second equality comes from the fundamental theorem of linear maps <xref ref="x3ab11"/>.
         The equation above implies that <m>\ker T^n \oplus \ran T^n = V{}</m>
@@ -177,9 +177,9 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(\F{3})</m> is defined by
-          <me>
-            T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
-          </me>.
+          <md>
+            T(z_1, z_2, z_3) = (4z_2, 0, 5z_3).
+          </md>
         </p>
         <p>
           Then <m>\ker T = \{ (z_1, 0, 0):
@@ -190,9 +190,9 @@
           Also note that <m>\ker T + \ran T \ne \FF3</m>.
           However, we have <m>T^3(z_1, z_2, z_3) = (0, 0, 125z_3)</m>.
           Thus we see that
-          <me>
-            \ker T^3 = \{ (z_1, z_2, 0): z_1, z_2 \in \F{} \} \andd \ran T^3 = \{ (0, 0, z_3): z_3 \in \F{} \}
-          </me>.
+          <md>
+            \ker T^3 = \{ (z_1, z_2, 0): z_1, z_2 \in \F{} \} \andd \ran T^3 = \{ (0, 0, z_3): z_3 \in \F{} \}.
+          </md>
         </p>
         <p>
           Hence <m>\FF3 = \ker T^3 \oplus \ran T^3{}</m>,
@@ -215,17 +215,17 @@
       We seek to describe <m>T</m> by finding a
       <q>nice</q>
       direct sum decomposition
-      <me>
-        V = V{}_1 \oplus \dots \oplus V{}_n
-      </me>,
+      <md>
+        V = V{}_1 \oplus \dots \oplus V{}_n,
+      </md>
       where each <m>V{}_k</m> is a subspace of <m>V</m> invariant under<nbsp/><m>T{}</m>.
       The simplest possible nonzero invariant subspaces are one-dimensional.
       A decomposition as above in which each <m>V{}_k</m> is a one-dimensional subspace of <m>V</m> invariant under <m>T</m> is possible if and only if <m>V</m> has a basis consisting of eigenvectors of<nbsp/><m>T</m>
       (<xref ref="x427">see</xref>).
       This happens if and only if <m>V</m> has an eigenspace decomposition
-      <men xml:id="x429">
-        V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T)
-      </men>,
+      <md number="yes" xml:id="x429">
+        V = E(\lambda_1, T) \oplus \dots \oplus E(\lambda_m, T),
+      </md>
       where <m>\lambda_1, \dots, \lambda_m</m> are the distinct eigenvalues of <m>T</m>
       (<xref ref="x427">see</xref>).
     </p>
@@ -255,9 +255,9 @@
           <term>generalized eigenvector</term>
               <idx><h>generalized eigenvector</h></idx>
           of<nbsp/><m>T</m> corresponding to<nbsp/><m>\lambda</m> if <m>v \ne 0</m> and
-          <me>
+          <md>
             (T - \lambda I)^k v = 0
-          </me>
+          </md>
           for some positive integer<nbsp/><m>k</m>.
         </p>
       </statement>
@@ -272,9 +272,9 @@
     </aside>
     <p>
       A nonzero vector <m>v \in V</m> is a generalized eigenvector of <m>T</m> corresponding to <m>\lambda</m> if and only if
-      <me>
-        (T - \lambda I)^{\dim V} v = 0
-      </me>,
+      <md>
+        (T - \lambda I)^{\dim V} v = 0,
+      </md>
       as follows from <xref ref="x76">applying</xref> and <xref ref="x23"></xref>
       to the operator <m>T  - \lambda I</m>.
     </p>
@@ -310,9 +310,9 @@
         Let <m>\lambda</m> be an eigenvalue of <m>T{}</m>.
         <xref ref="x8nulloplusran">Applying</xref>
         to <m>T - \lambda I</m> shows that
-        <me>
-          V = \ker(T - \lambda I)^n \oplus \ran (T - \lambda I)^n{}
-        </me>.
+        <md>
+          V = \ker(T - \lambda I)^n \oplus \ran (T - \lambda I)^n{}.
+        </md>
       </p>
       <p>
         If <m>\ker(T - \lambda I)^n = V{}</m>,
@@ -325,9 +325,9 @@
         Also, <m>\ker(T - \lambda I)^n \ne \{ 0 \}</m>,
         because <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
         Thus we have
-        <me>
-          0 \lt  \dim \ran(T - \lambda I)^n \lt  n
-        </me>.
+        <md>
+          0 \lt  \dim \ran(T - \lambda I)^n \lt  n.
+        </md>
       </p>
       <p>
         Furthermore,
@@ -354,9 +354,9 @@
       <statement>
         <p>
           Define <m>T \in \Lc( \C{3} )</m> by
-          <me>
+          <md>
             T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)
-          </me>
+          </md>
           for each <m>(z_1, z_2, z_3) \in \CC3</m>.
           A routine use of the definition of eigenvalue shows that the eigenvalues of <m>T</m> are <m>0</m> and <m>5</m>.
           Furthermore,
@@ -413,9 +413,9 @@
         </md>,
         where <m>b_0 = 1</m> and the values of the other binomial coefficients <m>b_k</m> do not matter.
         Apply the operator <m>(T - \alpha  I)^{m-1}</m> to both sides of the equation above, getting
-        <me>
-          0 = (\alpha  - \lambda)^n (T - \alpha  I)^{m-1} v
-        </me>.
+        <md>
+          0 = (\alpha  - \lambda)^n (T - \alpha  I)^{m-1} v.
+        </md>
       </p>
       <p>
         Because <m>(T - \alpha I)^{m-1} v \ne 0</m>,
@@ -450,38 +450,38 @@
         a_m \in \F{}{}</m>, none of which are <m>0</m>
         (because of the minimality of <m>m</m>),
         such that
-        <me>
-          a_1 v_1 + \cdots + a_m v_m = 0
-        </me>.
+        <md>
+          a_1 v_1 + \cdots + a_m v_m = 0.
+        </md>
       </p>
       <p>
         Let <m>n = \dim V{}</m>.
         Apply <m>(T - \lambda_m I)^n</m> to both sides of the equation above, getting
-        <men xml:id="x8gene">
-          a_1 (T - \lambda_m I)^n v_1 + \cdots + a_{m-1} (T - \lambda_m I)^n v_{m-1} = 0
-        </men>.
+        <md number="yes" xml:id="x8gene">
+          a_1 (T - \lambda_m I)^n v_1 + \cdots + a_{m-1} (T - \lambda_m I)^n v_{m-1} = 0.
+        </md>
       </p>
       <p>
         Suppose <m>k \in \{ 1, \ldots, m-1 \}</m>.
         Then
-        <me>
+        <md>
           (T - \lambda_m I)^n v_k \ne 0
-        </me>
+        </md>
         because otherwise <m>v_k</m> would be a generalized eigenvector of <m>T</m> corresponding to the distinct eigenvalues
         <m>\lambda_k</m> and <m>\lambda_m</m>,
         which would <xref ref="x8intgeneig">contradict</xref>.
         However,
-        <me>
-          (T - \lambda_k I)^n (  (T - \lambda_m I)^n v_k  ) = (T - \lambda_m I)^n (  (T - \lambda_k I)^n v_k  ) = 0
-        </me>.
+        <md>
+          (T - \lambda_k I)^n (  (T - \lambda_m I)^n v_k  ) = (T - \lambda_m I)^n (  (T - \lambda_k I)^n v_k  ) = 0.
+        </md>
       </p>
       <p>
         Thus the last two displayed equations show that
         <m>(T - \lambda_m I)^n v_k</m> is a generalized eigenvector of <m>T</m> corresponding to the eigenvalue <m>\lambda_k</m>.
         Hence
-        <me>
+        <md>
           (T - \lambda_m I)^n v_1, \ldots, (T - \lambda_m I)^n v_{m-1}
-        </me>
+        </md>
         is a linearly dependent list
         (by <xref ref="x8gene"></xref>)
         of <m>m-1</m> generalized eigenvectors corresponding to distinct eigenvalues,
@@ -512,9 +512,9 @@
           <li>
             <p>
               The operator <m>T \in \Lc( \F{4} )</m> defined by
-              <me>
+              <md>
                 T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2)
-              </me>
+              </md>
               is nilpotent because <m>T^2 = 0</m>.
             </p>
           </li>
@@ -523,9 +523,9 @@
               The operator on <m>\F3</m> whose matrix
               (with respect to the standard basis)
               is
-              <me>
+              <md>
                 \begin{pmatrix}-3 \amp  9 \amp  0 \\ -7 \amp  9 \amp  6 \\ 4 \amp  0 \amp  -6 \end{pmatrix}
-              </me>
+              </md>
               is nilpotent,
               as can be shown by cubing the matrix above to get the zero matrix.\looseness=-1
             </p>
@@ -607,13 +607,13 @@
             To show that <m>T</m> has no other eigenvalues,
             suppose <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
             Then there exists a nonzero vector <m>v \in V</m> such that
-            <me>
-              \lambda v = Tv
-            </me>.
+            <md>
+              \lambda v = Tv.
+            </md>
             Repeatedly applying <m>T</m> to both sides of this equation shows that
-            <me>
-              \lambda^m v = T^m v = 0
-            </me>.
+            <md>
+              \lambda^m v = T^m v = 0.
+            </md>
             Thus <m>\lambda = 0</m>, as desired.
           </p>
         </li>
@@ -662,9 +662,9 @@
             <li>
               <p>
                 There is a basis of  <m>V</m> with respect to which the matrix of  <m>T</m> has the form
-                <me>
-                  \begin{pmatrix}0 \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  0 \end{pmatrix}
-                </me>,
+                <md>
+                  \begin{pmatrix}0 \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  0 \end{pmatrix} ,
+                </md>
                 where all entries on and below the diagonal equal  <m>0</m>.
               </p>
             </li>
@@ -697,297 +697,295 @@
         Thus <m>T</m> is nilpotent, proving that (c) implies (a).
       </p>
     </proof>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that if <m>\dim \ker T^4 = 8</m> and <m>\dim \ker T^6 = 9</m>,
-              then <m>\dim \ker T^m = 9</m> for all integers <m>m \ge 5</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8linind">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>, <m>m</m> is a positive integer,
-              <m>v \in V</m>, and <m>T^{m-1} v \ne 0</m> but <m>T^m v = 0</m>.
-              Prove that <m>v, Tv, T^2 v, \dots, T^{m-1} v</m> is linearly independent.
-              Note: The result in this exercise is used in the proof of <xref ref="x452"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that
-              <me>
-                V = \ker T \oplus \ran T \iff \ker T^2 = \ker T{}
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>, <m>\lambda \in \F{}{}</m>,
-              and <m>m</m> is a positive integer such that the minimal polynomial of <m>T</m> is a polynomial multiple of <m>(z - \lambda)^m\!</m>.
-              Prove that
-              <me>
-                \dim \ker(T - \lambda I)^m \ge m
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
-              Prove that
-              <me>
-                \dim \ker T^m \le m \dim \ker T
-              </me>.
-            </p>
-            <p>
-              <hint>
-                <p>
-                  <xref ref="x3diminv">Exercise</xref>
-                  in <xref ref="x3nullspace">Section</xref> may be useful.
-                </p>
-              </hint>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="range1">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Show that<idx><h>range</h><h>of powers of an operator</h></idx>
-              <me>
-                V = \ran T^0 \supset \ran T^1 \supset \cdots \supset \ran T^k \supset \ran T^{k+1} \supset \dotsb
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="range2">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer such that
-              <me>
-                \ran T^m = \ran T^{m+1}\!
-              </me>.
-            </p>
-            <p>
-              Prove that <m>\ran T^k = \ran T^m</m> for all <m>k > m</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="range3">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Prove that
-              <me>
-                \ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="kerran">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer.
-              Prove that
-              <me>
-                \ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}\!
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \C{2} )</m> by <m>T(w,z) = (z,0)</m>.
-              Find all generalized eigenvectors of<nbsp/><m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8geneigb">
-          <statement>
-            <p>
-              Suppose that <m>T \in \Lc(V)</m>.
-              Prove that there is a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> if and only if the minimal polynomial of <m>T</m> equals
-              <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
-          <idx><h>minimal polynomial</h><h>and basis of generalized eigenvectors</h></idx>
-      Note: Assume <m>\F{} = \R{}</m> because the case <m>\F{} = \C{}</m> follows from <xref ref="x136"></xref> (b) and <xref ref="x28"></xref>.
-            </p>
-            <p>
-              This exercise states that the condition for there to be a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> is the same as the condition for there to be a basis with respect to which <m>T</m> has an upper-triangular matrix
-              (<xref ref="x5necsuf">see</xref>)
-              .
-            </p>
-            <p>
-              <em>Caution:</em> If <m>T</m> has an upper-triangular matrix with respect to a basis <m>v_1, \ldots,
-              v_n</m> of <m>V{}</m>,
-              then <m>v_1</m> is an eigenvector of <m>T</m> but it is not necessarily true that
-              <m>v_2, \ldots,
-              v_n</m> are generalized eigenvectors of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is such that every nonzero vector in <m>V</m> is a generalized eigenvector of <m>T{}</m>.
-              Prove that there exists <m>\lambda \in \F{}</m> such that <m>T - \lambda I</m> is nilpotent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>S, T \in \Lc(V)</m> and <m>ST</m> is nilpotent.
-              Prove that <m>TS</m> is nilpotent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>T \ne 0</m>.
-              Prove <m>T</m> is not diagonalizable.
-          <idx><h>diagonalizable</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x425">
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that <m>T</m> is diagonalizable if and only if every generalized eigenvector of<nbsp/><m>T</m> is an eigenvector of<nbsp/><m>T{}</m>.
-          <idx><h>diagonalizable</h></idx>
-      Note: For <m>\F{} = \C{}</m>,
-              this exercise adds another equivalence to the list of conditions for diagonalizability in <xref ref="x427"></xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that if <m>\dim \ker T^4 = 8</m> and <m>\dim \ker T^6 = 9</m>,
+            then <m>\dim \ker T^m = 9</m> for all integers <m>m \ge 5</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8linind">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>, <m>m</m> is a positive integer,
+            <m>v \in V</m>, and <m>T^{m-1} v \ne 0</m> but <m>T^m v = 0</m>.
+            Prove that <m>v, Tv, T^2 v, \dots, T^{m-1} v</m> is linearly independent.
+            Note: The result in this exercise is used in the proof of <xref ref="x452"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that
+            <md>
+              V = \ker T \oplus \ran T \iff \ker T^2 = \ker T{}.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>, <m>\lambda \in \F{}{}</m>,
+            and <m>m</m> is a positive integer such that the minimal polynomial of <m>T</m> is a polynomial multiple of <m>(z - \lambda)^m\!</m>.
+            Prove that
+            <md>
+              \dim \ker(T - \lambda I)^m \ge m.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
+            Prove that
+            <md>
+              \dim \ker T^m \le m \dim \ker T.
+            </md>
+          </p>
+          <p>
+            <hint>
+              <p>
+                <xref ref="x3diminv">Exercise</xref>
+                in <xref ref="x3nullspace">Section</xref> may be useful.
+              </p>
+            </hint>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="range1">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Show that<idx><h>range</h><h>of powers of an operator</h></idx>
+            <md>
+              V = \ran T^0 \supset \ran T^1 \supset \cdots \supset \ran T^k \supset \ran T^{k+1} \supset \dotsb .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="range2">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer such that
+            <md>
+              \ran T^m = \ran T^{m+1}\!.
+            </md>
+          </p>
+          <p>
+            Prove that <m>\ran T^k = \ran T^m</m> for all <m>k > m</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="range3">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Prove that
+            <md>
+              \ran T^{\dim V} = \ran T^{\dim V + 1} = \ran T^{\dim V + 2} = \dotsb .
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="kerran">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a nonnegative integer.
+            Prove that
+            <md>
+              \ker T^m = \ker T^{m+1} \iff \ran T^m = \ran T^{m+1}\!.
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \C{2} )</m> by <m>T(w,z) = (z,0)</m>.
+            Find all generalized eigenvectors of<nbsp/><m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8geneigb">
+        <statement>
+          <p>
+            Suppose that <m>T \in \Lc(V)</m>.
+            Prove that there is a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> if and only if the minimal polynomial of <m>T</m> equals
+            <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
+                <idx><h>minimal polynomial</h><h>and basis of generalized eigenvectors</h></idx>
+            Note: Assume <m>\F{} = \R{}</m> because the case <m>\F{} = \C{}</m> follows from <xref ref="x136"></xref> (b) and <xref ref="x28"></xref>.
+          </p>
+          <p>
+            This exercise states that the condition for there to be a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m> is the same as the condition for there to be a basis with respect to which <m>T</m> has an upper-triangular matrix
+            (<xref ref="x5necsuf">see</xref>)
+            .
+          </p>
+          <p>
+            <em>Caution:</em> If <m>T</m> has an upper-triangular matrix with respect to a basis <m>v_1, \ldots,
+            v_n</m> of <m>V{}</m>,
+            then <m>v_1</m> is an eigenvector of <m>T</m> but it is not necessarily true that
+            <m>v_2, \ldots,
+            v_n</m> are generalized eigenvectors of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is such that every nonzero vector in <m>V</m> is a generalized eigenvector of <m>T{}</m>.
+            Prove that there exists <m>\lambda \in \F{}</m> such that <m>T - \lambda I</m> is nilpotent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>S, T \in \Lc(V)</m> and <m>ST</m> is nilpotent.
+            Prove that <m>TS</m> is nilpotent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>T \ne 0</m>.
+            Prove <m>T</m> is not diagonalizable.
+                <idx><h>diagonalizable</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x425">
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that <m>T</m> is diagonalizable if and only if every generalized eigenvector of<nbsp/><m>T</m> is an eigenvector of<nbsp/><m>T{}</m>.
+                <idx><h>diagonalizable</h></idx>
+            Note: For <m>\F{} = \C{}</m>,
+            this exercise adds another equivalence to the list of conditions for diagonalizability in <xref ref="x427"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <ol>
+            <li>
+              <p>
+                Give an example of nilpotent operators <m>S, T</m> on the same vector space such that neither <m>S+T</m> nor <m>ST</m> is nilpotent.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>S, T \in \Lc(V)</m> are nilpotent and <m>ST = TS</m>.
+                Prove that <m>S + T</m> and <m>ST</m> are nilpotent.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>m</m> is a positive integer such that <m>T^m = 0</m>.
             <ol>
               <li>
                 <p>
-                  Give an example of nilpotent operators <m>S, T</m> on the same vector space such that neither <m>S+T</m> nor <m>ST</m> is nilpotent.
+                  Prove that <m>I-T</m> is invertible and that <m>(I - T)^{-1} = I + T + \dots + T^{m-1}\!</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Suppose <m>S, T \in \Lc(V)</m> are nilpotent and <m>ST = TS</m>.
-                  Prove that <m>S + T</m> and <m>ST</m> are nilpotent.
+                  Explain how you would guess the formula above.
                 </p>
               </li>
             </ol>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>m</m> is a positive integer such that <m>T^m = 0</m>.
-              <ol>
-                <li>
-                  <p>
-                    Prove that <m>I-T</m> is invertible and that <m>(I - T)^{-1} = I + T + \dots + T^{m-1}\!</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Explain how you would guess the formula above.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="nilrange">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent.
-              Prove that <m>T^{1 + \dim \ran T} = 0</m>.
-              Note: If <m>\dim \ran T \lt \dim V - 1</m>,
-              then this exercise <xref ref="x181">improves</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8notnil">
-          <statement>
-            <p>
-              Suppose <m>T\in \Lc(V)</m> is not nilpotent.
-              Show that
-              <me>
-                V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}\!
-              </me>.
-            </p>
-            <p>
-              Note: For operators that are not nilpotent,
-              this exercise <xref ref="x8nulloplusran">improves</xref>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is an inner product space and
-              <m>T \in \Lc(V)</m> is normal and nilpotent.
-              Prove that <m>T = 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8nullTk">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is such that <m>\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!</m>.
-              Prove that <m>T</m> is nilpotent and that
-              <m>\dim \ker T^k = k</m> for every integer <m>k</m> with <m>0 \le k \le \dim V{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \C{5} )</m> is such that <m>\ran T^4 \ne \ran T^5{}</m>.
-              Prove that <m>T</m> is nilpotent.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="Nil1">
-          <statement>
-            <p>
-              Give an example of an operator <m>T</m> on a finite-dimensional real vector space such that <m>0</m> is the only eigenvalue of <m>T</m> but <m>T</m> is not nilpotent.
-              Note: This exercise shows that the implication (b)
-              <m>\implies</m> (a) in <xref ref="x8eignil"></xref>
-              does not hold without the hypothesis that <m>\F{} = \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              For each item in <xref ref="x8nil">Example</xref>,
-              find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by <xref ref="a33"></xref>(c).
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose that <m>V</m> is an inner product space and <m>T \in \Lc(V)</m> is nilpotent.
-              Show that there is an orthonormal basis of <m>V</m> with respect to which the matrix of <m>T</m> has the upper-triangular form promised by <xref ref="a33"></xref>(c).
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="nilrange">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent.
+            Prove that <m>T^{1 + \dim \ran T} = 0</m>.
+            Note: If <m>\dim \ran T \lt \dim V - 1</m>,
+            then this exercise <xref ref="x181">improves</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8notnil">
+        <statement>
+          <p>
+            Suppose <m>T\in \Lc(V)</m> is not nilpotent.
+            Show that
+            <md>
+              V = \ker T^{\dim V-1} \oplus \ran T^{\dim V-1}\!.
+            </md>
+          </p>
+          <p>
+            Note: For operators that are not nilpotent,
+            this exercise <xref ref="x8nulloplusran">improves</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is an inner product space and
+            <m>T \in \Lc(V)</m> is normal and nilpotent.
+            Prove that <m>T = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8nullTk">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is such that <m>\ker T^{\dim V - 1} \ne \ker T^{\dim V}\!</m>.
+            Prove that <m>T</m> is nilpotent and that
+            <m>\dim \ker T^k = k</m> for every integer <m>k</m> with <m>0 \le k \le \dim V{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \C{5} )</m> is such that <m>\ran T^4 \ne \ran T^5{}</m>.
+            Prove that <m>T</m> is nilpotent.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="Nil1">
+        <statement>
+          <p>
+            Give an example of an operator <m>T</m> on a finite-dimensional real vector space such that <m>0</m> is the only eigenvalue of <m>T</m> but <m>T</m> is not nilpotent.
+            Note: This exercise shows that the implication (b)
+            <m>\implies</m> (a) in <xref ref="x8eignil"></xref>
+            does not hold without the hypothesis that <m>\F{} = \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For each item in <xref ref="x8nil">Example</xref>,
+            find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by <xref ref="a33"></xref>(c).
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose that <m>V</m> is an inner product space and <m>T \in \Lc(V)</m> is nilpotent.
+            Show that there is an orthonormal basis of <m>V</m> with respect to which the matrix of <m>T</m> has the upper-triangular form promised by <xref ref="a33"></xref>(c).
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

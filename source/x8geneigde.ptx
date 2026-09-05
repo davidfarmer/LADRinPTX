@@ -26,9 +26,9 @@
     <proof>
       <p>
         Consider the Taylor series for the function <m>\sqrt{1 + x}</m>:
-        <men xml:id="x364">
-          \sqrt{1 + x} = 1 + a_1 x + a_2 x^2 + \dotsb
-        </men>.
+        <md number="yes" xml:id="x364">
+          \sqrt{1 + x} = 1 + a_1 x + a_2 x^2 + \dotsb .
+        </md>
       </p>
       <aside>
         <p>
@@ -49,9 +49,9 @@
         Then the infinite sum on the right side becomes a finite sum
         (because <m>T^k = 0</m> for all <m>k \ge m</m>).
         Thus we guess that there is a square root of <m>I + T</m> of the form
-        <me>
-          I + a_1 T + a_2 T^2 + \dots + a_{m-1} T^{m-1}\!
-        </me>.
+        <md>
+          I + a_1 T + a_2 T^2 + \dots + a_{m-1} T^{m-1}\!.
+        </md>
       </p>
       <p>
         Having made this guess, we can try to choose
@@ -96,14 +96,14 @@
       For the proof below, we need to know that every
       <m>z \in \C{}</m> has a square root in<nbsp/><m>\C{}</m>.
       To show this, write
-      <me>
-        z = r( \cos \theta + i \sin \theta)
-      </me>,
+      <md>
+        z = r( \cos \theta + i \sin \theta),
+      </md>
       where <m>r</m> is the length of the line segment in the complex plane from the origin to <m>z</m> and <m>\theta</m> is the angle of that line segment with the positive horizontal axis.
       Then
-      <me>
+      <md>
         \sqrt{r} (  \cos \tfrac{\theta}{2} + i \sin \tfrac{\theta}{2}  )
-      </me>
+      </md>
       is a square root of <m>z</m>,
       as you can verify by showing that the square of the complex number above equals <m>z</m>.
     </p>
@@ -124,9 +124,9 @@
         there exists a nilpotent operator <m>T{}_k \in \Lc\bigl(G(\lambda_k, T)\bigr)</m> such that
         <m>T|_{G(\lambda_k, T)} = \lambda_k I +T{}_k</m> [<xref ref="x31">see</xref>(b)] . Because <m>T</m> is invertible,
         none of the <m>\lambda_k</m>'s equals <m>0</m>, so we can write
-        <me>
+        <md>
           T|_{G(\lambda_k, T)} = \lambda_k ( I + \frac{T{}_k}{\lambda_k} )
-        </me>
+        </md>
         for each <m>k</m>.
         Because <m>T{}_k/\lambda_k</m> is nilpotent,
         <m>I + T{}_k/\lambda_k</m> has a square root
@@ -138,14 +138,14 @@
       <p>
         By the generalized eigenspace decomposition <xref ref="x31"/>,
         a typical vector <m>v \in V</m> can be written uniquely in the form
-        <me>
-          v = u_1 + \dots + u_m
-        </me>,
+        <md>
+          v = u_1 + \dots + u_m,
+        </md>
         where each <m>u_k</m> is in <m>G(\lambda_k, T)</m>.
         Using this decomposition, define an operator <m>R \in \Lc(V)</m> by
-        <me>
-          Rv = R_1 u_1 + \dots + R_m u_m
-        </me>.
+        <md>
+          Rv = R_1 u_1 + \dots + R_m u_m.
+        </md>
       </p>
       <p>
         You should verify that this operator <m>R</m> is a square root of<nbsp/><m>T</m>,
@@ -174,18 +174,18 @@
       <statement>
         <p>
           Let <m>T</m> be the operator on <m>\C4</m> defined by
-          <me>
-            T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)
-          </me>.
+          <md>
+            T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3).
+          </md>
         </p>
         <p>
           Then <m>T^4 = 0</m>; thus <m>T</m> is nilpotent.
           If <m>v = (1, 0, 0, 0)</m>,
           then <m>T^3v, T^2v, Tv, v</m> is a basis of <m>\CC{4}</m>.
           The matrix of <m>T</m> with respect to this basis is
-          <me>
-            \begin{pmatrix}0 \amp  1 \amp  0 \amp  0\\ 0 \amp  0 \amp  1 \amp  0\\ 0 \amp  0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}0 \amp  1 \amp  0 \amp  0\\ 0 \amp  0 \amp  1 \amp  0\\ 0 \amp  0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \end{pmatrix} .
+          </md>
         </p>
       </statement>
     </example>
@@ -197,9 +197,9 @@
       <statement>
         <p>
           Let <m>T</m> be the operator on <m>\C6</m> defined by
-          <me>
-            T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0)
-          </me>.
+          <md>
+            T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+          </md>
         </p>
         <p>
           Then <m>T^3 = 0</m>; thus <m>T</m> is nilpotent.
@@ -211,9 +211,9 @@
           and <m>v_3 = (0, 0, 0, 0, 0, 1)</m>,
           then <m>T^2 v_1, Tv_1, v_1, Tv_2, v_2, v_3</m> is a basis of <m>\CC{6}</m>.
           The matrix of <m>T</m> with respect to this basis is
-          <me>
-            \begin{pmatrix}\begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix}  \amp  \begin{matrix}0 \amp  0 \\ 0 \amp  0 \\ 0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \\ 0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \amp  1 \\ 0 \amp  0 \end{pmatrix} \amp  \begin{matrix}0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \end{pmatrix} \end{pmatrix}
-          </me>.
+          <md>
+            \begin{pmatrix}\begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix}  \amp  \begin{matrix}0 \amp  0 \\ 0 \amp  0 \\ 0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \\ 0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \amp  1 \\ 0 \amp  0 \end{pmatrix} \amp  \begin{matrix}0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \end{pmatrix} \end{pmatrix} .
+          </md>
         </p>
         <p>
           Here the inner matrices are blocked off to show that we can think of the <m>6</m>-by-<m>6</m> matrix above as a block diagonal matrix consisting of a <m>3</m>-by-<m>3</m> block with <m>1</m>'s on the line above the diagonal and <m>0</m>'s elsewhere,
@@ -259,13 +259,13 @@
           A basis of <m>V</m> is called a <term>Jordan basis</term>
               <idx><h>Jordan basis</h></idx>
           for <m>T</m> if with respect to this basis <m>T</m> has a block diagonal matrix
-          <me>
+          <md>
             \begin{pmatrix}A_1 \amp  \amp  0 \\ \amp \ddots \amp  \\ 0 \amp  \amp  A_p \end{pmatrix}
-          </me>
+          </md>
           in which each <m>A_k</m> is an upper-triangular matrix of the form
-          <me>
-            A_k = \begin{pmatrix}\lambda_k \amp  1 \amp  \amp  0 \\ \amp  \ddots \amp  \ddots \amp  \\ \amp  \amp  \ddots \amp  1 \\ 0 \amp  \amp  \amp  \lambda_k \end{pmatrix}
-          </me>.
+          <md>
+            A_k = \begin{pmatrix}\lambda_k \amp  1 \amp  \amp  0 \\ \amp  \ddots \amp  \ddots \amp  \\ \amp  \amp  \ddots \amp  1 \\ 0 \amp  \amp  \amp  \lambda_k \end{pmatrix} .
+          </md>
         </p>
       </statement>
     </definition>
@@ -296,9 +296,9 @@
         Let <m>m</m> be the smallest positive integer such that <m>T^m = 0</m>.
         Thus there exists <m>u \in V</m> such that <m>T^{m-1}u \ne 0</m>.
         Let
-        <me>
-          U = \Span ( u, Tu, \ldots, T^{m-1}u )
-        </me>.
+        <md>
+          U = \Span ( u, Tu, \ldots, T^{m-1}u ).
+        </md>
       </p>
       <p>
         The list <m>u, Tu, \ldots, T^{m-1}u</m> is linearly independent
@@ -321,9 +321,9 @@
       <p>
         Let <m>\phi \in V'</m> be such that <m>\phi(  T^{m-1}u  ) \ne 0</m>.
         Let
-        <me>
-          W = \{  v \in V: \phi( T^k v ) = 0 \text{ for each }  k = 0, \ldots, m-1 \}
-        </me>.
+        <md>
+          W = \{  v \in V: \phi( T^k v ) = 0 \text{ for each }  k = 0, \ldots, m-1 \}.
+        </md>
       </p>
       <p>
         Then <m>W</m> is a subspace of <m>V</m> that is invariant under <m>T</m> \Big(the invariance holds because if <m>v \in W</m> then
@@ -337,21 +337,21 @@
         suppose <m>v \in U \cap W{}</m> with <m>v \ne 0</m>.
         Because <m>v \in U</m>, there exist <m>c_0, \ldots,
         c_{m-1} \in \F{}</m> such that
-        <me>
-          v = c_0 u + c_1 Tu + \cdots + c_{m-1} T^{m-1}u
-        </me>.
+        <md>
+          v = c_0 u + c_1 Tu + \cdots + c_{m-1} T^{m-1}u.
+        </md>
       </p>
       <p>
         Let <m>j</m> be the smallest index such that <m>c_j \ne 0</m>.
         Apply <m>T^{m-j-1}</m> to both sides of the equation above, getting
-        <me>
-          T^{m-j-1} v = c_j T^{m-1} u
-        </me>,
+        <md>
+          T^{m-j-1} v = c_j T^{m-1} u,
+        </md>
         where we have used the equation <m>T^m = 0</m>.
         Now apply <m>\phi</m> to both sides of the equation above, getting
-        <me>
-          \phi( T^{m-j-1} v ) = c_j \phi( T^{m-1} u ) \ne 0
-        </me>.
+        <md>
+          \phi( T^{m-j-1} v ) = c_j \phi( T^{m-1} u ) \ne 0.
+        </md>
       </p>
       <p>
         The equation above shows that <m>v \notin W{}</m>.
@@ -362,21 +362,21 @@
       <p>
         To show that <m>U \oplus W = V</m>,
         define <m>\fun S V {\F m}</m> by
-        <me>
-          Sv = (  \phi(v), \phi(Tv), \ldots, \phi(  T^{m-1}v  )  )
-        </me>.
+        <md>
+          Sv = (  \phi(v), \phi(Tv), \ldots, \phi(  T^{m-1}v  )  ).
+        </md>
       </p>
       <p>
         Thus <m>\ker S = W{}</m>.
         Hence
-        <me>
-          \dim W = \dim \ker S = \dim V - \dim \ran S \ge \dim V - m
-        </me>,
+        <md>
+          \dim W = \dim \ker S = \dim V - \dim \ran S \ge \dim V - m,
+        </md>
         where the second equality comes from the fundamental theorem of linear maps <xref ref="x3ab11"/>.
         Using the inequality above, we have
-        <me>
-          \dim (U \oplus W) = \dim U + \dim W \ge m + (\dim V - m) = \dim V
-        </me>.
+        <md>
+          \dim (U \oplus W) = \dim U + \dim W \ge m + (\dim V - m) = \dim V.
+        </md>
       </p>
       <p>
         Thus <m>U \oplus W = V</m>
@@ -412,9 +412,9 @@
       <p>
         Let <m>\lambda_1, \dots, \lambda_m</m> be the distinct eigenvalues of<nbsp/><m>T{}</m>.
         The generalized eigenspace decomposition states that
-        <me>
-          V = G(\lambda_1, T) \oplus \dots \oplus G(\lambda_m, T)
-        </me>,
+        <md>
+          V = G(\lambda_1, T) \oplus \dots \oplus G(\lambda_m, T),
+        </md>
         where each <m>(T - \lambda_k I)|_{G(\lambda_k, T)}</m> is nilpotent
         (<xref ref="x31">see</xref>).
         <xref ref="x452">Thus</xref> implies that some basis of each
@@ -422,173 +422,171 @@
         Put these bases together to get a basis of <m>V</m> that is a Jordan basis for<nbsp/><m>T{}</m>.
       </p>
     </proof>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise xml:id="x195">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \C{3} )</m> is the operator defined by <m>T(z_1, z_2, z_3) = (z_2, z_3, 0)</m>.
-              Prove that <m>T</m> does not have a square root.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Define <m>T \in \Lc( \F{5} )</m> by <m>T(x_1, x_2, x_3, x_4, x_5) = (2 x_2, 3 x_3, -x_4, 4 x_5, 0)</m>.
-              <ol>
-                <li>
-                  <p>
-                    Show that <m>T</m> is nilpotent.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Find a square root of <m>I + T{}</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a complex vector space.
-              Prove that every invertible operator on<nbsp/><m>V</m> has a cube root.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>V</m> is a real vector space.
-              Prove that the operator <m>-I</m> on <m>V</m> has a square root if and only if <m>\dim V</m> is an even number.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc( \C2 )</m> is the operator defined by <m>T(w, z) = (-w - z, 9w + 5z)</m>.
-              Find a Jordan basis for <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find a basis of <m>\P{}_4(\R{})</m> that is a Jordan basis for the differentiation operator <m>D</m> on
-              <m>\P{}_4(\R{})</m> defined by <m>Dp = p'\!</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="nilmin">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent and
-              <m>v_1, \ldots,
-              v_n</m> is a Jordan basis for <m>T{}</m>.
-              Prove that the minimal polynomial of <m>T</m> is <m>z^{m+1}</m>,
-              where <m>m</m> is the length of the longest consecutive string of <m>1</m>'s that appears on the line directly above the diagonal in the matrix of <m>T</m> with respect to <m>v_1, \ldots, v_n</m>.
-          <idx><h>minimal polynomial</h><h>of nilpotent operator</h></idx>
-      </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>v_1, \dots,
-              v_n</m> is a basis of<nbsp/><m>V</m> that is a Jordan basis for<nbsp/><m>T{}</m>.
-              Describe the matrix of<nbsp/><m>T^2</m> with respect to this basis.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent.
-              Explain why there exist <m>v_1, \dots,
-              v_n \in V</m> and nonnegative integers
-              <m>m_1, \dots,
-              m_n</m> such that (a) and (b) below both hold.
-              <ol>
-                <li>
-                  <p>
-                    <m>T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n</m> is a basis of<nbsp/><m>V</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> and
-              <m>v_1, \dots,
-              v_n</m> is a basis of<nbsp/><m>V</m> that is a Jordan basis for<nbsp/><m>T{}</m>.
-              Describe the matrix of<nbsp/><m>T</m> with respect to the basis
-              <m>v_n, \dots,
-              v_1</m> obtained by reversing the order of the <m>v</m>'s.
-            </p>
-          </statement>
-        </exercise>
-        <exercise xml:id="x8JorGenEig">
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m>.
-              Explain why every vector in each Jordan basis for <m>T</m> is a generalized eigenvector of <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is diagonalizable.
-              Show that <m>\M(T)</m> is a diagonal matrix with respect to every Jordan basis for <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>T \in \Lc(V)</m> is nilpotent.
-              Prove that if <m>v_1, \dots,
-              v_n</m> are vectors in <m>V</m> and
-              <m>m_1, \dots,
-              m_n</m> are nonnegative integers such that
-              <me>
-                T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n \text{ is a basis of }  V
-              </me>
-              and
-              <me>
-                T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0
-              </me>,
-              then <m>T^{m_1}v_1, \dots, T^{m_n}v_n</m> is a basis of <m>\ker T{}</m>.
-              Note: This exercise shows that <m>n = \dim \ker T{}</m>.
-              Thus the positive integer <m>n</m> that appears above depends only on <m>T</m> and not on the specific Jordan basis chosen for <m>T{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
-              Prove that there does not exist a direct sum decomposition of <m>V</m> into two nonzero subspaces invariant under<nbsp/><m>T</m> if and only if the minimal polynomial of <m>T</m> is of the form
-              <m>(z - \lambda)^{\dim V}</m> for some <m>\lambda \in \C{}</m>.
-          <idx><h>minimal polynomial</h><h>no direct sum decomposition</h></idx>
-      </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+    <exercises>
+      <title>Exercises</title>
+      <exercise xml:id="x195">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \C{3} )</m> is the operator defined by <m>T(z_1, z_2, z_3) = (z_2, z_3, 0)</m>.
+            Prove that <m>T</m> does not have a square root.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Define <m>T \in \Lc( \F{5} )</m> by <m>T(x_1, x_2, x_3, x_4, x_5) = (2 x_2, 3 x_3, -x_4, 4 x_5, 0)</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>T</m> is nilpotent.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a square root of <m>I + T{}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a complex vector space.
+            Prove that every invertible operator on<nbsp/><m>V</m> has a cube root.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>V</m> is a real vector space.
+            Prove that the operator <m>-I</m> on <m>V</m> has a square root if and only if <m>\dim V</m> is an even number.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc( \C2 )</m> is the operator defined by <m>T(w, z) = (-w - z, 9w + 5z)</m>.
+            Find a Jordan basis for <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a basis of <m>\P{}_4(\R{})</m> that is a Jordan basis for the differentiation operator <m>D</m> on
+            <m>\P{}_4(\R{})</m> defined by <m>Dp = p'\!</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="nilmin">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent and
+            <m>v_1, \ldots,
+            v_n</m> is a Jordan basis for <m>T{}</m>.
+            Prove that the minimal polynomial of <m>T</m> is <m>z^{m+1}</m>,
+            where <m>m</m> is the length of the longest consecutive string of <m>1</m>'s that appears on the line directly above the diagonal in the matrix of <m>T</m> with respect to <m>v_1, \ldots, v_n</m>.
+                <idx><h>minimal polynomial</h><h>of nilpotent operator</h></idx>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>v_1, \dots,
+            v_n</m> is a basis of<nbsp/><m>V</m> that is a Jordan basis for<nbsp/><m>T{}</m>.
+            Describe the matrix of<nbsp/><m>T^2</m> with respect to this basis.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent.
+            Explain why there exist <m>v_1, \dots,
+            v_n \in V</m> and nonnegative integers
+            <m>m_1, \dots,
+            m_n</m> such that (a) and (b) below both hold.
+            <ol>
+              <li>
+                <p>
+                  <m>T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n</m> is a basis of<nbsp/><m>V</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> and
+            <m>v_1, \dots,
+            v_n</m> is a basis of<nbsp/><m>V</m> that is a Jordan basis for<nbsp/><m>T{}</m>.
+            Describe the matrix of<nbsp/><m>T</m> with respect to the basis
+            <m>v_n, \dots,
+            v_1</m> obtained by reversing the order of the <m>v</m>'s.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x8JorGenEig">
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m>.
+            Explain why every vector in each Jordan basis for <m>T</m> is a generalized eigenvector of <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is diagonalizable.
+            Show that <m>\M(T)</m> is a diagonal matrix with respect to every Jordan basis for <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>T \in \Lc(V)</m> is nilpotent.
+            Prove that if <m>v_1, \dots,
+            v_n</m> are vectors in <m>V</m> and
+            <m>m_1, \dots,
+            m_n</m> are nonnegative integers such that
+            <md>
+              T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n \text{ is a basis of }  V
+            </md>
+            and
+            <md>
+              T^{m_1 + 1} v_1 = \dots = T^{m_n + 1} v_n = 0,
+            </md>
+            then <m>T^{m_1}v_1, \dots, T^{m_n}v_n</m> is a basis of <m>\ker T{}</m>.
+            Note: This exercise shows that <m>n = \dim \ker T{}</m>.
+            Thus the positive integer <m>n</m> that appears above depends only on <m>T</m> and not on the specific Jordan basis chosen for <m>T{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
+            Prove that there does not exist a direct sum decomposition of <m>V</m> into two nonzero subspaces invariant under<nbsp/><m>T</m> if and only if the minimal polynomial of <m>T</m> is of the form
+            <m>(z - \lambda)^{\dim V}</m> for some <m>\lambda \in \C{}</m>.
+                <idx><h>minimal polynomial</h><h>no direct sum decomposition</h></idx>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </subsection>
 </section>

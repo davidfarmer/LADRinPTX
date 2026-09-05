@@ -24,9 +24,9 @@
     <statement>
       <p>
         Suppose
-        <me>
-          A = \begin{pmatrix}\textcolor{red}{3} \amp  -1 \amp  -2 \\ 5 \amp  \textcolor{red}{2} \amp  -3 \\ 1 \amp  6 \amp  \textcolor{red}{0} \end{pmatrix}
-        </me>.
+        <md>
+          A = \begin{pmatrix}\textcolor{red}{3} \amp  -1 \amp  -2 \\ 5 \amp  \textcolor{red}{2} \amp  -3 \\ 1 \amp  6 \amp  \textcolor{red}{0} \end{pmatrix} .
+        </md>
       </p>
       <p>
         The diagonal entries of <m>A</m>,
@@ -46,18 +46,18 @@
       <p>
         Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>m</m> matrix.
         Then
-        <me>
-          \tr (AB) = \tr (BA)
-        </me>.
+        <md>
+          \tr (AB) = \tr (BA).
+        </md>
       </p>
     </statement>
   </theorem>
   <proof>
     <p>
       Suppose
-      <me>
-        A = \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} \amp  \cdots \amp  A_{m,n} \end{pmatrix} , B = \begin{pmatrix}B_{1,1} \amp  \cdots \amp  B_{1,m} \\ \vdots \amp    \amp  \vdots \\ B_{n,1} \amp  \cdots \amp  B_{n,m} \end{pmatrix}
-      </me>.
+      <md>
+        A = \begin{pmatrix}A_{1,1} \amp  \cdots \amp  A_{1,n} \\ \vdots \amp    \amp  \vdots \\ A_{m,1} \amp  \cdots \amp  A_{m,n} \end{pmatrix} , B = \begin{pmatrix}B_{1,1} \amp  \cdots \amp  B_{1,m} \\ \vdots \amp    \amp  \vdots \\ B_{n,1} \amp  \cdots \amp  B_{n,m} \end{pmatrix} .
+      </md>
     </p>
     <p>
       The <m>j^{\nth}</m> term on the diagonal of the <m>m</m>-by-<m>m</m> matrix <m>AB</m> equals <m>\sum_{k=1}^n A_{j,k}B_{k,j}</m>.
@@ -86,9 +86,9 @@
         <m>v_1, \ldots,
         v_n</m> are bases of <m>V{}</m>.
         Then
-        <me>
-          \tr \M(  T, (u_1, \ldots, u_n)  ) = \tr \M(  T, (v_1, \ldots, v_n)  )
-        </me>.
+        <md>
+          \tr \M(  T, (u_1, \ldots, u_n)  ) = \tr \M(  T, (v_1, \ldots, v_n)  ).
+        </md>
       </p>
     </statement>
   </theorem>
@@ -119,9 +119,9 @@
         Suppose <m>T \in \Lc(V)</m>.
         The <term>trace</term> of <m>T</m>,
         denoted <m>\tr T</m>, is defined by
-        <me>
-          \tr T = \tr \M(  T, (v_1, \ldots, v_n)  )
-        </me>,
+        <md>
+          \tr T = \tr \M(  T, (v_1, \ldots, v_n)  ),
+        </md>
         where <m>v_1, \ldots, v_n</m> is any basis of <m>V{}</m>.
             <idx><h>trace</h><h>of an operator</h></idx>
       </p>
@@ -145,9 +145,9 @@
     <q>with each eigenvalue included as many times as its multiplicity</q>
     means that if <m>\lambda_1, \dots, \lambda_m</m> are the distinct eigenvalues of <m>T</m> with multiplicities <m>d_1, \dots, d_m</m>,
     then the sum is
-    <me>
-      d_1 \lambda_1 + \dots + d_m \lambda_m
-    </me>.
+    <md>
+      d_1 \lambda_1 + \dots + d_m \lambda_m.
+    </md>
   </p>
   <p>
     Or if you prefer to work with a list of not-necessarily-distinct eigenvalues,
@@ -155,9 +155,9 @@
     then the eigenvalues could be denoted by <m>\lambda_1, \dots, \lambda_n</m>
     (where <m>n</m> equals <m>\dim V</m>)
     and the sum is
-    <me>
-      \lambda_1 + \dots + \lambda_n
-    </me>.
+    <md>
+      \lambda_1 + \dots + \lambda_n.
+    </md>
   </p>
   <theorem xml:id="x9sumeigen">
     <title>on complex vector spaces, trace equals sum of eigenvalues</title>
@@ -184,15 +184,15 @@
     <statement>
       <p>
         Suppose <m>T \in \Lc( \C{3} )</m> is defined by
-        <me>
-          T(z_1, z_2, z_3) = (3z_1 - z_2 - 2z_3, 3z_1 + 2z_2 - 3z_3, z_1 + 2z_2)
-        </me>.
+        <md>
+          T(z_1, z_2, z_3) = (3z_1 - z_2 - 2z_3, 3z_1 + 2z_2 - 3z_3, z_1 + 2z_2).
+        </md>
       </p>
       <p>
         Then the matrix of <m>T</m> with respect to the standard basis of <m>\C3</m> is
-        <me>
-          \begin{pmatrix}3 \amp  -1 \amp  -2 \\ 3 \amp  2 \amp  -3 \\ 1 \amp  2 \amp  0 \end{pmatrix}
-        </me>.
+        <md>
+          \begin{pmatrix}3 \amp  -1 \amp  -2 \\ 3 \amp  2 \amp  -3 \\ 1 \amp  2 \amp  0 \end{pmatrix} .
+        </md>
       </p>
       <p>
         Adding up the diagonal entries of this matrix,
@@ -217,16 +217,16 @@
     Then by definition
     (<xref ref="x7charpoly">see</xref>),
     the characteristic polynomial of<nbsp/><m>T</m> equals
-    <me>
-      (z - \lambda_1) \dotsm (z - \lambda_n)
-    </me>.
+    <md>
+      (z - \lambda_1) \dotsm (z - \lambda_n).
+    </md>
   </p>
   <p>
     Expanding the polynomial above,
     we can write the characteristic polynomial of<nbsp/><m>T</m> in the form
-    <me>
-      z^n - (\lambda_1 + \dots + \lambda_n) z^{n-1} + \dots + (-1)^n (\lambda_1 \dotsm \lambda_n)
-    </me>.
+    <md>
+      z^n - (\lambda_1 + \dots + \lambda_n) z^{n-1} + \dots + (-1)^n (\lambda_1 \dotsm \lambda_n).
+    </md>
   </p>
   <p>
     The expression above immediately leads to the next result.
@@ -253,9 +253,9 @@
         Suppose <m>V</m> is an inner product space, <m>T \in \Lc(V)</m>,
         and <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
         Then
-        <me>
-          \tr T = \langle Te_1, e_1 \rangle  + \cdots + \langle Te_n, e_n \rangle
-        </me>.
+        <md>
+          \tr T = \langle Te_1, e_1 \rangle  + \cdots + \langle Te_n, e_n \rangle .
+        </md>
       </p>
     </statement>
   </theorem>
@@ -275,9 +275,9 @@
     <statement>
       <p>
         The function <m>\fun {\tr} {\Lc(V)} {\F{}}</m> is a linear functional on <m>\Lc(V)</m> such that
-        <me>
+        <md>
           \tr(ST) = \tr(TS)
-        </me>
+        </md>
         for all <m>S, T \in \Lc(V)</m>.
       </p>
     </statement>
@@ -290,18 +290,18 @@
     </p>
     <p>
       If <m>\lambda \in \F{}{}</m>, then
-      <me>
-        \tr(\lambda T) = \tr \M(\lambda T) = \tr (  \lambda \M(T)  ) = \lambda \tr \M(T) = \lambda \tr T
-      </me>,
+      <md>
+        \tr(\lambda T) = \tr \M(\lambda T) = \tr (  \lambda \M(T)  ) = \lambda \tr \M(T) = \lambda \tr T,
+      </md>
       where the first and last equalities come from the definition of the trace of an operator,
       the second equality comes from <xref ref="x102"></xref>,
       and the third equality follows from the definition of the trace of a square matrix.
     </p>
     <p>
       Also,
-      <me>
-        \tr (S + T) = \tr \M(S + T) = \tr \bigl( \M(S) + \M(T) \bigr) = \tr \M(S) + \tr \M(T) = \tr S + \tr T
-      </me>,
+      <md>
+        \tr (S + T) = \tr \M(S + T) = \tr \bigl( \M(S) + \M(T) \bigr) = \tr \M(S) + \tr \M(T) = \tr S + \tr T,
+      </md>
       where the first and last equalities come from the definition of the trace of an operator,
       the second equality comes from <xref ref="x101"></xref>,
       and the third equality follows from the definition of the trace of a square matrix.
@@ -310,9 +310,9 @@
     </p>
     <p>
       Furthermore,
-      <me>
-        \tr(ST) {}={} \tr \M(ST) {}={}\tr \bigl(\M(S) \M(T) \bigr) {}={} \tr \bigl(\M(T) \M(S) \bigr) {}={} \tr \M(TS) {}={} \tr(TS)
-      </me>,
+      <md>
+        \tr(ST) {}={} \tr \M(ST) {}={}\tr \bigl(\M(S) \M(T) \bigr) {}={} \tr \bigl(\M(T) \M(S) \bigr) {}={} \tr \M(TS) {}={} \tr(TS),
+      </md>
       where the second and fourth equalities come from <xref ref="x3matproduct"></xref>
       and the crucial third equality comes from <xref ref="x304"></xref>.
     </p>
@@ -350,9 +350,9 @@
     <p>
       Suppose <m>S, T \in \Lc(V)</m>.
       Then
-      <me>
-        \tr(ST - TS) = \tr(ST) - \tr(TS) = 0
-      </me>,
+      <md>
+        \tr(ST - TS) = \tr(ST) - \tr(TS) = 0,
+      </md>
       where both equalities come from <xref ref="x372"></xref>.
       The trace of <m>I</m> equals <m>\dim V{}</m>,
       which is not<nbsp/><m>0</m>.
@@ -360,198 +360,196 @@
       they cannot be equal.
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is an inner product space and <m>v, w \in V{}</m>.
-            Define an operator <m>T \in \Lc(V)</m> by <m>Tu = \langle u, v \rangle w</m>.
-            Find a formula for<nbsp/><m>\tr T{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>P \in \Lc(V)</m> satisfies <m>P^2 = P{}</m>.
-            Prove that
-            <me>
-              \tr P = \dim \ran P{}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> and <m>T^5 = T{}</m>.
-            Prove that the real and imaginary parts of <m>\tr T</m> are both integers.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x393">
-        <statement>
-          <p>
-            Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
-            Prove that
-            <me>
-              \tr T^* = \overline{\tr T}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x391">
-        <statement>
-          <p>
-            Suppose <m>V</m> is an inner product space.
-            Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>\tr T = 0</m>.
-            Prove that <m>T = 0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is an inner product space and
-            <m>P{}, Q \in \Lc(V)</m> are orthogonal projections.
-            Prove that <m>\tr(PQ) \ge 0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc( \C{3} )</m> is the operator whose matrix is
-            <me>
-              \begin{pmatrix}51 \amp  -12 \amp  -21 \\ 60 \amp  -40 \amp  -28 \\ 57 \amp  -68 \amp  1 \end{pmatrix}
-            </me>.
-          </p>
-          <p>
-            Someone tells you (accurately) that <m>-48</m> and <m>24</m> are eigenvalues of<nbsp/><m>T{}</m>.
-            Without using a computer or writing anything down,
-            find the third eigenvalue of<nbsp/><m>T{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Prove or give a counterexample: If <m>S, T \in \Lc(V)</m>,
-            then <m>\tr (ST) = (\tr S) (\tr T)</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>T \in \Lc(V)</m> is such that
-            <m>\tr(ST) = 0</m> for all <m>S \in \Lc(V)</m>.
-            Prove that <m>T = 0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x9trChar">
-        <statement>
-          <p>
-            Prove that the trace is the only linear functional <m>\fun \tau {\Lc(V)} {\F{}}</m> such that
-            <me>
-              \tau(ST) = \tau(TS)
-            </me>
-            for all <m>S, T \in \Lc(V)</m> and <m>\tau(I) = \dim V{}</m>.
-            <hint>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and <m>v, w \in V{}</m>.
+          Define an operator <m>T \in \Lc(V)</m> by <m>Tu = \langle u, v \rangle w</m>.
+          Find a formula for<nbsp/><m>\tr T{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>P \in \Lc(V)</m> satisfies <m>P^2 = P{}</m>.
+          Prove that
+          <md>
+            \tr P = \dim \ran P{}.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> and <m>T^5 = T{}</m>.
+          Prove that the real and imaginary parts of <m>\tr T</m> are both integers.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x393">
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and <m>T \in \Lc(V)</m>.
+          Prove that
+          <md>
+            \tr T^* = \overline{\tr T}.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x391">
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space.
+          Suppose <m>T \in \Lc(V)</m> is a positive operator and <m>\tr T = 0</m>.
+          Prove that <m>T = 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is an inner product space and
+          <m>P{}, Q \in \Lc(V)</m> are orthogonal projections.
+          Prove that <m>\tr(PQ) \ge 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc( \C{3} )</m> is the operator whose matrix is
+          <md>
+            \begin{pmatrix}51 \amp  -12 \amp  -21 \\ 60 \amp  -40 \amp  -28 \\ 57 \amp  -68 \amp  1 \end{pmatrix} .
+          </md>
+        </p>
+        <p>
+          Someone tells you (accurately) that <m>-48</m> and <m>24</m> are eigenvalues of<nbsp/><m>T{}</m>.
+          Without using a computer or writing anything down,
+          find the third eigenvalue of<nbsp/><m>T{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Prove or give a counterexample: If <m>S, T \in \Lc(V)</m>,
+          then <m>\tr (ST) = (\tr S) (\tr T)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>T \in \Lc(V)</m> is such that
+          <m>\tr(ST) = 0</m> for all <m>S \in \Lc(V)</m>.
+          Prove that <m>T = 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x9trChar">
+      <statement>
+        <p>
+          Prove that the trace is the only linear functional <m>\fun \tau {\Lc(V)} {\F{}}</m> such that
+          <md>
+            \tau(ST) = \tau(TS)
+          </md>
+          for all <m>S, T \in \Lc(V)</m> and <m>\tau(I) = \dim V{}</m>.
+          <hint>
+            <p>
+              Suppose that <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
+              For <m>j, k \in \{ 1, \ldots, n \}</m>,
+              define <m>P_{j,k} \in \Lc(V)</m> by <m>P_{j,k}(a_1 v_1 + \cdots + a_n v_n) = a_k v_j</m>.
+              Prove that
+              <md>
+                \tau(P_{j,k}) = \begin{cases}1 \amp  \text{ if }  j = k, \\ 0 \amp  \text{ if }  j \ne k. \end{cases}
+              </md>
+            </p>
+            <p>
+              Then for <m>T \in \Lc(V)</m>,
+              use the equation <m>T = \sum_{k=1}^n \sum_{j=1}^n \M(T)_{j,k} P_{j,k}</m> to show that <m>\tau(T) = \tr T</m>.
+            </p>
+          </hint>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x390">
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are inner product spaces and <m>T \in \Lc(V{},W)</m>.
+          Prove that if <m>e_1, \dots,
+          e_n</m> is an orthonormal basis of <m>V</m> and
+          <m>f_1, \ldots,
+          f_m</m> is an orthonormal basis of <m>W{}</m>, then
+          <md>
+            \tr( T^*T ) = \sum_{k=1}^n \sum_{j=1}^m \lvert  \langle Te_k, f_j \rangle   \rvert ^2{}.
+          </md>
+        </p>
+        <p>
+          Note: The numbers <m>\langle Te_k, f_j \rangle</m> are the entries of the matrix of <m>T</m> with respect to the orthonormal bases
+          <m>e_1, \dots,
+          e_n</m> and <m>f_1, \ldots, f_m</m>.
+          These numbers depend on the bases,
+          but <m>\tr (T^*T)</m> does not depend on a choice of bases.
+          Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> and <m>W</m> are finite-dimensional inner product spaces.
+          <ol>
+            <li>
               <p>
-                Suppose that <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
-                For <m>j, k \in \{ 1, \ldots, n \}</m>,
-                define <m>P_{j,k} \in \Lc(V)</m> by <m>P_{j,k}(a_1 v_1 + \cdots + a_n v_n) = a_k v_j</m>.
-                Prove that
-                <me>
-                  \tau(P_{j,k}) = \begin{cases}1 \amp  \text{ if }  j = k, \\ 0 \amp  \text{ if }  j \ne k. \end{cases}
-                </me>
+                Prove that <m>\langle S, T \rangle = \tr ( T^*S )</m> defines an inner product on <m>\Lc(V{}, W)</m>.
               </p>
+            </li>
+            <li>
               <p>
-                Then for <m>T \in \Lc(V)</m>,
-                use the equation <m>T = \sum_{k=1}^n \sum_{j=1}^n \M(T)_{j,k} P_{j,k}</m> to show that <m>\tau(T) = \tr T</m>.
+                Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V</m> and
+                <m>f_1, \ldots,
+                f_m</m> is an orthonormal basis of <m>W{}</m>.
+                Show that the inner product on
+                <m>\Lc(V{}, W)</m> from (a) is the same as the standard inner product on <m>\FF{mn}</m>,
+                where we identify each element of <m>\Lc(V{}, W)</m> with its matrix
+                (with respect to the bases just mentioned)
+                and then with an element of <m>\FF {mn}</m>.
+                  <idx><h>Frobenius norm</h></idx>
+                  <idx><h>Hilbert<ndash/>Schmidt norm</h></idx>
               </p>
-            </hint>
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x390">
-        <statement>
-          <p>
-            Suppose <m>V</m> and <m>W</m> are inner product spaces and <m>T \in \Lc(V{},W)</m>.
-            Prove that if <m>e_1, \dots,
-            e_n</m> is an orthonormal basis of <m>V</m> and
-            <m>f_1, \ldots,
-            f_m</m> is an orthonormal basis of <m>W{}</m>, then
-            <me>
-              \tr( T^*T ) = \sum_{k=1}^n \sum_{j=1}^m \lvert  \langle Te_k, f_j \rangle   \rvert ^2{}
-            </me>.
-          </p>
-          <p>
-            Note: The numbers <m>\langle Te_k, f_j \rangle</m> are the entries of the matrix of <m>T</m> with respect to the orthonormal bases
-            <m>e_1, \dots,
-            e_n</m> and <m>f_1, \ldots, f_m</m>.
-            These numbers depend on the bases,
-            but <m>\tr (T^*T)</m> does not depend on a choice of bases.
-            Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> and <m>W</m> are finite-dimensional inner product spaces.
-            <ol>
-              <li>
-                <p>
-                  Prove that <m>\langle S, T \rangle = \tr ( T^*S )</m> defines an inner product on <m>\Lc(V{}, W)</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V</m> and
-                  <m>f_1, \ldots,
-                  f_m</m> is an orthonormal basis of <m>W{}</m>.
-                  Show that the inner product on
-                  <m>\Lc(V{}, W)</m> from (a) is the same as the standard inner product on <m>\FF{mn}</m>,
-                  where we identify each element of <m>\Lc(V{}, W)</m> with its matrix
-                  (with respect to the bases just mentioned)
-                  and then with an element of <m>\FF {mn}</m>.
-                    <idx><h>Frobenius norm</h></idx>
-                    <idx><h>Hilbert<ndash/>Schmidt norm</h></idx>
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: Caution: The norm of a linear map
-            <m>T \in \Lc(V{}, W)</m> as defined by <xref ref="x7norm"></xref>
-            is not the same as the norm that comes from the inner product in (a) above.
-            Unless explicitly stated otherwise,
-            always assume that <m>\lVert T \rVert</m> refers to the norm as defined by <xref ref="x7norm"></xref>.
-            The norm that comes from the inner product in (a) is called the
-            <term>Frobenius norm</term>
-            or the <term>Hilbert<ndash/>Schmidt norm</term>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x9commutator">
-        <statement>
-          <p>
-            Find <m>S, T \in \Lc( \P(\F{}) )</m> such that <m>ST - TS = I</m>.
-            <hint>
-              <p>
-                Make an appropriate modification of the operators in <xref ref="x3noncom">Example</xref>.
-              </p>
-            </hint>
-            Note: This exercise shows that additional hypotheses are needed on <m>S</m> and <m>T</m> to <xref ref="x10ST">extend</xref>
-            to the setting of infinite-dimensional vector spaces.
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: Caution: The norm of a linear map
+          <m>T \in \Lc(V{}, W)</m> as defined by <xref ref="x7norm"></xref>
+          is not the same as the norm that comes from the inner product in (a) above.
+          Unless explicitly stated otherwise,
+          always assume that <m>\lVert T \rVert</m> refers to the norm as defined by <xref ref="x7norm"></xref>.
+          The norm that comes from the inner product in (a) is called the
+          <term>Frobenius norm</term>
+          or the <term>Hilbert<ndash/>Schmidt norm</term>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x9commutator">
+      <statement>
+        <p>
+          Find <m>S, T \in \Lc( \P(\F{}) )</m> such that <m>ST - TS = I</m>.
+          <hint>
+            <p>
+              Make an appropriate modification of the operators in <xref ref="x3noncom">Example</xref>.
+            </p>
+          </hint>
+          Note: This exercise shows that additional hypotheses are needed on <m>S</m> and <m>T</m> to <xref ref="x10ST">extend</xref>
+          to the setting of infinite-dimensional vector spaces.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

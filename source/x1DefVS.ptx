@@ -157,9 +157,9 @@
     <statement>
       <p>
         <m>\F{\infty}</m><idx><h sortby="Finfty"><m>\F{\infty}{}</m></h></idx> is defined to be the set of all sequences of elements of <m>\F{}</m>:
-        <me>
-          \F{\infty} = \{  (x_1, x_2, \dotsc) : x_k \in \F{} \ for\  k = 1, 2, \dotsc \}
-        </me>.
+        <md>
+          \F{\infty} = \{  (x_1, x_2, \dotsc) : x_k \in \F{} \ for\  k = 1, 2, \dotsc \}.
+        </md>
       </p>
       <p>
         Addition and scalar multiplication on
@@ -193,9 +193,9 @@
         <p>
           For <m>f, g \in \FF{S}</m>,
           the <term>sum</term> <m>f + g \in \F{S}</m><idx><h>addition</h><h>of functions</h></idx> is the function defined by
-          <me>
+          <md>
             (f + g)(x) = f(x) + g (x)
-          </me>
+          </md>
           for all <m>x \in S</m>.
         </p>
       </li>
@@ -203,9 +203,9 @@
         <p>
           For <m>\lambda \in \F{}</m> and <m>f\in \FF{S}</m>,
           the <term>product</term> <m>\lambda f \in \F{S}</m> is the function defined by
-          <me>
+          <md>
             (\lambda f)(x) = \lambda f(x)
-          </me>
+          </md>
           for all <m>x \in S</m>.
         </p>
       </li>
@@ -236,9 +236,9 @@
         <li>
           <p>
             The additive identity of <m>\F{S}</m> is the function <m>0: S \to \F{}</m> defined by
-            <me>
+            <md>
               0(x) = 0
-            </me>
+            </md>
             for all <m>x \in S</m>.
           </p>
         </li>
@@ -246,9 +246,9 @@
           <p>
             For <m>f \in \FF{S}</m>,
             the additive inverse of <m>f</m> is the function <m>-f: S \to \F{}</m> defined by
-            <me>
+            <md>
               (-f)(x) = -f(x)
-            </me>
+            </md>
             for all <m>x \in S</m>.
           </p>
         </li>
@@ -296,9 +296,9 @@
     <p>
       Suppose <m>0</m> and <m>0'</m> are both additive identities for some vector space<nbsp/><m>V{}</m>.
       Then
-      <me>
-        0' = 0' + 0 = 0 + 0' = 0
-      </me>,
+      <md>
+        0' = 0' + 0 = 0 + 0' = 0,
+      </md>
       where the first equality holds because <m>0</m> is an additive identity,
       the second equality comes from commutativity,
       and the third equality holds because <m>0'</m> is an additive identity.
@@ -325,9 +325,9 @@
       Let <m>v \in V{}</m>.
       Suppose <m>w</m> and <m>w'</m> are additive inverses of <m>v</m>.
       Then
-      <me>
-        w = w + 0 = w + (v + w') = (w + v) + w' = 0 + w' = w'\!
-      </me>.
+      <md>
+        w = w + 0 = w + (v + w') = (w + v) + w' = 0 + w' = w'\!.
+      </md>
     </p>
     <p>
       Thus <m>w = w'\!</m>, as desired.
@@ -401,9 +401,9 @@
   <proof>
     <p>
       For <m>v \in V{}</m>, we have
-      <me>
-        0v = (0 + 0)v = 0v + 0v
-      </me>.
+      <md>
+        0v = (0 + 0)v = 0v + 0v.
+      </md>
     </p>
     <p>
       Adding the additive inverse of <m>0v</m> to both sides of the equation above gives <m>0 = 0v</m>,
@@ -430,9 +430,9 @@
   <proof>
     <p>
       For <m>a \in \F{}{}</m>, we have
-      <me>
-        a0 = a(0 + 0) = a0 + a0
-      </me>.
+      <md>
+        a0 = a(0 + 0) = a0 + a0.
+      </md>
     </p>
     <p>
       Adding the additive inverse of <m>a0</m> to both sides of the equation above gives <m>0 = a0</m>,
@@ -454,9 +454,9 @@
   <proof>
     <p>
       For <m>v \in V{}</m>, we have
-      <me>
-        v + (-1)v = 1v + (-1)v = \bigl(1 + (-1)\bigr)v = 0v = 0
-      </me>.
+      <md>
+        v + (-1)v = 1v + (-1)v = \bigl(1 + (-1)\bigr)v = 0v = 0.
+      </md>
     </p>
     <p>
       This equation says that <m>(-1)v</m>,
@@ -465,141 +465,139 @@
       as desired.
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Prove that <m>-(-v) = v</m> for every <m>v \in V{}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>a \in \F{}{}</m>, <m>v \in V{}</m>, and <m>av = 0</m>.
-            Prove that <m>a = 0</m> or <m>v = 0</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>v, w \in V{}</m>.
-            Explain why there exists a unique <m>x \in V</m> such that <m>v + 3x = w</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            The empty set is not a vector space.
-            The empty set fails to satisfy only one of the requirements listed in the definition of a vector space <xref ref="vectorspace"/>.
-            Which one?
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Show that in the definition of a vector space <xref ref="vectorspace"/>,
-            the additive inverse condition can be replaced with the condition that
-            <me>
-              0v = 0 \text{ for all }  v \in V{}
-            </me>.
-          </p>
-          <p>
-            Here the <m>0</m> on the left side is the number <m>0</m>,
-            and the <m>0</m> on the right side is the additive identity of <m>V{}</m>.
-            Note: The phrase a
-            <q>condition can be replaced</q>
-            in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Let <m>\infty</m> and <m>-\infty</m> denote two distinct objects,
-            neither of which is in <m>\R{}</m>.
-            Define an addition and scalar multiplication on
-            <m>\R{} \cup \{\infty, -\infty\}</m> as you could guess from the notation.
-            Specifically,
-            the sum and product of two real numbers is as usual,
-            and for <m>t \in \R{}</m> define
-            <me>
-              t \infty = \begin{cases}-\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ \infty \amp  \text{ if }  t > 0, \end{cases}  t (-\infty) = \begin{cases}\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ -\infty \amp  \text{ if }  t > 0, \end{cases}
-            </me>
-            and
-            <md>
-              <mrow>t + \infty \amp = \infty + t = \infty + \infty = \infty,</mrow>
-              <mrow>t + (-\infty) \amp = (-\infty) + t  = (-\infty) + (-\infty) = -\infty,</mrow>
-              <mrow>\infty + (-\infty) \amp = (-\infty) + \infty = 0</mrow>
-            </md>.
-          </p>
-          <p>
-            With these operations of addition and scalar multiplication,
-            is <m>\R{} \cup \{\infty,-\infty\}</m> a vector space over <m>\R{}</m>?
-            Explain.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>S</m> is a nonempty set.
-            Let <m>V^S</m> denote the set of functions from <m>S</m> to<nbsp/><m>V{}</m>.
-            Define a natural addition and scalar multiplication on <m>V^S\!</m>,
-            and show that <m>V^S</m> is a vector space with these definitions.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is a real vector space.
-            <ol>
-              <li>
-                <p>
-                  The <term>complexification</term> of <m>V{}</m>,
-                  denoted by <m>V{}_{\C{}}</m>,
-                  equals <m>V{} \times V{}</m>.
-                  An element of <m>V{}_{\C{}}</m> is an ordered pair <m>(u, v)</m>,
-                  where <m>u, v \in V{}</m>, but we write this as <m>u + iv</m>.
-                    <idx><h>complexification</h><h>of a vector space</h></idx>
-                    <idx><h sortby="VC"><m>V{}_{\C{}}</m></h></idx>
-                </p>
-              </li>
-              <li xml:id="x1VC">
-                <p>
-                  Addition on <m>V{}_{\C{}}</m> is defined by
-                  <me>
-                    (u_1 + i v_1) + (u_2 + i v_2) = (u_1 + u_2) + i (v_1 + v_2)
-                  </me>
-                  for all <m>u_1, v_1, u_2, v_2 \in V{}</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Complex scalar multiplication on<nbsp/><m>V{}_{\C{}}</m> is defined by
-                  <me>
-                    (a + bi)(u + iv) = (au - bv) + i(av + bu)
-                  </me>
-                  for all <m>a, b \in \R{}</m> and all <m>u, v \in V{}</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Prove that with the definitions of addition and scalar multiplication as above,
-            <m>V{}_{\C{}}</m> is a complex vector space.
-            Note: Think of <m>V</m> as a subset of
-            <m>V{}_{\C{}}</m> by identifying <m>u \in V</m> with <m>u + i0</m>.
-            The construction of <m>V{}_{\C{}}</m> from <m>V</m> can then be thought of as generalizing the construction of <m>\C{n}</m> from <m>\RR{n}</m>.
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Prove that <m>-(-v) = v</m> for every <m>v \in V{}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>a \in \F{}{}</m>, <m>v \in V{}</m>, and <m>av = 0</m>.
+          Prove that <m>a = 0</m> or <m>v = 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>v, w \in V{}</m>.
+          Explain why there exists a unique <m>x \in V</m> such that <m>v + 3x = w</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The empty set is not a vector space.
+          The empty set fails to satisfy only one of the requirements listed in the definition of a vector space <xref ref="vectorspace"/>.
+          Which one?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Show that in the definition of a vector space <xref ref="vectorspace"/>,
+          the additive inverse condition can be replaced with the condition that
+          <md>
+            0v = 0 \text{ for all }  v \in V{}.
+          </md>
+        </p>
+        <p>
+          Here the <m>0</m> on the left side is the number <m>0</m>,
+          and the <m>0</m> on the right side is the additive identity of <m>V{}</m>.
+          Note: The phrase a
+          <q>condition can be replaced</q>
+          in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Let <m>\infty</m> and <m>-\infty</m> denote two distinct objects,
+          neither of which is in <m>\R{}</m>.
+          Define an addition and scalar multiplication on
+          <m>\R{} \cup \{\infty, -\infty\}</m> as you could guess from the notation.
+          Specifically,
+          the sum and product of two real numbers is as usual,
+          and for <m>t \in \R{}</m> define
+          <md>
+            t \infty = \begin{cases}-\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ \infty \amp  \text{ if }  t > 0, \end{cases}  t (-\infty) = \begin{cases}\infty \amp  \text{ if }  t \lt  0,\\ 0 \amp  \text{ if }  t = 0,\\ -\infty \amp  \text{ if }  t > 0, \end{cases}
+          </md>
+          and
+          <md>
+            <mrow>t + \infty \amp = \infty + t = \infty + \infty = \infty,</mrow>
+            <mrow>t + (-\infty) \amp = (-\infty) + t  = (-\infty) + (-\infty) = -\infty,</mrow>
+            <mrow>\infty + (-\infty) \amp = (-\infty) + \infty = 0</mrow>
+          </md>.
+        </p>
+        <p>
+          With these operations of addition and scalar multiplication,
+          is <m>\R{} \cup \{\infty,-\infty\}</m> a vector space over <m>\R{}</m>?
+          Explain.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>S</m> is a nonempty set.
+          Let <m>V^S</m> denote the set of functions from <m>S</m> to<nbsp/><m>V{}</m>.
+          Define a natural addition and scalar multiplication on <m>V^S\!</m>,
+          and show that <m>V^S</m> is a vector space with these definitions.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a real vector space.
+          <ol>
+            <li>
+              <p>
+                The <term>complexification</term> of <m>V{}</m>,
+                denoted by <m>V{}_{\C{}}</m>,
+                equals <m>V{} \times V{}</m>.
+                An element of <m>V{}_{\C{}}</m> is an ordered pair <m>(u, v)</m>,
+                where <m>u, v \in V{}</m>, but we write this as <m>u + iv</m>.
+                  <idx><h>complexification</h><h>of a vector space</h></idx>
+                  <idx><h sortby="VC"><m>V{}_{\C{}}</m></h></idx>
+              </p>
+            </li>
+            <li xml:id="x1VC">
+              <p>
+                Addition on <m>V{}_{\C{}}</m> is defined by
+                <md>
+                  (u_1 + i v_1) + (u_2 + i v_2) = (u_1 + u_2) + i (v_1 + v_2)
+                </md>
+                for all <m>u_1, v_1, u_2, v_2 \in V{}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Complex scalar multiplication on<nbsp/><m>V{}_{\C{}}</m> is defined by
+                <md>
+                  (a + bi)(u + iv) = (au - bv) + i(av + bu)
+                </md>
+                for all <m>a, b \in \R{}</m> and all <m>u, v \in V{}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Prove that with the definitions of addition and scalar multiplication as above,
+          <m>V{}_{\C{}}</m> is a complex vector space.
+          Note: Think of <m>V</m> as a subset of
+          <m>V{}_{\C{}}</m> by identifying <m>u \in V</m> with <m>u + i0</m>.
+          The construction of <m>V{}_{\C{}}</m> from <m>V</m> can then be thought of as generalizing the construction of <m>\C{n}</m> from <m>\RR{n}</m>.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

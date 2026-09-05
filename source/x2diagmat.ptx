@@ -41,27 +41,27 @@
         in two variables and of degree at most<nbsp/><m>m</m>,
         with the usual operations of addition and scalar multiplication of <m>\C{}</m>-valued functions.
         Thus the elements of <m>\P\!_m{}(\CC2, \C{})</m> are functions <m>p</m> from <m>\C2</m> to <m>\C{}</m> of the form
-        <men xml:id="x2p">
-          p(w,z) = \sum_{j+k \le m} a_{j,k} w^j z^k\!
-        </men>,
+        <md number="yes" xml:id="x2p">
+          p(w,z) = \sum_{j+k \le m} a_{j,k} w^j z^k\!,
+        </md>
         where the indices <m>j</m> and <m>k</m> take on all nonnegative integer values such that <m>j + k \le m</m>,
         each <m>a_{j,k}</m> is in <m>\C{}</m>,
         and <m>w^j z^k</m> denotes the function on <m>\C2</m> defined by <m>(w, z) \mapsto w^j z^k\!</m>.
       </p>
       <p>
         Define operators <m>D_w, D_z \in \Lc( \P\!_m{}(\CC2, \C{}) )</m> by
-        <me>
-          D_w p = \frac{ \partial p}{\partial w} = \sum_{j+k \le m} j a_{j,k} w^{j-1} z^k \andd D_z p = \frac{ \partial p}{\partial z} = \sum_{j+k \le m} k a_{j,k} w^j z^{k-1}\!
-        </me>,
+        <md>
+          D_w p = \frac{ \partial p}{\partial w} = \sum_{j+k \le m} j a_{j,k} w^{j-1} z^k \andd D_z p = \frac{ \partial p}{\partial z} = \sum_{j+k \le m} k a_{j,k} w^j z^{k-1}\!,
+        </md>
         where <m>p</m> is as in <xref ref="x2p"></xref>.
         The operators <m>D_w</m> and <m>D_z</m> are called partial differentiation operators because each of these operators differentiates with respect to one of the variables while pretending that the other variable is a constant.
             <idx><h>partial differentiation operator</h></idx>
       </p>
       <p>
         The operators <m>D_w</m> and <m>D_z</m> commute because if <m>p</m> is as in <xref ref="x2p"></xref>, then
-        <me>
-          (D_w D_z)p = \sum_{j+k \le m} j k a_{j,k} w^{j-1} z^{k-1} = (D_z D_w)p
-        </me>.
+        <md>
+          (D_w D_z)p = \sum_{j+k \le m} j k a_{j,k} w^{j-1} z^{k-1} = (D_z D_w)p.
+        </md>
       </p>
       <p>
         The equation <m>D_w D_z = D_z D_w</m> on
@@ -131,9 +131,9 @@
     <p>
       Suppose <m>v \in E(\lambda, S)</m>.
       Then
-      <me>
-        S( Tv ) = (ST)v = (TS)v = T(Sv) = T(\lambda v) = \lambda Tv
-      </me>.
+      <md>
+        S( Tv ) = (ST)v = (TS)v = T(Sv) = T(\lambda v) = \lambda Tv.
+      </md>
     </p>
     <p>
       The equation above shows that <m>Tv \in E(\lambda, S)</m>.
@@ -174,9 +174,9 @@
       Let <m>\lambda_1, \ldots, \lambda_m</m> denote the distinct eigenvalues of <m>S</m>.
       Because <m>S</m> is diagonalizable,
       <xref ref="x427"></xref>(c) shows that
-      <men xml:id="VdirSum">
-        V = E(\lambda_1, S) \oplus \cdots \oplus E(\lambda_m, S)
-      </men>.
+      <md number="yes" xml:id="VdirSum">
+        V = E(\lambda_1, S) \oplus \cdots \oplus E(\lambda_m, S).
+      </md>
     </p>
     <p>
       For each <m>k = 1, \ldots, m</m>,
@@ -281,34 +281,34 @@
       (<xref ref="x2common">using</xref>).
       Hence <m>Sv_1 \in \Span(v_1)</m> and <m>Tv_1 \in \Span(v_1)</m>.
       Let <m>W</m> be a subspace of <m>V</m> such that
-      <me>
+      <md>
         V = \Span(v_1) \oplus W;
-      </me>
+      </md>
     </p>
     <p>
       <xref ref="a220">see</xref> for the existence of <m>W{}</m>.
       Define a linear map <m>\fun P V W</m><nbsp/>by
-      <me>
+      <md>
         P(a v_1 + w) = w
-      </me>
+      </md>
       for each <m>a \in \C{}</m> and each <m>w \in W{}</m>.
       Define <m>\hat S, \hat T \in \Lc(W)</m> by
-      <me>
+      <md>
         \hat S w = P(Sw) \andd \hat T w = P(Tw)
-      </me>
+      </md>
       for each <m>w \in W{}</m>.
       To apply our induction hypothesis to <m>\hat S</m> and <m>\hat T</m>,
       we must first show that these two operators on <m>W</m> commute.
       To do this, suppose <m>w \in W{}</m>.
       Then there exists <m>a \in \C{}</m> such that
-      <me>
-        ( \hat S \hat T )w = \hat S (  P(Tw)  ) = \hat S (Tw - av_1) = P (  S(Tw - a v_1)  ) = P (  (ST) w  )
-      </me>,
+      <md>
+        ( \hat S \hat T )w = \hat S (  P(Tw)  ) = \hat S (Tw - av_1) = P (  S(Tw - a v_1)  ) = P (  (ST) w  ),
+      </md>
       where the last equality holds because <m>v_1</m> is an eigenvector of <m>S</m> and <m>Pv_1 = 0</m>.
       Similarly,
-      <me>
-        ( \hat T \hat S )w = P (  (TS) w  )
-      </me>.
+      <md>
+        ( \hat T \hat S )w = P (  (TS) w  ).
+      </md>
     </p>
     <p>
       Because the operators <m>S</m> and <m>T</m> commute,
@@ -324,9 +324,9 @@
     <p>
       If <m>k \in \{ 2, \ldots, n \}</m>,
       then there exist <m>a_k, b_k \in \C{}</m> such that
-      <me>
-        Sv_k =  a_k v_1 + \hat S v_k \andd Tv_k = b_k v_1 + \hat T v_k
-      </me>.
+      <md>
+        Sv_k =  a_k v_1 + \hat S v_k \andd Tv_k = b_k v_1 + \hat T v_k.
+      </md>
     </p>
     <p>
       Because <m>\hat S</m> and <m>\hat T</m> have upper-triangular matrices with respect to
@@ -334,9 +334,9 @@
       v_n</m>, we know that <m>\hat S v_k \in \Span(v_2, \ldots,
       v_k)</m> and <m>\hat T v_k \in \Span(v_2, \ldots, v_k)</m>.
       Hence the equations above imply that
-      <me>
-        Sv_k \in \Span(v_1, \ldots, v_k) \andd Tv_k \in \Span(v_1, \ldots, v_k)
-      </me>.
+      <md>
+        Sv_k \in \Span(v_1, \ldots, v_k) \andd Tv_k \in \Span(v_1, \ldots, v_k).
+      </md>
     </p>
     <p>
       Thus <m>S</m> and <m>T</m> have upper-triangular matrices with respect to <m>v_1, \ldots, v_n</m>,
@@ -376,9 +376,9 @@
       There is a basis of <m>V</m> with respect to which both <m>S</m> and <m>T</m> have upper-triangular matrices
       (by <xref ref="x2commute"></xref>).
       With respect to that basis,
-      <me>
-        \M(S+T) = \M(S) + \M(T) \andd \M(ST) = \M(S) \M(T)
-      </me>,
+      <md>
+        \M(S+T) = \M(S) + \M(T) \andd \M(ST) = \M(S) \M(T),
+      </md>
       as stated in <xref ref="x101"></xref>
       and <xref ref="x3matproduct"></xref>.
     </p>
@@ -404,137 +404,135 @@
           <idx><h>commuting operators|)</h></idx>
     </p>
   </proof>
-  <p>
-    <exercises>
-      <title></title>
-      <exercise>
-        <statement>
-          <p>
-            Give an example of two commuting operators <m>S, T</m> on <m>\F4</m> such that there is a subspace of <m>\F4</m> that is invariant under <m>S</m> but not under <m>T</m> and there is a subspace of <m>\F4</m> that is invariant under <m>T</m> but not under <m>S</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x3Diag">
-        <statement>
-          <p>
-            Suppose <m>\E</m> is a subset of <m>\Lc(V)</m> and every element of <m>\E</m> is diagonalizable.
-            Prove that there exists a basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if every pair of elements of <m>\E</m> commutes.
-        <idx><h>commuting operators|(</h></idx>
-    Note: This exercise <xref ref="x8SimDiag">extends</xref>,
-            which considers the case in which <m>\E</m> contains only two elements.
-            For this exercise, <m>\E</m> may contain any number of elements,
-            and <m>\E</m> may even be an infinite set.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>S, T \in \Lc(V)</m> are such that <m>ST = TS</m>.
-            Suppose <m>p \in \P(\F{})</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that <m>\ker p(S)</m> is invariant under <m>T</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that <m>\ran p(S)</m> is invariant under <m>T</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: <xref ref="x130">See</xref>
-            for the special case <m>S = T</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Prove or give a counterexample: If <m>A</m> is a diagonal matrix and <m>B</m> is an upper-triangular matrix of the same size as <m>A</m>,
-            then <m>A</m> and <m>B</m> commute.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x5dualcom">
-        <statement>
-          <p>
-            Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
-            Note: <xref ref="DualMap">See</xref>
-            for the definition of the dual of an operator.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose that <m>V</m> is a nonzero finite-dimensional complex vector space and <m>S, T \in \Lc(V)</m> commute.
-            Prove that there exist <m>\alpha , \lambda \in \C{}</m> such that
-            <me>
-              \ran (S - \alpha  I) + \ran (T - \lambda I) \ne V{}
-            </me>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>V</m> is a complex vector space,
-            <m>S \in \Lc(V)</m> is diagonalizable,
-            and <m>T \in \Lc(V)</m> commutes with <m>S</m>.
-            Prove that there is a basis of <m>V</m> such that <m>S</m> has a diagonal matrix with respect to this basis and <m>T</m> has an upper-triangular matrix with respect to this basis.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Suppose <m>m = 3</m> in <xref ref="PD">Example</xref>
-            and <m>D_x, D_y</m> are the commuting partial differentiation operators on <m>\P\!_3{}( \R2 )</m> from that example.
-            Find a basis of <m>\P\!_3{}( \R2 )</m> with respect to which <m>D_x</m> and <m>D_y</m> each have an upper-triangular matrix.
-          </p>
-        </statement>
-      </exercise>
-      <exercise xml:id="x4ManyOps">
-        <statement>
-          <p>
-            Suppose <m>V</m> is a finite-dimensional nonzero complex vector space.
-            Suppose that <m>\E \subset \Lc(V)</m> is such that <m>S</m> and <m>T</m> commute for all <m>S, T \in \E</m>.
-            <ol>
-              <li>
-                <p>
-                  Prove that there is a vector in <m>V</m> that is an eigenvector for every element of <m>\E</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Prove that there is a basis of <m>V</m> with respect to which every element of <m>\E</m> has an upper-triangular matrix.
-                </p>
-              </li>
-            </ol>
-          </p>
-          <p>
-            Note: This exercise <xref ref="x2common">extends</xref>
-            and <xref ref="x2commute"></xref>,
-            which consider the case in which <m>\E</m> contains only two elements.
-            For this exercise, <m>\E</m> may contain any number of elements,
-            and <m>\E</m> may even be an infinite set.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Give an example of two commuting operators <m>S, T</m> on a finite-dimensional real vector space such that <m>S+T</m> has an eigenvalue that does not equal an eigenvalue of <m>S</m> plus an eigenvalue of <m>T</m> and <m>ST</m> has an eigenvalue that does not equal an eigenvalue of <m>S</m> times an eigenvalue of <m>T{}</m>.
-        <idx><h>commuting operators|)</h></idx>
-    Note: This exercise shows that <xref ref="x2EigenSum"></xref>
-            does not hold on real vector spaces.
-          </p>
-        </statement>
-      </exercise>
-    </exercises>
-  </p>
+  <exercises>
+    <title>Exercises</title>
+    <exercise>
+      <statement>
+        <p>
+          Give an example of two commuting operators <m>S, T</m> on <m>\F4</m> such that there is a subspace of <m>\F4</m> that is invariant under <m>S</m> but not under <m>T</m> and there is a subspace of <m>\F4</m> that is invariant under <m>T</m> but not under <m>S</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x3Diag">
+      <statement>
+        <p>
+          Suppose <m>\E</m> is a subset of <m>\Lc(V)</m> and every element of <m>\E</m> is diagonalizable.
+          Prove that there exists a basis of <m>V</m> with respect to which every element of <m>\E</m> has a diagonal matrix if and only if every pair of elements of <m>\E</m> commutes.
+              <idx><h>commuting operators|(</h></idx>
+          Note: This exercise <xref ref="x8SimDiag">extends</xref>,
+          which considers the case in which <m>\E</m> contains only two elements.
+          For this exercise, <m>\E</m> may contain any number of elements,
+          and <m>\E</m> may even be an infinite set.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>S, T \in \Lc(V)</m> are such that <m>ST = TS</m>.
+          Suppose <m>p \in \P(\F{})</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that <m>\ker p(S)</m> is invariant under <m>T</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>\ran p(S)</m> is invariant under <m>T</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: <xref ref="x130">See</xref>
+          for the special case <m>S = T</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Prove or give a counterexample: If <m>A</m> is a diagonal matrix and <m>B</m> is an upper-triangular matrix of the same size as <m>A</m>,
+          then <m>A</m> and <m>B</m> commute.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x5dualcom">
+      <statement>
+        <p>
+          Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
+          Note: <xref ref="DualMap">See</xref>
+          for the definition of the dual of an operator.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose that <m>V</m> is a nonzero finite-dimensional complex vector space and <m>S, T \in \Lc(V)</m> commute.
+          Prove that there exist <m>\alpha , \lambda \in \C{}</m> such that
+          <md>
+            \ran (S - \alpha  I) + \ran (T - \lambda I) \ne V{}.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>V</m> is a complex vector space,
+          <m>S \in \Lc(V)</m> is diagonalizable,
+          and <m>T \in \Lc(V)</m> commutes with <m>S</m>.
+          Prove that there is a basis of <m>V</m> such that <m>S</m> has a diagonal matrix with respect to this basis and <m>T</m> has an upper-triangular matrix with respect to this basis.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose <m>m = 3</m> in <xref ref="PD">Example</xref>
+          and <m>D_x, D_y</m> are the commuting partial differentiation operators on <m>\P\!_3{}( \R2 )</m> from that example.
+          Find a basis of <m>\P\!_3{}( \R2 )</m> with respect to which <m>D_x</m> and <m>D_y</m> each have an upper-triangular matrix.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="x4ManyOps">
+      <statement>
+        <p>
+          Suppose <m>V</m> is a finite-dimensional nonzero complex vector space.
+          Suppose that <m>\E \subset \Lc(V)</m> is such that <m>S</m> and <m>T</m> commute for all <m>S, T \in \E</m>.
+          <ol>
+            <li>
+              <p>
+                Prove that there is a vector in <m>V</m> that is an eigenvector for every element of <m>\E</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that there is a basis of <m>V</m> with respect to which every element of <m>\E</m> has an upper-triangular matrix.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Note: This exercise <xref ref="x2common">extends</xref>
+          and <xref ref="x2commute"></xref>,
+          which consider the case in which <m>\E</m> contains only two elements.
+          For this exercise, <m>\E</m> may contain any number of elements,
+          and <m>\E</m> may even be an infinite set.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Give an example of two commuting operators <m>S, T</m> on a finite-dimensional real vector space such that <m>S+T</m> has an eigenvalue that does not equal an eigenvalue of <m>S</m> plus an eigenvalue of <m>T</m> and <m>ST</m> has an eigenvalue that does not equal an eigenvalue of <m>S</m> times an eigenvalue of <m>T{}</m>.
+              <idx><h>commuting operators|)</h></idx>
+          Note: This exercise shows that <xref ref="x2EigenSum"></xref>
+          does not hold on real vector spaces.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

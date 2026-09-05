@@ -28,9 +28,9 @@
             <p>
               The set of all complex numbers is denoted by <m>\C{}</m>:
                 <idx><h sortby="C"><m>\C{}</m></h></idx>
-              <me>
-                \C{} = \{ a + bi: a, b \in \R{} \}
-              </me>.
+              <md>
+                \C{} = \{ a + bi: a, b \in \R{} \}.
+              </md>
             </p>
           </li>
           <li>
@@ -65,9 +65,9 @@
       To motivate the definition of complex multiplication given above,
       pretend that we knew that <m>i^2 = -1</m> and then use the usual rules of arithmetic to derive the formula above for the product of two complex numbers.
       Then use that formula to verify that we indeed have
-      <me>
-        i^2 = -1
-      </me>.
+      <md>
+        i^2 = -1.
+      </md>
     </p>
     <p>
       Do not memorize the formula for the product of two complex numbers<mdash/>you can always rederive it by recalling that
@@ -155,9 +155,9 @@
         <p>
               <idx><h>commutativity</h></idx>
           To show that <m>\alpha  \beta = \beta \alpha</m> for all <m>\alpha , \beta \in \C{}</m>, suppose
-          <me>
-            \alpha  = a + bi \andd \beta = c + di
-          </me>,
+          <md>
+            \alpha  = a + bi \andd \beta = c + di,
+          </md>
           where <m>a, b, c, d \in \R{}</m>.
           Then the definition of multiplication of complex numbers shows that
           <md>
@@ -189,17 +189,17 @@
               <p>
                 Let <m>-\alpha</m> denote the additive inverse<idx><h>additive inverse</h><h>in <m>\C{}</m></h></idx> of <m>\alpha</m>.
                 Thus <m>-\alpha</m> is the unique complex number such that
-                <me>
-                  \alpha  + (-\alpha ) = 0
-                </me>.
+                <md>
+                  \alpha  + (-\alpha ) = 0.
+                </md>
               </p>
             </li>
             <li>
               <p>
                 <term>Subtraction</term><idx><h>subtraction of complex numbers</h></idx> on <m>\C{}</m> is defined by
-                <me>
-                  \beta - \alpha  = \beta + (-\alpha )
-                </me>.
+                <md>
+                  \beta - \alpha  = \beta + (-\alpha ).
+                </md>
               </p>
             </li>
             <li>
@@ -207,18 +207,18 @@
                 For <m>\alpha  \ne 0</m>,
                 let <m>1/\alpha</m> and <m>\frac{1}{\alpha }</m> denote the multiplicative inverse of<nbsp/><m>\alpha</m>.
                 Thus <m>1/\alpha</m> is the unique complex number such that
-                <me>
-                  \alpha  (1/\alpha ) = 1
-                </me>.
+                <md>
+                  \alpha  (1/\alpha ) = 1.
+                </md>
               </p>
             </li>
             <li>
               <p>
                 For <m>\alpha  \ne 0</m>,
                 <term>division</term> by <m>\alpha</m> is defined by<idx><h>division of complex numbers</h></idx>
-                <me>
-                  \beta / \alpha  = \beta (1/\alpha )
-                </me>.
+                <md>
+                  \beta / \alpha  = \beta (1/\alpha ).
+                </md>
               </p>
             </li>
           </ol>
@@ -264,15 +264,15 @@
     <p>
       For <m>\alpha  \in \F{}</m> and <m>m</m> a positive integer,
       we define <m>\alpha ^m</m> to denote the product of <m>\alpha</m> with itself <m>m</m> times:
-      <me>
-        \alpha ^m = \underbrace{\alpha  \cdots \alpha }_{m \text{ times } }\!\!
-      </me>.
+      <md>
+        \alpha ^m = \underbrace{\alpha  \cdots \alpha }_{m \text{ times } }\!\!.
+      </md>
     </p>
     <p>
       This definition implies that
-      <me>
+      <md>
         ( \alpha ^m )^n = \alpha ^{mn} \andd (\alpha  \beta)^m = \alpha ^m \beta^m
-      </me>
+      </md>
       for all <m>\alpha , \beta \in \F{}</m> and all positive integers <m>m, n</m>.
     </p>
   </subsection>
@@ -290,18 +290,18 @@
             <p>
               The set <m>\RR{2}</m>, which you can think of as a plane,
               is the set of all ordered pairs of real numbers:
-              <me>
-                \R{2} = \{ (x,y): x, y \in \R{}  \}
-              </me>.
+              <md>
+                \R{2} = \{ (x,y): x, y \in \R{}  \}.
+              </md>
             </p>
           </li>
           <li>
             <p>
               The set <m>\RR{3}</m>, which you can think of as ordinary space,
               is the set of all ordered triples of real numbers:
-              <me>
-                \R{3} = \{ (x,y, z): x, y, z \in \R{}  \}
-              </me>.
+              <md>
+                \R{3} = \{ (x,y, z): x, y, z \in \R{}  \}.
+              </md>
             </p>
           </li>
         </ol>
@@ -348,9 +348,9 @@
       Thus a list of length two is an ordered pair that might be written as <m>(a, b)</m>.
       A list of length three is an ordered triple that might be written as <m>(x,y,z)</m>.
       A list of length <m>n</m> might look like this:
-      <me>
-        (z_1, \dots, z_n)
-      </me>.
+      <md>
+        (z_1, \dots, z_n).
+      </md>
     </p>
     <p>
       Sometimes we will use the word <term>list</term>
@@ -410,9 +410,9 @@
       <statement>
         <p>
           <m>\F{n}</m><idx><h sortby="Fn"><m>\F{n}{}</m></h></idx> is the set of all lists of length <m>n</m> of elements of <m>\F{}</m>:
-          <me>
-            \F{n} = \{ (x_1, \dots, x_n): x_k \in\F{} \ for\  k = 1, \dots, n  \}
-          </me>.
+          <md>
+            \F{n} = \{ (x_1, \dots, x_n): x_k \in\F{} \ for\  k = 1, \dots, n  \}.
+          </md>
         </p>
         <p>
           For <m>(x_1, \dots,
@@ -432,9 +432,9 @@
       <statement>
         <p>
           <m>\C{4}</m> is the set of all lists of four complex numbers:
-          <me>
-            \C{4} = \{  (z_1, z_2, z_3, z_4) : z_1, z_2, z_3, z_4 \in \C{}  \}
-          </me>.
+          <md>
+            \C{4} = \{  (z_1, z_2, z_3, z_4) : z_1, z_2, z_3, z_4 \in \C{}  \}.
+          </md>
         </p>
       </statement>
     </example>
@@ -462,9 +462,9 @@
       <statement>
         <p>
           <term>Addition</term> in <m>\F{n}</m><idx><h>addition</h><h>of vectors in <m>\F{n}</m></h></idx> is defined by adding corresponding coordinates:
-          <me>
-            (x_1, \dots, x_n) + (y_1, \dots, y_n) = (x_1 + y_1, \dots, x_n + y_n)
-          </me>.
+          <md>
+            (x_1, \dots, x_n) + (y_1, \dots, y_n) = (x_1 + y_1, \dots, x_n + y_n).
+          </md>
         </p>
       </statement>
     </definition>
@@ -519,13 +519,13 @@
       Even better,
       work with just<nbsp/><m>x</m> and avoid explicit coordinates when possible.
     </p>
-    <principle>
+    <principle xml:id="x0vector">
       <title><m>0</m></title>
       <p>
         Let <m>0</m> denote the list of length <m>n</m> whose coordinates are all <m>0</m>:
-        <me>
-          0 = (0, \dots, 0)
-        </me>.
+        <md>
+          0 = (0, \dots, 0).
+        </md>
       </p>
     </principle>
     <p>
@@ -540,9 +540,9 @@
       <statement>
         <p>
           Consider the statement that <m>0</m> is an additive identity for<nbsp/><m>\F{n}</m>:
-          <me>
-            x + 0 = x  \text{ for all }  x \in \FF{n}
-          </me>.
+          <md>
+            x + 0 = x  \text{ for all }  x \in \FF{n}.
+          </md>
         </p>
         <p>
           Here the <m>0</m> above is the list defined in <xref ref="x0vector"></xref>,
@@ -643,9 +643,9 @@
           For <m>x \in \FF{n}</m>,
           the <term>additive inverse</term><idx><h>additive inverse</h><h>in <m>\F{n}</m></h></idx> of <m>x</m>,
           denoted by <m>-x</m>, is the vector <m>-x \in \F{n}</m> such that
-          <me>
-            x + (-x) = 0
-          </me>.
+          <md>
+            x + (-x) = 0.
+          </md>
         </p>
         <p>
           Thus if <m>x= (x_1, \dots, x_n)</m>,
@@ -685,9 +685,9 @@
         <p>
           The <term>product</term><idx><h>product</h><h>of scalar and vector in <m>\F{n}</m></h></idx> of a number <m>\lambda</m> and a vector in <m>\F{n}</m> is computed by multiplying each coordinate of the vector by <m>\lambda</m>:
               <idx><h>scalar multiplication</h></idx>
-          <me>
+          <md>
             \lambda (x_1, \dots, x_n) = (\lambda x_1, \dots, \lambda x_n);
-          </me>
+          </md>
           here <m>\lambda \in \F{}</m> and <m>(x_1, \dots, x_n) \in \FF{n}</m>.
         </p>
       </statement>
@@ -698,7 +698,7 @@
         getting a vector.
         In contrast,
         the dot product in <m>\R{2}</m> or <m>\R{3}</m> multiplies together two vectors and gets a scalar.
-        Generalizations of the dot product will become important in <xref ref="x89">Chapter</xref>.
+        Generalizations of the dot product will become important in <xref ref="InnerProductSpaces">Chapter</xref>.
       </p>
     </aside>
     <p>
@@ -740,7 +740,8 @@
       However, many of the definitions, theorems,
       and proofs in linear algebra that work for the fields <m>\R{}</m> and <m>\C{}</m> also work without change for arbitrary fields.
       If you prefer to do so, throughout much of this book
-      (except for <xref ref="x89">Chapters</xref> and <xref ref="x183"></xref>,
+      (except for <xref ref="InnerProductSpaces">Chapters</xref>
+      and <xref ref="opsinner"></xref>,
       which deal with inner product spaces)
       you can think of <m>\F{}</m> as denoting an arbitrary field instead of <m>\R{}</m> or<nbsp/><m>\C{}</m>.
       For results
@@ -752,134 +753,132 @@
       in <xref ref="x1Subspaces">Section</xref>,
       require the hypothesis on <m>\F{}</m> that <m>1 + 1 \ne 0</m>.
     </p>
-    <p>
-      <exercises>
-        <title></title>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>\alpha + \beta = \beta + \alpha</m> for all <m>\alpha , \beta \in \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>(\alpha \beta)\lambda = \alpha (\beta \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>\lambda(\alpha + \beta) = \lambda \alpha + \lambda \beta</m> for all <m>\lambda, \alpha , \beta \in \C{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that for every <m>\alpha \in \C{}</m>,
-              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha + \beta = 0</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that for every <m>\alpha \in \C{}</m> with <m>\alpha \ne 0</m>,
-              there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha \beta = 1</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that
-              <me>
-                \frac{-1 + \sqrt{3}   i}{2}
-              </me>
-              is a cube root of <m>1</m>
-              (meaning that its cube equals<nbsp/><m>1</m>).
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find two distinct square roots of <m>i</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Find <m>x \in \R{4}</m> such that
-              <me>
-                (4, -3, 1, 7) + 2x = (5, 9, -6, 8)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Explain why there does not exist <m>\lambda \in \C{}</m> such that
-              <me>
-                \lambda (2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i)
-              </me>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>(x + y) + z = x + (y + z)</m> for all <m>x,
-              y, z \in \FF{n}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>(ab)x = a(bx)</m> for all
-              <m>x \in \F{n}</m> and all <m>a, b \in \F{}{}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>1x = x</m> for all <m>x \in \FF{n}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>\lambda(x + y) = \lambda x + \lambda y</m> for all
-              <m>\lambda \in \F{}</m> and all <m>x, y \in \FF{n}</m>.
-            </p>
-          </statement>
-        </exercise>
-        <exercise>
-          <statement>
-            <p>
-              Show that <m>(a + b)x = ax + bx</m> for all
-              <m>a,
-              b \in \F{}</m> and all <m>x \in \FF{n}</m>.
-            </p>
-          </statement>
-        </exercise>
-      </exercises>
-    </p>
+    <exercises>
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>\alpha + \beta = \beta + \alpha</m> for all <m>\alpha , \beta \in \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>(\alpha \beta)\lambda = \alpha (\beta \lambda)</m> for all <m>\alpha , \beta, \lambda \in \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>\lambda(\alpha + \beta) = \lambda \alpha + \lambda \beta</m> for all <m>\lambda, \alpha , \beta \in \C{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that for every <m>\alpha \in \C{}</m>,
+            there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha + \beta = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that for every <m>\alpha \in \C{}</m> with <m>\alpha \ne 0</m>,
+            there exists a unique <m>\beta \in \C{}</m> such that <m>\alpha \beta = 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that
+            <md>
+              \frac{-1 + \sqrt{3}   i}{2}
+            </md>
+            is a cube root of <m>1</m>
+            (meaning that its cube equals<nbsp/><m>1</m>).
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find two distinct square roots of <m>i</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>x \in \R{4}</m> such that
+            <md>
+              (4, -3, 1, 7) + 2x = (5, 9, -6, 8).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Explain why there does not exist <m>\lambda \in \C{}</m> such that
+            <md>
+              \lambda (2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).
+            </md>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>(x + y) + z = x + (y + z)</m> for all <m>x,
+            y, z \in \FF{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>(ab)x = a(bx)</m> for all
+            <m>x \in \F{n}</m> and all <m>a, b \in \F{}{}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>1x = x</m> for all <m>x \in \FF{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>\lambda(x + y) = \lambda x + \lambda y</m> for all
+            <m>\lambda \in \F{}</m> and all <m>x, y \in \FF{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>(a + b)x = ax + bx</m> for all
+            <m>a,
+            b \in \F{}</m> and all <m>x \in \FF{n}</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
     <p>
       <blockquote>
         <p>
