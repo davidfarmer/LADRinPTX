@@ -1222,7 +1222,7 @@
           <p>
             A norm on a vector space <m>U</m> is a function
             <md>
-              \lVert  \Cdot  \rVert  \colon U \rightarrow [0, \infty)
+              \lVert  \cdot  \rVert  \colon U \rightarrow [0, \infty)
             </md>
             such that <m>\|u\| = 0</m> if and only if <m>u = 0</m>,
             <m>\|\alpha  u\| = |\alpha | \|u\|</m> for all

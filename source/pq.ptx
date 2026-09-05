@@ -714,8 +714,8 @@
       <exercise>
         <statement>
           <p>
-            For <m>m</m> a positive integer,
-            define <m>V^m</m> by<idx><h sortby="Vm"><m>V^m\mskip -2mu</m></h></idx>
+            For <m>m</m> a positive integer, define <m>V^m</m> by
+                <idx><h sortby="Vm"><m>V^m</m></h></idx>
             <md>
               V^m = \underbrace{V{} \times \dots \times V}_{m \textit{ times}}\!.
             </md>

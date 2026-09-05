@@ -1104,7 +1104,7 @@
             Suppose <m>V</m> is finite-dimensional.
             Suppose <m>\langle \cdot, \cdot \rangle _1</m>,
             <m>\langle \cdot, \cdot \rangle _2</m> are inner products on <m>V</m> with corresponding norms
-            <m>\lVert \Cdot \rVert _1</m> and <m>\lVert \Cdot \rVert _2</m>.
+            <m>\lVert \cdot \rVert _1</m> and <m>\lVert \Cdot \rVert _2</m>.
             Prove that there exists a positive number <m>c</m> such that
             <m>\| v \|_1 \le c \| v \|_2</m> for every <m>v \in V{}</m>.
           </p>
