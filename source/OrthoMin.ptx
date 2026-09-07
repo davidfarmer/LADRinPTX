@@ -349,9 +349,10 @@
       We now define an operator <m>P_{\!U}</m> for each finite-dimensional subspace <m>U</m> of <m>V{}</m>.
     </p>
     <definition xml:id="orthogproj">
-      <title>orthogonal projection, <m>P_{U}</m>\index{PU@<m>P_{U}</m>}</title>
+      <title>orthogonal projection, <m>P_{U}</m></title>
       <statement>
         <p>
+              <idx><h sortby="PU"><m>P_{U}</m></h></idx>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           The <term>orthogonal projection</term><idx><h>orthogonal</h><h>projection</h></idx> of<nbsp/><m>V</m> onto<nbsp/><m>U</m> is the operator
           <m>P_{\!U} \in \Lc(V)</m> defined as follows: For each <m>v \in V{}</m>,

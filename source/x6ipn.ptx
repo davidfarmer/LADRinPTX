@@ -1128,7 +1128,7 @@
             Prove that if <m>u, v \in V{}</m>,
             then <m>\lvert \lVert u \rVert - \lVert v \rVert \rvert \le \lVert u-v \rVert</m>.
                 <idx><h>reverse triangle inequality</h></idx>
-            Note: The inequality above is called the
+            Note: That inequality is called the
             <term>reverse triangle inequality</term>.
             For the reverse triangle inequality when <m>V = \C{}</m>,
             see <xref ref="x4reverse">Exercise</xref>

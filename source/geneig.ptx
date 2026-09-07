@@ -125,10 +125,11 @@
       However, the next result can be a useful substitute.
     </p>
     <theorem xml:id="x8nulloplusran">
-      <title><m>V</m> is the direct sum of  <m>\ker T^{\dim V}</m> and  <m>\ran T^{\dim V}</m>\index{direct sum!of null Tn and ran Tn@of <m>\ker T^{\dim V}</m> and <m>\ran T^{\dim V}</m>}</title>
+      <title><m>V</m> is the direct sum of  <m>\ker T^{\dim V}</m> and  <m>\ran T^{\dim V}</m></title>
       <statement>
         <p>
-          Suppose <m>T \in \Lc(V)</m>.
+          <idx><h>direct sum</h><h sortby="of null Tn and ran Tn">of <m>\ker T^{\dim V}</m> and
+          <m>\ran T^{\dim V}</m></h></idx> Suppose <m>T \in \Lc(V)</m>.
           Then
           <md>
             V = \ker T^{\dim V} \oplus \ran T^{\dim V}\!.
