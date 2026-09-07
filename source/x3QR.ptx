@@ -256,7 +256,7 @@
           If <m>\F{} = \R{}</m>,
           then <m>S</m> is the operator of counterclockwise rotation by <m>\theta</m> radians around the origin of <m>\R{2}</m>.
           This observation gives us another way to think about why <m>S</m> is an isometry,
-          because each rotation around the origin of <m>\R{2}</m> preserves norms.\looseness=-1
+          because each rotation around the origin of <m>\R{2}</m> preserves norms.
         </p>
       </statement>
     </example>

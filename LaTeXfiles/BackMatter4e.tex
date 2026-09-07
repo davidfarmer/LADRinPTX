@@ -7,7 +7,8 @@
 
 \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
-\chapter{Photo Credits}
+\chapter{Back matter} \label{backmatter}
+\section{Photo Credits} \label{photocredits}
 
 \index{photo credits|(}
 
@@ -49,36 +50,36 @@
 \index{photo credits|)}
 \end{Itemize}
 
-\chapter{Symbol Index}
+%\chapter{Symbol Index}
+%
+%\makeatletter
+%\renewcommand{\theindex}{\let\item\@idxitem}
+%\makeatother
+%
+%\vspace{-.3in} %To keep Symbol Index to one page.
+%
+%\begin{multicols}{3}
+%
+%{\addtolength{\baselineskip}{.47ex} %To keep Symbol Index to one page.
+%\input{LADRs4e.ind}}
+%
+%\end{multicols}
+%
+%\chapter{Index}
+%
+%{\raggedright
+%
+%\vspace{-.3in} % For consistency with Symbol Index
+%
+%\begin{multicols}{2}
+%
+%{\addtolength{\baselineskip}{.0183in} %To balance final Index page
+%\input{LADR4e.ind}}
+%
+%\end{multicols}
+%}
 
-\makeatletter
-\renewcommand{\theindex}{\let\item\@idxitem}
-\makeatother
-
-\vspace{-.3in} %To keep Symbol Index to one page.
-
-\begin{multicols}{3}
-
-{\addtolength{\baselineskip}{.47ex} %To keep Symbol Index to one page.
-\input{LADRs4e.ind}}
-
-\end{multicols}
-
-\chapter{Index}
-
-{\raggedright
-
-\vspace{-.3in} % For consistency with Symbol Index
-
-\begin{multicols}{2}
-
-{\addtolength{\baselineskip}{.0183in} %To balance final Index page
-\input{LADR4e.ind}}
-
-\end{multicols}
-}
-
-\chapter{Colophon: Notes~on~Typesetting}
+\section{Colophon: Notes~on~Typesetting} \label{typesetting}
 
 \vspace{-5.5bp}
 

@@ -73,7 +73,7 @@
       which defines the norm of <m>T</m> to be the left side of the equation above without needing to refer to singular values or the singular value decomposition.
     </p>
     <definition xml:id="x7norm">
-      <title>norm of a linear map,  <m>\lVert \Cdot \rVert</m></title>
+      <title>norm of a linear map,  <m>\lVert \cdot \rVert</m></title>
       <statement>
         <p>
           Suppose <m>T \in \Lc(V{}, W)</m>.
@@ -94,7 +94,7 @@
       (and equals the largest singular value of <m>T</m>).
     </p>
     <p>
-      We now have two different uses of the word <emph>norm</emph> and the notation <m>\lVert \Cdot \rVert</m>.
+      We now have two different uses of the word <emph>norm</emph> and the notation <m>\lVert \cdot \rVert</m>.
       Our first use of this notation was in connection with an inner product on <m>V{}</m>,
       when we defined <m>\lVert v \rVert = \sqrt{\langle v,v \rangle }</m> for each <m>v \in V{}</m>.
       Our second use of the norm notation and terminology is with the definition we just made of

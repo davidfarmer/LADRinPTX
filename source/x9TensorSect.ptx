@@ -891,7 +891,7 @@
       <m>V{}_1 \tensor V{}_2</m> can be represented by an <m>n_1</m>-by-<m>n_2</m> matrix that contains the coefficient of
       <m>e_{j_1}^1 \tensor e_{j_2}^2</m> in row <m>j_1</m>, column <m>j_2</m>.
       Thus we need a matrix, which is an array specified by two indices,
-      to represent an element of <m>V{}_1 \tensor V{}_2</m>.\looseness=-1
+      to represent an element of <m>V{}_1 \tensor V{}_2</m>.
     </p>
     <p>
       If <m>m > 2</m>,

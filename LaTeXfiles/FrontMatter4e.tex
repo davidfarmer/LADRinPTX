@@ -7,7 +7,7 @@
 
 \setcounter{page}{0}
 
-\chapter{Linear Algebra Done Right}
+\chapter{Linear Algebra Done Right} \labal{frontmatter}
 
 \thispagestyle{empty}
 
@@ -50,7 +50,7 @@ F_n = \frac{1}{\sqrt{5}} \, \Biggl[ \paren[\Bigg]{ \frac{1 + \sqrt{5}}{2} }^{\!n
 
 \setcounter{page}{4}
 
-\chapter{About the Author}
+\section{About the Author}\label{author}
 
 Sheldon Axler received his undergraduate degree from Princeton University, followed by a PhD in mathematics from the University of California at Berkeley.
 
@@ -77,14 +77,14 @@ Axler joined San Francisco State University as chair of the Mathematics Departme
 \noindent
 \textit{Cover equation}: Formula for the $n^\nth$ Fibonacci number. Exercise \ref{Fibonacci} in Section~\ref{diagmat} uses linear algebra to derive this formula.
 
-{\overfullrule=0in
-\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+% {\overfullrule=0in
+% \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 
-\chapter{Contents}\tableofcontents}
+% \chapter{Contents}\tableofcontents}
 
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+% \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
-\chapter{Preface for Students}
+\section{Preface for Students} \label{forStudents}
 
 You are probably about to begin your second exposure to linear
 algebra. Unlike your first brush with the subject, which probably emphasized
@@ -130,7 +130,7 @@ website: \url{https://linear.axler.net}\\
 e-mail: \PClink{linear@axler.net}
 }
 
-\chapter{Preface for Instructors}
+\section{Preface for Instructors} \label{forInstructors}
 
 \begin{comment}
 Why coming back to inner products is good for students even if it seems slightly inefficient.
@@ -190,8 +190,8 @@ Even if your students have already seen some of the material in the first few ch
 
 Here is a chapter-by-chapter summary of the highlights of the book:
 
-{
-\setlength{\leftmargini}{.15in}
+%{
+%\setlength{\leftmargini}{.15in}
 
 \begin{Itemize}
 \item
@@ -402,7 +402,7 @@ e-mail: \PClink{linear@axler.net}
 
 \pagebreak[3]
 
-\chapter{Acknowledgments}
+\section{Acknowledgments} \label{acknowledgments}
 
 I owe a huge intellectual debt to all the mathematicians who created linear algebra over the past two centuries. The results in this book belong to the common heritage of mathematics.  A special case of a theorem may first have been proved long ago, then sharpened and improved by many mathematicians in different time periods.  Bestowing proper credit on all contributors would be a difficult task that I have not undertaken. In no case should the reader assume that any result presented here represents my original contribution.
 %However, in writing this book I tried to think about the best way to present linear algebra and to prove its theorems.%, without regard to the standard methods and proofs used in most textbooks.

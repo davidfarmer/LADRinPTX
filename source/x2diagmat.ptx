@@ -206,7 +206,7 @@
     then there is a vector in <m>V</m> that is an eigenvector for both operators
     (but the two commuting operators might not have a common eigenvalue).
     For an extension of the next result to more than two operators,
-    see <xref ref="x4ManyOps">Exercise</xref>(a). \looseness=-1
+    see <xref ref="x4ManyOps">Exercise</xref>(a).
   </p>
   <theorem xml:id="x2common">
     <title>common eigenvector for commuting operators</title>
@@ -400,7 +400,9 @@
       (these assertions follow from <xref ref="a221"></xref>).
       Putting all this together,
       we conclude that every eigenvalue of <m>S + T</m> is an eigenvalue of <m>S</m> plus an eigenvalue of <m>T</m>,
-      and every eigenvalue of <m>ST</m> is an eigenvalue of <m>S</m> times an eigenvalue of<nbsp/><m>T{}</m>.\looseness=1
+      and every eigenvalue of <m>ST</m> is an eigenvalue of <m>S</m> times an eigenvalue of<nbsp/><m>T{}</m>.
+    </p>
+    <p>
           <idx><h>commuting operators|)</h></idx>
     </p>
   </proof>

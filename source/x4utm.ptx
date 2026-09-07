@@ -6,7 +6,7 @@
     That matrix depends on a choice of basis of each of the two vector spaces.
     Now that we are studying operators,
     which map a vector space to itself,
-    the emphasis is on using only one basis.\looseness=-1
+    the emphasis is on using only one basis.
   </p>
   <definition>
     <title>matrix of an operator, <m>\M(T)</m></title>
@@ -344,7 +344,7 @@
     an operator has an upper-triangular matrix with respect to some basis if and only if the minimal polynomial of the operator is the product of polynomials of degree <m>1</m>.
   </p>
   <example>
-    <title>whether  <m>T</m> has an upper-triangular matrix can depend on  <m>\F</m></title>
+    <title>whether  <m>T</m> has an upper-triangular matrix can depend on  <m>\symbf{F}</m></title>
     <statement>
       <p>
         Define <m>T \in \Lc( \F4 )</m> by
@@ -502,7 +502,7 @@
     <xref ref="x187">see</xref> and <xref ref="x398"></xref>.
   </p>
   <theorem xml:id="a226">
-    <title>if  <m>\F = \C</m>, then every operator on  <m>V</m> has an upper-triangular matrix</title>
+    <title>if  <m>\symbf{F} = \symbf{C}</m>, then every operator on  <m>V</m> has an upper-triangular matrix</title>
     <statement>
       <p>
         Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.

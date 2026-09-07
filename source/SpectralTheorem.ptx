@@ -54,7 +54,7 @@
       <m>x^2 + b x + c</m> is an invertible real number (a convoluted way of saying that it is not<nbsp/>0).
       Replacing the real number <m>x</m> with a self-adjoint operator
       (recall the analogy between real numbers and self-adjoint operators)
-      leads to the next result.\looseness=-1
+      leads to the next result.
     </p>
     <theorem xml:id="x150">
       <title>invertible quadratic expressions</title>

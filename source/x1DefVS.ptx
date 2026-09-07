@@ -139,7 +139,7 @@
   </definition>
   <p>
     Usually the choice of <m>\F{}</m> is either clear from the context or irrelevant.
-    Thus we often assume that <m>\F{}</m> is lurking in the background without specifically mentioning it.\looseness=-1
+    Thus we often assume that <m>\F{}</m> is lurking in the background without specifically mentioning it.
   </p>
   <aside>
     <p>

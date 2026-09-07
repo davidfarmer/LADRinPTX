@@ -55,11 +55,6 @@
       </titlepage>
     </frontmatter>
     <xi:include href="./chapter1.ptx"/>
-    <xi:include href="./x0moon.ptx"/>
-    <xi:include href="./chapter3.ptx"/>
-    <xi:include href="./chapter4.ptx"/>
-    <xi:include href="./chapter5.ptx"/>
-    <xi:include href="./chapter6.ptx"/>
     <xi:include href="./VectorSpaces.ptx"/>
     <xi:include href="./fin-dimVS.ptx"/>
     <xi:include href="./LinearMaps.ptx"/>
@@ -69,10 +64,7 @@
     <xi:include href="./opsinner.ptx"/>
     <xi:include href="./operators_complex_vs.ptx"/>
     <xi:include href="./MultLATensors.ptx"/>
-    <xi:include href="./chapter16.ptx"/>
-    <xi:include href="./chapter17.ptx"/>
-    <xi:include href="./chapter18.ptx"/>
-    <xi:include href="./chapter19.ptx"/>
+    <xi:include href="./backmatter.ptx"/>
     <backmatter>
       <xi:include href="./bibliography.ptx"/>
       <index>

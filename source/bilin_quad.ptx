@@ -194,7 +194,7 @@
         y_n \in \F{}</m> \big(if <m>V = \F{n}</m> and
         <m>e_1, \ldots,
         e_n</m> is the standard basis of <m>\FF{n}</m>,
-        this <m>\beta_A</m> is the same as the bilinear form <m>\beta_A</m> in the second bullet point of <xref ref="x9BilinearExample">Example</xref>\big).\looseness=-1
+        this <m>\beta_A</m> is the same as the bilinear form <m>\beta_A</m> in the second bullet point of <xref ref="x9BilinearExample">Example</xref>\big).
       </p>
       <p>
         The linear map <m>\beta \mapsto \M(\beta)</m> from <m>V^{(2)}</m> to <m>\F{n,n}</m> and the linear map
@@ -394,7 +394,7 @@
     <p>
       An operator on <m>V</m> may have a symmetric matrix with respect to some but not all bases of <m>V{}</m>.
       In contrast,
-      the next result shows that a bilinear form on <m>V</m> has a symmetric matrix with respect to either all bases of <m>V</m> or with respect to no bases of <m>V{}</m>.\looseness=-1
+      the next result shows that a bilinear form on <m>V</m> has a symmetric matrix with respect to either all bases of <m>V</m> or with respect to no bases of <m>V{}</m>.
     </p>
     <theorem xml:id="x9symdiag">
       <title>symmetric bilinear forms are diagonalizable</title>

@@ -323,7 +323,8 @@
     </aside>
     <p>
       The next result shows that every linear map from <m>V</m> to <m>W</m> has a remarkably clean description in terms of its singular values and orthonormal lists in <m>V</m> and <m>W{}</m>.
-      In the next section we will see several important applications of the singular value decomposition (often called the SVD).\looseness=1<idx><h>SVD|see {singular value decomposition}</h></idx>
+      In the next section we will see several important applications of the singular value decomposition
+      (often called the SVD).
     </p>
     <theorem xml:id="x382">
       <title>singular value decomposition</title>

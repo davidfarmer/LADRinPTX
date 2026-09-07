@@ -394,7 +394,7 @@
         <p>
           The formula above becomes <m>P_{\!U} u = u</m> if <m>v = u</m> and becomes
           <m>P_{\!U} v = 0</m> if <m>v \in \{ u \}^\perp{}</m>.
-          These equations are special cases of (b) and (c) in the next result.\looseness=-1
+          These equations are special cases of (b) and (c) in the next result.
         </p>
       </statement>
     </example>

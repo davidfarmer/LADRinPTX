@@ -305,7 +305,7 @@
           (by <xref ref="x18"></xref>),
           which means that there exists a polynomial
           <m>p \in \P{}_m(\R{})</m> such that <m>\bigl((x^2 + 5x + 7)p\bigr)'' = q</m>,
-          as claimed in the title of this example.\looseness=-1
+          as claimed in the title of this example.
         </p>
       </statement>
     </example>

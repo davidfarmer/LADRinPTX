@@ -749,7 +749,7 @@
     </example>
     <p>
       <figure>
-        <caption>*{-.2in}In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
+        <caption>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
         <image source="Mathematica/TriangleInequality3.pdf">
           <description>Missing description</description>
         </image>
@@ -1176,7 +1176,7 @@
         <statement>
           <p>
             Prove or give a counterexample: If
-            <m>\lVert \Cdot \rVert</m> is the norm associated with an inner product on <m>\RR{2}</m>,
+            <m>\lVert \cdot \rVert</m> is the norm associated with an inner product on <m>\RR{2}</m>,
             then there exists <m>(x, y) \in \RR{2}</m> such that <m>\lVert (x, y) \rVert \ne \max\{|x|, |y|\}</m>.
           </p>
         </statement>
@@ -1229,7 +1229,7 @@
             <m>\alpha  \in \F{}</m> and all <m>u \in U</m>,
             and <m>\|u + v\| \le \|u\| + \|v\|</m> for all <m>u, v \in U</m>.
             Prove that a norm satisfying the parallelogram equality comes from an inner product \big(in other words,
-            show that if <m>\lVert \Cdot \rVert</m> is a norm on<nbsp/><m>U</m> satisfying the parallelogram equality,
+            show that if <m>\lVert \cdot \rVert</m> is a norm on<nbsp/><m>U</m> satisfying the parallelogram equality,
             then there is an inner product
             <m>\langle \cdot ,\cdot  \rangle</m> on <m>U</m> such that
             <m>\|u\| = \langle u,u \rangle ^{1/2}</m> for all <m>u \in U</m>\big).

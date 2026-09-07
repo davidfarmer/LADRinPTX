@@ -527,7 +527,7 @@
                 \begin{pmatrix}-3 \amp  9 \amp  0 \\ -7 \amp  9 \amp  6 \\ 4 \amp  0 \amp  -6 \end{pmatrix}
               </md>
               is nilpotent,
-              as can be shown by cubing the matrix above to get the zero matrix.\looseness=-1
+              as can be shown by cubing the matrix above to get the zero matrix.
             </p>
           </li>
           <li>
