@@ -523,11 +523,6 @@
       </statement>
     </example>
     <p>
-      Some mathematicians use the term <em>Hermitian</em>
-          <idx><h>Hermitian</h></idx>
-      instead of self-adjoint, honoring \end{aside}
-    </p>
-    <p>
       A good analogy to keep in mind is that the adjoint on <m>\Lc(V)</m> plays a role similar to that of the complex conjugate on<nbsp/><m>\C{}</m>.
       A complex number <m>z</m> is real if and only if <m>z = \bar{z}</m>;
       thus a self-adjoint operator (<m>T = T^*</m>) is analogous to a real number.

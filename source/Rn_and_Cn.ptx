@@ -229,18 +229,12 @@
       So that we can conveniently make definitions and prove theorems that apply to both real and complex numbers,
       we adopt the following notation.
     </p>
-    <p>
-      Throughout this book, \end{principle}
-    </p>
     <principle>
       <p>
-        Throughout this book,
-        <m>\F{}</m> stands for either <m>\R{}</m> or <m>\C{}</m>.
+            <idx><h sortby="F"><m>\F{}</m></h></idx>
+        Throughout this book, <m>\F{}</m> stands for either <m>\R{}</m> or <m>\C{}</m>.
       </p>
     </principle>
-    <p>
-          <idx><h sortby="F"><m>\F{}</m></h></idx>
-    </p>
     <aside>
       <p>
         The letter <m>\F{}</m> is used because <m>\R{}</m> and <m>\C{}</m> are examples of what are called <em>fields</em>.

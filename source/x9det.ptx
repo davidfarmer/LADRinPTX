@@ -961,11 +961,6 @@
       </p>
     </proof>
     <p>
-      Some textbooks define the characteristic polynomial of <m>T</m> to be <m>\det(T - z I)</m>,
-      which equals <m>(-1)^{\dim V}</m> times the characteristic polynomial as defined here.
-      The advantage of our definition is that the characteristic polynomial is then a monic polynomial. \end{aside}
-    </p>
-    <p>
       The Cayley<ndash/>Hamilton theorem <xref ref="x9CH"/> implies that the characteristic polynomial of an operator
       <m>T \in \Lc(V)</m> is a polynomial multiple of the minimal polynomial of <m>T</m>
       (by <xref ref="x140"></xref>).

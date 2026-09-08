@@ -297,10 +297,6 @@
     </statement>
   </definition>
   <p>
-    A zero of a polynomial is also called a <term>root</term>
-    of the polynomial. \end{aside}
-  </p>
-  <p>
     The next result is the key tool that we will use to show that the degree of a polynomial is unique.
   </p>
   <theorem xml:id="x460">
@@ -852,10 +848,7 @@
     </p>
     <p>
       To prove that <m>q</m> has real coefficients,
-      we solve the equation above for <m>q</m>,
-      getting Here we are not dividing by <m>0</m> because the zeros of
-      <m>x^2 - 2(\re \lambda)x + |\lambda|^2</m> are <m>\lambda</m> and <m>\bar{\lambda}</m>,
-      neither of which is real. \end{aside}
+      we solve the equation above for <m>q</m>, getting
       <md>
         q(x) = \frac{p(x)}{x^2 - 2(\re \lambda)x + |\lambda|^2}
       </md>

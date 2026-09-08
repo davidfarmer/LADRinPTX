@@ -389,10 +389,13 @@
         </ol>
       </statement>
     </definition>
-    <p>
-      The Greek word <em>isos</em> means equal;
-      the Greek word <em>morph</em> means \end{aside}
-    </p>
+    <aside>
+      <p>
+        The Greek word <em>isos</em> means equal;
+        the Greek word <em>morph</em> means shape.
+        Thus <em>isomorphic</em> literally means equal shape.
+      </p>
+    </aside>
     <p>
       Think of an isomorphism <m>T\colon V \to W</m> as relabeling <m>v \in V</m> as <m>Tv \in W{}</m>.
       This viewpoint explains why two isomorphic vector spaces have the same vector space properties.

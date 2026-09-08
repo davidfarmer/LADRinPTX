@@ -96,10 +96,6 @@
         </p>
       </statement>
     </theorem>
-    <p>
-      Take another look at the null spaces that were computed in <xref ref="null">Example</xref>
-      and note that all of them are subspaces. \end{aside}
-    </p>
     <proof>
       <p>
         Because <m>T</m> is a linear map, <m>T(0) = 0</m>
