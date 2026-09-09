@@ -1,0 +1,55 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="x0moon">
+  <title>About the Author</title>
+  <p>
+    Sheldon Axler received his undergraduate degree from Princeton University,
+    followed by a PhD in mathematics from the University of California at Berkeley.
+  </p>
+  <p>
+    As a postdoctoral Moore Instructor at MIT, Axler received a university-wide teaching award.
+    He was then an assistant professor,
+    associate professor, and professor at Michigan State University,
+    where he received the first J. Sutherland Frame Teaching Award and the Distinguished Faculty Award.
+  </p>
+  <p>
+    Axler received the Lester R. Ford Award for expository writing from the Mathematical Association of America in 1996,
+    for a paper that eventually expanded into this book.
+    In addition to publishing numerous research papers,
+    he is the author of six mathematics textbooks,
+    ranging from freshman to graduate level.
+    Previous editions of this book have been adopted as a textbook at over 375 universities and colleges and have been translated into three languages.
+  </p>
+  <p>
+    Axler has served as Editor-in-Chief of the <emph>Mathematical Intelligencer</emph> and Associate Editor of the <emph>American Mathematical Monthly</emph>.
+    He has been a member of the Council of the American Mathematical Society and of the Board of Trustees of the Mathematical Sciences Research Institute.
+    He has also served on the editorial board of Springer's series Undergraduate Texts in Mathematics, Graduate Texts in Mathematics, Universitext,
+    and Springer Monographs in Mathematics.
+  </p>
+  <p>
+    Axler is a Fellow of the American Mathematical Society and has been a recipient of numerous grants from the National Science Foundation.
+  </p>
+  <p>
+    Axler joined San Francisco State University as chair of the Mathematics Department in 1997.
+    He served as dean of the College of Science &amp; Engineering from 2002 to 2015,
+    when he returned to a regular faculty appointment as a professor in the Mathematics Department.
+  </p>
+  <p>
+    <image source="KhayamR.jpg">
+      <description>Missing description</description>
+      <credit>
+        Carrie Heeter, Bishnu Sarangi
+      </credit>
+    </image>
+    <blockquote>
+      <p>
+        <em>The author and his cat Moon.</em>
+      </p>
+    </blockquote>
+    <idx><h>Moon</h></idx>
+  </p>
+  <p>
+    <emph>Cover equation</emph>: Formula for the <m>n^\nth</m> Fibonacci number.
+    <xref ref="Fibonacci">Exercise</xref>
+    in <xref ref="diagmat">Section</xref>
+    uses linear algebra to derive this formula.
+  </p>
+</chapter>

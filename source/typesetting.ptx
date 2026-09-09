@@ -1,0 +1,104 @@
+<section xml:id="typesetting">
+  <title>Colophon: Notes<nbsp/>on<nbsp/>Typesetting</title>
+  <ol>
+    <li>
+      <p>
+        This book was typeset in Lua<latex/><nbsp/>by the author,
+        who wrote the <latex/><nbsp/>code to implement the book's design.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>software used for this book was written by Leslie Lamport.
+        The \TeX<nbsp/>software,
+        which forms the base for <latex/>, was written by Donald Knuth.
+      </p>
+    </li>
+    <li>
+      <p>
+        The main text font in this book is the Open Type Format version of \TeX<nbsp/>Gyre Termes,
+        a font based on Times,
+        which was designed by Stanley Morison and Victor Lardent for the British newspaper
+        <term>The Times</term> in 1931.
+      </p>
+    </li>
+    <li>
+      <p>
+        The main math font in this book is the Open Type Format version of \TeX<nbsp/>Gyre Pagella Math,
+        a font based on Palatino, which was designed by Hermann Zapf.
+      </p>
+    </li>
+    <li>
+      <p>
+        The sans serif font used for page headings and some other design elements is the Open Type Format version of \TeX<nbsp/>Gyre Heros,
+        a font based on Helvetica,
+        which was designed by Max Miedinger and Eduard Hoffmann.
+      </p>
+    </li>
+    <li>
+      <p>
+        The Lua<latex/><nbsp/>packages <em>fontspec</em>
+        and <em>unicode-math</em>,
+        both written by Will Robertson,
+        were used to manage fonts.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>fontsize</em>, written by Ivan Valbusa,
+        was used to gracefully change the main fonts to 10.5 point size.
+      </p>
+    </li>
+    <li>
+      <p>
+        The figures in the book were produced by <emph>Mathematica</emph>,
+        using <emph>Mathematica</emph> code written by the author.
+        <emph>Mathematica</emph> was created by Stephen Wolfram.
+        The <emph>Mathematica</emph> package <em>MaTeX</em>,
+        written by Szabolcs Horv&#xe1;t, was used to place <latex/>-generated labels in the <emph>Mathematica</emph> figures.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>graphicx</em>,
+        written by David Carlisle and Sebastian Rahtz,
+        was used to include photos and figures.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>multicol</em>,
+        written by Frank Mittelbach,
+        was used to get around <latex/>'s limitation that two-column format must start on a new page
+        (needed for the Symbol Index and the Index).
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>packages <em>Ti<emph>k</emph>Z</em>,
+        written by Till Tantau, and <em>tcolorbox</em>, written by Thomas Sturm,
+        were used to produce the definition boxes and result boxes.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>color</em>,
+        written by David Carlisle,
+        was used to add appropriate color to various design elements.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>wrapfig</em>,
+        written by Donald Arseneau, was used to wrap text around the comment boxes.
+      </p>
+    </li>
+    <li>
+      <p>
+        The <latex/><nbsp/>package <em>microtype</em>,
+        written by Robert Schlicht,
+        was used to reduce hyphenation and produce more pleasing right justification.
+      </p>
+    </li>
+  </ol>
+</section>

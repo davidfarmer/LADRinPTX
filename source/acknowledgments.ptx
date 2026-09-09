@@ -1,0 +1,49 @@
+<section xml:id="acknowledgments">
+  <title>Acknowledgments</title>
+  <p>
+    I owe a huge intellectual debt to all the mathematicians who created linear algebra over the past two centuries.
+    The results in this book belong to the common heritage of mathematics.
+    A special case of a theorem may first have been proved long ago,
+    then sharpened and improved by many mathematicians in different time periods.
+    Bestowing proper credit on all contributors would be a difficult task that I have not undertaken.
+    In no case should the reader assume that any result presented here represents my original contribution.
+  </p>
+  <p>
+    Many people helped make this a better book.
+    The three previous editions of this book were used as a textbook at over 375 universities and colleges around the world.
+    I received thousands of suggestions and comments from faculty and students who used the book.
+    Many of those suggestions led to improvements in this edition.
+    The manuscript for this fourth edition was class tested at 30 universities.
+    I am extremely grateful for the useful feedback that I received from faculty and students during this class testing.
+  </p>
+  <p>
+    The long list of people who should be thanked for their suggestions would fill up many pages.
+    Lists are boring to read.
+    Thus to represent all contributors to this edition, I will mention only Noel Hinton,
+    a graduate student at Australian National University,
+    who sent me more suggestions and corrections for this fourth edition than anyone else.
+    To everyone who contributed suggestions,
+    let me say how truly grateful I am to all of you.
+    Many many thanks!
+  </p>
+  <p>
+    I thank Springer for providing me with help when I needed it and for allowing me the freedom to make the final decisions about the content and appearance of this book.
+    Special thanks to the two terrific mathematics editors at Springer who worked with me on this project<mdash/>Loretta Bartolini during the first half of my work on the fourth edition,
+    and Elizabeth Loew during the second half of my work on the fourth edition.
+    I am deeply indebted to David Kramer,
+    who did a magnificent job of copyediting and prevented me from making many mistakes.
+  </p>
+  <p>
+    Extra special thanks to my fantastic partner Carrie Heeter.
+    Her understanding and encouragement enabled me to work intensely on this new edition.
+    Our wonderful cat Moon,
+    whose picture appears on the <emph>About the Author</emph> page,
+    provided sweet breaks throughout the writing process.
+    Moon died suddenly due to a blood clot as this book was being finished.
+    We are grateful for five precious years with him.
+        <idx><h>Moon</h></idx>
+  </p>
+  <p>
+    Sheldon Axler
+  </p>
+</section>

@@ -1,0 +1,27 @@
+<frontmatter xml:id="frontmatter" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Linear Algebra Done Right</title>
+
+    <bibinfo>
+
+        <author>
+            <personname>Sheldon Axler</personname>
+        </author>
+
+    <edition>
+
+    <p>4th Edition</p>
+    <p>
+      14 January 2026 <copyright/><nbsp/>2024 Sheldon Axler
+    </p>
+</edition>
+ <support>
+      Comments, corrections, and suggestions about this book are most welcome.
+      Please send them to <href>inear@axler.net</href>.
+ </support>
+</bibinfo>
+  <xi:include  href="author.ptx"/>
+  <xi:include  href="forStudents.ptx"/>
+  <xi:include  href="forInstructors.ptx"/>
+  <xi:include  href="acknowledgments.ptx"/>
+</frontmatter>

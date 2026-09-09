@@ -49,12 +49,8 @@
 </latex-image-preamble>
   </docinfo>
   <book>
-    <title>Title Goes Here</title>
-    <frontmatter>
-      <titlepage>
-      </titlepage>
-    </frontmatter>
-    <xi:include href="./chapter1.ptx"/>
+    <title>Linear algebra done right</title>
+    <xi:include href="./frontmatter.ptx"/>
     <xi:include href="./VectorSpaces.ptx"/>
     <xi:include href="./fin-dimVS.ptx"/>
     <xi:include href="./LinearMaps.ptx"/>
@@ -65,6 +61,7 @@
     <xi:include href="./operators_complex_vs.ptx"/>
     <xi:include href="./MultLATensors.ptx"/>
     <xi:include href="./backmatter.ptx"/>
+<!--
     <backmatter>
       <xi:include href="./bibliography.ptx"/>
       <index>
@@ -72,5 +69,6 @@
         <index-list/>
       </index>
     </backmatter>
+-->
   </book>
 </pretext>

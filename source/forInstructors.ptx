@@ -1,0 +1,351 @@
+<section xml:id="forInstructors">
+  <title>Preface for Instructors</title>
+  <p>
+    You are about to teach a course that will probably give students their second exposure to linear algebra.
+    During their first brush with the subject,
+    your students probably worked with Euclidean spaces and matrices.
+    In contrast,
+    this course will emphasize abstract vector spaces and linear maps.
+  </p>
+  <p>
+    The title of this book deserves an explanation.
+    Most linear algebra textbooks use determinants to prove that every linear operator on a finite-dimensional complex vector space has an eigenvalue.
+    Determinants are difficult,
+    nonintuitive, and often defined without motivation.
+    To prove the theorem about existence of eigenvalues on complex vector spaces,
+    most books must define determinants,
+    prove that a linear operator is not invertible if and only if its determinant equals<nbsp/><m>0</m>,
+    and then define the characteristic polynomial.
+    This tortuous (torturous?)<nbsp/>path gives students little feeling for why eigenvalues exist.
+  </p>
+  <p>
+    In contrast, the simple determinant-free proofs presented here
+    (for example, <xref ref="x151">see</xref>)
+    offer more insight.
+    Once determinants have been moved to the end of the book,
+    a new route opens to the main goal of linear algebra<mdash/>understanding the structure of linear operators.
+  </p>
+  <p>
+    This book starts at the beginning of the subject,
+    with no prerequisites other than the usual demand for suitable mathematical maturity.
+    A few examples and exercises involve calculus concepts such as continuity,
+    differentiation, and integration.
+    You can easily skip those examples and exercises if your students have not had calculus.
+    If your students have had calculus,
+    then those examples and exercises can enrich their experience by showing connections between different parts of mathematics.
+  </p>
+  <p>
+    Even if your students have already seen some of the material in the first few chapters,
+    they may be unaccustomed to working exercises of the type presented here,
+    most of which require an understanding of proofs.
+  </p>
+  <p>
+    Here is a chapter-by-chapter summary of the highlights of the book:
+    <ol>
+      <li>
+        <p>
+          <xref ref="VectorSpaces">Chapter</xref>: Vector spaces are defined in this chapter,
+          and their basic properties are developed.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="fin-dimVS">Chapter</xref>: Linear independence,
+          span, basis, and dimension are defined in this chapter,
+          which presents the basic theory of finite-dimensional vector spaces.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="LinearMaps">Chapter</xref>: This chapter introduces linear maps.
+          The key result here is the fundamental theorem of linear maps:
+          if <m>T</m> is a linear map on<nbsp/><m>V{}</m>,
+          then <m>\dim V = \dim \ker T + \dim \ran T{}</m>.
+          Quotient spaces and duality are topics in this chapter at a higher level of abstraction than most of the book;
+          these topics can be skipped
+          (except that duality is needed for tensor products in <xref ref="x9TensorSect">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="polynomials">Chapter</xref>: The part of the theory of polynomials that will be needed to understand linear operators is presented in this chapter.
+          This chapter contains no linear algebra.
+          It can be covered quickly,
+          especially if your students are already familiar with these results.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="eigs">Chapter</xref>: The idea of studying a linear operator by restricting it to small subspaces leads to eigenvectors in the early part of this chapter.
+          The highlight of this chapter is a simple proof that on complex vector spaces,
+          eigenvalues always exist.
+          This result is then used to show that each linear operator on a complex vector space has an upper-triangular matrix with respect to some basis.
+          The minimal polynomial plays an important role here and later in the book.
+          For example,
+          this chapter gives a characterization of the diagonalizable operators in terms of the minimal polynomial.
+          <xref ref="x2diagmat">Section</xref>
+          can be skipped if you want to save some time.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="InnerProductSpaces">Chapter</xref>: Inner product spaces are defined in this chapter,
+          and their basic properties are developed along with tools such as orthonormal bases and the Gram<ndash/>Schmidt procedure.
+          This chapter also shows how orthogonal projections can be used to solve certain minimization problems.
+          The pseudoinverse is then introduced as a useful tool when the inverse does not exist.
+          The material on the pseudoinverse can be skipped if you want to save some time.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="opsinner">Chapter</xref>: The spectral theorem,
+          which characterizes the linear operators for which there exists an orthonormal basis consisting of eigenvectors,
+          is one of the highlights of this book.
+          The work in earlier chapters pays off here with especially simple proofs.
+          This chapter also deals with positive operators,
+          isometries, unitary operators,
+          matrix factorizations, and especially the singular value decomposition,
+          which leads to the polar decomposition and norms of linear maps.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="operators_complex_vs">Chapter</xref>: This chapter shows that for each operator on a complex vector space,
+          there is a basis of the vector space consisting of generalized eigenvectors of the operator.
+          Then the generalized eigenspace decomposition describes a linear operator on a complex vector space.
+          The multiplicity of an eigenvalue is defined as the dimension of the corresponding generalized eigenspace.
+          These tools are used to prove that every invertible linear operator on a complex vector space has a square root.
+          Then the chapter gives a proof that every linear operator on a complex vector space can be put into Jordan form.
+          The chapter concludes with an investigation of the trace of operators.
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="MultLATensors">Chapter</xref>: This chapter begins by looking at bilinear forms and showing that the vector space of bilinear forms is the direct sum of the subspaces of symmetric bilinear forms and alternating bilinear forms.
+          Then quadratic forms are diagonalized.
+          Moving to multilinear forms,
+          the chapter shows that the subspace of alternating <m>n</m>-linear forms on an <m>n</m>-dimensional vector space has dimension one.
+          This result leads to a clean basis-free definition of the determinant of an operator.
+          For complex vector spaces,
+          the determinant turns out to equal the product of the eigenvalues,
+          with each eigenvalue included in the product as many times as its multiplicity.
+          The chapter concludes with an introduction to tensor products.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    This book usually develops linear algebra simultaneously for real and complex vector spaces by letting <m>\F{}</m> denote either the real or the complex numbers.
+    If you and your students prefer to think of <m>\F{}</m> as an arbitrary field,
+    then see the comments at the end of <xref ref="fields">Section</xref>.
+    I prefer avoiding arbitrary fields at this level because they introduce extra abstraction without leading to any new linear algebra.
+    Also, students are more comfortable thinking of polynomials as functions instead of the more formal objects needed for polynomials with coefficients in finite fields.
+    Finally, even if the beginning part of the theory were developed with arbitrary fields,
+    inner product spaces would push consideration back to just real and complex vector spaces.
+  </p>
+  <p>
+    You probably cannot cover everything in this book in one semester.
+    Going through all the material in the first seven or eight chapters during a one-semester course may require a rapid pace.
+    If you must reach <xref ref="MultLATensors">Chapter</xref>,
+    then consider skipping the material on quotient spaces in <xref ref="pq">Section</xref>,
+    skipping <xref ref="duals">Section</xref> on duality
+    (unless you intend to cover tensor products in <xref ref="x9TensorSect">Section</xref>),
+    covering <xref ref="polynomials">Chapter</xref>
+    on polynomials in a half hour,
+    skipping <xref ref="x2diagmat">Section</xref> on commuting operators,
+    and skipping the subsection in <xref ref="OrthoMin">Section</xref> on the pseudoinverse.
+  </p>
+  <p>
+    A goal more important than teaching any particular theorem is to develop in students the ability to understand and manipulate the objects of linear algebra.
+    Mathematics can be learned only by doing.
+    Fortunately, linear algebra has many good homework exercises.
+    When teaching this course,
+    during each class I usually assign as homework several of the exercises,
+    due the next class.
+    Going over the homework might take up significant time in a typical class.
+  </p>
+  <p>
+    Some of the exercises are intended to lead curious students into important topics beyond what might usually be included in a basic second course in linear algebra.
+  </p>
+  <p>
+    <em>The author's top ten</em>
+  </p>
+  <p>
+    Listed below are the author's ten favorite results in the book,
+    in order of their appearance in the book.
+    Students who leave your course with a good understanding of these crucial results will have an excellent foundation in linear algebra.
+    <ol>
+      <li>
+        <p>
+          any two bases of a vector space have the same length <xref ref="x3basislen"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          fundamental theorem of linear maps <xref ref="x3ab11"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          existence of eigenvalues if <m>\F{} = \C{}</m> <xref ref="x151"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          upper-triangular form always exists if <m>\F{} = \C{}</m> <xref ref="a226"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          Cauchy<ndash/>Schwarz inequality <xref ref="x177"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          Gram<ndash/>Schmidt procedure <xref ref="x186"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          spectral theorem ( <xref ref="x86"></xref> and <xref ref="x85"></xref>)
+        </p>
+      </li>
+      <li>
+        <p>
+          singular value decomposition <xref ref="x382"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          generalized eigenspace decomposition theorem when <m>\F{} = \C{}</m> <xref ref="x31"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          dimension of alternating <m>n</m>-linear forms on <m>V</m> is <m>1</m> if
+          <m>\dim V = n</m> <xref ref="x9dimone"/>
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    <em>Major improvements and additions for the fourth edition</em>
+    <ol>
+      <li>
+        <p>
+          Over 250 new exercises and over 70 new examples.
+        </p>
+      </li>
+      <li>
+        <p>
+          Increasing use of the minimal polynomial to provide cleaner proofs of multiple results,
+          including necessary and sufficient conditions for an operator to have an upper-triangular matrix with respect to some basis
+          (see <xref ref="x4utm">Section</xref>),
+          necessary and sufficient conditions for diagonalizability
+          (see <xref ref="diagmat">Section</xref>),
+          and the real spectral theorem
+          (see <xref ref="SpectralTheorem">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New section on commuting operators
+          (see <xref ref="x2diagmat">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New subsection on pseudoinverse
+          (see <xref ref="OrthoMin">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New subsections on QR factorization/Cholesky factorization
+          (see <xref ref="x3QR">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          Singular value decomposition now done for linear maps from an inner product space to another
+          (possibly different)
+          inner product space,
+          rather than only dealing with linear operators from an inner product space to itself
+          (see <xref ref="x2SVD">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          Polar decomposition now proved from singular value decomposition,
+          rather than in the opposite order;
+          this has led to cleaner proofs of both the singular value decomposition
+          (see <xref ref="x2SVD">Section</xref>)
+          and the polar decomposition
+          (see <xref ref="x9SVD">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New subsection on norms of linear maps on finite-dimensional inner product spaces,
+          using the singular value decomposition to avoid even mentioning supremum in the definition of the norm of a linear map
+          (see <xref ref="x9SVD">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New subsection on approximation by linear maps with lower-dimensional range
+          (see <xref ref="x9SVD">Section</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New elementary proof of the important result that if <m>T</m> is an operator on a finite-dimensional complex vector space <m>V{}</m>,
+          then there exists a basis of <m>V</m> consisting of generalized eigenvectors of <m>T</m>
+          (<xref ref="x28">see</xref>).
+        </p>
+      </li>
+      <li>
+        <p>
+          New <xref ref="MultLATensors">Chapter</xref>
+          on multilinear algebra, including bilinear forms,
+          quadratic forms, multilinear forms, and tensor products.
+          Determinants now are defined using a basis-free approach via alternating multilinear forms.
+        </p>
+      </li>
+      <li>
+        <p>
+          New formatting to improve the student-friendly appearance of the book.
+          For example,
+          the definition and result boxes now have rounded corners instead of right-angle corners,
+          for a gentler look.
+          The main font size has been reduced from 11 point to 10.5 point.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Please check the website below for additional links and information about the book.
+    Your suggestions, comments, and corrections are most welcome.
+  </p>
+  <p>
+    Best wishes for teaching a successful linear algebra class!
+  </p>
+  <aside>
+    <p>
+      Contact the author, or Springer if the author is not available,
+      for permission for translations or other commercial reuse of the contents of this book.
+    </p>
+  </aside>
+  <p>
+    Sheldon Axler
+  </p>
+  <p>
+    San Francisco State University
+  </p>
+  <p>
+    website: \url{https://linear.axler.net}
+  </p>
+  <p>
+    e-mail: \PClink{linear@axler.net}
+  </p>
+</section>

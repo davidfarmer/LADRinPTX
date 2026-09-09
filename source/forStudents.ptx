@@ -1,0 +1,63 @@
+<section xml:id="forStudents">
+  <title>Preface for Students</title>
+  <p>
+    You are probably about to begin your second exposure to linear algebra.
+    Unlike your first brush with the subject,
+    which probably emphasized Euclidean spaces and matrices,
+    this encounter will focus on abstract vector spaces and linear maps.
+    These terms will be defined later,
+    so don't worry if you do not know what they mean.
+    This book starts from the beginning of the subject,
+    assuming no knowledge of linear algebra.
+    The key point is that you are about to immerse yourself in serious mathematics,
+    with an emphasis on attaining a deep understanding of the definitions,
+    theorems,
+    and proofs.
+  </p>
+  <p>
+    You cannot read mathematics the way you read a novel.
+    If you zip through a page in less than an hour,
+    you are probably going too fast.
+    When you encounter the phrase
+    <q>as you should verify</q>, you should indeed do the verification,
+    which will usually require some writing on your part.
+    When steps are left out, you need to supply the missing pieces.
+    You should ponder and internalize each definition.
+    For each theorem,
+    you should seek examples to show why each hypothesis is necessary.
+    Discussions with other students should help.
+  </p>
+  <p>
+    As a visual aid, definitions and notations are in yellow boxes
+    (and have a title begining with the word
+    <q>{<em>definition</em>}</q>
+    or
+    <q>{<em>notation</em>}</q>
+    )
+    and theorems are in blue boxes
+    (in color versions of the book).
+    Each theorem has an informal descriptive name.
+  </p>
+  <p>
+    Please check the website below for additional information about the book,
+    including a link to videos that are freely available to accompany the book.
+  </p>
+  <p>
+    Your suggestions, comments, and corrections are most welcome.
+  </p>
+  <p>
+    Best wishes for success and enjoyment in learning linear algebra!
+  </p>
+  <p>
+    { Sheldon Axler
+  </p>
+  <p>
+    San Francisco State University
+  </p>
+  <p>
+    website: \url{https://linear.axler.net}
+  </p>
+  <p>
+    e-mail: \PClink{linear@axler.net} }
+  </p>
+</section>
