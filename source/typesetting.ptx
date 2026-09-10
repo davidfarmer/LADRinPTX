@@ -10,13 +10,13 @@
     <li>
       <p>
         The <latex/><nbsp/>software used for this book was written by Leslie Lamport.
-        The \TeX<nbsp/>software,
+        The <tex/><nbsp/>software,
         which forms the base for <latex/>, was written by Donald Knuth.
       </p>
     </li>
     <li>
       <p>
-        The main text font in this book is the Open Type Format version of \TeX<nbsp/>Gyre Termes,
+        The main text font in this book is the Open Type Format version of <tex/><nbsp/>Gyre Termes,
         a font based on Times,
         which was designed by Stanley Morison and Victor Lardent for the British newspaper
         <term>The Times</term> in 1931.
@@ -24,13 +24,13 @@
     </li>
     <li>
       <p>
-        The main math font in this book is the Open Type Format version of \TeX<nbsp/>Gyre Pagella Math,
+        The main math font in this book is the Open Type Format version of <tex/><nbsp/>Gyre Pagella Math,
         a font based on Palatino, which was designed by Hermann Zapf.
       </p>
     </li>
     <li>
       <p>
-        The sans serif font used for page headings and some other design elements is the Open Type Format version of \TeX<nbsp/>Gyre Heros,
+        The sans serif font used for page headings and some other design elements is the Open Type Format version of <tex/><nbsp/>Gyre Heros,
         a font based on Helvetica,
         which was designed by Max Miedinger and Eduard Hoffmann.
       </p>

@@ -2,7 +2,12 @@
   <title>Back matter</title>
   <xi:include  href="photocredits.ptx"/>
   <xi:include  href="typesetting.ptx"/>
+
+  <xi:include  href="webversion.ptx"/>
+
+<!--
       <xi:include href="./bibliography.ptx"/>
+-->
       <index>
         <title>Index</title>
         <index-list/>

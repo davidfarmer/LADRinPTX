@@ -227,7 +227,7 @@
           <li>
             <title>triangle inequality</title>
             <p>
-                <idx><h>triangle inequality</h></idx> *{2in}Mathematica/TriangleInequality.pdf <m>|w + z| \le |w| + |z|</m>.
+                <idx><h>triangle inequality</h></idx>TriangleInequality.png <m>|w + z| \le |w| + |z|</m>.
             </p>
           </li>
         </ol>

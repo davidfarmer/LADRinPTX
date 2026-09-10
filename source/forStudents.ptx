@@ -30,10 +30,9 @@
   <p>
     As a visual aid, definitions and notations are in yellow boxes
     (and have a title begining with the word
-    <q>{<em>definition</em>}</q>
+    <q><em>definition</em></q>
     or
-    <q>{<em>notation</em>}</q>
-    )
+    <q><em>notation</em></q>)
     and theorems are in blue boxes
     (in color versions of the book).
     Each theorem has an informal descriptive name.
@@ -48,6 +47,7 @@
   <p>
     Best wishes for success and enjoyment in learning linear algebra!
   </p>
+<!--
   <p>
     { Sheldon Axler
   </p>
@@ -60,4 +60,5 @@
   <p>
     e-mail: \PClink{linear@axler.net} }
   </p>
+-->
 </section>
