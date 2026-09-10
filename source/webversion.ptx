@@ -1,0 +1,10 @@
+<section xml:id="pretextplus">
+  <title>Colophon: The Web version</title>
+
+  <p>
+The online version of this book was prepared in
+<pretext/>, after a conversion of the LaTeX source with the assistance of
+<pretext/><nbsp/>Plus.
+</p>
+
+</section>

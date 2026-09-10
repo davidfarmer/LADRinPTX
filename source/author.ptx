@@ -33,7 +33,7 @@
     when he returned to a regular faculty appointment as a professor in the Mathematics Department.
   </p>
   <p>
-    <image source="KhayamR.jpg">
+    <image source="SheldonMoonGGBridge.png" width="80%">
       <description>Missing description</description>
       <credit>
         Carrie Heeter, Bishnu Sarangi
@@ -46,10 +46,12 @@
     </blockquote>
     <idx><h>Moon</h></idx>
   </p>
+<!--
   <p>
     <emph>Cover equation</emph>: Formula for the <m>n^\nth</m> Fibonacci number.
     <xref ref="Fibonacci">Exercise</xref>
     in <xref ref="diagmat">Section</xref>
     uses linear algebra to derive this formula.
   </p>
+-->
 </section>

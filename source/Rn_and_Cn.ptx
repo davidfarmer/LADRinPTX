@@ -549,7 +549,7 @@
     <p>
       <figure>
         <caption>Elements of <m>\R{2}</m> can be thought of as points or as vectors.</caption>
-        <image source="Mathematica/Axes.pdf">
+        <image source="Axes.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -567,7 +567,7 @@
     <p>
       <figure>
         <caption>A vector.</caption>
-        <image source="Mathematica/Vector.pdf">
+        <image source="Vector.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -614,7 +614,7 @@
     <p>
       <figure>
         <caption>The sum of two vectors.</caption>
-        <image source="Mathematica/TriangleInequality2.pdf">
+        <image source="TriangleInequality2.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -650,7 +650,7 @@
     <p>
       <figure>
         <caption>A vector and its additive inverse.</caption>
-        <image source="Mathematica/Minusx.pdf">
+        <image source="Minusx.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -706,7 +706,7 @@
     <p>
       <figure>
         <caption>Scalar multiplication.</caption>
-        <image source="Mathematica/PositiveMultiplication.pdf">
+        <image source="PositiveMultiplication.png">
           <description>Missing description</description>
         </image>
       </figure>

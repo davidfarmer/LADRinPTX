@@ -257,7 +257,7 @@
         <p>
           <figure>
             <caption><m>(17,20) + U</m> is parallel to the subspace <m>U</m>.</caption>
-            <image source="Mathematica/UPlus.pdf">
+            <image source="UPlus.png">
               <description>Missing description</description>
             </image>
           </figure>

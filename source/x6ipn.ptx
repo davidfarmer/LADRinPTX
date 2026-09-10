@@ -5,7 +5,7 @@
     <p>
       <figure>
         <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
-        <image source="Mathematica/Axes.pdf">
+        <image source="Axes.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -610,7 +610,7 @@
     <p>
       <figure>
         <caption>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</caption>
-        <image source="Mathematica/OrthogonalDecomposition.pdf">
+        <image source="OrthogonalDecomposition.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -750,7 +750,7 @@
     <p>
       <figure>
         <caption>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
-        <image source="Mathematica/TriangleInequality3.pdf">
+        <image source="TriangleInequality3.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -822,7 +822,7 @@
     <p>
       <figure>
         <caption>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</caption>
-        <image source="Mathematica/Parallelogram.pdf">
+        <image source="Parallelogram.png">
           <description>Missing description</description>
         </image>
       </figure>
@@ -1367,7 +1367,7 @@
             </md>
           </p>
           <p>
-            <image source="Mathematica/Apollonius.pdf">
+            <image source="Apollonius.png">
               <description>Missing description</description>
             </image>
           </p>

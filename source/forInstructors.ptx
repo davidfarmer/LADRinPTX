@@ -167,9 +167,9 @@
   <p>
     Some of the exercises are intended to lead curious students into important topics beyond what might usually be included in a basic second course in linear algebra.
   </p>
-  <p>
-    <em>The author's top ten</em>
-  </p>
+
+<paragraphs>
+    <title>The author's top ten</title>
   <p>
     Listed below are the author's ten favorite results in the book,
     in order of their appearance in the book.
@@ -228,8 +228,12 @@
       </li>
     </ol>
   </p>
+</paragraphs>
+
+
+<paragraphs>
+    <title>Major improvements and additions for the fourth edition</title>
   <p>
-    <em>Major improvements and additions for the fourth edition</em>
     <ol>
       <li>
         <p>
@@ -323,6 +327,8 @@
       </li>
     </ol>
   </p>
+</paragraphs>
+
   <p>
     Please check the website below for additional links and information about the book.
     Your suggestions, comments, and corrections are most welcome.
@@ -343,9 +349,11 @@
     San Francisco State University
   </p>
   <p>
-    website: \url{https://linear.axler.net}
+    <url href="https://linear.axler.net">The author's website: linear.axler.net</url>
   </p>
+<!--
   <p>
     e-mail: \PClink{linear@axler.net}
   </p>
+-->
 </section>

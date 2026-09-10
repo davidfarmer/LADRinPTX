@@ -355,7 +355,7 @@
       <statement>
         <aside>
           <p>
-            To produce <m>\oplus</m> in \TeX, type <c>\backslash oplus</c>.
+            To produce <m>\oplus</m> in <tex/>, type <c>\backslash oplus</c>.
           </p>
         </aside>
         <p>
