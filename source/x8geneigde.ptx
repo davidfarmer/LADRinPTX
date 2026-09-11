@@ -108,7 +108,7 @@
       as you can verify by showing that the square of the complex number above equals <m>z</m>.
     </p>
     <theorem xml:id="x397">
-      <title>over <m>\C</m>, invertible operators have square roots</title>
+      <title>over <m>\C{}</m>, invertible operators have square roots</title>
       <statement>
         <p>
           Suppose <m>V</m> is a complex vector space and <m>T \in \Lc(V)</m> is invertible.
@@ -212,8 +212,18 @@
           then <m>T^2 v_1, Tv_1, v_1, Tv_2, v_2, v_3</m> is a basis of <m>\CC{6}</m>.
           The matrix of <m>T</m> with respect to this basis is
           <md>
-            \begin{pmatrix}\begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix}  \amp  \begin{matrix}0 \amp  0 \\ 0 \amp  0 \\ 0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \\ 0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \amp  1 \\ 0 \amp  0 \end{pmatrix} \amp  \begin{matrix}0 \\ 0 \end{matrix} \begin{matrix}0 \amp  0 \amp  0 \end{matrix} \amp  \begin{matrix}0 \amp  0 \end{matrix} \amp  \begin{pmatrix}0 \end{pmatrix} \end{pmatrix} .
-          </md>
+            \begin{pmatrix}
+{\begin{pmatrix}0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \end{pmatrix}}  \amp  
+{\begin{matrix}0 \amp  0 \\ 0 \amp  0 \\ 0 \amp  0 \end{matrix}} \amp  
+{\begin{matrix}0 \\ 0 \\ 0 \end{matrix}} 
+{\begin{matrix}0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \end{matrix}} \amp  
+{\begin{pmatrix}0 \amp  1 \\ 0 \amp  0 \end{pmatrix}} \amp  
+{\begin{matrix}0 \\ 0 \end{matrix}} 
+{\begin{matrix}0 \amp  0 \amp  0 \end{matrix}} \amp  
+{\begin{matrix}0 \amp  0 \end{matrix}} \amp  
+{\begin{pmatrix}0 \end{pmatrix}} 
+\end{pmatrix} 
+          </md>.
         </p>
         <p>
           Here the inner matrices are blocked off to show that we can think of the <m>6</m>-by-<m>6</m> matrix above as a block diagonal matrix consisting of a <m>3</m>-by-<m>3</m> block with <m>1</m>'s on the line above the diagonal and <m>0</m>'s elsewhere,

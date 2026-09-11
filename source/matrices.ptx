@@ -697,18 +697,21 @@
       Similarly, the row rank of <m>A</m> is also at most <m>\min \{ m,n \}</m>.
     </p>
     <example xml:id="rowcolrank">
-      <title>column rank and row rank of a  $2$-by-$4$ matrix</title>
+      <title>column rank and row rank of a  2-by-4 matrix</title>
       <statement>
         <p>
           Suppose
           <md>
-            A = \begin{pmatrix}4 \amp  7 \amp  1 \amp  8 \\ 3 \amp  5 \amp  2 \amp  9 \end{pmatrix} .
-          </md>
+            A = \begin{pmatrix}4 \amp  7 \amp  1 \amp  8 \\ 3 \amp  5 \amp  2 \amp  9 \end{pmatrix} 
+          </md>.
         </p>
         <p>
           The column rank of <m>A</m> is the dimension of
           <md>
+            \Span \left( \begin{pmatrix}4 \\ 3 \end{pmatrix} , \begin{pmatrix}7 \\ 5 \end{pmatrix} , \begin{pmatrix}1 \\ 2 \end{pmatrix} , \begin{pmatrix}8 \\9 \end{pmatrix}  \right)
+<!--
             \Span \left( \rule{0bp}{18.5bp} \begin{pmatrix}4 \\ 3 \end{pmatrix} , \begin{pmatrix}7 \\ 5 \end{pmatrix} , \begin{pmatrix}1 \\ 2 \end{pmatrix} , \begin{pmatrix}8 \\9 \end{pmatrix}  \right)
+-->
           </md>
           in <m>\FF{2,1}</m>.
           Neither of the first two vectors listed above in <m>\F{2,1}</m> is a scalar multiple of the other.
@@ -995,19 +998,21 @@
           </p>
         </statement>
       </exercise>
+<exercise>
+<statement>
       <p>
-        \begin{exercise} Suppose <m>a = \begin{pmatrix}a_1 \amp  \cdots \amp  a_n \end{pmatrix}</m> is a <m>1</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
+        Suppose <m>a = \begin{pmatrix}a_1 \amp  \cdots \amp  a_n \end{pmatrix}</m> is a <m>1</m>-by-<m>n</m> matrix and <m>B</m> is an <m>n</m>-by-<m>p</m> matrix.
         Prove that
         <md>
-          aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}\ .
-        </md>
-      </p>
-      <p>
+          aB = a_1 B_{1, \cdot} + \dots + a_n B_{n, \cdot}
+        </md>.
         In other words,
         show that <m>aB</m> is a linear combination of the rows of <m>B</m>,
         with the scalars that multiply the rows coming from <m>a</m>.
         Note: This exercise gives the row version of <xref ref="x3combcol"></xref>.
       </p>
+</statement>
+</exercise>
       <exercise xml:id="noncommute">
         <statement>
           <p>

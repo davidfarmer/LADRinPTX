@@ -43,7 +43,7 @@
   </aside>
   <p>
     If <m>T</m> is an operator on <m>\F{n}</m> and no basis is specified,
-    assume that the basis in question is the standard one \big(where the <m>k^\nth</m> basis vector is <m>1</m> in the <m>k^\nth</m> slot and <m>0</m> in all other slots\big).
+    assume that the basis in question is the standard one (where the <m>k^\nth</m> basis vector is <m>1</m> in the <m>k^\nth</m> slot and <m>0</m> in all other slots).
     You can then think of the <m>k^\nth</m> column of <m>\M(T)</m> as <m>T</m> applied to the <m>k^\nth</m> basis vector,
     where we identify <m>n</m>-by-<m>1</m> column vectors with elements of <m>\FF n</m>.
   </p>
@@ -122,17 +122,15 @@
     <md>
       \begin{pmatrix}\lambda_1 \amp  \amp  * \\ \amp  \ddots \amp  \\ 0 \amp  \amp  \lambda_n \end{pmatrix} ;
     </md>
+    the <m>0</m> in the matrix above indicates that all entries below the diagonal in this <m>n</m>-by-<m>n</m> matrix equal<nbsp/><m>0</m>.
+    Upper-triangular matrices can be considered reasonably simple<mdash/>if <m>n</m> is large,
+    then at least almost half the entries in an <m>n</m>-by-<m>n</m> upper-triangular matrix are<nbsp/><m>0</m>.
   </p>
   <aside>
     <p>
       We often use <m>*</m> to denote matrix entries that we do not know or that are irrelevant to the questions being discussed.
     </p>
   </aside>
-  <p>
-    the <m>0</m> in the matrix above indicates that all entries below the diagonal in this <m>n</m>-by-<m>n</m> matrix equal<nbsp/><m>0</m>.
-    Upper-triangular matrices can be considered reasonably simple<mdash/>if <m>n</m> is large,
-    then at least almost half the entries in an <m>n</m>-by-<m>n</m> upper-triangular matrix are<nbsp/><m>0</m>.
-  </p>
   <p>
     The next result provides a useful connection between upper-triangular matrices and invariant subspaces.
   </p>

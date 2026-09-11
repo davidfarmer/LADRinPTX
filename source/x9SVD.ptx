@@ -688,13 +688,15 @@
           </figure>
         </sidebyside>
         <sidebyside>
+<figure>
           <image source="Ellipsoid3.png">
               <description>Missing description</description>
             </image>
-         <p>
+<caption>
           The ellipsoid  <m>E(4f_1, 3f_2, 2f_3)</m> in  <m>\R3</m>,
           where  <m>f_1, f_2, f_3</m> is the standard basis of  <m>\R3</m>.
-         </p>
+</caption>
+</figure>
         </sidebyside>
       </statement>
     </example>
@@ -1328,6 +1330,7 @@
       </exercise>
       <exercise>
         <statement>
+<p>
           <ol>
             <li>
               <p>
@@ -1343,6 +1346,7 @@
               </p>
             </li>
           </ol>
+</p>
           <p>
             Note: This exercise shows that the set of invertible operators in <m>\Lc(V)</m> is an open subset of <m>\Lc(V)</m>,
             using the metric defined in <xref ref="x7met">Exercise</xref>.

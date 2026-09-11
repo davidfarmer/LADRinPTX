@@ -535,7 +535,7 @@
       with the current definition then becoming a consequence of that definition.
     </p>
     <theorem xml:id="x9prodeig">
-      <title>if  <m>\F = \C</m>, then determinant equals product of eigenvalues</title>
+      <title>if  <m>\F{} = \C{}</m>, then determinant equals product of eigenvalues</title>
       <statement>
         <p>
           Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
@@ -861,7 +861,7 @@
       we now connect the determinant to a polynomial that we have previously seen.
     </p>
     <theorem xml:id="x9chareqdet">
-      <title>if  <m>\F = \C</m>, then characteristic polynomial of  <m>T</m> equals  <m>\det(z I - T)</m></title>
+      <title>if  <m>\F{} = \C{}</m>, then characteristic polynomial of  <m>T</m> equals  <m>\det(z I - T)</m></title>
       <statement>
         <p>
           Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
@@ -1456,7 +1456,7 @@
           they often failed to gain familiarity with their <emph>meaning</emph>,
           and skill in manipulation prevented the student from going into all the details of the subject and so gaining a mastery.
         </p>
-        <attribution><em>{Elementary Mathematics from an Advanced Standpoint: Geometry}, Felix Klein</em></attribution>
+        <attribution>Elementary Mathematics from an Advanced Standpoint: Geometry, Felix Klein</attribution>
       </blockquote>
     </p>
   </subsection>

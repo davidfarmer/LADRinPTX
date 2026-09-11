@@ -859,6 +859,7 @@
       </exercise>
       <exercise>
         <statement>
+<p>
           <ol>
             <li>
               <p>
@@ -876,6 +877,7 @@
               </p>
             </li>
           </ol>
+</p>
         </statement>
       </exercise>
       <exercise>
@@ -904,19 +906,17 @@
               \langle f, g \rangle  = \int_{-\pi}^{\pi} fg.
             </md>
           </p>
-          <p>
+        </statement>
             <hint>
               <p>
                 The following formulas should help.
-              </p>
-            </hint>
-            <md>
+                <md>
               <mrow>(\sin x)(\cos y) \amp = \frac{\sin(x-y) + \sin(x+y)}{2}</mrow>
               <mrow>(\sin x)(\sin y) \amp = \frac{\cos(x-y) - \cos(x+y)}{2}</mrow>
               <mrow>(\cos x)(\cos y) \amp = \frac{\cos(x-y) + \cos(x+y)}{2}</mrow>
-            </md>
-          </p>
-        </statement>
+                </md>
+              </p>
+            </hint>
       </exercise>
       <exercise>
         <statement>
