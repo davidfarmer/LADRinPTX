@@ -354,7 +354,7 @@
       </statement>
     </definition>
     <example>
-      <title>conjugate transpose of a  $2$-by-$3$ matrix</title>
+      <title>conjugate transpose of a  2-by-3 matrix</title>
       <statement>
         <aside>
           <p>
@@ -579,7 +579,7 @@
       even though <m>T \ne 0</m>.
     </p>
     <theorem xml:id="x51">
-      <title><m>Tv</m> is orthogonal to <m>v</m> for all <m>v \iff T =0</m>  (assuming  <m>\F = \C</m>)</title>
+      <title><m>Tv</m> is orthogonal to <m>v</m> for all <m>v \iff T =0</m>  (assuming  <m>\F{} = \C{}</m>)</title>
       <statement>
         <p>
           Suppose <m>V</m> is a complex inner product space and <m>T \in \Lc(V)</m>.
@@ -620,7 +620,7 @@
       as shown by considering any operator on a real inner product space that is not self-adjoint.
     </p>
     <theorem xml:id="x58">
-      <title><m>\langle Tv, v \rangle</m> is real for all  <m>v \iff T</m> is self-adjoint  (assuming  <m>\F = \C</m>)</title>
+      <title><m>\langle Tv, v \rangle</m> is real for all  <m>v \iff T</m> is self-adjoint  (assuming  <m>\F{} = \C{}</m>)</title>
       <statement>
         <p>
           Suppose <m>V</m> is a complex inner product space and <m>T \in \Lc(V)</m>.
@@ -1165,7 +1165,7 @@
       <exercise xml:id="skewadj">
         <statement>
           <p>
-            An operator <m>B \in \Lc(V)</m> is called <m>\knownterminology{skew}</m> if
+            An operator <m>B \in \Lc(V)</m> is called <term>skew</term> if
             <md>
               B^* = -B.
             </md>

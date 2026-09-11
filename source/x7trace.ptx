@@ -20,7 +20,7 @@
         <idx><h sortby="traceA"><m>\tr A</m></h></idx>
   </p>
   <example>
-    <title>trace of a $3$-by-$3$ matrix</title>
+    <title>trace of a <m>3</m>-by-<m>3</m> matrix</title>
     <statement>
       <p>
         Suppose

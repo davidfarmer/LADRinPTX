@@ -22,7 +22,7 @@
     As we will see,
     the fundamental theorem of algebra leads to a factorization of every polynomial into degree-one factors if the scalar field is <m>\C{}</m> or to factors of degree at most two if the scalar field is <m>\R{}</m>.
   </p>
-  <p>
+
     <paragraphs>
       <title>Assumptions for this chapter</title>
       <p>
@@ -31,9 +31,8 @@
         </ul>
       </p>
     </paragraphs>
-  </p>
-  <p>
-    <image source="KhayamR.jpg">
+
+    <image source="KhayamR.jpg" width="80%">
       <description>Missing description</description>
       <credit>
         Alireza Javaheri CC BY
@@ -42,12 +41,10 @@
     <blockquote>
       <p>
         <em>Statue of mathematician and poet Omar Khayyam (1048<ndash/>1131) , whose algebra book written in 1070 contained the first serious study of cubic polynomials.</em>
+        <idx><h>Khayyam, Omar</h></idx>
       </p>
     </blockquote>
-  </p>
-  <p>
-        <idx><h>Khayyam, Omar</h></idx>
-  </p>
+
   <p>
     Before discussing polynomials with complex or real coefficients,
     we need to learn a bit more about the complex numbers.
@@ -264,9 +261,9 @@
       Taking square roots now gives the desired inequality <m>|w + z| \le |w| + |z|</m>.
     </p>
   </proof>
-  <p>
-    \subsection{Zeros of Polynomials}
-  </p>
+
+    <paragraphs><title>Zeros of Polynomials</title>
+
   <p>
     Recall that a function <m>p \colon \F{} \to \F{}</m> is called a polynomial of degree <m>m</m> if there exist
     <m>a_0, \dots,
@@ -399,9 +396,11 @@
     For example, <m>-\infty \lt m</m> and
     <m>-\infty + m = -\infty</m> for every integer <m>m</m>.
   </p>
-  <p>
-    \subsection{Division Algorithm for Polynomials}
-  </p>
+</paragraphs>
+
+<paragraphs>
+    <title>Division Algorithm for Polynomials</title>
+
   <p>
     If <m>p</m> and <m>s</m> are nonnegative integers, with <m>s \ne 0</m>,
     then there exist nonnegative integers <m>q</m> and <m>r</m> such that
@@ -487,9 +486,11 @@
       b_{n-m} \in \F{}</m> <xref ref="x4unique">satisfying</xref>.
     </p>
   </proof>
-  <p>
-    \subsection{Factorization of Polynomials over <m>\C{}</m>}
-  </p>
+</paragraphs>
+
+<paragraphs>
+    <title>Factorization of Polynomials over <m>\C{}</m></title>
+
   <aside>
     <p>
       The fundamental theorem of algebra is an existence theorem.
@@ -672,9 +673,11 @@
       the <m>\lambda</m>'s are the same as the <m>\tau</m>'s, completing the proof of uniqueness.
     </p>
   </proof>
-  <p>
-    \subsection{Factorization of Polynomials over <m>\R{}</m>}
-  </p>
+</paragraphs>
+
+<paragraphs>
+    <title>Factorization of Polynomials over <m>\R{}</m></title>
+
   <aside>
     <p>
       The failure of the fundamental theorem of algebra for <m>\R{}</m> accounts for the differences between linear algebra on real and complex vector spaces,
@@ -809,7 +812,7 @@
     for these are the only real values of <m>x</m> for which the right side of the equation in the next result equals<nbsp/><m>0</m>.
   </p>
   <theorem xml:id="x158">
-    <title>factorization of a polynomial over <m>\R</m></title>
+    <title>factorization of a polynomial over <m>\R{}</m></title>
     <statement>
       <p>
         Suppose <m>p \in \P(\R{})</m> is a nonconstant polynomial.
@@ -879,6 +882,8 @@
       <xref ref="x4FTA2">contradicting</xref>.
     </p>
   </proof>
+</paragraphs>
+
   <exercises>
     <title>Exercises</title>
     <exercise>

@@ -18,7 +18,7 @@
       Now we can define <m>m</m>-linear forms as a generalization of the bilinear forms that we discussed in the previous section.
     </p>
     <definition xml:id="x9multiform">
-      <title>$m$-linear form, <m>V^{(m)}</m>, multilinear form</title>
+      <title><m>m</m>-linear form, <m>V^{(m)}</m>, multilinear form</title>
       <statement>
         <ol>
           <li>
@@ -68,7 +68,7 @@
       <m>V^{(m)}</m> is a vector space.
     </p>
     <example>
-      <title>$m$-linear forms</title>
+      <title><m>m</m>-linear forms</title>
       <statement>
         <ol>
           <li>
@@ -171,7 +171,7 @@
         then there are no alternating <m>m</m>-linear forms on <m>V</m> other than the function on <m>V^m</m> that is identically <m>0</m>.
       </p>
       <theorem>
-        <title>no nonzero alternating  $m$-linear forms for  <m>m > \dim V</m></title>
+        <title>no nonzero alternating  <m>m</m>-linear forms for  <m>m > \dim V</m></title>
         <statement>
           <p>
             Suppose <m>m > \dim V{}</m>.
@@ -417,7 +417,7 @@
       Our use of permutations now leads in a natural way to the following beautiful formula for alternating <m>n</m>-linear forms on an <m>n</m>-dimensional vector space.
     </p>
     <theorem xml:id="x11altform">
-      <title>formula for $(\dim V)$-linear alternating forms on  <m>V</m></title>
+      <title>formula for <m>(\dim V)</m>-linear alternating forms on  <m>V</m></title>
       <statement>
         <p>
           Let <m>n = \dim V{}</m>.
@@ -558,7 +558,7 @@
       that <m>\alpha</m> is not the function on <m>V^n</m> that is identically <m>0</m>.
     </p>
     <theorem xml:id="x9altli">
-      <title>alternating  $(\dim V)$-linear forms and linear independence</title>
+      <title>alternating  <m>(\dim V)</m>-linear forms and linear independence</title>
       <statement>
         <p>
           Let <m>n = \dim V{}</m>.

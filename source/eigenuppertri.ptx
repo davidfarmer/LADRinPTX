@@ -750,6 +750,7 @@
       </exercise>
       <exercise>
         <statement>
+<p>
           <ol>
             <li>
               <p>
@@ -764,15 +765,14 @@
               </p>
             </li>
           </ol>
-          <p>
+</p>
+        </statement>
             <hint>
               <p>
                 Show that if <m>S</m> is invertible and <m>p \in \P(\F{})</m>,
                 then <m>p(TS) = S^{-1} p(ST) S</m>.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise>
         <statement>

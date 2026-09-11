@@ -29,7 +29,7 @@
             (using the standard basis)
             is <m>\left(\begin{matrix}2 \amp -1\\-1 \amp 1 \end{matrix} \right)</m>.
             Then <m>T</m> is self-adjoint and
-            <m>\langle T(w, z), (w, z) \rangle = 2 \lvert w \rvert ^2 - 2\re( w\overline{z} ) + \lvert z \rvert ^2 \linebreak[2]= \lvert w-z \rvert ^2 + \lvert w \rvert ^2 \ge 0</m> for all <m>(w, z) \in \F2</m>.
+            <m>\langle T(w, z), (w, z) \rangle = 2 \lvert w \rvert ^2 - 2\re( w\overline{z} ) + \lvert z \rvert ^2 = \lvert w-z \rvert ^2 + \lvert w \rvert ^2 \ge 0</m> for all <m>(w, z) \in \F2</m>.
             Thus <m>T</m> is a positive operator.
           </p>
         </li>

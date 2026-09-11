@@ -24,7 +24,7 @@
     </p>
     <aside>
       <p>
-        To produce <m>\tensor</m> in <tex/>, type <c>\backslash otimes</c>.
+        To produce <m>\tensor</m> in <tex/>, type <c>\otimes</c>.
       </p>
     </aside>
     <p>
@@ -771,7 +771,7 @@
       The notation <m>\B(V{}_1, \ldots, V{}_m)</m> generalizes our previous notation <m>\B(V{}, W)</m>.
     </p>
     <definition>
-      <title>$m$-linear functional, the vector space <m>\B(V_1, \ldots, V_m)</m></title>
+      <title><m>m</m>-linear functional, the vector space <m>\B(V_1, \ldots, V_m)</m></title>
       <statement>
         <ol>
           <li>
@@ -793,7 +793,7 @@
       </statement>
     </definition>
     <example>
-      <title>$m$-linear functional</title>
+      <title><m>m</m>-linear functional</title>
       <statement>
         <p>
           Suppose <m>\phi_k \in {V{}_k}'</m> for each <m>k \in \{ 1, \ldots,
@@ -812,7 +812,7 @@
       The next result can be proved by imitating the proof of <xref ref="x9dimbi"></xref>.
     </p>
     <theorem>
-      <title>dimension of the vector space of $m$-linear functionals</title>
+      <title>dimension of the vector space of <m>m</m>-linear functionals</title>
       <statement>
         <p>
           <m>\dim \B(V{}_1, \ldots, V{}_m) = (\dim V{}_1) \times \cdots \times (\dim V{}_m)</m>.
@@ -904,7 +904,7 @@
       As with bilinear maps, the target space can be an arbitrary vector space.
     </p>
     <definition>
-      <title>$m$-linear map</title>
+      <title><m>m</m>-linear map</title>
       <statement>
         <p>
           An <m>m</m>-<term>linear map</term>
@@ -920,7 +920,7 @@
       The next result can be proved by following the pattern of the proof of <xref ref="x9bi2linear"></xref>.
     </p>
     <theorem>
-      <title>converting $m$-linear maps to linear maps</title>
+      <title>converting <m>m</m>-linear maps to linear maps</title>
       <statement>
         <p>
           Suppose <m>U</m> is a vector space.

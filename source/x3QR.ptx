@@ -677,7 +677,7 @@
       The next example illustrates the computation of the QR factorization based on the proof that we just completed.
     </p>
     <example>
-      <title>QR factorization of a $3$-by-$3$ matrix</title>
+      <title>QR factorization of a <m>3</m>-by-<m>3</m> matrix</title>
       <statement>
         <p>
           To find the QR factorization of the matrix
@@ -741,9 +741,7 @@
       Suppose that <m>b \in \F{n}</m> and we want to solve the equation <m>Ax = b</m> for <m>x = (x_1, \ldots,
       x_n) \in \F{n}</m>
       (as usual, we are identifying elements of <m>\F{n}</m> with
-      <md>
-        n$-by-$1
-      </md>
+      <m>n</m>-by-<m>1</m>
       column vectors).
     </p>
     <p>
@@ -935,6 +933,7 @@
       </exercise>
       <exercise>
         <statement>
+<p>
           <ol>
             <li>
               <p>
@@ -947,6 +946,7 @@
               </p>
             </li>
           </ol>
+</p>
           <p>
             Note: This exercise shows that the set of unitary operators on <m>V</m> is a group,
             where the group operation is the usual product of two operators.

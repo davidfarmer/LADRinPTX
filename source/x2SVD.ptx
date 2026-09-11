@@ -219,7 +219,7 @@
     </proof>
     <p>
       The table below compares eigenvalues with singular values.
-      <md>
+</p>
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -282,8 +282,6 @@
             <cell></cell>
           </row>
         </tabular>
-      </md>
-    </p>
     <p>
       The next result nicely characterizes isometries in terms of singular values.
     </p>
@@ -293,9 +291,11 @@
         <p>
           Suppose that <m>S \in \Lc(V{}, W)</m>.
           Then
-          <md>
-            \(S\) is an isometry \(\iff\) all singular values of \(S\) equal \(1\).
-          </md>
+          <blockquote>
+<p>
+            <m>S</m> is an isometry <m>\iff</m> all singular values of <m>S</m> equal <m>1</m>.
+</p>
+          </blockquote>
         </p>
       </statement>
     </theorem>
@@ -437,7 +437,8 @@
     <p>
       The table below compares the spectral theorem ( <xref ref="x86"></xref>
       and <xref ref="x85"></xref>) with the singular value decomposition <xref ref="x382"/>.
-      <md>
+    </p>
+
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -476,8 +477,6 @@
             <cell></cell>
           </row>
         </tabular>
-      </md>
-    </p>
     <p>
       The singular value decomposition gives us a new way to understand the adjoint and the inverse of a linear map.
       Specifically,
@@ -903,6 +902,7 @@
       </exercise>
       <exercise>
         <statement>
+<p>
           <ol>
             <li>
               <p>
@@ -916,6 +916,7 @@
               </p>
             </li>
           </ol>
+</p>
         </statement>
       </exercise>
       <exercise>
@@ -977,7 +978,7 @@
         <p>
           Order in chaos shines
         </p>
-        <attribution>written by ChatGPT with input <emph>haiku about SVD</emph></attribution>
+        <attribution>written by ChatGPT with input: <emph>haiku about SVD</emph></attribution>
       </blockquote>
     <idx><h>ChatGPT</h></idx>
     </p>
