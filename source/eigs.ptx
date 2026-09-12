@@ -19,7 +19,6 @@
       This result will allow us to show that for each operator on a finite-dimensional complex vector space,
       there is a basis of the vector space with respect to which the matrix of the operator has at least almost half its entries equal to <m>0</m>.
     </p>
-    <p>
       <paragraphs>
         <title>Assumptions for this chapter</title>
         <p>
@@ -31,8 +30,6 @@
           </ul>
         </p>
       </paragraphs>
-    </p>
-    <p>
       <image source="Fibonacci.png" width="80%">
         <description>Missing description</description>
         <credit>
@@ -50,7 +47,6 @@
           shows how linear algebra can be used to find the explicit formula for the Fibonacci sequence shown on the front cover.</em>
         </p>
       </blockquote>
-    </p>
   </introduction>
   <xi:include  href="x5invar.ptx"/>
   <xi:include  href="eigenuppertri.ptx"/>

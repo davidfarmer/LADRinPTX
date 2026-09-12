@@ -21,6 +21,7 @@
     <example>
       <title>linear functionals</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -56,6 +57,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -640,6 +642,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -675,6 +678,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       The next result can be useful because sometimes it is easier to verify that <m>T'</m> is injective than to show directly that <m>T</m> is surjective.
@@ -725,6 +729,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -764,6 +769,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       The next result should be compared to <xref ref="TsurTprimeinj"></xref>.
