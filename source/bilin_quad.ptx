@@ -157,11 +157,12 @@
           e_n</m> is a basis of <m>V{}</m>.
           The <term>matrix</term> of <m>\beta</m> with respect to this basis is the n n matrix
           <m>\M(\beta)</m> whose entry <m>\M(\beta)_{j,k}</m> in row <m>j</m>,
-          column <m>k</m> is given by<idx><h sortby="Mbeta"><m>\M(\beta)</m></h></idx>
-              <idx><h>matrix</h><h>of bilinear form</h></idx>
+          column <m>k</m> is given by
           <md>
-            \M(\beta)_{j,k} = \beta(e_j, e_k).
-          </md>
+            \M(\beta)_{j,k} = \beta(e_j, e_k)
+          </md>.
+<idx><h sortby="Mbeta"><m>\M(\beta)</m></h></idx>
+              <idx><h>matrix</h><h>of bilinear form</h></idx>
         </p>
         <p>
           If the basis <m>e_1, \ldots, e_n</m> is not clear from the context,
@@ -271,8 +272,8 @@
           e_n), (f_1, \ldots, f_n)\bigr)</m>.
           Then
           <md>
-            A = \tran{C} B C.
-          </md>
+            A = \tran{C} B C
+          </md>.
         </p>
       </statement>
     </theorem>
@@ -388,13 +389,11 @@
       <title>symmetric matrix</title>
       <statement>
         <p>
-          A square matrix <m>A</m> is called <emph>symmetric</emph> if it equals its transpose.
+          A square matrix <m>A</m> is called <em>symmetric</em> if it equals its transpose.
+          <idx><h>symmetric matrix</h></idx>
         </p>
       </statement>
     </definition>
-    <p>
-          <idx><h>symmetric matrix</h></idx>
-    </p>
     <p>
       An operator on <m>V</m> may have a symmetric matrix with respect to some but not all bases of <m>V{}</m>.
       In contrast,
@@ -715,12 +714,10 @@
           A function <m>\fun q V {\F{}}</m> is called a
           <term>quadratic form</term>
           on <m>V</m> if there exists a bilinear form <m>\beta</m> on <m>V</m> such that <m>q = q_\beta</m>.
+          <idx><h>quadratic form</h></idx>
         </p>
       </statement>
     </definition>
-    <p>
-          <idx><h>quadratic form</h></idx>
-    </p>
     <p>
       Note that if <m>\beta</m> is a bilinear form,
       then <m>q_\beta = 0</m> if and only if <m>\beta</m> is alternating.
@@ -789,7 +786,7 @@
     </proof>
     <p>
       Although quadratic forms are defined in terms of an arbitrary bilinear form,
-      the equivalence of (a) and (b) in the result below shows that a <emph>symmetric</emph> bilinear form can always be used.
+      the equivalence of (a) and (b) in the result below shows that a <em>symmetric</em> bilinear form can always be used.
     </p>
     <theorem xml:id="x11charquad">
       <title>characterizations of quadratic forms</title>
@@ -943,6 +940,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -975,6 +973,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <exercises>
       <title>Exercises</title>
