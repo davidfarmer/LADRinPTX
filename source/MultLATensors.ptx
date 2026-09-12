@@ -32,7 +32,6 @@
         </p>
       </paragraphs>
     </p>
-    <p>
       <image source="GottingenR.jpg" width="80%">
         <description>Missing description</description>
         <credit>
@@ -48,13 +47,10 @@
           . Noether was fired by the Nazi government in 1933.
           By then Noether and her collaborators had created many of the foundations of modern algebra,
           including an abstract algebra viewpoint that contributed to the development of linear algebra.</em>
-        </p>
-      </blockquote>
-    </p>
-    <p>
           <idx><h>Noether, Emmy</h></idx>
           <idx><h>University of G&#xf6;ttingen</h></idx>
-    </p>
+        </p>
+      </blockquote>
   </introduction>
   <xi:include  href="bilin_quad.ptx"/>
   <xi:include  href="alt_multi.ptx"/>

@@ -225,6 +225,7 @@
     <example>
       <title>addition and scalar multiplication of matrices</title>
       <statement>
+<p>
         <md>
           2 \begin{pmatrix}3 \amp  1 \\
           -1 \amp  5
@@ -242,6 +243,7 @@
           -1 \amp  16
           \end{pmatrix}
         </md>
+</p>
       </statement>
     </example>
     <p>
@@ -268,11 +270,13 @@
     </p>
     <principle xml:id="x3mnmatrices">
       <title><m>\F{m,n}</m></title>
+<statement>
       <p>
         For <m>m</m> and <m>n</m> positive integers,
         the set of all <m>m</m>-by-<m>n</m> matrices with entries in <m>\F{}</m> is denoted by <m>\FF{m,n}</m>.
             <idx><h sortby="Fmn"><m>\F{m,n}{}</m></h></idx>
       </p>
+</statement>
     </principle>
     <theorem xml:id="dimFmn">
       <title><m>\dim \F{m,n} = mn</m></title>
@@ -413,6 +417,7 @@
     </p>
     <principle xml:id="Ajk">
       <title><m>A_{j, \cdot}  </m>, <m>A_{\cdot, k}</m></title>
+<statement>
       <p>
             <idx><h sortby="Aj"><m>A_{j, \cdot}</m></h></idx>
             <idx><h sortby="Ak"><m>A_{\cdot, k}</m></h></idx>
@@ -433,6 +438,7 @@
           </li>
         </ol>
       </p>
+</statement>
     </principle>
     <example>
       <title><m>A_{j,\cdot}</m> equals  <m>j^\nth</m> row of  <m>A</m> and <m>A_{\cdot, k}</m> equals  <m>k^\nth</m> column of  <m>A</m></title>
