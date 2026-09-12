@@ -20,6 +20,7 @@
     <definition xml:id="x9multiform">
       <title><m>m</m>-linear form, <m>V^{(m)}</m>, multilinear form</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -51,6 +52,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>

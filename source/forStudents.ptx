@@ -1,4 +1,4 @@
-<section xml:id="forStudents">
+<preface xml:id="forStudents">
   <title>Preface for Students</title>
   <p>
     You are probably about to begin your second exposure to linear algebra.
@@ -61,4 +61,4 @@
     e-mail: \PClink{linear@axler.net} }
   </p>
 -->
-</section>
+</preface>

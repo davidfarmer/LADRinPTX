@@ -1,4 +1,4 @@
-<section xml:id="author">
+<preface xml:id="author">
   <title>About the Author</title>
   <p>
     Sheldon Axler received his undergraduate degree from Princeton University,
@@ -54,4 +54,4 @@
     uses linear algebra to derive this formula.
   </p>
 -->
-</section>
+</preface>
