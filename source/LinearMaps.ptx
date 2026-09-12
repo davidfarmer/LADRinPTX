@@ -25,7 +25,6 @@
       in addition to <m>V{}</m>.
       Thus our standing assumptions are now as follows.
     </p>
-    <p>
       <paragraphs>
         <title>Assumptions for this chapter</title>
         <p>
@@ -38,8 +37,6 @@
           </ul>
         </p>
       </paragraphs>
-    </p>
-    <p>
       <image source="Brunswick.jpg" width="80%">
         <description>Missing description</description>
         <credit>
@@ -52,13 +49,10 @@
           In 1809 Gauss published a method for solving systems of linear equations.
           This method, now called Gaussian elimination,
           was used in a Chinese book written over 1600 years earlier.</em>
-        </p>
-      </blockquote>
-    </p>
-    <p>
           <idx><h>Gaussian elimination</h></idx>
           <idx><h>Gauss, Carl Friedrich</h></idx>
-    </p>
+        </p>
+      </blockquote>
   </introduction>
   <xi:include  href="vslinear.ptx"/>
   <xi:include  href="x3nullspace.ptx"/>

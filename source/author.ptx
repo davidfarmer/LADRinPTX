@@ -19,7 +19,7 @@
     Previous editions of this book have been adopted as a textbook at over 375 universities and colleges and have been translated into three languages.
   </p>
   <p>
-    Axler has served as Editor-in-Chief of the <emph>Mathematical Intelligencer</emph> and Associate Editor of the <emph>American Mathematical Monthly</emph>.
+    Axler has served as Editor-in-Chief of the <em>Mathematical Intelligencer</em> and Associate Editor of the <em>American Mathematical Monthly</em>.
     He has been a member of the Council of the American Mathematical Society and of the Board of Trustees of the Mathematical Sciences Research Institute.
     He has also served on the editorial board of Springer's series Undergraduate Texts in Mathematics, Graduate Texts in Mathematics, Universitext,
     and Springer Monographs in Mathematics.
@@ -48,7 +48,7 @@
   </p>
 <!--
   <p>
-    <emph>Cover equation</emph>: Formula for the <m>n^\nth</m> Fibonacci number.
+    <em>Cover equation</em>: Formula for the <m>n^\nth</m> Fibonacci number.
     <xref ref="Fibonacci">Exercise</xref>
     in <xref ref="diagmat">Section</xref>
     uses linear algebra to derive this formula.
