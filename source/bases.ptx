@@ -18,6 +18,7 @@
   <example xml:id="ex_bases">
     <title>bases</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -64,6 +65,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </example>
   <p>
