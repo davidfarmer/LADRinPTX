@@ -14,10 +14,12 @@
     </p>
     <principle>
       <title>list of vectors</title>
+<statement>
       <p>
             <idx><h>list</h><h>of vectors</h></idx>
         We will usually write lists of vectors without surrounding parentheses.
       </p>
+</statement>
     </principle>
   </introduction>
   <subsection>
@@ -44,6 +46,7 @@
     <example>
       <title>linear combinations in  <m>\R{3}</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -73,6 +76,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <definition>
@@ -234,6 +238,7 @@
     <definition>
       <title>polynomial, <m>\P(\F)</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -253,6 +258,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -310,10 +316,12 @@
     </p>
     <principle>
       <title><m>\P_m(\F)</m></title>
+<statement>
       <p>
         For <m>m</m> a nonnegative integer,
         <m>\P{}_m(\F{})</m><idx><h sortby="PmF"><m>\P{}_m(\F{})</m></h></idx> denotes the set of all polynomials with coefficients in <m>\F{}</m> and degree at most <m>m</m>.
       </p>
+</statement>
     </principle>
     <p>
       If <m>m</m> is a nonnegative integer,
@@ -379,6 +387,7 @@
     <definition>
       <title>linearly independent</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -399,6 +408,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -411,6 +421,7 @@
     <example>
       <title>linearly independent lists</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -460,6 +471,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -469,6 +481,7 @@
     <definition>
       <title>linearly dependent</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -487,11 +500,13 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <example xml:id="linearlydep">
       <title>linearly dependent lists</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -523,6 +538,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -702,8 +718,8 @@
             </p>
           </li>
           <li>
-            <title>Step <emph>k</emph>,
-            for <emph>k</emph> = 2, \ldots, <emph>m</emph></title>
+            <title>Step <m>k</m>,
+            for <m>k = 2, \ldots, m</m></title>
             <p>
               The list <m>B</m>
               (of length <m>n</m>)
@@ -801,7 +817,7 @@
             </p>
           </li>
           <li>
-            <title>Step <emph>k</emph></title>
+            <title>Step <m>k</m></title>
             <p>
               If <m>U = \Span(u_1, \dots, u_{k-1})</m>,
               then <m>U</m> is finite-dimensional and we are done.

@@ -14,6 +14,7 @@
     <definition>
       <title>complex numbers, <m>\symbf{C}</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -46,6 +47,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -95,6 +97,7 @@
     <theorem xml:id="complexarith">
       <title>properties of complex arithmetic</title>
       <statement>
+<p>
         <ol>
           <li>
             <title>commutativity</title>
@@ -142,6 +145,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <p>
@@ -250,8 +254,7 @@
       The word
       <q>scalar</q>
       (which is just a fancy word for
-      <q>number</q>
-      ) is often used when we want to emphasize that an object is a number,
+      <q>number</q>) is often used when we want to emphasize that an object is a number,
       as opposed to a vector
       (vectors will be defined soon).
     </p>
@@ -279,6 +282,7 @@
     <example>
       <title><m>\R{2}</m> and  <m>\R{3}</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -299,6 +303,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -308,6 +313,7 @@
     <definition>
       <title>list, length</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -327,6 +333,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <aside>
@@ -366,6 +373,7 @@
     <example>
       <title>lists versus sets</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -382,6 +390,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
   </subsection>
@@ -395,9 +404,11 @@
     </p>
     <principle>
       <title><m>n</m></title>
+<statement>
       <p>
         Fix a positive integer <m>n</m> for the rest of this chapter.
       </p>
+</statement>
     </principle>
     <definition>
       <title><m>\F{n}</m>, coordinate</title>
@@ -427,8 +438,8 @@
         <p>
           <m>\C{4}</m> is the set of all lists of four complex numbers:
           <md>
-            \C{4} = \{  (z_1, z_2, z_3, z_4) : z_1, z_2, z_3, z_4 \in \C{}  \}.
-          </md>
+            \C{4} = \{  (z_1, z_2, z_3, z_4) : z_1, z_2, z_3, z_4 \in \C{}  \}
+          </md>.
         </p>
       </statement>
     </example>
@@ -439,7 +450,7 @@
         This novel, published in 1884,
         may help you imagine a physical space of four or more dimensions.
             <idx><h>Abbott, Edwin A.</h></idx>
-            <idx><h sortby="Flatland"><emph>Flatland</emph></h></idx>
+            <idx><h sortby="Flatland"><em>Flatland</em></h></idx>
       </p>
     </aside>
     <p>
@@ -515,12 +526,14 @@
     </p>
     <principle xml:id="x0vector">
       <title><m>0</m></title>
+<statement>
       <p>
         Let <m>0</m> denote the list of length <m>n</m> whose coordinates are all <m>0</m>:
         <md>
           0 = (0, \dots, 0).
         </md>
       </p>
+</statement>
     </principle>
     <p>
       Here we are using the symbol <m>0</m> in two different ways<mdash/>on the left side of the equation above,
@@ -546,14 +559,12 @@
         </p>
       </statement>
     </example>
-    <p>
       <figure>
         <caption>Elements of <m>\R{2}</m> can be thought of as points or as vectors.</caption>
         <image source="Axes.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       A picture can aid our intuition.
       We will draw pictures in<nbsp/><m>\R{2}</m> because we can sketch this space on two-dimensional surfaces such as paper and computer screens.
@@ -564,14 +575,12 @@
       we refer to it as a <term>vector</term>.
           <idx><h>vector</h></idx>
     </p>
-    <p>
       <figure>
         <caption>A vector.</caption>
         <image source="Vector.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       When we think of vectors in <m>\R{2}</m> as arrows,
       we can move an arrow parallel to itself
@@ -611,14 +620,12 @@
       As we will now see,
       addition has a simple geometric interpretation in the special case of<nbsp/><m>\RR{2}</m>.
     </p>
-    <p>
       <figure>
         <caption>The sum of two vectors.</caption>
         <image source="TriangleInequality2.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       Suppose we have two vectors <m>u</m> and <m>v</m> in <m>\R{2}</m> that we want to add.
       Move the vector <m>v</m> parallel to itself so that its initial point coincides with the end point of the vector<nbsp/><m>u</m>,
@@ -647,14 +654,12 @@
         </p>
       </statement>
     </definition>
-    <p>
       <figure>
         <caption>A vector and its additive inverse.</caption>
         <image source="Minusx.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       The additive inverse of a vector in <m>\R 2</m> is the vector with the same length but pointing in the opposite direction.
       The figure here illustrates this way of thinking about the additive inverse in <m>\RR{2}</m>.
@@ -703,14 +708,12 @@
       we shrink or stretch <m>x</m> by a factor of <m>\lambda</m>,
       depending on whether <m>\lambda \lt 1</m> or <m>\lambda > 1</m>.
     </p>
-    <p>
       <figure>
         <caption>Scalar multiplication.</caption>
         <image source="PositiveMultiplication.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       If <m>\lambda\lt 0</m> and <m>x \in \RR{2}</m>,
       then <m>\lambda x</m> is the vector that points in the direction opposite to that of <m>x</m> and whose length is
@@ -873,7 +876,6 @@
         </statement>
       </exercise>
     </exercises>
-    <p>
       <blockquote>
         <p>
           <q>Can you do addition?</q>
@@ -884,12 +886,10 @@
           <q>I don't know,</q>
           said Alice.
           <q>I lost count.</q>
-        </p>
-        <attribution><em>Through the Looking Glass, Lewis Carroll
     <idx><h>Carroll, Lewis</h></idx>
-    <idx><h sortby="Through the Looking"><emph>Through the Looking Glass</emph></h></idx>
-        </em></attribution>
+    <idx><h sortby="Through the Looking">Through the Looking Glass</h></idx>
+        </p>
+        <attribution>Through the Looking Glass, Lewis Carroll</attribution>
       </blockquote>
-    </p>
   </subsection>
 </section>

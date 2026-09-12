@@ -37,6 +37,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -90,6 +91,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       The eigenvalues of an operator tell us something about the behavior of the operator.
@@ -291,12 +293,12 @@
         <p>
           Suppose that <m>S \in \Lc(V{}, W)</m>.
           Then
+</p>
           <blockquote>
 <p>
             <m>S</m> is an isometry <m>\iff</m> all singular values of <m>S</m> equal <m>1</m>.
 </p>
           </blockquote>
-        </p>
       </statement>
     </theorem>
     <proof>
@@ -967,7 +969,6 @@
         </statement>
       </exercise>
     </exercises>
-    <p>
       <blockquote>
         <p>
           Matrices unfold
@@ -978,9 +979,8 @@
         <p>
           Order in chaos shines
         </p>
+    <idx><h>ChatGPT</h></idx>
         <attribution>written by ChatGPT with input: <emph>haiku about SVD</emph></attribution>
       </blockquote>
-    <idx><h>ChatGPT</h></idx>
-    </p>
   </subsection>
 </section>

@@ -32,11 +32,12 @@
         </p>
       </paragraphs>
       <figure>
-        <caption>The main building of the Institute for Advanced Study, in Princeton, New Jersey. Paul Halmos (1916<ndash/>2006) wrote the first modern linear algebra book in this building. Halmos's linear algebra book was published in 1942 (second edition published in 1958) . The title of Halmos's book was the same as the title of this chapter.</caption>
-        <image source="FuldHall.jpg" width="80%">
-          <description>Missing description</description>
+        <caption>The main building of the Institute for Advanced Study, in Princeton, New Jersey. Paul Halmos (1916<ndash/>2006) wrote the first modern linear algebra book in this building. Halmos's linear algebra book was published in 1942 (second edition published in 1958) . The title of Halmos's book was the same as the title of this chapter.
           <idx><h>Halmos, Paul</h></idx>
           <idx><h>Institute for Advanced Study</h></idx>
+</caption>
+        <image source="FuldHall.jpg" width="80%">
+          <description>Missing description</description>
         </image>
       </figure>
   </introduction>

@@ -93,6 +93,7 @@
     <example xml:id="subspaces">
       <title>subspaces</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -125,6 +126,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <aside>
@@ -793,14 +795,14 @@
               V = V{}_1 \oplus U \andd V = V{}_2 \oplus U,
             </md>
             then <m>V{}_1 = V{}_2</m>.
+          </p>
+        </statement>
             <hint>
               <p>
                 When trying to discover whether a conjecture in linear algebra is true or false,
                 it is often useful to start by experimenting in <m>\FF2</m>.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise>
         <statement>

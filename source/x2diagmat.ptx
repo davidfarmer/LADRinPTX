@@ -3,6 +3,7 @@
   <definition>
     <title>commute</title>
     <statement>
+<p>
       <ol>
         <idx><h>commuting operators|(</h></idx>
         <li>
@@ -18,6 +19,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </definition>
   <p>

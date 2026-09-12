@@ -8,7 +8,7 @@
       (<xref ref="x427">see</xref>).
     </p>
     <p>
-      The nicest operators on<nbsp/><m>V</m> are those for which there is an <emph>orthonormal</emph> basis of<nbsp/><m>V</m> with respect to which the operator has a diagonal matrix.
+      The nicest operators on<nbsp/><m>V</m> are those for which there is an <em>orthonormal</em> basis of<nbsp/><m>V</m> with respect to which the operator has a diagonal matrix.
       These are precisely the operators
       <m>T \in \Lc(V)</m> such that there is an orthonormal basis of <m>V</m> consisting of eigenvectors of<nbsp/><m>T{}</m>.
       Our goal in this section is to prove the spectral theorem,
@@ -18,7 +18,7 @@
     <p>
       The spectral theorem is probably the most useful tool in the study of operators on inner product spaces.
       Its extension to certain infinite-dimensional inner product spaces (see,
-      for example, Section 10D of the author's book <emph>Measure, Integration &amp; Real Analysis</emph>) plays a key role in functional analysis.
+      for example, Section 10D of the author's book <em>Measure, Integration &amp; Real Analysis</em>) plays a key role in functional analysis.
     </p>
     <p>
       Because the conclusion of the spectral theorem depends on<nbsp/><m>\F{}{}</m>,

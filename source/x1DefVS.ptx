@@ -14,6 +14,7 @@
   <definition>
     <title>addition, scalar multiplication</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -31,6 +32,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </definition>
   <p>
@@ -119,6 +121,7 @@
   <definition>
     <title>real vector space, complex vector space</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -135,6 +138,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </definition>
   <p>
@@ -182,6 +186,8 @@
   </p>
   <principle>
     <title><m>\F{S}</m></title>
+<statement>
+<p>
     <ol>
       <li>
         <p>
@@ -210,6 +216,8 @@
         </p>
       </li>
     </ol>
+</p>
+</statement>
   </principle>
   <p>
         <idx><h sortby="FS"><m>\F{S}{}</m></h></idx>
@@ -225,6 +233,7 @@
   <example>
     <title><m>\F{S}</m> is a vector space</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -253,6 +262,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </example>
   <aside>
@@ -339,6 +349,7 @@
   </p>
   <principle>
     <title><m>-v</m>, <m>w - v</m></title>
+<statement>
     <p>
       Let <m>v, w \in V{}</m>.
       Then
@@ -356,6 +367,7 @@
         </li>
       </ol>
     </p>
+</statement>
   </principle>
   <p>
     Almost all results in this book involve some vector space.
