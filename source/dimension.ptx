@@ -43,6 +43,7 @@
   <definition>
     <title>dimension, <m>\dim V</m></title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -58,11 +59,13 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </definition>
   <example>
     <title>dimensions</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -91,6 +94,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </example>
   <p>
@@ -372,7 +376,7 @@
     (in the context of sets)
     and sums of subspaces
     (in the context of vector spaces).
-    <md>
+</p>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -443,8 +447,6 @@
           <cell></cell>
         </row>
       </tabular>
-    </md>
-  </p>
   <p>
     The last row above focuses on the analogy between disjoint unions
     (for sets)
@@ -764,7 +766,6 @@
       </statement>
     </exercise>
   </exercises>
-  <p>
     <blockquote>
       <p>
         I at once gave up my former occupations,
@@ -773,9 +774,8 @@
         In this mood I betook myself to the mathematics and the branches of study appertaining to that science as being built upon secure foundations,
         and so worthy of my consideration.
       </p>
-      <attribution><em>Frankenstein, Mary Wollstonecraft Shelley<idx><h sortby="Frankenstein"><emph>Frankenstein</emph></h></idx>
+      <attribution><em>Frankenstein, Mary Wollstonecraft Shelley<idx><h sortby="Frankenstein"><em>Frankenstein</em></h></idx>
       </em><idx><h>Shelley, Mary Wollstonecraft</h></idx>
       </attribution>
     </blockquote>
-  </p>
 </section>

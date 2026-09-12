@@ -15,15 +15,15 @@
     <example xml:id="diagmatex">
       <title>diagonal matrix</title>
       <statement>
+<p>
         <md>
           \begin{pmatrix}8 \amp  0 \amp  0\\
           0 \amp  5 \amp  0\\
           0 \amp  0 \amp  5
           \end{pmatrix}
         </md>
-        <p>
           is a diagonal matrix.
-        </p>
+</p>
       </statement>
     </example>
     <aside>
@@ -430,7 +430,7 @@
     <p>
       Our next <xref ref="x500">result</xref>
       states that an operator <m>T \in \Lc(V)</m> has a diagonal matrix with respect to some basis of <m>V</m> if and only if the minimal polynomial of <m>T</m> equals
-      <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some <emph><em>distinct</em></emph> <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
+      <m>(z-\lambda_1) \cdots (z-\lambda_m)</m> for some <em><em>distinct</em></em> <m>\lambda_1, \ldots, \lambda_m \in \F{}{}</m>.
       Before formally stating this result,
       we give two examples of using it.
     </p>
