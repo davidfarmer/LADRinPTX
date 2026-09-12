@@ -243,6 +243,7 @@
     </p>
     <principle xml:id="x2vU">
       <title><m>v + U</m></title>
+<statement>
       <p>
         Suppose <m>v \in V</m> and <m>U \subset V{}</m>.
         Then <m>v + U</m> is the subset of <m>V</m> defined by<idx><h sortby="vU"><m>v + U</m></h></idx>
@@ -250,18 +251,17 @@
           v + U = \{ v + u: u \in U\}.
         </md>
       </p>
+</statement>
     </principle>
     <example xml:id="U1720">
       <title>sum of a vector and a one-dimensional subspace of  <m>\R2</m></title>
       <statement>
-        <p>
           <figure>
             <caption><m>(17,20) + U</m> is parallel to the subspace <m>U</m>.</caption>
             <image source="UPlus.png">
               <description>Missing description</description>
             </image>
           </figure>
-        </p>
         <p>
           Suppose
           <md>
@@ -301,6 +301,7 @@
     <example>
       <title>translates</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -332,6 +333,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <definition>
@@ -353,6 +355,7 @@
     <example>
       <title>quotient spaces</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -374,6 +377,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -563,6 +567,7 @@
     </p>
     <principle>
       <title><m>\tilde{T}</m></title>
+<statement>
       <p>
             <idx><h sortby="T"><m>\protect\tilde{T}</m></h></idx>
         Suppose <m>T \in \Lc(V{}, W)</m>.
@@ -571,6 +576,7 @@
           \tilde{T}(v + \ker T) = Tv.
         </md>
       </p>
+</statement>
     </principle>
     <p>
       To show that the definition of <m>\tilde{T}</m> makes sense, suppose
@@ -622,6 +628,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -655,6 +662,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <exercises>
       <title>Exercises</title>

@@ -23,7 +23,6 @@
       The Gram<ndash/>Schmidt procedure constructs such bases.
       This chapter will conclude by putting together these tools to solve minimization problems.
     </p>
-    <p>
       <paragraphs>
         <title>Assumptions for this chapter</title>
         <p>
@@ -35,8 +34,6 @@
           </ul>
         </p>
       </paragraphs>
-    </p>
-    <p>
       <image source="PeabodyR.png" width="80%">
         <description>Missing description</description>
         <credit>
@@ -50,13 +47,10 @@
           opened while James Sylvester (1814<ndash/>1897) was the university's first mathematics professor.
           Sylvester's publications include the first use of the word
           <em>matrix</em> in mathematics.</em>
-        </p>
-      </blockquote>
-    </p>
-    <p>
           <idx><h>Sylvester, James</h></idx>
           <idx><h>Peabody Library</h></idx>
-    </p>
+        </p>
+      </blockquote>
   </introduction>
   <xi:include  href="x6ipn.ptx"/>
   <xi:include  href="orthobases.ptx"/>
