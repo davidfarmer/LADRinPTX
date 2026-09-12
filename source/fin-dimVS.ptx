@@ -20,7 +20,6 @@
     <p>
       This chapter ends with a formula for the dimension of the sum of two subspaces.
     </p>
-    <p>
       <paragraphs>
         <title>Assumptions for this chapter</title>
         <p>
@@ -32,19 +31,14 @@
           </ul>
         </p>
       </paragraphs>
-    </p>
-    <p>
       <figure>
         <caption>The main building of the Institute for Advanced Study, in Princeton, New Jersey. Paul Halmos (1916<ndash/>2006) wrote the first modern linear algebra book in this building. Halmos's linear algebra book was published in 1942 (second edition published in 1958) . The title of Halmos's book was the same as the title of this chapter.</caption>
         <image source="FuldHall.jpg" width="80%">
           <description>Missing description</description>
-        </image>
-      </figure>
-    </p>
-    <p>
           <idx><h>Halmos, Paul</h></idx>
           <idx><h>Institute for Advanced Study</h></idx>
-    </p>
+        </image>
+      </figure>
   </introduction>
   <xi:include  href="x2spli.ptx"/>
   <xi:include  href="bases.ptx"/>

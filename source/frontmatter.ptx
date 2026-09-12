@@ -16,8 +16,10 @@
     </p>
 </edition>
  <support>
+<p>
       Comments, corrections, and suggestions about this book are most welcome.
       Please send them to <href>inear@axler.net</href>.
+</p>
  </support>
 </bibinfo>
   <xi:include  href="author.ptx"/>

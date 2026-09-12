@@ -509,6 +509,7 @@
     <example xml:id="x8nil">
       <title>nilpotent operators</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -541,6 +542,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <aside>
@@ -598,6 +600,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -628,6 +631,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       <xref ref="Nil1">Exercise</xref> shows that the hypothesis that
@@ -751,15 +755,13 @@
               \dim \ker T^m \le m \dim \ker T.
             </md>
           </p>
-          <p>
+        </statement>
             <hint>
               <p>
                 <xref ref="x3diminv">Exercise</xref>
                 in <xref ref="x3nullspace">Section</xref> may be useful.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise xml:id="range1">
         <statement>
