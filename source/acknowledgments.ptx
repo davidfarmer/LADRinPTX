@@ -1,4 +1,4 @@
-<section xml:id="acknowledgments">
+<acknowledgement xml:id="acknowledgments">
   <title>Acknowledgments</title>
   <p>
     I owe a huge intellectual debt to all the mathematicians who created linear algebra over the past two centuries.
@@ -46,4 +46,4 @@
   <p>
     Sheldon Axler
   </p>
-</section>
+</acknowledgement>

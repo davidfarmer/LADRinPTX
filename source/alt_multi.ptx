@@ -70,6 +70,7 @@
     <example>
       <title><m>m</m>-linear forms</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -91,6 +92,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -170,6 +172,7 @@
         The next result states that if <m>m > \dim V{}</m>,
         then there are no alternating <m>m</m>-linear forms on <m>V</m> other than the function on <m>V^m</m> that is identically <m>0</m>.
       </p>
+    </proof>
       <theorem>
         <title>no nonzero alternating  <m>m</m>-linear forms for  <m>m > \dim V</m></title>
         <statement>
@@ -179,8 +182,9 @@
           </p>
         </statement>
       </theorem>
+<proof>
       <p>
-        \proof Suppose that <m>\alpha</m> is an alternating <m>m</m>-linear form on <m>V</m> and <m>v_1, \ldots,
+        Suppose that <m>\alpha</m> is an alternating <m>m</m>-linear form on <m>V</m> and <m>v_1, \ldots,
         v_m \in V{}</m>.
         Because <m>m > \dim V{}</m>, this list is not linearly independent
         (by <xref ref="x7"></xref>).
@@ -188,7 +192,7 @@
         implies that <m>\alpha (v_1, \ldots, v_m) = 0</m>.
         Hence <m>\alpha</m> is the zero function from <m>V^m</m> to <m>\F{}{}</m>.
       </p>
-    </proof>
+</proof>
   </subsection>
   <subsection>
     <title>Alternating Multilinear Forms and Permutations</title>
@@ -310,6 +314,7 @@
     <example>
       <title>signs</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -334,6 +339,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <theorem xml:id="x432">
