@@ -1,4 +1,4 @@
-<section xml:id="forInstructors">
+<preface xml:id="forInstructors">
   <title>Preface for Instructors</title>
   <p>
     You are about to teach a course that will probably give students their second exposure to linear algebra.
@@ -356,4 +356,4 @@
     e-mail: \PClink{linear@axler.net}
   </p>
 -->
-</section>
+</preface>

@@ -49,6 +49,7 @@
     <example xml:id="x9BilinearExample">
       <title>bilinear forms</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -115,6 +116,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -345,6 +347,7 @@
     <example>
       <title>symmetric bilinear forms</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -378,6 +381,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <definition>
@@ -585,6 +589,7 @@
     <example xml:id="x9alt">
       <title>alternating bilinear forms</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -606,6 +611,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
