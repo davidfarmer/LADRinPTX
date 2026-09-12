@@ -26,7 +26,6 @@
     <p>
       This chapter concludes by defining the trace and proving its key properties.
     </p>
-    <p>
       <paragraphs>
         <title>Assumptions for this chapter</title>
         <p>
@@ -38,8 +37,6 @@
           </ul>
         </p>
       </paragraphs>
-    </p>
-    <p>
       <image source="Dublin.jpg" width="80%">
         <description>Missing description</description>
         <credit>
@@ -51,13 +48,10 @@
           <em>The Long Room of the Old Library at the University of Dublin,
           where William Hamilton (1805<ndash/>1865) was a student and then a faculty member.
           Hamilton proved a special case of what we now call the Cayley<ndash/>Hamilton theorem in 1853.</em>
-        </p>
-      </blockquote>
-    </p>
-    <p>
           <idx><h>Hamilton, William</h></idx>
           <idx><h>University of Dublin</h></idx>
-    </p>
+        </p>
+      </blockquote>
   </introduction>
   <xi:include  href="geneig.ptx"/>
   <xi:include  href="decompop.ptx"/>

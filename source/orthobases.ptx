@@ -5,6 +5,7 @@
     <definition>
       <title>orthonormal</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -24,11 +25,13 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <example>
       <title>orthonormal lists</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -80,6 +83,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -559,7 +563,7 @@
       we gave a necessary and sufficient condition for an operator to have an upper-triangular matrix with respect to some basis
       (<xref ref="x5necsuf">see</xref>).
       Now that we are dealing with inner product spaces,
-      we would like to know whether there exists an <emph>orthonormal</emph> basis with respect to which we have an upper-triangular matrix.
+      we would like to know whether there exists an <em>orthonormal</em> basis with respect to which we have an upper-triangular matrix.
       The next result shows that the condition for an operator to have an upper-triangular matrix with respect to some orthonormal basis is the same as the condition to have an upper-triangular matrix with respect to an arbitrary basis.
     </p>
     <theorem xml:id="x188">
@@ -1220,51 +1224,49 @@
         </statement>
       </exercise>
     </exercises>
-    <p>
       <paragraphs>
         <title>orthogonality at the Supreme Court</title>
         <p>
           Law professor Richard Friedman presenting a case before the U.S. Supreme Court in 2010:
         </p>
-      </paragraphs>
-    </p>
     <p>
-      <emph>Mr.<nbsp/>Friedman</emph>: I think that issue is entirely orthogonal to the issue here,
+      <em>Mr.<nbsp/>Friedman</em>: I think that issue is entirely orthogonal to the issue here,
       because the Commonwealth is acknowledging<ndash/>-
     </p>
     <p>
-      <emph>Chief Justice Roberts</emph>: I'm sorry.
+      <em>Chief Justice Roberts</em>: I'm sorry.
       Entirely what?
     </p>
     <p>
-      <emph>Mr.<nbsp/>Friedman</emph>: Orthogonal.
+      <em>Mr.<nbsp/>Friedman</em>: Orthogonal.
       Right angle.
       Unrelated.
       Irrelevant.
     </p>
     <p>
-      <emph>Chief Justice Roberts</emph>: Oh.
+      <em>Chief Justice Roberts</em>: Oh.
     </p>
     <p>
-      <emph>Justice Scalia</emph>: What was that adjective?
+      <em>Justice Scalia</em>: What was that adjective?
       I liked that.
     </p>
     <p>
-      <emph>Mr.<nbsp/>Friedman</emph>: Orthogonal.
+      <em>Mr.<nbsp/>Friedman</em>: Orthogonal.
     </p>
     <p>
-      <emph>Chief Justice Roberts</emph>: Orthogonal.
+      <em>Chief Justice Roberts</em>: Orthogonal.
     </p>
     <p>
-      <emph>Mr.<nbsp/>Friedman</emph>: Right, right.
+      <em>Mr.<nbsp/>Friedman</em>: Right, right.
     </p>
     <p>
-      <emph>Justice Scalia</emph>: Orthogonal, ooh.
+      <em>Justice Scalia</em>: Orthogonal, ooh.
       (Laughter.)
     </p>
     <p>
-      <emph>Justice Kennedy</emph>: I knew this case presented us a problem.
+      <em>Justice Kennedy</em>: I knew this case presented us a problem.
       (Laughter.)
     </p>
+      </paragraphs>
   </subsection>
 </section>
