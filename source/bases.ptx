@@ -187,7 +187,7 @@
           </p>
         </li>
         <li>
-          <title>Step <em>k</em></title>
+          <title>Step <m>k</m></title>
           <p>
             If <m>v_k</m> is in <m>\Span(v_1, \dots,
             v_{k-1})</m>, then delete <m>v_k</m> from the list <m>B</m>.

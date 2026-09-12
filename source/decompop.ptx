@@ -130,6 +130,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -177,6 +178,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       For the analogous result when <m>\F{}=\R{}</m>,
@@ -194,6 +196,7 @@
     <definition xml:id="multeigen">
       <title>multiplicity</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -211,6 +214,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
