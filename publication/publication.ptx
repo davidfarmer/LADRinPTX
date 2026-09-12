@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<publication>
+    <!-- directories are relative to the main source PreTeXt file -->
+<!--
+    <source>
+        <directories external="../assets" generated="../generated-assets"/>
+    </source>
+-->
+
+    <numbering>
+      <blocks level="1"/>
+      <projects level="1"/>
+      <equations level="1"/>
+      <footnotes level="1"/>
+    </numbering>
+<!--
+   <common>
+    <journal name="bull-amer-math-soc"/>
+   </common>
+-->
+
+    <web>
+        <knowl example="no" remark="no" proof="yes" example-solution="no" aside="no"/>
+    </web>
+
+<!--
+    <latex latex-style="amsart"/>
+-->
+
+
+</publication>
