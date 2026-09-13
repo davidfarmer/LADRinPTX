@@ -61,6 +61,7 @@
     <definition xml:id="x9bifunctional">
       <title>bilinear functional on  <m>V \times W</m>, the vector space <m>\B(V,W)</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -79,6 +80,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -95,6 +97,7 @@
     <example>
       <title>bilinear functionals</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -131,6 +134,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <theorem xml:id="x9dimbi">
@@ -199,6 +203,7 @@
     <definition xml:id="x9ten">
       <title>tensor product,  <m>V \tensor W</m>,  <m>v \tensor w</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -221,6 +226,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -454,6 +460,7 @@
     <example>
       <title>bilinear maps</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -482,6 +489,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -750,11 +758,13 @@
     </p>
     <principle>
       <title><m>V_1, \ldots, V_m</m></title>
+<statement>
       <p>
         For the rest of this subsection,
         <m>m</m> denotes an integer greater than <m>1</m> and
         <m>V{}_1, \ldots, V{}_m</m> denote finite-dimensional vector spaces.
       </p>
+</statement>
     </principle>
     <p>
       The notion of an <m>m</m>-linear functional,
@@ -773,6 +783,7 @@
     <definition>
       <title><m>m</m>-linear functional, the vector space <m>\B(V_1, \ldots, V_m)</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -790,6 +801,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <example>
@@ -826,6 +838,7 @@
     <definition>
       <title>tensor product,  <m>V_1 \tensor \cdots \tensor V_m</m>,  <m>v_1 \tensor \cdots \tensor v_m</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -848,6 +861,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>

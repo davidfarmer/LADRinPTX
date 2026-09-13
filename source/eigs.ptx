@@ -40,11 +40,11 @@
         <p>
           Statue of Leonardo of Pisa (1170<ndash/>1250, approximate dates),
           also known as Fibonacci.
+          <xref ref="Fibonacci">Exercise</xref>
+          in <xref ref="diagmat">Section</xref>
+          shows how linear algebra can be used to find the explicit formula for the Fibonacci sequence. <!-- shown on the front cover. -->
     <idx><h>Leonardo of Pisa</h></idx>
     <idx><h>Fibonacci</h></idx>
-<xref ref="Fibonacci">Exercise</xref>
-          in <xref ref="diagmat">Section</xref>
-          shows how linear algebra can be used to find the explicit formula for the Fibonacci sequence shown on the front cover.
         </p>
       </blockquote>
   </introduction>

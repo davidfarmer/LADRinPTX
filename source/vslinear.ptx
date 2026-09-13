@@ -46,6 +46,8 @@
     </p>
     <principle>
       <title><m>\Lc(V,W)</m>, <m>\Lc(V)</m></title>
+<statement>
+<p>
       <ol>
         <li>
           <p>
@@ -61,6 +63,8 @@
           </p>
         </li>
       </ol>
+</p>
+</statement>
     </principle>
     <p>
       Let's look at some examples of linear maps.
@@ -69,6 +73,7 @@
     <example xml:id="x2a111">
       <title>linear maps</title>
       <statement>
+<p>
         <ol>
           <li>
             <title>zero</title>
@@ -181,6 +186,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -353,6 +359,7 @@
     <theorem xml:id="algprod">
       <title>algebraic properties of products of linear maps</title>
       <statement>
+<p>
         <ol>
           <li>
             <title>associativity</title>
@@ -383,6 +390,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <p>

@@ -22,6 +22,7 @@
   <example>
     <title>positive operators</title>
     <statement>
+<p>
       <ol>
         <li>
           <p>
@@ -50,6 +51,7 @@
           </p>
         </li>
       </ol>
+</p>
     </statement>
   </example>
   <definition xml:id="sqrt">
@@ -306,12 +308,14 @@
   </p>
   <principle>
     <title><m>\sqrt{T}</m></title>
+<statement>
     <p>
       For <m>T</m> a positive operator,
       <m>\sqrt{T}</m><idx><h>square root of an operator</h></idx>
           <idx><h sortby="T"><m>\sqrt{T}</m></h></idx>
       denotes the unique positive square root of<nbsp/><m>T{}</m>.
     </p>
+</statement>
   </principle>
   <example>
     <title>square root of positive operators</title>

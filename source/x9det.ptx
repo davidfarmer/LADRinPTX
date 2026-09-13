@@ -130,6 +130,7 @@
     <example>
       <title>determinants of matrices</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -149,6 +150,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -241,6 +243,7 @@
     <example>
       <title>explicit formula for determinant</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -262,6 +265,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -305,6 +309,7 @@
     <theorem xml:id="x9detmult">
       <title>determinant is multiplicative</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -322,9 +327,11 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -358,6 +365,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       The determinant of an operator determines whether the operator is invertible.
@@ -563,6 +571,7 @@
     <theorem xml:id="detTdual">
       <title>determinant of transpose, dual, or adjoint</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -586,9 +595,11 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -631,10 +642,12 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <theorem xml:id="x9helpful">
       <title>helpful results in evaluating determinants</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -667,6 +680,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
@@ -1445,7 +1459,6 @@
         </statement>
       </exercise>
     </exercises>
-    <p>
       <blockquote>
         <p>
           I find that in my own elementary lectures, I have, for pedagogical reasons,
@@ -1458,6 +1471,5 @@
         </p>
         <attribution>Elementary Mathematics from an Advanced Standpoint: Geometry, Felix Klein</attribution>
       </blockquote>
-    </p>
   </subsection>
 </section>

@@ -376,10 +376,12 @@
   </p>
   <principle>
     <title><m>V</m></title>
+<statement>
     <p>
       For the rest of this book,
       <m>V</m> denotes a vector space over <m>\F{}{}</m>.
     </p>
+</statement>
   </principle>
   <p>
         <idx><h sortby="V"><m>V{}</m></h></idx>

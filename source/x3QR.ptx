@@ -1134,7 +1134,7 @@
       <exercise>
         <statement>
           <p>
-            A square matrix <m>A</m> is called <emph>symmetric</emph> if it equals its transpose.
+            A square matrix <m>A</m> is called <em>symmetric</em> if it equals its transpose.
             Prove that if <m>A</m> is a symmetric matrix with real entries,
             then there exists a unitary matrix <m>Q</m> with real entries such that <m>Q^* A Q</m> is a diagonal matrix.
                 <idx><h>symmetric matrix</h></idx>

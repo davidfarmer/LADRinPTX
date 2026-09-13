@@ -22,6 +22,7 @@
     <example>
       <title>orthogonal complements</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -67,6 +68,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -75,6 +77,7 @@
     <theorem xml:id="oc">
       <title>properties of orthogonal complement</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -105,9 +108,11 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -166,6 +171,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       Recall that if <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>,
@@ -460,6 +466,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -552,6 +559,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       In the previous section we proved the Riesz representation theorem <xref ref="x50"/>,
@@ -704,13 +712,13 @@
           <mrow>\amp = \| v - u \|^2{}</mrow>
         </md>,
       </p>
-      <p>
         <figure>
           <caption><m>P_{\!U} v</m> is the closest point in <m>U</m> to <m>v</m>.</caption>
           <image source="ClosestPoint.png">
             <description>Missing description</description>
           </image>
         </figure>
+      <p>
         where the first line above holds because <m>0 \le \|P_{\!U} v - u\|^2{}</m>, the second line above comes from the Pythagorean theorem [which applies because <m>v - P_{\!U} v \in U^\perp</m> by <xref ref="x418"></xref>(f), and <m>P_{\!U} v - u \in U</m>] , and the third line above holds by simple algebra. Taking square roots gives the desired inequality.
       </p>
       <p>
@@ -780,14 +788,12 @@
           the next figure shows the graphs of both the sine function and our approximation <m>u</m> given by <xref ref="x420"></xref>
           over the interval <m>[-\pi, \pi]</m>.
         </p>
-        <p>
           <figure>
             <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and its best fifth degree polynomial approximation <m>u</m> (blue) from <xref ref="x420"></xref>.</caption>
             <image source="SinGram.png">
               <description>Missing description</description>
             </image>
           </figure>
-        </p>
         <p>
           Our <xref ref="x420">approximation</xref>
           is so accurate that the two graphs are almost identical<mdash/>our eyes may see only one graph!
@@ -805,14 +811,12 @@
           To see how good this approximation is,
           the next picture shows the graphs of both the sine function and the Taylor polynomial <m>p</m> over the interval <m>[-\pi, \pi]</m>.
         </p>
-        <p>
           <figure>
             <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and the Taylor polynomial (blue) from <xref ref="x421"></xref>.</caption>
             <image source="SinTaylor.png">
               <description>Missing description</description>
             </image>
           </figure>
-        </p>
         <p>
           The Taylor polynomial of degree <m>5</m> is an excellent approximation to <m>\sin x</m> for <m>x</m> near<nbsp/><m>0</m>.
           But the picture above shows that for <m>|x| > 2</m>,
@@ -977,6 +981,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -1020,6 +1025,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <aside>
       <p>
@@ -1055,7 +1061,7 @@
       However, the pseudoinverse <m>T^\dagger</m> is defined.
       Taking <m>v = T^\dagger w</m> makes <m>Tv</m> as close to <m>w</m> as possible,
       as shown by (a) of the next result.
-      Thus the pseudoinverse provides what is called a <emph>best fit</emph> to the equation above.
+      Thus the pseudoinverse provides what is called a <em>best fit</em> to the equation above.
     </p>
     <p>
       Among all vectors <m>v \in V</m> that make <m>Tv</m> as close as possible to <m>w</m>,
@@ -1092,6 +1098,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -1123,6 +1130,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       A formula for <m>T^\dagger</m> will be given in the next chapter

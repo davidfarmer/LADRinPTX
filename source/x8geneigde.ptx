@@ -84,14 +84,12 @@
       For example,
       the operator of multiplication by <m>-1</m> on the one-dimensional real vector space <m>\R{}</m> has no square root.
     </p>
-    <p>
       <figure>
         <caption>Representation of a complex number with polar coordinates.</caption>
         <image source="polar.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       For the proof below, we need to know that every
       <m>z \in \C{}</m> has a square root in<nbsp/><m>\C{}</m>.

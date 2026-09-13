@@ -25,7 +25,6 @@
       and direct sums of subspaces
       (analogous to unions of disjoint sets).
     </p>
-    <p>
       <image source="Descartes2.jpg" width="60%">
         <description>Missing description</description>
         <credit>
@@ -34,15 +33,14 @@
       </image>
       <blockquote>
         <p>
-          <em>Ren&#xe9; Descartes
-    <idx><h>Descartes, Ren&#xe9;</h></idx>
+          Ren&#xe9; Descartes
           explaining his work to Queen Christina of Sweden.
-    <idx><h>Christina, Queen of Sweden</h></idx>
 Vector spaces are a generalization of the description of a plane using two coordinates,
-          as published by Descartes in 1637.</em>
+          as published by Descartes in 1637.
+    <idx><h>Descartes, Ren&#xe9;</h></idx>
+    <idx><h>Christina, Queen of Sweden</h></idx>
         </p>
       </blockquote>
-    </p>
   </introduction>
   <xi:include  href="Rn_and_Cn.ptx"/>
   <xi:include  href="x1DefVS.ptx"/>

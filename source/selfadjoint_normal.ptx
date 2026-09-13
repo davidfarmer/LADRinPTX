@@ -702,6 +702,7 @@
     <definition>
       <title>normal</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -718,6 +719,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </definition>
     <p>
@@ -844,6 +846,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -905,6 +908,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       Because every self-adjoint operator is normal,

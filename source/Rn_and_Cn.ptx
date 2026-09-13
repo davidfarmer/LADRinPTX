@@ -234,10 +234,12 @@
       we adopt the following notation.
     </p>
     <principle>
+<statement>
       <p>
             <idx><h sortby="F"><m>\F{}</m></h></idx>
         Throughout this book, <m>\F{}</m> stands for either <m>\R{}</m> or <m>\C{}</m>.
       </p>
+</statement>
     </principle>
     <aside>
       <p>

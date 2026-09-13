@@ -969,6 +969,7 @@
         </statement>
       </exercise>
     </exercises>
+
       <blockquote>
         <p>
           Matrices unfold
@@ -980,7 +981,7 @@
           Order in chaos shines
         </p>
     <idx><h>ChatGPT</h></idx>
-        <attribution>written by ChatGPT with input: <emph>haiku about SVD</emph></attribution>
+        <attribution>written by ChatGPT with input: <em>haiku about SVD</em></attribution>
       </blockquote>
   </subsection>
 </section>

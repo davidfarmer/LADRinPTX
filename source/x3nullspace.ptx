@@ -23,6 +23,7 @@
     <example xml:id="null">
       <title>null space</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -81,6 +82,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -230,6 +232,7 @@
     <example xml:id="range">
       <title>range</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -261,6 +264,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <p>
@@ -982,14 +986,14 @@
             Suppose <m>V</m> is finite-dimensional with <m>\dim V > 1</m>.
             Show that if <m>\fun \phi {\!\Lc(V)\!} {\F{}}</m> is a linear map such that <m>\phi(ST) = \phi(S) \phi(T)</m> for all
             <m>S, T \in \Lc(V)</m>, then <m>\phi = 0</m>.
+          </p>
+        </statement>
             <hint>
               <p>
                 The description of the two-sided ideals of <m>\Lc(V)</m> given by <xref ref="ideals">Exercise</xref>
                 in <xref ref="vslinear">Section</xref> might be useful.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise xml:id="x3complexMap">
         <statement>

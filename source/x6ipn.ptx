@@ -2,14 +2,12 @@
   <title>Inner Products and Norms</title>
   <subsection>
     <title>Inner Products</title>
-    <p>
       <figure>
         <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
         <image source="Axes.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       To motivate the concept of inner product,
       think of vectors in<nbsp/><m>\R{2}</m> and<nbsp/><m>\R{3}</m> as arrows with initial point at the origin.
@@ -235,6 +233,7 @@
     <example xml:id="exampleip">
       <title>inner products</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -286,6 +285,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <definition>
@@ -309,10 +309,12 @@
     </p>
     <principle>
       <title><m>V</m>, <m>W</m></title>
+<statement>
       <p>
         For the rest of this chapter and the next chapter,
         <m>V</m> and <m>W</m> denote inner product spaces over <m>\F{}{}</m>.
       </p>
+</statement>
     </principle>
     <p>
       Note the slight abuse of language here.
@@ -324,6 +326,7 @@
     <theorem xml:id="basicip">
       <title>basic properties of an inner product</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -355,6 +358,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
@@ -429,6 +433,7 @@
     <example>
       <title>norms</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -449,6 +454,7 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
     <theorem xml:id="x2bnorm">
@@ -472,6 +478,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -493,6 +500,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       The proof of (b) in the result above illustrates a general principle:
@@ -543,6 +551,7 @@
     <theorem>
       <title>orthogonality and <m>0</m></title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -555,9 +564,11 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -572,6 +583,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       For the special case <m>V = \RR{2}</m>,
@@ -607,14 +619,12 @@
       We would like to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector <m>w</m> orthogonal to<nbsp/><m>v</m>,
       as suggested in the picture here.
     </p>
-    <p>
       <figure>
         <caption>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</caption>
         <image source="OrthogonalDecomposition.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       To discover how to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector orthogonal to<nbsp/><m>v</m>,
       let <m>c \in \F{}</m> denote a scalar.
@@ -723,6 +733,7 @@
     <example xml:id="CS">
       <title>Cauchy<ndash/>Schwarz inequality</title>
       <statement>
+<p>
         <ol>
           <li>
             <p>
@@ -745,16 +756,15 @@
             </p>
           </li>
         </ol>
+</p>
       </statement>
     </example>
-    <p>
       <figure>
         <caption>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
         <image source="TriangleInequality3.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       The next result, called the triangle inequality,
           <idx><h>triangle inequality</h></idx>
@@ -819,14 +829,12 @@
       For the reverse triangle inequality,
       see <xref ref="x6reverse">Exercise</xref>.
     </p>
-    <p>
       <figure>
         <caption>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</caption>
         <image source="Parallelogram.png">
           <description>Missing description</description>
         </image>
       </figure>
-    </p>
     <p>
       The next result is called the parallelogram equality because of its geometric interpretation:
       in every parallelogram,
@@ -1051,14 +1059,14 @@
             </md>
             where <m>\theta</m> is the angle between <m>u</m> and <m>v</m>
             (thinking of<nbsp/><m>u</m> and<nbsp/><m>v</m> as arrows with initial point at the origin).
+          </p>
+        </statement>
             <hint>
               <p>
                 Use the law of cosines on the triangle formed by <m>u</m>,
                 <m>v</m>, and<nbsp/><m>u-v</m>.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise>
         <statement>
@@ -1421,7 +1429,6 @@
         </statement>
       </exercise>
     </exercises>
-    <p>
       <blockquote>
         <p>
           In realms of numbers, where the secrets lie,
@@ -1464,10 +1471,9 @@
         </p>
         <p>
           Cauchy<ndash/>Schwarz, the bound that none can beat.
+    <idx><h>ChatGPT</h></idx>
         </p>
         <attribution>written by ChatGPT with input <emph>Shakespearean sonnet on Cauchy<ndash/>Schwarz inequality</emph></attribution>
       </blockquote>
-    <idx><h>ChatGPT</h></idx>
-    </p>
   </subsection>
 </section>

@@ -459,6 +459,8 @@
             \tau(ST) = \tau(TS)
           </md>
           for all <m>S, T \in \Lc(V)</m> and <m>\tau(I) = \dim V{}</m>.
+        </p>
+      </statement>
           <hint>
             <p>
               Suppose that <m>v_1, \ldots, v_n</m> is a basis of <m>V{}</m>.
@@ -474,8 +476,6 @@
               use the equation <m>T = \sum_{k=1}^n \sum_{j=1}^n \M(T)_{j,k} P_{j,k}</m> to show that <m>\tau(T) = \tr T</m>.
             </p>
           </hint>
-        </p>
-      </statement>
     </exercise>
     <exercise xml:id="x390">
       <statement>
@@ -541,15 +541,17 @@
       <statement>
         <p>
           Find <m>S, T \in \Lc( \P(\F{}) )</m> such that <m>ST - TS = I</m>.
+        </p>
+<p>
+          Note: This exercise shows that additional hypotheses are needed on <m>S</m> and <m>T</m> to extend <xref ref="x10ST"/>
+          to the setting of infinite-dimensional vector spaces.
+</p>
+      </statement>
           <hint>
             <p>
               Make an appropriate modification of the operators in <xref ref="x3noncom">Example</xref>.
             </p>
           </hint>
-          Note: This exercise shows that additional hypotheses are needed on <m>S</m> and <m>T</m> to <xref ref="x10ST">extend</xref>
-          to the setting of infinite-dimensional vector spaces.
-        </p>
-      </statement>
     </exercise>
   </exercises>
 </section>
