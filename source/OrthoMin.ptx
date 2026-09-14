@@ -715,7 +715,7 @@
         <figure>
           <caption><m>P_{\!U} v</m> is the closest point in <m>U</m> to <m>v</m>.</caption>
           <image source="ClosestPoint.png">
-            <description>Missing description</description>
+            <description><p>Missing description</p></description>
           </image>
         </figure>
       <p>
@@ -791,7 +791,7 @@
           <figure>
             <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and its best fifth degree polynomial approximation <m>u</m> (blue) from <xref ref="x420"></xref>.</caption>
             <image source="SinGram.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         <p>
@@ -814,7 +814,7 @@
           <figure>
             <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and the Taylor polynomial (blue) from <xref ref="x421"></xref>.</caption>
             <image source="SinTaylor.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         <p>

@@ -38,7 +38,7 @@
         </p>
       </paragraphs>
       <image source="Brunswick.jpg" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           Stefan Sch&#xe4;fer CC BY-SA
         </credit>

@@ -33,7 +33,7 @@
       </paragraphs>
     </p>
       <image source="GottingenR.jpg" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           Daniel Schwen CC BY-SA
         </credit>

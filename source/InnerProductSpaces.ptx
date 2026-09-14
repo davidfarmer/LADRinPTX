@@ -35,7 +35,7 @@
         </p>
       </paragraphs>
       <image source="PeabodyR.png" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           Matthew Petroff CC BY-SA
         </credit>

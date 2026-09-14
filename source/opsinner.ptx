@@ -29,7 +29,7 @@
         </p>
       </paragraphs>
       <image source="LvivR.jpg" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           Petar Milosevic CC BY-SA
         </credit>

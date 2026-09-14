@@ -31,7 +31,7 @@
         </p>
       </paragraphs>
       <image source="Fibonacci.png" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           Hans-Peter Postel CC BY
         </credit>

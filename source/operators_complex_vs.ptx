@@ -38,7 +38,7 @@
         </p>
       </paragraphs>
       <image source="Dublin.jpg" width="80%">
-        <description>Missing description</description>
+        <description><p>Missing description</p></description>
         <credit>
           David Iliff CC BY-SA
         </credit>
