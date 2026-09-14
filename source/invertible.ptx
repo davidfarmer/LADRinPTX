@@ -58,7 +58,7 @@
       Now that we know that the inverse is unique,
       we can give it a notation.
     </p>
-    <principle>
+    <notation>
       <title><m>T^{-1}</m></title>
 <statement>
       <p>
@@ -69,7 +69,7 @@
         <m>T^{-1}T = I</m> and <m>TT^{-1} = I</m>.
       </p>
 </statement>
-    </principle>
+    </notation>
     <example>
       <title>inverse of a linear map from  <m>\R3</m> to  <m>\R3</m></title>
       <statement>
