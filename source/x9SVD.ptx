@@ -629,7 +629,7 @@
       <figure>
         <caption>The ball <m>B</m> in <m>\R2</m>.</caption>
         <image source="ball.png">
-          <description>Missing description</description>
+          <description><p>Missing description</p></description>
         </image>
       </figure>
     <p>
@@ -680,21 +680,21 @@
             <caption>The ellipsoid  <m>E(2f_1, f_2)</m> in <m>\R2</m>, where
             <m>f_1, f_2</m> is the standard basis of  <m>\R2</m>.</caption>
             <image source="Ellipsoid1.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
           <figure>
             <caption>The ellipsoid  <m>E(2f_1, f_2)</m> in  <m>\R2</m>, where
             <m>f_1 = (  \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and  <m>f_2 = (  -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</caption>
             <image source="Ellipsoid2.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         </sidebyside>
         <sidebyside>
 <figure>
           <image source="Ellipsoid3.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
 <caption>
           The ellipsoid  <m>E(4f_1, 3f_2, 2f_3)</m> in  <m>\R3</m>,
@@ -863,13 +863,13 @@
             <caption>The parallelepiped
             <m>(0.3,0.5) + P( (1,0),(1,1) )</m> in <m>\R2</m>.</caption>
             <image source="parallel.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
           <figure>
             <caption>A parallelepiped in <m>\R3</m>.</caption>
             <image source="parallel2.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         </sidebyside>
@@ -934,14 +934,14 @@
             where
             <m>e_1 = ( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and <m>e_2 = ( -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</caption>
             <image source="box.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
           <figure>
             <caption>The box  <m>P(e_1,2e_2,e_3)</m>, where  <m>e_1, e_2,e_3</m>
             is the standard basis of  <m>\R3</m>.</caption>
             <image source="box2.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         </sidebyside>
@@ -1051,7 +1051,7 @@
       <figure>
         <caption>Volume of this ball <m>\approx</m> sum of the volumes of the five boxes.</caption>
         <image source="VolumeBall.png">
-          <description>Missing description</description>
+          <description><p>Missing description</p></description>
         </image>
       </figure>
     <p>
@@ -1093,7 +1093,7 @@
           <figure>
             <caption>Each box here has twice the width and the same height as the boxes in the previous figure.</caption>
             <image source="VolumeBall2.png">
-              <description>Missing description</description>
+              <description><p>Missing description</p></description>
             </image>
           </figure>
         <p>
