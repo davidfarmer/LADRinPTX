@@ -691,7 +691,6 @@
             </image>
           </figure>
         </sidebyside>
-        <sidebyside>
 <figure>
           <image source="Ellipsoid3.png">
               <description><p>Missing description</p></description>
@@ -701,7 +700,6 @@
           where  <m>f_1, f_2, f_3</m> is the standard basis of  <m>\R3</m>.
 </caption>
 </figure>
-        </sidebyside>
       </statement>
     </example>
     <p>
