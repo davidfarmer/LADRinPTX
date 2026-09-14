@@ -362,6 +362,7 @@
       </statement>
     </theorem>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -406,6 +407,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
   </subsection>
   <subsection>
@@ -543,7 +545,7 @@
       (with respect to the Euclidean inner product)
       if and only if the cosine of the angle between them is <m>0</m>,
       which happens if and only if the vectors are perpendicular in the usual sense of plane geometry.
-      Thus you can think of the word <emph>orthogonal</emph> as a fancy word meaning <emph>perpendicular</emph>.
+      Thus you can think of the word <em>orthogonal</em> as a fancy word meaning <em>perpendicular</em>.
     </p>
     <p>
       We begin our study of orthogonality with an easy result.
@@ -1378,11 +1380,9 @@
               a^2 + b^2 = \tfrac{1}{2} c^2 + 2d^2{}.
             </md>
           </p>
-          <p>
             <image source="Apollonius.png">
               <description><p>Missing description</p></description>
             </image>
-          </p>
         </statement>
       </exercise>
       <exercise xml:id="harmonic">
@@ -1413,6 +1413,8 @@
             <m>x \in \R{n}</m> with <m>\|x\| = 1</m>.
             Note: The only fact about harmonic functions that you need for this exercise is that if <m>p</m> is a harmonic function on <m>\R{n}</m> and <m>p(x) = 0</m> for all
             <m>x \in \R{n}</m> with <m>\|x\|=1</m>, then <m>p = 0</m>.
+          </p>
+        </statement>
             <hint>
               <p>
                 A reasonable guess is that the desired harmonic polynomial <m>p</m> is of the form
@@ -1425,8 +1427,6 @@
                 and then showing that <m>T</m> is injective and hence surjective.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
     </exercises>
       <blockquote>
@@ -1473,7 +1473,7 @@
           Cauchy<ndash/>Schwarz, the bound that none can beat.
     <idx><h>ChatGPT</h></idx>
         </p>
-        <attribution>written by ChatGPT with input <emph>Shakespearean sonnet on Cauchy<ndash/>Schwarz inequality</emph></attribution>
+        <attribution>written by ChatGPT with input: <em>Shakespearean sonnet on Cauchy<ndash/>Schwarz inequality</em></attribution>
       </blockquote>
   </subsection>
 </section>

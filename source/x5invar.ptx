@@ -71,7 +71,6 @@
           If <m>T \in \Lc(V)</m>,
           then the following subspaces of <m>V</m> are all invariant under <m>T{}</m>.
           <ol>
-            \leftskip=-8bp
             <li>
               <title><m>\{ 0 \}</m></title>
               <p>
@@ -213,12 +212,6 @@
             <li>
               <p>
                 <m>T - \lambda I</m> is not surjective.
-                <aside>
-                  <p>
-                    Reminder: <m>I \in \Lc(V)</m> is the identity operator.
-                    Thus <m>Iv = v</m> for all <m>v \in V{}</m>.
-                  </p>
-                </aside>
               </p>
             </li>
             <li>
@@ -230,6 +223,12 @@
         </p>
       </statement>
     </theorem>
+                <aside>
+                  <p>
+                    Reminder: <m>I \in \Lc(V)</m> is the identity operator.
+                    Thus <m>Iv = v</m> for all <m>v \in V{}</m>.
+                  </p>
+                </aside>
     <proof>
       <p>
         Conditions (a) and (b) are equivalent because the equation
@@ -399,6 +398,7 @@
     </p>
     <principle>
       <title><m>T^m</m></title>
+<statement>
       <p>
         Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
             <idx><h sortby="Tm"><m>T^m{}</m></h></idx>
@@ -424,6 +424,7 @@
           </li>
         </ol>
       </p>
+</statement>
     </principle>
     <p>
       You should verify that if <m>T</m> is an operator, then
@@ -438,6 +439,7 @@
     </p>
     <principle>
       <title><m>p(T)</m></title>
+<statement>
       <p>
         Suppose <m>T \in \Lc(V)</m> and
         <m>p \in \P(\F{})</m> is a polynomial given by
@@ -451,6 +453,7 @@
           p(T) = a_0 I + a_1 T + a_2 T^2 + \dots + a_m T^m\!.
         </md>
       </p>
+</statement>
     </principle>
     <p>
       This is a new use of the symbol <m>p</m> because we are applying <m>p</m> to operators,
@@ -512,12 +515,6 @@
             <li>
               <p>
                 <m>p(T)q(T) = q(T)p(T)</m>.
-                <aside>
-                  <p>
-                    Informal proof: When a product of polynomials is expanded using the distributive property,
-                    it does not matter whether the symbol is <m>z</m> or <m>T{}</m>.
-                  </p>
-                </aside>
                   <idx><h>commuting operators</h></idx>
               </p>
             </li>
@@ -525,7 +522,14 @@
         </p>
       </statement>
     </theorem>
+                <aside>
+                  <p>
+                    Informal proof: When a product of polynomials is expanded using the distributive property,
+                    it does not matter whether the symbol is <m>z</m> or <m>T{}</m>.
+                  </p>
+                </aside>
     <proof>
+<p>
       <ol>
         <li>
           <p>
@@ -550,6 +554,7 @@
           </p>
         </li>
       </ol>
+</p>
     </proof>
     <p>
       We observed earlier that if <m>T \in \Lc(V)</m>,
@@ -1000,6 +1005,8 @@
             Suppose that <m>\lambda_1, \dots, \lambda_n</m> is a list of distinct real numbers.
             Prove that the list <m>e^{\lambda_1 x}, \dots,
             e^{\lambda_n x}</m> is linearly independent in the vector space of real-valued functions on <m>\R{}</m>.
+          </p>
+        </statement>
             <hint>
               <p>
                 Let <m>V = \Span( e^{\lambda_1 x}, \dots, e^{\lambda_n x} )</m>,
@@ -1007,8 +1014,6 @@
                 Find eigenvalues and eigenvectors of <m>D</m>.
               </p>
             </hint>
-          </p>
-        </statement>
       </exercise>
       <exercise>
         <statement>
