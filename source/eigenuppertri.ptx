@@ -144,9 +144,6 @@
         implies that <m>q(T)u = 0</m>.
       </p>
       <p>
-        *{.11in}
-      </p>
-      <p>
         If <m>k</m> is a nonnegative integer, then
         <md>
           q(T) ( T^k u ) = T^k (  q(T)u  ) = T^k(0) = 0.
@@ -178,7 +175,7 @@
         </md>
         because <m>q(T)v \in \ran q(T)</m> and <m>s(T)|_{\ran q(T)} = s( T|_{\ran q(T)}) = 0</m>.
         Thus <m>sq</m> is a monic polynomial such that
-        <m>\deg sq \le \dim V</m> and <m>(sq)(T) = 0</m>.  }
+        <m>\deg sq \le \dim V</m> and <m>(sq)(T) = 0</m>.
       </p>
       <p>
         The paragraph above shows that there is a monic polynomial of degree at most <m>\dim V</m> that when applied to <m>T</m> gives the <m>0</m> operator.
