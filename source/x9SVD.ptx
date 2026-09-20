@@ -1196,7 +1196,7 @@
           </row>
           <row>
             <cell>invertible</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\C{} \sm \{ 0 \}\)</cell>
+            <cell>  <m>\C{} \sm \{ 0 \}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1204,7 +1204,7 @@
           </row>
           <row>
             <cell>self-adjoint</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\R{}\)</cell>
+            <cell>  <m>\R{}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1212,7 +1212,7 @@
           </row>
           <row>
             <cell>skew</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\{ \lambda \in \C{}: \re \lambda = 0 \}\)</cell>
+            <cell><m>\{ \lambda \in \C{}: \re \lambda = 0 \}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1220,7 +1220,7 @@
           </row>
           <row>
             <cell>orthogonal projection</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\{ 0, 1 \}\)</cell>
+            <cell><m>\{ 0, 1 \}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1228,7 +1228,7 @@
           </row>
           <row>
             <cell>positive</cell>
-            <cell>\hspace{-6bp}\vline\ \ \([0, \infty)\)</cell>
+            <cell><m>[0, \infty)</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1236,15 +1236,15 @@
           </row>
           <row>
             <cell>unitary</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\{ \lambda \in \C{}: \lvert \lambda \rvert  = 1 \}\)</cell>
+            <cell><m>\{ \lambda \in \C{}: \lvert \lambda \rvert  = 1 \}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
             <cell></cell>
           </row>
           <row>
-            <cell>norm is less than \(1\)</cell>
-            <cell>\hspace{-6bp}\vline\ \ \(\{ \lambda \in \C{}: \lvert \lambda \rvert  \lt  1 \}\)</cell>
+            <cell>norm is less than <m>1</m></cell>
+            <cell><m>\{ \lambda \in \C{}: \lvert \lambda \rvert  \lt  1 \}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -1322,6 +1322,8 @@
           <p>
             Show that defining <m>d(S, T) = \lVert S-T \rVert</m> for
             <m>S, T \in \Lc(V{}, W)</m> makes <m>d</m> a metric on <m>\Lc(V{}, W)</m>.
+          </p>
+          <p>
             Note: This exercise is intended for readers who are familiar with metric spaces.
           </p>
         </statement>

@@ -352,7 +352,7 @@
       </p>
     </proof>
     <p>
-      We now define an operator <m>P_{\!U}</m> for each finite-dimensional subspace <m>U</m> of <m>V{}</m>.
+      We now define an operator <m>P_{U}</m> for each finite-dimensional subspace <m>U</m> of <m>V{}</m>.
     </p>
     <definition xml:id="orthogproj">
       <title>orthogonal projection, <m>P_{U}</m></title>
@@ -361,9 +361,9 @@
               <idx><h sortby="PU"><m>P_{U}</m></h></idx>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           The <term>orthogonal projection</term><idx><h>orthogonal</h><h>projection</h></idx> of<nbsp/><m>V</m> onto<nbsp/><m>U</m> is the operator
-          <m>P_{\!U} \in \Lc(V)</m> defined as follows: For each <m>v \in V{}</m>,
+          <m>P_{U} \in \Lc(V)</m> defined as follows: For each <m>v \in V{}</m>,
           write <m>v = u + w</m>, where <m>u \in U</m> and <m>w \in U^\perp{}</m>.
-          Then let <m>P_{\!U} v = u</m>.
+          Then let <m>P_{U} v = u</m>.
         </p>
       </statement>
     </definition>
@@ -372,10 +372,10 @@
       <m>V = U \oplus U^\perp</m> given by <xref ref="x191"></xref>
       shows that each <m>v \in V</m> can be uniquely written in the form
       <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>.
-      Thus <m>P_{\!U} v</m> is well defined.
+      Thus <m>P_{U} v</m> is well defined.
       See the figure that accompanies the proof of <xref ref="x417"></xref>
       for the picture describing
-      <m>P_{\!U} v</m> that you should keep in mind.
+      <m>P_{U} v</m> that you should keep in mind.
     </p>
     <example>
       <title>orthogonal projection onto one-dimensional subspace</title>
@@ -391,16 +391,16 @@
           where the first term on the right is in <m>\Span(u)</m>
           (and thus is in <m>U</m>)
           and the second term on the right is orthogonal to <m>u</m> (and thus is in <m>U^\perp)</m>.
-          Thus <m>P_{\!U} v</m> equals the first term on the right.
+          Thus <m>P_{U} v</m> equals the first term on the right.
           In other words, we have the formula
           <md>
-            P_{\!U} v = \frac{\langle v, u \rangle }{\|u\|^2} u
+            P_{U} v = \frac{\langle v, u \rangle }{\|u\|^2} u
           </md>
           for every <m>v \in V{}</m>.
         </p>
         <p>
-          The formula above becomes <m>P_{\!U} u = u</m> if <m>v = u</m> and becomes
-          <m>P_{\!U} v = 0</m> if <m>v \in \{ u \}^\perp{}</m>.
+          The formula above becomes <m>P_{U} u = u</m> if <m>v = u</m> and becomes
+          <m>P_{U} v = 0</m> if <m>v \in \{ u \}^\perp{}</m>.
           These equations are special cases of (b) and (c) in the next result.
         </p>
       </statement>
@@ -414,42 +414,42 @@
           <ol>
             <li>
               <p>
-                <m>P_{\!U} \in \Lc(V)</m>;
+                <m>P_{U} \in \Lc(V)</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>P_{\!U} u = u</m> for every <m>u \in U</m>;
+                <m>P_{U} u = u</m> for every <m>u \in U</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>P_{\!U} w = 0</m> for every <m>w \in U^\perp</m>;
+                <m>P_{U} w = 0</m> for every <m>w \in U^\perp</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>\ran P_{\!U} = U</m>;
+                <m>\ran P_{U} = U</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>\ker P_{\!U} = U^\perp</m>;
+                <m>\ker P_{U} = U^\perp</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>v - P_{\!U} v \in U^\perp</m> for every <m>v \in V</m>;
+                <m>v - P_{U} v \in U^\perp</m> for every <m>v \in V</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>{P_{\!U}}^{2} = P_{\!U}</m>;
+                <m>{P_{U}}^{2} = P_{U}</m>;
               </p>
             </li>
             <li>
               <p>
-                <m>\|P_{\!U} v\| \le \|v\|</m> for every <m>v \in V</m>;
+                <m>\|P_{U} v\| \le \|v\|</m> for every <m>v \in V</m>;
               </p>
             </li>
             <li>
@@ -457,7 +457,7 @@
                 if <m>e_1, \dots,
                 e_m</m> is an orthonormal basis of <m>U</m> and <m>v \in V{}</m>, then
                 <md>
-                  P_{\!U} v = \langle v, e_1 \rangle  e_1 + \dots + \langle v, e_m \rangle  e_m.
+                  P_{U} v = \langle v, e_1 \rangle  e_1 + \dots + \langle v, e_m \rangle  e_m.
                 </md>
               </p>
             </li>
@@ -470,14 +470,14 @@
       <ol>
         <li>
           <p>
-            To show that <m>P_{\!U}</m> is a linear map on <m>V{}</m>,
+            To show that <m>P_{U}</m> is a linear map on <m>V{}</m>,
             suppose <m>v_1, v_2 \in V{}</m>.
             Write
             <md>
               v_1 = u_1 + w_1 \andd v_2 = u_2 + w_2
             </md>
             with <m>u_1, u_2 \in U</m> and <m>w_1, w_2 \in U^\perp{}</m>.
-            Thus <m>P_{\!U} v_1 = u_1</m> and <m>P_{\!U} v_2 = u_2</m>.
+            Thus <m>P_{U} v_1 = u_1</m> and <m>P_{U} v_2 = u_2</m>.
             Now
             <md>
               v_1 + v_2 = (u_1 + u_2) + (w_1 + w_2),
@@ -485,14 +485,14 @@
             where <m>u_1 + u_2 \in U</m> and <m>w_1 + w_2 \in U^\perp{}</m>.
             Thus
             <md>
-              P_{\!U}(v_1 + v_2) = u_1 + u_2 = P_{\!U} v_1 + P_{\!U} v_2.
+              P_{U}(v_1 + v_2) = u_1 + u_2 = P_{U} v_1 + P_{U} v_2.
             </md>
             Similarly, suppose <m>\lambda \in \F{}</m> and <m>v \in V{}</m>.
             Write <m>v = u + w</m>, where <m>u \in U</m> and <m>w \in U^\perp{}</m>.
             Then <m>\lambda v = \lambda u + \lambda w</m> with
             <m>\lambda u \in U</m> and <m>\lambda w \in U^\perp{}</m>.
-            Thus <m>P_{\!U}(\lambda v) = \lambda u = \lambda P_{\!U}v</m>.
-            Hence <m>P_{\!U}</m> is a linear map from <m>V</m> to <m>V{}</m>.
+            Thus <m>P_{U}(\lambda v) = \lambda u = \lambda P_{U}v</m>.
+            Hence <m>P_{U}</m> is a linear map from <m>V</m> to <m>V{}</m>.
           </p>
         </li>
         <li>
@@ -500,7 +500,7 @@
             Suppose <m>u \in U</m>.
             We can write <m>u = u + 0</m>,
             where <m>u \in U</m> and <m>0 \in U^\perp{}</m>.
-            Thus <m>P_{\!U}u = u</m>.
+            Thus <m>P_{U}u = u</m>.
           </p>
         </li>
         <li>
@@ -508,30 +508,30 @@
             Suppose <m>w \in U^\perp{}</m>.
             We can write <m>w = 0 + w</m>,
             where <m>0 \in U</m> and <m>w \in U^\perp{}</m>.
-            Thus <m>P_{\!U}w = 0</m>.
+            Thus <m>P_{U}w = 0</m>.
           </p>
         </li>
         <li>
           <p>
-            The definition of <m>P_{\!U}</m> implies that <m>\ran P_{\!U} \subset U</m>.
-            Furthermore, (b) implies that <m>U \subset \ran P_{\!U}</m>.
-            Thus <m>\ran P_{\!U} = U</m>.
+            The definition of <m>P_{U}</m> implies that <m>\ran P_{U} \subset U</m>.
+            Furthermore, (b) implies that <m>U \subset \ran P_{U}</m>.
+            Thus <m>\ran P_{U} = U</m>.
           </p>
         </li>
         <li>
           <p>
-            The inclusion <m>U^\perp \subset \ker P_{\!U}</m> follows from (c).
+            The inclusion <m>U^\perp \subset \ker P_{U}</m> follows from (c).
             To prove the inclusion in the other direction,
-            note that if <m>v \in \ker P_{\!U}</m> then the decomposition given by <xref ref="x191"></xref> must be <m>v = 0 + v</m>,
+            note that if <m>v \in \ker P_{U}</m> then the decomposition given by <xref ref="x191"></xref> must be <m>v = 0 + v</m>,
             where <m>0 \in U</m> and <m>v \in U^\perp{}</m>.
-            Thus <m>\ker P_{\!U} \subset U^\perp{}</m>.
+            Thus <m>\ker P_{U} \subset U^\perp{}</m>.
           </p>
         </li>
         <li>
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
             <md>
-              v - P_{\!U}v = v - u = w \in U^\perp{}.
+              v - P_{U}v = v - u = w \in U^\perp{}.
             </md>
           </p>
         </li>
@@ -539,7 +539,7 @@
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
             <md>
-              ( P_{\!U}^{2} )v = P_{\!U}(P_{\!U} v) = P_{\!U} u = u = P_{\!U}v.
+              ( P_{U}^{2} )v = P_{U}(P_{U} v) = P_{U} u = u = P_{U}v.
             </md>
           </p>
         </li>
@@ -547,14 +547,14 @@
           <p>
             If <m>v \in V</m> and <m>v = u + w</m> with <m>u \in U</m> and <m>w \in U^\perp{}</m>, then
             <md>
-              \|P_{\!U} v\|^2 = \|u\|^2 \le \|u\|^2 + \|w\|^2 = \|v\|^2{},
+              \|P_{U} v\|^2 = \|u\|^2 \le \|u\|^2 + \|w\|^2 = \|v\|^2{},
             </md>
             where the last equality comes from the Pythagorean theorem.
           </p>
         </li>
         <li>
           <p>
-            The formula for <m>P_{\!U} v</m> follows from <xref ref="x416">equation</xref>
+            The formula for <m>P_{U} v</m> follows from <xref ref="x416">equation</xref>
             in the proof of <xref ref="x191"></xref>.
           </p>
         </li>
@@ -683,7 +683,7 @@
       find a point <m>u \in U</m> such that
       <m>\|v - u\|</m> is as small as possible.
       The next result shows that
-      <m>u = P_{\!U} v</m> is the unique solution of this minimization problem.
+      <m>u = P_{U} v</m> is the unique solution of this minimization problem.
           <idx><h>minimizing distance</h></idx>
     </p>
     <theorem xml:id="x417">
@@ -694,12 +694,12 @@
           <m>v \in V{}</m>, and <m>u \in U</m>.
           Then
           <md>
-            \| v - P_{\!U} v \| \le \| v - u \|.
+            \| v - P_{U} v \| \le \| v - u \|.
           </md>
         </p>
         <p>
           Furthermore,
-          the inequality above is an equality if and only if <m>u = P_{\!U} v</m>.
+          the inequality above is an equality if and only if <m>u = P_{U} v</m>.
         </p>
       </statement>
     </theorem>
@@ -707,24 +707,24 @@
       <p>
         We have
         <md>
-          <mrow xml:id="x422" number="yes">\| v - P_{\!U} v \|^2 \amp \le \|v - P_{\!U} v\|^2 + \|P_{\!U} v - u\|^2</mrow>
-          <mrow>\amp  = \lVert (v - P_{\!U} v) + (P_{\!U} v - u) \rVert ^2</mrow>
+          <mrow xml:id="x422" number="yes">\| v - P_{U} v \|^2 \amp \le \|v - P_{U} v\|^2 + \|P_{U} v - u\|^2</mrow>
+          <mrow>\amp  = \lVert (v - P_{U} v) + (P_{U} v - u) \rVert ^2</mrow>
           <mrow>\amp = \| v - u \|^2{}</mrow>
         </md>,
       </p>
         <figure>
-          <caption><m>P_{\!U} v</m> is the closest point in <m>U</m> to <m>v</m>.</caption>
+          <caption><m>P_{U} v</m> is the closest point in <m>U</m> to <m>v</m>.</caption>
           <image source="ClosestPoint.png">
             <description><p>Missing description</p></description>
           </image>
         </figure>
       <p>
-        where the first line above holds because <m>0 \le \|P_{\!U} v - u\|^2{}</m>, the second line above comes from the Pythagorean theorem [which applies because <m>v - P_{\!U} v \in U^\perp</m> by <xref ref="x418"></xref>(f), and <m>P_{\!U} v - u \in U</m>] , and the third line above holds by simple algebra. Taking square roots gives the desired inequality.
+        where the first line above holds because <m>0 \le \|P_{U} v - u\|^2{}</m>, the second line above comes from the Pythagorean theorem [which applies because <m>v - P_{U} v \in U^\perp</m> by <xref ref="x418"></xref>(f), and <m>P_{U} v - u \in U</m>] , and the third line above holds by simple algebra. Taking square roots gives the desired inequality.
       </p>
       <p>
         The inequality proved above is an equality if and only <xref ref="x422">if</xref> is an equality,
-        which happens if and only if <m>\|P_{\!U} v - u\| = 0</m>,
-        which happens if and only if <m>u = P_{\!U} v</m>.
+        which happens if and only if <m>\|P_{U} v - u\| = 0</m>,
+        which happens if and only if <m>u = P_{U} v</m>.
       </p>
     </proof>
     <p>
@@ -769,10 +769,10 @@
           to the basis <m>1, x, x^2{}, x^3{}, x^4{}, x^5</m> of <m>U</m>,
           producing an orthonormal basis <m>e_1, e_2, e_3, e_4, e_5, e_6</m> of <m>U</m>.
           Then, again using the inner product given by <xref ref="x419"></xref>,
-          compute <m>P_{\!U} v</m> <xref ref="x418">using</xref>(i)
+          compute <m>P_{U} v</m> <xref ref="x418">using</xref>(i)
           (with <m>m = 6</m>).
           Doing this computation shows that
-          <m>P_{\!U} v</m> is the function <m>u</m> defined by
+          <m>P_{U} v</m> is the function <m>u</m> defined by
           <md number="yes" xml:id="x420">
             u(x) = 0.987862 x - 0.155271 x^3 + 0.00564312 x^5{},
           </md>
@@ -1277,7 +1277,7 @@
         <statement>
           <p>
             Suppose that <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
-            Show that <m>P_{\!U^\perp} = I - P_{\!U}</m>,
+            Show that <m>P_{U^\perp} = I - P_{U}</m>,
             where <m>I</m> is the identity operator on <m>V{}</m>.
           </p>
         </statement>
@@ -1317,7 +1317,7 @@
               \phi(u) = \langle u, w \rangle
             </md>
             for all <m>u \in U</m>.
-            Show that <m>w = P_{\!U} v</m>.
+            Show that <m>w = P_{U} v</m>.
           </p>
         </statement>
       </exercise>
@@ -1326,7 +1326,7 @@
           <p>
             Suppose <m>V</m> is finite-dimensional.
             Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P</m> and every vector in <m>\ker P</m> is orthogonal to every vector in <m>\ran P{}</m>.
-            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
+            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{U}</m>.
           </p>
         </statement>
       </exercise>
@@ -1339,7 +1339,7 @@
               \|Pv\| \le \|v\|
             </md>
             for every <m>v \in V{}</m>.
-            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{\!U}</m>.
+            Prove that there exists a subspace <m>U</m> of <m>V</m> such that <m>P = P_{U}</m>.
           </p>
         </statement>
       </exercise>
@@ -1349,7 +1349,7 @@
             Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a finite-dimensional subspace of<nbsp/><m>V{}</m>.
             Prove that
             <md>
-              U \text{ is invariant under }  T \iff P_{\!U} T P_{\!U} = T P_{\!U}.
+              U \text{ is invariant under }  T \iff P_{U} T P_{U} = T P_{U}.
             </md>
           </p>
         </statement>
@@ -1361,7 +1361,7 @@
             <m>T \in \Lc(V)</m>, and <m>U</m> is a subspace of<nbsp/><m>V{}</m>.
             Prove that
             <md>
-              U \text{ and }  U^\perp \text{ are both invariant under }  T \iff P_{\!U} T = T P_{\!U}.
+              U \text{ and }  U^\perp \text{ are both invariant under }  T \iff P_{U} T = T P_{U}.
             </md>
           </p>
         </statement>

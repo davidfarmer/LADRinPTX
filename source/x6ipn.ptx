@@ -2,12 +2,17 @@
   <title>Inner Products and Norms</title>
   <subsection>
     <title>Inner Products</title>
-      <figure>
+<!--
+      <figure number="no">
+-->
         <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
         <image source="Axes.png">
           <description><p>Missing description</p></description>
         </image>
+        <blockquote><p>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</p></blockquote>
+<!--
       </figure>
+-->
     <p>
       To motivate the concept of inner product,
       think of vectors in<nbsp/><m>\R{2}</m> and<nbsp/><m>\R{3}</m> as arrows with initial point at the origin.
