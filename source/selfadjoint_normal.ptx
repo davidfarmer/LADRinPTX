@@ -425,11 +425,14 @@
         </md>
       </p>
       <p>
-        Thus
-        <md>
-          the entry in row~\(j\), column~\(k\), of \(\M(T)\) is \(\langle Te_k, f_j \rangle \).
-        </md>
+        Thus,
+</p>
+
+<blockquote>
+<p>
+          the entry in row  <m>j</m>, column <m>k</m>, of <m>M(T)</m> is <m>\langle Te_k, f_j \rangle</m>.
       </p>
+</blockquote>
       <p>
         In the statement above, replace <m>T</m> with <m>T^*</m> and interchange
         <m>e_1, \dots,

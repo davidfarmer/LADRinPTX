@@ -1056,7 +1056,7 @@
                   Use the solution to (c) to compute <m>T^n(0, 1)</m>.
                   Conclude that
                   <md>
-                    F_n = \frac{1}{\sqrt{5}} \Biggl[ (  \frac{1 + \sqrt{5}}{2}  )^{\!n} -(  \frac{1 - \sqrt{5}}{2}  )^{\!n} \Biggr]
+                    F_n = \frac{1}{\sqrt{5}} \Biggl[ \left(  \frac{1 + \sqrt{5}}{2}  \right)^{\!n} - \left(  \frac{1 - \sqrt{5}}{2}  \right)^{\!n} \Biggr]
                   </md>
                   for each nonnegative integer <m>n</m>.
                 </p>
@@ -1066,7 +1066,7 @@
                   Use (d) to conclude that if <m>n</m> is a nonnegative integer,
                   then the Fibonacci number <m>F_n</m> is the integer that is closest to
                   <md>
-                    \frac{1}{\sqrt{5}}  (  \frac{1 + \sqrt{5}}{2}  )^{\!n}.
+                    \frac{1}{\sqrt{5}}  \left(  \frac{1 + \sqrt{5}}{2}  \right)^{\!n}.
                   </md>
                 </p>
               </li>

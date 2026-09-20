@@ -1013,7 +1013,7 @@
             <ol>
               <li>
                 <p>
-                  Prove that <m>\displaystyle (a + b + c + d)( \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d} ) \ge 16</m>.
+                  Prove that <m>\displaystyle (a + b + c + d) \left( \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d} \right) \ge 16</m>.
                 </p>
               </li>
               <li>
@@ -1092,7 +1092,7 @@
           <p>
             Prove that
             <md>
-              (  \sum_{k=1}^n a_k b_k  )^2 \le (  \sum_{k=1}^n  k {a_k}^{2}  )  ( \sum_{k=1}^n \frac{{b_k}^{2}}{k}  )
+              \left(  \sum_{k=1}^n a_k b_k  \right)^2 \le \left(  \sum_{k=1}^n  k {a_k}^{2}  \right)  \left( \sum_{k=1}^n \frac{{b_k}^{2}}{k}  \right)
             </md>
             for all real numbers <m>a_1, \dots,
             a_n</m> and <m>b_1, \dots, b_n</m>.
@@ -1108,7 +1108,7 @@
                 Suppose <m>\fun f {[1, \infty)} {[0, \infty)}</m> is continuous.
                 Show that
                 <md>
-                  (  \int_1^\infty f  )^2  \le \int_1^\infty x^2 (  f(x)  )^2   dx.
+                  \left(  \int_1^\infty f  \right)^2  \le \int_1^\infty x^2 (  f(x)  )^2   dx.
                 </md>
               </p>
             </li>

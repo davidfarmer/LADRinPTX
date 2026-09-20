@@ -819,6 +819,9 @@
             for all <m>x \in \R{}</m>.
             Let <m>V{}_\text{e}</m> denote the set of real-valued even functions on <m>\R{}</m> and let
             <m>V{}_\text{o}</m> denote the set of real-valued odd functions on <m>\R{}</m>.
+          </p>
+
+          <p>
             Show that <m>\R{\R{}} = V{}_\text{e}  \oplus V{}_\text{o}</m>.
           </p>
         </statement>

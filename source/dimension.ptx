@@ -391,56 +391,56 @@
           <cell></cell>
         </row>
         <row>
-          <cell>\(S\) is a finite set</cell>
-          <cell>\(V\) is a finite-dimensional vector space</cell>
+          <cell><m>S</m> is a finite set</cell>
+          <cell><m>V</m> is a finite-dimensional vector space</cell>
         </row>
         <row bottom="minor">
           <cell></cell>
           <cell></cell>
         </row>
         <row>
-          <cell>\(\#S\)</cell>
-          <cell>\(\dim V\)</cell>
+          <cell><m>\#S</m></cell>
+          <cell><m>\dim V</m></cell>
         </row>
         <row bottom="minor">
           <cell></cell>
           <cell></cell>
         </row>
         <row>
-          <cell>for subsets \(S_1, S_2\) of \(S\), the union \(S_1 \cup S_2\) is the smallest subset of \(S\) containing \(S_1\) and \(S_2\)</cell>
-          <cell>for subspaces \(V{}_1, V{}_2\) of \(V{}\), the sum \(V{}_1 + V{}_2\) is the smallest subspace of \(V\) containing \(V{}_1\) and \(V{}_2\)</cell>
+          <cell>for subsets <m>S_1, S_2</m> of <m>S</m>, the union <m>S_1 \cup S_2</m> is the smallest subset of <m>S</m> containing <m>S_1</m> and <m>S_2</m></cell>
+          <cell>for subspaces <m>V{}_1, V{}_2</m> of <m>V{}</m>, the sum <m>V{}_1 + V{}_2</m> is the smallest subspace of <m>V</m> containing <m>V{}_1</m> and <m>V{}_2</m></cell>
         </row>
         <row bottom="minor">
           <cell></cell>
           <cell></cell>
         </row>
         <row>
-          <cell>\(\#(S_1 \cup S_2)\)</cell>
-          <cell>\(\dim(V{}_1 + V{}_2)\)</cell>
+          <cell><m>\#(S_1 \cup S_2)</m></cell>
+          <cell><m>\dim(V{}_1 + V{}_2)</m></cell>
         </row>
         <row>
-          <cell>\( = \#S_1 + \#S_2 - \#(S_1 \cap S_2)\)</cell>
-          <cell>\(= \dim V{}_1 + \dim V{}_2 - \dim(V{}_1 \cap V{}_2)\)</cell>
+          <cell><m> = \#S_1 + \#S_2 - \#(S_1 \cap S_2)</m></cell>
+          <cell><m>= \dim V{}_1 + \dim V{}_2 - \dim(V{}_1 \cap V{}_2)</m></cell>
         </row>
         <row bottom="minor">
           <cell></cell>
           <cell></cell>
         </row>
         <row>
-          <cell>\(\#(S_1 \cup S_2) = \#S_1 + \#S_2 \)</cell>
-          <cell>\(\dim(V{}_1 + V{}_2) = \dim V{}_1 + \dim V{}_2\)</cell>
+          <cell><m>\#(S_1 \cup S_2) = \#S_1 + \#S_2 </m></cell>
+          <cell><m>\dim(V{}_1 + V{}_2) = \dim V{}_1 + \dim V{}_2</m></cell>
         </row>
         <row>
-          <cell>\(\iff S_1 \cap S_2 = \emptyset\)</cell>
-          <cell>\(\iff V{}_1 \cap V{}_2 = \{ 0 \}\)</cell>
+          <cell><m>\iff S_1 \cap S_2 = \emptyset</m></cell>
+          <cell><m>\iff V{}_1 \cap V{}_2 = \{ 0 \}</m></cell>
         </row>
         <row bottom="minor">
           <cell></cell>
           <cell></cell>
         </row>
         <row>
-          <cell>\(S_1 \cup \cdots \cup S_m\) is a disjoint union \(\iff\) \(\#(S_1 \cup \cdots \cup S_m) = \#S_1 + \cdots + \#S_m\)</cell>
-          <cell>\(V{}_1 + \cdots + V{}_m\) is a direct sum \(\iff\)  \(\dim(V{}_1 + \cdots + V{}_m) \ \) \(= \dim V{}_1 + \cdots + \dim V{}_m\)</cell>
+          <cell><m>S_1 \cup \cdots \cup S_m</m> is a disjoint union <m>\iff</m> <m>\#(S_1 \cup \cdots \cup S_m) = \#S_1 + \cdots + \#S_m</m></cell>
+          <cell><m>V{}_1 + \cdots + V{}_m</m> is a direct sum <m>\iff</m>  <m>\dim(V{}_1 + \cdots + V{}_m) \ </m> <m>= \dim V{}_1 + \cdots + \dim V{}_m</m></cell>
         </row>
         <row bottom="minor">
           <cell></cell>

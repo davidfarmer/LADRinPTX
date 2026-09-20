@@ -2,6 +2,9 @@
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
   <docinfo>
   <directories external="../assets" />
+
+<rename element="principle">Notation</rename>
+
 <macros>
 \newcommand{\tensor}{\otimes}
 \newcommand{\F}[1]{\symbf{F}^{#1}}
