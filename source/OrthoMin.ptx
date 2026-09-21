@@ -712,12 +712,12 @@
           <mrow>\amp = \| v - u \|^2{}</mrow>
         </md>,
       </p>
-        <figure>
-          <caption><m>P_{U} v</m> is the closest point in <m>U</m> to <m>v</m>.</caption>
+<sidebyside width="60%"><stack>
           <image source="ClosestPoint.png">
             <description><p>Missing description</p></description>
           </image>
-        </figure>
+          <p><m>P_{U} v</m> is the closest point in <m>U</m> to <m>v</m>.</p>
+</stack></sidebyside>
       <p>
         where the first line above holds because <m>0 \le \|P_{U} v - u\|^2{}</m>, the second line above comes from the Pythagorean theorem [which applies because <m>v - P_{U} v \in U^\perp</m> by <xref ref="x418"></xref>(f), and <m>P_{U} v - u \in U</m>] , and the third line above holds by simple algebra. Taking square roots gives the desired inequality.
       </p>
@@ -788,12 +788,12 @@
           the next figure shows the graphs of both the sine function and our approximation <m>u</m> given by <xref ref="x420"></xref>
           over the interval <m>[-\pi, \pi]</m>.
         </p>
-          <figure>
-            <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and its best fifth degree polynomial approximation <m>u</m> (blue) from <xref ref="x420"></xref>.</caption>
+<sidebyside width="60%"><stack>
             <image source="SinGram.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and its best fifth degree polynomial approximation <m>u</m> (blue) from <xref ref="x420"></xref>.</p>
+</stack></sidebyside>
         <p>
           Our <xref ref="x420">approximation</xref>
           is so accurate that the two graphs are almost identical<mdash/>our eyes may see only one graph!
@@ -811,12 +811,12 @@
           To see how good this approximation is,
           the next picture shows the graphs of both the sine function and the Taylor polynomial <m>p</m> over the interval <m>[-\pi, \pi]</m>.
         </p>
-          <figure>
-            <caption>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and the Taylor polynomial (blue) from <xref ref="x421"></xref>.</caption>
+<sidebyside width="60%"><stack>
             <image source="SinTaylor.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>Graphs on <m>[-\pi, \pi]</m> of the sine function (red) and the Taylor polynomial (blue) from <xref ref="x421"></xref>.</p>
+</stack></sidebyside>
         <p>
           The Taylor polynomial of degree <m>5</m> is an excellent approximation to <m>\sin x</m> for <m>x</m> near<nbsp/><m>0</m>.
           But the picture above shows that for <m>|x| > 2</m>,

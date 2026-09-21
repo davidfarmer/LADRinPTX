@@ -561,12 +561,12 @@
         </p>
       </statement>
     </example>
-      <figure>
-        <caption>Elements of <m>\R{2}</m> can be thought of as points or as vectors.</caption>
+<sidebyside width="60%"><stack>
         <image source="Axes.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>Elements of <m>\R{2}</m> can be thought of as points or as vectors.</p>
+</stack></sidebyside>
     <p>
       A picture can aid our intuition.
       We will draw pictures in<nbsp/><m>\R{2}</m> because we can sketch this space on two-dimensional surfaces such as paper and computer screens.
@@ -577,12 +577,12 @@
       we refer to it as a <term>vector</term>.
           <idx><h>vector</h></idx>
     </p>
-      <figure>
-        <caption>A vector.</caption>
+<sidebyside width="60%"><stack>
         <image source="Vector.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>A vector.</p>
+</stack></sidebyside>
     <p>
       When we think of vectors in <m>\R{2}</m> as arrows,
       we can move an arrow parallel to itself
@@ -622,12 +622,12 @@
       As we will now see,
       addition has a simple geometric interpretation in the special case of<nbsp/><m>\RR{2}</m>.
     </p>
-      <figure>
-        <caption>The sum of two vectors.</caption>
+<sidebyside width="60%"><stack>
         <image source="TriangleInequality2.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>The sum of two vectors.</p>
+</stack></sidebyside>
     <p>
       Suppose we have two vectors <m>u</m> and <m>v</m> in <m>\R{2}</m> that we want to add.
       Move the vector <m>v</m> parallel to itself so that its initial point coincides with the end point of the vector<nbsp/><m>u</m>,
@@ -656,12 +656,12 @@
         </p>
       </statement>
     </definition>
-      <figure>
-        <caption>A vector and its additive inverse.</caption>
+<sidebyside width="60%"><stack>
         <image source="Minusx.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>A vector and its additive inverse.</p>
+</stack></sidebyside>
     <p>
       The additive inverse of a vector in <m>\R 2</m> is the vector with the same length but pointing in the opposite direction.
       The figure here illustrates this way of thinking about the additive inverse in <m>\RR{2}</m>.
@@ -710,12 +710,12 @@
       we shrink or stretch <m>x</m> by a factor of <m>\lambda</m>,
       depending on whether <m>\lambda \lt 1</m> or <m>\lambda > 1</m>.
     </p>
-      <figure>
-        <caption>Scalar multiplication.</caption>
+<sidebyside width="60%"><stack>
         <image source="PositiveMultiplication.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>Scalar multiplication.</p>
+</stack></sidebyside>
     <p>
       If <m>\lambda\lt 0</m> and <m>x \in \RR{2}</m>,
       then <m>\lambda x</m> is the vector that points in the direction opposite to that of <m>x</m> and whose length is

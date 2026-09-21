@@ -626,12 +626,12 @@
         </p>
       </statement>
     </definition>
-      <figure>
-        <caption>The ball <m>B</m> in <m>\R2</m>.</caption>
+<sidebyside width="60%"><stack>
         <image width="60%" source="ball.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>The ball <m>B</m> in <m>\R2</m>.</p>
+</stack></sidebyside>
     <p>
       If <m>\dim V = 2</m>,
       the word <term>disk</term> is sometimes used instead of <term>ball</term>.
@@ -676,30 +676,30 @@
       <title>ellipsoids</title>
       <statement>
         <sidebyside>
-          <figure>
-            <caption>The ellipsoid  <m>E(2f_1, f_2)</m> in <m>\R2</m>, where
-            <m>f_1, f_2</m> is the standard basis of  <m>\R2</m>.</caption>
+          <stack>
             <image width="60%" source="Ellipsoid1.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
-          <figure>
-            <caption>The ellipsoid  <m>E(2f_1, f_2)</m> in  <m>\R2</m>, where
-            <m>f_1 = (  \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and  <m>f_2 = (  -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</caption>
+            <p>The ellipsoid  <m>E(2f_1, f_2)</m> in <m>\R2</m>, where
+            <m>f_1, f_2</m> is the standard basis of  <m>\R2</m>.</p>
+          </stack>
+          <stack>
             <image width="60%" source="Ellipsoid2.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>The ellipsoid  <m>E(2f_1, f_2)</m> in  <m>\R2</m>, where
+            <m>f_1 = (  \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and  <m>f_2 = (  -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</p>
+          </stack>
         </sidebyside>
-<figure>
+<sidebyside width="60%"><stack>
           <image width="60%" source="Ellipsoid3.png">
               <description><p>Missing description</p></description>
             </image>
-<caption>
+<p>
           The ellipsoid  <m>E(4f_1, 3f_2, 2f_3)</m> in  <m>\R3</m>,
           where  <m>f_1, f_2, f_3</m> is the standard basis of  <m>\R3</m>.
-</caption>
-</figure>
+</p>
+</stack></sidebyside>
       </statement>
     </example>
     <p>
@@ -857,19 +857,19 @@
       <title>parallelepipeds</title>
       <statement>
         <sidebyside>
-          <figure>
-            <caption>The parallelepiped
-            <m>(0.3,0.5) + P( (1,0),(1,1) )</m> in <m>\R2</m>.</caption>
+          <stack>
             <image width="60%" source="parallel.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
-          <figure>
-            <caption>A parallelepiped in <m>\R3</m>.</caption>
+            <p>The parallelepiped
+            <m>(0.3,0.5) + P( (1,0),(1,1) )</m> in <m>\R2</m>.</p>
+          </stack>
+          <stack>
             <image width="60%" source="parallel2.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>A parallelepiped in <m>\R3</m>.</p>
+          </stack>
         </sidebyside>
       </statement>
     </example>
@@ -927,21 +927,21 @@
       <title>boxes</title>
       <statement>
         <sidebyside>
-          <figure>
-            <caption>The box  <m>(1,0) + P( \sqrt{2} e_1,\sqrt{2} e_2 )</m>,
-            where
-            <m>e_1 = ( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and <m>e_2 = ( -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</caption>
+          <stack>
             <image width="60%" source="box.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
-          <figure>
-            <caption>The box  <m>P(e_1,2e_2,e_3)</m>, where  <m>e_1, e_2,e_3</m>
-            is the standard basis of  <m>\R3</m>.</caption>
+            <p>The box  <m>(1,0) + P( \sqrt{2} e_1,\sqrt{2} e_2 )</m>,
+            where
+            <m>e_1 = ( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m> and <m>e_2 = ( -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} )</m>.</p>
+          </stack>
+          <stack>
             <image width="60%" source="box2.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>The box  <m>P(e_1,2e_2,e_3)</m>, where  <m>e_1, e_2,e_3</m>
+            is the standard basis of  <m>\R3</m>.</p>
+          </stack>
         </sidebyside>
       </statement>
     </example>
@@ -1046,12 +1046,12 @@
       <m>2</m>,
       and <m>1</m>.
     </p>
-      <figure>
-        <caption>Volume of this ball <m>\approx</m> sum of the volumes of the five boxes.</caption>
+<sidebyside width="60%"><stack>
         <image width="60%" source="VolumeBall.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>Volume of this ball <m>\approx</m> sum of the volumes of the five boxes.</p>
+</stack></sidebyside>
     <p>
       To define the volume of a subset of <m>V{}</m>,
       approximate the subset by a finite collection of disjoint boxes,
@@ -1088,12 +1088,12 @@
     <example>
       <title>volume change by a linear map</title>
       <statement>
-          <figure>
-            <caption>Each box here has twice the width and the same height as the boxes in the previous figure.</caption>
+<sidebyside width="60%"><stack>
             <image width="60%" source="VolumeBall2.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p>Each box here has twice the width and the same height as the boxes in the previous figure.</p>
+</stack></sidebyside>
         <p>
           Suppose that <m>T \in \Lc( \R2 )</m> is defined by <m>Tv = 2 \langle v, e_1 \rangle e_1 + \langle v, e_2 \rangle e_2</m>,
           where <m>e_1, e_2</m> is the standard basis of <m>\R2</m>.

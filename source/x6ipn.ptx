@@ -2,17 +2,13 @@
   <title>Inner Products and Norms</title>
   <subsection>
     <title>Inner Products</title>
-<!--
-      <figure number="no">
--->
-        <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
+
+<sidebyside width="60%"><stack>
         <image width="60%" source="Axes.png">
           <description><p>Missing description</p></description>
         </image>
-        <blockquote><p>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</p></blockquote>
-<!--
-      </figure>
--->
+        <p>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</p>
+</stack></sidebyside>
     <p>
       To motivate the concept of inner product,
       think of vectors in<nbsp/><m>\R{2}</m> and<nbsp/><m>\R{3}</m> as arrows with initial point at the origin.
@@ -626,12 +622,12 @@
       We would like to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector <m>w</m> orthogonal to<nbsp/><m>v</m>,
       as suggested in the picture here.
     </p>
-      <figure>
-        <caption>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</caption>
-        <image width="60%" source="OrthogonalDecomposition.png">
+<sidebyside width="60%"><stack>
+        <image source="OrthogonalDecomposition.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</p>
+</stack></sidebyside>
     <p>
       To discover how to write <m>u</m> as a scalar multiple of<nbsp/><m>v</m> plus a vector orthogonal to<nbsp/><m>v</m>,
       let <m>c \in \F{}</m> denote a scalar.
@@ -766,12 +762,12 @@
 </p>
       </statement>
     </example>
-      <figure>
-        <caption>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
+<sidebyside width="60%"><stack>
         <image width="60%" source="TriangleInequality3.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</p>
+</stack></sidebyside>
     <p>
       The next result, called the triangle inequality,
           <idx><h>triangle inequality</h></idx>
@@ -836,12 +832,13 @@
       For the reverse triangle inequality,
       see <xref ref="x6reverse">Exercise</xref>.
     </p>
-      <figure>
-        <caption>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</caption>
+<sidebyside width="60%"><stack>
         <image width="60%" source="Parallelogram.png">
           <description><p>Missing description</p></description>
         </image>
-      </figure>
+        <p>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</p>
+</stack></sidebyside>
+
     <p>
       The next result is called the parallelogram equality because of its geometric interpretation:
       in every parallelogram,

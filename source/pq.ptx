@@ -256,12 +256,13 @@
     <example xml:id="U1720">
       <title>sum of a vector and a one-dimensional subspace of  <m>\R2</m></title>
       <statement>
-          <figure>
-            <caption><m>(17,20) + U</m> is parallel to the subspace <m>U</m>.</caption>
+<sidebyside width="70%"><stack>
             <image source="UPlus.png">
               <description><p>Missing description</p></description>
             </image>
-          </figure>
+            <p><m>(17,20) + U</m> is parallel to the subspace <m>U</m>.</p>
+</stack></sidebyside>
+
         <p>
           Suppose
           <md>
