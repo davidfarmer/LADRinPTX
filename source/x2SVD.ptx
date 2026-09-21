@@ -252,7 +252,7 @@
             <cell></cell>
           </row>
           <row>
-            <cell>can be arbitrary real numbers (if \(\F{} = \R{}\)) or complex numbers (if \(\F{} = \C{}\))</cell>
+            <cell>can be arbitrary real numbers (if <m>\F{} = \R{}</m>) or complex numbers (if <m>\F{} = \C{}</m>)</cell>
             <cell>are nonnegative numbers</cell>
           </row>
           <row bottom="minor">
@@ -260,7 +260,7 @@
             <cell></cell>
           </row>
           <row>
-            <cell>can be the empty list if \(\F{} = \R{}\)</cell>
+            <cell>can be the empty list if <m>\F{} = \R{}</m></cell>
             <cell>length of list equals dimension of domain</cell>
           </row>
           <row bottom="minor">
@@ -268,15 +268,15 @@
             <cell></cell>
           </row>
           <row>
-            <cell>includes \(0 \! \iff \!\) operator is not invertible</cell>
-            <cell>includes \(0 \! \iff\!\) linear map is not injective</cell>
+            <cell>includes <m>0  \iff </m> operator is not invertible</cell>
+            <cell>includes <m>0  \iff</m> linear map is not injective</cell>
           </row>
           <row bottom="minor">
             <cell></cell>
             <cell></cell>
           </row>
           <row>
-            <cell>no standard order, especially if \(\F{} = \C{}\)</cell>
+            <cell>no standard order, especially if <m>\F{} = \C{}</m></cell>
             <cell>always listed in decreasing order</cell>
           </row>
           <row bottom="minor">
@@ -305,9 +305,9 @@
       <p>
         We have
         <md>
-          <mrow>\text{ \(S\) is an isometry }  \amp \iff S^* S = I</mrow>
-          <mrow>\amp \iff \text{ all eigenvalues of \(S^* S\) equal \(1\) }</mrow>
-          <mrow>\amp \iff \text{ all singular values of \(S\) equal~\(1\), }</mrow>
+          <mrow>\text{ <m>S</m> is an isometry }  \amp \iff S^* S = I</mrow>
+          <mrow>\amp \iff \text{ all eigenvalues of <m>S^* S</m> equal <m>1</m> }</mrow>
+          <mrow>\amp \iff \text{ all singular values of <m>S</m> equal <m>1</m>, }</mrow>
         </md>
         where the first equivalence comes from <xref ref="x234"></xref>
         and the second equivalence comes from the spectral theorem ( <xref ref="x86"></xref>
@@ -455,7 +455,7 @@
             <cell></cell>
           </row>
           <row>
-            <cell>describes only self-adjoint operators (when \(\F{} = \R{}\)) or normal operators (when \(\F{} = \C{}\))</cell>
+            <cell>describes only self-adjoint operators (when <m>\F{} = \R{}</m>) or normal operators (when <m>\F{} = \C{}</m>)</cell>
             <cell>describes arbitrary linear maps from an inner product space to a possibly different inner product space</cell>
           </row>
           <row bottom="minor">
@@ -471,8 +471,8 @@
             <cell></cell>
           </row>
           <row>
-            <cell>different proofs depending on whether \(\F{} = \R{}\) or \(\F{}=\C{}\)</cell>
-            <cell>same proof works regardless of whether \(\F{} = \R{}\) or \(\F{}=\C{}\)</cell>
+            <cell>different proofs depending on whether <m>\F{} = \R{}</m> or <m>\F{}=\C{}</m></cell>
+            <cell>same proof works regardless of whether <m>\F{} = \R{}</m> or <m>\F{}=\C{}</m></cell>
           </row>
           <row bottom="minor">
             <cell></cell>
@@ -552,7 +552,7 @@
         <md>
           <mrow>Tv \amp = \frac{\langle w, f_1 \rangle }{s_1} Te_1 + \dots + \frac{\langle w, f_m \rangle }{s_m} Te_m</mrow>
           <mrow>\amp = \langle w, f_1 \rangle  f_1 + \dots + \langle w, f_m \rangle  f_m</mrow>
-          <mrow>\amp = P_{\!\ran T}   w</mrow>
+          <mrow>\amp = P_{\ran T}   w</mrow>
         </md>,
         where the second line holds <xref ref="x5SVD">because</xref>
         implies that <m>Te_k = s_k f_k</m> if <m>k = 1, \ldots, m</m>,
@@ -784,7 +784,7 @@
         <statement>
           <p>
             Find the singular values of the differentiation operator
-            <m>D \in \Lc\bigl(\P{}_2(\R{})\bigr)</m> defined by <m>Dp = p'\!</m>,
+            <m>D \in \Lc\bigl(\P{}_2(\R{})\bigr)</m> defined by <m>Dp = p'</m>,
             where the inner product on
             <m>\P{}_2(\R{})</m> is as in <xref ref="obP2R">Example</xref>.
           </p>

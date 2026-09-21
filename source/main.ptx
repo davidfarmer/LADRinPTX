@@ -28,6 +28,7 @@
 \newcommand{\P}{\symcal{P}}
 \newcommand{\sm}{\backslash}
 \newcommand{\Space}{}
+\newcommand{\pound}[1]{#1^{\#}}
 \DeclareMathOperator{\ran}{range}
 \DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\re}{Re}

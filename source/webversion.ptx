@@ -4,7 +4,9 @@
   <p>
 The online version of this book was prepared in
 <pretext/>, after a conversion of the LaTeX source with the assistance of
-<pretext/><nbsp/>Plus.
+<url href="https://pretext.plus">PreTeXt<nbsp/>Plus</url>.
+The author thanks David Farmer for his huge effort in converting the
+LaTeX source to PreTeXt.
 </p>
 
 </section>

@@ -331,7 +331,7 @@
   <subsection>
     <title>Symmetric Bilinear Forms</title>
     <definition>
-      <title>symmetric bilinear form, <m>V^{(2)}_{sym}</m></title>
+      <title>symmetric bilinear form, <m>V^{(2)}_{\text{sym}}</m></title>
       <statement>
         <p>
           A bilinear form <m>\rho \in V^{(2)}</m> is called <term>symmetric</term> if
@@ -571,12 +571,12 @@
       Alternating multilinear forms will play a major role in our approach to determinants later in this chapter.
     </p>
     <definition>
-      <title>alternating bilinear form, <m>V^{(2)}_{alt}</m></title>
+      <title>alternating bilinear form, <m>V^{(2)}_{\text{alt}}</m></title>
       <statement>
         <p>
           A bilinear form <m>\alpha  \in V^{(2)}</m> is called <term>alternating</term>
           if<idx><h>alternating bilinear form</h></idx>
-              <idx><h sortby="V2alt"><m>V^{(2)}_{alt}</m></h></idx>
+              <idx><h sortby="V2alt"><m>V^{(2)}_{\text{alt}}</m></h></idx>
           <md>
             \alpha (v,v) = 0
           </md>
@@ -654,7 +654,7 @@
       Now we show that the vector space of bilinear forms on <m>V</m> is the direct sum of the symmetric bilinear forms on <m>V</m> and the alternating bilinear forms on <m>V{}</m>.
     </p>
     <theorem xml:id="x9V2">
-      <title><m>V^{(2)} = V^{(2)}_{sym} \oplus V^{(2)}_{alt}</m></title>
+      <title><m>V^{(2)} = V^{(2)}_{\text{sym}} \oplus V^{(2)}_{\text{alt}}</m></title>
       <statement>
         <p>
           The sets <m>V^{(2)}_{\text{ sym } }</m> and

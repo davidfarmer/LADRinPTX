@@ -511,9 +511,9 @@
               <p>
                 Suppose <m>\fun \Gamma {V{} \times W} U</m> is a bilinear map.
                 Then there exists a unique linear map
-                <m>\fun {\hat[8]{\Gamma}} {V{} \tensor W} U</m> such that<idx><h sortby="betahat"><m>\hat[8]{\Gamma}</m></h></idx>
+                <m>\fun {\hat{\Gamma}} {V{} \tensor W} U</m> such that<idx><h sortby="betahat"><m>\hat[8]{\Gamma}</m></h></idx>
                 <md>
-                  \hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)
+                  \hat{\Gamma}(v \tensor w) = \Gamma(v, w)
                 </md>
                 for all <m>(v, w) \in V{} \times W{}</m>.
               </p>
@@ -539,9 +539,9 @@
         <m>f_1, \ldots,
         f_n</m> be a basis of <m>W{}</m>.
         By the linear map lemma <xref ref="x3linearmap"/> and <xref ref="x9basisVtenW"></xref>(b),
-        there exists a unique linear map <m>\fun {\hat[8]{\Gamma}} {V{} \tensor W} U</m> such that
+        there exists a unique linear map <m>\fun {\hat{\Gamma}} {V{} \tensor W} U</m> such that
         <md>
-          \hat[8]{\Gamma}(e_j \tensor f_k) = \Gamma(e_j, f_k)
+          \hat{\Gamma}(e_j \tensor f_k) = \Gamma(e_j, f_k)
         </md>
         for all <m>j \in \{ 1, \ldots,
         m \}</m> and <m>k \in \{ 1, \ldots, n \}</m>.
@@ -553,18 +553,18 @@
         <m>v = a_1 e_1 + \cdots + a_m e_m</m> and <m>w = b_1 f_1 + \cdots + b_n f_n</m>.
         Thus
         <md>
-          <mrow>\hat[8]{\Gamma}(v \tensor w) \amp = \hat[8]{\Gamma} (  \sum_{k=1}^n \sum_{j=1}^m  (a_j b_k) (e_j \tensor f_k)  )</mrow>
-          <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m a_j b_k \hat[8]{\Gamma}(e_j \tensor f_k)</mrow>
+          <mrow>\hat{\Gamma}(v \tensor w) \amp = \hat{\Gamma} (  \sum_{k=1}^n \sum_{j=1}^m  (a_j b_k) (e_j \tensor f_k)  )</mrow>
+          <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m a_j b_k \hat{\Gamma}(e_j \tensor f_k)</mrow>
           <mrow>\amp = \sum_{k=1}^n \sum_{j=1}^m a_j b_k \Gamma(e_j , f_k)</mrow>
           <mrow>\amp = \Gamma(v, w)</mrow>
         </md>,
-        as desired, where the second line holds because <m>\hat[8]{\Gamma}</m> is linear,
-        the third line holds by the definition of <m>\hat[8]{\Gamma}</m>,
+        as desired, where the second line holds because <m>\hat{\Gamma}</m> is linear,
+        the third line holds by the definition of <m>\hat{\Gamma}</m>,
         and the fourth line holds because <m>\Gamma</m> is bilinear.
       </p>
       <p>
-        The uniqueness of the linear map <m>\hat[8]{\Gamma}</m> satisfying
-        <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> follows from <xref ref="x9basisVtenW"></xref>(b),
+        The uniqueness of the linear map <m>\hat{\Gamma}</m> satisfying
+        <m>\hat{\Gamma}(v \tensor w) = \Gamma(v, w)</m> follows from <xref ref="x9basisVtenW"></xref>(b),
         completing the proof of (a).
       </p>
       <p>
@@ -581,16 +581,16 @@
     </proof>
     <p>
       To <xref ref="x9bi2linear">prove</xref>(a),
-      we could not just define <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> for all <m>v \in V</m> and <m>w \in W</m> \big(and then extend <m>\hat[8]{\Gamma}</m> linearly to all of
+      we could not just define <m>\hat{\Gamma}(v \tensor w) = \Gamma(v, w)</m> for all <m>v \in V</m> and <m>w \in W</m> \big(and then extend <m>\hat{\Gamma}</m> linearly to all of
       <m>V{} \tensor W</m>\big) because elements of
       <m>V{} \tensor W</m> do not have unique representations as finite sums of elements of the form <m>v \tensor w</m>.
       Our proof used a basis of <m>V</m> and a basis of <m>W</m> to get around this problem.
     </p>
     <p>
       Although our construction of
-      <m>\hat[8]{\Gamma}</m> in the proof of <xref ref="x9bi2linear"></xref>(a) depended on a basis of <m>V</m> and a basis of <m>W{}</m>,
-      the equation <m>\hat[8]{\Gamma}(v \tensor w) = \Gamma(v, w)</m> that holds for all <m>v \in V</m> and <m>w \in W{}</m> shows that
-      <m>\hat[8]{\Gamma}</m> does not depend on the choice of bases for <m>V</m> and <m>W{}</m>.
+      <m>\hat{\Gamma}</m> in the proof of <xref ref="x9bi2linear"></xref>(a) depended on a basis of <m>V</m> and a basis of <m>W{}</m>,
+      the equation <m>\hat{\Gamma}(v \tensor w) = \Gamma(v, w)</m> that holds for all <m>v \in V</m> and <m>w \in W{}</m> shows that
+      <m>\hat{\Gamma}</m> does not depend on the choice of bases for <m>V</m> and <m>W{}</m>.
     </p>
   </subsection>
   <subsection>
@@ -943,9 +943,9 @@
               <p>
                 Suppose that <m>\fun \Gamma {V{}_1 \times \cdots \times V{}_m} U</m> is an <m>m</m>-linear map.
                 Then there exists a unique linear map
-                <m>\fun {\hat[8]{\Gamma}} {V{}_1 \tensor \cdots \tensor V{}_m} U</m> such that<idx><h sortby="betahat"><m>\hat[8]{\Gamma}</m></h></idx>
+                <m>\fun {\hat{\Gamma}} {V{}_1 \tensor \cdots \tensor V{}_m} U</m> such that<idx><h sortby="betahat"><m>\hat{\Gamma}</m></h></idx>
                 <md>
-                  \hat[8]{\Gamma}(v_1 \tensor \cdots \tensor v_m) = \Gamma(v_1, \ldots, v_m)
+                  \hat{\Gamma}(v_1 \tensor \cdots \tensor v_m) = \Gamma(v_1, \ldots, v_m)
                 </md>
                 for all <m>(v_1, \ldots, v_m) \in V{}_1 \times \cdots \times V{}_m</m>.
               </p>

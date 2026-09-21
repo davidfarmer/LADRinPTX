@@ -531,7 +531,7 @@
       have important consequences in the theory of linear equations.
       The idea is to express questions about systems of linear equations in terms of linear maps.
       Let's begin by rephrasing in terms of linear maps the question of whether a homogeneous system of linear equations has a nonzero solution.
-          <idx><h>linear equations|(</h></idx>
+          <idx><h>linear equations</h></idx>
     </p>
     <aside>
       <p>
@@ -660,7 +660,7 @@
     <p>
       Example of the result above:
       a system of five linear equations with four variables has no solution for some choice of the constant terms.
-          <idx><h>linear equations|)</h></idx>
+          <idx><h>linear equations</h></idx>
     </p>
     <exercises>
       <title>Exercises</title>

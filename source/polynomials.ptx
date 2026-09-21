@@ -94,7 +94,7 @@
               The <term>complex conjugate</term>
                 <idx><h>complex conjugate</h></idx>
               of <m>z \in \C{}</m>, denoted by <m>\bar{z}</m>,
-                <idx><h sortby="zaaa"><m>\protect\bar{z}</m></h></idx>
+                <idx><h sortby="zaaa"><m>\bar{z}</m></h></idx>
               is defined by
               <md>
                 \bar{z} = \re z - (\im z)i.
@@ -106,7 +106,7 @@
               The <term>absolute value</term>
                 <idx><h>absolute value</h></idx>
               of a complex number <m>z</m>,  denoted by <m>|z|</m>,
-                <idx><h sortby="zaab"><m>"|z"|</m></h></idx>
+                <idx><h sortby="zaab"><m>|z|</m></h></idx>
               is defined by
               <md>
                 |z| = \sqrt{(\re z)^2 + (\im z)^2}.

@@ -6,7 +6,7 @@
       <figure number="no">
 -->
         <caption>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</caption>
-        <image source="Axes.png">
+        <image width="60%" source="Axes.png">
           <description><p>Missing description</p></description>
         </image>
         <blockquote><p>This vector <m>v</m> has norm <m>\sqrt{a^2 + b^2}</m>.</p></blockquote>
@@ -435,7 +435,7 @@
       </statement>
     </definition>
     <p>
-          <idx><h sortby="w"><m>"|"|v"|"|</m></h></idx>
+          <idx><h sortby="w"><m>\|v\|</m></h></idx>
     </p>
     <example>
       <title>norms</title>
@@ -628,7 +628,7 @@
     </p>
       <figure>
         <caption>An orthogonal decomposition: <m>u</m> expressed as a scalar multiple of <m>v</m> plus a vector orthogonal to <m>v</m>.</caption>
-        <image source="OrthogonalDecomposition.png">
+        <image width="60%" source="OrthogonalDecomposition.png">
           <description><p>Missing description</p></description>
         </image>
       </figure>
@@ -757,7 +757,7 @@
             <p>
               If <m>f, g</m> are continuous real-valued functions on <m>[-1, 1]</m>, then
               <md>
-                \lvert \int_{-1}^1 fg   \rvert ^{2} \le (  \int_{-1}^1 f^2  ) (  \int_{-1}^1 g^2  ),
+                \left\lvert \int_{-1}^1 fg   \right\rvert ^{2} \le \left(  \int_{-1}^1 f^2  \right) \left(  \int_{-1}^1 g^2  \right),
               </md>
               as follows from applying the Cauchy<ndash/>Schwarz inequality to <xref ref="exampleip">Example</xref>(c).
             </p>
@@ -768,7 +768,7 @@
     </example>
       <figure>
         <caption>In this triangle, the length of <m>u+v</m> is less than the length of <m>u</m> plus the length of <m>v</m>.</caption>
-        <image source="TriangleInequality3.png">
+        <image width="60%" source="TriangleInequality3.png">
           <description><p>Missing description</p></description>
         </image>
       </figure>
@@ -838,7 +838,7 @@
     </p>
       <figure>
         <caption>The diagonals of this parallelogram are <m>u+v</m> and <m>u-v</m>.</caption>
-        <image source="Parallelogram.png">
+        <image width="60%" source="Parallelogram.png">
           <description><p>Missing description</p></description>
         </image>
       </figure>
@@ -1385,7 +1385,7 @@
               a^2 + b^2 = \tfrac{1}{2} c^2 + 2d^2{}.
             </md>
           </p>
-            <image source="Apollonius.png">
+            <image width="60%" source="Apollonius.png">
               <description><p>Missing description</p></description>
             </image>
         </statement>

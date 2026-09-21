@@ -569,7 +569,7 @@
       <title><m>\tilde{T}</m></title>
 <statement>
       <p>
-            <idx><h sortby="T"><m>\protect\tilde{T}</m></h></idx>
+            <idx><h sortby="T"><m>\tilde{T}</m></h></idx>
         Suppose <m>T \in \Lc(V{}, W)</m>.
         Define <m>\tilde{T} \colon V{}/(\ker T) \to W</m> by
         <md>

@@ -12,8 +12,10 @@
       <projects level="1"/>
       <equations level="1"/>
       <footnotes level="1"/>
+      <figures level="0" distinct="yes"/>
     </numbering>
 <!--
+/publication/numbering/figures/@distinct
    <common>
     <journal name="bull-amer-math-soc"/>
    </common>
