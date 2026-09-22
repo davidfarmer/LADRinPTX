@@ -884,7 +884,7 @@
   </proof>
 </paragraphs>
 
-  <exercises>
+  <paragraphs>
     <title>Exercises</title>
     <exercise>
       <statement>
@@ -1125,5 +1125,5 @@
         </p>
       </statement>
     </exercise>
-  </exercises>
+  </paragraphs>
 </chapter>

@@ -14,20 +14,18 @@
       <footnotes level="1"/>
       <figures level="0" distinct="yes"/>
     </numbering>
-<!--
-/publication/numbering/figures/@distinct
-   <common>
-    <journal name="bull-amer-math-soc"/>
-   </common>
--->
 
+<!--
     <web>
         <knowl example="no" remark="no" proof="yes" example-solution="no" aside="no"/>
     </web>
-
-<!--
-    <latex latex-style="amsart"/>
 -->
+
+
+
+    <html>
+        <knowl exercise-inline="no" remark="no" proof="yes" example="yes" aside="yes"/>
+    </html>
 
 
 </publication>

@@ -4,6 +4,7 @@
   <directories external="../assets" />
 
 <rename element="principle">Notation</rename>
+<rename element="inlineexercise">Exercise</rename>
 
 <macros>
 \newcommand{\tensor}{\otimes}
