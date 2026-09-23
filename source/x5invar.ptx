@@ -70,7 +70,7 @@
         <p>
           If <m>T \in \Lc(V)</m>,
           then the following subspaces of <m>V</m> are all invariant under <m>T{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <title><m>\{ 0 \}</m></title>
               <p>
@@ -198,7 +198,7 @@
           Suppose <m>V</m> is finite-dimensional,
           <m>T \in \Lc(V)</m>, and <m>\lambda \in \F{}{}</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
@@ -260,7 +260,7 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc( \F{2} )</m> is defined by <m>T(w,z) = (-z,w)</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 First consider the case <m>\F{} = \R{}</m>.
@@ -402,7 +402,7 @@
       <p>
         Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
             <idx><h sortby="Tm"><m>T^m{}</m></h></idx>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               <m>T^m \in \Lc(V)</m> is defined by <m>T^m = \underbrace{T \dotsm T}_{m \textit{ times}}{}</m>.
@@ -506,7 +506,7 @@
         <p>
           Suppose <m>p, q \in \P(\F{})</m> and <m>T \in \Lc(V)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>(pq)(T) = p(T)q(T)</m>;
@@ -530,7 +530,7 @@
                 </aside>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>\displaystyle p(z) = \sum_{j=1[=0]}^m a_j z^j</m> and
@@ -605,7 +605,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> and <m>U</m> is a subspace of <m>V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that if <m>U \subset \ker T</m>,
@@ -724,7 +724,7 @@
           <p>
             Suppose <m>T \in \Lc(V)</m>.
             Suppose <m>S \in \Lc(V)</m> is invertible.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>T</m> and <m>S^{-1} T S</m> have the same eigenvalues.
@@ -818,7 +818,7 @@
             <md>
               S(z_1, z_2, z_3, \dots) = (z_2, z_3, \dots).
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that every element of <m>\F{}</m> is an eigenvalue of <m>S</m>.
@@ -837,7 +837,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> is invertible.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Suppose <m>\lambda \in \F{}</m> with <m>\lambda \ne 0</m>.
@@ -881,7 +881,7 @@
             Suppose <m>A</m> is an <m>n</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
             Define <m>T \in \Lc( \F{n} )</m> by <m>Tx = Ax</m>,
             where elements of <m>\F{n}</m> are thought of as <m>n</m>-by-<m>1</m> column vectors.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Suppose the sum of the entries in each row of <m>A</m> equals<nbsp/><m>1</m>.
@@ -972,7 +972,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> and <m>m</m> is a positive integer.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>T</m> is injective if and only if <m>T^m</m> is injective.
@@ -1048,7 +1048,7 @@
               (T{}/U)(v + U) = Tv +U
             </md>
             for each <m>v \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that the definition of <m>T{}/U</m> makes sense
@@ -1099,7 +1099,7 @@
           <p>
             Define <m>T \in \Lc( \F{n} )</m> by <m>T(x_1, x_2, x_3, \dots,
             x_n) = (x_1, 2x_2, 3x_3, \dots, n x_n)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Find all eigenvalues and eigenvectors of <m>T{}</m>.

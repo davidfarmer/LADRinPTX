@@ -162,7 +162,7 @@
               <idx><h>spectral theorem</h></idx>
           Suppose <m>\F{} = \R{}</m> and <m>T \in \Lc(V)</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T</m> is self-adjoint.
@@ -256,7 +256,7 @@
               <idx><h>spectral theorem</h></idx>
           Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T</m> is normal.
@@ -578,7 +578,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
@@ -602,7 +602,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> is normal and <m>U</m> is a subspace of <nbsp/><m>V</m> that is invariant under <nbsp/><m>T{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>U^\perp</m> is invariant under <m>T{}</m>.
@@ -675,7 +675,7 @@
           <p>
             Suppose <m>U</m> is a finite-dimensional vector space and <m>T \in \Lc(U)</m>.
                 <idx><h>basis</h><h>of eigenvectors</h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Suppose <m>\F{} = \R{}</m>.

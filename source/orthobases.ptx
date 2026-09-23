@@ -6,7 +6,7 @@
       <title>orthonormal</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               A list of vectors is called <term>orthonormal</term>
@@ -32,7 +32,7 @@
       <title>orthonormal lists</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The standard basis of<nbsp/><m>\F{n}</m> is an orthonormal list.
@@ -282,7 +282,7 @@
           Suppose <m>e_1, \dots,
           e_n</m> is an orthonormal basis of <m>V</m> and <m>u, v \in V{}</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>v = \langle v, e_1 \rangle e_1 + \dots + \langle v, e_n \rangle e_n</m>;
@@ -652,7 +652,7 @@
       <statement>
         <p>
               <idx><h sortby="V'"><m>V'{}</m></h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 A <term>linear functional</term>
@@ -872,7 +872,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>\theta \in \R{}</m>.
@@ -955,7 +955,7 @@
         <statement>
           <p>
             Suppose <m>e_1, \dots, e_n</m> is an orthonormal basis of <m>V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that if <m>v_1, \dots, v_n</m> are vectors in <m>V</m> such that
@@ -1000,7 +1000,7 @@
             Make <m>\P{}_2(\R{})</m> into an inner product space by defining
             <m>\langle p, q \rangle = \int_0^1 pq</m> for all <m>p,
             q \in \P{}_2(\R{})</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Apply the Gram<ndash/>Schmidt procedure to the basis
@@ -1205,7 +1205,7 @@
         <statement>
           <p>
             For all <m>u, v \in V{}</m>, define <m>d(u, v) = \|u - v\|</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>d</m> is a metric on <m>V{}</m>.

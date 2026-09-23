@@ -20,11 +20,26 @@
         </p>
       </statement>
     </definition>
+
+                <aside>
+                  <p>
+                    The word
+                    <q>null</q>
+                    means zero.
+                    Thus the term
+                    <q>null space</q>
+                    should remind you of the connection to <nbsp/><m>0</m>.
+                    Some mathematicians use the term <em>kernel</em>
+    <idx><h>kernel</h></idx>
+                    instead of null space.
+                  </p>
+                </aside>
+
     <example xml:id="null">
       <title>null space</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>T</m> is the zero map from <m>V</m> to <m>W{}</m>,
@@ -43,22 +58,7 @@
           </li>
           <li>
             <p>
-              <sidebyside>
-                <aside>
-                  <p>
-                    The word
-                    <q>null</q>
-                    means zero.
-                    Thus the term
-                    <q>null space</q>
-                    should remind you of the connection to <nbsp/><m>0</m>.
-                    Some mathematicians use the term <em>kernel</em>
-    <idx><h>kernel</h></idx>
-                    instead of null space.
-                  </p>
-                </aside>
                 Suppose <m>D\in \Lc\bigl(\P(\R{})\bigr)</m> is the differentiation map defined by <m>Dp = p'\!</m>. The only functions whose derivative equals the zero function are the constant functions. Thus the null space of <m>D</m> equals the set of constant functions.
-              </sidebyside>
     <idx><h>differentiation linear map</h></idx>
             </p>
           </li>
@@ -233,7 +233,7 @@
       <title>range</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>T</m> is the zero map from <m>V</m> to <m>W{}</m>,
@@ -688,7 +688,7 @@
             <md>
               T(z_1, \dots, z_m) = z_1 v_1 + \dots + z_m v_m.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   What property of <m>T</m> corresponds to <m>v_1, \dots,
@@ -892,7 +892,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>\dim V = 5</m> and
@@ -1004,7 +1004,7 @@
               T{}_{\C{}}(u + iv) = Tu + iTv
             </md>
             for all <m>u, v \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>T{}_{\C{}}</m> is a (complex) linear map from

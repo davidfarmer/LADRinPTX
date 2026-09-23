@@ -23,7 +23,7 @@
       <title>orthogonal complements</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>V = \R3</m> and <m>U</m> is the subset of <m>V</m> consisting of the single point <m>(2,3,5)</m>,
@@ -78,7 +78,7 @@
       <title>properties of orthogonal complement</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>U</m> is a subset of <m>V{}</m>,
@@ -113,7 +113,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>U</m> is a subset of <m>V{}</m>.
@@ -411,7 +411,7 @@
         <p>
           Suppose <m>U</m> is a finite-dimensional subspace of <m>V{}</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>P_{U} \in \Lc(V)</m>;
@@ -467,7 +467,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             To show that <m>P_{U}</m> is a linear map on <m>V{}</m>,
@@ -960,7 +960,7 @@
       <statement>
         <p>
           Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V{},W)</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>T</m> is invertible, then <m>T^\dagger = T^{-1}{}</m>.
@@ -982,7 +982,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>T</m> is invertible.
@@ -1074,7 +1074,7 @@
         <p>
           Suppose <m>V</m> is finite-dimensional,
           <m>T \in \Lc(V{},W)</m>, and <m>w \in W{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>v \in V{}</m>, then
@@ -1099,7 +1099,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>v \in V{}</m>.
@@ -1376,7 +1376,7 @@
               \phi_v(u) = \langle u, v \rangle
             </md>
             for all <m>u \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>v \mapsto \phi_v</m> is an injective linear map from <m>V</m> to<nbsp/><m>V'\!</m>.
@@ -1435,7 +1435,7 @@
             <md>
               U = \{  f \in C[-1, 1]: f(0) = 0  \}.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>U^\perp = \{0\}</m>.
@@ -1500,7 +1500,7 @@
             <md>
               T(a, b, c) = (a + b + c, 2b + 3c).
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   For <m>(x, y) \in \FF2</m>, find a formula for <m>T^\dagger(x,y)</m>.

@@ -44,7 +44,7 @@
     <title>dimension, <m>\dim V</m></title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             The <term>dimension</term>
@@ -66,7 +66,7 @@
     <title>dimensions</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             <m>\dim \F{n} = n</m> because the standard basis of <m>\F n</m> has length <m>n</m>.
@@ -482,7 +482,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U = \{ p \in \P{}_4(\F{}): p(6) = 0 \}</m>.
@@ -507,7 +507,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U = \{ p \in \P{}_4(\R{}):
@@ -533,7 +533,7 @@
     <exercise xml:id="x2basis">
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U = \{ p \in \P{}_4(\F{}): p(2) = p(5) \}</m>.
@@ -558,7 +558,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U = \{ p \in \P{}_4(\F{}):
@@ -584,7 +584,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U = \{ p \in \P{}_4(\R{}): \int_{-1}^1 p = 0 \}</m>.

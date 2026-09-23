@@ -4,7 +4,7 @@
     <title>commute</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <idx><h>commuting operators|(</h></idx>
         <li>
           <p>
@@ -358,7 +358,7 @@
       <p>
         Suppose <m>V</m> is a finite-dimensional complex vector space and <m>S, T</m> are commuting operators on <m>V{}</m>.
         Then
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               every eigenvalue of <m>S + T</m> is an eigenvalue of <m>S</m> plus an eigenvalue of <m>T</m>,
@@ -435,7 +435,7 @@
         <p>
           Suppose <m>S, T \in \Lc(V)</m> are such that <m>ST = TS</m>.
           Suppose <m>p \in \P(\F{})</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that <m>\ker p(S)</m> is invariant under <m>T</m>.
@@ -506,7 +506,7 @@
         <p>
           Suppose <m>V</m> is a finite-dimensional nonzero complex vector space.
           Suppose that <m>\E \subset \Lc(V)</m> is such that <m>S</m> and <m>T</m> commute for all <m>S, T \in \E</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that there is a vector in <m>V</m> that is an eigenvector for every element of <m>\E</m>.

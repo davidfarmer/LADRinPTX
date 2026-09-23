@@ -65,7 +65,7 @@
       Notice that <m>x \cdot x = \|x\|^2</m> for all <m>x \in \RR{n}</m>.
       Furthermore,
       the dot product on <m>\R{n}</m> has the following properties.
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             <m>x \cdot x \ge 0</m> for all <m>x \in \RR{n}</m>.
@@ -100,7 +100,7 @@
     <p>
       Recall that if <m>\lambda = a + bi</m>,
       where <m>a, b \in \R{}</m>, then
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             the absolute value of <m>\lambda</m>,
@@ -159,7 +159,7 @@
     </p>
     <p>
       One comment about the notation used in the next definition:
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             For <m>\lambda\in\C{}</m>,
@@ -176,7 +176,7 @@
               <idx><h>inner product</h></idx>
           on <m>V</m> is a function that takes each ordered pair <m>(u,v)</m> of elements of <m>V</m> to a number
           <m>\langle u,v \rangle \in \F{}</m> and has the following properties.
-          <ol>
+          <ol marker="(a)">
             <li>
               <title>positivity</title>
               <p>
@@ -235,7 +235,7 @@
       <title>inner products</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The <term>Euclidean inner product</term>
@@ -328,7 +328,7 @@
       <title>basic properties of an inner product</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               For each fixed <m>v \in V{}</m>,
@@ -364,7 +364,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             For <m>v \in V{}</m>, the linearity of
@@ -437,7 +437,7 @@
       <title>norms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>(z_1, \dots, z_n) \in \F{n}</m>
@@ -465,7 +465,7 @@
       <statement>
         <p>
           Suppose <m>v \in V{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\|v\| = 0</m> if and only if <m>v = 0</m>.
@@ -482,7 +482,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             The desired result holds because
@@ -555,7 +555,7 @@
       <title>orthogonality and <m>0</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               <m>0</m> is orthogonal to every vector in <m>V{}</m>.
@@ -572,7 +572,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Recall that <xref ref="basicip"></xref>(b) states that
@@ -737,7 +737,7 @@
       <title>Cauchy<ndash/>Schwarz inequality</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>x_1, \ldots, x_n, y_1, \ldots, y_n \in \R{}</m>, then
@@ -898,7 +898,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Show that the function taking an ordered pair
@@ -930,7 +930,7 @@
         <statement>
           <p>
             Suppose <m>V</m> is a real inner product space.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\langle u + v, u - v \rangle = \| u \|^2 - \| v \|^2</m> for every <m>u,
@@ -1012,7 +1012,7 @@
         <statement>
           <p>
             Suppose <m>a, b, c, d</m> are positive numbers.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>\displaystyle (a + b + c + d) \left( \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d} \right) \ge 16</m>.
@@ -1104,7 +1104,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>\fun f {[1, \infty)} {[0, \infty)}</m> is continuous.
@@ -1278,7 +1278,7 @@
             <md>
               \langle u+iv, w + ix \rangle _{\C{}} = \langle u,w \rangle  + \langle v,x \rangle  + (\langle v,w \rangle  - \langle u,x \rangle )i.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\langle \cdot, \cdot \rangle _{\C{}}</m> makes
@@ -1334,7 +1334,7 @@
           <p>
             Suppose <m>f,
             g</m> are differentiable functions from <m>\R{}</m> to <m>\RR{n}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that

@@ -121,7 +121,7 @@
         <p>
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\lVert T \rVert \ge 0</m>;
@@ -148,7 +148,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Because <m>\lVert Tv \rVert \ge 0</m> for every <m>v \in V{}</m>,
@@ -210,7 +210,7 @@
         <p>
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\lVert T \rVert =</m> the largest singular value of <m>T</m>;
@@ -233,7 +233,7 @@
     </theorem>
     <proof>
 <p>P
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             <xref ref="x7max">See</xref>.
@@ -300,7 +300,7 @@
       <title>norms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>I</m> denotes the usual identity operator on <m>V{}</m>,
@@ -1331,7 +1331,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that if <m>T \in \Lc(V)</m> and <m>\lVert I - T \rVert \lt 1</m>,
@@ -1449,7 +1449,7 @@
           <p>
             Suppose <m>e_1, \ldots,
             e_n</m> is an orthonormal basis of <m>V</m> and <m>T \in \Lc(V{},W)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>\max\{ \lVert Te_1 \rVert , \ldots, \lVert Te_n \rVert \} \le \lVert T \rVert \le ( \lVert Te_1 \rVert ^2 + \cdots + \lVert Te_n \rVert ^2 )^{1/2}\!</m>.
@@ -1580,7 +1580,7 @@
             <md>
               Sv = \langle v, e_1 \rangle  f_1 + \cdots + \langle v, e_n \rangle  f_n.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>S</m> is unitary and <m>\lVert T-S \rVert = \max \{ \lvert s_1 -1 \rvert , \ldots, \lvert s_n - 1 \rvert \}</m>.
@@ -1614,7 +1614,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Use the polar decomposition to show that there exists a unitary operator

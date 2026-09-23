@@ -15,7 +15,7 @@
       <title>complex numbers, <m>\symbf{C}</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               A <term>complex number</term>
@@ -98,7 +98,7 @@
       <title>properties of complex arithmetic</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <title>commutativity</title>
             <p>
@@ -188,7 +188,7 @@
       <statement>
         <p>
           Suppose <m>\alpha , \beta \in \C{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Let <m>-\alpha</m> denote the additive inverse<idx><h>additive inverse</h><h>in <m>\C{}</m></h></idx> of <m>\alpha</m>.
@@ -285,7 +285,7 @@
       <title><m>\R{2}</m> and  <m>\R{3}</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The set <m>\RR{2}</m>, which you can think of as a plane,
@@ -316,7 +316,7 @@
       <title>list, length</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>n</m> is a nonnegative integer.
@@ -376,7 +376,7 @@
       <title>lists versus sets</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The lists <m>(3,5)</m> and <m>(5,3)</m> are not equal,

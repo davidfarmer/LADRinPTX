@@ -176,7 +176,7 @@
           Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
           Let <m>\lambda_1, \dots, \lambda_m</m> denote the distinct eigenvalues of <m>T{}</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T</m> is diagonalizable.
@@ -749,7 +749,7 @@
         <statement>
           <p>
             Suppose <m>V</m> is a finite-dimensional complex vector space and <m>T \in \Lc(V)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that if <m>T^4 = I</m>,
@@ -795,7 +795,7 @@
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
             Prove that the following are equivalent.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>V = \ker T \oplus \ran T{}</m>.
@@ -912,7 +912,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Give an example of a finite-dimensional complex vector space and an operator <m>T</m> on that vector space such that <m>T^2</m> is diagonalizable but <m>T</m> is not diagonalizable.
@@ -938,7 +938,7 @@
             and <m>p</m> is the minimal polynomial of <m>T{}</m>.
             Prove that the following are equivalent.
                 <idx><h>minimal polynomial</h><h>gcd with its derivative</h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T</m> is diagonalizable.
@@ -1035,7 +1035,7 @@
           </p>
           <p>
             Define <m>T \in \Lc( \R2 )</m> by <m>T(x, y) = (y, x+y)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>T^n(0, 1) = (F_n, F_{n+1})</m> for each nonnegative integer <m>n</m>.

@@ -503,7 +503,7 @@
       <statement>
         <p>
           Suppose <m>V</m> and <m>W</m> are finite-dimensional inner product spaces.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that <m>\langle S, T \rangle = \tr ( T^*S )</m> defines an inner product on <m>\Lc(V{}, W)</m>.

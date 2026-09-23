@@ -21,7 +21,7 @@
       <title><m>m</m>-linear form, <m>V^{(m)}</m>, multilinear form</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               For <m>m</m> a positive integer,
@@ -73,7 +73,7 @@
       <title><m>m</m>-linear forms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>\alpha , \rho \in V^{(2)}\!</m>.
@@ -107,7 +107,7 @@
         <p>
           Suppose <m>m</m> is a positive integer.<idx><h sortby="alternatingn">alternating <m>m</m>-linear form</h></idx>
               <idx><h sortby="Vnalt"><m>V^{(m)}_{alt}</m></h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 An <m>m</m>-linear form <m>\alpha</m> on <m>V</m> is called <term>alternating</term>
@@ -260,7 +260,7 @@
         <p>
               <idx><h>perm</h></idx>
           Suppose <m>m</m> is a positive integer.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 A <term>permutation</term>
@@ -317,7 +317,7 @@
       <title>signs</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The permutation <m>(1, \ldots,

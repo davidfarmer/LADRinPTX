@@ -109,7 +109,7 @@
           Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
           Let <m>\lambda_1, \dots, \lambda_m</m> be the distinct eigenvalues of<nbsp/><m>T{}</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>G(\lambda_k, T)</m> is invariant under <m>T</m> for each <m>k = 1, \ldots, m</m>;
@@ -131,7 +131,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>k \in \{ 1, \ldots, m \}</m>.
@@ -197,7 +197,7 @@
       <title>multiplicity</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>T \in \Lc(V)</m>.
@@ -356,7 +356,7 @@
         <p>
           Suppose <m>\F{} = \C{}</m> and <m>T \in \Lc(V)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 the characteristic polynomial of <m>T</m> has degree <m>\dim V</m>;
@@ -855,7 +855,7 @@
           <p>
             Suppose <m>T \in \Lc(V)</m> and <m>\lambda</m> is an eigenvalue of <m>T{}</m>.
             Explain why the following four numbers equal each other.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   The exponent of <m>z-\lambda</m> in the factorization of the minimal polynomial of <m>T</m>.
@@ -946,7 +946,7 @@
                 <idx><h>complexification</h><h>generalized eigenvectors of</h></idx>
                 <idx><h>complexification</h><h>multiplicity of eigenvalues</h></idx>
                 <idx><h>eigenvalue</h><h>on odd-dimensional space</h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>u + iv \in G( \lambda, T{}_{\C{}} )</m> if and only if <m>u - iv \in G( \overline{\lambda}, T{}_{\C{}} )</m>.

@@ -22,7 +22,7 @@
       <title>linear functionals</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Define <m>\phi \colon \R3 \to \R{}</m> by <m>\phi(x, y, z) = 4x - 5y + 2z</m>.
@@ -251,7 +251,7 @@
     </p>
     <p>
       The following two bullet points show that <m>T'</m> is a linear map from <m>W'</m> to <m>V'\!</m>.
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             If <m>\phi, \psi \in W'\!</m>, then
@@ -280,7 +280,7 @@
       <statement>
         <p>
           Define <m>D \colon \P(\R{}) \to \P(\R{})</m> by <m>Dp = p'\!</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>\phi</m> is the linear functional on
@@ -327,7 +327,7 @@
         <p>
           Suppose <m>T \in \Lc(V{},W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>(S + T)' = S' + T'</m> for all <m>S \in \Lc(V{},W)</m>;
@@ -578,7 +578,7 @@
         <p>
           Suppose <m>V</m> is finite-dimensional and <m>U</m> is a subspace of <m>V{}</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>U^0 = \{0\} \iff U = V</m>;
@@ -626,7 +626,7 @@
         <p>
           Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
           Then<idx><h>null space</h><h sortby="of T">of <m>T'{}</m></h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\ker T' = (\ran T)^0</m>;
@@ -643,7 +643,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             First suppose <m>\phi \in \ker T'\!</m>.
@@ -713,7 +713,7 @@
         <p>
           Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
           Then<idx><h>range</h><h sortby="of T">of <m>T'{}</m></h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\dim \ran T' = \dim \ran T</m>;
@@ -730,7 +730,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             We have
@@ -1005,7 +1005,7 @@
         <statement>
           <p>
             Suppose <m>m</m> is a positive integer.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>1, x-5, \dots, (x-5)^m</m> is a basis of <m>\P{}_m(\R{})</m>.
@@ -1037,7 +1037,7 @@
         <statement>
           <p>
             Suppose <m>S, T \in \Lc(V{}, W)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>(S + T)' = S' + T'\!</m>.
@@ -1073,7 +1073,7 @@
           <p>
             Suppose <m>\phi_1, \phi_2</m> denotes the dual basis of the standard basis of <m>\R2</m> and
             <m>\psi_1, \psi_2, \psi_3</m> denotes the dual basis of the standard basis of <m>\RR3</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Describe the linear functionals
@@ -1098,7 +1098,7 @@
               (Tp)(x) = x^2 p(x) + p'' \! (x)
             </md>
             for each <m>x \in \R{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Suppose <m>\phi \in \P(\R{})'</m> is defined by <m>\phi(p) = p' \! (4)</m>.
@@ -1170,7 +1170,7 @@
         <statement>
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>W^0 \subset U^0</m> if and only if <m>U \subset W{}</m>.
@@ -1189,7 +1189,7 @@
         <statement>
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>U</m> and <m>W</m> are subspaces of <m>V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>(U + W)^0 = U^0 \cap W^0{}</m>.
@@ -1209,7 +1209,7 @@
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>\phi_1, \ldots, \phi_m \in V'\!</m>.
             Prove that the following three sets are equal to each other.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>\Span(\phi_1, \dots, \phi_m)</m>
@@ -1235,7 +1235,7 @@
             Suppose <m>V</m> is finite-dimensional and <m>v_1, \dots,
             v_m \in V{}</m>.
             Define a linear map <m>\Gamma \colon V' \to \F{m}</m> by <m>\Gamma(\phi) = \bigl(\phi(v_1), \dots, \phi(v_m) \bigr)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>v_1, \dots,
@@ -1257,7 +1257,7 @@
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>\phi_1, \dots, \phi_m \in V'\!</m>.
             Define a linear map <m>\Gamma \colon V \to \F{m}</m> by <m>\Gamma(v) = ( \phi_1(v), \dots, \phi_m(v) )</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>\phi_1, \dots, \phi_m</m> spans <m>V'</m> if and only if <m>\Gamma</m> is injective.
@@ -1312,7 +1312,7 @@
         <statement>
           <p>
             Suppose <m>V</m> and <m>W</m> are finite-dimensional and <m>T \in \Lc(V{}, W)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that if <m>\phi \in W'</m> and <m>\ker T' = \Span(\phi)</m>,
@@ -1344,7 +1344,7 @@
             Suppose <m>U</m> is a subspace of <m>V{}</m>.
             Let <m>i \colon U \to V</m> be the inclusion map defined by <m>i(u) = u</m>.
             Thus <m>i' \in \Lc( V'\!, U' )</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\ker i' = U^0{}</m>.
@@ -1382,7 +1382,7 @@
               (\Lambda v)(\phi) = \phi(v)
             </md>
             for each <m>v \in V</m> and each <m>\phi \in V'\!</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\Lambda</m> is a linear map from <m>V</m> to <m>V''\!</m>.
@@ -1418,7 +1418,7 @@
             Suppose <m>U</m> is a subspace of <m>V{}</m>.
             Let <m>\pi \colon V \to V{}/U</m> be the usual quotient map.
             Thus <m>\pi' \in \Lc\bigl((V{}/U)'\!, V'\bigr)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\pi'</m> is injective.

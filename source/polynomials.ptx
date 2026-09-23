@@ -54,7 +54,7 @@
     <statement>
       <p>
         Suppose <m>z = a + bi</m>, where <m>a</m> and <m>b</m> are real numbers.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The <term>real part</term>
@@ -88,7 +88,7 @@
     <statement>
       <p>
         Suppose <m>z \in \C{}</m>.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The <term>complex conjugate</term>
@@ -123,7 +123,7 @@
       <p>
         Suppose <m>z = 3 + 2i</m>.
         Then
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               <m>\re z = 3</m> and <m>\im z = 2</m>;
@@ -172,7 +172,7 @@
       <p>
         Suppose <m>w, z \in \C{}</m>.
         Then the following equalities and inequalities hold.
-        <ol>
+        <ol marker="(a)">
           <li>
             <title>sum of <m>z</m> and <m>\bar{z}</m></title>
             <p>
@@ -891,7 +891,7 @@
         <p>
           Suppose <m>w, z \in \C{}</m>.
           Verify the following equalities and inequalities.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>z + \bar{z} = 2 \re z</m>
@@ -1074,7 +1074,7 @@
         <p>
           Suppose <m>p \in \P(\F{})</m> with <m>p \ne 0</m>.
           Let <m>U = \{ p q : q \in \P(\F{}) \}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Show that <m>\dim \P(\F{})/U = \deg p</m>.
@@ -1100,7 +1100,7 @@
           <md>
             rp + sq = 1.
           </md>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Define <m>\fun T { \P{}_{n-1}(\C{}) \times \P{}_{m-1}(\C{}) } {\P{}_{m+n-1}(\C{})}</m> by

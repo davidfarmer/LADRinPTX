@@ -9,7 +9,7 @@
       <title>invertible, inverse</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               A linear map <m>T \in \Lc(V{},W)</m> is called <term>invertible</term>
@@ -189,7 +189,7 @@
       <title>neither injectivity nor surjectivity implies invertibility</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The multiplication by <m>x^2</m> linear map from <m>\P(\R{})</m> to <m>\P(\R{})</m>
@@ -380,7 +380,7 @@
       <title>isomorphism, isomorphic</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               An <term>isomorphism</term>
@@ -607,7 +607,7 @@
       <title>matrix of a vector</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The matrix of the polynomial
@@ -1069,7 +1069,7 @@
           <p>
             Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
             Prove that the following are equivalent.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T</m> is invertible.
@@ -1158,7 +1158,7 @@
             <md>
               \E = \{  T \in \Lc(V{}, W): U \subset \ker T \}.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\E</m> is a subspace of <m>\Lc(V{}, W)</m>.
@@ -1247,7 +1247,7 @@
               \A(T) = ST
             </md>
             for <m>T \in \Lc(V)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\dim \ker \A = (\dim V)(\dim \ker S)</m>.
@@ -1299,7 +1299,7 @@
             the number of equations equals the number of variables).
                 <idx><h>homogeneous system of linear equations</h></idx>
                 <idx><h>linear equations</h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   The trivial solution <m>x_1 = \dots = x_n = 0</m> is the only solution to the homogeneous system of equations

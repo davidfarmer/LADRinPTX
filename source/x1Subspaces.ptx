@@ -32,7 +32,7 @@
       <statement>
         <p>
           A subset <m>U</m> of <m>V</m> is a subspace of <m>V</m> if and only if <m>U</m> satisfies the following three conditions.
-          <ol>
+          <ol marker="(a)">
             <li>
               <title>additive identity</title>
               <p>
@@ -94,7 +94,7 @@
       <title>subspaces</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>b \in \F{}{}</m>, then
@@ -317,7 +317,7 @@
         <p>
               <idx><h sortby="directsum"><m>\oplus</m></h></idx>
           Suppose <m>V{}_1, \dots, V{}_m</m> are subspaces of <m>V{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The sum <m>V{}_1 + \dots + V{}_m</m> is called a <term>direct sum</term>
@@ -547,7 +547,7 @@
           <p>
             For each of the following subsets of <m>\FF{3}</m>,
             determine whether it is a subspace of <m>\F{3}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>\{ (x_1, x_2, x_3) \in \F{3}: x_1 + 2 x_2 + 3 x_3 = 0 \}</m>
@@ -606,7 +606,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Is <m>\{ (a, b, c) \in \R{3}: a^3 =b^3 \}</m> a subspace of <m>\R{3}</m>?

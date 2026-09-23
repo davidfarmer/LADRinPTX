@@ -11,7 +11,7 @@
       <statement>
         <p>
           Suppose <m>V{}_1, \dots, V{}_m</m> are vector spaces over <m>\F{}{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The <term>product</term><idx><h>product</h><h>of vector spaces</h></idx> <m>V{}_1 \times \dots \times V{}_m</m> is defined by
@@ -303,7 +303,7 @@
       <title>translates</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>U</m> is the line in <m>\R2</m> defined by
@@ -357,7 +357,7 @@
       <title>quotient spaces</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>U = \{ (x, 2x) \in \R2:
@@ -602,7 +602,7 @@
         <p>
           Suppose <m>T \in \Lc(V{},W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\tilde{T} \circ \pi = T</m>,
@@ -630,7 +630,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             If <m>v \in V{}</m>,
@@ -757,7 +757,7 @@
       </exercise>
       <exercise>
         <statement>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>T \in \Lc(V, W)</m> and <m>c \in W{}</m>.
@@ -797,7 +797,7 @@
         <statement>
           <p>
             Suppose <m>U = \{ (x_1, x_2, \dots) \in \F{\infty}: x_k \ne 0\ \text{ for only finitely many } \ k \}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>U</m> is a subspace of <m>\FF{\infty}</m>.
@@ -820,7 +820,7 @@
             <md>
               A = \{ \lambda_1 v_1 + \dots + \lambda_m v_m : \lambda_1, \dots, \lambda_m \in \F{}\ \text{ and } \ \lambda_1 + \dots + \lambda_m = 1 \}.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>A</m> is a translate of some subspace of <m>V{}</m>.
@@ -893,7 +893,7 @@
         <statement>
           <p>
             Suppose that <m>U</m> is a subspace of <m>V</m> such that <m>V{}/U</m> is finite-dimensional.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that if <m>W</m> is a finite-dimensional subspace of <m>V</m> and <m>V = U + W</m>,

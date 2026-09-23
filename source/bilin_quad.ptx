@@ -50,7 +50,7 @@
       <title>bilinear forms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The function <m>\fun \beta {\F3 \times \F3} {\F{}}</m> defined by
@@ -349,7 +349,7 @@
       <title>symmetric bilinear forms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>V</m> is a real inner product space and <m>\rho \in V^{(2)}</m> is defined by
@@ -405,7 +405,7 @@
         <p>
           Suppose <m>\rho \in V^{(2)}\!</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\rho</m> is a symmetric bilinear form on <m>V{}</m>.
@@ -589,7 +589,7 @@
       <title>alternating bilinear forms</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>n \ge 3</m> and <m>\fun \alpha  {\F n \times \F n} {\F{}}</m> is defined by
@@ -794,7 +794,7 @@
         <p>
           Suppose <m>\fun q V {\F{}}</m> is a function.
           The following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>q</m> is a quadratic form.
@@ -918,7 +918,7 @@
       <statement>
         <p>
           Suppose <m>q</m> is a quadratic form on <m>V{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 There exist a basis <m>e_1, \ldots,
@@ -941,7 +941,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             There exists a symmetric bilinear form <m>\rho</m> on <m>V</m> such that <m>q = q_\rho</m>

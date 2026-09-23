@@ -15,7 +15,7 @@
           <m>T\colon V \rightarrow W</m> with the following properties.
               <idx><h>additivity</h></idx>
               <idx><h>homogeneity</h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <title>additivity</title>
               <p>
@@ -48,7 +48,7 @@
       <title><m>\Lc(V,W)</m>, <m>\Lc(V)</m></title>
 <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             The set of linear maps from <m>V</m> to <m>W</m> is denoted by <m>\Lc(V{},W)</m>.
@@ -74,7 +74,7 @@
       <title>linear maps</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <title>zero</title>
             <p>
@@ -360,7 +360,7 @@
       <title>algebraic properties of products of linear maps</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <title>associativity</title>
             <p>
