@@ -19,7 +19,7 @@
     <title>bases</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             The list <m>(1, 0, \dots, 0), (0, 1, 0, \dots, 0), \dots, (0, \dots, 0, 1)</m> is a basis of<nbsp/><m>\FF{n}</m>,
@@ -178,7 +178,7 @@
     </p>
     <p>
       Start with <m>B</m> equal to the list <m>v_1, \dots, v_n</m>.
-      <ol>
+      <ol marker="(a)">
         <li>
           <title>Step 1</title>
           <p>
@@ -372,7 +372,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U</m> be the subspace of <m>\R{5}</m> defined by
@@ -399,7 +399,7 @@
     <exercise>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Let <m>U</m> be the subspace of <m>\C{5}</m> defined by

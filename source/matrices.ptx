@@ -422,7 +422,7 @@
             <idx><h sortby="Aj"><m>A_{j, \cdot}</m></h></idx>
             <idx><h sortby="Ak"><m>A_{\cdot, k}</m></h></idx>
         Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>1 \le j \le m</m>,
@@ -628,7 +628,7 @@
       <statement>
         <p>
           Suppose <m>C</m> is an <m>m</m>-by-<m>c</m> matrix and <m>R</m> is a <m>c</m>-by-<m>n</m> matrix.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>k \in \{ 1, \ldots, n \}</m>,
@@ -675,7 +675,7 @@
       <statement>
         <p>
           Suppose <m>A</m> is an <m>m</m>-by-<m>n</m> matrix with entries in <m>\F{}{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The <term>column rank</term>
@@ -908,7 +908,7 @@
             Suppose <m>v_1, \ldots, v_n</m> is a basis of <m>V</m> and
             <m>w_1, \ldots,
             w_m</m> is a basis of <m>W{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that if <m>S, T \in \Lc(V{}, W)</m>,
@@ -1114,7 +1114,7 @@
             <m>u_1, \dots,
             u_n</m> and <m>v_1, \dots, v_n</m> are bases of <m>V{}</m>.
             Prove that the following are equivalent.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T</m> is injective.

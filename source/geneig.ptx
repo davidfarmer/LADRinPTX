@@ -510,7 +510,7 @@
       <title>nilpotent operators</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The operator <m>T \in \Lc( \F{4} )</m> defined by
@@ -582,7 +582,7 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(V)</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>T</m> is nilpotent,
@@ -601,7 +601,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             To prove (a), suppose <m>T</m> is nilpotent.
@@ -653,7 +653,7 @@
               <idx><h>minimal polynomial</h><h>of nilpotent operator</h></idx>
           Suppose <m>T \in \Lc(V)</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T</m> is nilpotent.
@@ -879,7 +879,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Give an example of nilpotent operators <m>S, T</m> on the same vector space such that neither <m>S+T</m> nor <m>ST</m> is nilpotent.
@@ -899,7 +899,7 @@
         <statement>
           <p>
             Suppose <m>T \in \Lc(V)</m> is nilpotent and <m>m</m> is a positive integer such that <m>T^m = 0</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>I-T</m> is invertible and that <m>(I - T)^{-1} = I + T + \dots + T^{m-1}\!</m>.

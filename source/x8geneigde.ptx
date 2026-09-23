@@ -444,7 +444,7 @@
         <statement>
           <p>
             Define <m>T \in \Lc( \F{5} )</m> by <m>T(x_1, x_2, x_3, x_4, x_5) = (2 x_2, 3 x_3, -x_4, 4 x_5, 0)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>T</m> is nilpotent.
@@ -521,7 +521,7 @@
             v_n \in V</m> and nonnegative integers
             <m>m_1, \dots,
             m_n</m> such that (a) and (b) below both hold.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T^{m_1}v_1, \dots, Tv_1, v_1, \dots, T^{m_n}v_n, \dots, Tv_n, v_n</m> is a basis of<nbsp/><m>V</m>.

@@ -96,7 +96,7 @@
           <m>f_1, \ldots,
           f_m</m> is an orthonormal basis of <m>W{}</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>S</m> is an isometry.
@@ -286,7 +286,7 @@
           Suppose <m>S \in \Lc(V)</m>.
           Suppose <m>e_1, \ldots, e_n</m> is an orthonormal basis of <m>V{}</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>S</m> is a unitary operator.
@@ -450,7 +450,7 @@
         <p>
           Suppose <m>\F{} = \C{}</m> and <m>S \in \Lc(V)</m>.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>S</m> is a unitary operator.
@@ -558,7 +558,7 @@
         <p>
           Suppose <m>Q</m> is an <m>n</m>-by-<m>n</m> matrix.
           Then the following are equivalent.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>Q</m> is a unitary matrix.
@@ -934,7 +934,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Show that the product of two unitary operators on <m>V</m> is a unitary operator.
@@ -966,7 +966,7 @@
           <p>
             Suppose <m>S \in \Lc(V)</m>.
             Prove that the following are equivalent.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>S</m> is a self-adjoint unitary operator.
@@ -1033,7 +1033,7 @@
             Suppose <m>\F{} = \C{}</m> and
             <m>T \in \Lc(V)</m> is a self-adjoint operator such that
             <m>\lVert Tv \rVert \le \lVert v \rVert</m> for all <m>v \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>I - T^2</m> is a positive operator.
@@ -1091,7 +1091,7 @@
           <p>
             Suppose <m>T</m> is a unitary operator on <m>V</m> such that <m>T - I</m> is invertible.
                 <idx><h>unit circle in <m>\C{}</m></h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>(T + I)(T - I)^{-1}</m> is a skew operator
@@ -1159,7 +1159,7 @@
             <md>
               \CF z = (  \omega_0(z), \omega_1(z), \ldots, \omega_{n-1}(z)  ).
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>\CF</m> is a unitary operator on <m>\CC n</m>.

@@ -15,7 +15,7 @@
     <title>addition, scalar multiplication</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             An <term>addition</term><idx><h>addition</h><h>of vectors</h></idx> on a set <m>V</m> is a function that assigns an element<nbsp/><m>u + v \in V</m> to each pair of elements <m>u,
@@ -45,7 +45,7 @@
         A <term>vector space</term>
             <idx><h>vector space</h></idx>
         is a set <m>V</m> along with an addition on <m>V</m> and a scalar multiplication on <m>V</m> such that the following properties hold.
-        <ol>
+        <ol marker="(a)">
           <li>
             <title>commutativity</title>
             <p>
@@ -122,7 +122,7 @@
     <title>real vector space, complex vector space</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             A vector space over <m>\R{}</m> is called a
@@ -188,7 +188,7 @@
     <title><m>\F{S}</m></title>
 <statement>
 <p>
-    <ol>
+    <ol marker="(a)">
       <li>
         <p>
           If <m>S</m> is a set,
@@ -234,7 +234,7 @@
     <title><m>\F{S}</m> is a vector space</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             If <m>S</m> is a nonempty set, then <m>\F{S}</m>
@@ -354,7 +354,7 @@
       Let <m>v, w \in V{}</m>.
       Then
           <idx><h sortby="v1"><m>-v</m></h></idx>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             <m>-v</m> denotes the additive inverse of <m>v</m>;<idx><h>additive inverse</h><h>in vector space</h></idx>
@@ -572,7 +572,7 @@
       <statement>
         <p>
           Suppose <m>V</m> is a real vector space.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The <term>complexification</term> of <m>V{}</m>,

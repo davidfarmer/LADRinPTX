@@ -62,7 +62,7 @@
       <title>bilinear functional on  <m>V \times W</m>, the vector space <m>\B(V,W)</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               A <term>bilinear functional</term>
@@ -98,7 +98,7 @@
       <title>bilinear functionals</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>\phi \in V'</m> and <m>\tau \in W'\!</m>.
@@ -204,7 +204,7 @@
       <title>tensor product,  <m>V \tensor W</m>,  <m>v \tensor w</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The <term>tensor product</term>
@@ -326,7 +326,7 @@
           Suppose <m>e_1, \ldots, e_m</m> is a list of vectors in <m>V</m> and
           <m>f_1, \ldots,
           f_n</m> is a list of vectors in<nbsp/><m>W{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>e_1, \ldots, e_m</m> and
@@ -461,7 +461,7 @@
       <title>bilinear maps</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Every bilinear functional on
@@ -506,7 +506,7 @@
       <statement>
         <p>
           Suppose <m>U</m> is a vector space.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>\fun \Gamma {V{} \times W} U</m> is a bilinear map.
@@ -784,7 +784,7 @@
       <title><m>m</m>-linear functional, the vector space <m>\B(V_1, \ldots, V_m)</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               An <m>m</m>-<term>linear functional</term>
@@ -839,7 +839,7 @@
       <title>tensor product,  <m>V_1 \tensor \cdots \tensor V_m</m>,  <m>v_1 \tensor \cdots \tensor v_m</m></title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The <term>tensor product</term>
@@ -938,7 +938,7 @@
       <statement>
         <p>
           Suppose <m>U</m> is a vector space.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose that <m>\fun \Gamma {V{}_1 \times \cdots \times V{}_m} U</m> is an <m>m</m>-linear map.

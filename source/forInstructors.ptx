@@ -41,7 +41,7 @@
   </p>
   <p>
     Here is a chapter-by-chapter summary of the highlights of the book:
-    <ol>
+    <ol marker="(a)">
       <li>
         <p>
           <xref ref="VectorSpaces">Chapter</xref>: Vector spaces are defined in this chapter,
@@ -174,7 +174,7 @@
     Listed below are the author's ten favorite results in the book,
     in order of their appearance in the book.
     Students who leave your course with a good understanding of these crucial results will have an excellent foundation in linear algebra.
-    <ol>
+    <ol marker="(a)">
       <li>
         <p>
           any two bases of a vector space have the same length <xref ref="x3basislen"/>
@@ -234,7 +234,7 @@
 <paragraphs>
     <title>Major improvements and additions for the fourth edition</title>
   <p>
-    <ol>
+    <ol marker="(a)">
       <li>
         <p>
           Over 250 new exercises and over 70 new examples.

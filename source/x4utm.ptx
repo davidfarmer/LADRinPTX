@@ -142,7 +142,7 @@
         <m>v_1, \dots,
         v_n</m> is a basis of <m>V{}</m>.
         Then the following are equivalent.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               The matrix of <m>T</m> with respect to <m>v_1, \dots,
@@ -572,7 +572,7 @@
           Suppose <m>A</m> and <m>B</m> are upper-triangular matrices of the same size,
           with <m>\alpha_1, \ldots, \alpha_n</m> on the diagonal of <m>A</m> and
           <m>\beta_1, \ldots, \beta_n</m> on the diagonal of <m>B</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Show that <m>A+B</m> is an upper-triangular matrix with <m>\alpha_1 + \beta _1, \ldots, \alpha_n + \beta_n</m> on the diagonal.
@@ -639,7 +639,7 @@
         <p>
           Suppose <m>V</m> is finite-dimensional,
           <m>T \in \Lc(V)</m>, and <m>v \in V{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that there exists a unique monic polynomial <m>p_v</m> of smallest degree such that <m>p_v(T)v = 0</m>.
@@ -659,7 +659,7 @@
         <p>
           Suppose <m>V</m> is finite-dimensional, <m>T \in \Lc(V)</m>,
           and there exists a nonzero vector <m>v \in V</m> such that <m>T^2 v + 2Tv = -2v</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that if <m>\F{} = \R{}</m>,
@@ -693,7 +693,7 @@
           v_n</m> is a basis of <m>V{}</m>.
           Show that the following are equivalent.
               <idx><h>lower-triangular matrix</h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The matrix of <m>T</m> with respect to <m>v_1, \dots,
@@ -737,7 +737,7 @@
           Suppose <m>V</m> is finite-dimensional,
           <m>T \in \Lc(V)</m> has an upper-triangular matrix with respect to some basis of <m>V{}</m>,
           and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that <m>T|_U</m> has an upper-triangular matrix with respect to some basis of <m>U</m>.

@@ -62,7 +62,7 @@
       <statement>
         <p>
           Let <m>n = \dim V{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 If <m>I</m> is the identity operator on <m>V{}</m>,
@@ -131,7 +131,7 @@
       <title>determinants of matrices</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>I</m> is the <m>n</m>-by-<m>n</m> identity matrix,
@@ -244,7 +244,7 @@
       <title>explicit formula for determinant</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>A</m> is a <m>2</m>-by-<m>2</m> matrix,
@@ -310,7 +310,7 @@
       <title>determinant is multiplicative</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>S, T \in \Lc(V)</m>.
@@ -332,7 +332,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Let <m>n = \dim V{}</m>.
@@ -572,7 +572,7 @@
       <title>determinant of transpose, dual, or adjoint</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               Suppose <m>A</m> is a square matrix.
@@ -600,7 +600,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Let <m>n</m> be a positive integer.
@@ -648,7 +648,7 @@
       <title>helpful results in evaluating determinants</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If either two columns or two rows of a square matrix are equal,
@@ -1319,7 +1319,7 @@
             and <m>n = \dim V > 2</m>.
             Let <m>\lambda_1, \ldots, \lambda_n</m> denote the eigenvalues of <m>T</m>,
             with each eigenvalue included as many times as its multiplicity.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Find a formula for the coefficient of <m>z^{n-2}</m> in the characteristic polynomial of <m>T</m> in terms of <m>\lambda_1, \ldots, \lambda_n</m>.
@@ -1397,7 +1397,7 @@
             <m>e_1, \ldots,
             e_n</m> is an orthonormal basis of <m>V{}</m>,
             and <m>T \in \Lc(V)</m> is a positive operator.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>\det T \le \prod_{k=1}^n \langle Te_k, e_k \rangle</m>.

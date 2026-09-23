@@ -165,7 +165,7 @@
         <p>
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>(S + T)^* = S^* + T^*</m> for all <m>S\in \Lc(V{}, W)</m>;
@@ -206,7 +206,7 @@
     <proof>
       <p>
         Suppose <m>v \in V</m> and <m>w \in W{}</m>.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               If <m>S \in \Lc(V{}, W)</m>, then
@@ -286,7 +286,7 @@
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Then<idx><h>null space</h><h sortby="of T">of <m>T^*{}</m></h></idx>
               <idx><h>range</h><h sortby="of T">of <m>T^*{}</m></h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\ker T^* = (\ran T)^\perp</m>;
@@ -706,7 +706,7 @@
       <title>normal</title>
       <statement>
 <p>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               An operator on an inner product space is called <term>normal</term>
@@ -817,7 +817,7 @@
         <p>
           Suppose <m>T \in \Lc(V)</m> is normal.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>\ker T = \ker T^*</m>;
@@ -850,7 +850,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Suppose <m>v \in V{}</m>.
@@ -1075,7 +1075,7 @@
           <p>
             Suppose <m>T \in \Lc(V{}, W)</m>.
             Prove that
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T</m> is injective <m>\iff</m> <m>T^*</m> is surjective;
@@ -1094,7 +1094,7 @@
         <statement>
           <p>
             Prove that if <m>T \in \Lc(V{}, W)</m>, then
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>\dim \ker T^* = \dim \ker T + \dim W - \dim V</m>;
@@ -1145,7 +1145,7 @@
         <statement>
           <p>
             Define an operator <m>\fun S {\F 2} {\F 2}</m> by <m>S(w, z) = (-z, w)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Find a formula for <m>S^*{}</m>.
@@ -1191,7 +1191,7 @@
             Suppose <m>\F{} = \R{}</m>.
             Define <m>\A \in \Lc( \Lc(V) )</m> by
             <m>\A T = T^*</m> for all <m>T \in \Lc(V)</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Find all eigenvalues of <m>\A</m>.
@@ -1215,7 +1215,7 @@
             <md>
               T( a x^2 + bx + c ) = b x.
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that with this inner product,
@@ -1242,7 +1242,7 @@
           <p>
             Suppose <m>T \in \Lc(V)</m> is invertible.
             Prove that
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>T</m> is self-adjoint <m>\iff</m> <m>T^{-1}</m> is self-adjoint;
@@ -1261,7 +1261,7 @@
         <statement>
           <p>
             Suppose <m>\F{} = \R{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that the set of self-adjoint operators on <m>V</m> is a subspace of<nbsp/><m>\Lc(V)</m>.
@@ -1310,7 +1310,7 @@
           <p>
             Suppose <m>P \in \Lc(V)</m> is such that <m>P^2 = P{}</m>.
             Prove that the following are equivalent.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   <m>P</m> is self-adjoint.
@@ -1393,7 +1393,7 @@
             Fix <m>u, x \in V{}</m>.
             Define <m>T \in \Lc(V)</m> by
             <m>Tv = \langle v, u \rangle x</m> for every <m>v \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that if <m>V</m> is a real vector space,
@@ -1465,7 +1465,7 @@
             <md>
               V = \Span( 1, \cos x, \cos 2x, \dots, \cos nx, \sin x, \sin 2x, \dots, \sin nx).
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Define <m>D \in \Lc(V)</m> by <m>Df = f'\!</m>.

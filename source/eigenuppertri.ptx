@@ -296,7 +296,7 @@
         <p>
           Suppose <m>V</m> is finite-dimensional and <m>T \in \Lc(V)</m>.
               <idx><h>minimal polynomial</h><h>zeros of</h></idx>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 The zeros of the minimal polynomial of <m>T</m> are the eigenvalues of <m>T{}</m>.
@@ -320,7 +320,7 @@
     <proof>
       <p>
         Let <m>p</m> be the minimal polynomial of <m>T{}</m>.
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               First suppose <m>\lambda \in \F{}</m> is a zero of <m>p</m>.
@@ -700,7 +700,7 @@
             <md>
               T(x_1, \dots, x_n) = (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n).
             </md>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Find all eigenvalues and eigenvectors of<nbsp/><m>T{}</m>.
@@ -748,7 +748,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Give an example of <m>S, T \in \Lc( \F2 )</m> such that the minimal polynomial of <m>ST</m> does not equal the minimal polynomial of <m>TS{}</m>.
@@ -810,7 +810,7 @@
           <p>
             Suppose <m>V</m> is a two-dimensional vector space, <m>T \in \Lc(V)</m>,
             and the matrix of <m>T</m> with respect to some basis of <m>V</m> is <m>\begin{pmatrix}a \amp  c \\ b \amp  d \end{pmatrix}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Show that <m>T^2 - (a+d)T + (ad - bc)I = 0</m>.
@@ -991,7 +991,7 @@
             and <m>U</m> is a subspace of <m>V</m> that is invariant under <m>T{}</m>.
                 <idx><h>quotient</h><h>operator</h></idx>
                 <idx><h>minimal polynomial</h><h>of quotient operator</h></idx>
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that the minimal polynomial of <m>T</m> is a polynomial multiple of the minimal polynomial of the quotient operator <m>T{}/U</m>.

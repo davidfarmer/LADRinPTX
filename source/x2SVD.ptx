@@ -11,7 +11,7 @@
         <p>
           Suppose <m>T \in \Lc(V{}, W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T^* T</m> is a positive operator on <m>V</m>;
@@ -38,7 +38,7 @@
     </theorem>
     <proof>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             We have
@@ -179,7 +179,7 @@
         <p>
           Suppose that <m>T \in \Lc(V{}, W)</m>.
           Then
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 <m>T</m> is injective <m>\iff 0</m> is not a singular value of <m>T</m>;
@@ -815,7 +815,7 @@
               Tv = s_1 \langle v, e_1 \rangle  f_1 + \dots + s_m \langle v, e_m \rangle  f_m
             </md>
             for every <m>v \in V{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>f_1, \dots,
@@ -880,7 +880,7 @@
             <m>v_1, \ldots,
             v_n</m> is an orthonormal basis of <m>V{}</m>.
             Let <m>s_1, \ldots, s_n</m> denote the singular values of <m>T{}</m>.
-            <ol>
+            <ol marker="(a)">
               <li>
                 <p>
                   Prove that <m>\lVert Tv_1 \rVert ^2 + \cdots + \lVert Tv_n \rVert ^2 = {s_1}^{2} + \cdots + {s_n}^{2}{}</m>.
@@ -905,7 +905,7 @@
       <exercise>
         <statement>
 <p>
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Give an example of a finite-dimensional vector space and an operator <m>T</m> on it such that the singular values of <m>T^2</m> do not equal the squares of the singular values of<nbsp/><m>T{}</m>.

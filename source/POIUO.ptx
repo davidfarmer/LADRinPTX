@@ -23,7 +23,7 @@
     <title>positive operators</title>
     <statement>
 <p>
-      <ol>
+      <ol marker="(a)">
         <li>
           <p>
             Let <m>T \in \Lc( \F2 )</m> be the operator whose matrix
@@ -106,7 +106,7 @@
         Let <m>T \in \Lc(V)</m>.
         Then the following are equivalent.
             <idx><h>eigenvalue</h><h>of positive operator</h></idx>
-        <ol>
+        <ol marker="(a)">
           <li>
             <p>
               <m>T</m> is a positive operator.
@@ -525,7 +525,7 @@
       <statement>
         <p>
           Suppose <m>T \in \Lc(V)</m> is self-adjoint and <m>\alpha \in \R{}</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Prove that <m>T - \alpha I</m> is a positive operator if and only if <m>\alpha</m> is less than or equal to every eigenvalue of <m>T{}</m>.
@@ -646,7 +646,7 @@
         <p>
           For <m>T \in \Lc(V)</m> and <m>u, v \in V{}</m>,
           define <m>\langle u, v \rangle _T</m> by <m>\langle u, v \rangle _T = \langle Tu, v \rangle</m>.
-          <ol>
+          <ol marker="(a)">
             <li>
               <p>
                 Suppose <m>T \in \Lc(V)</m>.
